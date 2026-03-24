@@ -1,6 +1,6 @@
 ---
 status: active
-updated: 2026-02-01
+updated: 2026-03-23
 section: "Agentic SDLC"
 references:
   - url: https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization
@@ -12,6 +12,9 @@ references:
   - url: https://docs.github.com/en/rest/copilot/copilot-metrics
     label: "Copilot metrics REST API"
     verified: 2026-02-01
+  - url: https://agents.md/
+    label: "AGENTS.md open format"
+    verified: 2026-03-23
 ---
 
 # Scaling GitHub Copilot Across Organizations
@@ -199,7 +202,7 @@ Q: Where are you in your Copilot adoption journey?
 
 ### The Challenge
 
-**Traditional approach:**
+**Traditional polyrepo approach:**
 ```
 repo-1/.github/copilot-instructions.md  ← Team A's standards
 repo-2/.github/copilot-instructions.md  ← Team B's standards
@@ -207,7 +210,7 @@ repo-3/.github/copilot-instructions.md  ← Team C's standards
 ```
 Result: Inconsistent standards, repeated configuration across 50+ repositories
 
-**Organization-level approach:**
+**Organization-level polyrepo approach:**
 ```
 Organization Settings
   ↓
@@ -222,6 +225,24 @@ Individual Repos (optional overrides only)
   └── repo-2/.github/copilot-instructions.md  ← Domain-specific rules
 ```
 Result: Baseline consistency with flexibility for repository-specific needs
+
+**Monorepo approach with nested playbooks:**
+```
+repo/
+├── .github/
+│   ├── copilot-instructions.md          ← Repo constitution
+│   └── instructions/
+│       ├── api.instructions.md          ← Additive, glob-based rules
+│       └── infra.instructions.md
+├── AGENTS.md                            ← Global agent guardrails
+├── frontend/
+│   └── AGENTS.md                        ← Frontend agent playbook
+├── backend/
+│   └── AGENTS.md                        ← Backend agent playbook
+└── infra/
+    └── AGENTS.md                        ← Infra agent playbook
+```
+Result: Shared repo standards plus local commands and guardrails for each domain
 
 ### What to Standardize
 
@@ -291,6 +312,25 @@ Result: Baseline consistency with flexibility for repository-specific needs
 - **ROI: 50x in first year, compounding annually**
 
 Organization-wide custom instructions provide baseline standards that apply automatically across every repository. Instead of each team configuring security requirements independently, define them once at organization level—every developer gets correct authentication patterns without manual setup. This approach scales expertise: senior architects define standards once, 500 developers apply them automatically. The ROI compounds—every new repository inherits organizational knowledge from day one.
+
+### When to Use Which
+
+| Situation | Primary Pattern | Why |
+|-----------|-----------------|-----|
+| 50+ separate repos need the same baseline security and quality rules | Organization instructions | One central GitHub baseline for every repository |
+| One repo needs project-specific GitHub Copilot conventions | `.github/copilot-instructions.md` | Clear repo-wide constitution for GitHub tooling |
+| Specific file types need different guidance inside a repo | `.github/instructions/*.instructions.md` | `applyTo` patterns target the right files precisely |
+| A monorepo package needs local commands, tests, and workflow rules | Nearest `AGENTS.md` | Directory-local playbook avoids one giant global file |
+| A polyrepo team wants cross-agent portability in addition to GitHub guidance | Repo-level `AGENTS.md` plus repo instructions | Keep GitHub-specific standards and portable agent playbooks side by side |
+
+### Polyrepo vs. Monorepo Decision Matrix
+
+| Topology | Put shared standards here | Put local workflow guidance here | Why this split works |
+|----------|---------------------------|----------------------------------|----------------------|
+| **Polyrepo** | Organization instructions + each repo's `.github/copilot-instructions.md` | Optional root `AGENTS.md` per repo | Each repo has its own lifecycle, but still benefits from a common baseline |
+| **Monorepo** | Root `.github/copilot-instructions.md` + `.github/instructions/*.instructions.md` | Root `AGENTS.md` plus nested `frontend/`, `backend/`, `infra/` `AGENTS.md` files | Repo-wide standards stay centralized while subprojects keep their own commands and guardrails |
+
+**Rule of thumb:** if the selector is a **repository**, use organization instructions or `copilot-instructions.md`. If the selector is a **file pattern**, use `.instructions.md`. If the selector is a **directory or subproject**, use the nearest `AGENTS.md`.
 
 ---
 

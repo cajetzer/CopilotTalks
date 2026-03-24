@@ -1,6 +1,6 @@
 ---
 status: active
-updated: 2026-02-08
+updated: 2026-03-23
 section: "Customization & Context"
 references:
   - url: https://code.visualstudio.com/docs/copilot/copilot-customization
@@ -24,6 +24,9 @@ references:
   - url: https://docs.github.com/en/copilot/reference/custom-instructions-support
     label: "Custom instructions support reference"
     verified: 2026-02-08
+  - url: https://agents.md/
+    label: "AGENTS.md open format"
+    verified: 2026-03-23
 ---
 
 # Copilot Configuration Primitives: Making AI Understand Your Codebase
@@ -70,43 +73,47 @@ When developers first adopt GitHub Copilot, the initial experience is impressive
 
 This isn't a limitation of the AI model — it's a context problem. Copilot's response quality is directly proportional to how much it knows about your specific codebase[^1]. Without explicit configuration, it answers generically, like a contractor who's never seen your blueprints.
 
-The solution isn't better prompting. It's **configuration** — four primitives that, once set up, give every Copilot interaction persistent awareness of your codebase's architecture, conventions, and workflows[^3].
+The solution isn't better prompting. It's **configuration** — instructions, prompts, skills, agents, and now increasingly `AGENTS.md` as an open agent-facing playbook. Together, these give every Copilot interaction persistent awareness of your codebase's architecture, conventions, and workflows[^3][^13].
 
 ---
 
-## The Solution: 4 Configuration Primitives
+## The Solution: Configuration Primitives That Layer Cleanly
 
 ### What It Does
 
-GitHub Copilot supports four configuration building blocks that progressively add context and capabilities to every AI interaction. Each primitive is a Markdown file committed to your repository, making your Copilot configuration version-controlled, team-shared, and reviewable[^1].
+GitHub Copilot supports four core configuration building blocks, and teams increasingly pair them with `AGENTS.md` when they want a portable, agent-focused instruction surface. Each primitive is a Markdown file committed to your repository, making your Copilot configuration version-controlled, team-shared, and reviewable[^1][^13].
 
 ### Key Capabilities
 
 - **Instructions**: Always-on guardrails — coding standards, project structure, and build procedures injected into every request automatically[^2]
+- **AGENTS.md**: Agent playbook — open-format setup, testing, and local operating guidance that many coding agents understand[^13]
 - **Skills**: On-demand capability packs — specialized knowledge with scripts and resources, loaded only when relevant[^4]
 - **Prompts**: Reusable task templates — standardized workflows invoked via `/command` syntax in chat[^3]
 - **Agents**: Specialized AI personas — constrained tools, instructions, and model preferences for specific roles[^5]
 
 ### Architecture Overview
 
-The four primitives form a progressive stack. Instructions are the foundation — always present, zero-effort. Skills add specialized capabilities loaded on-demand by AI relevance matching. Prompts encode repeatable workflows triggered by the developer. Agents sit at the top, orchestrating the other primitives into constrained personas with specific tool access.
+The primitives form a progressive stack. GitHub instructions are the foundation — always present, zero-effort. `AGENTS.md` complements them with a predictable place for commands, test steps, and nearest-directory workflow guidance. Skills add specialized capabilities loaded on-demand by AI relevance matching. Prompts encode repeatable workflows triggered by the developer. Agents sit at the top, orchestrating the other primitives into constrained personas with specific tool access.
 
 Each primitive builds on the ones below it. An agent can reference instructions and invoke skills. A prompt can specify which agent to run with. Instructions form the shared baseline that everything else inherits[^3].
 
 ```
-┌──────────────────────────────────────────┐
-│  Agents (.agent.md)                      │  ← Orchestration
-│  Constrained personas, tools, handoffs   │
-├──────────────────────────────────────────┤
-│  Prompts (.prompt.md)                    │  ← Task Templates
-│  Reusable workflows, /commands           │
-├──────────────────────────────────────────┤
-│  Skills (SKILL.md + resources)           │  ← Capabilities
-│  On-demand expertise, scripts, examples  │
-├──────────────────────────────────────────┤
-│  Instructions (.instructions.md)         │  ← Foundation
-│  Always-on guardrails, coding standards  │
-└──────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+│  Agents (.agent.md)                        │  ← Orchestration
+│  Constrained personas, tools, handoffs     │
+├────────────────────────────────────────────┤
+│  Prompts (.prompt.md)                      │  ← Task Templates
+│  Reusable workflows, /commands             │
+├────────────────────────────────────────────┤
+│  Skills (SKILL.md + resources)             │  ← Capabilities
+│  On-demand expertise, scripts, examples    │
+├────────────────────────────────────────────┤
+│  AGENTS.md                                 │  ← Agent Playbook
+│  Commands, tests, local workflow guidance  │
+├────────────────────────────────────────────┤
+│  GitHub Instructions                       │  ← Foundation
+│  copilot-instructions + .instructions.md   │
+└────────────────────────────────────────────┘
 ```
 
 **Official Documentation:**
@@ -117,7 +124,7 @@ Each primitive builds on the ones below it. An agent can reference instructions 
 
 ## 📦 Key Artifacts
 
-**Every primitive is demonstrated with a production-ready example file:**
+**Every primitive is demonstrated with a production-ready example file or pattern:**
 
 ### Primary Artifacts
 
@@ -168,13 +175,17 @@ Each primitive builds on the ones below it. An agent can reference instructions 
 ```
 Q: What kind of customization do you need?
 │
-├─ "Copilot should always know our conventions"
-│  → Use: Instructions (.github/copilot-instructions.md)
-│  └─ Best for: Coding standards, build procedures, architecture docs
+├─ "GitHub Copilot should always know our repo conventions"
+│  → Use: Repo Instructions (.github/copilot-instructions.md)
+│  └─ Best for: Coding standards, build procedures, repo-wide GitHub guidance
 │
-├─ "Different rules for different parts of the codebase"
+├─ "Different rules should apply to different files or folders"
 │  → Use: Path-specific Instructions (.instructions.md with applyTo)
-│  └─ Best for: Language-specific rules, framework conventions per directory
+│  └─ Best for: Language-specific rules, test conventions, framework patterns
+│
+├─ "Agents need local commands, test steps, or subproject guardrails"
+│  → Use: AGENTS.md
+│  └─ Best for: Monorepos, subproject playbooks, cross-agent portability
 │
 ├─ "Reusable capabilities across projects and tools"
 │  → Use: Skills (.github/skills/*/SKILL.md)
@@ -191,15 +202,16 @@ Q: What kind of customization do you need?
 
 ### Comparison with Related Primitives
 
-| Aspect | **Instructions** | **Skills** | **Prompts** | **Agents** |
-|--------|-----------------|------------|-------------|------------|
-| **Loading** | Always-on | On-demand (AI matches) | User invokes (`/`) | User selects |
-| **Scope** | Every request | When relevant | Single task | Full session |
-| **File Path** | `.github/copilot-instructions.md` | `.github/skills/*/SKILL.md` | `.github/prompts/*.prompt.md` | `.github/agents/*.agent.md` |
-| **Can Include** | Markdown text | Scripts, examples, resources | Variables, tool specs | Tool restrictions, handoffs |
-| **Portability** | VS Code + GitHub.com | VS Code + CLI + coding agent | VS Code | VS Code |
-| **Best For** | Coding standards | Specialized capabilities | Repeatable workflows | Role-based personas |
-| **Setup Time** | 5 minutes | 15 minutes | 10 minutes | 20 minutes |
+| Aspect | **Repo Instructions** | **Path Instructions** | **AGENTS.md** | **Skills** | **Prompts** | **Agents** |
+|--------|------------------------|-----------------------|----------------|------------|-------------|------------|
+| **Loading** | Always-on | Conditional by `applyTo` | Nearest relevant file in supporting agents | On-demand (AI matches) | User invokes (`/`) | User selects |
+| **Scope** | Whole repository | Matching files only | Repo or subproject | When relevant | Single task | Full session |
+| **File Path** | `.github/copilot-instructions.md` | `.github/instructions/*.instructions.md` | `AGENTS.md` | `.github/skills/*/SKILL.md` | `.github/prompts/*.prompt.md` | `.github/agents/*.agent.md` |
+| **Can Include** | Markdown text | Markdown + frontmatter | Markdown playbook text | Scripts, examples, resources | Variables, tool specs | Tool restrictions, handoffs |
+| **Best For** | Repo constitution | File-pattern precision | Commands, tests, local workflow rules | Specialized capabilities | Repeatable workflows | Role-based personas |
+| **Portability** | GitHub / VS Code guidance | GitHub / VS Code guidance | Cross-agent/open convention | VS Code + CLI + coding agent | VS Code | VS Code |
+| **Typical Selector** | "Always in this repo" | "Only for these files" | "Only in this directory tree" | "When this task appears" | "When I run this command" | "When I want this persona" |
+| **Setup Time** | 5 minutes | 10 minutes | 10 minutes | 15 minutes | 10 minutes | 20 minutes |
 
 ---
 
@@ -207,6 +219,16 @@ Q: What kind of customization do you need?
 ## Instructions: The Foundation
 
 Instructions are Markdown files that provide persistent context to every Copilot interaction. They're the simplest and most impactful primitive — a single file can transform Copilot from "generic coding assistant" to "team-aware development partner"[^2].
+
+### The Three Instruction Surfaces
+
+Think about instructions as three different selectors:
+
+- **Repository selector**: `.github/copilot-instructions.md` applies across the whole repo
+- **File-pattern selector**: `.github/instructions/*.instructions.md` applies when `applyTo` matches
+- **Directory selector**: `AGENTS.md` gives the nearest relevant package or service its own playbook[^13]
+
+That distinction matters. If the rule is "always use Vitest in this repo," use `copilot-instructions.md`. If the rule is "only for `src/models/**/*.ts`," use `.instructions.md`. If the rule is "inside `infra/`, run Terraform plan before apply," use `infra/AGENTS.md`.
 
 ### How Instructions Work
 
@@ -274,11 +296,33 @@ When working with database models in this project:
 
 Path-specific instructions are stored in `.github/instructions/` and only activate when Copilot is working on files matching the glob pattern. They combine with repository-wide instructions — both are used when both match[^1].
 
+### AGENTS.md: The Open Agent Playbook
+
+`AGENTS.md` is a simple open Markdown format for guiding coding agents. It is best used for information that looks like a playbook: setup commands, test commands, PR expectations, repository navigation tips, and subproject-specific guardrails[^13].
+
+```markdown
+# AGENTS.md
+
+## Dev environment tips
+- Install dependencies with `pnpm install`
+- Start the frontend with `pnpm --filter web dev`
+
+## Testing instructions
+- Run `pnpm --filter web test`
+- Run `pnpm --filter web lint` before opening a PR
+
+## PR instructions
+- Title format: [web] <Title>
+```
+
+In a polyrepo, a single root `AGENTS.md` may be enough. In a monorepo, nested files such as `frontend/AGENTS.md` and `infra/AGENTS.md` let each area define its own commands without overloading one giant repo-level document.
+
 **Key Points:**
 - Instructions are always-on — no manual activation required
 - Keep under 2 pages for optimal performance (context budget)
 - Personal instructions > repository instructions > organization instructions (priority order)
 - Use the `/init` command to auto-generate instructions from your workspace[^2]
+- Use `AGENTS.md` when a directory needs local commands, tests, or cross-agent workflow guidance[^13]
 
 ---
 
@@ -642,6 +686,7 @@ See [DECISION-GUIDE.md](../DECISION-GUIDE.md) for complete navigation help.
 [^10]: **Custom instructions support reference** — https://docs.github.com/en/copilot/reference/custom-instructions-support — Which GitHub features support which instruction types
 [^11]: **Custom instructions library** — https://docs.github.com/en/copilot/tutorials/customization-library/custom-instructions — Curated examples of working instructions
 [^12]: **VS Code Copilot Chat documentation** — https://code.visualstudio.com/docs/copilot/chat/copilot-chat — Chat interface and context management
+[^13]: **AGENTS.md open format** — https://agents.md/ — Open, cross-agent convention for setup, testing, and directory-local coding agent guidance
 
 ---
 
@@ -662,12 +707,14 @@ See [DECISION-GUIDE.md](../DECISION-GUIDE.md) for complete navigation help.
 
 Understanding the loading order clarifies why the layered architecture matters:
 
-1. **Session Start**: VS Code scans for `.github/copilot-instructions.md` and `AGENTS.md` — these are always loaded
-2. **File Open**: VS Code checks `.instructions.md` files for matching `applyTo` patterns — loaded if glob matches current file
+1. **Session Start**: Repository-wide guidance such as `.github/copilot-instructions.md` establishes the baseline context
+2. **File Open**: `.instructions.md` files are evaluated for matching `applyTo` patterns and added when relevant
 3. **Chat Request**: Skill discovery runs — names and descriptions are checked against user prompt for relevance
 4. **Skill Match**: If a skill description matches, its full `SKILL.md` body is loaded into context (Level 2)
 5. **Agent Selection**: When user switches to a custom agent, its instructions and tool constraints replace defaults
 6. **Prompt Invocation**: When user types `/command`, prompt file merges with current instructions + agent context
+
+For agent ecosystems that support `AGENTS.md`, the nearest file in the directory tree acts like a local operating manual: "here are the commands, tests, and guardrails for this part of the repo." That is why `AGENTS.md` is especially compelling in monorepos[^13].
 
 ### Context Budget Management
 

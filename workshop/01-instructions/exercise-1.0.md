@@ -48,9 +48,9 @@ Use the `/init` slash command to generate initial workspace instructions, then r
 
 2. **Review the generated output**
 
-   `/init` will create or update one of these files:
-   - `.github/copilot-instructions.md` (recommended location)
-   - `AGENTS.md` (alternative format)
+    `/init` will create or update one of these files:
+    - `.github/copilot-instructions.md` (recommended location)
+    - `AGENTS.md` (open agent-playbook format)
 
    Open the generated file and look for:
    - **Discovered patterns:** Does it mention React, Express, SQLite correctly?
@@ -79,10 +79,13 @@ Use the `/init` slash command to generate initial workspace instructions, then r
    AGENTS.md
    ```
 
-   If `/init` created `AGENTS.md` but you prefer the standard location, you can move it:
-   ```
-   mkdir -p .github && mv AGENTS.md .github/copilot-instructions.md
-   ```
+   If `/init` created `AGENTS.md`, don't assume it is "wrong." Decide based on the job:
+
+   - Keep **`.github/copilot-instructions.md`** when you want repo-wide GitHub Copilot standards
+   - Keep **`AGENTS.md`** when the content reads like agent operating guidance that could work across tools
+   - Keep **both** when you want a GitHub-wide baseline plus a portable agent playbook
+
+   💡 **Good heuristic:** Commands, test steps, and PR conventions often belong in `AGENTS.md`. Coding standards and repository-wide GitHub guidance usually belong in `.github/copilot-instructions.md`.
 
 #### ✅ Success Criteria
 
@@ -91,6 +94,7 @@ Use the `/init` slash command to generate initial workspace instructions, then r
 - [ ] Generated instructions file exists (`.github/copilot-instructions.md` or `AGENTS.md`)
 - [ ] Identified 2-3 items that need refinement (preparation for Exercise 1.1)
 - [ ] Understood the difference between AI-generated baseline and team-specific customization
+- [ ] Chose intentionally whether the generated content belongs in `.github/copilot-instructions.md`, `AGENTS.md`, or both
 
 #### 💡 Understanding /init
 
@@ -105,6 +109,11 @@ The `/init` command is implemented as a contributed prompt file, which means:
 - After major architectural changes
 - When adding new languages or frameworks
 - When project conventions evolve significantly
+
+**What `/init` will not decide for you:**
+- Whether GitHub-specific standards should live in `.github/copilot-instructions.md`
+- Whether directory-local agent workflow guidance should live in `AGENTS.md`
+- Whether you need extra `.instructions.md` files for frontend, backend, tests, or docs
 
 #### 🧠 Mindful Moment: AI-Generated vs. Human-Refined
 

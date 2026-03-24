@@ -1,0 +1,41 @@
+version: 1
+
+source: tech-talks/copilot-primitives/README.md
+
+deck:
+  title: Copilot Configuration Primitives
+  subtitle: Making AI Understand Your Codebase
+  tagline: Four building blocks that transform Copilot from generic assistant to team-aware partner
+
+  intro:
+    mode: core-question
+
+  toc:
+    enabled: true
+
+  sectionOrder:
+    - Instructions
+    - Skills
+    - Custom Prompts
+    - Agents
+    - Choosing the Right Primitive
+
+  sectionModes:
+    Instructions: deep-dive
+    Skills: balanced
+    Custom Prompts: balanced
+    Agents: balanced
+    Choosing the Right Primitive: compact
+
+  highlightMoments:
+    - Progressive loading keeps context efficient
+    - Layered architecture: Instructions → Skills → Prompts → Agents
+    - 5 minutes to transform Copilot with instructions alone
+
+  references:
+    enabled: true
+    mode: standard
+
+  thankYou:
+    enabled: true
+    variant: standard

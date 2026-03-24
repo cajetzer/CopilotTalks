@@ -41,20 +41,21 @@ The TechCorp team has cloned the FanHub starter project and experienced **The St
 
 ---
 
-## 🧠 Mindful Moment: Two Levels of Instructions
+## 🧠 Mindful Moment: Three Complementary Layers
 
 **Traditional thinking:** *"I'll keep all instructions in one file and hope Copilot figures out the context."*
 
-**AI-native thinking:** *"Different files need different guidance. I'll use the magic file for universal rules, and path-based instructions for context-specific patterns."*
+**AI-native thinking:** *"Different guidance belongs in different places. I'll use the magic file for repo-wide GitHub rules, path-based instructions for file-specific rules, and `AGENTS.md` when I want an agent playbook that travels across tools or subprojects."*
 
-### The Two Instruction Types
+### The Three Core Surfaces
 
 | Type | File | When Applied | Purpose |
 |------|------|--------------|---------|
-| 🪄 **Magic File** | `.github/copilot-instructions.md` | **Always** — every interaction, every file | Repository-wide baseline standards |
-| 📂 **Path-Based** | `.github/instructions/*.instructions.md` | **Conditionally** — only when editing matching files | Context-specific rules (frontend, backend, tests, Python, etc.) |
+| 🪄 **Magic File** | `.github/copilot-instructions.md` | **Always** — every GitHub Copilot interaction in the repo | Repository-wide baseline standards for GitHub-native tooling |
+| 📂 **Path-Based** | `.github/instructions/*.instructions.md` | **Conditionally** — only when matching `applyTo` patterns | Context-specific rules (frontend, backend, tests, Python, etc.) |
+| 🤖 **Agent Playbook** | `AGENTS.md` | **By agent support and nearest location** | Portable agent guidance, local commands, subproject-specific workflows |
 
-> 🪄 **Key Distinction**: The magic file is your foundation—it applies universally. Path-based instructions layer on top for specialized contexts. Together, they give Copilot the right guidance at the right time.
+> 🪄 **Key Distinction**: `copilot-instructions.md` is your GitHub-wide baseline. `.instructions.md` files add precision with `applyTo`. `AGENTS.md` gives coding agents a predictable, tool-agnostic playbook and is especially useful in monorepos where the nearest file can describe a specific package.
 
 ---
 
@@ -74,9 +75,9 @@ Think of `@workspace` as giving Copilot the same bird's-eye view you have as a d
 
 ### Part 1: The Magic File Foundation
 
-#### The Three-File Foundation
+#### The Four-File Foundation
 
-These files form the foundation of all Copilot customization:
+These files form the foundation of practical Copilot and agent customization:
 
 **1. ARCHITECTURE.md (docs/ or repo root)**
 - **Purpose**: Structural understanding + context efficiency
@@ -101,6 +102,14 @@ These files form the foundation of all Copilot customization:
 - **Location**: `.github/instructions/` directory
 - **📂 Conditional**: These files use `applyTo` glob patterns to match specific files
 
+**4. AGENTS.md** 🤖 **AGENT PLAYBOOK**
+- **Purpose**: Give coding agents a predictable place for setup commands, testing instructions, PR guidance, and local workflow rules
+- **Value**: Works well as an open, portable convention across agent ecosystems, not just one GitHub surface
+- **Result**: Agents can find the right commands and constraints faster, especially in nested subprojects
+- **What to include**: Dev environment tips, test commands, repo navigation hints, PR instructions, subproject guardrails
+- **Location**: Repo root or nested inside subdirectories such as `frontend/`, `backend/`, or `infra/`
+- **🤖 Nearest wins**: In monorepos, the closest `AGENTS.md` is the most useful place for local package guidance
+
 #### The /init Command: AI-Assisted Bootstrap
 
 Before writing instructions manually, let the AI analyze your codebase first:
@@ -115,7 +124,14 @@ Before writing instructions manually, let the AI analyze your codebase first:
 1. Run `/init` to get an AI-generated baseline
 2. Review and refine the output
 3. Add team-specific knowledge the AI couldn't discover
-4. Layer with path-based instructions for context specificity
+4. Decide whether the output belongs in `.github/copilot-instructions.md`, `AGENTS.md`, or both
+5. Layer with path-based instructions for context specificity
+
+**Which generated file should you keep?**
+
+- Keep **`.github/copilot-instructions.md`** when the content is primarily GitHub Copilot baseline guidance for the whole repository
+- Keep **`AGENTS.md`** when the content reads like agent operating instructions that should also make sense to other coding agents
+- Keep **both** when you want GitHub-specific repo standards plus portable, nearest-directory agent playbooks
 
 #### Organization-Wide Instructions (Enterprise)
 
@@ -137,21 +153,24 @@ For teams using GitHub Enterprise, organization-level instructions cascade to al
 #### How They Work Together
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│ Every Copilot Interaction                                   │
-├─────────────────────────────────────────────────────────────┤
-│ 0. Organization instructions → Enterprise baseline          │  🏢 IF
-│    (GitHub org settings)       Security, compliance         │  CONFIGURED
-│                                                             │
-│ 1. ARCHITECTURE.md         → "What" and "Where"             │
-│    (project context)          Project structure & data flow │
-│                                                             │
-│ 2. copilot-instructions.md → "How" (universal)              │  🪄 ALWAYS
-│    (magic file)               Patterns for ALL code         │  LOADED
-│                                                             │
-│ 3. matching .instructions.md → "How" (specific)             │  📂 LOADED
-│    (path-based)               Patterns for THIS file type   │  IF MATCHING
-└─────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────┐
+│ Every Copilot / Coding Agent Interaction                          │
+├────────────────────────────────────────────────────────────────────┤
+│ 0. Organization instructions → Enterprise baseline                │ 🏢 IF
+│    (GitHub org settings)       Security, compliance               │ CONFIGURED
+│                                                                    │
+│ 1. ARCHITECTURE.md           → "What" and "Where"                 │
+│    (project context)            Project structure & data flow      │
+│                                                                    │
+│ 2. copilot-instructions.md   → "How" (repo-wide, GitHub-native)   │ 🪄 ALWAYS
+│    (magic file)                 Team standards for the whole repo  │ LOADED
+│                                                                    │
+│ 3. matching .instructions.md → "How" (path-specific)              │ 📂 LOADED
+│    (applyTo rules)              Guidance for the current file type │ IF MATCHING
+│                                                                    │
+│ 4. nearest AGENTS.md         → "Operate here like this"           │ 🤖 WHEN
+│    (agent playbook)             Commands, tests, local guardrails │ SUPPORTED
+└────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Part 2: Path-Based Instructions
@@ -197,20 +216,37 @@ VS Code combines multiple instruction sources automatically:
 #### Recommended File Structure
 
 ```
-.github/
-├── copilot-instructions.md          # 🪄 MAGIC FILE: Repository-wide baseline
-├── prompts/                          # Invokable functions (Module 3)
-│   ├── test-suite.prompt.md
-│   └── react-review.prompt.md
-└── instructions/                     # 📂 PATH-BASED: Context-specific rules
-    ├── frontend.instructions.md      # UI layer guidance
-    ├── backend.instructions.md       # API layer guidance
-    ├── tests.instructions.md         # Testing conventions
-    ├── python.instructions.md        # Language-specific
-    └── docker.instructions.md        # Infrastructure patterns
+repo/
+├── .github/
+│   ├── copilot-instructions.md       # 🪄 MAGIC FILE: Repository-wide baseline
+│   ├── prompts/                      # Invokable functions (Module 3)
+│   │   ├── test-suite.prompt.md
+│   │   └── react-review.prompt.md
+│   └── instructions/                 # 📂 PATH-BASED: Context-specific rules
+│       ├── frontend.instructions.md  # UI layer guidance
+│       ├── backend.instructions.md   # API layer guidance
+│       ├── tests.instructions.md     # Testing conventions
+│       ├── python.instructions.md    # Language-specific
+│       └── docker.instructions.md    # Infrastructure patterns
+├── AGENTS.md                         # 🤖 Root agent guardrails
+├── frontend/
+│   └── AGENTS.md                     # Frontend agent playbook
+├── backend/
+│   └── AGENTS.md                     # Backend agent playbook
+└── infra/
+    └── AGENTS.md                     # Infra agent playbook
 ```
 
-> 📂 **Reference Examples**: The [`examples/completed-config/`](../examples/completed-config/) folder shows these files in action.
+> 📂 **Reference Pattern**: Use `.github/copilot-instructions.md` for repo-wide GitHub guidance, `.github/instructions/*.instructions.md` for additive file-pattern rules, and nested `AGENTS.md` files when subprojects need distinct agent workflows.
+
+#### When to Use Which
+
+| Need | Best File | Why |
+|------|-----------|-----|
+| Universal GitHub Copilot conventions for the whole repo | `.github/copilot-instructions.md` | Always-on repo constitution for GitHub-native flows |
+| Different rules for tests, frontend, backend, or docs | `.github/instructions/*.instructions.md` | `applyTo` gives precise file-pattern targeting |
+| Commands, tests, and guardrails an agent should follow in a specific directory | `AGENTS.md` | Nearest-file playbook works well for subprojects and cross-agent portability |
+| Enterprise-wide baseline across many repositories | Organization instructions + repo files | Central standards with local extension |
 
 ---
 
@@ -229,7 +265,7 @@ VS Code combines multiple instruction sources automatically:
 | [1.1](exercise-1.1.md) | Create ARCHITECTURE.md | David | All | 10 min | Documentation as Leverage |
 | [1.2](exercise-1.2.md) | Create copilot-instructions.md | Sarah | All | 10 min | 🪄 The Magic File |
 
-### Part 2: Path-Based Instructions
+### Part 2: Path-Based Instructions and Agent Playbooks
 
 | # | Exercise | Lead | Support | Time | Topic |
 |---|----------|------|---------|------|-------|
@@ -268,7 +304,7 @@ VS Code combines multiple instruction sources automatically:
 
 **[Module 2: Agent Plan Mode](../02-agent-plan-mode/README.md)** — Monday 11:30 AM
 
-Now that Copilot knows our structure (ARCHITECTURE.md), our universal patterns (🪄 magic file), and our context-specific rules (📂 path-based instructions), let's teach it to think through problems before coding. David will discover AI planning for architectural decisions, Marcus will debug complex deployment issues, and the whole team will see how "plan first, code second" transforms their workflow.
+Now that Copilot knows our structure (ARCHITECTURE.md), our repo-wide patterns (🪄 magic file), our context-specific rules (📂 path-based instructions), and where agent playbooks belong (`AGENTS.md`), let's teach it to think through problems before coding. David will discover AI planning for architectural decisions, Marcus will debug complex deployment issues, and the whole team will see how "plan first, code second" transforms their workflow.
 
 > *"Copilot knows our patterns now—both universal and context-specific. But can it think through complex problems like we do?"*
 > — David, ready to test Copilot's reasoning capabilities
@@ -306,13 +342,14 @@ Before moving to Module 2, verify:
 | 📚 **Documentation as Leverage** | Your ARCHITECTURE.md now benefits humans AND AI |
 | 🪄 **Magic File for Universal Rules** | `copilot-instructions.md` applies to every interaction automatically |
 | 📂 **Path-Based for Context-Specific** | `.instructions.md` files activate only when editing matching files |
+| 🤖 **Agent Playbooks for Local Workflows** | `AGENTS.md` captures commands, tests, and guardrails where agents need them most |
 | 🎯 **Right Guidance, Right Context** | Layer, language, and file-type instructions eliminate cross-context pollution |
 | 🔄 **Iterate and Refine** | You reviewed and improved AI output before accepting |
 | 🚀 **AI-First Bootstrap** | `/init` analyzed codebase before manual refinement |
 
 #### 💭 Elena's Realization
 
-*"I kept trying to put everything in one file. Now I understand—universal rules go in the magic file, specific rules go in path-based instructions. My Python files get PEP 8, my tests get testing conventions, and nothing gets confused."*
+*"I kept trying to put everything in one file. Now I understand—repo-wide GitHub rules go in the magic file, specific rules go in path-based instructions, and local agent workflows belong in `AGENTS.md`. My Python files get PEP 8, my tests get testing conventions, and my infrastructure agents get their own playbook."*
 
 #### 💭 David's Insight
 
@@ -327,6 +364,7 @@ Before moving to Module 2, verify:
 - `docs/ARCHITECTURE.md` — Project context
 - `.github/copilot-instructions.md` — 🪄 Universal team patterns
 - `.github/instructions/*.instructions.md` — 📂 Context-specific rules
+- `AGENTS.md` — 🤖 Portable agent playbook when repo or subproject workflows need it
 
 **How this helps in future modules:**
 
@@ -342,7 +380,7 @@ Every minute invested here saves hours later.
 
 ---
 
-## 🧠 Mindful Moment: The Two-Level Transformation
+## 🧠 Mindful Moment: The Layered Transformation
 
 **Before this module:**
 - Copilot gave everyone different suggestions
@@ -354,11 +392,12 @@ Every minute invested here saves hours later.
 **After this module:**
 - 🪄 The magic file ensures UNIVERSAL consistency
 - 📂 Path-based instructions ensure CONTEXTUAL accuracy
+- 🤖 `AGENTS.md` gives agents a portable operating playbook where local commands matter
 - Frontend code gets frontend patterns, Python gets PEP 8
 - Code reviews focus on logic, not style or context mismatches
 - The codebase has gravity—it pulls code toward the right patterns
 
-**The shift**: Instructions aren't just documentation. They're a layered system—universal baseline plus contextual precision.
+**The shift**: Instructions are not one file. They're a layered system—repo baseline, contextual precision, and optional agent playbooks.
 
 ---
 
@@ -381,6 +420,15 @@ When you edit a file, VS Code:
 3. **Evaluates**: Each file's `applyTo` pattern against the current file path
 4. **Combines**: All matching instructions into Copilot's context
 5. **Sends**: The layered context with every chat request
+
+### Where `AGENTS.md` Fits 🤖
+
+`AGENTS.md` is different from GitHub's `.instructions.md` system. It is an open Markdown convention for coding agents that usually contains setup commands, testing instructions, PR rules, and directory-local guidance. In a polyrepo, a single root `AGENTS.md` may be enough. In a monorepo, nested `AGENTS.md` files are often better because a frontend package and an infrastructure package may need different commands and guardrails.
+
+**Rule of thumb:**
+1. Put universal GitHub rules in `.github/copilot-instructions.md`
+2. Put file-pattern rules in `.github/instructions/*.instructions.md`
+3. Put local agent workflows and commands in the nearest `AGENTS.md`
 
 ### Why Architecture Documentation Matters to AI
 
