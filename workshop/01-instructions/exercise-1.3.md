@@ -1,8 +1,8 @@
-# Exercise 1.3: Layer-Specific Instructions
+# Exercise 1.3: Path-Specific Instructions
 
 ## 🔨 Exercise
 
-### Exercise 1.3: Layer-Specific Instructions — "Right Guidance, Right Layer"
+### Exercise 1.3: Path-Specific Instructions — "Right Guidance, Right Layer"
 
 **Lead:** Sarah ⭐ | **Support:** David 🤝 | **Time:** 10 min
 
@@ -14,7 +14,7 @@ David has the opposite problem in backend files—Copilot suggests React state m
 
 The issue: `.github/copilot-instructions.md` applies to *everything*. It can't distinguish between UI layer and API layer. Sarah and David need instructions that activate based on architectural boundaries.
 
-Sarah realizes: *"We need layer-specific guidance that automatically applies based on where we're working. Frontend files should only see frontend patterns. Backend files should only see backend patterns."*
+Sarah realizes: *"We need path-specific guidance that automatically applies based on where we're working. Frontend files should only see frontend patterns. Backend files should only see backend patterns."*
 
 #### 🔄 The Transformation
 
@@ -27,7 +27,7 @@ Sarah realizes: *"We need layer-specific guidance that automatically applies bas
 
 #### 🎯 Your Goal
 
-Create layer-specific instruction files that automatically apply React patterns to frontend code and API patterns to backend code, eliminating cross-layer context pollution.
+Create path-specific instruction files that automatically apply React patterns to frontend code and API patterns to backend code, eliminating cross-layer context pollution.
 
 #### 📋 Steps
 
@@ -203,7 +203,7 @@ Create layer-specific instruction files that automatically apply React patterns 
 
 | Previous Modules | This Exercise | Combined Power |
 |------------------|---------------|----------------|
-| Module 1: copilot-instructions.md (repository-wide) | Layer-specific instructions (conditional) | General standards + context-specific patterns = comprehensive guidance without noise |
+| Module 1: copilot-instructions.md (repository-wide) | Path-specific instructions (conditional) | General standards + context-specific patterns = comprehensive guidance without noise |
 | Module 1: ARCHITECTURE.md documents layers | Instructions enforce layer boundaries automatically | Architecture documented once, enforced through path-based patterns |
 | Module 3: Prompt files for specific tasks | Instructions for ongoing context | Functions for tasks (/test-suite) + automatic context (layer patterns) = complete guidance system |
 

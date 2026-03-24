@@ -5,7 +5,7 @@ highlighter: shiki
 lineNumbers: false
 info: |
   ## Module 4: Agent Skills
-  CopilotTraining Training
+  Teach Copilot new capabilities, not just new rules
 drawings:
   persist: false
 transition: slide-left
@@ -13,17 +13,13 @@ title: Module 4 - Agent Skills
 module: workshop/04-agent-skills
 mdc: true
 status: active
-updated: 2026-02-06
+updated: 2026-03-24
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <!-- Gradient background -->
   <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-
-  <!-- Glowing orb -->
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
 
-  <!-- Logo with glow -->
   <div class="relative z-10">
     <div class="absolute inset-0 blur-2xl opacity-50">
       <img src="./sdp-logo.png" class="w-72" alt="" />
@@ -31,686 +27,565 @@ updated: 2026-02-06
     <img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
   </div>
 
-  <!-- Gradient text title -->
   <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
     Module 4: Agent Skills
   </h1>
 
-  <!-- Pill subtitle -->
   <div class="mt-4 relative z-10">
     <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-      The Capability Gap
+      ⏰ Teach capabilities, not just behavior
     </span>
   </div>
 
-  <!-- Concept line -->
-  <div class="mt-8 text-lg opacity-70 relative z-10">
-    Instructions tell <span class="text-orange-400 font-semibold">how</span> → Skills teach <span class="text-purple-400 font-semibold">capabilities</span>
+  <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
+    "Instructions tell Copilot how to behave. Skills teach it how to do work it could not do well before."
   </div>
 
-  <!-- Decorative line -->
   <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <span class="text-sm opacity-50">⏰ 30 minutes</span>
+---
+
+# 📖 Story So Far
+
+<div class="grid grid-cols-4 gap-4 mt-8 text-left">
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-2xl mb-2">📚</div>
+    <div class="font-bold text-blue-300 mb-2">Module 1</div>
+    <div class="text-sm text-gray-300">The team documented structure and standards.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-2xl mb-2">🧩</div>
+    <div class="font-bold text-purple-300 mb-2">Module 2</div>
+    <div class="text-sm text-gray-300">The team learned to research and validate a plan before coding.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-2xl mb-2">🔁</div>
+    <div class="font-bold text-orange-300 mb-2">Module 3</div>
+    <div class="text-sm text-gray-300">The team turned repeated prompts into reusable functions.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-2xl mb-2">🎓</div>
+    <div class="font-bold text-purple-300 mb-2">Module 4</div>
+    <div class="text-sm text-gray-300">Now the team needs to teach Copilot specialized domain workflows.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl text-white font-semibold mb-2">Prompts reuse words. Skills reuse capability.</div>
+  <div class="text-sm text-gray-300">This module is about packaging instructions, scripts, examples, and resources into something Copilot can actually work with.</div>
 </div>
 
 ---
 
-# 📖 The Challenge
+# 🎯 What You'll Build
 
-<div class="text-lg space-y-4">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-**Where we've been:**
-- Module 1: Repository-wide standards (copilot-instructions.md)
-- Module 2: Plan mode for complex feature research
-- Module 3: Prompt files for specific tasks
-- Module 4: Path-based custom instructions
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-2xl mb-3">🎨</div>
+    <div class="text-lg font-bold text-blue-300 mb-2"><code>api-endpoint-design</code></div>
+    <div class="text-sm text-gray-300">A skill that pairs endpoint guidance with schema files and example endpoints.</div>
+  </div>
 
-**The new problem:**
-Instructions tell Copilot **how** to behave, but they can't teach it **how to do things it doesn't know**.
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-2xl mb-3">🧪</div>
+    <div class="text-lg font-bold text-purple-300 mb-2"><code>bug-reproduction-test-generator</code></div>
+    <div class="text-sm text-gray-300">A skill that combines templates, mocking patterns, and edge-case examples.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-2xl mb-3">⚙️</div>
+    <div class="text-lg font-bold text-orange-300 mb-2"><code>build-pipeline-analyzer</code></div>
+    <div class="text-sm text-gray-300">A skill that combines instructions with diagnostic scripts and log-pattern references.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
+    <div class="text-2xl mb-3">🌐</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">A portable pattern</div>
+    <div class="text-sm text-gray-300">Skills work as an open capability format across VS Code, Copilot CLI, and coding agents.</div>
+  </div>
 
 </div>
 
-<div class="mt-8 p-4 bg-red-900/40 rounded-lg border-l-4 border-red-500">
-  <div class="text-red-400">
-    ⚠️ David needs to validate against FanHub's TV show API schema.<br/>
-    ⚠️ Elena wants tests using the team's custom test template.<br/>
-    ⚠️ Marcus needs deployment scripts for FanHub's infrastructure.
-  </div>
+<div class="mt-8 text-center text-lg text-gray-300">
+  The output is not just a file. It is a teachable workflow Copilot can repeatedly perform.
 </div>
 
 ---
 
-# 🎯 Learning Objectives
+# 📚 What Agent Skills Actually Are
 
-<div class="grid grid-cols-2 gap-6 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-<div class="p-6 bg-blue-900/60 rounded-lg border-2 border-blue-400">
-  <div class="text-3xl mb-3">🎓</div>
-  <div class="text-lg font-bold text-blue-200">Teach New Capabilities</div>
-  <div class="text-sm text-gray-300 mt-2">
-    Create skills that combine instructions + scripts + examples to teach specialized workflows
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">A skill is a capability package</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• A <code>SKILL.md</code> file explains the workflow</li>
+      <li>• Resources can include scripts, examples, schemas, and templates</li>
+      <li>• The goal is a complete task capability, not just a reminder</li>
+    </ul>
   </div>
-</div>
 
-<div class="p-6 bg-green-900/60 rounded-lg border-2 border-green-400">
-  <div class="text-3xl mb-3">⚡</div>
-  <div class="text-lg font-bold text-green-200">Progressive Loading</div>
-  <div class="text-sm text-gray-300 mt-2">
-    3-level system: discovery → instructions → resources (loaded only when needed)
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Progressive loading keeps context efficient</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Discovery: metadata is known up front</li>
+      <li>• Instructions: the body loads when relevant</li>
+      <li>• Resources: scripts and examples load only when needed</li>
+    </ul>
   </div>
-</div>
 
-<div class="p-6 bg-purple-900/60 rounded-lg border-2 border-purple-400">
-  <div class="text-3xl mb-3">🌐</div>
-  <div class="text-lg font-bold text-purple-200">Cross-Platform Skills</div>
-  <div class="text-sm text-gray-300 mt-2">
-    Works in VS Code, Copilot CLI, and coding agent using open standard
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Project and personal scopes</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Project skills live in <code>.github/skills/</code></li>
+      <li>• Personal skills can live in your home skill directory</li>
+      <li>• Team skills belong with the repo when they encode shared workflow</li>
+    </ul>
   </div>
-</div>
 
-<div class="p-6 bg-orange-900/60 rounded-lg border-2 border-orange-400">
-  <div class="text-3xl mb-3">📊</div>
-  <div class="text-lg font-bold text-orange-200">Measure Efficiency</div>
-  <div class="text-sm text-gray-300 mt-2">
-    Quantify time saved on specialized workflows (API design, testing, debugging)
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">The differentiator</div>
+    <div class="text-sm text-gray-300">Skills can go beyond “say this” and into “use these resources, run this script, follow this workflow.”</div>
   </div>
-</div>
-
-</div>
-
----
-
-# 👥 Key Personas
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-<div class="p-6 bg-gradient-to-br from-blue-900/80 to-blue-800/60 rounded-lg border-2 border-blue-400">
-  <div class="text-4xl mb-3">👨‍💼</div>
-  <h3 class="text-xl font-bold text-white">David</h3>
-  <p class="text-sm text-blue-200">Staff Engineer · 20 years</p>
-  <blockquote class="mt-4 text-sm italic text-gray-300">
-    "Instructions tell Copilot how to behave, but they don't teach it how to do things it doesn't know how to do."
-  </blockquote>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-green-900/80 to-green-800/60 rounded-lg border-2 border-green-400">
-  <div class="text-4xl mb-3">👩‍🔬</div>
-  <h3 class="text-xl font-bold text-white">Elena</h3>
-  <p class="text-sm text-green-200">QA Engineer · 8 years</p>
-  <blockquote class="mt-4 text-sm italic text-gray-300">
-    "I need bug reproduction tests using our custom test template, not generic examples."
-  </blockquote>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-purple-900/80 to-purple-800/60 rounded-lg border-2 border-purple-400">
-  <div class="text-4xl mb-3">⚙️</div>
-  <h3 class="text-xl font-bold text-white">Marcus</h3>
-  <p class="text-sm text-purple-200">DevOps · 5 years</p>
-  <blockquote class="mt-4 text-sm italic text-gray-300">
-    "Debugging build failures takes 30 minutes per failure. I need specialized diagnostic workflows."
-  </blockquote>
-</div>
-
-</div>
-
----
-
-# ❌ Before → ✨ After
-
-<div class="grid grid-cols-3 gap-3 mt-4">
-
-<div class="rounded-xl overflow-hidden border border-gray-700">
-<div class="bg-gradient-to-r from-red-900/80 to-red-800/60 p-3 text-center">
-<div class="text-lg font-bold">🎨 API Design</div>
-</div>
-<div class="p-4 space-y-3">
-<div class="flex justify-between items-center">
-<span class="text-red-400 line-through">12 min</span>
-<span class="text-2xl">→</span>
-<span class="text-green-400 font-bold text-xl">2 min</span>
-</div>
-<div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-green-500 to-green-400 w-[83%]"></div>
-</div>
-<div class="text-center text-green-300 font-bold">83% faster</div>
-<div class="text-xs text-gray-500 text-center">0 schema mismatches</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-gray-700">
-<div class="bg-gradient-to-r from-red-900/80 to-red-800/60 p-3 text-center">
-<div class="text-lg font-bold">🧪 Bug Tests</div>
-</div>
-<div class="p-4 space-y-3">
-<div class="flex justify-between items-center">
-<span class="text-red-400 line-through">25 min</span>
-<span class="text-2xl">→</span>
-<span class="text-green-400 font-bold text-xl">4 min</span>
-</div>
-<div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-green-500 to-green-400 w-[84%]"></div>
-</div>
-<div class="text-center text-green-300 font-bold">84% faster</div>
-<div class="text-xs text-gray-500 text-center">100% edge coverage</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-gray-700">
-<div class="bg-gradient-to-r from-red-900/80 to-red-800/60 p-3 text-center">
-<div class="text-lg font-bold">⚙️ Build Debug</div>
-</div>
-<div class="p-4 space-y-3">
-<div class="flex justify-between items-center">
-<span class="text-red-400 line-through">30 min</span>
-<span class="text-2xl">→</span>
-<span class="text-green-400 font-bold text-xl">2 min</span>
-</div>
-<div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-green-500 to-green-400 w-[93%]"></div>
-</div>
-<div class="text-center text-green-300 font-bold">93% faster</div>
-<div class="text-xs text-gray-500 text-center">Instant root cause</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-4 p-3 bg-gradient-to-r from-green-600/30 to-green-800/30 rounded-xl border border-green-500/50 text-center">
-<div class="text-2xl font-bold text-green-300">346 minutes saved per sprint</div>
-<div class="text-sm text-gray-400 mt-1">That's nearly 6 hours of developer time recovered</div>
-</div>
-
----
-
-# 🧠 Key Insight
-
-<div class="flex flex-col items-center justify-center h-full space-y-6">
-
-<div class="text-2xl text-gray-300 text-center max-w-2xl">
-  Traditional thinking: Write detailed instructions and hope Copilot figures it out
-</div>
-
-<div class="text-3xl text-gray-400">↓</div>
-
-<div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg text-center max-w-2xl">
-  <div class="text-2xl font-bold text-white">
-    AI-native thinking: Create complete capabilities—instructions + scripts + examples + resources
-  </div>
-</div>
-
-<div class="mt-4 text-center text-base text-gray-400 italic">
-  Instructions = behavior guidelines | Skills = new capabilities
-</div>
 
 </div>
 
 ---
 
-# 📚 What Are Agent Skills?
+# 🔎 Skill Structure and Loading
 
-<div class="grid grid-cols-2 gap-8 mt-6">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Typical structure</div>
+    <div class="text-sm text-gray-300 space-y-2">
+      <div><code>.github/skills/build-pipeline-analyzer/</code></div>
+      <div class="pl-4">• <code>SKILL.md</code></div>
+      <div class="pl-4">• <code>scripts/</code></div>
+      <div class="pl-4">• <code>examples/</code></div>
+      <div class="pl-4">• <code>templates/</code> or schemas</div>
+    </div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Loading model</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Copilot sees the skill name and description first</li>
+      <li>• The body loads when the task matches</li>
+      <li>• Referenced resources load only on demand</li>
+      <li>• More skills can exist without bloating every session</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl font-bold text-white">Progressive loading is what makes many skills practical instead of expensive.</div>
+</div>
+
+---
+
+# ⚡ Why Scripts Matter
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Without scripts</div>
+    <div class="text-sm text-gray-300">A skill can explain a troubleshooting process, but it still depends on the user or agent to manually execute each diagnostic step.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">With scripts</div>
+    <div class="text-sm text-gray-300">A skill can bundle an executable helper that parses logs, validates schemas, or generates artifacts in a repeatable way.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 grid grid-cols-3 gap-5 text-left">
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">API skill</div>
+    <div class="text-sm text-gray-300">Examples and schemas teach exact endpoint shape.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Testing skill</div>
+    <div class="text-sm text-gray-300">Templates and examples teach consistent reproduction tests.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Build skill</div>
+    <div class="text-sm text-gray-300">A diagnostic script can turn a long log into a fast root-cause hypothesis.</div>
+  </div>
+</div>
+
+---
+
+# 🔄 Skills vs Instructions vs Prompts
+
+<div class="grid grid-cols-3 gap-5 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Instructions</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Best for behavior and standards</li>
+      <li>• Often always-on or path-scoped</li>
+      <li>• Tell Copilot how to work</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Prompts</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Best for repeated invocations</li>
+      <li>• Save and reuse strong request wording</li>
+      <li>• Turn common tasks into commands</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Skills</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Best for specialized capabilities</li>
+      <li>• Combine instructions with resources and scripts</li>
+      <li>• Teach complete workflows Copilot can apply</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-lg text-white font-semibold">Instructions guide behavior. Prompts package requests. Skills package capability.</div>
+</div>
+
+---
+layout: two-cols
+---
+
+# ❌ Before
+
+<div class="space-y-4 mt-6 text-left">
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Specialized work stays tribal</div>
+  <div class="text-sm text-gray-300">Schema checks, test patterns, and debugging approaches live in senior engineers’ heads or scattered files.</div>
+</div>
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Repetition is still expensive</div>
+  <div class="text-sm text-gray-300">The team repeatedly explains the same specialized workflow to Copilot or to each other.</div>
+</div>
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Diagnostic tasks start from scratch</div>
+  <div class="text-sm text-gray-300">Troubleshooting or generation work can be accurate, but it is not yet packaged for repeatable use.</div>
+</div>
+
+</div>
+
+::right::
+
+# ✨ After
+
+<div class="space-y-4 mt-6 text-left">
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Specialized expertise becomes accessible</div>
+  <div class="text-sm text-gray-300">The team can encode schemas, templates, examples, and scripts in a reusable capability package.</div>
+</div>
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Workflow quality gets more consistent</div>
+  <div class="text-sm text-gray-300">API generation, bug test writing, and build debugging start from better workflow defaults.</div>
+</div>
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Resource-backed tasks get faster</div>
+  <div class="text-sm text-gray-300">The combination of instructions plus executable or reference assets reduces repeated setup and guesswork.</div>
+</div>
+
+</div>
+
+---
+
+# 📊 What to Validate in the Workshop
+
+<div class="grid grid-cols-3 gap-5 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">Capability fit</div>
+    <div class="text-sm text-gray-300">Check whether the skill actually teaches the workflow, not just the language around it.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Resource usefulness</div>
+    <div class="text-sm text-gray-300">Validate that examples, templates, schemas, or scripts materially improve the output.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Time and rework saved</div>
+    <div class="text-sm text-gray-300">Compare specialized tasks with and without the skill package in place.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl font-bold text-white">A real skill changes the quality of work, not just the wording of the prompt.</div>
+</div>
+
+---
+
+# 🔨 Exercise Roadmap
+
+<div class="mt-6 text-left">
+
+<div class="mb-5">
+  <div class="text-blue-300 font-bold mb-2">Phase 1 — Encode domain rules and examples</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **4.1** | API Endpoint Design Skill | Sarah ⭐ | 12 min |
+
+</div>
+
+<div class="mb-5">
+  <div class="text-purple-300 font-bold mb-2">Phase 2 — Encode repeatable quality workflow</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **4.2** | Bug Reproduction Test Generator | Elena ⭐ | 10 min |
+
+</div>
 
 <div>
-  <h3 class="text-xl font-bold text-blue-300 mb-4">Structure</h3>
-  <div class="text-sm space-y-2 text-gray-300">
-    <div class="p-3 bg-gray-800 rounded">
-      <code>.github/skills/build-analyzer/</code>
-    </div>
-    <div class="pl-6 space-y-1">
-      <div class="p-2 bg-gray-800/60 rounded"><code>SKILL.md</code> — Instructions</div>
-      <div class="p-2 bg-orange-900/40 rounded border border-orange-500/30"><code>scripts/</code> — <span class="text-orange-300">Executable scripts</span></div>
-      <div class="p-2 bg-gray-800/60 rounded"><code>examples/</code> — Reference patterns</div>
-      <div class="p-2 bg-gray-800/60 rounded"><code>templates/</code> — Starting points</div>
-    </div>
-  </div>
-</div>
+  <div class="text-orange-300 font-bold mb-2">Phase 3 — Encode operational diagnosis</div>
 
-<div>
-  <h3 class="text-xl font-bold text-green-300 mb-4">Characteristics</h3>
-  <div class="space-y-2 text-sm">
-    <div class="p-3 bg-orange-900/30 rounded-lg flex items-start gap-2">
-      <span class="text-xl">⚡</span>
-      <div>
-        <div class="font-bold text-orange-200">Script Execution</div>
-        <div class="text-gray-400">Run scripts, not just read them</div>
-      </div>
-    </div>
-    <div class="p-3 bg-green-900/30 rounded-lg flex items-start gap-2">
-      <span class="text-xl">🔄</span>
-      <div>
-        <div class="font-bold text-green-200">Complete Workflows</div>
-        <div class="text-gray-400">Instructions + scripts + templates</div>
-      </div>
-    </div>
-    <div class="p-3 bg-blue-900/30 rounded-lg flex items-start gap-2">
-      <span class="text-xl">📊</span>
-      <div>
-        <div class="font-bold text-blue-200">Progressive Loading</div>
-        <div class="text-gray-400">3 levels: discovery → instructions → resources</div>
-      </div>
-    </div>
-    <div class="p-3 bg-purple-900/30 rounded-lg flex items-start gap-2">
-      <span class="text-xl">🌐</span>
-      <div>
-        <div class="font-bold text-purple-200">Portable Standard</div>
-        <div class="text-gray-400">Works across VS Code, CLI, coding agent</div>
-      </div>
-    </div>
-  </div>
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **4.3** | Build Pipeline Analyzer | Marcus ⭐ | 12 min |
+
 </div>
 
 </div>
 
----
-
-# ⚡ Script Execution: The Power Feature
-
-<div class="grid grid-cols-2 gap-6 mt-4">
-
-<div>
-<div class="text-lg font-bold text-orange-300 mb-4">Skills can run scripts!</div>
-<div class="p-4 bg-gray-800 rounded-lg text-sm space-y-2">
-<div class="text-gray-400 mb-2">Example skill structure:</div>
-<code class="text-green-300">.github/skills/build-analyzer/</code>
-<div class="pl-4 space-y-1 text-gray-300">
-<div>📄 SKILL.md</div>
-<div>📁 scripts/</div>
-<div class="pl-4">🔧 analyze-logs.sh</div>
-<div class="pl-4">🐍 parse-errors.py</div>
-</div>
-</div>
-
-<div class="mt-4 p-3 bg-orange-900/30 rounded-lg border border-orange-500/50 text-sm">
-<div class="font-bold text-orange-300">In SKILL.md:</div>
-<div class="text-gray-300 mt-1">"Run <code>./scripts/analyze-logs.sh</code> to diagnose the failure"</div>
-</div>
-</div>
-
-<div>
-<div class="text-lg font-bold text-purple-300 mb-4">Pre-approve with allowed-tools</div>
-<div class="p-4 bg-gray-900 rounded-lg text-sm font-mono">
-<div class="text-gray-500">---</div>
-<div><span class="text-blue-400">name:</span> build-analyzer</div>
-<div><span class="text-blue-400">description:</span> Diagnose CI/CD failures</div>
-<div><span class="text-yellow-400">allowed-tools:</span> <span class="text-green-300">Bash(./scripts/*) Bash(gh:*)</span></div>
-<div class="text-gray-500">---</div>
-</div>
-
-<div class="mt-4 space-y-2 text-sm">
-<div class="flex items-center gap-2">
-<span class="text-green-400">✓</span>
-<span class="text-gray-300"><code>Bash(git:*)</code> — all git commands</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="text-green-400">✓</span>
-<span class="text-gray-300"><code>Bash(./scripts/*)</code> — skill's scripts</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="text-green-400">✓</span>
-<span class="text-gray-300"><code>Read</code> — file reading</span>
-</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-4 p-3 bg-gradient-to-r from-orange-600/30 to-purple-600/30 rounded-xl border border-orange-500/30 text-center">
-<div class="text-lg">📝 Instructions tell Copilot <span class="text-blue-300">what to do</span> → ⚡ Scripts let Copilot <span class="text-orange-300">actually do it</span></div>
-</div>
-
----
-
-# 📊 Three-Level Loading System
-
-<div class="flex flex-col items-center gap-4 mt-8">
-
-<div class="w-full max-w-4xl">
-  <div class="grid grid-cols-3 gap-4">
-    <div class="p-4 bg-blue-900/60 rounded-lg border-2 border-blue-400">
-      <div class="text-2xl mb-2">1️⃣</div>
-      <div class="font-bold text-blue-200 mb-2">Discovery</div>
-      <div class="text-xs text-gray-300">
-        Copilot reads <code>name</code> and <code>description</code> from YAML frontmatter
-      </div>
-      <div class="mt-2 text-xs text-blue-300">Always loaded (lightweight)</div>
-    </div>
-    <div class="p-4 bg-green-900/60 rounded-lg border-2 border-green-400">
-      <div class="text-2xl mb-2">2️⃣</div>
-      <div class="font-bold text-green-200 mb-2">Instructions</div>
-      <div class="text-xs text-gray-300">
-        Loads <code>SKILL.md</code> body when task matches description
-      </div>
-      <div class="mt-2 text-xs text-green-300">Loaded when relevant</div>
-    </div>
-    <div class="p-4 bg-purple-900/60 rounded-lg border-2 border-purple-400">
-      <div class="text-2xl mb-2">3️⃣</div>
-      <div class="font-bold text-purple-200 mb-2">Resources</div>
-      <div class="text-xs text-gray-300">
-        Accesses scripts, examples, templates only as needed
-      </div>
-      <div class="mt-2 text-xs text-purple-300">Loaded on-demand</div>
-    </div>
-
-  </div>
-</div>
-
-<div class="text-3xl text-gray-400 my-2">↓</div>
-
-<div class="p-6 bg-gradient-to-r from-green-600 to-green-800 rounded-xl shadow-lg text-center max-w-2xl">
-  <div class="text-xl font-bold text-white">
-    Install 20+ skills, only 1-2 load per task → 65-80% context saved
-  </div>
-</div>
-
-</div>
-
----
-
-# 🔄 Skills vs Instructions
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-
-<div class="rounded-xl border-2 border-blue-500/50 overflow-hidden">
-<div class="bg-blue-900/60 p-3 text-center border-b border-blue-500/30">
-<div class="text-lg font-bold text-blue-200">copilot-instructions.md</div>
-<div class="text-xs text-blue-400">Module 1</div>
-</div>
-<div class="p-4 space-y-3 text-sm">
-<div class="flex items-center gap-2"><span class="text-blue-400">📍</span> Repository-wide</div>
-<div class="flex items-center gap-2"><span class="text-blue-400">⚡</span> Always active</div>
-<div class="flex items-center gap-2"><span class="text-blue-400">📄</span> Instructions only</div>
-<div class="mt-3 p-2 bg-gray-800/60 rounded text-xs text-gray-400 italic">"Use functional React components"</div>
-</div>
-</div>
-
-<div class="rounded-xl border-2 border-green-500/50 overflow-hidden">
-<div class="bg-green-900/60 p-3 text-center border-b border-green-500/30">
-<div class="text-lg font-bold text-green-200">.instructions.md</div>
-<div class="text-xs text-green-400">Module 4</div>
-</div>
-<div class="p-4 space-y-3 text-sm">
-<div class="flex items-center gap-2"><span class="text-green-400">📂</span> Path-based</div>
-<div class="flex items-center gap-2"><span class="text-green-400">⚡</span> Auto-applied by file</div>
-<div class="flex items-center gap-2"><span class="text-green-400">📄</span> Instructions only</div>
-<div class="mt-3 p-2 bg-gray-800/60 rounded text-xs text-gray-400 italic">"Frontend: Follow UI patterns"</div>
-</div>
-</div>
-
-<div class="rounded-xl border-2 border-purple-500/50 overflow-hidden bg-purple-900/20">
-<div class="bg-purple-900/60 p-3 text-center border-b border-purple-500/30">
-<div class="text-lg font-bold text-purple-200">Agent Skills</div>
-<div class="text-xs text-purple-400">Module 5 ⭐</div>
-</div>
-<div class="p-4 space-y-3 text-sm">
-<div class="flex items-center gap-2"><span class="text-purple-400">🎯</span> Task-based</div>
-<div class="flex items-center gap-2"><span class="text-purple-400">⚡</span> Auto-loaded by match</div>
-<div class="flex items-center gap-2"><span class="text-purple-400">📦</span> Instructions + scripts + examples</div>
-<div class="mt-3 p-2 bg-gray-800/60 rounded text-xs text-gray-400 italic">"Debug Actions with log analyzer"</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-blue-600/30 via-green-600/30 to-purple-600/30 rounded-xl border border-gray-600 text-center">
-<div class="text-lg font-bold">📝 Instructions guide <span class="text-blue-300">behavior</span> → 🎓 Skills teach <span class="text-purple-300">capabilities</span></div>
-</div>
-
----
-
-# 🔨 Exercises
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-
-<div class="rounded-xl overflow-hidden border border-blue-500/50 hover:border-blue-400 transition-colors">
-<div class="bg-gradient-to-r from-blue-900 to-blue-800 p-4">
-<div class="flex justify-between items-start">
-<div class="text-3xl">🎨</div>
-<div class="px-2 py-1 bg-blue-600 rounded text-xs">10 min</div>
-</div>
-<div class="text-lg font-bold mt-2">5.1 API Design Skill</div>
-<div class="text-xs text-blue-300">Sarah ⭐ leads</div>
-</div>
-<div class="p-4 text-sm space-y-2">
-<div class="text-gray-300">Create skill with OpenAPI schema + example endpoints</div>
-<div class="flex items-center gap-2 mt-3">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs font-bold">83% faster</span>
-</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-green-500/50 hover:border-green-400 transition-colors">
-<div class="bg-gradient-to-r from-green-900 to-green-800 p-4">
-<div class="flex justify-between items-start">
-<div class="text-3xl">🧪</div>
-<div class="px-2 py-1 bg-green-600 rounded text-xs">10 min</div>
-</div>
-<div class="text-lg font-bold mt-2">5.2 Bug Test Generator</div>
-<div class="text-xs text-green-300">Elena ⭐ leads</div>
-</div>
-<div class="p-4 text-sm space-y-2">
-<div class="text-gray-300">Create skill with Jest template + edge case patterns</div>
-<div class="flex items-center gap-2 mt-3">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs font-bold">84% faster</span>
-</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-purple-500/50 hover:border-purple-400 transition-colors">
-<div class="bg-gradient-to-r from-purple-900 to-purple-800 p-4">
-<div class="flex justify-between items-start">
-<div class="text-3xl">⚙️</div>
-<div class="px-2 py-1 bg-purple-600 rounded text-xs">10 min</div>
-</div>
-<div class="text-lg font-bold mt-2">5.3 Pipeline Analyzer</div>
-<div class="text-xs text-purple-300">Marcus ⭐ leads</div>
-</div>
-<div class="p-4 text-sm space-y-2">
-<div class="text-gray-300">Create skill with diagnostic script + log patterns</div>
-<div class="flex items-center gap-2 mt-3">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs font-bold">93% faster</span>
-</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 text-center text-gray-400">
-<span class="text-2xl">⏰</span> Total: <span class="text-white font-bold">30 minutes</span> of hands-on practice
-</div>
-
----
-
-# 💭 Persona Transformations
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-<div class="space-y-4">
-  <div class="p-4 bg-gradient-to-r from-red-900/40 to-gray-800 rounded-lg">
-    <div class="text-red-400 font-bold mb-2">😰 David's Fear</div>
-    <div class="text-sm text-gray-300">
-      "Instructions can't teach domain-specific validation workflows"
-    </div>
-  </div>
-
-  <div class="p-4 bg-gradient-to-r from-red-900/40 to-gray-800 rounded-lg">
-    <div class="text-red-400 font-bold mb-2">😰 Elena's Worry</div>
-    <div class="text-sm text-gray-300">
-      "Generic test generation misses our specific mocking patterns"
-    </div>
-  </div>
-
-  <div class="p-4 bg-gradient-to-r from-red-900/40 to-gray-800 rounded-lg">
-    <div class="text-red-400 font-bold mb-2">😰 Marcus's Concern</div>
-    <div class="text-sm text-gray-300">
-      "Debugging build failures requires specialized diagnostic scripts"
-    </div>
-  </div>
-</div>
-
-<div class="space-y-4">
-  <div class="p-4 bg-gradient-to-r from-green-900/60 to-gray-800 rounded-lg">
-    <div class="text-green-300 font-bold mb-2">✨ David's Realization</div>
-    <div class="text-sm text-gray-300">
-      "Skills combine instructions with actual schemas and examples—Copilot validates correctly every time"
-    </div>
-  </div>
-
-  <div class="p-4 bg-gradient-to-r from-green-900/60 to-gray-800 rounded-lg">
-    <div class="text-green-300 font-bold mb-2">✨ Elena's Discovery</div>
-    <div class="text-sm text-gray-300">
-      "Test generator skill includes our templates and edge case examples—100% coverage, 84% time saved"
-    </div>
-  </div>
-
-  <div class="p-4 bg-gradient-to-r from-green-900/60 to-gray-800 rounded-lg">
-    <div class="text-green-300 font-bold mb-2">✨ Marcus's Insight</div>
-    <div class="text-sm text-gray-300">
-      "Pipeline analyzer skill with diagnostic script reduced 30-min debugging to 2 minutes"
-    </div>
-  </div>
-</div>
-
-</div>
-
----
-
-# 📊 Success Metrics
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-<div class="p-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg text-center">
-  <div class="text-4xl font-bold text-white mb-2">83%</div>
-  <div class="text-sm text-blue-200">Time saved on API endpoint design</div>
-  <div class="text-xs text-gray-400 mt-2">(12 min → 2 min)</div>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-green-900 to-green-800 rounded-lg text-center">
-  <div class="text-4xl font-bold text-white mb-2">84%</div>
-  <div class="text-sm text-green-200">Time saved on bug test generation</div>
-  <div class="text-xs text-gray-400 mt-2">(25 min → 4 min)</div>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-purple-900 to-purple-800 rounded-lg text-center">
-  <div class="text-4xl font-bold text-white mb-2">93%</div>
-  <div class="text-sm text-purple-200">Time saved on build debugging</div>
-  <div class="text-xs text-gray-400 mt-2">(30 min → 2 min)</div>
-</div>
-
-</div>
-
-<div class="mt-8 text-center">
-  <div class="text-2xl font-bold text-white">346 minutes saved per sprint</div>
-  <div class="text-sm text-gray-400 mt-2">Across 3 specialized workflow types</div>
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-green-600 to-green-800 rounded-xl shadow-lg text-center">
-  <div class="text-lg font-bold text-white">
-    Skills teach specialized capabilities that compound with every use
-  </div>
+<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
+  <div class="text-white font-semibold">The progression is capability-first.</div>
+  <div class="text-sm text-gray-300">Teach the schema workflow, then the testing workflow, then the debugging workflow.</div>
 </div>
 
 ---
 
 # 🔗 Compounding Value
 
-<div class="space-y-4 mt-6">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-<div class="flex items-center gap-4">
-  <div class="flex-shrink-0 w-32 p-3 bg-blue-900/60 rounded text-center text-sm font-bold text-blue-200">Module 1</div>
-  <div class="text-gray-400">→</div>
-  <div class="flex-1 text-sm text-gray-300">Repository instructions set coding standards</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">What Module 4 adds</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Reusable capability packages</li>
+      <li>• Better use of examples, schemas, and templates</li>
+      <li>• The option to pair workflow instructions with scripts</li>
+      <li>• More specialized help than prompts or instructions alone can offer</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• <strong>Module 5:</strong> MCP servers extend this from static resources to live integrations</li>
+      <li>• <strong>Module 6:</strong> custom agents become more powerful when they can rely on packaged domain workflows</li>
+    </ul>
+  </div>
+
 </div>
 
-<div class="flex items-center gap-4">
-  <div class="flex-shrink-0 w-32 p-3 bg-green-900/60 rounded text-center text-sm font-bold text-green-200">Module 4</div>
-  <div class="text-gray-400">→</div>
-  <div class="flex-1 text-sm text-gray-300">Custom instructions apply path-based context</div>
-</div>
-
-<div class="flex items-center gap-4">
-  <div class="flex-shrink-0 w-32 p-3 bg-purple-900/60 rounded text-center text-sm font-bold text-purple-200">Module 5</div>
-  <div class="text-gray-400">→</div>
-  <div class="flex-1 text-sm text-gray-300">Agent skills teach specialized workflows with scripts + examples</div>
-</div>
-
-<div class="text-3xl text-center text-gray-400 my-3">↓</div>
-
-<div class="p-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-center">
-  <div class="text-xl font-bold text-white mb-2">Copilot becomes a domain specialist</div>
-  <div class="text-sm text-gray-200">Standards + Context + Specialized Capabilities = Expert-level assistance</div>
-</div>
-
+<div class="mt-8 text-center text-lg text-yellow-300">
+  Skills compound because every future agent or integration can stand on a stronger, more specific workflow foundation.
 </div>
 
 ---
 
-# ➡️ Next Up: MCP Servers
+# ✅ Module Checklist
 
-<div class="flex items-center justify-center h-full">
-<div class="max-w-3xl space-y-5">
+<div class="grid grid-cols-3 gap-5 mt-8 text-left text-sm">
 
-<div class="text-center text-xl text-gray-300">
-Skills teach Copilot specialized workflows with static resources...
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Define</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Create a skill folder with a clear name</li>
+      <li>• Write a <code>SKILL.md</code> that explains when and how to use it</li>
+      <li>• Make the description specific enough to match the right tasks</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Package</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Add the resources the workflow actually needs</li>
+      <li>• Include examples, templates, schemas, or scripts where helpful</li>
+      <li>• Keep the package focused on one teachable capability</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Validate</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Test whether the skill improves output quality and speed</li>
+      <li>• Confirm the right resources are being used</li>
+      <li>• Refine the skill until the workflow feels genuinely reusable</li>
+    </ul>
+  </div>
+
 </div>
 
-<div class="text-4xl text-center text-gray-400">↓</div>
-
-<div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl text-center">
-<div class="text-2xl font-bold text-white mb-3">
-What if you need runtime integration with live data?
-</div>
-<div class="text-base text-blue-100">
-MCP servers connect Copilot to databases, APIs, and cloud platforms
-</div>
-</div>
-
-<div class="mt-6 p-4 bg-gray-800 rounded-lg border-l-4 border-purple-500">
-<div class="text-sm italic text-gray-300">
-"Skills taught Copilot how to validate against our API schema. But the schema is static. What if I need Copilot to query our actual PostgreSQL database or call our live TV show API?"
-</div>
-<div class="text-xs text-gray-500 mt-2">— Marcus, about to discover MCP servers</div>
-</div>
-
-</div>
+<div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-lg text-white font-semibold">The finish line is not “we wrote a skill folder.”</div>
+  <div class="text-sm text-gray-300">The finish line is “Copilot can now perform a specialized workflow with better speed and reliability.”</div>
 </div>
 
 ---
 layout: center
-class: text-center
 ---
 
-# ✅ Module 5 Complete
+# ➡️ Next Up: Module 5
 
-<div class="mt-8 space-y-6">
-
-<div class="text-2xl text-gray-300">You've learned to teach Copilot specialized capabilities</div>
-
-<div class="flex justify-center gap-8 mt-8">
-<div class="text-center">
-<div class="text-4xl font-bold text-blue-400">3</div>
-<div class="text-sm text-gray-500">Skills Created</div>
-</div>
-<div class="text-center">
-<div class="text-4xl font-bold text-green-400">346</div>
-<div class="text-sm text-gray-500">Min Saved/Sprint</div>
-</div>
-<div class="text-center">
-<div class="text-4xl font-bold text-purple-400">87%</div>
-<div class="text-sm text-gray-500">Avg Time Saved</div>
-</div>
-</div>
-
-<div class="mt-8 p-4 bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-xl border border-purple-500/30 max-w-xl mx-auto">
-<div class="text-lg">
-<span class="text-purple-300">Next:</span> Module 6 - MCP Servers
-</div>
-<div class="text-sm text-gray-400 mt-1">Connect Copilot to live databases, APIs, and cloud platforms</div>
+<div class="p-8 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-xl shadow-lg max-w-3xl">
+  <div class="text-5xl mb-4 text-center">🔌</div>
+  <h2 class="text-3xl text-center text-white font-bold mb-4">
+    MCP Servers
+  </h2>
+  <div class="text-lg text-center text-purple-200 mb-6">
+    Move from static resources to live integrations
+  </div>
+  <div class="text-base text-gray-300 text-center mb-4">
+    Skills are powerful, but their resources are still packaged with the repo. Next, the team connects Copilot to live systems and external tools.
+  </div>
+  <blockquote class="text-lg text-center text-white italic">
+    "The skill knows the workflow. What if Copilot could also query the real system while it works?"
+  </blockquote>
+  <div class="mt-4 text-center text-purple-300">
+    Module 4 complete — ready for runtime integrations.
+  </div>
 </div>
 
+---
+layout: center
+---
+
+# 🔨 Exercise Section
+
+<div class="p-8 bg-gradient-to-br from-orange-900/40 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 max-w-4xl mx-auto">
+  <div class="text-5xl mb-4">🧪</div>
+  <div class="text-2xl text-white font-bold mb-3">One slide per exercise</div>
+  <div class="text-base text-gray-300 mb-4">
+    Use these as facilitation prompts during delivery. The detailed exercise markdown remains the source of truth.
+  </div>
+  <div class="text-sm text-gray-400">
+    Package the workflow, attach the resources, then prove the capability is real.
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 4.1 — API Endpoint Design Skill
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/30">Lead: Sarah ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 12 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">General REST knowledge is not enough to generate endpoints that match FanHub’s specific schema and validation expectations.</div>
+    <div class="text-blue-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Create a skill that combines endpoint guidance, schema references, and example endpoints so Copilot can generate compliant APIs more reliably.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Create the skill folder and <code>SKILL.md</code></li>
+      <li>• Add schema and endpoint example resources</li>
+      <li>• Validate that generated endpoints follow the expected contract</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• The skill references the right schema and examples</li>
+      <li>• Endpoint generation is faster and more consistent</li>
+      <li>• Schema mismatches are reduced before review</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 4.2 — Bug Reproduction Test Generator
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30">Lead: Elena ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 10 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Bug reproduction tests still start from scratch, which leads to inconsistent structure, missed edge cases, and repeated setup work.</div>
+    <div class="text-purple-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Create a skill that packages templates, examples, and mocking patterns for reproducible, higher-quality bug tests.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Add a test template and edge-case examples</li>
+      <li>• Use the skill to generate a reproduction test from a bug description</li>
+      <li>• Compare the generated result to the previous manual workflow</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Test structure is more consistent</li>
+      <li>• Edge-case coverage improves</li>
+      <li>• Reproduction tests are faster to generate and easier to review</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 4.3 — Build Pipeline Analyzer
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-orange-900/50 text-orange-300 border border-orange-500/30">Lead: Marcus ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 12 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Build failures consume time because the team has to rediscover the same log patterns and troubleshooting flow every time.</div>
+    <div class="text-orange-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Create a skill that combines diagnostic instructions, log-pattern examples, and a script to speed up root-cause analysis.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Add the analyzer script and failure-pattern resources</li>
+      <li>• Use the skill against a representative build failure</li>
+      <li>• Check whether the diagnosis is faster and more specific than the manual path</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• The script and examples support faster diagnosis</li>
+      <li>• Root-cause identification is more reliable</li>
+      <li>• Build troubleshooting becomes a repeatable workflow instead of improvisation</li>
+    </ul>
+  </div>
 </div>

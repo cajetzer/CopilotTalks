@@ -5,7 +5,7 @@ highlighter: shiki
 lineNumbers: false
 info: |
   ## Module 2: Agent Plan Mode
-  CopilotTraining Training - From Complexity to Clarity
+  Research first, validate second, implement with confidence
 drawings:
   persist: false
 transition: slide-left
@@ -13,17 +13,13 @@ title: Module 2 - Agent Plan Mode
 module: workshop/02-agent-plan-mode
 mdc: true
 status: active
-updated: 2026-02-06
+updated: 2026-03-24
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <!-- Gradient background -->
   <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-
-  <!-- Glowing orb -->
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
 
-  <!-- Logo with glow -->
   <div class="relative z-10">
     <div class="absolute inset-0 blur-2xl opacity-50">
       <img src="./sdp-logo.png" class="w-72" alt="" />
@@ -31,152 +27,169 @@ updated: 2026-02-06
     <img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
   </div>
 
-  <!-- Title -->
   <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
     Module 2: Agent Plan Mode
   </h1>
 
-  <!-- Subtitle -->
   <div class="mt-4 relative z-10">
     <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-      ⏰ The Complexity Problem
+      ⏰ Research before code
     </span>
   </div>
 
-  <!-- Quote -->
-  <div class="mt-8 text-lg opacity-60 max-w-xl italic relative z-10">
-    "We have the foundation, but now I need to implement the character detail page. Where do I even start?"
-  </div>
-  <div class="mt-2 text-sm opacity-40 relative z-10">— Marcus, DevOps Developer</div>
-
-  <!-- Decorative line -->
-  <div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
-</div>
-
----
-
-# 📖 The Challenge
-
-<div class="grid grid-cols-1 gap-6 mt-8">
-
-<div class="p-6 bg-gradient-to-r from-red-900/40 to-gray-800 rounded-lg">
-  <div class="text-3xl mb-3">😰</div>
-  <div class="text-xl font-bold text-white mb-3">Complex Multi-File Features</div>
-  <div class="text-gray-300 text-sm leading-relaxed">
-    Features that span frontend, backend, and database layers—6+ files with unclear dependencies, missing requirements, and integration conflicts waiting to happen.
-  </div>
-</div>
-
-<div class="p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg border-l-4 border-purple-500">
-<div class="text-lg font-bold text-purple-300 mb-2">The Traditional Approach</div>
-<div class="text-gray-400 text-sm space-y-1">
-<div>1. Read feature requirements</div>
-<div>2. Start coding</div>
-<div>3. Realize you missed dependencies</div>
-<div>4. Refactor or start over</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 text-center text-gray-400 text-sm">
-Result: Wasted time, missed requirements, conflicts in PR review
-</div>
-
----
-
-# 🧠 Mindful Moment
-
-<div class="flex flex-col items-center justify-center h-full">
-
-<div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg max-w-4xl">
-  <div class="text-2xl font-bold text-white mb-3 text-center">
-    From Implementation to Orchestration
+  <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
+    "The problem is not writing the code. The problem is knowing what to change, in what order, and why."
   </div>
 
-  <div class="grid grid-cols-2 gap-6 text-sm">
-<div class="space-y-2">
-<div class="font-bold text-red-300">Traditional Thinking:</div>
-<div class="text-white italic">"I need to figure out all the steps before I start coding."</div>
+  <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 </div>
 
-<div class="space-y-2">
-<div class="font-bold text-green-300">AI-Native Thinking:</div>
-<div class="text-white italic">"AI can research my codebase and propose a plan—I validate the architecture, then execute."</div>
-</div>
-</div>
+---
+
+# 📖 Story So Far
+
+<div class="grid grid-cols-3 gap-5 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-3xl mb-3">🧱</div>
+    <div class="text-lg font-bold text-orange-300 mb-2">Module 0 exposed the mess</div>
+    <div class="text-sm text-gray-300">The team felt what it is like to work with weak context and inconsistent defaults.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-3xl mb-3">📚</div>
+    <div class="text-lg font-bold text-blue-300 mb-2">Module 1 created the foundation</div>
+    <div class="text-sm text-gray-300">Architecture docs and repository instructions gave Copilot better structural and behavioral context.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-3xl mb-3">🧩</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">Module 2 tackles complexity</div>
+    <div class="text-sm text-gray-300">Now the challenge is planning a feature that spans frontend, backend, database, tests, and review concerns.</div>
+  </div>
+
 </div>
 
-<div class="mt-2 text-center text-sm text-gray-400 italic max-w-3xl">
-This isn't about letting AI make decisions for you. It's about using AI to do comprehensive analysis so you can focus on what requires human judgment.
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl text-white font-semibold mb-2">Plan mode turns “Where do I start?” into a reviewable roadmap.</div>
+  <div class="text-sm text-gray-300">It separates research from implementation so the team can validate the approach before code starts landing.</div>
 </div>
+
+---
+
+# 🎯 What You'll Build
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-2xl mb-3">📄</div>
+    <div class="text-lg font-bold text-orange-300 mb-2">A feature plan</div>
+    <div class="text-sm text-gray-300">A research-backed implementation roadmap for the character detail experience.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-2xl mb-3">🔍</div>
+    <div class="text-lg font-bold text-blue-300 mb-2">A validation loop</div>
+    <div class="text-sm text-gray-300">Architectural, testing, and standards review before implementation begins.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-2xl mb-3">🔄</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">A refined plan</div>
+    <div class="text-sm text-gray-300">A second pass that closes gaps, adds edge cases, and makes the roadmap safer to execute.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
+    <div class="text-2xl mb-3">🚀</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">A cleaner execution path</div>
+    <div class="text-sm text-gray-300">Implementation with less guesswork, clearer sequencing, and fewer avoidable conflicts.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 text-center text-lg text-gray-300">
+  The real output is not “a plan document.” The real output is better implementation judgment under pressure.
+</div>
+
+---
+
+# 📚 What Plan Mode Actually Does
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Researches read-only first</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Reads the codebase, docs, and existing patterns</li>
+      <li>• Maps dependencies and likely file touch points</li>
+      <li>• Surfaces assumptions and open questions</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Produces a reviewable draft</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Summary of the approach</li>
+      <li>• Ordered implementation steps</li>
+      <li>• Dependencies and unresolved questions</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Builds on Module 1</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Uses your architecture context</li>
+      <li>• Follows your documented conventions</li>
+      <li>• Starts from a better baseline than generic code search</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Still needs human judgment</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Edge cases</li>
+      <li>• Architecture tradeoffs</li>
+      <li>• Testing completeness and rollout decisions</li>
+    </ul>
+  </div>
 
 </div>
 
 ---
 
-# 🎯 What You'll Learn
+# 🔗 The Plan-First Workflow
 
-<div class="grid grid-cols-1 gap-4 mt-8 text-sm">
+<div class="flex flex-col items-center gap-4 mt-8 text-center">
 
-<div class="p-4 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-  <div class="font-bold text-blue-300 mb-2">📋 Separate Research from Implementation</div>
-  <div class="text-gray-300">Let plan agent analyze your codebase comprehensively before proposing changes</div>
-</div>
+  <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
+    <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+      <div class="text-3xl mb-2">🔍</div>
+      <div class="text-blue-300 font-bold mb-2">Research</div>
+      <div class="text-sm text-gray-300">Ask plan mode to map the work before touching code.</div>
+    </div>
 
-<div class="p-4 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-  <div class="font-bold text-blue-300 mb-2">✅ Validate AI-Generated Plans</div>
-  <div class="text-gray-300">Review implementation steps with your expertise to catch edge cases and architectural issues</div>
-</div>
+    <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+      <div class="text-3xl mb-2">👀</div>
+      <div class="text-purple-300 font-bold mb-2">Review</div>
+      <div class="text-sm text-gray-300">Read the proposed steps like a design review, not a final answer.</div>
+    </div>
 
-<div class="p-4 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-  <div class="font-bold text-blue-300 mb-2">🚀 Execute with Confidence</div>
-  <div class="text-gray-300">Implement validated plans knowing dependencies are mapped and scope is clear</div>
-</div>
+    <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+      <div class="text-3xl mb-2">🔄</div>
+      <div class="text-orange-300 font-bold mb-2">Refine</div>
+      <div class="text-sm text-gray-300">Add missing requirements, edge cases, tests, and constraints.</div>
+    </div>
 
-<div class="p-4 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-  <div class="font-bold text-blue-300 mb-2">📊 Measure Real Impact</div>
-  <div class="text-gray-300">Track time saved, conflicts avoided, and review cycles reduced</div>
-</div>
+    <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
+      <div class="text-3xl mb-2">✅</div>
+      <div class="text-purple-300 font-bold mb-2">Execute</div>
+      <div class="text-sm text-gray-300">Implement from a clearer roadmap with less thrash.</div>
+    </div>
+  </div>
 
-</div>
-
-<div class="mt-6 text-center">
-  <span class="text-gray-400 text-sm">⏱️ Time: ~25 minutes | 🔨 Exercises: 3</span>
-</div>
-
----
-
-# 👥 Meet the Team
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-<div class="p-5 bg-gradient-to-br from-blue-900/50 to-blue-800/30 rounded-lg border-2 border-blue-500">
-  <div class="text-4xl mb-3 text-center">👨‍💼</div>
-  <h3 class="text-lg font-bold text-blue-300 text-center">Marcus</h3>
-  <p class="text-xs text-blue-200 text-center mb-3">DevOps Developer · 5 years</p>
-  <blockquote class="text-xs italic text-gray-300">
-    "Where do I even start with this complex feature?"
-  </blockquote>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-lg border-2 border-purple-500">
-  <div class="text-4xl mb-3 text-center">🏛️</div>
-  <h3 class="text-lg font-bold text-purple-300 text-center">David</h3>
-  <p class="text-xs text-purple-200 text-center mb-3">Staff Engineer · 20 years</p>
-  <blockquote class="text-xs italic text-gray-300">
-    "Will AI plans miss the edge cases my experience catches?"
-  </blockquote>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-green-900/50 to-green-800/30 rounded-lg border-2 border-green-500">
-  <div class="text-4xl mb-3 text-center">👩‍🔬</div>
-  <h3 class="text-lg font-bold text-green-300 text-center">Sarah</h3>
-  <p class="text-xs text-green-200 text-center mb-3">Senior Developer · 15 years</p>
-  <blockquote class="text-xs italic text-gray-300">
-    "Show me the time saved and conflicts avoided—then I'm convinced."
-  </blockquote>
-</div>
+  <div class="mt-4 p-5 w-full max-w-4xl rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10">
+    <div class="text-xl font-bold text-white">The point is not to avoid thinking. The point is to move your thinking earlier.</div>
+  </div>
 
 </div>
 
@@ -184,443 +197,359 @@ This isn't about letting AI make decisions for you. It's about using AI to do co
 layout: two-cols
 ---
 
-# ❌ The "Before"
+# ❌ Before
 
-<div class="space-y-4 mt-6">
+<div class="space-y-4 mt-6 text-left">
 
-<div class="p-4 bg-red-50 dark:bg-red-900/30 rounded-lg">
-  <div class="font-bold text-red-600 dark:text-red-400 mb-2">⏱️ Manual Analysis</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">35 minutes analyzing codebase, tracing dependencies, mapping file relationships</div>
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Manual analysis eats time</div>
+  <div class="text-sm text-gray-300">Developers spend 30+ minutes tracing files, imports, and dependencies before making the first change.</div>
 </div>
 
-<div class="p-4 bg-red-50 dark:bg-red-900/30 rounded-lg">
-  <div class="font-bold text-red-600 dark:text-red-400 mb-2">🐛 Missed Dependencies</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">5 missed dependencies per sprint causing integration conflicts</div>
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Missing dependencies surface late</div>
+  <div class="text-sm text-gray-300">Architecture gaps often show up during implementation or PR review instead of during planning.</div>
 </div>
 
-<div class="p-4 bg-red-50 dark:bg-red-900/30 rounded-lg">
-  <div class="font-bold text-red-600 dark:text-red-400 mb-2">🔄 Multiple Review Cycles</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">3 architectural issues per plan, 2 review rounds to fix</div>
-</div>
-
-<div class="p-4 bg-red-50 dark:bg-red-900/30 rounded-lg">
-  <div class="font-bold text-red-600 dark:text-red-400 mb-2">🧩 Integration Debugging</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">25 minutes debugging integration issues, 40% test coverage gaps</div>
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Tests and edge cases get bolted on</div>
+  <div class="text-sm text-gray-300">The happy path gets planned first, while quality and failure modes show up as cleanup work later.</div>
 </div>
 
 </div>
 
 ::right::
 
-# ✨ The "After"
+# ✨ After
 
-<div class="space-y-4 mt-6">
+<div class="space-y-4 mt-6 text-left">
 
-<div class="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
-  <div class="font-bold text-green-600 dark:text-green-400 mb-2">⚡ AI-Powered Research</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">7 minutes with plan agent analyzing codebase comprehensively</div>
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Research starts faster</div>
+  <div class="text-sm text-gray-300">A complex feature can move from manual exploration toward a draft plan in minutes instead of half an hour.</div>
 </div>
 
-<div class="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
-  <div class="font-bold text-green-600 dark:text-green-400 mb-2">✅ Complete Mapping</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">1 or fewer missed dependencies—AI catches what humans forget</div>
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Review happens before implementation</div>
+  <div class="text-sm text-gray-300">Architectural issues, missing tests, and unclear requirements get challenged while the work is still cheap to change.</div>
 </div>
 
-<div class="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
-  <div class="font-bold text-green-600 dark:text-green-400 mb-2">🎯 Validated Plans</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">0 architectural issues after review, 1 review cycle</div>
-</div>
-
-<div class="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
-  <div class="font-bold text-green-600 dark:text-green-400 mb-2">🚀 Clean Execution</div>
-  <div class="text-sm text-gray-700 dark:text-gray-300">5 minutes debugging, 85% initial test coverage</div>
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Execution gets calmer</div>
+  <div class="text-sm text-gray-300">The team codes against a validated roadmap instead of rediscovering the plan in the middle of implementation.</div>
 </div>
 
 </div>
 
 ---
 
-# 💡 Understanding the Plan Agent
+# ✅ What Good Plan Output Looks Like
 
-<div class="mt-6 space-y-4">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-<div class="p-5 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-<div class="grid grid-cols-12 gap-4">
-<div class="col-span-2 text-4xl text-center">🔍</div>
-<div class="col-span-10">
-<div class="font-bold text-blue-300 mb-1">Analyzes Comprehensively</div>
-<div class="text-gray-300 text-sm">Uses read-only tools—no code changes until you approve</div>
-</div>
-</div>
-</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">A strong draft includes</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• A clear task summary</li>
+      <li>• Ordered implementation steps</li>
+      <li>• Specific file paths or system areas</li>
+      <li>• Dependencies and open questions</li>
+    </ul>
+  </div>
 
-<div class="p-5 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-<div class="grid grid-cols-12 gap-4">
-<div class="col-span-2 text-4xl text-center">🧩</div>
-<div class="col-span-10">
-<div class="font-bold text-blue-300 mb-1">Breaks Down Complexity</div>
-<div class="text-gray-300 text-sm">Sequences steps with clear dependencies and rationale</div>
-</div>
-</div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-<div class="grid grid-cols-12 gap-4">
-<div class="col-span-2 text-4xl text-center">❓</div>
-<div class="col-span-10">
-<div class="font-bold text-blue-300 mb-1">Identifies Open Questions</div>
-<div class="text-gray-300 text-sm">Surfaces ambiguities that need clarification before coding</div>
-</div>
-</div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-<div class="grid grid-cols-12 gap-4">
-<div class="col-span-2 text-4xl text-center">🏗️</div>
-<div class="col-span-10">
-<div class="font-bold text-blue-300 mb-1">Respects Your Architecture</div>
-<div class="text-gray-300 text-sm">References ARCHITECTURE.md and copilot-instructions.md automatically</div>
-</div>
-</div>
-</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">A strong review checks</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Error handling and edge cases</li>
+      <li>• Architectural fit and existing patterns</li>
+      <li>• Test coverage and affected test files</li>
+      <li>• Scope assumptions that need clarification</li>
+    </ul>
+  </div>
 
 </div>
 
-<div class="mt-4 text-center text-sm text-gray-400 italic">
-Think of the plan agent as your research assistant who maps the terrain before you start building.
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-lg text-white font-semibold">Good plan mode output is specific enough to challenge and simple enough to refine.</div>
 </div>
 
 ---
 
-# 🔄 The Plan-First Workflow
+# 📊 What to Validate in the Workshop
 
-<div class="flex flex-col items-center gap-4 mt-6">
+<div class="grid grid-cols-3 gap-5 mt-8 text-left">
 
-<div class="grid grid-cols-4 gap-3 w-full">
-  <div class="p-4 bg-blue-900/60 rounded-lg border-2 border-blue-400 text-center">
-    <div class="text-3xl mb-2">🔍</div>
-    <div class="font-bold text-blue-300 text-sm">Ask Plan Agent</div>
-    <div class="text-gray-400 text-xs mt-2">Research the task comprehensively</div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Planning time</div>
+    <div class="text-sm text-gray-300">Compare manual feature analysis with plan generation plus review.</div>
   </div>
 
-  <div class="p-4 bg-purple-900/60 rounded-lg border-2 border-purple-400 text-center">
-    <div class="text-3xl mb-2">👀</div>
-    <div class="font-bold text-purple-300 text-sm">Review Draft</div>
-    <div class="text-gray-400 text-xs mt-2">Validate steps, identify issues</div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">Plan completeness</div>
+    <div class="text-sm text-gray-300">Check whether file paths, dependencies, and open questions are visible before implementation starts.</div>
   </div>
 
-  <div class="p-4 bg-yellow-900/60 rounded-lg border-2 border-yellow-400 text-center">
-    <div class="text-3xl mb-2">🔄</div>
-    <div class="font-bold text-yellow-300 text-sm">Iterate on Plan</div>
-    <div class="text-gray-400 text-xs mt-2">Clarify requirements, adjust scope</div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Rework avoided</div>
+    <div class="text-sm text-gray-300">Look for fewer missed dependencies, earlier test planning, and fewer review surprises.</div>
   </div>
 
-  <div class="p-4 bg-green-900/60 rounded-lg border-2 border-green-400 text-center">
-    <div class="text-3xl mb-2">✅</div>
-    <div class="font-bold text-green-300 text-sm">Execute Plan</div>
-    <div class="text-gray-400 text-xs mt-2">Implement with confidence</div>
-  </div>
 </div>
 
-<div class="text-2xl text-gray-400 text-center mt-2">↓ ↓ ↓</div>
-
-<div class="grid grid-cols-4 gap-4 w-full text-xs">
-  <div class="p-3 bg-gray-800 rounded-lg">
-    <div class="text-green-400 font-bold">✓ Catch issues early</div>
-    <div class="text-gray-400">Architecture conflicts surface during planning</div>
-  </div>
-
-  <div class="p-3 bg-gray-800 rounded-lg">
-    <div class="text-green-400 font-bold">✓ Shared understanding</div>
-    <div class="text-gray-400">Plan becomes documentation</div>
-  </div>
-
-  <div class="p-3 bg-gray-800 rounded-lg">
-    <div class="text-green-400 font-bold">✓ Better estimates</div>
-    <div class="text-gray-400">Clear steps = accurate effort</div>
-  </div>
-
-  <div class="p-3 bg-gray-800 rounded-lg">
-    <div class="text-green-400 font-bold">✓ Learning tool</div>
-    <div class="text-gray-400">See how experts think</div>
-  </div>
-</div>
-
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl font-bold text-white">Make the improvement observable.</div>
+  <div class="text-sm text-gray-300 mt-2">The strongest version of this module shows why planning changes the quality of execution, not just the speed of planning.</div>
 </div>
 
 ---
 
-# 🔨 Exercises Overview
+# 🔨 Exercise Roadmap
 
-<div class="mt-8">
+<div class="mt-6 text-left">
 
-| # | Exercise | Lead | Time | Key Outcome |
-|---|----------|------|------|-------------|
-| **2.1** | Invoking Plan Mode | Marcus ⭐ | 10 min | Planning time: 35→7 minutes |
-| **2.2** | Validating Plans | David ⭐ | 8 min | Architectural issues: 3→0 |
-| **2.3** | Executing Plans | Marcus ⭐ | 7 min | Test coverage: 40%→85% |
+<div class="mb-5">
+  <div class="text-blue-300 font-bold mb-2">Phase 1 — Generate the roadmap</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **2.1** | Invoking Plan Mode | Marcus ⭐ | 8 min |
 
 </div>
 
-<div class="mt-8 p-6 bg-gradient-to-r from-purple-900/40 to-gray-800 rounded-lg">
-  <div class="font-bold text-purple-300 mb-3 text-lg">What You'll Build</div>
-  <div class="grid grid-cols-3 gap-4 text-sm">
-    <div class="space-y-1">
-      <div class="text-blue-400 font-bold">📄 Implementation Plan</div>
-      <div class="text-gray-400">Character detail feature breakdown</div>
-    </div>
-    <div class="space-y-1">
-      <div class="text-blue-400 font-bold">✅ Validated Roadmap</div>
-      <div class="text-gray-400">Expert-reviewed execution steps</div>
-    </div>
-    <div class="space-y-1">
-      <div class="text-blue-400 font-bold">🚀 Feature Code</div>
-      <div class="text-gray-400">Frontend, backend, database, tests</div>
-    </div>
-  </div>
+<div class="mb-5">
+  <div class="text-purple-300 font-bold mb-2">Phase 2 — Review and improve the roadmap</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **2.2** | Validating and Refining Plans | David ⭐ | 10 min |
+
+</div>
+
+<div>
+  <div class="text-orange-300 font-bold mb-2">Phase 3 — Execute with confidence</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **2.3** | Executing Plans | Marcus ⭐ | 7 min |
+
+</div>
+
+</div>
+
+<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
+  <div class="text-white font-semibold">The sequence matters here too.</div>
+  <div class="text-sm text-gray-300">Generate first. Challenge the plan second. Execute only after the roadmap deserves your trust.</div>
 </div>
 
 ---
 
-# 📊 Success Metrics
+# 🔗 Compounding Value
 
-<div class="grid grid-cols-2 gap-6 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-<div class="p-6 bg-gradient-to-br from-blue-900/40 to-gray-800 rounded-lg border-2 border-blue-500">
-  <div class="text-4xl mb-3 text-center">⏱️</div>
-  <div class="text-center">
-    <div class="text-3xl font-bold text-blue-300">35 → 7 min</div>
-    <div class="text-sm text-gray-400 mt-2">Planning Time Saved</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">What Module 2 adds</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Research-first feature planning</li>
+      <li>• A repeatable review loop before coding</li>
+      <li>• Better sequencing across files and layers</li>
+      <li>• Clearer handoff from planning to implementation</li>
+    </ul>
   </div>
-  <div class="mt-4 text-xs text-gray-500 text-center">
-    80% reduction in feature analysis time
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• <strong>Module 3:</strong> repeated planning requests become prompt templates</li>
+      <li>• <strong>Module 4:</strong> skills can encode repeatable review and execution patterns</li>
+      <li>• <strong>Module 5:</strong> server-backed workflows benefit from clearer task decomposition</li>
+      <li>• <strong>Module 6:</strong> custom agents become more useful when the team already plans well</li>
+    </ul>
   </div>
+
 </div>
 
-<div class="p-6 bg-gradient-to-br from-green-900/40 to-gray-800 rounded-lg border-2 border-green-500">
-  <div class="text-4xl mb-3 text-center">🐛</div>
-  <div class="text-center">
-    <div class="text-3xl font-bold text-green-300">5 → 1</div>
-    <div class="text-sm text-gray-400 mt-2">Missed Dependencies</div>
-  </div>
-  <div class="mt-4 text-xs text-gray-500 text-center">
-    80% reduction in integration conflicts
-  </div>
+<div class="mt-8 text-center text-lg text-yellow-300">
+  Better planning compounds because every later customization has a cleaner workflow to build on.
 </div>
 
-<div class="p-6 bg-gradient-to-br from-purple-900/40 to-gray-800 rounded-lg border-2 border-purple-500">
-  <div class="text-4xl mb-3 text-center">🔄</div>
-  <div class="text-center">
-    <div class="text-3xl font-bold text-purple-300">2 → 1</div>
-    <div class="text-sm text-gray-400 mt-2">Review Cycles</div>
+---
+
+# ✅ Module Checklist
+
+<div class="grid grid-cols-3 gap-5 mt-8 text-left text-sm">
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Generate</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Ask plan mode to research the task</li>
+      <li>• Save or capture the draft plan</li>
+      <li>• Confirm steps and dependencies are visible</li>
+    </ul>
   </div>
-  <div class="mt-4 text-xs text-gray-500 text-center">
-    50% reduction in PR iteration
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Validate</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Review architecture and edge cases</li>
+      <li>• Add missing tests and non-happy-path behavior</li>
+      <li>• Mark the plan ready for execution</li>
+    </ul>
   </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Execute</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Implement from the approved roadmap</li>
+      <li>• Verify the feature end-to-end</li>
+      <li>• Compare execution quality against the unplanned baseline</li>
+    </ul>
+  </div>
+
 </div>
 
-<div class="p-6 bg-gradient-to-br from-yellow-900/40 to-gray-800 rounded-lg border-2 border-yellow-500">
-  <div class="text-4xl mb-3 text-center">✅</div>
-  <div class="text-center">
-    <div class="text-3xl font-bold text-yellow-300">40% → 85%</div>
-    <div class="text-sm text-gray-400 mt-2">Initial Test Coverage</div>
-  </div>
-  <div class="mt-4 text-xs text-gray-500 text-center">
-    Quality baked in from the start
-  </div>
-</div>
-
+<div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-lg text-white font-semibold">The finish line is not “AI wrote a plan.”</div>
+  <div class="text-sm text-gray-300">The finish line is “the team saw better execution because the plan was reviewed before the code.”</div>
 </div>
 
 ---
 layout: center
 ---
 
-# 💭 Marcus's Realization
+# ➡️ Next Up: Module 3
 
-<div class="flex flex-col items-center">
-
-<div class="p-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg max-w-3xl">
-  <div class="text-6xl mb-6 text-center">👨‍💼</div>
-  <blockquote class="text-2xl text-white italic text-center leading-relaxed">
-    "I used to spend 35 minutes mapping dependencies manually, checking imports, tracing data flow. Now plan mode does that research in 7 minutes and catches dependencies I would have missed. That's 28 minutes saved per feature—multiply by 8 features per sprint, that's 3.7 hours back every two weeks."
-  </blockquote>
-  <div class="text-right text-blue-200 mt-6 text-lg">
-    — Marcus, DevOps Developer
+<div class="p-8 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-xl shadow-lg max-w-3xl">
+  <div class="text-5xl mb-4 text-center">📝</div>
+  <h2 class="text-3xl text-center text-white font-bold mb-4">
+    Custom Prompts
+  </h2>
+  <div class="text-lg text-center text-purple-200 mb-6">
+    Turn repeated planning workflows into reusable prompt templates
   </div>
-</div>
-
-<div class="mt-8 text-center text-gray-400 text-sm italic max-w-2xl">
-From manual analysis to AI-powered research—catching what humans miss while saving hours per sprint
-</div>
-
+  <div class="text-base text-gray-300 text-center mb-4">
+    Once the team sees the same planning pattern work repeatedly, the next move is packaging that behavior into reusable prompts.
+  </div>
+  <blockquote class="text-lg text-center text-white italic">
+    "We just used the same planning workflow again. That should become a prompt."
+  </blockquote>
+  <div class="mt-4 text-center text-purple-300">
+    Module 2 complete — ready to template the workflow.
+  </div>
 </div>
 
 ---
 layout: center
 ---
 
-# 💭 David's Validation
+# 🔨 Exercise Section
 
-<div class="flex flex-col items-center">
-
-<div class="p-8 bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl shadow-lg max-w-3xl">
-  <div class="text-6xl mb-6 text-center">🏛️</div>
-  <blockquote class="text-2xl text-white italic text-center leading-relaxed">
-    "The plan agent generated the implementation steps in minutes—would've taken me 30 to map manually. But my 20 years of experience caught three architectural issues: missing error boundary, incorrect state management pattern, and a race condition. AI gives me the 80% fast; my expertise ensures the 20% is production-ready."
-  </blockquote>
-  <div class="text-right text-purple-200 mt-6 text-lg">
-    — David, Staff Engineer
+<div class="p-8 bg-gradient-to-br from-orange-900/40 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 max-w-4xl mx-auto">
+  <div class="text-5xl mb-4">🧪</div>
+  <div class="text-2xl text-white font-bold mb-3">One slide per exercise</div>
+  <div class="text-base text-gray-300 mb-4">
+    Use these as facilitation prompts during delivery. The full exercise markdown remains the detailed source of truth.
   </div>
-</div>
-
-<div class="mt-8 text-center text-gray-400 text-sm italic max-w-2xl">
-AI amplifies expertise—it doesn't replace it. Senior judgment validates what AI proposes.
-</div>
-
+  <div class="text-sm text-gray-400">
+    Generate the plan, review the plan, then execute the plan.
+  </div>
 </div>
 
 ---
 
-# 🔗 How Plan Mode Uses Your Foundation
+# 🔨 Exercise 2.1 — Invoking Plan Mode
 
-<div class="mt-6 space-y-3">
-
-<div class="flex items-start gap-4">
-  <div class="text-4xl">📚</div>
-  <div class="flex-1">
-    <div class="p-4 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-      <div class="font-bold text-blue-300">ARCHITECTURE.md (Module 1)</div>
-      <div class="text-gray-300 text-sm mt-2">Plan agent understands tech stack, folder structure, and data flow patterns</div>
-    </div>
-  </div>
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/30">Lead: Marcus ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 8 min</span>
 </div>
 
-<div class="flex items-start gap-4">
-  <div class="text-4xl">⚙️</div>
-  <div class="flex-1">
-    <div class="p-4 bg-gradient-to-r from-green-900/60 to-gray-800 rounded-lg border-l-4 border-green-400">
-      <div class="font-bold text-green-300">.github/copilot-instructions.md (Module 1)</div>
-      <div class="text-gray-300 text-sm mt-2">Plans follow your coding standards and established patterns automatically</div>
-    </div>
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">A multi-file character detail feature spans frontend, backend, and database changes, and Marcus needs a reliable way to map the work before coding.</div>
+    <div class="text-blue-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Use plan mode to generate a first-pass implementation roadmap with steps, dependencies, and open questions.</div>
   </div>
-</div>
 
-<div class="flex items-start gap-4">
-  <div class="text-4xl">🔍</div>
-  <div class="flex-1">
-    <div class="p-4 bg-gradient-to-r from-purple-900/60 to-gray-800 rounded-lg border-l-4 border-purple-400">
-      <div class="font-bold text-purple-300">Existing Codebase</div>
-      <div class="text-gray-300 text-sm mt-2">Analyzes current implementations to match style and identify dependencies</div>
-    </div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Open Copilot Chat in plan mode</li>
+      <li>• Request a plan for the character detail feature</li>
+      <li>• Review the generated steps and save the plan for discussion</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• The plan includes summary, steps, dependencies, and questions</li>
+      <li>• File paths align with the actual FanHub structure</li>
+      <li>• Planning is visibly faster than manual exploration</li>
+    </ul>
   </div>
-</div>
-
-<div class="text-2xl text-gray-400 text-center">↓</div>
-
-<div class="p-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg text-center">
-  <div class="text-xl font-bold text-white">
-    Plans that respect your architecture, follow your conventions, and integrate seamlessly
-  </div>
-</div>
-
 </div>
 
 ---
 
-# 🎯 Key Takeaways
+# 🔨 Exercise 2.2 — Validating and Refining Plans
 
-<div class="grid grid-cols-1 gap-4 mt-8">
-
-<div class="p-5 bg-gradient-to-r from-blue-900/60 to-gray-800 rounded-lg border-l-4 border-blue-400">
-  <div class="flex items-start gap-4">
-    <div class="text-3xl">🔍</div>
-    <div>
-      <div class="font-bold text-blue-300 mb-2">Research Before Implementation</div>
-      <div class="text-gray-300 text-sm">Plan agent analyzes comprehensively (read-only) so you validate before committing</div>
-    </div>
-  </div>
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30">Lead: David ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 10 min</span>
 </div>
 
-<div class="p-5 bg-gradient-to-r from-green-900/60 to-gray-800 rounded-lg border-l-4 border-green-400">
-  <div class="flex items-start gap-4">
-    <div class="text-3xl">👨‍💼</div>
-    <div>
-      <div class="font-bold text-green-300 mb-2">Human Expertise Validates</div>
-      <div class="text-gray-300 text-sm">AI proposes, senior developers review—catching edge cases and architectural issues early</div>
-    </div>
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">AI gets a plausible draft quickly, but production readiness still depends on architecture review, testing expectations, and edge-case thinking.</div>
+    <div class="text-purple-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Review the draft plan, identify gaps, and refine it before any implementation begins.</div>
   </div>
-</div>
 
-<div class="p-5 bg-gradient-to-r from-purple-900/60 to-gray-800 rounded-lg border-l-4 border-purple-400">
-  <div class="flex items-start gap-4">
-    <div class="text-3xl">📊</div>
-    <div>
-      <div class="font-bold text-purple-300 mb-2">Measurable Time Savings</div>
-      <div class="text-gray-300 text-sm">80% reduction in planning time, 50% fewer review cycles, 45% better test coverage</div>
-    </div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Review the plan through architecture, quality, and standards lenses</li>
+      <li>• Add missing error handling, tests, and edge cases</li>
+      <li>• Iterate with the agent until the roadmap is approved</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• At least a few meaningful gaps were identified and fixed</li>
+      <li>• Test files and failure modes are explicit in the plan</li>
+      <li>• The plan is marked ready for implementation</li>
+    </ul>
   </div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-yellow-900/60 to-gray-800 rounded-lg border-l-4 border-yellow-400">
-  <div class="flex items-start gap-4">
-    <div class="text-3xl">🔗</div>
-    <div>
-      <div class="font-bold text-yellow-300 mb-2">Compounds Module 1 Foundation</div>
-      <div class="text-gray-300 text-sm">Plan mode automatically reads ARCHITECTURE.md and copilot-instructions.md—better foundation = better plans</div>
-    </div>
-  </div>
-</div>
-
 </div>
 
 ---
 
-# ➡️ Next Up
+# 🔨 Exercise 2.3 — Executing Plans
 
-<div class="flex flex-col items-center justify-center h-full">
-
-<div class="p-6 bg-gradient-to-r from-purple-900/60 to-gray-800 rounded-xl max-w-3xl text-center">
-  <div class="text-4xl mb-2">📝</div>
-  <div class="text-2xl font-bold text-purple-300 mb-3">Module 3: Custom Prompts</div>
-  <div class="text-lg text-gray-300 mb-3">
-    Turn repeated requests into reusable prompt templates that capture domain expertise and accelerate common workflows.
-  </div>
-  <div class="text-sm text-gray-400 italic">
-    "I just ran the same planning workflow three times. There has to be a way to template this..."
-  </div>
-  <div class="text-xs text-gray-500 mt-1">— Sarah, noticing patterns</div>
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-orange-900/50 text-orange-300 border border-orange-500/30">Lead: Marcus ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 7 min</span>
 </div>
 
-<div class="mt-5 grid grid-cols-3 gap-4 text-xs w-full max-w-3xl">
-  <div class="p-2 bg-gray-800 rounded-lg text-center">
-    <div class="text-green-400 font-bold">✓ Module 1</div>
-    <div class="text-gray-400">Foundation set</div>
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">The plan is approved, but the team still needs to prove that execution is smoother, more complete, and less error-prone than the old approach.</div>
+    <div class="text-orange-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Execute the validated roadmap and verify backend, frontend, tests, and end-to-end behavior.</div>
   </div>
-  <div class="p-2 bg-blue-900/60 rounded-lg text-center border-2 border-blue-400">
-    <div class="text-blue-300 font-bold">→ Module 2</div>
-    <div class="text-gray-300">Plan mode mastered</div>
-  </div>
-  <div class="p-2 bg-gray-800 rounded-lg text-center">
-    <div class="text-gray-500 font-bold">Module 3</div>
-    <div class="text-gray-600">Custom prompts next</div>
-  </div>
-</div>
 
-</div>
-
----
-layout: end
----
-
-# Module 2 Complete! 🎉
-
-<div class="text-center mt-12">
-  <div class="text-4xl mb-6">✅</div>
-  <div class="text-xl text-gray-400 mb-8">
-    You've learned to research before implementing, validate with expertise, and execute with confidence.
-  </div>
-  <div class="text-lg text-gray-500">
-    Time to turn repeated workflows into reusable templates in Module 3!
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Execute the plan in stages</li>
+      <li>• Review implementation against the validated roadmap</li>
+      <li>• Verify the feature and tests end to end</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Backend, frontend, and tests are implemented per plan</li>
+      <li>• Error handling and edge cases work as expected</li>
+      <li>• Integration debugging is minimal because the sequencing was clear upfront</li>
+    </ul>
   </div>
 </div>

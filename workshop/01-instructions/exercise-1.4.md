@@ -290,7 +290,7 @@ Create language-specific instruction files that automatically apply Python, Java
 
 | Previous Modules | This Exercise | Combined Power |
 |------------------|---------------|----------------|
-| Exercise 1.3: Layer-specific (frontend/backend) | Language-specific (Python/JS/TS) | Architecture layers + language conventions = precise contextual guidance |
+| Exercise 1.3: Path-specific (frontend/backend) | Language-specific (Python/JS/TS) | Architecture layers + language conventions = precise contextual guidance |
 | Module 1: Repository-wide standards | Language standards per file extension | General standards + language-specific rules = 100% convention consistency |
 | Module 3: Task-specific prompt functions | Language-aware automatic context | Functions for tasks + language context = comprehensive development environment |
 

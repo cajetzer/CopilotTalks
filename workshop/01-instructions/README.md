@@ -269,7 +269,7 @@ repo/
 
 | # | Exercise | Lead | Support | Time | Topic |
 |---|----------|------|---------|------|-------|
-| [1.3](exercise-1.3.md) | Layer-Specific Instructions | Sarah | David | 10 min | Frontend vs Backend patterns |
+| [1.3](exercise-1.3.md) | Path-Specific Instructions | Sarah | David | 10 min | Frontend vs Backend patterns |
 | [1.4](exercise-1.4.md) | Language-Specific Standards | Elena | Marcus | 8 min | PEP 8, Airbnb, TypeScript |
 | [1.5](exercise-1.5.md) | File-Type Specialized Guidance | Marcus | Elena, David | 12 min | Tests, Docker, Docs |
 

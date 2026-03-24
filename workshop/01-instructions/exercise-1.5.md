@@ -327,7 +327,7 @@ Create file-type-specific instruction files for tests, Docker configs, and docum
 
 | Previous Modules | This Exercise | Combined Power |
 |------------------|---------------|----------------|
-| Exercise 1.3: Layer-specific (frontend/backend) | File-type-specific (tests/Docker/docs) | Architectural layers + file purposes = precision contextual targeting |
+| Exercise 1.3: Path-specific (frontend/backend) | File-type-specific (tests/Docker/docs) | Architectural layers + file purposes = precision contextual targeting |
 | Exercise 1.4: Language-specific (Python/JS/TS) | File-type overrides language defaults | Python test files get both Python style AND testing conventions |
 | Module 1: Repository-wide baseline | Layer + Language + File-type all combine | Four-level guidance system: baseline → layer → language → file type |
 

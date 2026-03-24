@@ -1,92 +1,89 @@
-# Exercise 0.1: Context Fundamentals — Quick Start
+# Exercise 0.1: Clone FanHub & Pick Your Stack
 
 ## 🔨 Exercise
 
 **Lead:** Everyone ⭐ | **Time:** 10 min
 
-> 📚 **Deep Dive:** For comprehensive coverage of Copilot Chat, context mechanisms, and VS Code 1.109 enhancements, see the [Copilot Chat Tech Talk](../../tech-talks/copilot-chat/README.md).
+#### 📖 The Story
 
-#### 📖 The Challenge
+It's Monday, 9:00 AM. Sarah drops the challenge: transform a half-finished generic fan site into a production-ready fan hub — by end of day.
 
-It's Monday, 9:15 AM. Marcus asks Copilot Chat a basic question:
+Before the team can do anything, they need the code. And before Copilot can help, it needs a codebase to think about.
 
-> "How do I add a new character to the database?"
+**First things first: get the repo.**
 
-Copilot responds with... generic SQL syntax. It doesn't know about FanHub's database schema. **The quality of AI responses is directly proportional to the quality of context you provide.**
+#### 🎯 Objective
 
-#### 🎯 Your Goal
-
-Practice the five context mechanisms so you're ready for the rest of the workshop.
-
----
-
-#### 📋 Quick Practice (5 minutes)
-
-Try each mechanism once to feel the difference:
-
-**1. `#file` — Known files**
-```
-What database tables exist? #file:backend/database/schema.sql
-```
-
-**2. `@workspace` — Project overview**
-```
-@workspace What is the overall architecture of this application?
-```
-
-**3. `#codebase` — Semantic search**
-```
-#codebase Where is authentication configured?
-```
-
-**4. `#fetch` — External docs**
-```
-#fetch https://react.dev/learn/thinking-in-react
-How should I structure React components based on this?
-```
-
-**5. Images — Visual context**
-- Take a screenshot of an error message or UI mockup
-- Drag-and-drop onto the Chat view
-- Ask: "What's causing this?" or "Implement this design"
-
----
-
-#### 💡 Context Decision Guide
-
-| When you... | Use... |
-|-------------|--------|
-| Know the exact file | `#file:path/to/file` |
-| Need project overview | `@workspace` |
-| Looking for something specific | `#codebase` |
-| Need current external docs | `#fetch <URL>` |
-| Have a UI mockup/error screenshot | Drag image to chat |
-| Working on the current file | Nothing! (implicit) |
-
----
+Clone the FanHub starter repo, explore the available language flavors, pick the one that matches your stack, and confirm the app runs locally.
 
 #### ✅ Success Criteria
 
-- [ ] Tried at least 3 of the 5 context mechanisms
-- [ ] Noticed the difference between generic and context-aware responses
-- [ ] Ready to use context throughout the workshop
+- [ ] Repo cloned successfully
+- [ ] Chosen a language flavor that matches your background
+- [ ] App running locally (dev server or equivalent)
+- [ ] Opened the project in VS Code with GitHub Copilot active
+
+---
+
+#### 📋 Steps
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/MSBart2/FanHub.git
+cd FanHub
+```
+
+**2. Explore the available stacks**
+
+The repo includes multiple language/framework flavors. Browse the top-level folders and pick the one that matches your background:
+
+| Folder | Stack | Good if you know... |
+|--------|-------|---------------------|
+| *(explore the repo)* | *(varies)* | Pick what fits you |
+
+> 💡 **Tip:** Open the repo in VS Code first (`code .`) and let the Explorer panel show you what's available.
+
+**3. Pick your show**
+
+Choose a TV show, film, or franchise to theme your fan hub around:
+
+📺 The Office · 🔦 Stranger Things · 🧪 Breaking Bad · 🛡️ The Mandalorian · 🐉 Game of Thrones · 🚀 The Expanse
+
+You'll use this theme throughout the entire workshop. Pick something you know well — the more you know the domain, the better your prompts will be.
+
+**4. Get the app running**
+
+Follow the README in your chosen stack folder to install dependencies and start the dev server. Confirm you see the generic starter UI in your browser.
+
+**5. Open in VS Code with Copilot**
+
+```bash
+code .
+```
+
+Confirm GitHub Copilot is active (look for the Copilot icon in the status bar). If it's not showing, sign in via the Accounts menu.
+
+---
+
+#### 💡 Tips
+
+- If you're unsure which stack to pick, choose the one closest to your day job — you'll get more out of the exercises.
+- Don't spend more than 2 minutes deciding on a show. Any show works.
+- If the dev server throws errors, drop the error into Copilot Chat — this is your first chance to see it in action.
 
 #### 🧠 Mindful Moment
 
-**Marcus's insight:** "This is like giving someone directions. 'Go there' is useless. 'Go to 123 Main St' gets results."
+**Priya's realization:** "I don't need to know the whole codebase. I just need enough to start asking good questions."
 
-**Sarah's validation:** "Context is how you scale expertise. When I add architecture docs and standards, Copilot gives senior-dev answers."
+**Sarah's note:** "The repo is messy by design. That's the point — you're about to make it yours."
 
----
+#### 🚀 Challenge Extension
 
-## 🔗 What's Next
+Once the app is running, ask Copilot Chat:
 
-You've got the fundamentals. Now let's see what happens when Copilot has **no** context about your codebase patterns and standards.
+```
+@workspace Give me a one-paragraph summary of this codebase's current state.
+```
 
-**Continue to:** [Exercise 0.2: Experience "The Struggle"](exercise-0.2.md)
-
----
-
-## ➡️ Next Exercise
-
-**[Exercise 0.2: The Character Detail Challenge](exercise-0.2.md)** — Now that you know how to provide context, experience what happens when you build WITHOUT configuration or documentation. Feel the struggle, then we'll fix it in Module 1.
+Notice how generic the answer is with no configuration. That changes in Module 1.

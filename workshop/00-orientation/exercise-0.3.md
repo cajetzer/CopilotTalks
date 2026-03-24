@@ -1,150 +1,138 @@
-# Exercise 0.3: Set Your Success Metrics
+# Exercise 0.2: Experience "The Struggle"
 
 ## 🔨 Exercise
 
-### Exercise 0.3: Set Your Success Metrics — "What Success Means to You"
+**Lead:** Everyone ⭐ | **Time:** 15 min
 
-**Lead:** Everyone ⭐ | **Time:** 10 min
+#### 📖 The Setup
 
-#### 📖 The Story
+It's Monday, 9:30 AM. You've just looked at the FanHub starter code. It's time to experience what happens when you try to build with AI that doesn't understand your codebase.
 
-**David** has a question that's been nagging him: "If AI can write code, what makes me valuable?"
-
-Then he realizes: juniors with AI write syntax. He writes solutions. His 20 years of experience lets him:
-- Know which patterns fit which problems
-- Spot the race condition in line 47
-- Understand why generated code will fail under load
-- Make architectural tradeoffs
-
-His expertise isn't obsolete—it needs to be expressed differently.
+This exercise is intentionally frustrating. You need to feel the "before" state to appreciate the transformation.
 
 #### 🎯 Objective
 
-Define how YOU will measure success with AI-assisted development.
+Try to add a simple feature using Copilot WITHOUT any configuration or documentation. Experience the struggle. Document the problems.
+
+#### ❌ The "Before" — What Frustration Looks Like
+
+You're about to experience:
+- ✗ Generic suggestions that don't match your architecture
+- ✗ Inconsistent code styles (because the codebase is inconsistent)
+- ✗ Show-generic content ("John Doe" instead of your show's characters)
+- ✗ Uncertainty about which patterns to follow
+- ✗ Multiple attempts to get what you want
+
+**This is on purpose.** You need to see the problem to appreciate the solution.
 
 #### 📋 Steps
 
-**1. Identify which persona you resonate with**
+**1. Clone the FanHub starter app** (we'll create this in Phase 2)
 
-Review the [Training Personas](PERSONAS.md) and identify which one reflects your situation:
+```bash
+# Clone the training repo if you haven't already
+git clone https://github.com/YOUR_USERNAME/CopilotTraining.git
+cd CopilotTraining
 
-- **Sarah** — Skeptical about AI hype, need concrete ROI proof
-- **Marcus** — Infrastructure background, want to improve application code confidence
-- **David** — Concerned about expertise relevance, deep experience
-- **Elena** — Quality-focused, worried AI will compromise rigor
-- **Rafael** — Bridge technical and business, need clearer communication
+# Navigate to the FanHub starter
+cd fanhub
 
-**2. Reflect on what matters**
+# Install dependencies and start the app
+docker-compose up -d
+cd frontend && npm install && npm start
+```
 
-Some example metrics to consider:
+**2. Browse the existing code** (spend 5-10 minutes)
 
-| Old Metric                     | New Metric                                  |
-|-------------------------------|---------------------------------------------|
-| Lines of code per day         | Features shipped per week                   |
-| Memorized API signatures      | Clarity of intent in prompts                |
-| Being the only expert         | Knowledge scaled across the team            |
-| Code that only I understand   | Code anyone can maintain                    |
-| Fast typing                   | Fast design thinking                        |
+Look at:
+- `fanhub/backend/database/schema.sql` — generic database structure
+- `fanhub/backend/api/routes/` — inconsistent API patterns
+- `fanhub/frontend/components/` — mixed component styles
+- `fanhub/docs/` — empty! No architecture, no patterns, no standards
 
-**3. Share with Copilot** (optional)
+**3. Choose your TV show theme**
+
+Pick your favorite show. Some ideas:
+- 📺 The Office (US)
+- 🔦 Stranger Things  
+- 🧪 Breaking Bad
+- 🛡️ The Mandalorian
+- 🐉 Game of Thrones
+- 🚀 The Expanse
+
+This will be YOUR FanHub throughout the training.
+
+**4. Try to add a character detail page**
+
+Open `fanhub/frontend/pages/` and create a new file `CharacterDetail.jsx` (or `.tsx` if using TypeScript).
 
 Ask Copilot Chat:
 
 ```
-@workspace Based on these goals [....],
-suggest specific ways I can measure progress as I work through
-the FanHub project in this training.
+Add a character detail page that shows:
+- Character name
+- Photo
+- Biography
+- List of episodes they appear in
 ```
 
-Review Copilot's suggestions. Which make sense? Which don't?
+**Watch what happens:**
+- Does it match your show? Or is it generic?
+- Does it follow existing component patterns? Or create new ones?
+- Does it use the right API endpoints? Or make assumptions?
+- Does the styling match the rest of the app?
 
-**4. Document your success criteria**
-
-Create `docs/my-success-metrics.md`:
-
-```markdown
-# My Success Metrics
-
-## Persona I Resonate With
-[Sarah / Marcus / David / Elena / Rafael]
-
-**Why:** [What about this persona's situation matches yours?]
-
-## What I Want to Achieve
-
-### Old Way (What I'm Moving From)
-- [Metric 1: e.g., memorizing syntax]
-- [Metric 2: e.g., being the only expert]
-- [Metric 3: e.g., typing speed]
-
-### New Way (What Success Looks Like)
-- [Metric 1: e.g., expressing intent clearly]
-- [Metric 2: e.g., scaling knowledge across team]
-- [Metric 3: e.g., faster design decisions]
-
-## Specific Measurements for FanHub Project
-
-| What I'll Track | How I'll Measure | Target |
-|-----------------|------------------|--------|
-| Time to feature | Module 0 baseline vs. Module 5 | 50% faster |
-| Code quality | Consistency, maintainability | [Your target] |
-| Confidence | 1-10 scale before/after | [Your target] |
-| [Your metric] | [Your measurement] | [Your target] |
-
-## My Biggest Fear About AI-Assisted Development
-[Be honest: What worries you?]
-
-## What Would Make This Training Worth It
-[What outcome would make you say "This was valuable"?]
-```
+---
 
 #### ✅ Success Criteria
 
-- [ ] Identified which persona you resonate with most
-- [ ] Defined at least 3 specific metrics you'll track
-- [ ] Documented your fears honestly
-- [ ] Set clear definition of "success" for yourself
-- [ ] (Optional) Got Copilot's suggestions and evaluated them critically
+- [ ] FanHub app is running locally
+- [ ] You've chosen your show theme
+- [ ] You attempted the Character Detail Challenge with Copilot
+- [ ] Created `fanhub/docs/character-detail-challenge.md` with Attempt 1 metrics
+- [ ] Documented specific problems encountered
+- [ ] Felt the frustration (this is important!)
+- [ ] Ready to revisit this challenge in Module 01 and 02
 
-#### 🧠 Mindful Moment: Setting Intention
+#### 🧠 Mindful Moment: Before
 
-**David realizes:** "I spent 20 years learning to write code. Now I need to learn to express what I know clearly. That's not a step backward—it's the next level."
+**Marcus thinks:** "Is Copilot even helping? This feels like fighting with autocomplete."
 
-**Priya realizes:** "I don't need to know everything. I need to know what questions to ask and how to evaluate the answers."
+**Priya worries:** "If I can't get good results, maybe I'm not using it right?"
 
-**Sarah decides:** "I'll measure this by time-to-production and code quality, not by 'cool AI tricks.' Show me the value."
+**Sarah observes:** "This is what I was afraid of. Generic garbage that doesn't understand our domain."
 
-**Marcus recognizes:** "I'm strong in infrastructure but uncertain in application code. If AI can help me build confidence in full-stack work, that's success."
+**David notes:** "The AI doesn't know our architecture, our patterns, or our standards. It's guessing."
 
-**Elena acknowledges:** "Quality can't be compromised. If AI helps me create better tests faster, that's the win."
+#### 📚 Official Docs
 
-#### 📚 Reflection
+- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [Getting Started with Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
+- [Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat)
 
-This document is YOUR north star for the training. Refer back to it after each module:
+#### ✨ The "After" — What's Coming
 
-- Are you making progress toward your metrics?
-- Are your fears being addressed or validated?
-- Do you need to adjust what "success" means?
+In Module 1, you'll configure Copilot with:
+- Architecture documentation (`docs/ARCHITECTURE.md`)
+- Team coding standards (`.github/copilot-instructions.md`)
+- Your show's specific context
 
-**The goal isn't to become an "AI expert"—it's to become a better developer who uses AI effectively.**
+**Then you'll revisit the Character Detail Challenge** and experience the improvement:
+
+| After... | Expected Improvement |
+|----------|---------------------|
+| ARCHITECTURE.md | Structure improves, but patterns still inconsistent |
+| copilot-instructions.md | Consistent patterns, faster results |
+| Plan Mode (Module 02) | First-try success with comprehensive solution |
+
+The same prompt. Dramatically different results:
+- ✓ Show-specific content (your characters, not "John Doe")
+- ✓ Follows your architecture (uses correct API patterns)
+- ✓ Matches your standards (consistent styling and structure)
+- ✓ Works on the first try (especially with plan mode)
 
 ---
 
-## ➡️ Module Complete
+## ➡️ Next Exercise
 
-You've completed Module 0! You now understand:
-
-✅ The Five Principles of AI-Assisted Development
-✅ How to provide context to Copilot (`#file`, `@workspace`, `#codebase`, etc.)
-✅ What AI-assisted development feels like WITHOUT configuration (the struggle)
-✅ What success means to YOU personally
-
-**You're ready for the transformation.**
-
----
-
-## ➡️ Next Module
-
-**[Module 1: Instructions](../01-instructions/README.md)**
-
-Monday, 10:00 AM. Marcus is about to show the team how configuration changes everything...
+**[Exercise 0.3: Set Your Success Metrics](exercise-0.3.md)** — Define how YOU will measure success with AI-assisted development.

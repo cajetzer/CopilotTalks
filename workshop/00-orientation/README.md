@@ -372,12 +372,14 @@ This will be YOUR FanHub throughout the training.
 
 | # | Exercise | Lead | Support | Time | Topic |
 |---|----------|------|---------|------|-------|
-| [0.1](exercise-0.1.md) | Context Fundamentals | All ⭐ | All 🤝 | 10 min | Quick practice with `#file`, `@workspace`, `#codebase`, `#fetch`, and images. |
-| [0.2](exercise-0.2.md) | Experience "The Struggle" | All ⭐ | All 🤝 | 10 min | Experience what happens when you build with AI that doesn't understand your codebase.  |
+| [0.1](exercise-0.1.md) | Clone FanHub & Pick Your Stack | All ⭐ | All 🤝 | 10 min | Clone the FanHub starter repo, choose your language flavor and fan theme, get the app running locally. |
+| [0.2](exercise-0.2.md) | Context Fundamentals | All ⭐ | All 🤝 | 10 min | Quick practice with `#file`, `@workspace`, `#codebase`, `#fetch`, and images. |
+| [0.3](exercise-0.3.md) | Experience "The Struggle" | All ⭐ | All 🤝 | 10 min | Experience what happens when you build with AI that doesn't understand your codebase. |
+| [0.4](exercise-0.4.md) | Set Your Success Metrics | All ⭐ | All 🤝 | 10 min | Define how you'll personally measure success with AI-assisted development. |
 
 > 📚 **Want to go deeper?** See the [Copilot Chat Tech Talk](../../tech-talks/copilot-chat/README.md) for comprehensive coverage of context mechanisms, VS Code 1.109 Chat UX enhancements, and best practices.
 
-**Total Time**: ~20 minutes
+**Total Time**: ~40 minutes
 
 ---
 

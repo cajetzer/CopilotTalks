@@ -5,7 +5,7 @@ highlighter: shiki
 lineNumbers: false
 info: |
   ## Module 5: MCP Servers
-  CopilotTraining Training
+  Connect Copilot to live systems, not just workspace files
 drawings:
   persist: false
 transition: slide-left
@@ -13,17 +13,13 @@ title: Module 5 - MCP Servers
 module: workshop/05-mcp-servers
 mdc: true
 status: active
-updated: 2026-02-06
+updated: 2026-03-24
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <!-- Gradient background -->
   <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-
-  <!-- Glowing orb -->
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
 
-  <!-- Logo with glow -->
   <div class="relative z-10">
     <div class="absolute inset-0 blur-2xl opacity-50">
       <img src="./sdp-logo.png" class="w-72" alt="" />
@@ -31,583 +27,601 @@ updated: 2026-02-06
     <img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
   </div>
 
-  <!-- Gradient text title -->
   <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
     Module 5: MCP Servers
   </h1>
 
-  <!-- Pill subtitle -->
   <div class="mt-4 relative z-10">
     <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-      The Context Problem
+      ⏰ Give Copilot live context
     </span>
   </div>
 
-  <!-- Concept line -->
-  <div class="mt-8 text-lg opacity-70 relative z-10">
-    Static <span class="text-red-400 font-semibold">files only</span> → Live <span class="text-purple-400 font-semibold">systems</span>
+  <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
+    "Skills package workflow. MCP servers connect that workflow to the real systems it depends on."
   </div>
 
-  <!-- Decorative line -->
   <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <span class="text-sm opacity-50">⏰ 45 minutes</span>
+---
+
+# 📖 Story So Far
+
+<div class="grid grid-cols-5 gap-4 mt-8 text-left">
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-2xl mb-2">📚</div>
+    <div class="font-bold text-blue-300 mb-2">Module 1</div>
+    <div class="text-sm text-gray-300">The team documented repo structure and working standards.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-2xl mb-2">🧩</div>
+    <div class="font-bold text-purple-300 mb-2">Module 2</div>
+    <div class="text-sm text-gray-300">They learned to research and validate a plan before acting.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-2xl mb-2">🔁</div>
+    <div class="font-bold text-orange-300 mb-2">Module 3</div>
+    <div class="text-sm text-gray-300">They turned repeated requests into reusable prompts.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-2xl mb-2">🎓</div>
+    <div class="font-bold text-purple-300 mb-2">Module 4</div>
+    <div class="text-sm text-gray-300">They packaged specialized workflows into Agent Skills.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-2xl mb-2">🔌</div>
+    <div class="font-bold text-orange-300 mb-2">Module 5</div>
+    <div class="text-sm text-gray-300">Now they need live databases, APIs, and services in the loop.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl text-white font-semibold mb-2">The gap is no longer workflow knowledge. It is system access.</div>
+  <div class="text-sm text-gray-300">MCP servers let Copilot query real tools and live resources instead of depending only on files in the repo.</div>
 </div>
 
 ---
 
-# 📖 The Story
+# 🎯 What You'll Build
 
-<div class="grid grid-cols-1 gap-6 mt-6">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-<div class="p-6 bg-gradient-to-r from-red-900/40 to-gray-800 rounded-lg border-l-4 border-red-500">
-<div class="flex items-start gap-4">
-<div class="text-4xl">😩</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-2xl mb-3">🗄️</div>
+    <div class="text-lg font-bold text-blue-300 mb-2">Database access</div>
+    <div class="text-sm text-gray-300">Connect Copilot to the FanHub database so schema and table questions are answered from live data.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-2xl mb-3">🐙</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">GitHub validation</div>
+    <div class="text-sm text-gray-300">Use live pull request and check-run data instead of manually clicking through the GitHub UI.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-2xl mb-3">🔗</div>
+    <div class="text-lg font-bold text-orange-300 mb-2">Runtime API checks</div>
+    <div class="text-sm text-gray-300">Combine MCP access with earlier skills to validate live API behavior instead of static examples only.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
+    <div class="text-2xl mb-3">✨</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">Interactive and reusable patterns</div>
+    <div class="text-sm text-gray-300">Explore MCP Apps for rich UI and Awesome Copilot MCP for faster customization discovery.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 text-center text-lg text-gray-300">
+  This module moves from static context to live operational context.
+</div>
+
+---
+
+# 📚 What MCP Servers Actually Add
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">A standard way to reach external systems</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• MCP servers expose tools, resources, and prompts</li>
+      <li>• VS Code can talk to local or remote servers through a shared protocol</li>
+      <li>• The same pattern works across many MCP-compatible clients</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Live context instead of copied context</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Query a database without leaving chat</li>
+      <li>• Check PR status and approvals from GitHub directly</li>
+      <li>• Validate runtime API responses against real rules</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Two common transport patterns</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• <code>stdio</code> for local processes and tools</li>
+      <li>• <code>http</code> for hosted or remote services</li>
+      <li>• Choose transport based on security, locality, and deployment model</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">The unlock</div>
+    <div class="text-sm text-gray-300">Copilot stops depending on screenshots, pasted output, and stale docs. It can ask the source system directly.</div>
+  </div>
+
+</div>
+
+---
+
+# 🔎 Skills and MCP Work Better Together
+
+<div class="grid grid-cols-3 gap-5 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Instructions</div>
+    <div class="text-sm text-gray-300">Define standards and expected behavior.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Skills</div>
+    <div class="text-sm text-gray-300">Package a domain workflow with examples, templates, and scripts.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">MCP Servers</div>
+    <div class="text-sm text-gray-300">Bring live databases, APIs, repositories, and other systems into that workflow.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl font-bold text-white">A strong pattern is: standards guide the work, skills package the workflow, MCP supplies live context.</div>
+</div>
+
+---
+
+# ⚙️ Core MCP Patterns in This Module
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Local stdio servers</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Great for databases and local development tools</li>
+      <li>• Process runs locally and communicates over stdin/stdout</li>
+      <li>• Keeps access close to the workspace and avoids extra network hops</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Remote HTTP servers</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Great for hosted services like GitHub</li>
+      <li>• Centralized integrations can be shared across many projects</li>
+      <li>• Useful when the source system already lives outside your machine</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="mt-8 grid grid-cols-3 gap-5 text-left">
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">Config</div>
+    <div class="text-sm text-gray-300"><code>.vscode/mcp.json</code> becomes the workspace entry point.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Discovery</div>
+    <div class="text-sm text-gray-300">VS Code discovers tools, resources, and prompts from each running server.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Invocation</div>
+    <div class="text-sm text-gray-300">Copilot can call the right tool when the task needs live system access.</div>
+  </div>
+</div>
+
+---
+layout: two-cols
+---
+
+# ❌ Before
+
+<div class="space-y-4 mt-6 text-left">
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Manual lookup work keeps breaking flow</div>
+  <div class="text-sm text-gray-300">Schema checks, PR validation, and API inspection all require extra tabs, terminals, or tools.</div>
+</div>
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Static documentation goes stale</div>
+  <div class="text-sm text-gray-300">The team can document expected behavior, but production reality still lives elsewhere.</div>
+</div>
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Live validation is too slow to become habit</div>
+  <div class="text-sm text-gray-300">When every check is manual, the team does fewer checks and catches issues later.</div>
+</div>
+
+</div>
+
+::right::
+
+# ✨ After
+
+<div class="space-y-4 mt-6 text-left">
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Live system questions stay in chat</div>
+  <div class="text-sm text-gray-300">Copilot can query databases, repositories, or APIs without requiring a context switch.</div>
+</div>
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Earlier customizations become more useful</div>
+  <div class="text-sm text-gray-300">Skills and prompts can now operate on real data and live service output.</div>
+</div>
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Validation gets faster and more credible</div>
+  <div class="text-sm text-gray-300">The team can confirm reality directly instead of depending on memory or copied snapshots.</div>
+</div>
+
+</div>
+
+---
+
+# 📊 What to Validate in the Workshop
+
+<div class="grid grid-cols-3 gap-5 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">Connection quality</div>
+    <div class="text-sm text-gray-300">Does the server start cleanly and expose the tools or resources the scenario actually needs?</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Workflow quality</div>
+    <div class="text-sm text-gray-300">Does live context meaningfully improve the speed or quality of the outcome?</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Compounding value</div>
+    <div class="text-sm text-gray-300">Can this MCP integration work with existing prompts, skills, or standards instead of standing alone?</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl font-bold text-white">The win is not “we connected a server.” The win is “we improved a real workflow with live context.”</div>
+</div>
+
+---
+
+# 🔨 Exercise Roadmap
+
+<div class="mt-6 text-left">
+
+<div class="mb-5">
+  <div class="text-blue-300 font-bold mb-2">Phase 1 — Query the system directly</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **5.1** | Connect to FanHub Database | Marcus ⭐ | 15 min |
+| **5.2** | Automate PR Review Validation | Sarah ⭐ | 15 min |
+
+</div>
+
+<div class="mb-5">
+  <div class="text-purple-300 font-bold mb-2">Phase 2 — Combine MCP with previous customizations</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **5.3** | Validate Backend API Against Data Rules | Elena ⭐ | 15 min |
+
+</div>
+
 <div>
-<div class="text-lg font-bold text-red-300">Marcus is debugging database queries... again</div>
-<div class="text-gray-300 mt-2">For the <span class="text-red-400 font-bold">third time today</span>, Copilot has no idea what's actually in the database. He keeps explaining the schema manually.</div>
-</div>
-</div>
-</div>
-
-<div class="p-6 bg-gray-800 rounded-lg">
-<div class="text-lg font-bold text-yellow-300 mb-2">⚠️ The Problem</div>
-<div class="text-gray-300">Copilot works with <span class="text-red-400">static files</span>, not <span class="text-blue-400">live systems</span></div>
-</div>
-
-<div class="p-6 bg-gradient-to-r from-green-900/40 to-gray-800 rounded-lg border-l-4 border-green-500">
-<div class="text-lg font-bold text-green-300 mb-2">💡 The Insight</div>
-<div class="text-gray-300">MCP servers connect Copilot to external resources — databases, APIs, tools — treating them as <span class="text-green-400 font-bold">first-class context sources</span></div>
-</div>
-
-</div>
-
----
-
-# 🎯 Learning Objectives
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-
-<div class="p-5 bg-gradient-to-br from-cyan-900/60 to-gray-800 rounded-lg border-2 border-cyan-500">
-<div class="text-3xl mb-3">🔧</div>
-<div class="text-lg font-bold text-cyan-300">Configure MCP</div>
-<div class="text-sm text-gray-400 mt-2">Connect Copilot to databases, APIs, and external tools</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-blue-900/60 to-gray-800 rounded-lg border-2 border-blue-500">
-<div class="text-3xl mb-3">🔒</div>
-<div class="text-lg font-bold text-blue-300">Stdio Transport</div>
-<div class="text-sm text-gray-400 mt-2">Secure local connections for databases and tools</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-purple-900/60 to-gray-800 rounded-lg border-2 border-purple-500">
-<div class="text-3xl mb-3">💬</div>
-<div class="text-lg font-bold text-purple-300">Query Live Data</div>
-<div class="text-sm text-gray-400 mt-2">Access real system state directly from Copilot chat</div>
-</div>
-
-</div>
-
-<div class="mt-8 p-4 bg-gradient-to-r from-cyan-600/30 to-purple-600/30 rounded-xl border border-cyan-500/30 text-center">
-<div class="text-xl">🔌 MCP transforms Copilot from <span class="text-red-400">static files</span> to understanding your <span class="text-green-400">entire technical ecosystem</span></div>
-</div>
-
-<div class="mt-4 text-center text-gray-400">⏰ 45 minutes | 🔨 3 exercises</div>
-
----
-
-# ❌ Before → ✨ After
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-
-<div class="rounded-xl overflow-hidden border border-gray-700">
-<div class="bg-gradient-to-r from-red-900/80 to-red-800/60 p-3 text-center">
-<div class="text-lg font-bold">🗄️ Database Lookups</div>
-</div>
-<div class="p-4 space-y-3">
-<div class="flex justify-between items-center">
-<span class="text-red-400 line-through">2-5 min</span>
-<span class="text-2xl">→</span>
-<span class="text-green-400 font-bold text-xl">0 min</span>
-</div>
-<div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-green-500 to-green-400 w-full"></div>
-</div>
-<div class="text-center text-green-300 font-bold">Eliminated</div>
-<div class="text-xs text-gray-500 text-center">Query directly in chat</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-gray-700">
-<div class="bg-gradient-to-r from-red-900/80 to-red-800/60 p-3 text-center">
-<div class="text-lg font-bold">🔍 PR Validation</div>
-</div>
-<div class="p-4 space-y-3">
-<div class="flex justify-between items-center">
-<span class="text-red-400 line-through">5 min</span>
-<span class="text-2xl">→</span>
-<span class="text-green-400 font-bold text-xl">30 sec</span>
-</div>
-<div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-green-500 to-green-400 w-[90%]"></div>
-</div>
-<div class="text-center text-green-300 font-bold">90% faster</div>
-<div class="text-xs text-gray-500 text-center">Automated checks</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-gray-700">
-<div class="bg-gradient-to-r from-red-900/80 to-red-800/60 p-3 text-center">
-<div class="text-lg font-bold">📜 API Validation</div>
-</div>
-<div class="p-4 space-y-3">
-<div class="flex justify-between items-center">
-<span class="text-red-400 line-through">10 min</span>
-<span class="text-2xl">→</span>
-<span class="text-green-400 font-bold text-xl">30 sec</span>
-</div>
-<div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-green-500 to-green-400 w-[95%]"></div>
-</div>
-<div class="text-center text-green-300 font-bold">95% faster</div>
-<div class="text-xs text-gray-500 text-center">MCP-powered checks</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-green-600/30 to-green-800/30 rounded-xl border border-green-500/50 text-center">
-<div class="text-2xl font-bold text-green-300">70 min → 5 min per sprint (93% time saved)</div>
-</div>
-
----
-
-# 💡 Understanding MCP (Model Context Protocol)
-
-<div class="mt-4 p-4 bg-gradient-to-r from-blue-600/30 to-cyan-600/30 rounded-xl border border-blue-500/30 text-center mb-6">
-<div class="text-xl font-bold">MCP is an <span class="text-cyan-300">open standard</span> that allows AI to communicate with external tools and services</div>
-</div>
-
-<div class="grid grid-cols-3 gap-4">
-
-<div class="p-4 bg-gray-800 rounded-lg text-center">
-<div class="text-4xl mb-3">🖥️</div>
-<div class="font-bold text-cyan-300">MCP Servers</div>
-<div class="text-sm text-gray-400 mt-2">Provide tools, resources, and prompts to AI clients</div>
-</div>
-
-<div class="p-4 bg-gray-800 rounded-lg text-center">
-<div class="text-4xl mb-3">🔄</div>
-<div class="font-bold text-blue-300">Transport</div>
-<div class="text-sm text-gray-400 mt-2">stdio (local) or HTTP (remote) communication</div>
-</div>
-
-<div class="p-4 bg-gray-800 rounded-lg text-center">
-<div class="text-4xl mb-3">🌐</div>
-<div class="font-bold text-purple-300">Standard Protocol</div>
-<div class="text-sm text-gray-400 mt-2">Any MCP server works with any compatible client</div>
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-gray-800/60 rounded-lg">
-<div class="font-bold text-yellow-300 mb-2">🎯 Why this matters for FanHub:</div>
-<div class="grid grid-cols-3 gap-4 text-sm text-gray-300">
-<div>🗄️ Connect to PostgreSQL directly</div>
-<div>🐙 Access GitHub repos for context</div>
-<div>🔗 Query external APIs seamlessly</div>
-</div>
-</div>
-
----
-
-# 📚 MCP Architecture
-
-<div class="flex justify-center mt-4">
-<div class="flex items-center gap-4">
-<div class="p-4 bg-blue-900/60 rounded-lg border-2 border-blue-400 text-center">
-<div class="text-3xl mb-2">🤖</div>
-<div class="font-bold text-blue-300">Copilot</div>
-<div class="text-xs text-gray-400">MCP Client</div>
-</div>
-<div class="text-3xl text-gray-500">↔</div>
-<div class="p-4 bg-purple-900/60 rounded-lg border-2 border-purple-400 text-center">
-<div class="text-3xl mb-2">🔌</div>
-<div class="font-bold text-purple-300">MCP Server</div>
-<div class="text-xs text-gray-400">stdio/HTTP</div>
-</div>
-<div class="text-3xl text-gray-500">↔</div>
-<div class="p-4 bg-green-900/60 rounded-lg border-2 border-green-400 text-center">
-<div class="text-3xl mb-2">🗄️</div>
-<div class="font-bold text-green-300">External</div>
-<div class="text-xs text-gray-400">DB/API/Tools</div>
-</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-
-<div class="p-4 bg-gray-800 rounded-lg">
-<div class="font-bold text-cyan-300 mb-3">📡 Transport Methods</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-center gap-2"><span class="text-green-400">●</span> <code>stdio</code> — Local processes (databases, CLI tools)</div>
-<div class="flex items-center gap-2"><span class="text-blue-400">●</span> <code>HTTP/SSE</code> — Remote services (cloud APIs)</div>
-</div>
-</div>
+  <div class="text-orange-300 font-bold mb-2">Phase 3 — Explore the ecosystem frontier</div>
 
-<div class="p-4 bg-gray-800 rounded-lg">
-<div class="font-bold text-orange-300 mb-3">🎯 Capabilities</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-center gap-2"><span class="text-purple-400">●</span> <strong>Tools</strong> — Functions Copilot can invoke</div>
-<div class="flex items-center gap-2"><span class="text-cyan-400">●</span> <strong>Resources</strong> — Data sources to read</div>
-<div class="flex items-center gap-2"><span class="text-yellow-400">●</span> <strong>Prompts</strong> — Pre-configured workflows</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-4 text-center text-sm text-gray-400">
-Config: <code class="bg-gray-800 px-2 py-1 rounded">.vscode/mcp.json</code> (workspace) or user settings (global)
-</div>
-
----
-
-# 👥 Key Personas
-
-<div class="grid grid-cols-3 gap-5 mt-6">
-
-<div class="p-5 bg-gradient-to-br from-blue-900/80 to-blue-800/60 rounded-xl border-2 border-blue-400">
-<div class="text-4xl mb-3">💻</div>
-<h3 class="text-xl font-bold text-white">Marcus</h3>
-<p class="text-sm text-blue-200">DevOps Developer · 5 years</p>
-<blockquote class="mt-4 text-sm italic text-gray-300 border-l-2 border-blue-400 pl-3">
-"Manual schema lookups took 2-5 minutes. MCP server gives instant database access—0 context switches."
-</blockquote>
-<div class="mt-3 flex items-center gap-2">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs">100% eliminated</span>
-</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-red-900/80 to-red-800/60 rounded-xl border-2 border-red-400">
-<div class="text-4xl mb-3">📊</div>
-<h3 class="text-xl font-bold text-white">Sarah</h3>
-<p class="text-sm text-red-200">Senior Engineer · 15 years</p>
-<blockquote class="mt-4 text-sm italic text-gray-300 border-l-2 border-red-400 pl-3">
-"GitHub MCP server—PR validation in 30 seconds vs 5 minutes manually checking criteria."
-</blockquote>
-<div class="mt-3 flex items-center gap-2">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs">90% faster</span>
-</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-green-900/80 to-green-800/60 rounded-xl border-2 border-green-400">
-<div class="text-4xl mb-3">🧪</div>
-<h3 class="text-xl font-bold text-white">Elena</h3>
-<p class="text-sm text-green-200">QA Engineer · 8 years</p>
-<blockquote class="mt-4 text-sm italic text-gray-300 border-l-2 border-green-400 pl-3">
-"API contract validation—10 min per cycle down to 30 seconds with MCP-powered checks."
-</blockquote>
-<div class="mt-3 flex items-center gap-2">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs">95% faster</span>
-</div>
-</div>
-
-</div>
-
----
-
-# 🔨 Exercises
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-
-<div class="rounded-xl overflow-hidden border border-blue-500/50 hover:border-blue-400 transition-colors">
-<div class="bg-gradient-to-r from-blue-900 to-blue-800 p-4">
-<div class="flex justify-between items-start">
-<div class="text-3xl">🗄️</div>
-<div class="px-2 py-1 bg-blue-600 rounded text-xs">20 min</div>
-</div>
-<div class="text-lg font-bold mt-2">6.1 Database Connection</div>
-<div class="text-xs text-blue-300">Marcus ⭐ leads</div>
-</div>
-<div class="p-4 text-sm space-y-2">
-<div class="text-gray-300">Connect Copilot to FanHub's SQLite database</div>
-<div class="flex items-center gap-2 mt-3">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs font-bold">5→0 min</span>
-</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-red-500/50 hover:border-red-400 transition-colors">
-<div class="bg-gradient-to-r from-red-900 to-red-800 p-4">
-<div class="flex justify-between items-start">
-<div class="text-3xl">🐙</div>
-<div class="px-2 py-1 bg-red-600 rounded text-xs">15 min</div>
-</div>
-<div class="text-lg font-bold mt-2">6.2 PR Validation</div>
-<div class="text-xs text-red-300">Sarah ⭐ leads</div>
-</div>
-<div class="p-4 text-sm space-y-2">
-<div class="text-gray-300">Automate PR review with GitHub MCP server</div>
-<div class="flex items-center gap-2 mt-3">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs font-bold">90% faster</span>
-</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-green-500/50 hover:border-green-400 transition-colors">
-<div class="bg-gradient-to-r from-green-900 to-green-800 p-4">
-<div class="flex justify-between items-start">
-<div class="text-3xl">📜</div>
-<div class="px-2 py-1 bg-green-600 rounded text-xs">10 min</div>
-</div>
-<div class="text-lg font-bold mt-2">6.3 API Validation</div>
-<div class="text-xs text-green-300">Elena ⭐ leads</div>
-</div>
-<div class="p-4 text-sm space-y-2">
-<div class="text-gray-300">Validate backend API contracts with MCP</div>
-<div class="flex items-center gap-2 mt-3">
-<div class="h-1.5 flex-1 bg-green-500 rounded"></div>
-<span class="text-green-400 text-xs font-bold">95% faster</span>
-</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 text-center text-gray-400">
-<span class="text-2xl">⏰</span> Total: <span class="text-white font-bold">45 minutes</span> of hands-on practice
-</div>
-
----
-
-# 📊 Success Metrics
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-<div class="p-6 bg-gradient-to-br from-green-900 to-green-800 rounded-xl text-center">
-<div class="text-5xl font-bold text-white mb-2">93%</div>
-<div class="text-sm text-green-200">Time saved on lookups</div>
-<div class="text-xs text-gray-400 mt-2">70 min → 5 min/sprint</div>
-<div class="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-green-400 w-[93%]"></div>
-</div>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-cyan-900 to-cyan-800 rounded-xl text-center">
-<div class="text-5xl font-bold text-white mb-2">0</div>
-<div class="text-sm text-cyan-200">Context switches</div>
-<div class="text-xs text-gray-400 mt-2">Query directly from chat</div>
-<div class="mt-4 flex justify-center gap-1">
-<div class="w-3 h-3 bg-cyan-400 rounded-full"></div>
-<div class="w-3 h-3 bg-gray-600 rounded-full"></div>
-<div class="w-3 h-3 bg-gray-600 rounded-full"></div>
-</div>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-purple-900 to-purple-800 rounded-xl text-center">
-<div class="text-5xl font-bold text-white mb-2">100%</div>
-<div class="text-sm text-purple-200">Live data accuracy</div>
-<div class="text-xs text-gray-400 mt-2">No stale documentation</div>
-<div class="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-purple-400 w-full"></div>
-</div>
-</div>
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **5.4** | Rich UI with MCP Apps | David ⭐ | 12 min |
+| **5.5** | Bootstrap with Awesome Copilot MCP | Marcus ⭐ | 10 min |
 
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-green-600/30 to-cyan-600/30 rounded-xl border border-green-500/30 text-center">
-<div class="text-xl font-bold">MCP servers: from <span class="text-red-400">manual lookups</span> to <span class="text-green-400">instant live access</span></div>
-</div>
-
----
-
-# 💭 Marcus's Transformation
-
-<div class="flex flex-col items-center justify-center py-12">
-
-<div class="p-5 bg-gradient-to-r from-blue-600 to-cyan-700 rounded-xl shadow-lg max-w-3xl">
-<div class="text-4xl mb-3 text-center">💻</div>
-<blockquote class="text-base text-white italic text-center leading-relaxed">
-"Manual schema lookups used to take 2-5 minutes per query, with constant context switching between IDE and database tools. SQLite MCP server eliminated that entirely—I query the FanHub database directly from chat. Zero context switches, zero time wasted."
-</blockquote>
-<div class="text-right text-cyan-200 mt-3 text-sm">
-— Marcus, DevOps Developer
-</div>
-</div>
-
-</div>
-
----
-
-# 💭 Marcus's Transformation (Impact)
-
-<div class="flex flex-col items-center justify-center py-12">
-
-<div class="text-xl text-gray-300 mb-5 text-center">
-Database query transformation with MCP
-</div>
-
-<div class="flex gap-10 text-center items-center">
-<div>
-<div class="text-4xl font-bold text-red-400 line-through">2-5 min</div>
-<div class="text-sm text-gray-400 mt-1">Before</div>
-<div class="text-xs text-gray-500 mt-1">Manual lookups</div>
-</div>
-<div class="text-4xl text-gray-500">→</div>
-<div>
-<div class="text-4xl font-bold text-green-400">0 min</div>
-<div class="text-sm text-gray-400 mt-1">After</div>
-<div class="text-xs text-gray-500 mt-1">Direct chat queries</div>
-</div>
 </div>
 
-<div class="mt-5 p-3 bg-gradient-to-r from-green-600/30 to-cyan- 600/30 rounded-xl border border-green-500/30 text-center max-w-2xl">
-<div class="text-lg font-bold text-green-300">100% elimination of context switches</div>
 </div>
 
+<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
+  <div class="text-white font-semibold">The sequence matters.</div>
+  <div class="text-sm text-gray-300">Start with core connections, then compound them with validation logic, then explore richer interfaces and faster adoption patterns.</div>
 </div>
 
 ---
 
 # 🔗 Compounding Value
 
-<div class="space-y-4 mt-6">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-purple-900/60 rounded text-center text-sm font-bold text-purple-200">Module 5</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300">Skills provide <span class="text-purple-300">domain knowledge</span> (static patterns)</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">What Module 5 adds</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Live database and service access</li>
+      <li>• Real-time validation against GitHub or API state</li>
+      <li>• Richer interaction patterns, including MCP Apps</li>
+      <li>• Faster discovery of reusable customization assets</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• <strong>Module 6:</strong> custom agents become stronger when they can orchestrate prompts, skills, and live MCP-backed tools together</li>
+      <li>• The team moves from isolated customization pieces toward end-to-end Copilot workflows</li>
+    </ul>
+  </div>
+
 </div>
 
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-cyan-900/60 rounded text-center text-sm font-bold text-cyan-200">Module 6</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300">MCP provides <span class="text-cyan-300">live data</span> (dynamic state)</div>
-</div>
-
-<div class="text-3xl text-center text-gray-400 my-2">↓</div>
-
-<div class="p-4 bg-gradient-to-r from-purple-600/30 to-cyan-600/30 rounded-xl border border-purple-500/30 text-center">
-<div class="text-lg font-bold">Static knowledge + Dynamic data = <span class="text-green-400">Complete context</span></div>
-</div>
-
-<div class="text-3xl text-center text-gray-400 my-2">↓</div>
-
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-orange-900/60 rounded text-center text-sm font-bold text-orange-200">Module 6</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300">Custom agents <span class="text-orange-300">bundle MCP servers</span> for specialized access</div>
-</div>
-
+<div class="mt-8 text-center text-lg text-yellow-300">
+  Skills teach a workflow. MCP lets that workflow see the real world it must act on.
 </div>
 
 ---
 
-# ➡️ Next Up: Custom Agents
+# ✅ Module Checklist
 
-<div class="flex items-center justify-center py-12">
-<div class="max-w-3xl space-y-4">
+<div class="grid grid-cols-3 gap-5 mt-8 text-left text-sm">
 
-<div class="text-center text-lg text-gray-300">
-You have skills, MCP servers, prompts, instructions...
-</div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Connect</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Add the right MCP server configuration for the scenario</li>
+      <li>• Pick the transport that fits the system and security model</li>
+      <li>• Confirm the server starts and exposes useful capabilities</li>
+    </ul>
+  </div>
 
-<div class="p-3 bg-red-900/30 rounded-lg border border-red-500/50 text-center">
-<div class="text-red-300">But you're constantly switching contexts:</div>
-<div class="text-base text-gray-400 mt-1">Planning mode → Implementation mode → Review mode</div>
-</div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Apply</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Use live context to improve a real team workflow</li>
+      <li>• Combine MCP with prompts, standards, or skills where it helps</li>
+      <li>• Keep the integration understandable and easy to reuse</li>
+    </ul>
+  </div>
 
-<div class="text-3xl text-center text-gray-400">↓</div>
-
-<div class="p-5 bg-gradient-to-r from-orange-600 to-orange-800 rounded-xl text-center">
-<div class="text-xl font-bold text-white mb-2">
-Module 6: Custom Agents
-</div>
-<div class="text-sm text-orange-100">
-Bundle everything into role-based agents you can switch between instantly
-</div>
-</div>
-
-</div>
-</div>
-
----
-
-# ➡️ Next Up: Custom Agents (Sarah's Need)
-
-<div class="flex items-center justify-center py-12">
-<div class="max-w-3xl space-y-5">
-
-<div class="p-5 bg-gray-800 rounded-lg border-l-4 border-orange-500">
-<div class="text-base italic text-gray-300">
-"I keep reconfiguring Copilot for different tasks—planning needs different context than reviewing. Can I save these configurations?"
-</div>
-<div class="text-xs text-gray-400 mt-2">— Sarah, ready for role-based presets</div>
-</div>
-
-<div class="p-4 bg-gradient-to-r from-orange-600/30 to-purple-600/30 rounded-xl border border-orange-500/30 text-center">
-<div class="text-lg font-bold mb-2">The Solution: Custom Agents</div>
-<div class="text-sm text-gray-300">
-Save complete configurations (skills + MCP + prompts + instructions) as switchable agent presets
-</div>
-</div>
-
-<div class="grid grid-cols-3 gap-3 text-center text-xs">
-<div class="p-2 bg-blue-900/40 rounded">
-<div class="text-xl mb-1">📋</div>
-<div class="font-bold text-blue-300">Planning Agent</div>
-</div>
-<div class="p-2 bg-green-900/40 rounded">
-<div class="text-xl mb-1">⚡</div>
-<div class="font-bold text-green-300">Implementation Agent</div>
-</div>
-<div class="p-2 bg-purple-900/40 rounded">
-<div class="text-xl mb-1">🔍</div>
-<div class="font-bold text-purple-300">Review Agent</div>
-</div>
-</div>
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Validate</div>
+    <ul class="space-y-2 text-gray-300">
+      <li>• Measure whether manual effort drops</li>
+      <li>• Check that outputs are grounded in live data</li>
+      <li>• Refine the workflow until the connection is genuinely worth keeping</li>
+    </ul>
+  </div>
 
 </div>
+
+<div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-lg text-white font-semibold">A good MCP integration reduces switching, reduces guessing, and increases confidence.</div>
 </div>
 
 ---
 layout: center
-class: text-center
 ---
 
-# ✅ Module 6 Complete
+# ➡️ Next Up: Module 6
 
-<div class="mt-8 space-y-6">
-
-<div class="text-2xl text-gray-300">You've connected Copilot to live systems</div>
-
-<div class="flex justify-center gap-8 mt-8">
-<div class="text-center">
-<div class="text-4xl font-bold text-cyan-400">93%</div>
-<div class="text-sm text-gray-500">Time Saved</div>
-</div>
-<div class="text-center">
-<div class="text-4xl font-bold text-green-400">0</div>
-<div class="text-sm text-gray-500">Context Switches</div>
-</div>
-<div class="text-center">
-<div class="text-4xl font-bold text-purple-400">3</div>
-<div class="text-sm text-gray-500">MCP Connections</div>
-</div>
-</div>
-
-<div class="mt-8 p-4 bg-gradient-to-r from-orange-600/30 to-cyan-600/30 rounded-xl border border-orange-500/30 max-w-xl mx-auto">
-<div class="text-lg">
-<span class="text-orange-300">Next:</span> Module 6 - Custom Agents
-</div>
-<div class="text-sm text-gray-400 mt-1">Bundle skills, MCP servers & prompts into role-based presets</div>
+<div class="p-8 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-xl shadow-lg max-w-3xl">
+  <div class="text-5xl mb-4 text-center">🤖</div>
+  <h2 class="text-3xl text-center text-white font-bold mb-4">
+    Custom Agents
+  </h2>
+  <div class="text-lg text-center text-purple-200 mb-6">
+    Combine prompts, skills, and MCP servers into one domain-ready workflow
+  </div>
+  <div class="text-base text-gray-300 text-center mb-4">
+    By this point the team has reusable prompts, packaged skills, and live integrations. Next, they bundle those capabilities into focused agents that can orchestrate the whole workflow.
+  </div>
+  <blockquote class="text-lg text-center text-white italic">
+    "What if one Copilot workflow could know our standards, use our skills, and query our live systems at the same time?"
+  </blockquote>
+  <div class="mt-4 text-center text-purple-300">
+    Module 5 complete — ready for orchestration.
+  </div>
 </div>
 
+---
+layout: center
+---
+
+# 🔨 Exercise Section
+
+<div class="p-8 bg-gradient-to-br from-orange-900/40 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 max-w-4xl mx-auto">
+  <div class="text-5xl mb-4">🧪</div>
+  <div class="text-2xl text-white font-bold mb-3">One slide per exercise</div>
+  <div class="text-base text-gray-300 mb-4">
+    Use these as facilitation prompts during delivery. The detailed exercise markdown remains the source of truth.
+  </div>
+  <div class="text-sm text-gray-400">
+    Each exercise proves a different way MCP can make Copilot more useful with live context.
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 5.1 — Connect to FanHub Database
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/30">Lead: Marcus ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Schema knowledge still lives outside the editor, so database work requires extra tools, context switching, and guesswork.</div>
+    <div class="text-blue-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Configure a database MCP server so Copilot can answer schema and relationship questions directly from the FanHub database.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Create or update <code>.vscode/mcp.json</code></li>
+      <li>• Start the SQLite server and test schema queries</li>
+      <li>• Confirm Copilot can inspect tables and relationships from live data</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Database access works from chat</li>
+      <li>• Schema lookup time drops dramatically</li>
+      <li>• Marcus can stay in flow instead of opening a separate database tool</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 5.2 — Automate PR Review Validation
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30">Lead: Sarah ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">PR readiness is still checked manually across multiple GitHub screens, which is slow and easy to miss under pressure.</div>
+    <div class="text-purple-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Use the GitHub MCP server plus a reusable prompt to validate merge readiness against the team’s checklist.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Add GitHub MCP configuration</li>
+      <li>• Create a PR validation prompt</li>
+      <li>• Query live PR status, approvals, checks, and blockers</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Validation uses live GitHub data</li>
+      <li>• The checklist is applied consistently</li>
+      <li>• Sarah gets a faster, more reliable merge-readiness report</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 5.3 — Validate Backend API Against Data Rules
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-orange-900/50 text-orange-300 border border-orange-500/30">Lead: Elena ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Static validation rules are useful, but they cannot catch runtime API behavior unless the workflow can reach the live service.</div>
+    <div class="text-orange-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Combine an MCP-backed API connection with earlier validation logic so Copilot can test live responses against domain rules.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Add or create a FanHub API MCP server</li>
+      <li>• Query live endpoints from chat</li>
+      <li>• Apply validation rules to detect contract violations earlier</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• The API can be inspected live from Copilot</li>
+      <li>• Rule violations are surfaced clearly</li>
+      <li>• Elena can validate runtime behavior much faster than manual curl-based checks</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 5.4 — Rich UI with MCP Apps
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/30">Lead: David ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 12 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Plain-text output is enough for some tasks, but charts, tables, and flame graphs can make patterns far easier to understand.</div>
+    <div class="text-blue-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Explore how MCP Apps can render interactive visualizations directly inside chat instead of forcing an export to another tool.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Configure or connect to an MCP Apps demo server</li>
+      <li>• Request an interactive visualization</li>
+      <li>• Explore how rich UI changes the quality of analysis</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• An interactive visualization renders in chat</li>
+      <li>• The team can inspect data without exporting it elsewhere</li>
+      <li>• David sees how MCP can improve explanation, not just access</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 5.5 — Bootstrap with Awesome Copilot MCP
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30">Lead: Marcus ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 10 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Writing every customization from scratch is educational, but it is not always the fastest or smartest path for real teams.</div>
+    <div class="text-purple-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Use Awesome Copilot MCP to search, compare, and install community-curated customizations directly from chat.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Install or connect to the Awesome Copilot MCP server</li>
+      <li>• Search for useful instructions, prompts, or chat modes</li>
+      <li>• Save one or more community patterns into the repo</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• The team can discover options quickly</li>
+      <li>• Installation is faster than manual browsing and copy/paste</li>
+      <li>• Marcus can bootstrap customization work without reinventing every pattern</li>
+    </ul>
+  </div>
 </div>

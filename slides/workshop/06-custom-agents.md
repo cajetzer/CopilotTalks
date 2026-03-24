@@ -5,7 +5,7 @@ highlighter: shiki
 lineNumbers: false
 info: |
   ## Module 6: Custom Agents
-  CopilotTraining Training
+  Bundle tools, skills, and workflow constraints into role-based presets
 drawings:
   persist: false
 transition: slide-left
@@ -13,17 +13,13 @@ title: Module 6 - Custom Agents
 module: workshop/06-custom-agents
 mdc: true
 status: active
-updated: 2026-02-06
+updated: 2026-03-24
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <!-- Gradient background -->
   <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-
-  <!-- Glowing orb -->
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
 
-  <!-- Logo with glow -->
   <div class="relative z-10">
     <div class="absolute inset-0 blur-2xl opacity-50">
       <img src="./sdp-logo.png" class="w-72" alt="" />
@@ -31,640 +27,612 @@ updated: 2026-02-06
     <img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
   </div>
 
-  <!-- Gradient text title -->
   <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
     Module 6: Custom Agents
   </h1>
 
-  <!-- Pill subtitle -->
   <div class="mt-4 relative z-10">
     <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-      The Context-Switching Problem
+      ⏰ Turn capabilities into roles
     </span>
   </div>
 
-  <!-- Concept line -->
-  <div class="mt-8 text-lg opacity-70 relative z-10">
-    Manual <span class="text-red-400 font-semibold">switching</span> → Instant <span class="text-purple-400 font-semibold">presets</span>
+  <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
+    "Agents are where instructions, prompts, skills, and MCP access become an actual workflow teammate."
   </div>
 
-  <!-- Decorative line -->
   <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <span class="text-sm opacity-50">⏰ 75 minutes</span>
+---
+
+# 📖 Story So Far
+
+<div class="grid grid-cols-6 gap-3 mt-8 text-left">
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-xl mb-2">📚</div>
+    <div class="font-bold text-blue-300 mb-2">1</div>
+    <div class="text-sm text-gray-300">Repo and path-based instructions defined expected behavior.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-xl mb-2">🧩</div>
+    <div class="font-bold text-purple-300 mb-2">2</div>
+    <div class="text-sm text-gray-300">Plan mode taught the team to research before implementing.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-xl mb-2">🔁</div>
+    <div class="font-bold text-orange-300 mb-2">3</div>
+    <div class="text-sm text-gray-300">Prompt files turned repeated requests into reusable commands.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-xl mb-2">🎓</div>
+    <div class="font-bold text-purple-300 mb-2">4</div>
+    <div class="text-sm text-gray-300">Skills packaged domain workflows with examples and resources.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-xl mb-2">🔌</div>
+    <div class="font-bold text-orange-300 mb-2">5</div>
+    <div class="text-sm text-gray-300">MCP servers brought live databases, APIs, and services into the workflow.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-xl mb-2">🤖</div>
+    <div class="font-bold text-purple-300 mb-2">6</div>
+    <div class="text-sm text-gray-300">Now the team needs switchable role presets instead of manual setup every time.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl text-white font-semibold mb-2">The problem is no longer missing capability. It is workflow friction.</div>
+  <div class="text-sm text-gray-300">Custom agents bundle the right tools, instructions, skills, and handoffs for a specific job so the team can switch modes instantly.</div>
 </div>
 
 ---
 
-# 📖 The Story
+# 🎯 What You'll Build
 
-<div class="grid grid-cols-1 gap-4 mt-6">
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
-<div class="p-5 bg-gradient-to-r from-red-900/40 to-gray-800 rounded-lg border-l-4 border-red-500">
-<div class="flex items-start gap-4">
-<div class="text-4xl">😩</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-2xl mb-3">📝</div>
+    <div class="text-lg font-bold text-blue-300 mb-2">A planning agent</div>
+    <div class="text-sm text-gray-300">Read-only tools, planning rules, and structured output to keep research separate from implementation.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-2xl mb-3">🛠️</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">An implementation agent</div>
+    <div class="text-sm text-gray-300">Full editing tools and systematic ADR-driven execution for getting work done thoroughly.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-2xl mb-3">🔒</div>
+    <div class="text-lg font-bold text-orange-300 mb-2">A review agent</div>
+    <div class="text-sm text-gray-300">Analysis-only workflow for finding issues without accidentally making changes during review.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
+    <div class="text-2xl mb-3">🌐</div>
+    <div class="text-lg font-bold text-purple-300 mb-2">A web-accessible pattern</div>
+    <div class="text-sm text-gray-300">Understand when an agent should work in VS Code, on the web, or as part of a handoff chain.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 text-center text-lg text-gray-300">
+  Module 6 is about operationalizing everything the workshop has taught so far.
+</div>
+
+---
+
+# 📚 What Custom Agents Actually Are
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">A role-specific operating mode</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• YAML frontmatter defines tools, model, handoffs, and related controls</li>
+      <li>• Markdown instructions define the workflow and constraints</li>
+      <li>• The agent appears as a reusable preset for a specific kind of work</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">A way to encode workflow boundaries</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Planning agents can be read-only</li>
+      <li>• Implementation agents can have edit tools</li>
+      <li>• Review agents can stay analysis-only and hand issues back for fixes</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">A place where earlier customizations meet</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Repository instructions still guide behavior</li>
+      <li>• Skills can provide domain workflow support</li>
+      <li>• MCP access can add live context where the role needs it</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">The real payoff</div>
+    <div class="text-sm text-gray-300">You stop re-explaining the mode of work and start selecting the right teammate for the job.</div>
+  </div>
+
+</div>
+
+---
+
+# 🔄 Agents vs Instructions vs Skills vs MCP
+
+<div class="grid grid-cols-4 gap-4 mt-8 text-left">
+
+  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">Instructions</div>
+    <div class="text-sm text-gray-300">Tell Copilot how to behave.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Prompts</div>
+    <div class="text-sm text-gray-300">Package repeated requests.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Skills</div>
+    <div class="text-sm text-gray-300">Teach a specialized capability.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/30 to-purple-900/20 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Agents</div>
+    <div class="text-sm text-gray-300">Compose the right tools and workflow for a role.</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl font-bold text-white">Agents are the orchestration layer.</div>
+  <div class="text-sm text-gray-300">They decide which capabilities are available, when to stop, and where the workflow goes next.</div>
+</div>
+
+---
+
+# ⚙️ Core Agent Design Patterns
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Tool selection is policy</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Read-only tools enforce research or review boundaries</li>
+      <li>• Editing tools should only appear where implementation is expected</li>
+      <li>• The tool list shapes the behavior as much as the prompt does</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Instructions define the workflow</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Stopping rules prevent scope creep</li>
+      <li>• Style guides make output more consistent</li>
+      <li>• Ordered phases reduce improvisation</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="mt-8 grid grid-cols-3 gap-5 text-left">
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">Handoffs</div>
+    <div class="text-sm text-gray-300">Turn isolated tasks into guided workflows from one role to the next.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Model and scope controls</div>
+    <div class="text-sm text-gray-300">Pick the environment and invocation pattern that fit the job.</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Workspace vs web</div>
+    <div class="text-sm text-gray-300">Some agents are best for VS Code, others for analysis on the web or in meetings.</div>
+  </div>
+</div>
+
+---
+layout: two-cols
+---
+
+# ❌ Before
+
+<div class="space-y-4 mt-6 text-left">
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Every workflow starts with reconfiguration</div>
+  <div class="text-sm text-gray-300">The user re-explains whether this is planning, implementation, review, or analysis work.</div>
+</div>
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Boundaries are easy to blur</div>
+  <div class="text-sm text-gray-300">A planning conversation can drift into editing or a review session can accidentally make changes.</div>
+</div>
+
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-300 mb-2">Workflow transitions stay manual</div>
+  <div class="text-sm text-gray-300">Even when the next step is obvious, the handoff from plan to implement or implement to review is not encoded.</div>
+</div>
+
+</div>
+
+::right::
+
+# ✨ After
+
+<div class="space-y-4 mt-6 text-left">
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Roles become instant presets</div>
+  <div class="text-sm text-gray-300">The team picks the right agent and starts in the right mode immediately.</div>
+</div>
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Constraints are enforced, not implied</div>
+  <div class="text-sm text-gray-300">Read-only planning or review is backed by tool restrictions and instructions, not just good intentions.</div>
+</div>
+
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
+  <div class="font-bold text-green-300 mb-2">Handoffs create a real workflow chain</div>
+  <div class="text-sm text-gray-300">Plan, implement, and review become a sequence the team can actually reuse.</div>
+</div>
+
+</div>
+
+---
+
+# 📊 What to Validate in the Workshop
+
+<div class="grid grid-cols-3 gap-5 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2">Role fit</div>
+    <div class="text-sm text-gray-300">Does the agent’s tool list and instruction set actually match the work it is supposed to perform?</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2">Workflow reliability</div>
+    <div class="text-sm text-gray-300">Does the agent consistently stay in scope and produce the kind of output the role needs?</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2">Handoff quality</div>
+    <div class="text-sm text-gray-300">Does the transition to the next role preserve context and reduce manual setup?</div>
+  </div>
+
+</div>
+
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-xl font-bold text-white">A good custom agent feels like a workflow upgrade, not just a renamed chat mode.</div>
+</div>
+
+---
+
+# 🔨 Exercise Roadmap
+
+<div class="mt-6 text-left">
+
+<div class="mb-5">
+  <div class="text-blue-300 font-bold mb-2">Phase 1 — Learn the pattern before customizing it</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **6.1** | Understand the Default Plan Agent | All ⭐ | 15 min |
+| **6.2** | Create Feature Planning Agent | David ⭐ | 15 min |
+
+</div>
+
+<div class="mb-5">
+  <div class="text-purple-300 font-bold mb-2">Phase 2 — Build the delivery workflow</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **6.3** | Create Implementation Agent for ADR Execution | Sarah ⭐ | 15 min |
+| **6.4** | Design Security Review Agent | Elena ⭐ | 15 min |
+
+</div>
+
 <div>
-<div class="text-lg font-bold text-red-300">Sarah switches between tasks 5 times per day</div>
-<div class="grid grid-cols-3 gap-4 mt-3 text-sm text-gray-300">
-<div>🔍 Planning <span class="text-gray-500">(read-only)</span></div>
-<div>📝 Implementation <span class="text-gray-500">(full editing)</span></div>
-<div>🔎 Review <span class="text-gray-500">(analysis)</span></div>
-</div>
-</div>
-</div>
+  <div class="text-orange-300 font-bold mb-2">Phase 3 — Extend beyond the local IDE</div>
+
+| # | Exercise | Lead | Time |
+|---|---|---|---|
+| **6.5** | Access Custom Agents from the Web | Rafael ⭐ | 15 min |
+
 </div>
 
-<div class="p-4 bg-gray-800 rounded-lg">
-<div class="text-lg font-bold text-yellow-300 mb-2">⚠️ The Problem</div>
-<div class="text-gray-300">Each switch = <span class="text-red-400 font-bold">5 minutes</span> reconfiguring Copilot's behavior</div>
-<div class="text-sm text-gray-500 mt-1">= 25 min/day lost to context switching</div>
 </div>
 
-<div class="p-5 bg-gradient-to-r from-green-900/40 to-gray-800 rounded-lg border-l-4 border-green-500">
-<div class="text-lg font-bold text-green-300 mb-2">💡 The Insight</div>
-<div class="text-gray-300">Bundle tools, skills, and instructions into <span class="text-green-400 font-bold">role-based presets</span> you can switch instantly</div>
-</div>
-
+<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
+  <div class="text-white font-semibold">The sequence builds a real workflow chain.</div>
+  <div class="text-sm text-gray-300">Understand a strong default, create the planning role, create the implementation role, add review, then extend access to the web.</div>
 </div>
 
 ---
 
-# 🎯 Learning Objectives
-
-<div class="grid grid-cols-3 gap-4 mt-6">
-
-<div class="p-5 bg-gradient-to-br from-orange-900/60 to-gray-800 rounded-lg border-2 border-orange-500">
-<div class="text-3xl mb-3">📄</div>
-<div class="text-lg font-bold text-orange-300">Create Agents</div>
-<div class="text-sm text-gray-400 mt-2">Define specialized personas in <code>.agent.md</code> files</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-red-900/60 to-gray-800 rounded-lg border-2 border-red-500">
-<div class="text-3xl mb-3">🔧</div>
-<div class="text-lg font-bold text-red-300">Configure Tools</div>
-<div class="text-sm text-gray-400 mt-2">Set tool access, handoffs, and behavioral constraints</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-purple-900/60 to-gray-800 rounded-lg border-2 border-purple-500">
-<div class="text-3xl mb-3">🌐</div>
-<div class="text-lg font-bold text-purple-300">Web Access</div>
-<div class="text-sm text-gray-400 mt-2">Same agents work on github.com automatically</div>
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-orange-600/30 to-purple-600/30 rounded-xl border border-orange-500/30 text-center">
-<div class="text-xl">Custom agents orchestrate <span class="text-orange-300">Modules 1-6</span> into <span class="text-green-400">role-based presets</span> with instant switching</div>
-</div>
-
-<div class="mt-4 text-center text-gray-400">⏰ 75 minutes | 🔨 5 exercises</div>
-
----
-
-# ❌ Before → ✨ After
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-
-<div class="rounded-xl overflow-hidden border border-red-500/50">
-<div class="bg-gradient-to-r from-red-900/80 to-red-800/60 p-4 text-center">
-<div class="text-xl font-bold">❌ Manual Role Switching</div>
-</div>
-<div class="p-5 space-y-3">
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Loading planning context</span>
-<span class="text-red-400 font-bold">5 min</span>
-</div>
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Accidental edits during research</span>
-<span class="text-red-400 font-bold">3 errors</span>
-</div>
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Setting up security review</span>
-<span class="text-red-400 font-bold">6 min</span>
-</div>
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Consistent analysis approach</span>
-<span class="text-red-400 font-bold">Inconsistent</span>
-</div>
-<div class="mt-4 pt-4 border-t border-gray-700">
-<div class="text-center text-red-300 font-bold">25 min/day on context switching</div>
-</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-green-500/50">
-<div class="bg-gradient-to-r from-green-900/80 to-green-800/60 p-4 text-center">
-<div class="text-xl font-bold">✨ Agent-Based Presets</div>
-</div>
-<div class="p-5 space-y-3">
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Setup time</span>
-<span class="text-green-400 font-bold">0 min (instant)</span>
-</div>
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Accidental edits</span>
-<span class="text-green-400 font-bold">0 (read-only enforced)</span>
-</div>
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Review setup</span>
-<span class="text-green-400 font-bold">0 min (preset ready)</span>
-</div>
-<div class="flex justify-between items-center text-sm">
-<span class="text-gray-300">Workflow consistency</span>
-<span class="text-green-400 font-bold">100%</span>
-</div>
-<div class="mt-4 pt-4 border-t border-gray-700">
-<div class="text-center text-green-300 font-bold">Zero switching overhead</div>
-</div>
-</div>
-</div>
-
-</div>
-
----
-
-# 💡 Understanding Custom Agents
-
-<div class="mt-4 p-4 bg-gradient-to-r from-orange-600/30 to-red-600/30 rounded-xl border border-orange-500/30 text-center mb-6">
-<div class="text-xl font-bold">Custom agents are <span class="text-orange-300">role-based configurations</span> stored in <code>.agent.md</code> files</div>
-</div>
-
-<div class="grid grid-cols-2 gap-4">
-
-<div class="p-4 bg-gray-800 rounded-lg">
-<div class="font-bold text-orange-300 mb-3">🛠️ Key Characteristics</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-center gap-2"><span class="text-blue-400">●</span> <strong>YAML frontmatter</strong> — Tools, model, handoffs, MCP</div>
-<div class="flex items-center gap-2"><span class="text-green-400">●</span> <strong>Markdown body</strong> — Agent-specific instructions</div>
-<div class="flex items-center gap-2"><span class="text-purple-400">●</span> <strong>Handoffs</strong> — Guided transitions between agents</div>
-<div class="flex items-center gap-2"><span class="text-cyan-400">●</span> <strong>Two scopes</strong> — Workspace or User level</div>
-<div class="flex items-center gap-2"><span class="text-yellow-400">●</span> <strong>Web accessible</strong> — Works on github.com too!</div>
-</div>
-</div>
-
-<div class="p-4 bg-gray-800 rounded-lg">
-<div class="font-bold text-purple-300 mb-3">🔄 How They Differ</div>
-<div class="space-y-3 text-sm">
-<div class="p-2 bg-blue-900/40 rounded border-l-2 border-blue-400">
-<span class="text-blue-300 font-bold">Instructions</span> = behavior for all contexts
-</div>
-<div class="p-2 bg-purple-900/40 rounded border-l-2 border-purple-400">
-<span class="text-purple-300 font-bold">Skills</span> = specialized capabilities
-</div>
-<div class="p-2 bg-orange-900/40 rounded border-l-2 border-orange-400">
-<span class="text-orange-300 font-bold">Agents</span> = complete working modes (tools + skills + instructions)
-</div>
-</div>
-</div>
-
-</div>
-
----
-
-# 📚 Agent File Structure
-
-<div class="grid grid-cols-2 gap-6 mt-4">
-
-<div class="rounded-xl overflow-hidden border border-blue-500/50">
-<div class="bg-gradient-to-r from-blue-900 to-blue-800 p-3">
-<div class="font-bold text-blue-200">📄 YAML Frontmatter</div>
-</div>
-<div class="p-4 bg-gray-900 font-mono text-xs">
-<div><span class="text-blue-400">name:</span> Planner</div>
-<div><span class="text-blue-400">description:</span> Generate implementation plan</div>
-<div><span class="text-blue-400">tools:</span> ['search', 'fetch', 'githubRepo']</div>
-<div><span class="text-blue-400">model:</span> Claude Sonnet 4</div>
-<div><span class="text-blue-400">handoffs:</span></div>
-<div class="pl-2">- <span class="text-green-400">label:</span> Start Implementation</div>
-<div class="pl-4"><span class="text-green-400">agent:</span> implement</div>
-<div class="pl-4"><span class="text-green-400">prompt:</span> Implement this plan</div>
-</div>
-</div>
-
-<div class="rounded-xl overflow-hidden border border-green-500/50">
-<div class="bg-gradient-to-r from-green-900 to-green-800 p-3">
-<div class="font-bold text-green-200">📝 Markdown Body</div>
-</div>
-<div class="p-4 bg-gray-900 font-mono text-xs">
-<div class="text-purple-400"># Planning Instructions</div>
-<div class="mt-2">You are in planning mode.</div>
-<div>Your task is to generate</div>
-<div>implementation plans.</div>
-<div class="mt-2 text-red-400">Do not make code edits,</div>
-<div class="text-red-400">research and analysis only.</div>
-<div class="mt-2">Include:</div>
-<div>- Feature overview</div>
-<div>- Implementation steps</div>
-<div>- Testing strategy</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-4 text-center text-sm text-gray-400">
-Location: <code class="bg-gray-800 px-2 py-1 rounded">.github/agents/planner.agent.md</code>
-</div>
-
----
-
-# 👥 Key Personas
-
-<div class="grid grid-cols-3 gap-5 mt-6">
-
-<div class="p-5 bg-gradient-to-br from-blue-900/80 to-blue-800/60 rounded-xl border-2 border-blue-400">
-<div class="text-4xl mb-3">📝</div>
-<h3 class="text-xl font-bold text-white">David</h3>
-<p class="text-sm text-blue-200">Staff Engineer · 20 years</p>
-<blockquote class="mt-4 text-sm italic text-gray-300 border-l-2 border-blue-400 pl-3">
-"Feature planning agent—read-only tools prevent accidental edits during research."
-</blockquote>
-<div class="mt-3 px-2 py-1 bg-blue-600/30 rounded text-xs text-blue-300 inline-block">
-@feature-plan
-</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-red-900/80 to-red-800/60 rounded-xl border-2 border-red-400">
-<div class="text-4xl mb-3">🛠️</div>
-<h3 class="text-xl font-bold text-white">Sarah</h3>
-<p class="text-sm text-red-200">Senior Engineer · 15 years</p>
-<blockquote class="mt-4 text-sm italic text-gray-300 border-l-2 border-red-400 pl-3">
-"Implementation agent—full editing tools + API skill + ADR workflow."
-</blockquote>
-<div class="mt-3 px-2 py-1 bg-red-600/30 rounded text-xs text-red-300 inline-block">
-@implement
-</div>
-</div>
-
-<div class="p-5 bg-gradient-to-br from-green-900/80 to-green-800/60 rounded-xl border-2 border-green-400">
-<div class="text-4xl mb-3">🔒</div>
-<h3 class="text-xl font-bold text-white">Elena</h3>
-<p class="text-sm text-green-200">QA Engineer · 8 years</p>
-<blockquote class="mt-4 text-sm italic text-gray-300 border-l-2 border-green-400 pl-3">
-"Security review agent—catches 5 issues per review vs previous 2."
-</blockquote>
-<div class="mt-3 px-2 py-1 bg-green-600/30 rounded text-xs text-green-300 inline-block">
-@security-review
-</div>
-</div>
-
-</div>
-
----
-
-# 🔨 Exercises
-
-<div class="grid grid-cols-5 gap-3 mt-4">
-
-<div class="rounded-lg overflow-hidden border border-gray-600">
-<div class="bg-gray-700 p-2 text-center">
-<div class="text-xs text-gray-400">15 min</div>
-<div class="font-bold text-sm">7.1</div>
-</div>
-<div class="p-3 text-xs">
-<div class="text-gray-300">Default Plan Agent</div>
-<div class="text-gray-500 mt-1">All 🤝</div>
-</div>
-</div>
-
-<div class="rounded-lg overflow-hidden border border-blue-500/50">
-<div class="bg-blue-900 p-2 text-center">
-<div class="text-xs text-blue-400">15 min</div>
-<div class="font-bold text-sm">7.2</div>
-</div>
-<div class="p-3 text-xs">
-<div class="text-gray-300">Feature Planning</div>
-<div class="text-blue-400 mt-1">David ⭐</div>
-</div>
-</div>
-
-<div class="rounded-lg overflow-hidden border border-red-500/50">
-<div class="bg-red-900 p-2 text-center">
-<div class="text-xs text-red-400">15 min</div>
-<div class="font-bold text-sm">7.3</div>
-</div>
-<div class="p-3 text-xs">
-<div class="text-gray-300">Implementation</div>
-<div class="text-red-400 mt-1">Sarah ⭐</div>
-</div>
-</div>
-
-<div class="rounded-lg overflow-hidden border border-green-500/50">
-<div class="bg-green-900 p-2 text-center">
-<div class="text-xs text-green-400">15 min</div>
-<div class="font-bold text-sm">7.4</div>
-</div>
-<div class="p-3 text-xs">
-<div class="text-gray-300">Security Review</div>
-<div class="text-green-400 mt-1">Elena ⭐</div>
-</div>
-</div>
-
-<div class="rounded-lg overflow-hidden border border-purple-500/50">
-<div class="bg-purple-900 p-2 text-center">
-<div class="text-xs text-purple-400">15 min</div>
-<div class="font-bold text-sm">7.5</div>
-</div>
-<div class="p-3 text-xs">
-<div class="text-gray-300">Web Access</div>
-<div class="text-purple-400 mt-1">Rafael ⭐</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 grid grid-cols-3 gap-4">
-<div class="p-3 bg-gray-800 rounded-lg text-center">
-<div class="text-green-400 font-bold">5 min → 0 min</div>
-<div class="text-xs text-gray-500">Setup time eliminated</div>
-</div>
-<div class="p-3 bg-gray-800 rounded-lg text-center">
-<div class="text-green-400 font-bold">3 → 0</div>
-<div class="text-xs text-gray-500">Accidental edits</div>
-</div>
-<div class="p-3 bg-gray-800 rounded-lg text-center">
-<div class="text-green-400 font-bold">2 → 5</div>
-<div class="text-xs text-gray-500">Security issues caught</div>
-</div>
-</div>
-
----
-
-# 📊 Success Metrics
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-<div class="p-6 bg-gradient-to-br from-green-900 to-green-800 rounded-xl text-center">
-<div class="text-5xl font-bold text-white mb-2">100%</div>
-<div class="text-sm text-green-200">Context switching eliminated</div>
-<div class="text-xs text-gray-400 mt-2">Instant role changes</div>
-<div class="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-green-400 w-full"></div>
-</div>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-xl text-center">
-<div class="text-5xl font-bold text-white mb-2">0</div>
-<div class="text-sm text-blue-200">Accidental modifications</div>
-<div class="text-xs text-gray-400 mt-2">Tool restrictions enforced</div>
-<div class="mt-4 flex justify-center gap-1">
-<div class="w-3 h-3 bg-blue-400 rounded-full"></div>
-<div class="w-3 h-3 bg-gray-600 rounded-full"></div>
-<div class="w-3 h-3 bg-gray-600 rounded-full"></div>
-</div>
-</div>
-
-<div class="p-6 bg-gradient-to-br from-purple-900 to-purple-800 rounded-xl text-center">
-<div class="text-5xl font-bold text-white mb-2">150%</div>
-<div class="text-sm text-purple-200">Security issue detection</div>
-<div class="text-xs text-gray-400 mt-2">2 → 5 issues caught</div>
-<div class="mt-4 h-2 bg-gray-700 rounded-full overflow-hidden">
-<div class="h-full bg-purple-400 w-[150%] max-w-full"></div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-orange-600/30 to-purple-600/30 rounded-xl border border-orange-500/30 text-center">
-<div class="text-xl font-bold">Agents: from <span class="text-red-400">manual switching</span> to <span class="text-green-400">instant role presets</span></div>
-</div>
-
----
-
-# 💭 David's Transformation
-
-<div class="flex flex-col items-center justify-center h-full" style="transform: scale(0.95);">
-
-<div class="p-6 bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl shadow-lg max-w-3xl">
-<div class="text-5xl mb-3 text-center">📝</div>
-<blockquote class="text-lg text-white italic text-center leading-normal">
-"Manual planning setup took 5 minutes—loading context, preventing accidental edits. The @feature-plan agent has read-only tools configured, feature requirements skill loaded, and GitHub MCP connected. Instant switch, zero setup, perfect focus."
-</blockquote>
-<div class="text-right text-purple-200 mt-3 text-base">
-— David, Staff Engineer
-</div>
-</div>
-
-<div class="mt-6 flex gap-8 text-center">
-<div>
-<div class="text-3xl font-bold text-red-400 line-through">5 min</div>
-<div class="text-sm text-gray-500">Setup before</div>
-</div>
-<div class="text-3xl text-gray-500">→</div>
-<div>
-<div class="text-3xl font-bold text-green-400">0 min</div>
-<div class="text-sm text-gray-500">Instant switch</div>
-</div>
-</div>
-
-</div>
-
----
-
-# 🌐 Web Accessibility Insight
-
-<div class="mt-4 p-4 bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-xl border border-purple-500/30 text-center mb-6">
-<div class="text-xl font-bold">Custom agents in <code>.github/agents/</code> work <span class="text-green-400">automatically</span> on both platforms!</div>
-</div>
-
-<div class="grid grid-cols-2 gap-6">
-
-<div class="p-5 bg-gray-800 rounded-xl border-2 border-blue-500">
-<div class="flex items-center gap-3 mb-3">
-<div class="text-3xl">💻</div>
-<div class="text-xl font-bold text-blue-300">VS Code</div>
-</div>
-<div class="text-gray-300">Full implementation capabilities</div>
-<div class="mt-3 text-sm text-gray-500">Best for: Editing, debugging, terminal</div>
-</div>
-
-<div class="p-5 bg-gray-800 rounded-xl border-2 border-purple-500">
-<div class="flex items-center gap-3 mb-3">
-<div class="text-3xl">🌐</div>
-<div class="text-xl font-bold text-purple-300">github.com/copilot</div>
-</div>
-<div class="text-gray-300">Planning & analysis (no IDE needed)</div>
-<div class="mt-3 text-sm text-gray-500">Best for: Meetings, mobile, quick access</div>
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-gray-800 rounded-lg border-l-4 border-purple-500">
-<div class="text-sm italic text-gray-300">
-"I can use @feature-plan during meetings from my browser—no VS Code launch, no context-switching. Feature analysis went from 5-6 minutes to 1.5 minutes because I'm already in the right interface."
-</div>
-<div class="text-xs text-gray-500 mt-2">— Rafael, Product Manager</div>
-</div>
-
----
-
-# 🔗 Your Complete AI-Assisted Development Stack
-
-<div class="space-y-3 mt-4">
-
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-blue-900/60 rounded text-center text-sm font-bold text-blue-200">Module 1</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300"><span class="text-blue-300">Repository instructions</span> — coding standards for all interactions</div>
-</div>
-
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-green-900/60 rounded text-center text-sm font-bold text-green-200">Module 2</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300"><span class="text-green-300">Plan mode</span> — research before implementation</div>
-</div>
-
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-yellow-900/60 rounded text-center text-sm font-bold text-yellow-200">Module 3</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300"><span class="text-yellow-300">Custom prompts</span> — reusable task templates</div>
-</div>
-
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-purple-900/60 rounded text-center text-sm font-bold text-purple-200">Module 4</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300"><span class="text-purple-300">Agent skills</span> — specialized capabilities with scripts</div>
-</div>
-
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-cyan-900/60 rounded text-center text-sm font-bold text-cyan-200">Module 5</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300"><span class="text-cyan-300">MCP servers</span> — live data connections</div>
-</div>
-
-<div class="flex items-center gap-4">
-<div class="flex-shrink-0 w-28 p-3 bg-red-900/60 rounded text-center text-sm font-bold text-red-200">Module 6</div>
-<div class="text-gray-400">→</div>
-<div class="flex-1 p-3 bg-gray-800 rounded text-sm text-gray-300"><span class="text-red-300">Custom agents</span> — role-based orchestration</div>
-</div>
-
-</div>
-
----
-
-# 🎉 Workshop Complete!
-
-<div class="flex items-center justify-center h-full" style="transform: scale(0.95);">
-<div class="max-w-4xl text-center space-y-4">
-
-<div class="relative inline-block">
-<div class="absolute -inset-4 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 rounded-full blur-xl opacity-60 animate-pulse"></div>
-<div class="relative text-7xl">🏆</div>
-</div>
-
-<div class="text-3xl font-bold text-white mt-3">Congratulations!</div>
-<div class="text-lg text-gray-300">You've completed the entire CopilotTraining training</div>
-
-<div class="grid grid-cols-4 gap-4 mt-5">
-<div class="p-3 bg-gradient-to-br from-blue-900/60 to-blue-800/40 rounded-xl">
-<div class="text-3xl font-bold text-blue-300">7</div>
-<div class="text-xs text-gray-400">Modules Completed</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/60 to-green-800/40 rounded-xl">
-<div class="text-3xl font-bold text-green-300">20+</div>
-<div class="text-xs text-gray-400">Exercises Practiced</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-xl">
-<div class="text-3xl font-bold text-purple-300">85%</div>
-<div class="text-xs text-gray-400">Avg Time Saved</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-orange-900/60 to-orange-800/40 rounded-xl">
-<div class="text-3xl font-bold text-orange-300">∞</div>
-<div class="text-xs text-gray-400">Potential Unlocked</div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-green-600/30 to-blue-600/30 rounded-xl border border-green-500/30">
-<div class="text-base italic text-gray-300">
-"From skeptic to advocate. From manual to AI-assisted. From individual to team multiplier."
-</div>
-</div>
-
-</div>
+# 🔗 Compounding Value
+
+<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">What Module 6 adds</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Role-based presets instead of repetitive setup</li>
+      <li>• Explicit workflow boundaries</li>
+      <li>• Handoffs between planning, implementation, and review</li>
+      <li>• A path to web-accessible analysis workflows</li>
+    </ul>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Why it matters</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Instructions, prompts, skills, and MCP are more valuable when they are easy to invoke in the right context</li>
+      <li>• Teams get more consistency because workflow design is encoded, not remembered</li>
+      <li>• Agent chains make Copilot feel more like a system of teammates than a single chat box</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="mt-8 text-center text-lg text-yellow-300">
+  Module 6 is the orchestration layer that turns separate customizations into repeatable delivery patterns.
 </div>
 
 ---
 layout: center
-class: text-center
 ---
 
-# 🌟 The FanHub Team's Transformation
+# ✅ Module Checklist
 
-<div class="mt-6 grid grid-cols-5 gap-3">
+<div class="p-8 bg-gray-900/60 rounded-xl border border-white/10 max-w-4xl mx-auto text-left">
+  <div class="grid grid-cols-3 gap-5 text-sm">
+    <div class="p-4 rounded-xl bg-gray-800/80 border border-blue-500/30">
+      <div class="text-blue-300 font-bold mb-3">Define</div>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Pick the role the agent is meant to serve</li>
+        <li>• Choose tools that reinforce that role</li>
+        <li>• Write instructions that keep the workflow in scope</li>
+      </ul>
+    </div>
 
-<div class="p-3 bg-gradient-to-br from-red-900/60 to-red-800/40 rounded-xl text-center">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-sm font-bold text-red-300">Sarah</div>
-<div class="text-xs text-gray-400">"Prove it" → Convinced</div>
-</div>
+    <div class="p-4 rounded-xl bg-gray-800/80 border border-purple-500/30">
+      <div class="text-purple-300 font-bold mb-3">Connect</div>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Add handoffs where the next step is predictable</li>
+        <li>• Bring in skills or MCP access only when the role needs them</li>
+        <li>• Choose environment and invocation settings intentionally</li>
+      </ul>
+    </div>
 
-<div class="p-3 bg-gradient-to-br from-blue-900/60 to-blue-800/40 rounded-xl text-center">
-<div class="text-2xl mb-1">🏗️</div>
-<div class="text-sm font-bold text-blue-300">David</div>
-<div class="text-xs text-gray-400">20 yrs amplified</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-xl text-center">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-sm font-bold text-purple-300">Marcus</div>
-<div class="text-xs text-gray-400">Full-stack confident</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-green-900/60 to-green-800/40 rounded-xl text-center">
-<div class="text-2xl mb-1">🧪</div>
-<div class="text-sm font-bold text-green-300">Elena</div>
-<div class="text-xs text-gray-400">AI-assisted QA</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-orange-900/60 to-orange-800/40 rounded-xl text-center">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-sm font-bold text-orange-300">Rafael</div>
-<div class="text-xs text-gray-400">Execution enabler</div>
-</div>
-
-</div>
-
-<div class="mt-8 p-6 bg-gradient-to-r from-green-600 to-blue-600 rounded-xl max-w-2xl mx-auto">
-<div class="text-2xl font-bold text-white mb-2">You Are Now AI-Native Developers</div>
-<div class="text-base text-green-100">Instructions • Plan Mode • Prompts • Custom Instructions • Skills • MCP • Agents</div>
-</div>
-
-<div class="mt-6 text-gray-400 text-sm">
-Go forth and build amazing things! 🚀
+    <div class="p-4 rounded-xl bg-gray-800/80 border border-orange-500/30">
+      <div class="text-orange-300 font-bold mb-3">Validate</div>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Test whether the agent stays in role</li>
+        <li>• Confirm handoffs reduce setup work</li>
+        <li>• Refine until the workflow feels trustworthy and reusable</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 ---
 layout: center
-class: text-center
 ---
 
-<div class="space-y-8">
+# ➡️ Workshop Complete
 
-<div class="text-6xl">🚀</div>
-
-<div class="text-4xl font-bold bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-Thank You!
+<div class="p-8 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-xl shadow-lg max-w-3xl">
+  <div class="text-5xl mb-4 text-center">🚀</div>
+  <h2 class="text-3xl text-center text-white font-bold mb-4">
+    From customization pieces to workflow teammates
+  </h2>
+  <div class="text-lg text-center text-purple-200 mb-6">
+    Instructions, prompts, skills, MCP servers, and agents now work as one system
+  </div>
+  <div class="text-base text-gray-300 text-center mb-4">
+    The workshop arc is complete. The next step is practical adoption: choose the highest-friction team workflow, package it with the right boundaries and handoffs, and refine it through real usage.
+  </div>
+  <blockquote class="text-lg text-center text-white italic">
+    "The goal was never just to customize Copilot. The goal was to make good engineering workflows easier to repeat."
+  </blockquote>
+  <div class="mt-4 text-center text-purple-300">
+    Module 6 complete — ready for real team rollout.
+  </div>
 </div>
 
-<div class="text-xl text-gray-300">CopilotTraining Training Complete</div>
+---
+layout: center
+---
 
-<div class="grid grid-cols-3 gap-8 mt-8 max-w-2xl mx-auto">
-<div class="text-center">
-<div class="text-3xl">📚</div>
-<div class="text-sm text-gray-400 mt-2">Keep Learning</div>
-<div class="text-xs text-gray-500">docs.github.com/copilot</div>
-</div>
-<div class="text-center">
-<div class="text-3xl">🤝</div>
-<div class="text-sm text-gray-400 mt-2">Share Knowledge</div>
-<div class="text-xs text-gray-500">Train your team</div>
-</div>
-<div class="text-center">
-<div class="text-3xl">🛠️</div>
-<div class="text-sm text-gray-400 mt-2">Build Great Things</div>
-<div class="text-xs text-gray-500">AI + Human = Magic</div>
-</div>
+# 🔨 Exercise Section
+
+<div class="p-8 bg-gradient-to-br from-orange-900/40 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 max-w-4xl mx-auto">
+  <div class="text-5xl mb-4">🧪</div>
+  <div class="text-2xl text-white font-bold mb-3">One slide per exercise</div>
+  <div class="text-base text-gray-300 mb-4">
+    Use these as facilitation prompts during delivery. The detailed exercise markdown remains the source of truth.
+  </div>
+  <div class="text-sm text-gray-400">
+    Focus on roles, constraints, and handoffs rather than trying to memorize every frontmatter field.
+  </div>
 </div>
 
+---
+
+# 🔨 Exercise 6.1 — Understand the Default Plan Agent
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/30">Lead: All ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Before building custom agents, the team needs a mental model for how a well-designed agent uses tools, instructions, and handoffs.</div>
+    <div class="text-blue-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Reverse-engineer the default plan agent so the team learns production-quality patterns before writing its own configurations.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Study frontmatter, stopping rules, workflow, and handoffs</li>
+      <li>• Identify which tools are present and which are intentionally absent</li>
+      <li>• Capture the patterns worth reusing in team agents</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• The team can explain how the default agent stays in role</li>
+      <li>• Key configuration concepts are clear before customization starts</li>
+      <li>• Everyone has a reference pattern to borrow from</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 6.2 — Create Feature Planning Agent
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30">Lead: David ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Planning still takes repeated setup and can drift into accidental edits if the workflow boundaries are not enforced.</div>
+    <div class="text-purple-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Create a planning agent with read-only tools, explicit stopping rules, and a structured planning workflow.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Create the planning agent frontmatter and instructions</li>
+      <li>• Test it against a real feature spec</li>
+      <li>• Confirm it refuses implementation work and stays in planning mode</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Planning setup overhead drops sharply</li>
+      <li>• Accidental edits disappear during research</li>
+      <li>• Output stays structured and actionable</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 6.3 — Create Implementation Agent for ADR Execution
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-orange-900/50 text-orange-300 border border-orange-500/30">Lead: Sarah ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Even with a strong specification, implementation can become ad hoc, incomplete, or out of order if the workflow is not packaged well.</div>
+    <div class="text-orange-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Create an implementation agent that reads ADRs, executes in a sensible order, and hands off to review when done.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Define editing tools and implementation instructions</li>
+      <li>• Test the agent against a feature ADR</li>
+      <li>• Confirm the implementation workflow is complete and systematic</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Completeness improves versus manual implementation</li>
+      <li>• Execution order becomes more reliable</li>
+      <li>• Review handoff is part of the default path</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 6.4 — Design Security Review Agent
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/30">Lead: Elena ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Review work needs strong analysis and standards coverage, but it should not accidentally start fixing code during the review step.</div>
+    <div class="text-blue-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Create a read-only security review agent that finds issues, reports them clearly, and hands off fixes when needed.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Define analysis-only tools and review instructions</li>
+      <li>• Test the agent on intentionally flawed code</li>
+      <li>• Verify the handoff back to implementation preserves review context</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• Review setup time is reduced</li>
+      <li>• Accidental modifications during review go away</li>
+      <li>• Review coverage becomes more systematic and easier to act on</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+# 🔨 Exercise 6.5 — Access Custom Agents from the Web
+
+<div class="flex items-center justify-center gap-3 mt-4 text-sm">
+  <span class="px-3 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30">Lead: Rafael ⭐</span>
+  <span class="px-3 py-1 rounded-full bg-gray-900/60 text-gray-300 border border-white/10">Time: 15 min</span>
+</div>
+
+<div class="grid grid-cols-2 gap-6 mt-6 text-left">
+  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-3">Challenge</div>
+    <div class="text-sm text-gray-300">Some planning and analysis work happens away from the IDE, especially during meetings or quick stakeholder conversations.</div>
+    <div class="text-purple-300 font-bold mt-5 mb-3">Goal</div>
+    <div class="text-sm text-gray-300">Understand how custom agents can also support web-based workflows and when that tradeoff makes sense.</div>
+  </div>
+
+  <div class="p-5 rounded-xl bg-gray-900/60 border border-white/10">
+    <div class="text-white font-bold mb-3">What to do</div>
+    <ul class="text-sm text-gray-300 space-y-2 mb-5">
+      <li>• Explore which agents can work effectively on the web</li>
+      <li>• Compare web and VS Code usage patterns</li>
+      <li>• Decide where web-based access reduces friction for the team</li>
+    </ul>
+    <div class="text-white font-bold mb-3">Success criteria</div>
+    <ul class="text-sm text-gray-300 space-y-2">
+      <li>• The team can explain when web access is helpful</li>
+      <li>• Tradeoffs between local and web contexts are clearer</li>
+      <li>• Rafael can use agent workflows during live discussion without opening the IDE first</li>
+    </ul>
+  </div>
 </div>

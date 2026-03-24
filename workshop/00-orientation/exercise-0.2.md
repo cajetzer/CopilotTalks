@@ -1,138 +1,92 @@
-# Exercise 0.2: Experience "The Struggle"
+# Exercise 0.1: Context Fundamentals — Quick Start
 
 ## 🔨 Exercise
 
-**Lead:** Everyone ⭐ | **Time:** 15 min
+**Lead:** Everyone ⭐ | **Time:** 10 min
 
-#### 📖 The Setup
+> 📚 **Deep Dive:** For comprehensive coverage of Copilot Chat, context mechanisms, and VS Code 1.109 enhancements, see the [Copilot Chat Tech Talk](../../tech-talks/copilot-chat/README.md).
 
-It's Monday, 9:30 AM. You've just looked at the FanHub starter code. It's time to experience what happens when you try to build with AI that doesn't understand your codebase.
+#### 📖 The Challenge
 
-This exercise is intentionally frustrating. You need to feel the "before" state to appreciate the transformation.
+It's Monday, 9:15 AM. Marcus asks Copilot Chat a basic question:
 
-#### 🎯 Objective
+> "How do I add a new character to the database?"
 
-Try to add a simple feature using Copilot WITHOUT any configuration or documentation. Experience the struggle. Document the problems.
+Copilot responds with... generic SQL syntax. It doesn't know about FanHub's database schema. **The quality of AI responses is directly proportional to the quality of context you provide.**
 
-#### ❌ The "Before" — What Frustration Looks Like
+#### 🎯 Your Goal
 
-You're about to experience:
-- ✗ Generic suggestions that don't match your architecture
-- ✗ Inconsistent code styles (because the codebase is inconsistent)
-- ✗ Show-generic content ("John Doe" instead of your show's characters)
-- ✗ Uncertainty about which patterns to follow
-- ✗ Multiple attempts to get what you want
+Practice the five context mechanisms so you're ready for the rest of the workshop.
 
-**This is on purpose.** You need to see the problem to appreciate the solution.
+---
 
-#### 📋 Steps
+#### 📋 Quick Practice (5 minutes)
 
-**1. Clone the FanHub starter app** (we'll create this in Phase 2)
+Try each mechanism once to feel the difference:
 
-```bash
-# Clone the training repo if you haven't already
-git clone https://github.com/YOUR_USERNAME/CopilotTraining.git
-cd CopilotTraining
-
-# Navigate to the FanHub starter
-cd fanhub
-
-# Install dependencies and start the app
-docker-compose up -d
-cd frontend && npm install && npm start
+**1. `#file` — Known files**
+```
+What database tables exist? #file:backend/database/schema.sql
 ```
 
-**2. Browse the existing code** (spend 5-10 minutes)
-
-Look at:
-- `fanhub/backend/database/schema.sql` — generic database structure
-- `fanhub/backend/api/routes/` — inconsistent API patterns
-- `fanhub/frontend/components/` — mixed component styles
-- `fanhub/docs/` — empty! No architecture, no patterns, no standards
-
-**3. Choose your TV show theme**
-
-Pick your favorite show. Some ideas:
-- 📺 The Office (US)
-- 🔦 Stranger Things  
-- 🧪 Breaking Bad
-- 🛡️ The Mandalorian
-- 🐉 Game of Thrones
-- 🚀 The Expanse
-
-This will be YOUR FanHub throughout the training.
-
-**4. Try to add a character detail page**
-
-Open `fanhub/frontend/pages/` and create a new file `CharacterDetail.jsx` (or `.tsx` if using TypeScript).
-
-Ask Copilot Chat:
-
+**2. `@workspace` — Project overview**
 ```
-Add a character detail page that shows:
-- Character name
-- Photo
-- Biography
-- List of episodes they appear in
+@workspace What is the overall architecture of this application?
 ```
 
-**Watch what happens:**
-- Does it match your show? Or is it generic?
-- Does it follow existing component patterns? Or create new ones?
-- Does it use the right API endpoints? Or make assumptions?
-- Does the styling match the rest of the app?
+**3. `#codebase` — Semantic search**
+```
+#codebase Where is authentication configured?
+```
+
+**4. `#fetch` — External docs**
+```
+#fetch https://react.dev/learn/thinking-in-react
+How should I structure React components based on this?
+```
+
+**5. Images — Visual context**
+- Take a screenshot of an error message or UI mockup
+- Drag-and-drop onto the Chat view
+- Ask: "What's causing this?" or "Implement this design"
+
+---
+
+#### 💡 Context Decision Guide
+
+| When you... | Use... |
+|-------------|--------|
+| Know the exact file | `#file:path/to/file` |
+| Need project overview | `@workspace` |
+| Looking for something specific | `#codebase` |
+| Need current external docs | `#fetch <URL>` |
+| Have a UI mockup/error screenshot | Drag image to chat |
+| Working on the current file | Nothing! (implicit) |
 
 ---
 
 #### ✅ Success Criteria
 
-- [ ] FanHub app is running locally
-- [ ] You've chosen your show theme
-- [ ] You attempted the Character Detail Challenge with Copilot
-- [ ] Created `fanhub/docs/character-detail-challenge.md` with Attempt 1 metrics
-- [ ] Documented specific problems encountered
-- [ ] Felt the frustration (this is important!)
-- [ ] Ready to revisit this challenge in Module 01 and 02
+- [ ] Tried at least 3 of the 5 context mechanisms
+- [ ] Noticed the difference between generic and context-aware responses
+- [ ] Ready to use context throughout the workshop
 
-#### 🧠 Mindful Moment: Before
+#### 🧠 Mindful Moment
 
-**Marcus thinks:** "Is Copilot even helping? This feels like fighting with autocomplete."
+**Marcus's insight:** "This is like giving someone directions. 'Go there' is useless. 'Go to 123 Main St' gets results."
 
-**Priya worries:** "If I can't get good results, maybe I'm not using it right?"
+**Sarah's validation:** "Context is how you scale expertise. When I add architecture docs and standards, Copilot gives senior-dev answers."
 
-**Sarah observes:** "This is what I was afraid of. Generic garbage that doesn't understand our domain."
+---
 
-**David notes:** "The AI doesn't know our architecture, our patterns, or our standards. It's guessing."
+## 🔗 What's Next
 
-#### 📚 Official Docs
+You've got the fundamentals. Now let's see what happens when Copilot has **no** context about your codebase patterns and standards.
 
-- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-- [Getting Started with Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
-- [Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat)
-
-#### ✨ The "After" — What's Coming
-
-In Module 1, you'll configure Copilot with:
-- Architecture documentation (`docs/ARCHITECTURE.md`)
-- Team coding standards (`.github/copilot-instructions.md`)
-- Your show's specific context
-
-**Then you'll revisit the Character Detail Challenge** and experience the improvement:
-
-| After... | Expected Improvement |
-|----------|---------------------|
-| ARCHITECTURE.md | Structure improves, but patterns still inconsistent |
-| copilot-instructions.md | Consistent patterns, faster results |
-| Plan Mode (Module 02) | First-try success with comprehensive solution |
-
-The same prompt. Dramatically different results:
-- ✓ Show-specific content (your characters, not "John Doe")
-- ✓ Follows your architecture (uses correct API patterns)
-- ✓ Matches your standards (consistent styling and structure)
-- ✓ Works on the first try (especially with plan mode)
+**Continue to:** [Exercise 0.2: Experience "The Struggle"](exercise-0.2.md)
 
 ---
 
 ## ➡️ Next Exercise
 
-**[Exercise 0.3: Set Your Success Metrics](exercise-0.3.md)** — Define how YOU will measure success with AI-assisted development.
+**[Exercise 0.2: The Character Detail Challenge](exercise-0.2.md)** — Now that you know how to provide context, experience what happens when you build WITHOUT configuration or documentation. Feel the struggle, then we'll fix it in Module 1.
