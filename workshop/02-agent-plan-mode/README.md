@@ -130,9 +130,9 @@ The exercises below use plan mode to tackle increasingly complex implementation 
 
 | # | Exercise | Lead | Support | Problem | Solution | Key Metrics | Artifacts |
 |---|----------|------|---------|---------|----------|-------------|-----------|
-| [2.1](exercise-2.1.md) | Invoking Plan Mode | Marcus | Sarah | Feature planning: 35 min manual analysis, 5 missed dependencies per sprint | Use plan agent to research character detail feature implementation | 35→7 min planning, 5→1 missed dependencies | Plan output in Chat |
-| [2.2](exercise-2.2.md) | Validating and Refining Plans | David | Elena, Sarah | AI plans miss edge cases: 3 architectural issues per plan, 2 review cycles | Review plan output, identify missing requirements, iterate before execution | 3→0 architectural issues, 2→1 review cycles | Refined plan with annotations |
-| [2.3](exercise-2.3.md) | Executing Plans | Marcus | Elena | Implementation conflicts: 25 min debugging integration issues, 40% test coverage gaps | Execute validated plan with test-first approach | 25→5 min debugging, 40%→85% initial coverage | Character detail feature files |
+| [2.1](exercise-2.1.md) | Invoking Plan Mode | Marcus | Sarah | Small enhancements still require manual codebase tracing: 20 min analysis, 3 missed dependencies per sprint | Use plan agent to research adding a character tagline/summary | 20→7 min planning, 3→0 missed dependencies | Tagline plan output in Chat |
+| [2.2](exercise-2.2.md) | Planning a Second Enhancement | David | Elena, Sarah | Teams often plan one enhancement well, then restart from scratch for the next one | Use plan agent to research adding character status badges as a separate enhancement | 15→6 min planning, 2→0 missed UI requirements | Status badge plan with scoped implementation steps |
+| [2.3](exercise-2.3.md) | Combining Plans into a Delivery Roadmap | Marcus | Elena | Separate enhancement plans create sequencing confusion: duplicated work, unclear order, and scope drift | Merge tagline and status badge plans into one prioritized mini-roadmap | 2 plans→1 roadmap, 3 overlaps removed, clearer execution order | Combined roadmap with priorities and dependencies |
 
 ---
 

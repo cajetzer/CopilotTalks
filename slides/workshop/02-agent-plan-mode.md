@@ -343,7 +343,7 @@ layout: two-cols
 
 <div class="mt-6 p-5 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-xl border border-white/10 text-center">
 <div class="text-lg text-white font-semibold mb-2">This module is one clean progression.</div>
-<div class="text-sm text-gray-300">Generate the first draft. Review it like experienced engineers. Execute only after the roadmap deserves your trust.</div>
+<div class="text-sm text-gray-300">Plan one small enhancement. Plan the next one with the same workflow. Then merge both into a roadmap the team can actually ship.</div>
 </div>
 
 <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
@@ -367,15 +367,15 @@ layout: two-cols
 </tr>
 <tr class="border-t border-white/5 bg-gray-900/40">
 <td class="p-3 font-semibold text-purple-300">2.2</td>
-<td class="p-3">Validating and Refining Plans</td>
-<td class="p-3">Expert review loop</td>
+<td class="p-3">Planning a Second Enhancement</td>
+<td class="p-3">Repeat the workflow for status badges</td>
 <td class="p-3">David ⭐</td>
-<td class="p-3">10 min</td>
+<td class="p-3">8 min</td>
 </tr>
 <tr class="border-t border-white/5">
 <td class="p-3 font-semibold text-orange-300">2.3</td>
-<td class="p-3">Executing Plans</td>
-<td class="p-3">Implementation with confidence</td>
+<td class="p-3">Combining Plans into a Delivery Roadmap</td>
+<td class="p-3">Merge two scoped plans into one sequence</td>
 <td class="p-3">Marcus ⭐</td>
 <td class="p-3">7 min</td>
 </tr>
@@ -384,8 +384,8 @@ layout: two-cols
 </div>
 
 <div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-<div class="text-white font-semibold">The order is the lesson.</div>
-<div class="text-sm text-gray-300">This module works because the team separates planning, review, and execution instead of blending them together under pressure.</div>
+<div class="text-white font-semibold">The order is still the lesson.</div>
+<div class="text-sm text-gray-300">This module works because the team learns to repeat planning on small enhancements, then sequence related work instead of improvising scope.</div>
 </div>
 
 ---
@@ -408,15 +408,15 @@ Exercises
 <div class="relative z-10 grid grid-cols-3 gap-3 max-w-3xl w-full px-8">
 <div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40 text-center text-sm">
 <div class="text-blue-300 font-bold">2.1</div>
-<div class="text-gray-400 text-xs mt-1">Generate the plan</div>
+<div class="text-gray-400 text-xs mt-1">Plan the tagline</div>
 </div>
 <div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40 text-center text-sm">
 <div class="text-purple-300 font-bold">2.2</div>
-<div class="text-gray-400 text-xs mt-1">Refine the plan</div>
+<div class="text-gray-400 text-xs mt-1">Plan the badges</div>
 </div>
 <div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40 text-center text-sm">
 <div class="text-orange-300 font-bold">2.3</div>
-<div class="text-gray-400 text-xs mt-1">Execute the plan</div>
+<div class="text-gray-400 text-xs mt-1">Merge both plans</div>
 </div>
 </div>
 <div class="relative z-10 mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
@@ -438,15 +438,15 @@ Exercises
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
-Marcus is staring at a feature that touches frontend, backend, and the database. <strong class="text-white">Before writing code, he needs a map of what changes, in what order, and where the risks are hiding.</strong>
+Marcus is staring at a lightweight enhancement to the character detail page. <strong class="text-white">Before writing code, he needs a map for adding a character tagline or summary without guessing where the data and UI changes belong.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open Copilot Chat in <strong>Plan</strong> mode instead of default execution mode</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Ask for a character detail page plan that spans frontend, backend, database, and existing FanHub patterns</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Review the generated summary, file paths, dependencies, and open questions, then save the draft plan</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Ask for a lightweight plan to add a character tagline or summary using existing FanHub patterns</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Review the generated summary, file paths, dependencies, and open questions, then save the tagline plan</span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -454,9 +454,9 @@ Marcus is staring at a feature that touches frontend, backend, and the database.
 <div class="space-y-2 text-xs text-gray-300">
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The plan includes summary, steps, dependencies, and open questions</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> File paths align with the actual FanHub structure</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Planning feels visibly faster than manual exploration</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The tagline enhancement feels small, clear, and faster to plan than manual exploration</div>
 </div>
-<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Marcus:</strong> "I don’t need perfect answers yet. I need a trustworthy map before I start moving."</div>
+<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Marcus:</strong> "I don’t need a giant feature plan. I need a trustworthy map for one small enhancement."</div>
 </div>
 </div>
 </div>
@@ -469,33 +469,33 @@ Marcus is staring at a feature that touches frontend, backend, and the database.
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">2.2</div>
 <div>
 <div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Validating and Refining Plans</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Planning a Second Enhancement</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">David ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 10 min</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 8 min</span>
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-AI produced a plausible draft, but David knows plausible is not the same as production-ready. <strong class="text-white">This is where architecture, testing instincts, and standards review turn a fast draft into a plan the team can trust.</strong>
+The team has one clean plan already. <strong class="text-white">Now David wants to prove that the same workflow can plan a second small enhancement—status badges—without restarting discovery from scratch.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Review the draft through architecture, quality, and standards lenses instead of accepting it at face value</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Add missing error handling, test files, edge cases, caching, and response-pattern details</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Iterate with the plan agent until the roadmap is explicitly ready for implementation</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Stay in Plan mode and request a second scoped enhancement focused only on status badges</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Review whether the badge plan stays lightweight, covers edge cases, and matches existing FanHub UI patterns</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Refine if needed, then save the badge plan as a second artifact for later sequencing</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Meaningful gaps were identified and closed before coding</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Test files, failure modes, and edge cases are explicit in the plan</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The plan is marked approved for implementation</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The badge plan stays scoped to one lightweight enhancement</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Data/API, frontend, and test steps are all visible in the plan</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The plan is saved as a second artifact for later sequencing</div>
 </div>
-<div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">David:</strong> "AI gets us the first 80% fast. The remaining 20% is where engineering judgment earns its keep."</div>
+<div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">David:</strong> "Once we can plan one good enhancement, we should be able to plan the next one without losing discipline."</div>
 </div>
 </div>
 </div>
@@ -508,7 +508,7 @@ AI produced a plausible draft, but David knows plausible is not the same as prod
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">2.3</div>
 <div>
 <div class="text-orange-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Executing Plans</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Combining Plans into a Delivery Roadmap</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Marcus ⭐</span>
@@ -516,25 +516,25 @@ AI produced a plausible draft, but David knows plausible is not the same as prod
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-sm text-gray-300">
-The roadmap is approved. Now the team has to prove that execution is calmer, more complete, and less error-prone than the old improvisational approach. <strong class="text-white">This is where good planning earns its payoff.</strong>
+Marcus now has two solid plans. <strong class="text-white">Instead of treating them like separate mini-projects, the team needs one prioritized roadmap that removes duplicated work and clarifies sequencing.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Execute the validated plan in stages rather than asking Copilot to improvise from scratch</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Review backend, frontend, tests, and edge-case handling against the approved roadmap as implementation lands</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Verify the feature end to end and compare the experience against the unplanned baseline</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open the tagline and badge plans side by side and identify overlapping backend, frontend, and test work</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Ask the plan agent to merge both enhancements into one lightweight roadmap with clear priorities and dependencies</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Save the combined roadmap as the team’s practical execution sequence for both enhancements</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Backend, frontend, and tests are implemented per plan</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Error handling and edge cases work as expected</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Integration debugging stays minimal because sequencing was clear upfront</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Both enhancement plans are represented in the final roadmap</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Shared steps are merged instead of repeated</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The combined roadmap is easier to execute than the two plans separately</div>
 </div>
-<div class="mt-4 p-3 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">💭 <strong class="text-orange-300">Marcus:</strong> "This feels different. I’m not discovering the plan while I code anymore."</div>
+<div class="mt-4 p-3 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">💭 <strong class="text-orange-300">Marcus:</strong> "This is the version I can actually hand to the team. Two good ideas, one clear sequence."</div>
 </div>
 </div>
 </div>

@@ -1,133 +1,95 @@
-# Exercise 2.2: Validating and Refining Plans
+# Exercise 2.2: Planning a Second Enhancement
 
 ## 🔨 Exercise
 
-### Exercise 2.2: Validating and Refining Plans — "AI Proposes, Expertise Validates"
+### Exercise 2.2: Planning a Second Enhancement — "Same Workflow, New Scope"
 
-**Lead:** David ⭐ | **Support:** Elena 🤝, Sarah 🤝 | **Time:** 10 min
+**Lead:** David ⭐ | **Support:** Elena 🤝, Sarah 🤝 | **Time:** 8 min
 
 #### 📖 The Challenge
 
-Marcus has a plan from Exercise 2.1, but here's the critical question: Is it production-ready? AI can analyze code patterns and propose plausible implementations, but it can't replace David's 20 years of architectural experience, Elena's quality instincts, or Sarah's standards enforcement.
+The team has a clean plan for a character tagline from Exercise 2.1, but David notices something important: another lightweight enhancement is waiting right behind it. The character detail page would also benefit from small visual status badges—signals like `Hero`, `Villain`, `Alive`, or `Retired` that help users scan the page faster.
 
-David knows from experience: *"The plan covers the happy path, but what about error states? Caching invalidation? Race conditions during concurrent requests? AI gives us the 80% fast, but production readiness is in the remaining 20%."*
+Before plan mode, teams often handled this kind of follow-up work badly: they planned one enhancement carefully, then restarted from scratch on the next one. That led to duplicated codebase exploration, inconsistent assumptions, and small UX additions that quietly expanded in scope.
 
-Before this workflow, the team discovered architectural issues during PR review—after code was written. That meant 2-3 review cycles per feature (45 minutes each) and sometimes complete refactoring. Catching issues during planning instead of implementation saves massive amounts of rework.
+David wants to prove a better pattern: *"Once we've seen how to plan one small enhancement, we should be able to repeat the workflow for the next one without losing discipline."*
 
-Elena adds: *"I also notice the plan doesn't mention test files. We need unit tests, integration tests, and API endpoint tests identified upfront, not as an afterthought."*
+Elena adds: *"And because badges are visual and data-driven, we need to think about display rules early—before implementation starts."*
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Accept AI plans at face value → implement → discover 3 architectural issues during PR review → refactor → 2-3 review cycles (45 min each) | Review plan with expertise → identify 3 issues during planning → refine plan → implement correctly the first time → 1 review cycle |
-| **Architectural issues per feature:** 3<br>**Review cycles:** 2-3 (135 min total)<br>**Test planning:** Afterthought | **Architectural issues per feature:** 0<br>**Review cycles:** 1 (45 min total)<br>**Test planning:** Upfront |
+| Team finishes one plan, then manually restarts discovery for the next small enhancement → repeated codebase exploration, inconsistent assumptions, scope drift | Team uses the same planning workflow again for a second enhancement → focused plan, clearer scope, less duplicated analysis |
+| **Planning time for follow-up enhancement:** 15 min<br>**Missed UI requirements:** 2<br>**Scope clarity:** Uneven | **Planning time for follow-up enhancement:** 6 min<br>**Missed UI requirements:** 0<br>**Scope clarity:** High |
 
 #### 🎯 Your Goal
 
-Apply architectural expertise to validate the AI-generated plan, identify gaps, and refine it before implementation.
+Use the plan agent to create a second focused implementation plan for adding status badges to the character detail experience.
 
 #### 📋 Steps
 
-1. **Review the Plan with Architectural Questions**
+1. **Start a New Plan Request for Status Badges**
    
-   Open the plan from Exercise 2.1 (`fanhub/docs/FEATURE-CHARACTER-DETAIL.md` or review it in the Chat view). Read through each implementation step while asking critical questions:
-   
-   **David's architectural lens:**
-   - *Error handling:* What happens if character ID doesn't exist? Invalid format? Database timeout?
-   - *Caching:* Should character data be cached? If yes, how do we invalidate cache on updates?
-   - *Security:* Are we vulnerable to SQL injection? Does the API validate input?
-   - *Performance:* Is the database query optimized? N+1 queries risk?
-   - *Consistency:* Does this follow our existing error response patterns?
-   
-   **Elena's quality lens:**
-   - *Testing:* Where are the test file modifications? Unit tests? Integration tests?
-   - *Edge cases:* What about empty biographies? Characters with no episodes? Special characters in names?
-   - *Test data:* Do we have test fixtures for character data?
-   
-   **Sarah's standards lens:**
-   - *Patterns:* Does it follow our async/await conventions from copilot-instructions.md?
-   - *File structure:* Are components in the right folders per ARCHITECTURE.md?
-   - *Code style:* Will this pass our linting rules?
-   
-   Make notes of anything missing or concerning.
+     Stay in plan mode and enter a new request focused only on badges:
 
-2. **Identify Gaps and Issues**
-   
-   Based on your review, list specific gaps. Here are examples you might find:
-   
-   **Architectural gaps:**
-   - ❌ Plan doesn't mention error handling for invalid character IDs
-   - ❌ No caching strategy defined (could hit database on every request)
-   - ❌ Missing input validation on API endpoint
-   
-   **Quality gaps:**
-   - ❌ No test files included in implementation steps
-   - ❌ Edge cases not addressed (empty data, special characters)
-   - ❌ No mention of test fixtures or mock data
-   
-   **Standards gaps:**
-   - ❌ Response format might not match existing API patterns
-   - ❌ Component structure unclear for styling consistency
-   
-   Write these down as **Plan Refinement Notes** in the plan document or in a comment in the chat.
+    ```
+    @workspace Add status badges to the existing character detail experience:
+    - Frontend: Render compact status badges near the character name or summary
+    - Backend/API: Ensure the page has the status values it needs
+    - Keep the enhancement lightweight and consistent with existing FanHub UI patterns
+    ```
 
-3. **Refine the Plan Through Conversation**
+    **What to observe:** You're using the exact same planning workflow from Exercise 2.1, but now for a separate, equally scoped enhancement. This reinforces that plan mode is reusable, not a one-off trick.
+
+2. **Review the Badge Plan**
    
-   Return to the plan mode chat (where you generated the original plan). Stay in plan mode—don't switch to default chat yet. Add refinement requests:
+    Examine the generated plan and confirm it stays narrow. It should include:
+
+    - **Summary**: A lightweight enhancement to display status badges
+    - **Implementation Steps**: Updates to data source/response shape, UI rendering, and tests
+    - **Open Questions**: Ambiguities like "What badge values are allowed?" or "What happens when there are no badges?"
+    - **Dependencies**: Data/API updates before frontend rendering, tests after behavior is defined
+
+    **Use David's lens:** Does the plan stay small and avoid expanding into a larger profile redesign?
+
+    **Use Elena's lens:** Are visual edge cases covered—empty badges, multiple badges, unknown values?
+
+    **Use Sarah's lens:** Does the plan reference existing styling and naming patterns?
+
+3. **Refine the Plan if Needed**
+   
+    If the plan is too vague or too broad, refine it in plan mode:
    
    ```
-   Update the plan to address these gaps:
+    Update the plan to address these gaps:
+    
+    1. Specify where status badge values come from
+    2. Add fallback behavior when a character has no statuses
+    3. Add test file modifications for badge rendering and response shape
+    4. Add edge case handling for unknown badge values or too many badges
+    5. Ensure badge styling matches existing FanHub patterns
+     ```
    
-   1. Add error handling for invalid character IDs (return 404 with standard error format)
-   2. Include Redis caching layer with 5-minute TTL
-   3. Add test file modifications:
-      - backend/__tests__/routes/characters.test.js for API tests
-      - frontend/__tests__/pages/CharacterDetail.test.jsx for component tests
-   4. Add edge case handling for missing biography or zero episodes
-   5. Ensure response format matches existing API patterns from backend/src/routes/shows.js
-   ```
-   
-   **What to observe:** The plan agent regenerates the plan with your refinements incorporated. You should see:
-   - New steps for error handling and caching
-   - Test file paths added to implementation steps
-   - Edge cases addressed with specific approaches
-   - Reference to existing patterns for consistency
-   
-   This is the iterative refinement loop: propose → review → identify gaps → refine → repeat until confident.
+    The result should still be a compact plan, not a larger feature pitch.
 
-4. **Validate the Refined Plan**
+4. **Save the Badge Plan**
    
-   Review the updated plan and verify:
-   - [ ] All architectural concerns addressed (errors, caching, security, performance)
-   - [ ] Test files explicitly included with paths and purposes
-   - [ ] Edge cases mentioned with handling strategies
-   - [ ] Standards and patterns from copilot-instructions.md followed
-   - [ ] Dependencies still logical (database before API, API before frontend)
-   
-   Add a final note to the plan:
-   
-   ```markdown
-   ## ✅ Plan Review Completed
-   
-   **Reviewed by:** David (Architecture), Elena (Quality), Sarah (Standards)
-   **Issues identified:** 3 architectural gaps, 3 quality gaps
-   **Resolution:** Plan refined to address all concerns
-   **Status:** Approved for implementation
-   ```
-   
-   Save the refined plan. Now it's production-ready, not just plausible.
+    Save the status badge plan to a separate file:
+
+    ```
+    fanhub/docs/FEATURE-STATUS-BADGES.md
+    ```
+
+    You now have two scoped plans: one for tagline/summary, one for status badges. That sets up the final exercise, where you combine them into a single roadmap.
 
 #### ✅ Success Criteria
 
-- [ ] Plan reviewed through architectural, quality, and standards lenses
-- [ ] At least 3 gaps identified (error handling, testing, edge cases, etc.)
-- [ ] Plan refined with specific additions addressing each gap
-- [ ] Test files explicitly included in implementation steps
-- [ ] Edge cases and error scenarios documented with handling strategies
-- [ ] Plan marked as reviewed and approved for implementation
-
-> 📂 **Compare Your Work**: See the refined plan with review notes in [`examples/completed-config/docs/character-detail-challenge.md`](../examples/completed-config/docs/character-detail-challenge.md)
+- [ ] Plan agent generates a focused status badge plan with specific file paths
+- [ ] Plan stays lightweight and scoped to badges only
+- [ ] Data/API, frontend, and test steps are all represented
+- [ ] Edge cases such as empty or unknown badge values are addressed
+- [ ] Badge plan saved as a separate artifact for later sequencing
 
 #### 📚 Official Docs
 
@@ -139,24 +101,24 @@ Apply architectural expertise to validate the AI-generated plan, identify gaps, 
 ## 🔗 What You Built
 
 **In this exercise:**
-- Refined implementation plan with architectural review notes, gap analysis, and approval sign-off
-- Validation checklist for architectural concerns, quality requirements, and standards compliance
+- `fanhub/docs/FEATURE-STATUS-BADGES.md` — Implementation plan for adding status badges to the character detail page
+- A second scoped planning workflow that mirrors Exercise 2.1 without restarting from scratch
 
 **How it compounds:**
 
 | Previous Modules | This Module | Combined Power |
 |------------------|-------------|----------------|
-| ARCHITECTURE.md (Module 1) | Architectural validation | David validates plan follows documented architecture patterns |
-| copilot-instructions.md (Module 1) | Standards validation | Sarah ensures plan follows team conventions automatically |
-| Exercise 2.1 (Plan generation) | Human expertise layer | AI research + human validation = production-ready plans |
+| ARCHITECTURE.md (Module 1) | Plan agent research | Badge plan follows the existing project structure automatically |
+| copilot-instructions.md (Module 1) | Standards-aware planning | Badge plan references existing UI and naming conventions |
+| Exercise 2.1 (Tagline plan) | Repeatable planning workflow | One successful plan becomes a reusable pattern for the next enhancement |
 
 ---
 
 ## ➡️ Next Up
 
-**[Exercise 2.3: Executing Plans](exercise-2.3.md)** — Execute the validated plan with confidence, tracking progress and verifying implementation quality.
+**[Exercise 2.3: Combining Plans into a Delivery Roadmap](exercise-2.3.md)** — Merge the tagline and badge plans into one prioritized roadmap the team can actually ship.
 
-> *"Now that we've validated the plan, let's build it. With this roadmap, I know exactly what to do and in what order."*  
-> — Marcus, ready to implement with confidence
+> *"Now we have two good plans. The real question is how to sequence them without duplicating work."*  
+> — David, turning separate plans into a practical roadmap
 
 ---
