@@ -13,7 +13,7 @@ title: Module 4 - Agent Skills
 module: workshop/04-agent-skills
 mdc: true
 status: active
-updated: 2026-03-24
+updated: 2026-03-25
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
@@ -490,7 +490,7 @@ After each character-detail change, the team still has to decide which tests sho
 <div class="space-y-2 text-xs">
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Use <span class="font-mono text-purple-300">make-skill-template</span> to create a reusable character-change test skill and tune it for discovery</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Add a review template, edge-case checklist, and example patterns for common character changes</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Use the skill to decide what tests should change before updating the highest-priority ones</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300"><code>/Character-Detail-Review "Jesse Pinkman"</code></span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -696,4 +696,59 @@ Module 4 Is Locked In
 Skills taught Copilot your local workflow. <span class="text-white font-semibold">MCP servers will let it bring live systems and external tools into that same workflow.</span>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
+</div>
+
+---
+
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
+
+<div class="relative z-10 text-center mb-6">
+<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 4 impact</div>
+<h1 class="!text-3xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
+Skills turn repeated work into teachable capability
+</h1>
+<div class="text-sm text-gray-300 max-w-4xl mx-auto">
+The team starts packaging domain know-how instead of re-explaining it every time.
+</div>
+</div>
+
+<div class="relative z-10 grid grid-cols-5 gap-3">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-sm mb-2">Sarah</div>
+<div class="text-sm text-white leading-snug mb-3">"Stop reinventing the starter. Get the scaffold right once."</div>
+<div class="text-xs text-gray-400">A better scaffold makes the rest of the workflow more reliable.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
+<div class="text-orange-300 font-bold text-sm mb-2">Marcus</div>
+<div class="text-sm text-white leading-snug mb-3">“We already know what a ready character-detail change looks like, the skill helps us verify it before the PR.”</div>
+<div class="text-xs text-gray-400">Readiness becomes a repeatable check, not a subjective pass.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
+<div class="text-emerald-300 font-bold text-sm mb-2">David</div>
+<div class="text-sm text-white leading-snug mb-3">“This is where expertise starts scaling — not by replacing judgment, but by packaging it.”</div>
+<div class="text-xs text-gray-400">Specialized knowledge becomes easier for the team to reuse.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+<div class="text-purple-300 font-bold text-sm mb-2">Elena</div>
+<div class="text-sm text-white leading-snug mb-3">“I don’t need magic tests. I need a reliable way to see what coverage should change before I open the PR.”</div>
+<div class="text-xs text-gray-400">The skill makes quality review sharper and more consistent.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-sm mb-2">Rafael</div>
+<div class="text-sm text-white leading-snug mb-3">“Once the workflow is packaged, it’s easier to explain what ‘good’ looks like across roles.”</div>
+<div class="text-xs text-gray-400">Skills help translate standards into execution.</div>
+</div>
+</div>
+
+<div class="relative z-10 mt-6 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
+<div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
+<div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
+</div>
 </div>

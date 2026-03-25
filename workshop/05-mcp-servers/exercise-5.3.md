@@ -39,104 +39,142 @@ Configure a FanHub API MCP server and use it to validate that the running charac
    Create `mcp-servers/fanhub-api-server.js`:
 
    ```javascript
-   #!/usr/bin/env node
-   const http = require('http');
-   const readline = require('readline');
+    const http = require("http");
+    const readline = require("readline");
 
-   const API_BASE_URL = process.env.FANHUB_API_URL || 'http://localhost:3001';
+    const API_BASE_URL = process.env.FANHUB_API_URL || "http://localhost:5265";
 
-   function getJson(path) {
-     return new Promise((resolve, reject) => {
-       http.get(`${API_BASE_URL}${path}`, (res) => {
-         let data = '';
-         res.on('data', (chunk) => data += chunk);
-         res.on('end', () => {
-           if (res.statusCode >= 400) {
-             reject(new Error(`API returned ${res.statusCode}: ${data}`));
-             return;
-           }
-           resolve(JSON.parse(data));
-         });
-       }).on('error', reject);
-     });
-   }
+    function send(id, result) {
+      process.stdout.write(JSON.stringify({ jsonrpc: "2.0", id, result }) + "\n");
+    }
 
-   const rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false });
+    function sendError(id, code, message) {
+      process.stdout.write(
+        JSON.stringify({ jsonrpc: "2.0", id, error: { code, message } }) + "\n",
+      );
+    }
 
-   rl.on('line', async (line) => {
-     const request = JSON.parse(line);
+    function getJson(path) {
+      return new Promise((resolve, reject) => {
+        http
+          .get(`${API_BASE_URL}${path}`, (res) => {
+            let data = "";
+            res.on("data", (chunk) => (data += chunk));
+            res.on("end", () => {
+              if (res.statusCode >= 400) {
+                reject(new Error(`API returned ${res.statusCode}: ${data}`));
+                return;
+              }
+              resolve(JSON.parse(data));
+            });
+          })
+          .on("error", reject);
+      });
+    }
 
-     if (request.method === 'tools/list') {
-       console.log(JSON.stringify({
-         tools: [
-           {
-             name: 'get_characters',
-             description: 'Fetch character data from the running FanHub API',
-             inputSchema: { type: 'object', properties: {} }
-           },
-           {
-             name: 'get_character_by_id',
-             description: 'Fetch a single character detail record from the running FanHub API',
-             inputSchema: {
-               type: 'object',
-               properties: { id: { type: 'string', description: 'Character ID' } },
-               required: ['id']
-             }
-           }
-         ]
-       }));
-       return;
-     }
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+      terminal: false,
+    });
 
-     if (request.method === 'tools/call') {
-       const tool = request.params.name;
-       const args = request.params.arguments || {};
+    rl.on("line", async (line) => {
+      let request;
+      try {
+        request = JSON.parse(line);
+      } catch {
+        return;
+      }
 
-       if (tool === 'get_characters') {
-         console.log(JSON.stringify({ result: await getJson('/api/characters') }));
-         return;
-       }
+      const { id, method, params } = request;
 
-       if (tool === 'get_character_by_id') {
-         console.log(JSON.stringify({ result: await getJson(`/api/characters/${args.id}`) }));
-         return;
-       }
+      if (method === "initialize") {
+        send(id, {
+          protocolVersion: "2024-11-05",
+          capabilities: { tools: {} },
+          serverInfo: { name: "fanhub-api", version: "1.0.0" },
+        });
+        return;
+      }
 
-       console.log(JSON.stringify({ error: `Unknown tool: ${tool}` }));
-     }
-   });
+      if (method === "notifications/initialized") {
+        return; // no response needed
+      }
+
+      if (method === "tools/list") {
+        send(id, {
+          tools: [
+            {
+              name: "get_characters",
+              description: "Fetch all characters from the running FanHub API",
+              inputSchema: { type: "object", properties: {} },
+            },
+            {
+              name: "get_character_by_id",
+              description:
+                "Fetch a single character detail record from the running FanHub API",
+              inputSchema: {
+                type: "object",
+                properties: {
+                  id: { type: "string", description: "Character ID" },
+                },
+                required: ["id"],
+              },
+            },
+          ],
+        });
+        return;
+      }
+
+      if (method === "tools/call") {
+        const tool = params.name;
+        const args = params.arguments || {};
+
+        try {
+          if (tool === "get_characters") {
+            const data = await getJson("/api/characters");
+            send(id, { content: [{ type: "text", text: JSON.stringify(data) }] });
+            return;
+          }
+
+          if (tool === "get_character_by_id") {
+            const data = await getJson(`/api/characters/${args.id}`);
+            send(id, { content: [{ type: "text", text: JSON.stringify(data) }] });
+            return;
+          }
+
+          sendError(id, -32601, `Unknown tool: ${tool}`);
+        } catch (err) {
+          send(id, {
+            content: [{ type: "text", text: `Error: ${err.message}` }],
+            isError: true,
+          });
+        }
+        return;
+      }
+
+      // Unknown method
+      sendError(id, -32601, `Method not found: ${method}`);
+    });
    ```
 
 2. **Add the API server to `.vscode/mcp.json`**
 
    ```json
    {
-     "inputs": [
-       {
-         "type": "promptString",
-         "id": "db_path",
-         "description": "Path to the FanHub SQLite database",
-         "password": false
-       },
-       {
-         "type": "promptString",
-         "id": "fanhub_api_url",
-         "description": "Running FanHub API URL",
-         "password": false
-       }
-     ],
      "servers": {
-       "fanhub-db": {
-         "type": "stdio",
-         "command": "npx",
-         "args": ["-y", "@modelcontextprotocol/server-sqlite", "${input:db_path}"]
-       },
+        "fanhub-db": {
+        "command": "npx",
+        "args": ["-y", "mcp-sqlite"],
+        "env": {
+        "SQLITE_DB_PATH": "${workspaceFolder}/dotnet/fanhub.db"
+      },
        "fanhub-api": {
          "type": "stdio",
          "command": "node",
          "args": ["./mcp-servers/fanhub-api-server.js"],
          "env": {
-           "FANHUB_API_URL": "${input:fanhub_api_url}"
+           "FANHUB_API_URL": "'http://localhost:5265"
          }
        }
      }

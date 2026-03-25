@@ -2,7 +2,7 @@
 
 ## 🎯 Objective
 
-Create a `@implement` custom agent with full editing tools and API design skill that takes fully-formed Architecture Decision Records (ADRs) and implements them correctly and thoroughly, with handoff to security review.
+Create a `@implement` custom agent with full editing tools and API design skill that takes fully-formed Architecture Decision Records (ADRs) and implements them correctly and thoroughly, with handoff to character review.
 
 > **Note:** This exercise creates an autonomous implementation agent that reads feature specifications (ADRs) and executes them end-to-end, demonstrating how agents can work from existing documentation rather than requiring live planning sessions.
 
@@ -30,9 +30,9 @@ Create a `@implement` custom agent with full editing tools and API design skill 
 - **8 minutes** — Reading ADR, searching related files, remembering implementation order
 - **Incomplete first pass** — 40% chance of missing a component (forgot backend route, forgot test, forgot database migration)
 - **No systematic approach** — Ad-hoc implementation order leads to rework
-- **Manual security review** — Separate workflow after completion
+- **Manual review follow-up** — Separate workflow after completion
 
-David observes: "You have a perfect specification in that ADR. What if an implementation agent could read it, plan the execution order, implement everything systematically, and then hand off to security review automatically?"
+David observes: "You have a perfect specification in that ADR. What if an implementation agent could read it, plan the execution order, implement everything systematically, and then hand off to character review automatically?"
 
 ---
 
@@ -44,28 +44,28 @@ Sarah creates `.github/agents/implement.agent.md` with:
 - **Full editing tools** — `['edit', 'create', 'delete', 'search', 'fetch', 'githubRepo', 'usages']`
 - **API design skill** — Auto-loads `.github/skills/api-endpoint-design/` for backend work
 - **ADR-reading instructions** — Analyze ADR structure, identify all components, implement systematically
-- **Handoff to security-review** — Automatic workflow to review changes after implementation
+- **Handoff to character-review** — Automatic workflow to review character-detail changes after implementation
 
 **New workflow:**
 1. Types: `@implement Read fanhub/docs/FEATURE-CHARACTER-DETAIL.md and implement the complete feature`
 2. Agent reads ADR, identifies all components (frontend, backend, database, tests)
 3. Agent implements systematically in correct order (database → backend → frontend → tests)
 4. Agent follows API design patterns automatically
-5. After completion, clicks "Review Changes" handoff button
-6. Switches to `@security-review` agent with changes pre-loaded
+5. After completion, clicks "Review Character Change" handoff button
+6. Switches to `@character-review` agent with changes pre-loaded
 
 **Results:**
 - **Setup time**: 8→0 minutes (agent reads ADR and plans execution)
 - **Completeness**: 60%→100% (agent checks ADR for all required components)
 - **Systematic approach**: Always implements in correct order (database → backend → frontend → tests)
-- **Integrated workflow**: Security review is part of the process, not afterthought
+- **Integrated workflow**: Character review is part of the process, not afterthought
 - **First-time-right**: 40%→85% (comprehensive ADR reading reduces missed components)
 
 ---
 
 ### 💭 Sarah's Realization
 
-> *"This changes how I think about implementation. The ADR is the source of truth—complete, reviewed, approved. The implementation agent treats it like a detailed specification and executes it systematically. I'm not constantly context-switching between the doc and code. And the handoff to security review makes quality checks part of the workflow, not something I remember to do later. This is how implementation should work: from spec to code to review, all orchestrated."*
+> *"This changes how I think about implementation. The ADR is the source of truth—complete, reviewed, approved. The implementation agent treats it like a detailed specification and executes it systematically. I'm not constantly context-switching between the doc and code. And the handoff to character review makes quality checks part of the workflow, not something I remember to do later. This is how implementation should work: from spec to code to review, all orchestrated."*
 
 ---
 
@@ -73,7 +73,7 @@ Sarah creates `.github/agents/implement.agent.md` with:
 
 ### Step 1: Create Implementation Agent Configuration
 
-**Context:** The `@implement` agent needs full editing capabilities and should systematically execute feature specifications from ADR documents. It hands off to security review after implementation.
+**Context:** The `@implement` agent needs full editing capabilities and should systematically execute feature specifications from ADR documents. It hands off to character review after implementation.
 
 **Task:**
 
@@ -86,9 +86,9 @@ name: Implement
 tools: ['edit', 'create', 'delete', 'search', 'fetch', 'githubRepo', 'usages', 'problems']
 model: Claude Sonnet 4
 handoffs:
-  - label: Review Changes
-    agent: security-review
-    prompt: Review the changes I just made for security issues and standards compliance.
+  - label: Review Character Change
+    agent: character-review
+    prompt: Review the character detail change and tell me what tests, edge cases, duplicate-data risks, or follow-up work we need before opening the PR.
     send: false
 ---
 # Implementation Mode Instructions
@@ -162,14 +162,14 @@ Before finishing:
 
 ## After Implementation
 
-When implementation is complete, use the "Review Changes" handoff to transition to the `@security-review` agent for quality verification.
+When implementation is complete, use the "Review Character Change" handoff to transition to the `@character-review` agent for quality verification.
 ```
 
 ---
 
 ### Step 2: Test ADR-Driven Implementation
 
-**Context:** Verify the `@implement` agent can read an ADR, systematically implement all components, and hand off to security review.
+**Context:** Verify the `@implement` agent can read an ADR, systematically implement all components, and hand off to character review.
 
 **Task:**
 
@@ -194,17 +194,17 @@ Follow the ADR specification exactly and implement in the correct order.
    - Implements in systematic order (database → backend → frontend → tests)
    - Follows repository standards and API design patterns
    - Creates complete, working code (no TODOs or placeholders)
-6. After implementation completes, verify a "Review Changes" handoff button appears
-7. Click "Review Changes" to transition to `@security-review` agent
-8. Verify the prompt is pre-filled: "Review the changes I just made for security issues and standards compliance."
+6. After implementation completes, verify a "Review Character Change" handoff button appears
+7. Click "Review Character Change" to transition to `@character-review` agent
+8. Verify the prompt is pre-filled: "Review the character detail change and tell me what tests, edge cases, duplicate-data risks, or follow-up work we need before opening the PR."
 
 **Validation:**
 - ✅ Agent reads and analyzes the full ADR document
 - ✅ Agent identifies all components (database, backend, frontend, tests)
 - ✅ Implementation follows systematic order (dependencies first)
 - ✅ Code is complete and follows repository patterns
-- ✅ "Review Changes" handoff button appears after implementation
-- ✅ Handoff to security-review works with pre-filled prompt
+- ✅ "Review Character Change" handoff button appears after implementation
+- ✅ Handoff to character-review works with pre-filled prompt
 
 ---
 
@@ -230,33 +230,6 @@ Follow the ADR specification exactly and implement in the correct order.
 - ✅ Implementation follows the architecture pattern (database → backend → frontend → tests)
 - ✅ No placeholders or TODO comments (complete implementation)
 - ✅ Code follows repository standards from `.github/copilot-instructions.md`
-   - Open Copilot Chat
-   - Select `@plan` agent from dropdown
-   - Type: "Plan implementation for adding a 'favorite characters' feature that lets users star their favorite characters and see them in a favorites list"
-   - Wait for agent to generate implementation plan
-   - Observe the plan includes: required components, API endpoints, database changes, testing strategy
-
-2. **Execute Handoff:**
-   - Look for "Start Implementation" button that appears after the plan
-   - Click the handoff button
-   - Observe:
-     - Agent switches from `@plan` to `@implement`
-     - Chat input shows pre-filled prompt: "Implement the plan outlined above..."
-     - Previous plan context is visible in conversation
-   - Review the pre-filled prompt (ensure it makes sense)
-   - Click Send to execute implementation
-
-3. **Verify Implementation:**
-   - Agent should start making actual code changes
-   - Observe it:
-     - Creates new files or modifies existing ones
-     - Follows the plan's sequence
-     - References API design patterns
-     - Generates tests alongside implementation
-   - Check that created files follow repository standards
-   - Verify the agent has full editing capabilities (unlike planning agent)
-
-**Validation:**
 ---
 
 ### Step 4: Compare Before and After Metrics
@@ -277,20 +250,20 @@ Document these comparisons:
 - Setup time: 0 minutes (agent reads ADR and plans execution automatically)
 - Completeness: 100% (agent cross-checks all ADR components before finishing)
 - Implementation approach: Systematic order (database → backend → frontend → tests)
-- Security review: Integrated via handoff, part of workflow
+- Character review: Integrated via handoff, part of workflow
 
 **Key improvements:**
 - **8→0 minutes** setup and planning time
 - **60%→100%** first-time completeness (no missed components)
 - **Systematic execution** always in correct dependency order
-- **Integrated quality** security review is automatic next step via handoff
+- **Integrated quality** character review is automatic next step via handoff
 - **ADR as contract** implementation agent treats ADR as source of truth
 
 **Validation:** You can articulate how ADR-driven implementation:
 - Eliminates context switching between documentation and code
 - Ensures all specified components are implemented
 - Follows systematic execution order based on dependencies
-- Integrates security review into the workflow via handoffs
+- Integrates character review into the workflow via handoffs
 
 ---
 
@@ -300,13 +273,13 @@ Document these comparisons:
 - [ ] Agent specifies full editing tools including `'problems'` for error detection
 - [ ] Agent instructions emphasize ADR-driven systematic implementation
 - [ ] Agent instructions specify execution order (database → backend → frontend → tests)
-- [ ] Agent includes handoff to `@security-review` agent
+- [ ] Agent includes handoff to `@character-review` agent
 - [ ] Agent appears in VS Code agent dropdown as "Implement"
 - [ ] Agent successfully reads and implements from FEATURE-CHARACTER-DETAIL.md
 - [ ] Implementation includes all components specified in ADR (database, backend, frontend, tests)
 - [ ] Implementation follows systematic order (dependencies first)
-- [ ] "Review Changes" handoff button appears after implementation
-- [ ] Handoff to security-review works with pre-filled prompt
+- [ ] "Review Character Change" handoff button appears after implementation
+- [ ] Handoff to character-review works with pre-filled prompt
 - [ ] You can document 8→0 minute setup time and 60%→100% completeness improvement
 
 ---
@@ -315,7 +288,7 @@ Document these comparisons:
 
 **Enhance the implementation workflow:**
 
-1. **Bi-directional handoffs** — Add handoff from `@implement` back to `@plan` for cases where implementation reveals planning gaps: "Re-plan this feature considering [new constraints]"
+1. **Bi-directional handoffs** — Add handoff from `@character-review` back to `@implement` for cases where review finds issues that should be fixed immediately
 
 ---
 
@@ -348,7 +321,7 @@ Document these comparisons:
 - Agent enforces this automatically
 
 **Handoffs integrate workflows:**
-- Implementation → Security Review creates quality workflow
+- Implementation → Character Review creates quality workflow
 - No manual "remember to review" step
 - Pre-filled prompt carries context forward
 - Quality checks become part of process, not afterthought
@@ -357,7 +330,7 @@ Document these comparisons:
 - Implementation agent: full editing tools (`edit`, `create`, `delete`)
 - `problems` tool: check for existing errors before implementing
 - `usages` tool: find similar patterns to match
-- Next agent (security-review): analysis tools without modification
+- Next agent (character-review): analysis tools without modification
 
 **Systematic approach beats ad-hoc:**
 - Agent always implements in correct order
@@ -373,11 +346,19 @@ Document these comparisons:
 - 📖 [Chat tools documentation](https://code.visualstudio.com/docs/copilot/chat/chat-tools) — Understanding available tools for agents
 - 📖 [Implementation planner example](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/implementation-planner) — Microsoft's reference implementation agent
 
+## 🔗 Module 6 Complete
+
+You now have the core custom-agent workflow for the FanHub character arc:
+
+1. **Understand agent design patterns** by studying the default `@plan` agent
+2. **Create `@character-review`** to package the prompt, skill, and MCP-backed review workflow
+3. **Create `@implement`** to execute ADR-driven changes and hand off cleanly into review
+
+> *"This is the version of Module 6 that matters: one agent to build, one agent to review, and a handoff between them so the workflow feels deliberate instead of improvised."*
+> — Elena, seeing the full arc come together
+
 ---
 
 ## ➡️ What's Next?
 
-In [Exercise 6.4](exercise-6.4.md), you'll create the `@security-review` agent with read-only analysis tools and React standards, completing the workflow chain: Implement → Review → Deploy.
-
-> *"We can implement features systematically from ADRs. Now we need a review agent that catches issues without accidentally modifying code during review—receiving handoffs from @implement and catching what automated execution might miss."*
-> — Elena, ready to build quality validation into the workflow
+**[Exercise 6.4](exercise-6.4.md)** — End the module with an "art of the possible" capstone by installing Squad and seeing what a persistent agent team can look like in practice.

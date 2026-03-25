@@ -1,347 +1,255 @@
-# Exercise 6.2: Create Feature Planning Agent
+# Exercise 6.2: Create Character Review Agent
 
 ## 🎯 Objective
 
-Create a `@feature-plan` custom agent with read-only tools and feature-requirements skill that prevents accidental edits during research and auto-loads planning context.
+Create a `@character-review` custom agent with read-only tools that bundles the character-review workflow from Modules 3.2, 4.2, and 5.2 into one reusable role preset.
 
-> **Note:** This exercise builds on concepts from [Exercise 6.1](exercise-6.1.md) where you analyzed the default plan agent.
+> **Note:** This exercise builds on concepts from [Exercise 6.1](exercise-6.1.md), where you analyzed the default plan agent.
 
-**Lead:** David ⭐ | **Support:** Sarah 🤝
+**Lead:** Elena ⭐ | **Support:** Sarah 🤝
 
 ---
 
 ## 📖 The Story
 
-### ❌ The "Before" — Manual Planning Setup
+### ❌ The "Before" — Manual Character Review Setup
 
-**Monday 3:50 PM** — David is planning the "Character Detail Page" feature from [FEATURE-CHARACTER-DETAIL.md](../../fanhub/docs/FEATURE-CHARACTER-DETAIL.md).
+**Monday 3:50 PM** — Elena is reviewing the next Character Detail change. She already has a strong workflow:
 
-**Current workflow:**
-1. Opens feature requirements doc
-2. Manually searches for related components with `@workspace`
-3. Researches API structure in backend
-4. Types "don't modify anything, just analyze" in every prompt
-5. Accidentally edits `CharacterList.jsx` while reviewing patterns
-6. Undoes the edit, loses 2 minutes of context
-7. Reminds Copilot "read-only analysis only" again
+- the `character-review-prompt` from Module 3.2
+- the `character-change-test-workflow` skill from Module 4.2
+- the FanHub database MCP from Module 5.2
+
+But every review still starts with manual setup:
+
+1. Opens Copilot Chat
+2. Remembers the prompt wording from Module 3.2
+3. Hopes Copilot notices the testing workflow from Module 4.2
+4. Remembers to pull in live data from Module 5.2 when duplicate records might matter
+5. Repeats the same setup instructions for the next character-detail PR
 
 **Time breakdown:**
-- **5 minutes** — Loading feature doc, searching related files, setting context
-- **3 accidental edits** during research phase (each requiring undo + context restoration)
-- **Inconsistent planning approach** — Sometimes forgets to check database schema, other times misses related components
+- **5 minutes** — Rebuilding the same context before each review
+- **Inconsistent behavior** — Sometimes the prompt is reused well, other times MCP isn't consulted even when duplicate data is the real issue
+- **Mental overhead** — Elena has to remember which customization layer should help with which part of the review
 
-Sarah watches David undo another accidental edit: "You're using the right process but fighting the tools. What if we created a planning agent that only has read-only tools and automatically loads planning context?"
+Sarah watches Elena retype the same review framing again: *"You've already built the workflow. Why not turn it into an agent so the same review behavior is ready instantly?"*
 
 ---
 
-### ✨ The "After" — Planning Agent with Read-Only Tools
+### ✨ The "After" — Review Agent with Prompt + Skill + MCP
 
 **The transformation:**
 
-David creates `.github/agents/feature-plan.agent.md` with:
-- **Read-only tools only** — `['search', 'fetch', 'githubRepo', 'usages']` — no edit, create, or delete
-- **Feature requirements skill** — Auto-loads `.github/skills/feature-requirements/` instructions
-- **Planning-focused instructions** — Generate implementation plans, don't modify code
-- **GitHub MCP access** — Query related issues and PRs
+Elena creates `.github/agents/character-review.agent.md` with:
+
+- **Read-only review tools** — enough to inspect code and project context without making accidental edits
+- **Prompt-aware instructions** — centers the same character-review framing from Module 3.2
+- **Skill-aware workflow** — explicitly uses the `character-change-test-workflow` from Module 4.2
+- **MCP-aware escalation** — reaches for `#mcp-fanhub-db` when duplicate or conflicting character records might affect behavior
 
 **New workflow:**
-1. Selects `@feature-plan` from agent dropdown
-2. Types "analyze character detail page feature"
-3. Agent auto-loads feature doc, searches related files, checks database schema
-4. Zero accidental edits (no edit tools available)
-5. Consistent planning output following skill's ADR template
+1. Selects `@character-review` from the agent dropdown
+2. Asks for a review of the latest character-detail change
+3. Agent follows the established review workflow automatically
+4. If duplicate data might matter, the agent investigates with live FanHub data
+5. Returns tests to update, edge cases, and cleanup or guardrails before the PR
 
 **Results:**
-- **Setup time**: 5→0 minutes (agent auto-loads context)
-- **Accidental edits**: 3→0 (read-only tools prevent modifications)
-- **Planning consistency**: 100% (agent always follows feature-requirements skill structure)
+- **Setup time**: 5→0 minutes (workflow preset instead of repeated setup)
+- **Review consistency**: ad hoc → repeatable
+- **Live-data usage**: easy to forget → built into the review role
 
 ---
 
-### 💭 David's Realization
+### 💭 Elena's Realization
 
-> *"This is the separation of concerns I preach in architecture, applied to AI assistance. Planning mode can't accidentally modify code because it doesn't have the tools. My 20 years of 'think first, code later' is now enforced by the agent configuration."*
->
-> *"But what really impressed me is how we applied the patterns from Exercise 6.1—the stopping rules, the style guide, the iterative workflow. We didn't just copy Microsoft's plan agent; we adapted it for FanHub. That's production-quality engineering: learn from the best, customize for your context."*
+> *"This is the payoff of everything we built earlier. The prompt gave us reusable wording. The skill gave us a repeatable testing workflow. MCP gave us live FanHub data when the code alone wasn't enough. The agent is what makes all of that feel like one role instead of three separate things I have to remember."*
 
 ---
 
 ## 🔨 Steps
 
-### Step 1: Create Planning Agent Configuration
+### Step 1: Create Character Review Agent Configuration
 
-**Context:** The `@plan` agent needs read-only tools and planning-focused instructions. It should prevent any code modifications while researching and analyzing features.
+**Context:** The `@character-review` agent should be analysis-only. Its job is to review character-detail changes using the workflow you already established across Modules 3.2, 4.2, and 5.2.
 
 **Task:**
 
-1. Create `.github/agents/feature-plan.agent.md` with this structure:
+1. Create `.github/agents/character-review.agent.md` with this structure:
 
 ```markdown
 ---
-description: Research and analyze features to generate implementation plans
-name: Feature Plan
-tools: ['search', 'fetch', 'githubRepo', 'usages', 'runSubagent', 'problems', 'changes']
+description: Review character-detail changes using the prompt, skill, and MCP-backed duplicate investigation workflow
+name: Character Review
+tools: ['search', 'fetch', 'usages', 'problems']
 model: Claude Sonnet 4
 handoffs:
-  - label: Start Implementation
+  - label: Fix Character Issues
     agent: implement
-    prompt: Implement the plan outlined above following the implementation steps.
+    prompt: Fix the character-detail issues identified in the review above.
     send: false
 ---
-# Planning Mode Instructions
+# Character Review Mode Instructions
 
-You are a PLANNING AGENT specialized in FanHub feature analysis. Your role is to research and analyze features to create detailed implementation plans.
+You are a CHARACTER REVIEW AGENT specialized in reviewing FanHub character-detail changes before a PR.
 
-<stopping_rules>
-STOP IMMEDIATELY if you consider starting implementation, making code edits, or creating/modifying files.
+You are in analysis-only mode. Do not modify files, create files, or implement fixes directly.
 
-If you catch yourself planning implementation steps for YOU to execute, STOP. Plans describe steps for the USER or the @implement agent to execute later.
+## Review Workflow
 
-Your tools do not include edit, create, or delete—you cannot modify code even if asked.
-</stopping_rules>
+When reviewing a character-detail change:
 
-## Planning Workflow
+1. Start from the same workflow as the `character-review-prompt`
+2. Use the `character-change-test-workflow` skill to determine what tests should change
+3. Review the changed code, related files, and likely regressions
+4. If duplicate or conflicting data may affect the behavior, use `#mcp-fanhub-db`
+5. Return:
+   - what changed
+   - tests to update
+   - tests to add
+   - edge cases
+   - cleanup or guardrails before the PR
 
-Follow this iterative workflow:
+## MCP Guidance
 
-### 1. Context Gathering (Research Phase)
+Use `#mcp-fanhub-db` when:
+- duplicate character records are suspected
+- optional fields may differ across real rows
+- fallback UI could be hiding a data quality issue
+- test fixtures may not match live FanHub data
 
-Use available tools to gather comprehensive context:
+## Constraints
 
-- **Feature specification** — Read `fanhub/docs/*.md` for feature requirements
-- **Related code** — Use `@workspace` to find similar components (e.g., existing detail pages)
-- **Database schema** — Check `backend/src/database/schema.sql` for data models
-- **API patterns** — Review `backend/src/routes/` for endpoint conventions
-- **Current issues** — Use `'problems'` tool to identify existing errors that might impact the feature
-- **Recent changes** — Use `'changes'` tool to see what's been modified recently
-
-**TIP:** If `runSubagent` tool is available, delegate deep research to a subagent for autonomous context gathering.
-
-### 2. Present Implementation Plan (Output Phase)
-
-Once you have 80% confidence in your understanding, generate a plan following the <plan_style_guide>.
-
-MANDATORY: Pause for user feedback before proceeding. Frame this as a draft for review.
-
-### 3. Handle Feedback (Iteration Phase)
-
-When the user responds, loop back to Phase 1 to gather additional context based on their feedback. Refine the plan iteratively—don't try to create the perfect plan in one shot.
-
-<plan_style_guide>
-Structure your implementation plan consistently:
-
-## Plan: [Feature Name — 5-10 words]
-
-**TL;DR:** [Brief summary of what will be built and why — 20-50 words]
-
-### Implementation Steps
-1. [Verb-focused action with [file paths](paths) and `symbol` references — 5-20 words]
-2. [Next concrete step — 5-20 words]
-3. [Another actionable step — 5-20 words]
-4. [Continue as needed — typically 3-6 steps]
-
-### Database Changes
-- [Specific schema modifications if needed]
-- [Migration approach]
-
-### Testing Strategy
-- [Test types needed: unit, integration, E2E]
-- [Key test scenarios]
-
-### Further Considerations
-1. [Open question or recommendation — 10-30 words]
-2. [Alternative approaches if applicable]
-
-IMPORTANT:
-- DO NOT include code blocks—describe changes and link to files
-- Keep each step concise and actionable
-- Reference specific files with markdown links: [CharacterList.jsx](../../fanhub/frontend/src/components/CharacterList.jsx)
-- Use `code formatting` for symbols: `CharacterDetail` component, `getCharacterById()` function
-</plan_style_guide>
-
-## FanHub-Specific Context
-
-**Architecture pattern:** React frontend → Express backend → PostgreSQL database
-
-**Key files to check:**
-- Feature docs: `fanhub/docs/FEATURE-*.md`
-- Database schema: `backend/src/database/schema.sql`
-- API routes: `backend/src/routes/*.js`
-- Frontend components: `frontend/src/components/` and `frontend/src/pages/`
-- Repository standards: `.github/copilot-instructions.md`
-
-**Common patterns to reference:**
-- How other detail pages work (ShowDetail, EpisodeDetail)
-- API endpoint naming conventions
-- React component structure and styling approach
-- Database query patterns in route handlers
-
-## Use Available Skills
-
-If the `feature-requirements` skill is available, reference it for ADR templates and planning best practices.
-
-Reference `.github/copilot-instructions.md` for coding standards that implementation must follow.
+- Analysis only
+- No code edits
+- Prefer the established character-review workflow over inventing a new one
 ```
 
 2. Save the file
 
-**Key enhancements from Exercise 6.1:**
-
-Notice how this agent configuration incorporates patterns you learned from analyzing the default plan agent:
-
-- **`<stopping_rules>` section** — Explicit constraints preventing implementation (just like the default agent)
-- **Three-phase workflow** — Research → Present → Iterate pattern from Exercise 6.1
-- **`<plan_style_guide>` template** — Consistent output format with word counts and structure
-- **Tool additions:**
-  - `'runSubagent'` — For autonomous deep research (if available)
-  - `'problems'` — To identify existing errors that might impact planning
-  - `'changes'` — To see recent modifications for context
-- **FanHub-specific context** — Customized for your project (not generic)
-
-**Validation:** The agent file exists at [.github/agents/feature-plan.agent.md](../examples/completed-config/.github/agents/feature-plan.agent.md) and contains YAML frontmatter plus planning instructions with stopping rules and style guide.
+**Validation:** The agent file exists at `.github/agents/character-review.agent.md` and clearly bundles the earlier prompt, skill, and MCP-backed review flow into one analysis-only agent.
 
 ---
 
-### Step 2: Test the Planning Agent
+### Step 2: Test the Character Review Agent
 
-**Context:** Verify the `@plan` agent works correctly by analyzing the Character Detail Page feature and confirming no edit tools are available.
+**Context:** Verify the agent behaves like a reusable role preset for the character-review workflow.
 
 **Task:**
 
 1. Open Copilot Chat panel
-2. Select **@feature-plan** from the agent dropdown (refresh if it doesn't appear)
-3. Verify the chat input placeholder shows: "Research and analyze features to generate implementation plans"
+2. Select **@character-review** from the agent dropdown
+3. Verify the chat input placeholder shows: "Review character-detail changes using the prompt, skill, and MCP-backed duplicate investigation workflow"
 4. Type this prompt:
 
 ```
-Analyze the Character Detail Page feature from fanhub/docs/FEATURE-CHARACTER-DETAIL.md. Generate a complete implementation plan including:
-- Related frontend components to reference
-- Backend API endpoints needed
-- Database schema considerations
-- Testing strategy
+Review the character detail change and tell me what tests, edge cases, or follow-up work we need before opening the PR.
 ```
 
 5. Observe Copilot:
-   - Uses `@workspace` to search for related components
-   - Reads the feature specification
-   - Finds similar patterns (like `ShowDetail.jsx`)
-   - Generates structured plan following the `<plan_style_guide>` format
-   - Output includes TL;DR, numbered steps with file links, testing strategy
-6. Try to ask the agent to modify a file: "Now update CharacterList.jsx"
-7. Confirm the agent refuses with reference to `<stopping_rules>` or indicates it can't make edits
+   - reviews the change in a character-detail frame
+   - follows the established test-review workflow
+   - identifies likely regressions and edge cases
+   - reaches for live FanHub data when duplicate records might explain the risk
+6. Ask the agent to make a code change directly
+7. Confirm it refuses because it is in review-only mode
 
 **Validation:**
-- ✅ Agent generates structured plan matching the style guide template (TL;DR, steps, testing, considerations)
-- ✅ Plan uses concise steps (5-20 words each) with file path links
-- ✅ Agent uses search and research tools effectively
-- ✅ Agent explicitly refuses edits, citing stopping rules or lack of edit tools
-- ✅ Plan output is scannable and actionable (not walls of text)
+- ✅ Agent behaves like a specialized character-review role
+- ✅ Agent output reflects the workflow from Modules 3.2, 4.2, and 5.2
+- ✅ Agent recommends tests, edge cases, and follow-up work
+- ✅ Agent refuses to modify code directly
 
 ---
 
 ### Step 3: Compare Before and After Metrics
 
-**Context:** Measure the improvement from using the planning agent versus manual planning setup.
+**Context:** Measure the improvement from manual review setup versus the review agent preset.
 
 **Task:**
 
 Document these comparisons:
 
-**Before (Manual Planning):**
-- Setup time: 5 minutes (loading docs, searching files, setting context)
-- Accidental edits during research: 3 per planning session
-- Planning consistency: Variable (sometimes missed database checks or related files)
+**Before (Manual Review Setup):**
+- Setup time: 5 minutes rebuilding context
+- Prompt reuse: manual and inconsistent
+- Skill usage: depends on good discovery
+- Live data checks: easy to forget unless duplicate data is obvious
 
-**After (@feature-plan Agent):**
-- Setup time: 0 minutes (agent auto-loads context)
-- Accidental edits: 0 (read-only tools prevent modifications)
-- Planning consistency: 100% (agent always follows structured approach)
+**After (@character-review Agent):**
+- Setup time: 0 minutes
+- Prompt reuse: built into the role
+- Skill usage: expected as part of the workflow
+- Live data checks: promoted when duplicate or conflicting rows matter
 
 **Workflow improvement:**
-- Agent automatically searches related files with `@workspace`
-- No need to repeatedly say "don't edit, just analyze"
-- Consistent plan structure following feature-requirements skill
-- Chat placeholder text clarifies agent purpose
+- Review starts from the same proven character workflow every time
+- Agent behavior matches the story arc across Modules 3.2, 4.2, and 5.2
+- Elena spends less time reconstructing context and more time making decisions
 
-**Validation:** You can articulate how the planning agent:
-- Eliminates setup time through auto-context loading
-- Prevents accidental edits through tool restrictions
-- Ensures consistent planning approach
-- Enforces separation between research and implementation phases
+**Validation:** You can explain how the agent turns three separate customizations into one reusable review mode.
 
 ---
 
 ## ✅ Success Criteria
 
-- [ ] `.github/agents/feature-plan.agent.md` exists with complete YAML frontmatter
-- [ ] Agent specifies read-only tools including `'runSubagent'`, `'problems'`, `'changes'`
-- [ ] Agent includes `<stopping_rules>` section preventing implementation
-- [ ] Agent includes `<plan_style_guide>` for consistent output format
-- [ ] Agent instructions follow three-phase workflow (Research → Present → Iterate)
-- [ ] Agent includes handoff to `@implement` agent
-- [ ] Agent appears in VS Code agent dropdown as "Feature Plan"
-- [ ] Agent successfully analyzes Character Detail Page feature
-- [ ] Agent generates plan following style guide (TL;DR, concise steps, testing strategy)
-- [ ] Agent refuses to make code edits citing stopping rules
-- [ ] You can explain how this agent adapts patterns from Exercise 6.1
-- [ ] You can document 5→0 minute setup time improvement
+- [ ] `.github/agents/character-review.agent.md` exists with complete YAML frontmatter
+- [ ] Agent specifies read-only review tools
+- [ ] Agent instructions explicitly reuse the established character-review workflow
+- [ ] Agent references the `character-change-test-workflow`
+- [ ] Agent includes MCP guidance for duplicate-data investigation
+- [ ] Agent includes handoff to `@implement`
+- [ ] Agent appears in VS Code agent dropdown as "Character Review"
+- [ ] Agent successfully reviews a character-detail change without editing code
+- [ ] You can document the 5→0 minute setup-time improvement
 
 ---
 
 ## 🚀 Challenge Extension
 
-**Enhance the planning agent:**
+**Enhance the character-review agent:**
 
-1. **Add GitHub issue context** — Configure GitHub MCP server in `.vscode/mcp.json` and add `'github/*'` to agent tools to query related issues and PRs during planning
+1. **Argument hints** — Add `argument-hint: "Describe the character-detail change or PR to review"` so the interaction style is clearer
 
-2. **Custom model selection** — Try different models (`Claude Sonnet 4`, `GPT-4o`) in the `model` field to compare planning quality
+2. **Prompt alignment** — Update the instructions so the agent explicitly mirrors the output sections from `character-review-prompt`
 
-3. **Argument hints** — Add `argument-hint: "Describe the feature to plan or provide a feature doc path"` to guide users on how to interact with the agent
+3. **Model comparison** — Try a different `model` value and compare how well the agent balances code review with duplicate-data investigation
 
-4. **Planning templates** — Create `.github/skills/feature-requirements/` skill with ADR templates and planning guidelines that the agent can reference
+4. **Review severity levels** — Add output categories like blockers, warnings, and follow-up items to make the report easier to triage
 
 ---
 
 ## 📚 Key Concepts
 
-**Production patterns from Exercise 6.1:**
-- **Stopping rules** — Explicit constraints preventing scope creep (agent can't drift into implementation)
-- **Style guides** — Structured output format ensures consistent, scannable plans
-- **Iterative workflow** — Research → Present → Iterate beats one-shot planning
-- **Strategic tool additions** — `runSubagent` for deep research, `problems` for error context, `changes` for recent modifications
+**Agents turn stacked customizations into one role:**
+- Prompt gives reusable phrasing
+- Skill gives repeatable workflow
+- MCP gives live external context
+- Agent bundles them into an instant working mode
 
-**Tool restrictions enforce workflow boundaries:**
-- Read-only tools (`search`, `fetch`) prevent accidental modifications
-- No `edit`, `create`, or `delete` tools means agent can't change code
-- Tool list in frontmatter is enforced by VS Code—can't be overridden
+**Tool restrictions enforce review boundaries:**
+- Read-only tools preserve analysis mode
+- No edit tools means no accidental fixes during review
+- Handoff handles the transition to implementation
 
-**Agent descriptions guide user interactions:**
-- `description` field appears as placeholder text in chat input
-- Clear descriptions help users understand agent purpose
-- Agent name should match its role (Plan, Implement, Review, etc.)
-
-**Handoffs create sequential workflows:**
-- `handoffs` define transitions to other agents
-- Pre-filled prompts reduce manual typing
-- `send: false` allows review before executing next step
-
-**FanHub customization:**
-- Agent instructions reference FanHub-specific architecture (React → Express → PostgreSQL)
-- Key file paths pre-configured (feature docs, schema, routes, components)
-- Common patterns documented (detail pages, API conventions, component structure)
+**This is orchestration, not replacement:**
+- You are not throwing away the prompt, skill, or MCP work
+- You are packaging their combined value into a reusable agent role
 
 ---
 
 ## 🔗 Official Docs
 
 - 📖 [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents) — Complete agent structure and configuration guide
-- 📖 [Implementation planner tutorial](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/implementation-planner) — Example planning agent with analysis focus
+- 📖 [Custom prompts](https://code.visualstudio.com/docs/copilot/customization/prompt-files) — Reusable prompts that agents can build on
+- 📖 [MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) — Live data access for agents and chat workflows
 
 ---
 
 ## ➡️ What's Next?
 
-In [Exercise 6.3](exercise-6.3.md), you'll create the `@implement` agent with full editing capabilities and configure the handoff workflow from `@plan` → `@implement` with pre-filled prompts.
+In [Exercise 6.3](exercise-6.3.md), you'll create the `@implement` agent and hand off directly into `@character-review`, so implementation and review become one connected workflow.
 
-> *"Now that we have a planning agent with production-quality patterns, we need an implementation agent that can actually make changes—with a one-click handoff from plan to code."*
-> — Sarah, ready to build the implementation workflow
+> *"The review workflow is finally packaged. Now let's make implementation hand off to it automatically so quality checks happen as part of the same flow, not as a separate reminder."*
+> — Sarah, ready to connect build and review

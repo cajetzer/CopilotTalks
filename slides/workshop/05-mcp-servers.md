@@ -13,7 +13,7 @@ title: Module 5 - MCP Servers
 module: workshop/05-mcp-servers
 mdc: true
 status: active
-updated: 2026-03-24
+updated: 2026-03-25
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
@@ -440,14 +440,14 @@ Character schema and sample rows still live outside the editor, so feature work 
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-The Module 4.2 skill is useful, but it still depends on user-supplied context. <strong class="text-white">This exercise upgrades <code>character-change-test-workflow</code> so it can use live duplicate character data through <code>#mcp-fanhub-db</code> and recommend tests, cleanup, or guardrails from evidence instead of guesswork.</strong>
+The Module 4.2 skill is useful, but it still depends on user-supplied context. <strong class="text-white">This exercise upgrades <code>character-change-test-workflow</code> so it can use live character data through <code>#mcp-fanhub-db</code> and recommend tests, cleanup, or guardrails from evidence instead of guesswork.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Update the Module 4.2 skill to reference <span class="font-mono text-purple-300">#mcp-fanhub-db</span> when duplicate records are suspected</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Create a prompt that investigates duplicate character records using live FanHub data</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Update the Module 4.2 skill to reference <span class="font-mono text-purple-300">#mcp-fanhub-db</span> when performing tests</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300"><code>/Character-Detail-Review "Jesse Pinkman"</code></span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Use the upgraded skill to recommend tests, data cleanup, or defensive handling</span></div>
 </div>
 </div>
@@ -486,7 +486,7 @@ Duplicate or messy records in the database only matter if the running system exp
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Add or create a FanHub API MCP server that can query live character-detail endpoints</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Query the running API from chat and inspect real responses instead of static examples</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300"><code>/Character-Detail-Review "Jesse Pinkman"</code></span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Check whether missing, conflicting, or fallback-prone fields show up in the runtime contract</span></div>
 </div>
 </div>
@@ -593,4 +593,59 @@ layout: center
   <div class="mt-4 text-center text-purple-300">
     Module 5 complete — ready for orchestration.
   </div>
+</div>
+
+---
+
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
+
+<div class="relative z-10 text-center mb-6">
+<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 5 impact</div>
+<h1 class="!text-3xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
+Live context makes the workflow feel grounded
+</h1>
+<div class="text-sm text-gray-300 max-w-4xl mx-auto">
+Copilot works from live systems rather than static files, so context stays current without extra effort.
+</div>
+</div>
+
+<div class="relative z-10 grid grid-cols-5 gap-3">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
+<div class="text-orange-300 font-bold text-sm mb-2">Sarah</div>
+<div class="text-sm text-white leading-snug mb-3">“This is when Copilot stops sounding smart and starts proving it.”</div>
+<div class="text-xs text-gray-400">Live context makes the outputs easier to trust.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-sm mb-2">Marcus</div>
+<div class="text-sm text-white leading-snug mb-3">“If Copilot can see the real character data, I can stop treating every schema question like a detour.”</div>
+<div class="text-xs text-gray-400">The workflow stays inside the tools the team already uses.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
+<div class="text-emerald-300 font-bold text-sm mb-2">David</div>
+<div class="text-sm text-white leading-snug mb-3">“The important shift is that reasoning can now be anchored to reality instead of reconstructed from memory.”</div>
+<div class="text-xs text-gray-400">Architecture and review get a stronger factual base.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+<div class="text-purple-300 font-bold text-sm mb-2">Elena</div>
+<div class="text-sm text-white leading-snug mb-3">“Now Copilot can inspect the actual state of data before it tells me what should change.”</div>
+<div class="text-xs text-gray-400">Quality guidance becomes evidence-based instead of speculative.</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-sm mb-2">Rafael</div>
+<div class="text-sm text-white leading-snug mb-3">“This is where clarity appears, Copilot can point to live behavior instead of abstract possibility.”</div>
+<div class="text-xs text-gray-400">Product conversations become more concrete and credible.</div>
+</div>
+</div>
+
+<div class="relative z-10 mt-6 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
+<div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
+<div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
+</div>
 </div>

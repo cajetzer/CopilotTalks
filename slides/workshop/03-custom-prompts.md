@@ -13,7 +13,7 @@ title: Module 3 - Custom Prompts
 module: workshop/03-custom-prompts
 mdc: true
 status: active
-updated: 2026-03-24
+updated: 2026-03-25
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
@@ -502,7 +502,7 @@ Elena is tired of retyping the same character-detail request, and Sarah is tired
 <div class="space-y-2 text-xs">
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Add <span class="font-mono text-cyan-300">character-review.prompt.md</span> with frontmatter and a body that references architecture guidance, team instructions, and the Module 2 roadmap</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Use prompt variables for things like the current file, workspace, selection, or enhancement name so the prompt starts with real context</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Invoke the prompt and confirm it stays useful when the docs change and faster when the context changes</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300"><code>/Character-Detail-Review "Jesse Pinkman"</code></span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -655,4 +655,54 @@ Module 3 Is Locked In
 Prompt files make repeated work reusable. <span class="text-white font-semibold">Agent skills make deeper workflow knowledge reusable for the whole team.</span>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
+</div>
+
+---
+
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
+
+<div class="relative z-10 text-center mb-6">
+<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 3 impact</div>
+<h1 class="!text-3xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
+Reusable prompts turn one good request into a team habit
+</h1>
+<div class="text-sm text-gray-300 max-w-4xl mx-auto">
+The team stops rewriting good asks from memory and starts reusing proven entry points.
+</div>
+</div>
+
+<div class="relative z-10 grid grid-cols-5 gap-3">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-sm mb-2">Sarah</div>
+<div class="text-sm text-white leading-snug mb-3">“If we do this after every code change, the rest of our prompts get smarter without extra effort.”</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
+<div class="text-emerald-300 font-bold text-sm mb-2">Marcus</div>
+<div class="text-sm text-white leading-snug mb-3">“The real value is not typing less — it’s starting from the right workflow every time.”</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
+<div class="text-orange-300 font-bold text-sm mb-2">David</div>
+<div class="text-sm text-white leading-snug mb-3">“A prompt earns its place when it captures judgment, not just wording.”</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-sm mb-2">Elena</div>
+<div class="text-sm text-white leading-snug mb-3">“This stopped being a saved snippet and started becoming a real team function — current guidance, current file, current context.”</div>
+</div>
+
+<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+<div class="text-purple-300 font-bold text-sm mb-2">Rafael</div>
+<div class="text-sm text-white leading-snug mb-3">“A strong prompt is how product intent survives the trip into implementation.”</div>
+</div>
+</div>
+
+<div class="relative z-10 mt-6 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
+<div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
+<div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
+</div>
 </div>

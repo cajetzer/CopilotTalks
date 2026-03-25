@@ -1,444 +1,246 @@
-# Exercise 6.4: Design Security Review Agent
+# Exercise 6.4: Explore Agent Teams with Squad
 
 ## 🎯 Objective
 
-Create a `@security-review` custom agent with read-only analysis tools and React standards that catches security issues and standards violations without accidentally modifying code during review.
+Install [Squad](https://github.com/bradygaster/squad/) and use it as an example of what becomes possible when you move from single custom agents to a persistent agent team.
 
-> **Note:** This exercise applies the read-only tool pattern from [Exercise 6.1](exercise-6.1.md) and [Exercise 6.2](exercise-6.2.md) to code review workflows.
+> **Note:** This exercise is an "art of the possible" capstone. It is intentionally lighter-weight than the earlier FanHub exercises and focuses on installation, setup, and first use rather than deep customization.
 
-**Lead:** Elena ⭐ | **Support:** Sarah 🤝, David 🤝
+**Lead:** Marcus ⭐ | **Support:** Sarah 🤝, Rafael 🤝
 
 ---
 
 ## 📖 The Story
 
-### ❌ The "Before" — Manual Review Setup with Accidental Modifications
+### ❌ The "Before" — One Agent at a Time
 
-**Monday 4:45 PM** — Elena is reviewing Sarah's implementation of the Character Detail Page feature. She needs to check for security issues and React standards compliance.
+**Monday 5:05 PM** — The team now has a strong Module 6 workflow:
 
-**Current workflow:**
-1. Opens each modified file manually
-2. Loads React standards from Module 1's `.instructions.md`
-3. Reads through code looking for common issues
-4. Types detailed security checklist in chat
-5. While reviewing `CharacterDetail.jsx`, suggests a fix
-6. Copilot modifies the file immediately
-7. Elena: "Wait, I just wanted to note the issue, not fix it yet"
-8. Undoes the change, loses review context
-9. Reminds Copilot "analysis only, don't modify"
-10. Repeats this twice more during review
+- `@character-review` packages the review prompt, skill, and MCP flow
+- `@implement` can execute from an approved ADR
+- handoffs make implementation and review feel connected
 
-**Time breakdown:**
-- **6 minutes** — Loading standards, opening files, setting up review context
-- **2 accidental modifications** — Copilot makes changes during review instead of just identifying issues
-- **Inconsistent review coverage** — Sometimes forgets to check for XSS vulnerabilities, other times misses prop validation
+That is already a big improvement.
 
-**Issues caught vs. missed:**
-- **Before review workflow:** Catches ~2 security issues per review (manual, incomplete)
-- **Post-deployment bugs:** ~3 security/quality issues slip through to production per sprint
+But Marcus is thinking bigger:
 
-Sarah watches Elena undo another accidental edit: "This is the same problem David had with planning—you need a read-only agent for analysis. What if we created a security review agent that can identify issues but can't modify code?"
+*"What if this wasn't just one agent at a time? What if we could see a whole team of specialists work in parallel—lead, backend, frontend, tester—while still keeping the work grounded in the repo?"*
+
+Right now, the team understands **custom agents as roles**.
+
+This exercise introduces the next idea: **agent teams**.
 
 ---
 
-### ✨ The "After" — Security Review Agent with Analysis-Only Tools
+### ✨ The "After" — A Glimpse of Persistent Agent Teams
 
 **The transformation:**
 
-Elena creates `.github/agents/security-review.agent.md` with:
-- **Read-only analysis tools** — `['search', 'fetch', 'analysis']` — no edit capabilities
-- **React standards auto-loaded** — References Module 1's `.github/standards/react-components.instructions.md`
-- **Security-focused instructions** — XSS prevention, authentication checks, prop validation, error handling
-- **Handoff to implementation** — If issues found, hand back to `@implement` agent with fix suggestions
+Marcus installs **Squad**, a project that creates a persistent AI development team in your repository.
 
-**New workflow:**
-1. After implementation, clicks "Review Changes" handoff from `@implement` agent
-2. Switches to `@security-review` agent with pre-filled prompt
-3. Agent analyzes all changes, loads React standards automatically
-4. Identifies security issues and standards violations
-5. Zero accidental modifications (no edit tools available)
-6. Comprehensive report with specific line numbers and issue types
-7. If issues found, clicks handoff to return to `@implement` with fix instructions
+Instead of one agent with one role, Squad gives you:
+
+- a coordinating team
+- persistent agent state in `.squad/`
+- parallel specialist work
+- decision logging that compounds across sessions
+
+This is not replacing the Module 6 workflow. It is showing the next layer up:
+
+**custom agents define focused roles**
+→  
+**agent teams orchestrate many roles together**
 
 **Results:**
-- **Review setup time**: 6→0 minutes (agent auto-loads standards and files)
-- **Accidental modifications**: 2→0 (read-only tools prevent edits)
-- **Issues caught per review**: 2→5 (comprehensive security checklist)
-- **Post-deployment bugs**: 3→0 (no security issues slip through)
+- **Setup time:** a few commands to install and initialize
+- **Payoff:** immediate exposure to a multi-agent development workflow
+- **Perspective shift:** from "I made an agent" to "I can run an agent team"
 
 ---
 
-### 💭 Elena's Realization
+### 💭 Marcus's Realization
 
-> *"This is what systematic quality looks like. Before, I was a human running a mental checklist—sometimes I missed things because I was tired or rushed. Now, the review agent runs a comprehensive security analysis every single time. It can't accidentally fix issues while reviewing because it doesn't have edit tools. My 8 years of 'what to look for' is codified into an agent that never forgets to check for XSS, never skips prop validation, and catches edge cases I used to miss. That's not replacing me—it's scaling my expertise."*
+> *"Our custom agents already made the workflow cleaner. Squad shows what happens when you take that one step further—persistent specialists, shared memory, and parallel work inside the repo itself. I don't need this for every task, but as a demonstration of where agent workflows can go next, it's exactly the kind of 'wait, we can do that?' moment I wanted at the end of the module."*
 
 ---
 
 ## 🔨 Steps
 
-### Step 1: Create Security Review Agent Configuration
+### Step 1: Install Squad
 
-**Context:** The `@security-review` agent needs analysis-only tools and comprehensive security/quality guidelines. It should identify issues without modifying code.
-
-**Task:**
-
-1. Create `.github/agents/security-review.agent.md` with this structure:
-
-```markdown
----
-description: Security and standards review with comprehensive analysis, no code modifications
-name: Security Review
-tools: ['search', 'fetch', 'githubRepo', 'analysis']
-model: Claude Sonnet 4
-handoffs:
-  - label: Fix Issues
-    agent: implement
-    prompt: Fix the security and standards issues identified in the review above.
-    send: false
----
-# Security Review Mode Instructions
-
-You are in security review mode. Your role is to analyze code changes for security vulnerabilities and standards compliance.
-
-**Critical constraint:** You are in analysis-only mode. Do not make any code modifications, create files, or edit existing code. Your job is to identify issues and provide detailed reports.
-
-## Review Workflow
-
-When reviewing code changes:
-
-1. **Identify changed files** — Use @workspace to find recent modifications
-2. **Load standards** — Reference repository standards from `.github/copilot-instructions.md` and `.github/standards/`
-3. **Security analysis** — Check for common vulnerabilities
-4. **Standards compliance** — Verify code follows established patterns
-5. **Generate report** — Provide detailed findings with file paths, line numbers, and severity
-
-## Security Checklist
-
-Analyze code for these common security issues:
-
-### Input Validation
-- User input is validated and sanitized
-- No direct DOM manipulation with user-provided strings
-- Form inputs have proper validation
-- API request payloads are validated
-
-### XSS Prevention
-- No use of `dangerouslySetInnerHTML` without proper sanitization
-- User-generated content is escaped before rendering
-- HTML attributes from user input are validated
-- No `eval()` or dynamic code execution
-
-### Authentication & Authorization
-- Protected routes require authentication
-- API calls include proper authentication headers
-- Sensitive data is not exposed in client code
-- User permissions are checked before operations
-
-### Data Handling
-- Sensitive data is not logged
-- Secrets are not hardcoded
-- PII is handled according to privacy requirements
-- API responses don't expose internal details
-
-### Error Handling
-- Errors don't expose stack traces to users
-- Error messages don't leak sensitive information
-- Failed operations are logged appropriately
-- User-facing errors are helpful but safe
-
-## React Standards Compliance
-
-Verify React code follows these patterns (reference from repository standards):
-
-### Component Structure
-- Functional components with hooks (no class components)
-- Clear separation of concerns
-- Proper prop validation with PropTypes or TypeScript
-- Consistent file naming and organization
-
-### State Management
-- Use appropriate hooks (useState, useEffect, useContext)
-- No unnecessary re-renders
-- State updates are predictable
-- Side effects are properly handled
-
-### Performance
-- Components are reasonably sized
-- Expensive operations use useMemo or useCallback
-- Lists have proper keys
-- No memory leaks in useEffect
-
-### Accessibility
-- Semantic HTML elements
-- Proper ARIA attributes where needed
-- Keyboard navigation support
-- Color contrast meets standards
-
-## Code Quality
-
-Check for general quality issues:
-
-- Code follows consistent formatting
-- Functions are reasonably sized and focused
-- Variable names are descriptive
-- Complex logic is commented
-- Error cases are handled
-- No commented-out code
-- No console.log statements in production code
-
-## Review Report Format
-
-Structure your review report as:
-
-### Summary
-Brief overview of changes and overall quality assessment.
-
-### Critical Issues (Severity: High)
-Security vulnerabilities or major standards violations that must be fixed before deployment.
-
-### Warnings (Severity: Medium)
-Standards violations or quality concerns that should be addressed.
-
-### Suggestions (Severity: Low)
-Optional improvements or best practices recommendations.
-
-### Positive Observations
-Call out well-implemented patterns or good practices.
-
-For each issue, provide:
-- File path and line number
-- Issue description
-- Why it's a concern
-- Suggested fix or approach
-
-## Handoff to Implementation
-
-If issues are found, use the "Fix Issues" handoff to return to implementation mode with specific fix instructions. The handoff preserves your review context so the implementation agent knows exactly what needs to be fixed.
-```
-
-2. Save the file
-
-**Validation:** The agent file exists at [.github/agents/security-review.agent.md](../examples/completed-config/.github/agents/security-review.agent.md) and contains YAML frontmatter with analysis-only tools plus comprehensive review instructions.
-
----
-
-### Step 2: Update Implementation Agent to Hand Off to Review
-
-**Context:** Configure the `@implement` agent to offer a handoff button to `@security-review` after making changes.
+**Context:** Squad is an experimental CLI that scaffolds a persistent AI team in your repository.
 
 **Task:**
 
-1. Open [.github/agents/implement.agent.md](../examples/completed-config/.github/agents/implement.agent.md)
-2. Verify the `handoffs` section includes:
+1. Install the CLI globally:
 
-```yaml
-handoffs:
-  - label: Review Changes
-    agent: security-review
-    prompt: Review the changes I just made for security issues and standards compliance.
-    send: false
+```bash
+npm install -g @bradygaster/squad-cli
 ```
 
-3. If missing or needs update, modify it
-4. Save the file
+2. In your project root, initialize Squad:
 
-**Validation:** The implementation agent includes handoff to `security-review` agent with appropriate prompt.
+```bash
+squad init
+```
+
+3. Confirm the setup created a `.squad/` directory in your repository.
+
+**Validation:** `.squad/team.md` exists and Squad has initialized successfully in the repo.
 
 ---
 
-### Step 3: Test the Security Review Workflow
+### Step 2: Connect GitHub Authentication
 
-**Context:** Verify the review agent catches security issues and standards violations without modifying code.
+**Context:** Squad can work with GitHub-aware workflows, and the project recommends authenticating with GitHub before deeper usage.
 
 **Task:**
 
-1. **Create a file with deliberate issues:**
-   - Create `fanhub/frontend/src/components/TestComponent.jsx`:
+1. Sign in with GitHub CLI:
 
-```jsx
-import React, { useState } from 'react';
-
-// Component with intentional security and standards issues for testing
-function TestComponent(props) {
-  const [userInput, setUserInput] = useState('');
-
-  // Issue 1: Missing prop validation
-  // Issue 2: Dangerous HTML injection risk
-  return (
-    <div>
-      <h2>Test Component</h2>
-      <input
-        value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
-      />
-      {/* Issue 3: dangerouslySetInnerHTML without sanitization */}
-      <div dangerouslySetInnerHTML={{ __html: userInput }} />
-
-      {/* Issue 4: Inline style instead of CSS classes */}
-      <button style={{ color: 'red' }} onClick={() => {
-        // Issue 5: Hardcoded API key
-        const apiKey = 'sk-12345-secret-key';
-        console.log('API Key:', apiKey); // Issue 6: Logging sensitive data
-        fetch('/api/data', {
-          headers: { 'Authorization': apiKey }
-        });
-      }}>
-        Submit
-      </button>
-    </div>
-  );
-}
-
-export default TestComponent;
+```bash
+gh auth login
 ```
 
-2. **Review with security-review agent:**
-   - Open Copilot Chat
-   - Select `@security-review` agent
-   - Type: "Review TestComponent.jsx for security issues and React standards violations"
-   - Wait for agent analysis
+2. Verify authentication:
 
-3. **Verify review findings:**
-   - Agent should identify:
-     - XSS vulnerability (dangerouslySetInnerHTML with user input)
-     - Hardcoded API key
-     - Logging sensitive data
-     - Missing prop validation
-     - Inline styles instead of CSS
-     - No input sanitization
-   - Report should include file paths and line numbers
-   - Report should categorize by severity (Critical, Warning, Suggestion)
+```bash
+gh auth status
+```
 
-4. **Verify read-only constraint:**
-   - After review, type: "Fix the XSS vulnerability"
-   - Confirm agent either:
-     - Refuses to make edits (explains it's in review-only mode), OR
-     - Suggests using "Fix Issues" handoff button
-   - Agent should NOT modify the file
-
-5. **Test handoff to fix:**
-   - Look for "Fix Issues" handoff button
-   - Click it to switch to `@implement` agent
-   - Pre-filled prompt should reference the review findings
-   - Implementation agent should make fixes based on review
-
-**Validation:**
-- ✅ Review agent identifies 5+ security/standards issues
-- ✅ Report includes specific file paths and line numbers
-- ✅ Issues categorized by severity
-- ✅ Agent refuses to make code modifications (read-only mode)
-- ✅ "Fix Issues" handoff button appears
-- ✅ Handoff preserves review context
-- ✅ Implementation agent can fix issues based on review
+**Validation:** GitHub CLI shows you are logged in to `github.com`.
 
 ---
 
-### Step 4: Compare Before and After Metrics
+### Step 3: Launch Squad and Set Up the Team
 
-**Context:** Measure the improvement from systematic security review versus manual checking.
+**Context:** Once Squad is installed, you can use it directly from VS Code as an agent experience and let it propose a team for your repository.
+
+**Task:**
+
+1. In VS Code, open **Copilot Chat**.
+
+2. Select the **Squad** agent if it is available.
+
+3. Use a kickoff prompt like this:
+
+```text
+I'm starting a FanHub-style project. Set up the team.
+We're building character-detail features with frontend, backend, testing, and review work.
+```
+
+4. When Squad proposes team members, confirm the setup.
+
+5. If you want to try the CLI path instead, you can also launch Squad with:
+
+```bash
+copilot --agent squad --yolo
+```
+
+**Validation:** Squad responds with team proposals and initializes a working team for the repository.
+
+---
+
+### Step 4: Try a Simple Team Request
+
+**Context:** This exercise is about seeing the orchestration model, not mastering every Squad command.
+
+**Task:**
+
+Try a simple request like:
+
+```text
+Team, help me think through the next character-detail improvement and what frontend, backend, and testing work it would require.
+```
+
+Observe what happens:
+
+- how Squad routes work to different roles
+- how multiple specialists can respond in parallel
+- what gets written into `.squad/`
+- how this feels different from invoking one agent manually
+
+**Validation:** You can describe at least one clear difference between a single custom agent and a persistent agent team.
+
+---
+
+### Step 5: Compare Custom Agents vs. Agent Teams
+
+**Context:** The goal is not to replace the earlier exercises. It is to understand how this example expands the design space.
 
 **Task:**
 
 Document these comparisons:
 
-**Before (Manual Security Review):**
-- Review setup time: 6 minutes per review
-- Accidental modifications: 2 per review (had to undo and restart)
-- Security issues caught: ~2 per review (inconsistent checklist)
-- Post-deployment bugs: ~3 security issues slip through per sprint
-- Review coverage: Variable (sometimes missed categories)
+**Module 6 Custom Agents:**
+- Focused, explicit roles
+- Great for predictable handoff workflows
+- Easy to reason about and teach
+- Ideal for targeted review and implementation tasks
 
-**After (@security-review Agent):**
-- Review setup time: 0 minutes (agent auto-loads standards)
-- Accidental modifications: 0 (read-only tools prevent edits)
-- Security issues caught: 5 per review (comprehensive checklist)
-- Post-deployment bugs: 0 security issues (caught in review)
-- Review coverage: 100% consistent (agent never forgets checks)
+**Squad Agent Team:**
+- Multi-agent orchestration
+- Persistent team state in `.squad/`
+- Parallel specialist work
+- Better at showing the "art of the possible" for larger agent workflows
 
-**Quality improvements:**
-- **Systematic coverage**: Agent checks all security categories every time
-- **Detailed reports**: File paths, line numbers, severity levels
-- **Context preservation**: Handoff maintains review findings for fixes
-- **No review fatigue**: Agent reviews are consistently thorough
-
-**Validation:** You can articulate how the review agent:
-- Eliminates setup time through auto-loaded standards
-- Prevents accidental modifications through tool restrictions
-- Ensures comprehensive security analysis every time
-- Creates traceable fix workflows via handoffs
+**Validation:** You can explain why Squad is a compelling capstone example even though the core module still focuses on building your own agents.
 
 ---
 
 ## ✅ Success Criteria
 
-- [ ] `.github/agents/security-review.agent.md` exists with complete YAML frontmatter
-- [ ] Agent specifies read-only tools: `['search', 'fetch', 'githubRepo', 'analysis']`
-- [ ] Agent instructions include comprehensive security checklist
-- [ ] Agent includes handoff to `@implement` for fixing issues
-- [ ] Implementation agent includes handoff to `@security-review`
-- [ ] Agent appears in VS Code agent dropdown as "Security Review"
-- [ ] Agent successfully identifies security vulnerabilities in test code
-- [ ] Agent reports include file paths, line numbers, and severity levels
-- [ ] Agent refuses to make code modifications when requested
-- [ ] Handoff workflow preserves review context for fixes
-- [ ] You can document 6→0 minute setup time and improved issue detection
+- [ ] `@bradygaster/squad-cli` is installed
+- [ ] `squad init` runs successfully
+- [ ] `.squad/team.md` exists
+- [ ] GitHub CLI authentication is configured
+- [ ] Squad can be launched and used for an initial team setup
+- [ ] You have tried at least one simple team request
+- [ ] You can explain the difference between a custom agent workflow and an agent-team workflow
 
 ---
 
 ## 🚀 Challenge Extension
 
-**Enhance the security review workflow:**
+**Explore a little further:**
 
-1. **Custom security skills** — Create `.github/skills/security-analysis/` with organization-specific security requirements, then add to review agent tools
-
-2. **Automated fix suggestions** — Include code snippets in review report showing how to fix each issue (without actually modifying files)
-
-3. **Review metrics** — Add instructions for agent to track and report metrics: number of issues found, severity distribution, most common issue types
-
-4. **Compliance checking** — Extend review checklist with regulatory compliance requirements (GDPR, WCAG, etc.)
-
-5. **Integration testing handoff** — Add handoff to `@test` agent: "Generate integration tests for the security fixes"
+1. **Run `squad status`** — inspect the current team state
+2. **Open `.squad/decisions.md`** — see how team decisions are recorded
+3. **Try the interactive shell** — run `squad` with no arguments and explore `/help`
+4. **Compare with Module 6 agents** — decide where a small custom-agent workflow is better than a full agent team
 
 ---
 
 ## 📚 Key Concepts
 
-**Read-only review agents prevent accidental changes:**
-- Analysis tools (`search`, `fetch`, `analysis`) allow inspection
-- No `edit`, `create`, or `delete` tools means code stays untouched
-- Review workflow is truly separate from implementation
-- Eliminates "oops, I didn't mean to fix that yet" problems
+**Custom agents vs. agent teams:**
+- A custom agent is one workflow preset
+- An agent team is a coordinated system of specialists
+- Both can live in the repo
+- They solve different layers of the same problem
 
-**Comprehensive checklists ensure consistent quality:**
-- Agent instructions encode expert knowledge
-- Security categories checked every single review
-- No "review fatigue" where human reviewers skip steps
-- Standards compliance verified systematically
+**Persistence matters:**
+- Squad writes shared team state into `.squad/`
+- Decisions and team knowledge compound over time
+- The team becomes part of the repository, not just a one-off session
 
-**Severity categorization guides priorities:**
-- Critical issues must be fixed before deployment
-- Warnings should be addressed but aren't blockers
-- Suggestions are optional improvements
-- Helps teams triage fixes efficiently
-
-**Handoffs create fix-review cycles:**
-- Review identifies issues → handoff to implement
-- Implement fixes issues → handoff to review
-- Creates iterative quality improvement loop
-- Context preserved through entire cycle
+**Why this exercise belongs here:**
+- Module 6 teaches how to build focused agents
+- Squad shows what the broader ecosystem can do beyond that
+- It ends the module with a strong "here's where this can go next" example
 
 ---
 
 ## 🔗 Official Docs
 
-- 📖 [Custom agents - Tools configuration](https://code.visualstudio.com/docs/copilot/customization/custom-agents#custom-agent-file-structure) — Understanding tool restrictions for agents
-- 📖 [Bug fix teammate tutorial](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/bug-fix-teammate) — Example review-focused agent
+- 📖 [Squad repository](https://github.com/bradygaster/squad/) — Overview, installation, commands, and concepts
+- 📖 [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents) — Core agent model used earlier in this module
 
 ---
 
 ## ➡️ What's Next?
 
-In [Exercise 6.5](exercise-6.5.md), you'll create the `@product-analyzer` agent with web accessibility (`target: github-copilot`) so Rafael can analyze features and query GitHub data during stakeholder meetings without opening VS Code.
+**[Module 8: Copilot Web](../08-copilot-web/README.md)** — Explore additional web-based workflows beyond custom agents, including workspace search, multi-file refactoring, and collaboration features.
 
-> *"Can I use these agents during stakeholder calls when I don't have VS Code open? I need to analyze requirements and query repos in real-time."*
-> — Rafael, discovering web-accessible agents
+> *"We built focused custom agents for FanHub. Squad gave us a glimpse of what happens when those ideas expand into a full persistent team. That's a strong place to leave Module 6."*
+> — The team, seeing the broader horizon

@@ -305,13 +305,9 @@ Study the two handoffs:
 
 Now that you understand how agents work, you're ready to build your own:
 
-**[Exercise 6.2](exercise-6.2.md)** — Create a planning agent for FanHub (customized for your project)
+**[Exercise 6.2](exercise-6.2.md)** — Create a character-review agent for FanHub (customized for your story arc)
 
 **[Exercise 6.3](exercise-6.3.md)** — Build an implementation agent with full editing tools and handoff
-
-**[Exercise 6.4](exercise-6.4.md)** — Design a security review agent with read-only tools
-
-**[Exercise 6.5](exercise-6.5.md)** — Create a web-accessible product analysis agent
 
 ---
 

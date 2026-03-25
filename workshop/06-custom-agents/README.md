@@ -2,8 +2,8 @@
 
 ## ⏰ — The Context-Switching Problem
 
-> *"I have all these great tools—instructions, prompts, skills, MCP servers—but I'm constantly switching contexts. One minute I'm planning, next I'm implementing, then reviewing. Each time I have to remember which tools to use and reset Copilot's behavior. I need workflow presets that bundle the right capabilities for each task."*
-> — Sarah, switching between planning agent and implementation mode for the fifth time today
+> *"I have all these great tools—instructions, prompts, skills, MCP servers—but I'm constantly switching contexts. One minute I'm implementing, next I'm reviewing, then I'm trying to remember when live data matters. Each time I have to reset Copilot's behavior. I need workflow presets that bundle the right capabilities for each task."*
+> — Sarah, switching between implementation and character review for the fifth time today
 
 ---
 
@@ -21,7 +21,7 @@ In **Module 4**, they created **Agent Skills** (`.github/skills/`)—specialized
 
 In **Module 5**, they connected **MCP servers**—direct access to databases, APIs, and external systems.
 
-**Now they're ready to automate and simplify.** Sarah switches between "planning mode" (read-only tools, analysis focus) and "implementation mode" (full editing, code generation) multiple times per day. David wants to streamline his security reviews by bundling linting and analysis tools into one preset. Marcus sees an opportunity to create a "DevOps agent" with deployment scripts and infrastructure access already configured. Elena wants her test generation workflow automated with skills and templates pre-loaded.
+**Now they're ready to automate and simplify.** Sarah switches between implementation mode and character-review mode multiple times per day. Elena wants the character-review workflow from Modules 3.2, 4.2, and 5.2 bundled into one preset instead of rebuilt from memory. Marcus sees an opportunity to keep review grounded in live FanHub data when duplicate records matter. David wants the workflow transitions themselves to be explicit, repeatable, and easy to hand off.
 
 **The pattern:** Each workflow uses different tools, instructions, and behaviors—but manually configuring these for every context switch wastes time and mental energy.
 
@@ -62,7 +62,7 @@ In **Module 5**, they connected **MCP servers**—direct access to databases, AP
 
 **AI-native thinking:** *"I'll create workflow-based agents that automatically configure tools, instructions, and capabilities for specific tasks—switching contexts becomes instant."*
 
-This isn't just about convenience. Custom agents transform Copilot from a general-purpose assistant into a specialized teammate for each role. A "Plan" agent only has read-only tools, preventing accidental edits during research. A "Security Review" agent automatically loads security-focused skills and runs analysis tools. A "DevOps" agent bundles infrastructure skills and deployment MCP servers. The result: context-appropriate AI assistance with zero configuration overhead.
+This isn't just about convenience. Custom agents transform Copilot from a general-purpose assistant into a specialized teammate for each role. A "Character Review" agent can stay read-only while bundling the team's prompt, skill, and MCP workflow. An "Implement" agent can focus on systematic ADR execution and then hand off cleanly into review. A "DevOps" agent can still bundle infrastructure skills and deployment MCP servers. The result: context-appropriate AI assistance with zero configuration overhead.
 
 ---
 
@@ -77,15 +77,15 @@ This isn't just about convenience. Custom agents transform Copilot from a genera
 - **Handoffs** — Define workflow transitions between agents with pre-filled prompts
 
 **Why this matters for FanHub:**
-- **@feature-plan** agent — Research and analysis only (read-only tools, prevents accidental edits)
+- **@character-review** agent — Read-only character-detail review using the prompt, skill, and MCP-backed duplicate investigation workflow
 - **@implement** agent — Full editing capabilities with implementation-focused instructions
-- **@review** agent — Code review with security analysis and standards enforcement
+- **@character-review** agent — Character-detail review with prompt, skill, and MCP-aware escalation
 - **@test** agent — Test generation with comprehensive template and edge case focus
 
 **Key capabilities:**
 
 **Tool Selection:**
-- Specify exactly which tools are available: `['search', 'fetch', 'githubRepo']` for planning
+- Specify exactly which tools are available: `['search', 'fetch', 'usages']` for character review
 - Prevent unwanted actions: No edit tools during review, no MCP servers during testing
 - Include skill-specific tools: `'api-endpoint-design/*'` loads all tools from that skill
 
@@ -108,9 +108,9 @@ This isn't just about convenience. Custom agents transform Copilot from a genera
 
 ## What You'll Learn
 
-**Custom agents** bundle instructions, tools, skills, and MCP servers into workflow configurations you can instantly switch between. You'll create specialized agents for planning, implementation, review, and product analysis (including web-accessible agent), and measure how workflow-based presets eliminate context-switching overhead.
+**Custom agents** bundle instructions, tools, skills, and MCP servers into workflow configurations you can instantly switch between. You'll create specialized agents for implementation and character review, then end with an "art of the possible" example showing how agent teams can extend those ideas further.
 
-**Time:** ~75 minutes | **Exercises:** 5
+**Time:** ~65 minutes | **Exercises:** 4
 
 ---
 
@@ -121,10 +121,9 @@ The exercises below create custom agents that orchestrate capabilities from Modu
 | # | Exercise | Lead | Support | Problem | Solution | Key Metrics | Artifacts |
 |---|----------|------|---------|---------|----------|-------------|-----------|
 | [6.1](exercise-6.1.md) | Understand the Default Plan Agent | All | All | Need to understand agent structure before building custom ones: frontmatter, tools, handoffs, stopping rules, workflows | Reverse-engineer Microsoft's `@plan` agent to learn production-quality patterns for role enforcement, tool selection, and workflow design | 100% questions answered, understand all agent components, ready to build own agents | Knowledge of agent architecture and best practices |
-| [6.2](exercise-6.2.md) | Create Feature Planning Agent | David | Sarah | Manual planning setup: 5 min loading context, 3 accidental edits during research, inconsistent analysis approach | `@feature-plan` agent with read-only tools, feature-requirements skill, GitHub MCP—prevents edits, auto-loads planning context | 5→0 min setup, 3→0 accidental edits, 100% consistent planning approach | `.github/agents/feature-plan.agent.md` |
-| [6.3](exercise-6.3.md) | Create Implementation Agent for ADR Execution | Sarah | Marcus, David | Manual ADR implementation: 8 min reading/searching, 60% first-time completeness (missing components), ad-hoc order causing rework | `@implement` agent with full editing tools, API design skill, ADR-reading workflow, handoff to @security-review | 8→0 min setup, 60%→100% completeness, systematic execution order, integrated security review | `.github/agents/implement.agent.md`, verified ADR-driven implementation |
-| [6.4](exercise-6.4.md) | Design Security Review Agent | Elena | Sarah, David | Review setup: 6 min loading standards, running analysis tools, 2 accidental modifications during review | `@security-review` agent with read-only + analysis tools, React standards from Module 1, handoff to @implement for fixes | 6→0 min setup, 2→0 accidental mods, catches 5 security issues per review vs. previous 2 | `.github/agents/security-review.agent.md` |
-| [6.5](exercise-6.5.md) | Access Custom Agents from the Web | Rafael | Sarah, Marcus | Agent access during meetings: Need VS Code open (30 sec load time), context-switching away from calls (5-6 min per feature), no mobile access | Discover existing agents (@feature-plan, @implement, @security-review) work automatically on github.copilot.com—no additional config needed | 5-6→1.5 min per feature analysis (no VS Code loading), zero context-switching during meetings, mobile access enabled | Understanding of web agent access, documented use cases for web vs. VS Code |
+| [6.2](exercise-6.2.md) | Create Character Review Agent | Elena | Sarah | Manual review setup: 5 min rebuilding prompt, skill, and MCP context before each character-detail review | `@character-review` agent with read-only tools that bundles the Module 3.2 prompt, Module 4.2 skill, and Module 5.2 MCP workflow into one role | 5→0 min setup, repeatable review behavior, live-data checks easier to trigger | `.github/agents/character-review.agent.md` |
+| [6.3](exercise-6.3.md) | Create Implementation Agent for ADR Execution | Sarah | Marcus, David | Manual ADR implementation: 8 min reading/searching, 60% first-time completeness (missing components), ad-hoc order causing rework | `@implement` agent with full editing tools, API design skill, ADR-reading workflow, handoff to @character-review | 8→0 min setup, 60%→100% completeness, systematic execution order, integrated review workflow | `.github/agents/implement.agent.md`, verified ADR-driven implementation |
+| [6.4](exercise-6.4.md) | Explore Agent Teams with Squad | Marcus | Sarah, Rafael | Custom agents solve focused workflow problems, but it is still hard to picture what a persistent multi-agent development team could look like in practice | Install Squad, initialize a team in the repo, and use it for a simple FanHub-style agent-team interaction | working Squad install, `.squad/` created, clear understanding of custom agents vs. agent teams | `.squad/`, initial Squad team setup |
 
 ---
 
@@ -132,22 +131,19 @@ The exercises below create custom agents that orchestrate capabilities from Modu
 
 **Custom Agents:** Workflow-based Copilot configurations stored in `.agent.md` files that define available tools, loaded skills, MCP servers, behavioral instructions, and workflow handoffs for specific tasks.
 
-**When to use it:** When different tasks require different capabilities—planning needs read-only research tools, implementation needs full editing, code review needs analysis focus, product analysis needs web access. When you want to eliminate context-switching overhead and enforce role-appropriate tool usage.
+**When to use it:** When different tasks require different capabilities—review needs read-only analysis tools, implementation needs full editing, and handoffs should make the workflow between them explicit. Use custom agents when you want to eliminate context-switching overhead and enforce role-appropriate tool usage.
 
 **What you'll build:**
-- **Feature planning agent** — Read-only tools, feature requirements skill, prevents accidental edits during research
+- **Character review agent** — Read-only tools, character-review workflow, duplicate-data escalation through MCP when relevant
 - **Implementation agent** — Full editing capabilities, API design skills, systematic ADR execution workflow
-- **Security review agent** — Analysis tools only, React standards instructions, catches issues without modifying code
-
-**What you'll discover:**
-- **Web accessibility** — Custom agents automatically work on github.copilot.com without additional configuration, enabling planning and analysis during meetings or from mobile devices
+- **Connected workflow** — Handoff from implementation into prompt + skill + MCP-backed character review
+- **Agent-team capstone** — An example of persistent multi-agent collaboration using Squad
 
 **Official Documentation:**
 - 📖 [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents) — Complete guide to agent structure, handoffs, and tool configuration
 - 📖 [Custom agents tutorials](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents) — Example agents including implementation planner, bug fix specialist, cleanup agent
-- 📖 [GitHub Copilot on the web](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-on-the-web) — Using custom agents from github.copilot.com
 
-> 💡 **Important for this module:** Custom agents defined in `.github/agents/` work automatically in both VS Code and github.copilot.com. Choose the environment based on what you need: use VS Code for implementation (full editing tools), use the web for planning and analysis (faster access, no IDE setup, mobile-friendly).
+> 💡 **Important for this module:** The key payoff is not just creating agents—it is creating the right boundaries between them. Review agents should stay read-only. Implementation agents should be able to edit. Handoffs make that workflow feel natural instead of manual.
 
 ---
 
@@ -262,17 +258,16 @@ Handoffs create guided sequential workflows between agents:
 
 ```yaml
 handoffs:
-  - label: Review Changes        # Button text
-    agent: security-review       # Target agent ID
-    prompt: Review for security  # Pre-filled prompt
+  - label: Review Character Change            # Button text
+    agent: character-review                   # Target agent ID
+    prompt: Review the character detail change # Pre-filled prompt
     send: false                  # Auto-submit (true/false)
 ```
 
 **Common handoff patterns:**
-- **Plan → Implement** — Generate plan, hand off to start coding
-- **Implement → Review** — Complete code, switch to review agent
+- **Implement → Review** — Complete code, hand off to character review
 - **Review → Implement** — Find issues, hand back to fix them
-- **Plan → Test** — Design feature, hand off to generate failing tests
+- **Review → Test** — Surface edge cases, then hand off to generate or update tests
 
 ### Invocation Controls (VS Code 1.109)
 
