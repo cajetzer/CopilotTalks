@@ -1,162 +1,130 @@
-# Exercise 5.2: Automate PR Review Validation
+# Exercise 5.2: Upgrade Character Test Workflow with MCP
 
 ## 🔨 Exercise
 
-### Exercise 5.2: Automate PR Review Validation — "From Manual Checklist to Automated Validation"
+### Exercise 5.2: Upgrade Character Test Workflow with MCP — "From Local Review Logic to Live Duplicate Investigation"
 
-**Lead:** Sarah ⭐ | **Support:** David 🤝, Marcus 🤝 | **Time:** 15 min
+**Lead:** Elena ⭐ | **Support:** Marcus 🤝 | **Time:** 15 min
 
 #### 📖 The Challenge
 
-Sarah has an 8-point checklist for every PR merge: CI passed, all approvals received, no merge conflicts, target branch correct, no failing tests, security checks passed, branch up-to-date, and blocking issues resolved. Every single PR requires her to click through GitHub's UI, check each criterion manually, and document the results. It takes 5 minutes per PR, and she reviews 20-30 PRs per week.
+In Module 4.2, the team created `character-change-test-workflow` to answer a useful question:
 
-David wants to ensure architectural standards from Module 1's custom instructions are actually being enforced before merge. Marcus needs to verify deployment-blocking issues are resolved before triggering CI/CD. But right now, this validation is manual, error-prone, and time-consuming.
+**what tests should change when the character-detail experience changes?**
 
-What if Copilot could query GitHub directly and validate all criteria in seconds? The GitHub MCP server makes this possible.
+That workflow was helpful, but it still depended on whatever context the developer provided. Now the team knows something more concrete:
+
+- FanHub has duplicate character records
+- those duplicates can make character-detail behavior inconsistent
+- fallback behavior can hide the problem
+- tests and cleanup decisions should be grounded in the real data, not guesses
+
+So the next step is not to replace the skill. It is to **upgrade the skill** so it can use live FanHub data through MCP.
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Sarah opens PR #47. She clicks the Checks tab (CI status?), Reviews tab (2 approvals?), Commits tab (up-to-date?), Files tab (conflicts?). She opens linked issues to check if they're resolved. She manually types notes: "✓ CI passed, ✓ 2 approvals, ✗ branch outdated." Takes 5 minutes. She misses that a blocking security issue is still open. | Sarah types in Copilot: "Validate PR #47 against merge checklist." Copilot queries GitHub MCP server: CI status, approval count, conflicts, branch status, linked issues, security alerts. Returns full report in 30 seconds: "⚠️ Blocking: Security issue #892 still open." Perfect accuracy, zero human error. |
-| **Time:** 5 min per PR<br>**Criteria checked:** 8 items manually<br>**Missed issues:** ~2% of PRs (human error) | **Time:** 30 sec per PR<br>**Criteria checked:** 100% automated<br>**Missed issues:** 0% — comprehensive validation |
+| Elena uses the Module 4.2 skill with a description of the problem. It helps, but the workflow still depends on memory and hand-written context. Duplicate records are easy to miss unless someone manually checks the database first. | Elena updates `character-change-test-workflow` so it can use `#mcp-fanhub-db` during duplicate investigations. Now the same skill can inspect real conflicting records, explain which fields differ, and recommend tests or cleanup actions based on live data. |
+| **Investigation time:** 15 min<br>**Confidence:** partial<br>**Live data awareness:** manual | **Investigation time:** 3 min<br>**Confidence:** higher<br>**Live data awareness:** built into the workflow |
 
 #### 🎯 Your Goal
 
-Configure the GitHub MCP server to automatically validate PR readiness against your merge criteria, eliminating manual checklist verification.
+Update the `character-change-test-workflow` skill from Module 4.2 so it can use FanHub database MCP to investigate duplicate character records and recommend the right tests, cleanup steps, or guardrails.
 
 #### 📋 Steps
 
-1. **Add GitHub MCP Server Configuration**
+1. **Update the Module 4.2 skill**
 
-   Update `.vscode/mcp.json` to add the GitHub server (HTTP transport):
+   Open `.github/skills/character-change-test-workflow/SKILL.md` and revise it so the workflow can use `#mcp-fanhub-db` when character-detail changes may be affected by live data issues.
 
-   ```json
-   {
-     "inputs": [
-       {
-         "type": "promptString",
-         "id": "db_path",
-         "description": "Path to FanHub SQLite database",
-         "password": false
-       }
-     ],
-     "servers": {
-       "fanhub-db": {
-         "type": "stdio",
-         "command": "npx",
-         "args": ["-y", "@modelcontextprotocol/server-sqlite", "${input:db_path}"],
-         "env": {}
-       },
-       "github": {
-         "type": "http",
-         "url": "https://api.githubcopilot.com/mcp/"
-       }
-     }
-   }
-   ```
+   The updated skill should help Copilot:
 
-   **What this does:**
-   - Adds GitHub MCP server using HTTP transport (remote server hosted by GitHub)
-   - Uses OAuth authentication (VS Code handles automatically if you're logged in)
-   - No local installation required (cloud-hosted server)
+   - inspect real character records
+   - identify duplicate or conflicting rows
+   - decide what tests should change
+   - recommend cleanup or guardrails before the PR
 
-2. **Restart the MCP Servers**
+2. **Add MCP-aware workflow guidance**
 
-   In Copilot Chat, use the MCP servers list to restart all servers (or reload VS Code window). You should now see both "fanhub-db" and "github" servers available.
+   Extend the skill instructions so they include steps like:
 
-   **Expected output:** Both servers show as "Running" in the MCP servers list.
+   - query FanHub data for affected character records
+   - compare duplicate rows or conflicting optional fields
+   - identify risks to the character-detail UI
+   - recommend test changes, cleanup work, or follow-up checks
 
-3. **Create PR Validation Prompt**
+3. **Create a reusable prompt for the upgraded workflow**
 
-   Create `.github/copilot-prompts/validate-pr.md`:
+   Create `.github/prompts/investigate-character-duplicates.prompt.md`:
 
-   ```markdown
-   # PR Validation Checklist
+   ````markdown
+   ---
+   mode: ask
+   description: Use the upgraded character-change-test-workflow with live FanHub data to investigate duplicate character records.
+   ---
 
-   You are validating a pull request against merge criteria defined in our custom instructions.
+   Use the `character-change-test-workflow` skill together with `#mcp-fanhub-db`.
 
-   Use the GitHub MCP server to check:
+   Your job:
+   1. Identify likely duplicate character records in FanHub
+   2. Compare the duplicate rows and summarize how they differ
+   3. Explain how those differences could affect the character-detail experience
+   4. Recommend the right tests, cleanup actions, or guardrails before the PR
 
-   1. **CI Status**: All checks passed
-   2. **Approvals**: At least 2 approving reviews
-   3. **Conflicts**: No merge conflicts
-   4. **Branch**: Targeting correct base branch (main/develop)
-   5. **Tests**: All test suites passing
-   6. **Security**: No unresolved security alerts
-   7. **Up-to-date**: Branch is current with base
-   8. **Blocking Issues**: All linked blocking issues resolved
+   Return:
+   - likely duplicates
+   - differing fields
+   - UI/test risks
+   - recommended next steps
+   ````
 
-   For each criterion:
-   - ✅ if passes
-   - ⚠️ if warning (explain why)
-   - ❌ if fails (blocking)
-
-   Provide summary: READY TO MERGE or BLOCKED (list blockers).
-   ```
-
-4. **Validate a PR**
-
-   In Copilot Chat, test the validation:
+4. **Run the upgraded workflow**
 
    ```
-   @workspace /validate-pr Check PR #47 against our merge checklist. Use GitHub MCP to verify all criteria.
+   @workspace /investigate-character-duplicates Use the upgraded character-change-test-workflow
+   to investigate duplicate character records and tell me what tests, cleanup, or
+   guardrails we need before the next PR.
    ```
 
-   Or ask for a specific PR's status:
+5. **Review the upgrade**
 
-   ```
-   @workspace #mcp-github What's the status of PR #47? Show me CI results, approvals, and any blocking issues.
-   ```
-
-   **What to observe:**
-   - Copilot invokes GitHub MCP tools automatically
-   - Fetches PR status, checks, approvals, issues from GitHub API
-   - Returns comprehensive validation report with all 8 criteria
-   - Identifies blocking issues Sarah would have to find manually
+   Confirm that the skill is now stronger than the Module 4 version because it can operate on live FanHub data instead of user-supplied descriptions alone.
 
 #### ✅ Success Criteria
 
-- [ ] `.vscode/mcp.json` includes GitHub MCP server configuration
-- [ ] GitHub server connects successfully (OAuth authentication works)
-- [ ] `.github/copilot-prompts/validate-pr.md` defines PR validation criteria
-- [ ] Copilot can query PR status, CI results, approvals, and linked issues
-- [ ] Validation report shows all 8 criteria with pass/warn/fail status
-- [ ] Sarah: "I can validate PRs in 30 seconds instead of 5 minutes—and I never miss blocking issues"
-
-> 📂 **Compare Your Work**: [`examples/completed-config/`](../../examples/completed-config/) (GitHub MCP examples)
+- [ ] `character-change-test-workflow` is updated to reference `#mcp-fanhub-db`
+- [ ] The upgraded skill can investigate duplicate character records using live data
+- [ ] `.github/prompts/investigate-character-duplicates.prompt.md` exists
+- [ ] The workflow now recommends tests, cleanup, or guardrails from real records instead of assumptions
 
 #### 📚 Official Docs
 
-- [GitHub MCP Server](https://github.com/github/github-mcp-server) — Official server documentation with all available tools
-- [MCP Servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_http-and-server-sent-events-sse-servers) — HTTP transport configuration guide
-- [Copilot Custom Prompts](https://code.visualstudio.com/docs/copilot/customization/prompt-files) — How to create reusable prompt files
+- [MCP Servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+- [Prompt Files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
 
 ---
 
 ## 🔗 What You Built
 
-**In this module:**
-- **GitHub MCP configuration** — HTTP-based connection to GitHub API through Copilot
-- `.github/copilot-prompts/validate-pr.md` — Reusable PR validation checklist prompt
-- **Automated validation workflow** — 8-point PR checklist verified in 30 seconds
+**In this exercise:**
+- An upgraded `character-change-test-workflow` skill that can use live FanHub data
+- `.github/prompts/investigate-character-duplicates.prompt.md` — MCP-backed duplicate investigation workflow
 
 **How it compounds:**
 
 | Previous Modules | This Module | Combined Power |
 |------------------|-------------|----------------|
-| Module 1: Custom instructions (review standards) | GitHub MCP server | Standards define what to check; MCP automates the checking |
-| Module 3: Custom prompts (PR review guide) | Automated PR validation | Prompts guide reviews; MCP fetches live PR data for validation |
-
-**Sarah's insight:** "I documented review standards in Module 1. Now in Module 5, those standards are automatically enforced by querying GitHub directly. What used to be 'Sarah manually checking' is now 'Copilot automatically validating.'"
+| Module 4.2: Character change test workflow | FanHub DB MCP | The same skill now works with live data instead of guesses |
+| Exercise 5.1: FanHub character data access | MCP-aware skill upgrade | MCP becomes part of a reusable workflow, not just a one-off query |
 
 ---
 
 ## ➡️ Next Up
 
-**[Exercise 5.3: Validate Show Data Against External APIs](exercise-5.3.md)** — Connect to external APIs to validate FanHub's TV show metadata against authoritative sources.
+**[Exercise 5.3: Validate Running Character Detail API](exercise-5.3.md)** — Once the upgraded skill can reason about messy live data, validate whether the running FanHub API is also exposing those problems to the frontend.
 
-> *"We're validating code and PRs, but what about our actual data? We have TV show metadata that might be outdated or wrong."*
-> — Elena, realizing MCP can validate data quality against external APIs
+> *"Now the skill can see the data. The next question is whether the running API is surfacing the same issues to the UI."*
+> — Elena, handing off to Marcus
 
 ---

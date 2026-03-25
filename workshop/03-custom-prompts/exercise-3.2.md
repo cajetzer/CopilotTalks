@@ -8,9 +8,9 @@
 
 #### 📖 The Challenge
 
-Sarah has been typing her React component review prompt manually: 8 lines explaining functional components, hooks rules, TypeScript types, error boundaries, accessibility, and performance patterns. Takes 3 minutes to type, and she occasionally misses a check. Meanwhile, all these standards are _already documented_ in `.github/copilot-instructions.md` from Module 1.
+Sarah is reviewing the Module 2 character detail enhancements, but she keeps retyping the same context: the team standards from Module 1, the architecture guidance, and the roadmap they just built for tagline/summary plus status badges. Takes 3 minutes to type, and she occasionally skips a check because she's reconstructing the review prompt from memory.
 
-David faces the same problem with architecture reviews—he types patterns that are already in ARCHITECTURE.md. The team is duplicating documentation: once in the foundational files, again in every prompt.
+David notices the same issue: the source of truth already exists in `.github/copilot-instructions.md`, `ARCHITECTURE.md`, and the Module 2 roadmap. The team is duplicating documentation: once in the files, again in every review prompt.
 
 Sarah realizes: _"Why am I copying standards into prompts? I should link to the source of truth. When standards evolve, prompts automatically reference the latest version."_
 
@@ -18,49 +18,53 @@ Sarah realizes: _"Why am I copying standards into prompts? I should link to the 
 
 | Before ❌                                                                                                                                                                            | After ✨                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sarah types 8-line React review prompt manually. Lists standards she remembers, occasionally forgets accessibility checks. When copilot-instructions.md updates, prompt stays stale. | Sarah types `/react-review` (1 line). Prompt links to copilot-instructions.md and always uses current standards. Never forgets checks because they're in the linked document. |
+| Sarah types 8-line review prompt manually. Lists standards and roadmap context she remembers, occasionally forgets a check. When docs update, the prompt stays stale. | Sarah types `/character-review` (1 line). Prompt links to copilot-instructions.md, ARCHITECTURE.md, and the enhancement roadmap. It always uses current standards and current scope. |
 | **Lines typed:** 8<br>**Setup time:** 3 min<br>**Missed checks:** 2-3 per week<br>**Version drift:** Constant                                                                        | **Lines typed:** 1<br>**Setup time:** 6 seconds<br>**Missed checks:** 0<br>**Version drift:** Impossible (always references latest)                                           |
 
 **Impact:** 3 minutes saved per review × 12 reviews/week = **36 minutes/week**. More importantly: **0 violations make it through** because prompts never forget documented standards.
 
 #### 🎯 Your Goal
 
-Create a code review prompt that links to your existing documentation, ensuring reviews always reference current standards.
+Create a character detail review prompt that links to your existing documentation, ensuring reviews always reference current standards and the current enhancement roadmap.
 
 #### 📋 Steps
 
 1. **Create a documentation-linked prompt file**
 
-   Create `.github/prompts/react-review.prompt.md`:
+    Create `.github/prompts/character-review.prompt.md`:
 
    ```markdown
    ---
-   name: react-review
-   description: "Review React component against team standards"
-   agent: "ask"
-   ---
+    name: character-review
+    description: "Review character detail enhancements against team standards and roadmap"
+    agent: "ask"
+    ---
 
-   Review the React component in ${file} against our standards documented in [.github/copilot-instructions.md](../../.github/copilot-instructions.md).
+    Review the character detail enhancement work in ${file} against:
 
-   Check for compliance with:
+    - [Team standards](../../.github/copilot-instructions.md)
+    - [Architecture guidance](../examples/completed-config/docs/ARCHITECTURE.md)
+    - [Character enhancement roadmap](../../fanhub/docs/FEATURE-CHARACTER-ENHANCEMENTS.md)
 
-   **React Standards** (from copilot-instructions.md):
+    Check for compliance with:
 
-   - Functional components with proper hooks usage
-   - TypeScript types for all props and state
-   - Error boundary implementation for user-facing components
-   - Accessibility attributes (ARIA labels, semantic HTML)
-   - Performance optimization (memoization, lazy loading)
+    **UI and code standards**:
 
-   **Architecture Patterns** (from ARCHITECTURE.md):
+    - Existing component and API patterns
+    - Clear handling for tagline/summary rendering
+    - Clear handling for status badge rendering
+    - Empty and missing value behavior
+    - Accessibility and consistency with existing UI patterns
 
-   - Component location matches [docs/ARCHITECTURE.md](../examples/completed-config/docs/ARCHITECTURE.md) folder structure
-   - API calls use centralized services layer
-   - State management follows established patterns
+    **Roadmap alignment**:
 
-   Provide:
+    - Work matches the planned scope from Module 2
+    - No extra redesign work has slipped in
+    - Shared backend, frontend, and test changes stay grouped logically
 
-   1. **Compliance summary** — Which standards are met, which are violated
+    Provide:
+
+    1. **Compliance summary** — Which standards are met, which are violated
    2. **Specific issues** — Line numbers and exact problems
    3. **Fix recommendations** — Code examples showing corrections
    4. **Priority** — Critical (blocks merge) vs. Nice-to-have (optional improvement)
@@ -68,92 +72,87 @@ Create a code review prompt that links to your existing documentation, ensuring 
 
    **Key elements:**
    - **Relative Markdown links**: `[.github/copilot-instructions.md](../../.github/copilot-instructions.md)` references the actual file
-   - **Multiple document references**: Links both copilot-instructions.md and ARCHITECTURE.md
+    - **Multiple document references**: Links standards, architecture guidance, and the enhancement roadmap
    - **Structured output**: Specifies exactly what format you want returned
    - **agent: 'ask'**: Uses analysis agent (no code changes, just review)
 
 2. **Invoke the documentation-aware review**
 
-   Open a React component (e.g., `frontend/src/components/CharacterCard.js`) and run:
+    Open a character detail related file and run:
 
    ```
-   /react-review
+    /character-review
    ```
 
    Watch Copilot:
    - Read the prompt file
-   - Fetch content from `.github/copilot-instructions.md` and `docs/ARCHITECTURE.md`
-   - Analyze the current file against both documents
+    - Fetch content from `.github/copilot-instructions.md`, `ARCHITECTURE.md`, and the Module 2 roadmap
+    - Analyze the current file against all three documents
    - Return structured review with line numbers and priorities
 
    **Expected output:**
 
    ```
-   ✅ COMPLIANCE SUMMARY:
-   Met: Functional component, TypeScript types, hooks rules
-   Violated: Missing error boundary, no ARIA labels, not memoized
+    ✅ COMPLIANCE SUMMARY:
+    Met: Scope stays lightweight, summary rendering matches roadmap
+    Violated: Badge empty-state behavior unclear, missing accessibility label
 
    ❌ SPECIFIC ISSUES:
-   Line 47: <div> should be <section> for semantic HTML
-   Line 82: onClick missing aria-label for screen readers
-   Component: Not wrapped in error boundary
+    Line 47: Summary fallback text does not match planned empty-state behavior
+    Line 82: Badge markup needs aria-label support
+    File: Test updates don't cover unknown badge values
 
    🔧 FIX RECOMMENDATIONS:
    [Detailed code examples with corrections]
 
    🚨 PRIORITY:
-   Critical: Add error boundary (blocks merge)
-   Nice-to-have: Memoization optimization
+    Critical: Align empty-state behavior with roadmap
+    Nice-to-have: Improve badge semantics
    ```
 
 3. **Test automatic documentation updates**
 
-   Make a change to `.github/copilot-instructions.md`. For example, add:
+    Make a change to `.github/copilot-instructions.md` or adjust the roadmap file. For example, add:
 
    ```markdown
-   - **Data fetching**: Always use React Query for server state management
+    - **UI empty states**: Always render a clear fallback for missing character metadata
    ```
 
-   Now run `/react-review` on a component that fetches data. Notice the review now includes React Query validation—**without modifying the prompt file**. The prompt automatically references the updated standards.
+    Now run `/character-review` again. Notice the review now includes the updated empty-state rule—**without modifying the prompt file**. The prompt automatically references the updated guidance.
 
    **This is the power of documentation links:** Standards evolve, prompts stay synchronized automatically.
 
-4. **Create an architecture review prompt**
+4. **Create a roadmap alignment review prompt**
 
-   Following the same pattern, create `.github/prompts/arch-review.prompt.md`:
+    Following the same pattern, create `.github/prompts/roadmap-review.prompt.md`:
 
    ```markdown
    ---
-   name: arch-review
-   description: "Validate architectural patterns and structure"
-   agent: "ask"
-   ---
+    name: roadmap-review
+    description: "Validate character enhancement work against the current roadmap"
+    agent: "ask"
+    ---
 
-   Review ${file} against our architecture documented in [docs/ARCHITECTURE.md](../examples/completed-config/docs/ARCHITECTURE.md).
+    Review ${file} against the current character enhancement roadmap in [FEATURE-CHARACTER-ENHANCEMENTS.md](../../fanhub/docs/FEATURE-CHARACTER-ENHANCEMENTS.md).
 
-   Validate:
+    Validate:
 
-   - File location matches architectural layer (components, services, routes)
-   - Dependencies flow correctly (UI → Services → Database)
-   - Data models match schema definitions
-   - API patterns follow REST conventions
+    - Scope matches the approved enhancement plan
+    - Shared work is grouped logically
+    - No unnecessary redesign or expansion is introduced
+    - Tests align with the planned changes
 
-   Flag any violations with specific examples and corrections.
-   ```
+    Flag any violations with specific examples and corrections.
+    ```
 
-   Test by running `/arch-review` on any file. David's 20 years of architectural wisdom, now executable as a function.
+    Test by running `/roadmap-review` on any relevant file. David's sequencing instincts are now executable as a function.
 
 #### ✅ Success Criteria
 
-- [ ] `.github/prompts/react-review.prompt.md` uses Markdown links to reference copilot-instructions.md and ARCHITECTURE.md
-- [ ] Running `/react-review` on a component produces structured review output with compliance summary
-- [ ] Updating copilot-instructions.md automatically changes future `/react-review` results (no prompt file changes needed)
-- [ ] `.github/prompts/arch-review.prompt.md` created and validates architecture patterns
-
-> 📂 **Compare Your Work**:
->
-> - [`react-review.prompt.md`](../examples/completed-config/.github/prompts/react-review.prompt.md)
-> - [`arch-review.prompt.md`](../examples/completed-config/.github/prompts/arch-review.prompt.md)
+- [ ] `.github/prompts/character-review.prompt.md` uses Markdown links to reference copilot-instructions.md, ARCHITECTURE.md, and the roadmap
+- [ ] Running `/character-review` on a relevant file produces structured review output with compliance summary
+- [ ] Updating the standards or roadmap automatically changes future `/character-review` results (no prompt file changes needed)
+- [ ] `.github/prompts/roadmap-review.prompt.md` created and validates roadmap alignment
 
 #### 📚 Official Docs
 
@@ -166,18 +165,18 @@ Create a code review prompt that links to your existing documentation, ensuring 
 
 **In this exercise:**
 
-- `.github/prompts/react-review.prompt.md` — Code review function that always references current React standards from copilot-instructions.md
-- `.github/prompts/arch-review.prompt.md` — Architecture validation function that enforces patterns documented in ARCHITECTURE.md
+- `.github/prompts/character-review.prompt.md` — Review function that always references the current standards and enhancement roadmap
+- `.github/prompts/roadmap-review.prompt.md` — Scope validation function that checks work against the approved roadmap
 
 **How it compounds:**
 
 | Previous Modules                                    | This Exercise                           | Combined Power                                                      |
 | --------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------- |
-| Module 1: ARCHITECTURE.md documents system design   | Prompt links to ARCHITECTURE.md         | Architecture validated automatically in every review                |
+| Module 1: ARCHITECTURE.md documents system design   | Prompt links to ARCHITECTURE.md         | Structure and implementation guidance stay visible in every review  |
 | Module 1: copilot-instructions.md defines standards | Prompt links to copilot-instructions.md | Standards enforced consistently without manual checking             |
-| Exercise 3.1: Created first prompt file             | Add documentation links to prompts      | Single source of truth + automated enforcement = zero version drift |
+| Module 2: Character enhancement roadmap             | Prompt links to the approved roadmap    | Reviews stay aligned to the actual story arc instead of generic code review |
 
-**Why this matters:** Sarah's React review standards were locked in her head and occasionally forgotten. Now they're documented once in copilot-instructions.md and enforced automatically through `/react-review`. When standards evolve, every review uses the latest version instantly. **Documentation becomes automation.**
+**Why this matters:** Sarah no longer has to reconstruct the same review context every time the team touches the character detail page. The standards and roadmap are documented once and enforced automatically through `/character-review`. **Documentation becomes automation.**
 
 ---
 
@@ -185,7 +184,7 @@ Create a code review prompt that links to your existing documentation, ensuring 
 
 **[Exercise 3.3: Variable-Driven Prompts](exercise-3.3.md)** — Make prompts even more powerful by using variables to capture dynamic context like the current file, selected text, or user input.
 
-> _"The documentation links are brilliant, but build debugging needs more than just file references. Can prompts capture logs, environment variables, and error output automatically?"_  
+> _"The documentation links are brilliant, but I still retype the next enhancement name and file context every time we plan follow-on work. Can prompts capture that automatically?"_  
 > — Marcus, about to discover prompt file variables
 
 ---

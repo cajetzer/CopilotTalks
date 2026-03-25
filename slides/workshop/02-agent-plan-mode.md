@@ -572,36 +572,104 @@ Better planning compounds because every later customization has a cleaner workfl
 
 # ✅ Module Checklist
 
-<div class="grid grid-cols-3 gap-5 mt-8 text-left text-sm">
-<div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-3">Generate</div>
+<div class="mt-6 p-4 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
+<div class="text-lg text-white font-semibold mb-1">By the end of Module 2, the team should have a planning rhythm.</div>
+<div class="text-sm text-gray-300">Not one plan. A repeatable way to plan small changes and merge them into one roadmap.</div>
+</div>
+
+<div class="grid grid-cols-3 gap-4 mt-6 text-left text-sm">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">📝</div>
+<div>
+<div class="text-blue-300 font-bold">Plan the first change</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.1</div>
+</div>
+</div>
 <ul class="space-y-2 text-gray-300">
-<li>• Ask plan mode to research the task</li>
-<li>• Save or capture the draft plan</li>
-<li>• Confirm steps and dependencies are visible</li>
+<li>• Create one focused plan for a lightweight enhancement</li>
+<li>• Capture files, order, dependencies, and open questions</li>
 </ul>
 </div>
-<div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">Validate</div>
+<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🔁</div>
+<div>
+<div class="text-purple-300 font-bold">Repeat the workflow</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.2</div>
+</div>
+</div>
 <ul class="space-y-2 text-gray-300">
-<li>• Review architecture and edge cases</li>
-<li>• Add missing tests and non-happy-path behavior</li>
-<li>• Mark the plan ready for execution</li>
+<li>• Use the same plan-mode pattern for a second small enhancement</li>
+<li>• Keep scope tight and save the second plan separately</li>
 </ul>
 </div>
-<div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
-<div class="text-orange-300 font-bold mb-3">Execute</div>
+<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30 shadow-lg shadow-orange-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-orange-500/20 border border-orange-400/30 flex items-center justify-center text-lg">🗺️</div>
+<div>
+<div class="text-orange-300 font-bold">Merge into one roadmap</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.3</div>
+</div>
+</div>
 <ul class="space-y-2 text-gray-300">
-<li>• Implement from the approved roadmap</li>
-<li>• Verify the feature end to end</li>
-<li>• Compare execution quality against the unplanned baseline</li>
+<li>• Compare both plans side by side and remove duplicated work</li>
+<li>• Leave Module 2 with one practical roadmap the team can ship</li>
 </ul>
 </div>
 </div>
 
-<div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-<div class="text-lg text-white font-semibold">The finish line is not “AI wrote a plan.”</div>
-<div class="text-sm text-gray-300">The finish line is “the team saw better execution because the plan was reviewed before the code.”</div>
+<div class="mt-6 grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-gray-900/60 border border-white/10 text-left">
+<div class="text-sm font-bold text-white mb-2">What good looks like</div>
+<div class="text-sm text-gray-300">Two small, believable plans and one combined roadmap that feels calmer, clearer, and easier to execute than improvising in chat.</div>
+</div>
+<div class="p-4 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-left">
+<div class="text-sm font-bold text-white mb-2">Why this matters</div>
+<div class="text-sm text-gray-300">Later modules work better when the team already knows how to turn fuzzy requests into scoped, reusable planning patterns.</div>
+</div>
+</div>
+
+---
+
+# 📚 Keep the Foundation Evergreen
+
+<div class="mt-6 p-5 bg-gradient-to-r from-blue-900/25 via-purple-900/25 to-orange-900/20 rounded-2xl border border-white/10 text-center">
+<div class="text-lg font-bold text-white">Before Module 3, refresh the source of truth.</div>
+<div class="text-sm text-gray-300 mt-2">Update <span class="font-mono text-blue-200">ARCHITECTURE.md</span> and <span class="font-mono text-purple-200">.github/copilot-instructions.md</span> so the prompts you build next are grounded in current reality.</div>
+</div>
+
+<div class="grid grid-cols-2 gap-5 mt-6 text-left">
+<div class="p-5 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">🏗️</div>
+<div>
+<div class="text-blue-300 font-bold">Refresh architecture context</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">ARCHITECTURE.md</div>
+</div>
+</div>
+<div class="text-sm text-gray-300 space-y-2">
+<div>Capture any new structure, file relationships, or workflow boundaries you uncovered while planning.</div>
+<div class="text-blue-200">Keep future planning grounded in reality instead of memory.</div>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🧭</div>
+<div>
+<div class="text-purple-300 font-bold">Refresh team guidance</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">copilot-instructions.md</div>
+</div>
+</div>
+<div class="text-sm text-gray-300 space-y-2">
+<div>Update expectations, patterns, and review habits so prompts, skills, and agents inherit current team practice.</div>
+<div class="text-purple-200">Evergreen guidance makes every later customization smarter.</div>
+</div>
+</div>
+</div>
+
+<div class="mt-6 p-4 rounded-xl bg-gray-900/60 border border-white/10 text-center">
+<div class="text-sm text-yellow-300 font-semibold">Evergreen docs are not cleanup work — they are leverage for every later module.</div>
 </div>
 
 ---

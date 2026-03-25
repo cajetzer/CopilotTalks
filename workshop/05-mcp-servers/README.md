@@ -58,7 +58,7 @@ This isn't just about convenience. MCP servers transform Copilot from a code gen
 
 **Model Context Protocol (MCP) servers** extend GitHub Copilot with live access to external systems—databases, APIs, version control, and other tools. You'll configure a local MCP server using the stdio transport method to query the FanHub database, and measure how direct database access eliminates context-switching and manual schema lookups.
 
-**Time:** ~67 minutes | **Exercises:** 5
+**Time:** ~45 minutes | **Exercises:** 3
 
 ---
 
@@ -68,15 +68,13 @@ The exercises below use MCP servers to solve real problems by connecting Copilot
 
 | # | Exercise | Lead | Support | Problem | Solution | Key Metrics | Artifacts |
 |---|----------|------|---------|---------|----------|-------------|-----------|
-| [5.1](exercise-5.1.md) | Connect to FanHub Database | Marcus | Elena, David | Manual schema lookups: 2-5 min per query, context switching, outdated schema docs | Configure SQLite MCP server using stdio to query FanHub DB directly in chat | 5→0 min (eliminated), 0 context switches, live schema access | `.vscode/mcp.json`, verified database queries |
-| [5.2](exercise-5.2.md) | Automate PR Review Validation | Sarah | David, Marcus | Manual PR checklist validation: 5 min per PR, checking 8 criteria, human error on blocking issues | GitHub MCP server (HTTP) to auto-validate PR status, CI checks, approvals against Module 1 standards | 5 min→30 sec, 100% criteria coverage, 0 missed blocking issues | GitHub MCP config, automated PR validation queries |
-| [5.3](exercise-5.3.md) | Validate Backend API Against Data Rules | Elena | Marcus | Manual API contract validation: 10 min per cycle, manual curl testing, API contract breaks caught in staging | Custom MCP server queries FanHub backend API, validates responses against Module 4's tv-show-data-validator skill rules | 10 min→30 sec, 95%+ contract compliance, catches violations in development | FanHub API MCP server, API contract validation prompt |
-| [5.4](exercise-5.4.md) | Rich UI with MCP Apps | David | Marcus, Sarah | Data visualization requires export: 15 min to chart query results, multiple context switches, no interactivity | MCP Apps render interactive visualizations (charts, flame graphs, tables) directly in chat | 15 min→30 sec, 0 context switches, full interactivity | MCP Apps demo config, interactive visualizations |
-| [5.5](exercise-5.5.md) | Bootstrap with Awesome Copilot MCP | Marcus | Sarah, Elena | Writing customizations from scratch: 15-20 min per file, unaware of community solutions, reinventing patterns | Awesome Copilot MCP searches/saves community instructions, prompts, and chat modes directly from chat | 20 min→2 min per customization, 100% awareness of options, instant installation | Awesome Copilot MCP config, community customizations |
+| [5.1](exercise-5.1.md) | Connect to FanHub Character Data | Marcus | Elena, David | Character schema and sample data still live outside the editor, forcing manual lookups before feature work | Configure SQLite MCP server using stdio to query FanHub character data directly in chat | 5→0 min (eliminated), 0 context switches, live schema/data access | `.vscode/mcp.json`, verified database queries |
+| [5.2](exercise-5.2.md) | Upgrade Character Test Workflow with MCP | Elena | Marcus | The Module 4.2 skill can review test impact, but it still relies on user-supplied context instead of live FanHub data like known duplicate character records | Update `character-change-test-workflow` so it uses FanHub database MCP to investigate duplicate records and recommend the right test or guardrail follow-up | 15→3 min/investigation, faster duplicate diagnosis, clearer test/cleanup plan | updated `character-change-test-workflow`, `.github/prompts/investigate-character-duplicates.prompt.md` |
+| [5.3](exercise-5.3.md) | Validate Running Character Detail API | Elena | Marcus | Character-detail API responses can drift from database-backed expectations, but manual curl checks are slow and easy to skip | Configure a FanHub API MCP server and validate running character endpoints against expected fields and fallback behavior | 10 min→30 sec, 95%+ contract confidence, catches runtime drift in development | `mcp-servers/fanhub-api-server.js`, API validation prompt |
 
 ---
 
-> 💡 **Quickstart Tip:** If you want to rapidly bootstrap your Copilot customization, start with **Exercise 5.5 (Awesome Copilot MCP)**. It lets you search and install community-curated instructions, prompts, and chat modes from the [Awesome GitHub Copilot Customizations](https://github.com/microsoft/awesome-copilot) repository—covering concepts from Modules 1, 3, 4, and 6 without writing everything from scratch.
+> 💡 **Quickstart Tip:** If you want the clearest payoff for the character-feature story arc, focus on **Exercise 5.2 (Upgrade Character Test Workflow with MCP)**. It shows the key Module 5 move: turning a local Module 4 skill into a live, system-aware workflow against FanHub's data.
 
 ---
 
@@ -88,16 +86,13 @@ The exercises below use MCP servers to solve real problems by connecting Copilot
 
 **What you'll build:**
 - **MCP configuration file** — Defines server connections and authentication for your workspace
-- **Database connection** — stdio-based MCP server connecting Copilot to the FanHub PostgreSQL database
+- **Database connection** — stdio-based MCP server connecting Copilot to FanHub data
 - **Verified queries** — Natural language database queries that prove live schema access
-- **Interactive visualizations** — MCP Apps that render charts, flame graphs, and data tables directly in chat
+- **Runtime validation workflow** — MCP-backed checks against the running FanHub API
 
 **Official Documentation:**
 - 📖 [MCP Servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) — Configuration, transport methods, and usage patterns
-- 📖 [GitHub MCP Server](https://github.com/github/github-mcp-server) — Official GitHub MCP server with repository, issues, and PR tools
 - 📖 [Model Context Protocol](https://modelcontextprotocol.io/) — Protocol specification and server ecosystem
-- 📖 [MCP Apps Announcement](https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/) — Rich interactive UI in MCP responses
-- 📖 [MCP Apps SDK](https://github.com/modelcontextprotocol/ext-apps/) — Build custom visualizations for MCP servers
 - 📖 [MCP Server Development Guide](https://code.visualstudio.com/docs/copilot/guides/mcp-developer-guide) — Building custom MCP servers
 
 > 💡 **Important for this module:** The **stdio transport method** is essential because it enables secure, local communication between VS Code and MCP servers running as processes. This enables database connections without exposing credentials over the network.

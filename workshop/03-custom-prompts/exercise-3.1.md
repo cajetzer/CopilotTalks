@@ -8,9 +8,9 @@
 
 #### 📖 The Challenge
 
-It's 2:00 PM on Monday. Elena has typed the same test generation prompt three times today: _"Generate comprehensive test suite for this file following our testing standards. Include unit tests for all public functions, integration tests for API endpoints, and edge cases for error handling. Use Jest syntax and follow our naming conventions."_ Each time takes 3 minutes to type carefully, and occasionally she forgets to mention edge cases or Jest syntax, leading to inconsistent test output.
+It's 2:00 PM on Monday. Elena has already asked for tests twice for the Module 2 character detail enhancements: once for the new tagline/summary behavior, once for status badges. Each time she types the same prompt by hand: _"Generate comprehensive tests for this character detail change. Include UI behavior, API shape, fallback states, and edge cases."_ It takes 3 minutes to type carefully, and occasionally she forgets to mention empty states or unknown badge values, leading to inconsistent output.
 
-Marcus notices the same pattern with his deployment validation prompt. Sarah has a React component review checklist she types manually. The team is spending hours retyping prompts that should be standardized and instant.
+Marcus notices the same pattern as the team works through their combined roadmap from Module 2. The enhancement plans are solid, but the repeated request for test coverage is still manual. Elena realizes this is exactly the kind of repeated work prompt files should eliminate.
 
 Elena realizes: _"These are functions I'm calling repeatedly. I should define them once and invoke them by name."_
 
@@ -18,14 +18,14 @@ Elena realizes: _"These are functions I'm calling repeatedly. I should define th
 
 | Before ❌                                                                                                                                                                                      | After ✨                                                                                                                                                       |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Elena types 3-minute prompt manually 5 times per day. Sometimes forgets to mention edge cases, leading to incomplete test coverage. Different wording each time produces inconsistent results. | Elena types `/test-suite` in chat (5 seconds). Prompt always includes edge cases, Jest syntax, naming conventions. Identical comprehensive results every time. |
+| Elena types 3-minute prompt manually 5 times per day. Sometimes forgets to mention empty states or badge edge cases, leading to incomplete test coverage. Different wording each time produces inconsistent results. | Elena types `/character-test-suite` in chat (5 seconds). Prompt always includes summary states, status badge edge cases, and test naming conventions. Identical comprehensive results every time. |
 | **Time:** 3 min per invocation<br>**Invocations:** 5/day<br>**Total time:** 15 min/day<br>**Standards compliance:** Variable                                                                   | **Time:** 0.1 min (6 seconds) per invocation<br>**Invocations:** 5/day<br>**Total time:** 0.5 min/day<br>**Standards compliance:** 100%                        |
 
 **Time saved:** 14.5 minutes/day × 5 days/week = 72.5 minutes/week = **4.8 hours/month**
 
 #### 🎯 Your Goal
 
-Create your first workspace prompt file that standardizes test generation and makes it invokable via `/test-suite`.
+Create your first workspace prompt file that standardizes test generation for the character detail enhancements and makes it invokable via `/character-test-suite`.
 
 #### 📋 Steps
 
@@ -41,29 +41,37 @@ Create your first workspace prompt file that standardizes test generation and ma
 
 2. **Create your first prompt file**
 
-   In VS Code, create `.github/prompts/test-suite.prompt.md`:
+    In VS Code, create `.github/prompts/character-test-suite.prompt.md`:
 
    ```markdown
    ---
-   name: test-suite
-   description: "Generate comprehensive test suite following team standards"
-   agent: "agent"
-   tools: ["codebase"]
-   ---
+    name: character-test-suite
+    description: "Generate tests for character detail enhancements following team standards"
+    agent: "agent"
+    tools: ["codebase"]
+    ---
 
-   Generate a comprehensive test suite for ${file} following our testing standards.
+    Generate a comprehensive test suite for ${file} following our testing standards.
 
-   Requirements:
+    Focus on the current character detail enhancement work from Module 2:
+    - Character tagline or summary rendering
+    - Status badge rendering and formatting
+    - Empty or missing values
+    - Response shape changes that support the page
 
-   - **Unit tests** for all public functions
-   - **Integration tests** for API endpoints
-   - **Edge cases**: empty inputs, null values, concurrent operations, timeouts
-   - **Framework**: Use Jest syntax
-   - **Naming**: Follow `describe` → `it` pattern with descriptive names
-   - **Assertions**: Prefer specific matchers (`toBe`, `toEqual`, `toThrow`) over generic ones
+    Requirements:
 
-   Reference our test patterns from existing test files in the workspace.
-   ```
+    - **Unit tests** for all public functions
+    - **Integration tests** for API endpoints or page-level interactions
+    - **Edge cases**: empty summaries, missing statuses, unknown badge values, null values
+    - **Framework**: Use Jest syntax
+    - **Naming**: Follow `describe` → `it` pattern with descriptive names
+    - **Assertions**: Prefer specific matchers (`toBe`, `toEqual`, `toThrow`) over generic ones
+
+    Reference:
+    - Existing test patterns from the workspace
+    - [Feature roadmap](../../fanhub/docs/FEATURE-CHARACTER-ENHANCEMENTS.md)
+    ```
 
    **Key elements:**
    - **YAML frontmatter**: Configures how the prompt executes (agent, tools, model)
@@ -73,10 +81,10 @@ Create your first workspace prompt file that standardizes test generation and ma
 
 3. **Invoke your prompt function**
 
-   Open any source file that needs tests (e.g., `backend/src/routes/characters.js`), then in Copilot Chat:
+    Open any source file that needs tests (for example, the character detail page or related route file), then in Copilot Chat:
 
    ```
-   /test-suite
+    /character-test-suite
    ```
 
    Watch Copilot:
@@ -85,11 +93,11 @@ Create your first workspace prompt file that standardizes test generation and ma
    - Analyze existing test patterns in your codebase
    - Generate comprehensive test suite following all your standards
 
-   **Expected result:** Complete test file with unit tests, integration tests, and edge cases—all following Jest conventions and your naming patterns. Generated in ~30 seconds instead of 45 minutes of manual writing.
+    **Expected result:** A test plan or generated test file that covers tagline/summary behavior, status badge rendering, and the most important fallback states—all following Jest conventions and your naming patterns.
 
 4. **Verify the function behavior**
 
-   Open a different file and invoke `/test-suite` again. Notice:
+    Open a different file and invoke `/character-test-suite` again. Notice:
    - ✅ Identical standards applied every time
    - ✅ Same comprehensive coverage (never forgets edge cases)
    - ✅ Consistent naming and structure
@@ -99,12 +107,10 @@ Create your first workspace prompt file that standardizes test generation and ma
 
 #### ✅ Success Criteria
 
-- [ ] `.github/prompts/test-suite.prompt.md` exists and contains YAML frontmatter + prompt body
-- [ ] Typing `/test-suite` in chat shows your custom prompt in the autocomplete list
-- [ ] Running `/test-suite` on a source file generates comprehensive tests following your standards
+- [ ] `.github/prompts/character-test-suite.prompt.md` exists and contains YAML frontmatter + prompt body
+- [ ] Typing `/character-test-suite` in chat shows your custom prompt in the autocomplete list
+- [ ] Running `/character-test-suite` on a source file generates comprehensive tests following your standards
 - [ ] Generated tests include unit tests, integration tests, and edge cases without manual reminders
-
-> 📂 **Compare Your Work**: [`examples/completed-config/.github/prompts/test-suite.prompt.md`](../examples/completed-config/.github/prompts/test-suite.prompt.md)
 
 #### 📚 Official Docs
 
@@ -117,16 +123,16 @@ Create your first workspace prompt file that standardizes test generation and ma
 
 **In this exercise:**
 
-- `.github/prompts/test-suite.prompt.md` — Reusable test generation function that ensures comprehensive coverage every time it's invoked
+- `.github/prompts/character-test-suite.prompt.md` — Reusable test generation function for the character detail enhancement work
 
 **How it compounds:**
 
 | Previous Modules                                         | This Exercise                                          | Combined Power                                                              |
 | -------------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------- |
 | Module 1: copilot-instructions.md sets testing standards | Prompt file enforces those standards automatically     | Standards documented once, enforced automatically through prompt invocation |
-| Module 2: Plan mode breaks down complex features         | Prompt file generates tests for each planned component | Planning + immediate test generation = complete TDD workflow                |
+| Module 2: Combined enhancement roadmap                   | Prompt file generates tests for each planned change    | Planning + immediate test generation = faster follow-through on the roadmap |
 
-**Why this matters:** You just turned 3 minutes of careful typing into 6 seconds of function invocation. More importantly, you turned variable quality into guaranteed consistency. Elena's testing expertise is now team knowledge, not tribal knowledge.
+**Why this matters:** You just turned 3 minutes of careful typing into 6 seconds of function invocation. More importantly, you turned fuzzy reminders like "don't forget badge edge cases" into guaranteed consistency. Elena's testing instincts are now team knowledge, not tribal knowledge.
 
 ---
 
@@ -134,7 +140,7 @@ Create your first workspace prompt file that standardizes test generation and ma
 
 **[Exercise 3.2: Referencing Standards and Docs](exercise-3.2.md)** — Take your prompt functions to the next level by linking them to your ARCHITECTURE.md and copilot-instructions.md files, ensuring they always reference the latest standards.
 
-> _"The test generation prompt is great, but I'm still manually typing React review standards. Can I link the prompt to copilot-instructions.md so it always uses current conventions?"_
+> _"The test prompt is great, but I'm still retyping our standards and roadmap every time I review these character detail changes. Can I link to the source of truth instead?"_
 > — Sarah, about to discover prompt file Markdown links
 
 ---

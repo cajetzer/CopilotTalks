@@ -151,7 +151,7 @@ Three prompt files, one shared interface, and far less repetitive setup
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30 shadow-lg shadow-orange-500/10">
 <div class="text-orange-300 font-bold mb-3">Think of them like functions</div>
-<ul class="text-sm text-gray-300 space-y-2">
+<ul class="list-none pl-0 m-0 text-sm text-gray-300 space-y-2">
 <li>• Invoked on demand</li>
 <li>• Named and discoverable</li>
 <li>• Parameterized with variables</li>
@@ -161,7 +161,7 @@ Three prompt files, one shared interface, and far less repetitive setup
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30 shadow-lg shadow-purple-500/10">
 <div class="text-purple-300 font-bold mb-3">Each file has two layers</div>
-<ul class="text-sm text-gray-300 space-y-2">
+<ul class="list-none pl-0 m-0 text-sm text-gray-300 space-y-2">
 <li>• YAML frontmatter for name, agent, model, tools</li>
 <li>• A body that explains the task and expected output</li>
 <li>• Optional links to docs and standards</li>
@@ -371,7 +371,7 @@ layout: two-cols
 
 <div class="mt-6 p-5 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-xl border border-white/10 text-center">
 <div class="text-lg text-white font-semibold mb-2">This module is one clean progression.</div>
-<div class="text-sm text-gray-300">First save the prompt. Then anchor it to the docs. Then make it context-aware so invocation is both fast and consistent.</div>
+<div class="text-sm text-gray-300">First create a reusable docs-refresh prompt. Then save one stronger character prompt that references living docs and uses variables.</div>
 </div>
 
 <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
@@ -388,32 +388,25 @@ layout: two-cols
 <tbody class="bg-gray-950/60 text-gray-300">
 <tr class="border-t border-white/5">
 <td class="p-3 font-semibold text-blue-300">3.1</td>
-<td class="p-3">Creating Your First Prompt File</td>
-<td class="p-3">Save the repeated prompt</td>
-<td class="p-3">Elena ⭐</td>
-<td class="p-3">8 min</td>
+<td class="p-3">Creating a Docs Refresh Prompt</td>
+<td class="p-3">Keep foundational docs evergreen</td>
+<td class="p-3">Sarah ⭐</td>
+<td class="p-3">6 min</td>
 </tr>
 <tr class="border-t border-white/5 bg-gray-900/40">
-<td class="p-3 font-semibold text-purple-300">3.2</td>
-<td class="p-3">Referencing Standards and Docs</td>
-<td class="p-3">Link to the source of truth</td>
-<td class="p-3">Sarah ⭐</td>
-<td class="p-3">7 min</td>
-</tr>
-<tr class="border-t border-white/5">
-<td class="p-3 font-semibold text-orange-300">3.3</td>
-<td class="p-3">Variable-Driven Prompts</td>
-<td class="p-3">Capture context automatically</td>
-<td class="p-3">Marcus ⭐</td>
-<td class="p-3">10 min</td>
+<td class="p-3 font-semibold text-cyan-300">3.2</td>
+<td class="p-3">Creating a Context-Aware Prompt File</td>
+<td class="p-3">Save one reusable prompt with docs, roadmap, and variables</td>
+<td class="p-3">Elena ⭐</td>
+<td class="p-3">12 min</td>
 </tr>
 </tbody>
 </table>
 </div>
 
 <div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-<div class="text-white font-semibold">The progression is simple.</div>
-<div class="text-sm text-gray-300">Standardize the prompt first. Connect it to living documentation second. Then remove the remaining manual setup with variables.</div>
+<div class="text-white font-semibold">The progression is still simple.</div>
+<div class="text-sm text-gray-300">Refresh the docs first. Then standardize repeated character-detail work with one stronger prompt that stays anchored to current guidance and context.</div>
 </div>
 
 ---
@@ -430,21 +423,17 @@ Exercises
 </h1>
 <div class="relative z-10 mb-8">
 <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-lg font-medium shadow-lg">
-3 exercises · ~25 minutes · shared leadership
+2 exercises · ~18 minutes · shared leadership
 </span>
 </div>
-<div class="relative z-10 grid grid-cols-3 gap-3 max-w-3xl w-full px-8">
+<div class="relative z-10 grid grid-cols-2 gap-4 max-w-3xl w-full px-8">
 <div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40 text-center text-sm">
 <div class="text-blue-300 font-bold">3.1</div>
-<div class="text-gray-400 text-xs mt-1">Save the prompt</div>
+<div class="text-gray-400 text-xs mt-1">Refresh the docs</div>
 </div>
-<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40 text-center text-sm">
-<div class="text-purple-300 font-bold">3.2</div>
-<div class="text-gray-400 text-xs mt-1">Link the docs</div>
-</div>
-<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40 text-center text-sm">
-<div class="text-orange-300 font-bold">3.3</div>
-<div class="text-gray-400 text-xs mt-1">Automate the context</div>
+<div class="p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/40 text-center text-sm">
+<div class="text-cyan-300 font-bold">3.2</div>
+<div class="text-gray-400 text-xs mt-1">Save one stronger prompt</div>
 </div>
 </div>
 <div class="relative z-10 mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
@@ -458,72 +447,33 @@ Exercises
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">3.1</div>
 <div>
 <div class="text-blue-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Creating Your First Prompt File</h2>
-</div>
-<div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Elena ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 8 min</span>
-</div>
-</div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
-Elena is tired of typing the same careful test-generation prompt over and over. <strong class="text-white">If the prompt is valuable enough to reuse, it is valuable enough to save as a team function.</strong>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
-<div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create the <span class="font-mono text-blue-300">.github/prompts/</span> directory for shared workspace prompts</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Add <span class="font-mono text-blue-300">test-suite.prompt.md</span> with frontmatter and a clear test-generation body</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Invoke the prompt on a real source file and compare it against manual prompt retyping</span></div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The prompt appears in chat autocomplete and is discoverable</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> It generates comprehensive tests consistently without manual reminders</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The team feels the difference between retyping and invoking</div>
-</div>
-<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Elena:</strong> "This stopped being a prompt and started becoming a function the team can call."</div>
-</div>
-</div>
-</div>
-
----
-
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">3.2</div>
-<div>
-<div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Referencing Standards and Docs</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Creating a Docs Refresh Prompt</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Sarah ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 7 min</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 6 min</span>
 </div>
 </div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-Sarah keeps copying standards into her review prompts even though those standards already live in the repo. <strong class="text-white">The right move is not to duplicate the guidance. It is to link prompts to the source of truth and let the docs stay current.</strong>
+<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
+After every meaningful code change, the team needs to refresh <span class="font-mono text-blue-200">ARCHITECTURE.md</span> and <span class="font-mono text-blue-200">.github/copilot-instructions.md</span>. <strong class="text-white">That is exactly the kind of repeated, high-value work a reusable prompt should handle first.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <span class="font-mono text-purple-300">react-review.prompt.md</span> and link it directly to the current standards files</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Invoke the prompt against a real component and review the structured output it returns</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Change the docs and confirm the prompt behavior updates without rewriting the prompt itself</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create a workspace prompt like <span class="font-mono text-blue-300">refresh-docs.prompt.md</span> that updates foundational docs after code changes</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Tell the prompt to review the current workspace and update <span class="font-mono text-blue-300">ARCHITECTURE.md</span> and <span class="font-mono text-blue-300">copilot-instructions.md</span> only when the codebase has changed</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Invoke it after a change and confirm it keeps the docs aligned with current reality instead of stale memory</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The prompt references source-of-truth files instead of copied standards text</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Reviews are more structured and complete because the checks stay anchored</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Standards drift drops because the links always stay current</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The prompt is reusable after any meaningful code change</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> It updates the two source-of-truth docs without turning into a generic repo rewrite</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The team sees evergreen docs as leverage, not cleanup</div>
 </div>
-<div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">Sarah:</strong> "When the standards already exist, copying them into the prompt is just a slower way to go stale."</div>
+<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Sarah:</strong> "If we do this after every code change, the rest of our prompts get smarter without extra effort."</div>
 </div>
 </div>
 </div>
@@ -531,38 +481,38 @@ Sarah keeps copying standards into her review prompts even though those standard
 ---
 
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">3.3</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/30 flex-shrink-0">3.2</div>
 <div>
-<div class="text-orange-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Variable-Driven Prompts</h2>
+<div class="text-cyan-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
+<h2 class="!text-2xl !font-bold text-white !m-0">Creating a Context-Aware Prompt File</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Marcus ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 10 min</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">Elena ⭐</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 12 min</span>
 </div>
 </div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-sm text-gray-300">
-Marcus is still wasting time copying errors, files, and context into debugging prompts by hand. <strong class="text-white">Prompt variables should capture what VS Code already knows so the prompt starts with the right context every time.</strong>
+<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
+Elena is tired of retyping the same character-detail request, and Sarah is tired of pasting the same standards and roadmap context into every review. <strong class="text-white">The stronger move is one reusable prompt file that links to living docs and pulls in the right context with variables.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create a debugging prompt that uses file, selection, workspace, and input variables instead of manual copy-paste</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Invoke it with real selected error text and verify the prompt starts with the current context automatically</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Compare the flow against manual context gathering and confirm the prompt is faster and more reliable</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Add <span class="font-mono text-cyan-300">character-review.prompt.md</span> with frontmatter and a body that references architecture guidance, team instructions, and the Module 2 roadmap</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Use prompt variables for things like the current file, workspace, selection, or enhancement name so the prompt starts with real context</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Invoke the prompt and confirm it stays useful when the docs change and faster when the context changes</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Variables resolve correctly to the current file, selection, and workspace context</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Invocation is faster than manual copy-paste setup</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Better starting context produces more consistent debugging and estimation results</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The prompt is discoverable and invokable like a shared team function</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> It references source-of-truth docs and roadmap files instead of copied guidance</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Variables remove setup friction while keeping the results grounded in current context</div>
 </div>
-<div class="mt-4 p-3 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">💭 <strong class="text-orange-300">Marcus:</strong> "If VS Code already knows the file and the error, I should stop pretending I need to type it all back in."</div>
+<div class="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Elena:</strong> "This stopped being a saved snippet and started becoming a real team function — current guidance, current file, current context."</div>
 </div>
 </div>
 </div>
@@ -571,67 +521,96 @@ Marcus is still wasting time copying errors, files, and context into debugging p
 
 # 🔗 Compounding Value
 
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-<div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-3">What Module 3 adds</div>
-<ul class="text-sm text-gray-300 space-y-2">
-<li>• Standardized, invokable prompt functions</li>
-<li>• Fewer repeated setup steps</li>
-<li>• Tighter links between docs and execution</li>
-<li>• A more reusable way to encode team expertise</li>
-</ul>
+<div class="mt-5 p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
+<div class="text-lg text-white font-semibold mb-1">Module 3 doesn’t just save time in chat.</div>
+<div class="text-sm text-gray-300">It turns repeated work into reusable prompt assets that later modules can build on.</div>
 </div>
 
-<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
-<ul class="text-sm text-gray-300 space-y-2">
-<li>• <strong>Module 4:</strong> skills can capture broader, domain-specific workflow logic</li>
-<li>• <strong>Module 5:</strong> repeatable prompt conventions help when integrations need reusable entry points</li>
-<li>• <strong>Module 6:</strong> custom agents become more useful when the team already recognizes reusable task shapes</li>
-</ul>
+<div class="grid grid-cols-2 gap-4 mt-5 text-left">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">📈</div>
+<div>
+<div class="text-blue-300 font-bold">What Module 3 adds</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Immediate value</div>
+</div>
+</div>
+<div class="space-y-2 text-xs text-gray-300 leading-snug">
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Turn good prompts into shared team assets.</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Get more consistent outputs from the same guidance.</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Reduce setup and mental load during repeated work.</div>
 </div>
 </div>
 
-<div class="mt-8 text-center text-lg text-yellow-300">
-Reusable prompts compound because every future customization inherits a cleaner, faster starting point.
+<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🚀</div>
+<div>
+<div class="text-purple-300 font-bold">How later modules benefit</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Compounding payoff</div>
+</div>
+</div>
+<div class="space-y-2 text-xs text-gray-300 leading-snug">
+<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong>Module 4:</strong> clearer task shapes for skills.</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong>Module 5:</strong> stable entry points for integrations.</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong>Module 6:</strong> more trustworthy custom agents.</div>
+</div>
+</div>
+</div>
+
+<div class="mt-5 p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-center">
+<div class="text-base text-yellow-300 font-semibold">Reusable prompts compound because every future customization starts cleaner.</div>
+<div class="text-sm text-gray-300 mt-1">Stable entry points now mean richer workflow packaging later.</div>
 </div>
 
 ---
 
 # ✅ Module Checklist
 
-<div class="grid grid-cols-3 gap-5 mt-8 text-left text-sm">
-<div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-3">Create</div>
-<ul class="space-y-2 text-gray-300">
-<li>• Add prompt files in <code>.github/prompts/</code></li>
-<li>• Give each prompt a clear job and invocation path</li>
-<li>• Confirm the prompts are discoverable in chat</li>
-</ul>
+<div class="mt-6 p-4 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
+<div class="text-lg text-white font-semibold mb-1">By the end of Module 3, the team should have reusable prompt habits.</div>
+<div class="text-sm text-gray-300">Not just a clever chat. Shared prompt files that stay grounded in current docs and current context.</div>
 </div>
 
-<div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">Anchor</div>
-<ul class="space-y-2 text-gray-300">
-<li>• Link prompts to the current docs and standards</li>
-<li>• Avoid duplicating source-of-truth content in the prompt body</li>
-<li>• Verify prompt behavior updates when docs change</li>
-</ul>
+<div class="grid grid-cols-2 gap-4 mt-6 text-left text-sm">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">📚</div>
+<div>
+<div class="text-blue-300 font-bold">Refresh the source of truth</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 3.1</div>
 </div>
-
-<div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
-<div class="text-orange-300 font-bold mb-3">Automate</div>
-<ul class="space-y-2 text-gray-300">
-<li>• Use built-in variables where context is already known</li>
-<li>• Use input variables where user input is part of the task</li>
-<li>• Validate that invocation is faster and more consistent than manual prompting</li>
-</ul>
+</div>
+<div class="space-y-2 text-gray-300">
+<div>• Create a reusable docs-refresh prompt for post-change cleanup</div>
+<div>• Keep <code>ARCHITECTURE.md</code> and team instructions aligned with the repo</div>
 </div>
 </div>
 
-<div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-<div class="text-lg text-white font-semibold">The finish line is not “we saved some typing.”</div>
-<div class="text-sm text-gray-300">The finish line is “the team can invoke its best expertise reliably, quickly, and repeatedly.”</div>
+<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🧠</div>
+<div>
+<div class="text-purple-300 font-bold">Save one strong team prompt</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 3.2</div>
+</div>
+</div>
+<div class="space-y-2 text-gray-300">
+<div>• Create a reusable prompt file with one clear review job</div>
+<div>• Point it at living docs and use variables when context is already known</div>
+</div>
+</div>
+</div>
+
+<div class="mt-6 grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-gray-900/60 border border-white/10 text-left">
+<div class="text-sm font-bold text-white mb-2">What good looks like</div>
+<div class="text-sm text-gray-300">Two prompt files the team would actually reuse: one that keeps the docs current and one that captures character-review expertise.</div>
+</div>
+<div class="p-4 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-left">
+<div class="text-sm font-bold text-white mb-2">Why this matters</div>
+<div class="text-sm text-gray-300">Later modules get better when the team already knows how to package repeatable work into invokable, trustworthy prompt assets.</div>
+</div>
 </div>
 
 ---
