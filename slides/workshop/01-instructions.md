@@ -474,30 +474,30 @@ layout: two-cols
 <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
 <div class="text-blue-300 font-bold mb-3">Architecture guidance</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Tech stack and major folders</li>
-<li>• Data and request flow</li>
-<li>• Key boundaries and ownership</li>
-<li>• No giant file inventory</li>
+<li>Tech stack and major folders</li>
+<li>Data and request flow</li>
+<li>Key boundaries and ownership</li>
+<li>No giant file inventory</li>
 </ul>
 </div>
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
 <div class="text-purple-300 font-bold mb-3">Repo-wide instructions</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Stable conventions and defaults</li>
-<li>• Error handling expectations</li>
-<li>• Testing and review preferences</li>
-<li>• No file-specific branching logic</li>
+<li>Stable conventions and defaults</li>
+<li>Error handling expectations</li>
+<li>Testing and review preferences</li>
+<li>No file-specific branching logic</li>
 </ul>
 </div>
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
 <div class="text-purple-300 font-bold mb-3">Path-based instructions</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Frontend vs backend guidance</li>
-<li>• Python vs TypeScript standards</li>
-<li>• Tests, docs, Docker specialization</li>
-<li>• Small, targeted, and matchable</li>
+<li>Frontend vs backend guidance</li>
+<li>Python vs TypeScript standards</li>
+<li>Tests, docs, Docker specialization</li>
+<li>Small, targeted, and matchable</li>
 </ul>
 </div>
 
@@ -780,6 +780,50 @@ The same defaults keep getting re-explained in code review. <strong class="text-
 ---
 
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-red-900/25 via-orange-900/15 to-transparent"></div>
+<div class="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-bl from-red-500/15 to-transparent rounded-full blur-3xl"></div>
+
+<div class="relative z-10 mb-6">
+<span class="px-4 py-1 bg-gradient-to-r from-red-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+⚠️ Critical Scope Boundary
+</span>
+</div>
+
+<div class="relative z-10">
+<div class="text-xl font-bold text-white mb-6">copilot-instructions.md is for <span class="text-red-300">Conventions & Constraints</span>, NOT Details</div>
+
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="p-4 rounded-xl bg-green-900/30 border border-green-600/40">
+<div class="text-green-300 font-bold text-sm mb-3">✅ Put Here</div>
+<ul class="text-sm text-gray-300 space-y-2">
+<li>• How we write code (async/await, not promises)</li>
+<li>• What we avoid (no class components)</li>
+<li>• Team standards (Jest for testing, Tailwind for CSS)</li>
+<li>• Error handling expectations (always catch errors)</li>
+</ul>
+</div>
+
+<div class="p-4 rounded-xl bg-red-900/30 border border-red-600/40">
+<div class="text-red-300 font-bold text-sm mb-3">❌ Put Elsewhere</div>
+<ul class="text-sm text-gray-300 space-y-2">
+<li>• Architecture diagrams (belongs in ARCHITECTURE.md)</li>
+<li>• API documentation (use docs/ or separate files)</li>
+<li>• Detailed how-to guides (path-based files)</li>
+<li>• Full system context (too much for a baseline)</li>
+</ul>
+</div>
+</div>
+
+<div class="p-4 rounded-xl bg-orange-900/40 border-l-4 border-orange-400">
+<div class="text-orange-300 font-bold mb-2">💡 The Rule of Thumb</div>
+<div class="text-gray-300 text-sm">If it's something Copilot needs to remember <strong>on every single prompt</strong>, it belongs in copilot-instructions.md. If it's something developers need to read once, it belongs elsewhere.</div>
+</div>
+</div>
+</div>
+
+---
+
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">1.3</div>
@@ -1003,20 +1047,20 @@ Tests, Docker files, and docs serve different purposes than production app code.
 <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
 <div class="text-blue-300 font-bold mb-3">What this module leaves behind</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• A generated starting point from <code>/init</code></li>
-<li>• A concise <code>ARCHITECTURE.md</code></li>
-<li>• A repository baseline in <code>copilot-instructions.md</code></li>
-<li>• Path-based files for targeted guidance</li>
+<li>A generated starting point from <code>/init</code></li>
+<li>A concise <code>ARCHITECTURE.md</code></li>
+<li>A repository baseline in <code>copilot-instructions.md</code></li>
+<li>Path-based files for targeted guidance</li>
 </ul>
 </div>
 <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
 <div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• <strong>Module 2:</strong> planning starts from better project context</li>
-<li>• <strong>Module 3:</strong> prompts can reference shared standards</li>
-<li>• <strong>Module 4:</strong> skills reinforce repeated patterns</li>
-<li>• <strong>Module 5:</strong> specialized workflows inherit clearer defaults</li>
-<li>• <strong>Module 6:</strong> custom agents benefit from the established baseline</li>
+<li><strong>Module 2:</strong> planning starts from better project context</li>
+<li><strong>Module 3:</strong> prompts can reference shared standards</li>
+<li><strong>Module 4:</strong> skills reinforce repeated patterns</li>
+<li><strong>Module 5:</strong> specialized workflows inherit clearer defaults</li>
+<li><strong>Module 6:</strong> custom agents benefit from the established baseline</li>
 </ul>
 </div>
 </div>
