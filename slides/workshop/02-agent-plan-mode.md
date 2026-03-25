@@ -51,15 +51,8 @@ Module 2: Agent Plan Mode
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
 <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
 
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg">
-📖 The Story
-</span>
-</div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="text-xl">⏰</span>
-<span class="text-orange-300 font-bold text-lg tracking-wide">Monday, 11:30 AM</span>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="text-orange-300 font-bold text-lg tracking-wide">⏰ : Monday, 11:30 AM</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
@@ -70,29 +63,29 @@ Module 2: Agent Plan Mode
 </div>
 </div>
 
-<div class="relative z-10 mb-4 p-5 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm">
-<div class="text-orange-300/60 text-4xl leading-none font-serif mb-1">"</div>
-<p class="text-gray-200 text-sm leading-relaxed -mt-3">
-The repo finally has context. Copilot understands the architecture, the team standards, and the shape of the project. But the next feature still spans <span class="text-orange-300 font-semibold">frontend, backend, database, tests, and review concerns.</span> We solved the context problem. Now we have to solve the planning problem.
+<div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm">
+<div class="text-orange-300/60 text-2xl leading-none font-serif mb-0.5">"</div>
+<p class="text-gray-200 text-xs leading-snug -mt-1">
+Copilot understands the architecture, the team standards, and the shape of the project. But real work spans <span class="text-orange-300 font-semibold">frontend, backend, database, tests, and review concerns.</span> We solved for context, let's see the difference in planning.
 </p>
-<div class="text-orange-300/60 text-4xl leading-none font-serif text-right">"</div>
+<div class="text-orange-300/60 text-2xl leading-none font-serif text-right">"</div>
 </div>
 
-<div class="relative z-10 grid grid-cols-3 gap-4 mb-4 text-left">
-<div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
-<div class="text-orange-300 font-bold text-sm mb-2">Module 0</div>
-<div class="text-white font-semibold text-base mb-1">Feel the mess</div>
-<div class="text-xs text-gray-400">The team experienced weak context and inconsistent defaults firsthand.</div>
+<div class="relative z-10 grid grid-cols-3 gap-3 mb-3 text-left">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-orange-500/30">
+<div class="text-orange-300 font-bold text-xs mb-1">Module 0</div>
+<div class="text-white font-semibold text-sm mb-1">Feel the mess</div>
+<div class="text-xs text-gray-400 leading-tight">The team experienced weak context and inconsistent defaults firsthand.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
-<div class="text-blue-300 font-bold text-sm mb-2">Module 1</div>
-<div class="text-white font-semibold text-base mb-1">Build the foundation</div>
-<div class="text-xs text-gray-400">Architecture docs and instructions created a better baseline for Copilot behavior.</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-xs mb-1">Module 1</div>
+<div class="text-white font-semibold text-sm mb-1">Build the foundation</div>
+<div class="text-xs text-gray-400 leading-tight">Architecture docs and instructions created a better baseline for Copilot behavior.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
-<div class="text-purple-300 font-bold text-sm mb-2">Module 2</div>
-<div class="text-white font-semibold text-base mb-1">Plan the work</div>
-<div class="text-xs text-gray-400">Now the question is what to change, in what order, and how to challenge the roadmap before coding.</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-purple-500/30">
+<div class="text-purple-300 font-bold text-xs mb-1">Module 2</div>
+<div class="text-white font-semibold text-sm mb-1">Plan the work</div>
+<div class="text-xs text-gray-400 leading-tight">Now the question is what to change, in what order, and how to challenge the roadmap before coding.</div>
 </div>
 </div>
 
@@ -106,22 +99,25 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 
 ---
 
-# 🎯 What You'll Build
+
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
+</div>
 
 <div class="max-w-5xl mx-auto mt-8">
 
-<div class="p-6 bg-gradient-to-r from-orange-600 to-red-700 rounded-xl shadow-lg shadow-orange-500/20 text-center mb-8">
+<div class="p-6 bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl shadow-lg shadow-blue-500/20 text-center mb-8">
 <div class="text-3xl font-bold text-white mb-2">
 From feature request to reviewed execution roadmap
 </div>
-<div class="text-orange-100 text-lg">
+<div class="text-blue-100 text-lg">
 One feature, three exercises, one calmer path to implementation
 </div>
 </div>
 
 <div class="grid grid-cols-2 gap-4 text-sm text-left">
-<div class="p-4 rounded-lg border-l-4 border-orange-500 bg-gray-800">
-<div class="font-bold text-orange-300 mb-2">📄 Research-backed plan</div>
+<div class="p-4 rounded-lg border-l-4 border-blue-500 bg-gray-800">
+<div class="font-bold text-blue-300 mb-2">📄 Research-backed plan</div>
 <div class="text-gray-300">A first-pass roadmap for the character detail feature, with likely files, dependencies, and open questions.</div>
 </div>
 <div class="p-4 rounded-lg border-l-4 border-blue-500 bg-gray-800">
@@ -138,50 +134,52 @@ One feature, three exercises, one calmer path to implementation
 </div>
 </div>
 
-<div class="mt-6 p-3 bg-gradient-to-r from-orange-900/40 to-purple-900/40 rounded-lg border border-orange-500/30 text-center text-sm text-gray-300">
-💡 <strong class="text-orange-300">The real output is not a plan document.</strong> The real output is better implementation judgment under pressure.
+<div class="mt-6 p-3 bg-gradient-to-r from-blue-900/40 to-purple-900/40 rounded-lg border border-blue-500/30 text-center text-sm text-gray-300">
+💡 <strong class="text-blue-300">The real output is not a plan document.</strong> The real output is better implementation judgment under pressure.
 </div>
 </div>
 
 ---
 
-# 📚 What Plan Mode Actually Does
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Plan Mode Actually Does</span>
+</div>
 
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
+<div class="grid grid-cols-2 gap-8 mt-8 text-left">
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30 shadow-lg shadow-orange-500/10">
 <div class="text-orange-300 font-bold mb-3">Researches read-only first</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Reads the codebase, docs, and existing patterns</li>
-<li>• Maps dependencies and likely file touch points</li>
-<li>• Surfaces assumptions and open questions</li>
+<li>Reads the codebase, docs, and existing patterns</li>
+<li>Maps dependencies and likely file touch points</li>
+<li>Surfaces assumptions and open questions</li>
 </ul>
 </div>
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30 shadow-lg shadow-purple-500/10">
 <div class="text-purple-300 font-bold mb-3">Produces a reviewable draft</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Summary of the approach</li>
-<li>• Ordered implementation steps</li>
-<li>• Dependencies and unresolved questions</li>
+<li>Summary of the approach</li>
+<li>Ordered implementation steps</li>
+<li>Dependencies and unresolved questions</li>
 </ul>
 </div>
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30 shadow-lg shadow-blue-500/10">
 <div class="text-blue-300 font-bold mb-3">Builds on Module 1</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Uses your architecture context</li>
-<li>• Follows your documented conventions</li>
-<li>• Starts from a better baseline than generic code search</li>
+<li>Uses your architecture context</li>
+<li>Follows your documented conventions</li>
+<li>Starts from a better baseline than generic code search</li>
 </ul>
 </div>
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-red-900/30 to-gray-900/40 border border-red-500/30 shadow-lg shadow-red-500/10">
 <div class="text-red-300 font-bold mb-3">Still needs human judgment</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Edge cases</li>
-<li>• Architecture tradeoffs</li>
-<li>• Testing completeness and rollout decisions</li>
+<li>Edge cases</li>
+<li>Architecture tradeoffs</li>
+<li>Testing completeness and rollout decisions</li>
 </ul>
 </div>
 
@@ -193,7 +191,9 @@ One feature, three exercises, one calmer path to implementation
 
 ---
 
-# 🔗 The Plan-First Workflow
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 The Plan-First Workflow</span>
+</div>
 
 <div class="flex flex-col items-center gap-4 mt-8 text-center">
 
@@ -233,9 +233,11 @@ One feature, three exercises, one calmer path to implementation
 layout: two-cols
 ---
 
-# ❌ Before
+<div class="relative z-10 mb-2">
+<span class="px-3 py-0.5 bg-gradient-to-r from-red-700/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before</span>
+</div>
 
-<div class="space-y-4 mt-6 text-left">
+<div class="space-y-4 mt-6 text-left pr-6">
 
 <div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
 <div class="font-bold text-red-300 mb-2">Manual analysis eats time</div>
@@ -256,9 +258,11 @@ layout: two-cols
 
 ::right::
 
-# ✨ After
+<div class="relative z-10 mb-2">
+<span class="px-3 py-0.5 bg-gradient-to-r from-green-700/80 to-green-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ After</span>
+</div>
 
-<div class="space-y-4 mt-6 text-left">
+<div class="space-y-4 mt-6 text-left pl-6">
 
 <div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
 <div class="font-bold text-green-300 mb-2">Research starts faster</div>
@@ -279,27 +283,29 @@ layout: two-cols
 
 ---
 
-# ✅ What Good Plan Output Looks Like
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What Good Plan Output Looks Like</span>
+</div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
 <div class="text-blue-300 font-bold mb-3">A strong draft includes</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• A clear task summary</li>
-<li>• Ordered implementation steps</li>
-<li>• Specific file paths or system areas</li>
-<li>• Dependencies and open questions</li>
+<li>A clear task summary</li>
+<li>Ordered implementation steps</li>
+<li>Specific file paths or system areas</li>
+<li>Dependencies and open questions</li>
 </ul>
 </div>
 
 <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
 <div class="text-purple-300 font-bold mb-3">A strong review checks</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Error handling and edge cases</li>
-<li>• Architectural fit and existing patterns</li>
-<li>• Test coverage and affected test files</li>
-<li>• Scope assumptions that need clarification</li>
+<li>Error handling and edge cases</li>
+<li>Architectural fit and existing patterns</li>
+<li>Test coverage and affected test files</li>
+<li>Scope assumptions that need clarification</li>
 </ul>
 </div>
 
@@ -311,7 +317,9 @@ layout: two-cols
 
 ---
 
-# 📊 What to Validate in the Workshop
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 What to Validate in the Workshop</span>
+</div>
 
 <div class="grid grid-cols-3 gap-5 mt-8 text-left">
 
@@ -339,11 +347,13 @@ layout: two-cols
 
 ---
 
-# 🔨 Exercise Roadmap
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
+</div>
 
 <div class="mt-6 p-5 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-xl border border-white/10 text-center">
 <div class="text-lg text-white font-semibold mb-2">This module is one clean progression.</div>
-<div class="text-sm text-gray-300">Plan one small enhancement. Plan the next one with the same workflow. Then merge both into a roadmap the team can actually ship.</div>
+<div class="text-sm text-gray-300">Plan one small enhancement. Plan the next one with the same workflow. Then merge both into a roadmap the team can ship.</div>
 </div>
 
 <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
@@ -384,13 +394,15 @@ layout: two-cols
 </div>
 
 <div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-<div class="text-white font-semibold">The order is still the lesson.</div>
-<div class="text-sm text-gray-300">This module works because the team learns to repeat planning on small enhancements, then sequence related work instead of improvising scope.</div>
+<div class="text-white font-semibold">The progression is intentional.</div>
+<div class="text-sm text-gray-300">Each exercise builds on the last — plan one enhancement, repeat the pattern for a second, then bring both together into a single roadmap.</div>
 </div>
 
 ---
 
-# 🔨 Exercise Section
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Section</span>
+</div>
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
@@ -463,6 +475,36 @@ Marcus is staring at a lightweight enhancement to the character detail page. <st
 
 ---
 
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: First Plan Output</span>
+</div>
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-blue-300 mb-2">## Add Character Tagline</div>
+<div class="text-gray-400 mb-3"><span class="text-blue-100">**Scope:**</span> Small enhancement to character detail page</div>
+<div class="text-blue-300 mb-1">### Backend Changes</div>
+<div class="text-gray-400">- <span class="text-blue-100">models/character.ts</span> → Add tagline field</div>
+<div class="text-gray-400">- <span class="text-blue-100">routes/characters.ts</span> → Update GET/PUT handlers</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">database/schema.sql</span> → Add tagline column</div>
+<div class="text-blue-300 mb-1">### Frontend Changes</div>
+<div class="text-gray-400">- <span class="text-blue-100">components/CharacterDetail.tsx</span> → Add tagline field</div>
+<div class="text-gray-400">- <span class="text-blue-100">hooks/useCharacter.ts</span> → Handle tagline state</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">styles/detail.css</span> → Styling and layout</div>
+<div class="text-blue-300 mb-1">### Tests & Edge Cases</div>
+<div class="text-gray-400">- Test tagline length validation (max 100 chars)</div>
+<div class="text-gray-400 mb-2">- Handle null/empty tagline gracefully</div>
+<div class="text-blue-300 mb-1">### Open Questions</div>
+<div class="text-gray-400">- Should tagline be required or optional?</div>
+<div class="text-gray-400">- Do we want autocomplete from existing taglines?</div>
+</div>
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Type:</strong> Scoped enhancement &nbsp; <strong class="text-gray-300">Effort:</strong> ~2 hours &nbsp; <strong class="text-gray-300">Risk:</strong> Low
+</div>
+</div>
+
+---
+
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -497,6 +539,45 @@ The team has one clean plan already. <strong class="text-white">Now David wants 
 </div>
 <div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">David:</strong> "Once we can plan one good enhancement, we should be able to plan the next one without losing discipline."</div>
 </div>
+</div>
+</div>
+
+---
+
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+📋 Example: Second Plan Output
+</span>
+</div>
+
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-purple-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-purple-300 mb-2">## Add Character Status Badges</div>
+<div class="text-gray-400 mb-3"><span class="text-blue-100">**Scope:**</span> Status badge system on character cards and detail page</div>
+
+<div class="text-purple-300 mb-1">### Backend Changes</div>
+<div class="text-gray-400">- <span class="text-blue-100">models/character.ts</span> → Add status enum (active, retired, pending)</div>
+<div class="text-gray-400">- <span class="text-blue-100">routes/characters.ts</span> → Add status filter and update endpoints</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">database/schema.sql</span> → Add status column with default value</div>
+
+<div class="text-purple-300 mb-1">### Frontend Changes</div>
+<div class="text-gray-400">- <span class="text-blue-100">components/CharacterCard.tsx</span> → Render badge based on status</div>
+<div class="text-gray-400">- <span class="text-blue-100">components/StatusBadge.tsx</span> → Reusable badge component</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">hooks/useCharacterFilters.ts</span> → Filter by status</div>
+
+<div class="text-purple-300 mb-1">### Tests & Edge Cases</div>
+<div class="text-gray-400">- Test all three status values render correctly</div>
+<div class="text-gray-400 mb-2">- Test filter behavior when switching status values</div>
+
+<div class="text-purple-300 mb-1">### Open Questions</div>
+<div class="text-gray-400">- Should status be editable by all users or admins only?</div>
+<div class="text-gray-400">- Do we need transition rules (e.g., pending → active only)?</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Type:</strong> Scoped enhancement  <strong class="text-gray-300">Effort:</strong> ~3 hours  <strong class="text-gray-300">Risk:</strong> Low
 </div>
 </div>
 
@@ -541,25 +622,65 @@ Marcus now has two solid plans. <strong class="text-white">Instead of treating t
 
 ---
 
-# 🔗 Compounding Value
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+📋 Example: Merged Roadmap
+</span>
+</div>
+
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-orange-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-orange-300 mb-2">## Delivery Sequence: Tagline + Badges</div>
+<div class="text-gray-400 mb-3"><span class="text-orange-100">**Timeline:**</span> ~5-6 hours total  <span class="text-orange-100">**Risk:**</span> Low</div>
+
+<div class="text-orange-300 mb-1">### Phase 1: Shared Backend Foundation (2 hours)</div>
+<div class="text-gray-400">1. Update <span class="text-blue-100">models/character.ts</span> → Add both tagline and status fields</div>
+<div class="text-gray-400">2. Update <span class="text-blue-100">database/schema.sql</span> → Add both columns in one migration</div>
+<div class="text-gray-400 mb-3">3. Update <span class="text-blue-100">routes/characters.ts</span> → GET/PUT handlers for both</div>
+
+<div class="text-orange-300 mb-1">### Phase 2: Frontend Components (2 hours)</div>
+<div class="text-gray-400">1. Build <span class="text-blue-100">StatusBadge.tsx</span> reusable component</div>
+<div class="text-gray-400">2. Update <span class="text-blue-100">CharacterDetail.tsx</span> → Tagline input + status badge</div>
+<div class="text-gray-400 mb-3">3. Update <span class="text-blue-100">CharacterCard.tsx</span> → Status badge display</div>
+
+<div class="text-orange-300 mb-1">### Phase 3: Tests & Edge Cases (1.5 hours)</div>
+<div class="text-gray-400">- Test tagline validation + status transitions together</div>
+<div class="text-gray-400 mb-2">- Test filter behavior across both enhancements</div>
+
+<div class="text-orange-300 mb-1">### Dependencies & Blockers</div>
+<div class="text-gray-400">- None: both features are independent once schema is updated</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Result:</strong> One clear execution path that avoids duplicate migrations and shared component work
+</div>
+</div>
+
+---
+
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
+</div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
 <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
 <div class="text-blue-300 font-bold mb-3">What Module 2 adds</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Research-first feature planning</li>
-<li>• A repeatable review loop before coding</li>
-<li>• Better sequencing across files and layers</li>
-<li>• Clearer handoff from planning to implementation</li>
+<li>Research-first feature planning</li>
+<li>A repeatable review loop before coding</li>
+<li>Better sequencing across files and layers</li>
+<li>Clearer handoff from planning to implementation</li>
 </ul>
 </div>
 <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
 <div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• <strong>Module 3:</strong> repeated planning requests become reusable prompt patterns</li>
-<li>• <strong>Module 4:</strong> skills can encode repeatable review and execution workflows</li>
-<li>• <strong>Module 5:</strong> agentic workflows benefit from clearer task decomposition</li>
-<li>• <strong>Module 6:</strong> custom agents become more useful when the team already plans well</li>
+<li><strong>Module 3:</strong> repeated planning requests become reusable prompt patterns</li>
+<li><strong>Module 4:</strong> skills can encode repeatable review and execution workflows</li>
+<li><strong>Module 5:</strong> agentic workflows benefit from clearer task decomposition</li>
+<li><strong>Module 6:</strong> custom agents become more useful when the team already plans well</li>
 </ul>
 </div>
 </div>
@@ -570,7 +691,9 @@ Better planning compounds because every later customization has a cleaner workfl
 
 ---
 
-# ✅ Module Checklist
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
+</div>
 
 <div class="mt-6 p-4 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
 <div class="text-lg text-white font-semibold mb-1">By the end of Module 2, the team should have a planning rhythm.</div>
@@ -587,8 +710,8 @@ Better planning compounds because every later customization has a cleaner workfl
 </div>
 </div>
 <ul class="space-y-2 text-gray-300">
-<li>• Create one focused plan for a lightweight enhancement</li>
-<li>• Capture files, order, dependencies, and open questions</li>
+<li>Create one focused plan for a lightweight enhancement</li>
+<li>Capture files, order, dependencies, and open questions</li>
 </ul>
 </div>
 <div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
@@ -600,8 +723,8 @@ Better planning compounds because every later customization has a cleaner workfl
 </div>
 </div>
 <ul class="space-y-2 text-gray-300">
-<li>• Use the same plan-mode pattern for a second small enhancement</li>
-<li>• Keep scope tight and save the second plan separately</li>
+<li>Use the same plan-mode pattern for a second small enhancement</li>
+<li>Keep scope tight and save the second plan separately</li>
 </ul>
 </div>
 <div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30 shadow-lg shadow-orange-900/20">
@@ -613,8 +736,8 @@ Better planning compounds because every later customization has a cleaner workfl
 </div>
 </div>
 <ul class="space-y-2 text-gray-300">
-<li>• Compare both plans side by side and remove duplicated work</li>
-<li>• Leave Module 2 with one practical roadmap the team can ship</li>
+<li>Compare both plans side by side and remove duplicated work</li>
+<li>Leave Module 2 with one practical roadmap the team can ship</li>
 </ul>
 </div>
 </div>
@@ -632,7 +755,9 @@ Better planning compounds because every later customization has a cleaner workfl
 
 ---
 
-# 📚 Keep the Foundation Evergreen
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 Keep the Foundation Evergreen</span>
+</div>
 
 <div class="mt-6 p-5 bg-gradient-to-r from-blue-900/25 via-purple-900/25 to-orange-900/20 rounded-2xl border border-white/10 text-center">
 <div class="text-lg font-bold text-white">Before Module 3, refresh the source of truth.</div>
@@ -672,8 +797,6 @@ Better planning compounds because every later customization has a cleaner workfl
 <div class="text-sm text-yellow-300 font-semibold">Evergreen docs are not cleanup work — they are leverage for every later module.</div>
 </div>
 
----
-class: text-center
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">

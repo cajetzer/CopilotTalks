@@ -160,10 +160,10 @@ layout: center
       <div class="text-purple-300 font-bold text-sm mb-1">1990–2015</div>
       <div class="text-white font-bold text-base mb-3">Syntax Wizards</div>
       <ul class="text-xs text-gray-400 space-y-1.5 flex-1">
-        <li>• Memorize language quirks</li>
-        <li>• Clever, unreadable code</li>
-        <li>• Knowledge hoarding</li>
-        <li>• Fast typing above all</li>
+        <li>Memorize language quirks</li>
+        <li>Clever, unreadable code</li>
+        <li>Knowledge hoarding</li>
+        <li>Fast typing above all</li>
       </ul>
       <div class="mt-3 p-2 bg-purple-950/50 rounded text-[10px] text-purple-300">
         ✗ Onboarding took months
@@ -180,10 +180,10 @@ layout: center
       <div class="text-yellow-300 font-bold text-sm mb-1">2015–2020</div>
       <div class="text-white font-bold text-base mb-3">YAML Cowboys</div>
       <ul class="text-xs text-gray-400 space-y-1.5 flex-1">
-        <li>• Configuration as code</li>
-        <li>• Infrastructure everywhere</li>
-        <li>• Copy-paste engineering</li>
-        <li>• Tool proliferation</li>
+        <li>Configuration as code</li>
+        <li>Infrastructure everywhere</li>
+        <li>Copy-paste engineering</li>
+        <li>Tool proliferation</li>
       </ul>
       <div class="mt-3 p-2 bg-yellow-950/50 rounded text-[10px] text-yellow-300">
         ✗ YAML bugs broke deploys
@@ -231,10 +231,10 @@ layout: center
   <div class="text-center text-3xl mb-3">❌</div>
   <div class="font-bold text-red-400 text-center mb-4">The Old Way</div>
   <ul class="text-sm text-gray-300 space-y-2">
-    <li>• Syntax mastery</li>
-    <li>• Clever solutions</li>
-    <li>• Knowledge hoarding</li>
-    <li>• Fast typing</li>
+    <li>Syntax mastery</li>
+    <li>Clever solutions</li>
+    <li>Knowledge hoarding</li>
+    <li>Fast typing</li>
   </ul>
   <div class="mt-4 p-3 bg-red-950/50 rounded text-xs text-red-300">
     Result: Onboarding takes months, fragile teams, hidden debt
@@ -245,10 +245,10 @@ layout: center
   <div class="text-center text-3xl mb-3">✅</div>
   <div class="font-bold text-green-400 text-center mb-4">The New Way</div>
   <ul class="text-sm text-gray-300 space-y-2">
-    <li>• Clear intent</li>
-    <li>• Understandable code</li>
-    <li>• Scaled knowledge</li>
-    <li>• Fast thinking</li>
+    <li>Clear intent</li>
+    <li>Understandable code</li>
+    <li>Scaled knowledge</li>
+    <li>Fast thinking</li>
   </ul>
   <div class="mt-4 p-3 bg-green-950/50 rounded text-xs text-green-300">
     Result: AI handles boilerplate, expertise matters more

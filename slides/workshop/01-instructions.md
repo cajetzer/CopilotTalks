@@ -51,10 +51,9 @@ Module 1: Instructions
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
 <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
 
-<div class="relative z-10 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-📖 The Opportunity
-</span>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="text-orange-300 font-bold text-lg tracking-wide">⏰ : Monday, 10:30 AM</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm text-left">
@@ -796,20 +795,20 @@ The same defaults keep getting re-explained in code review. <strong class="text-
 <div class="p-4 rounded-xl bg-green-900/30 border border-green-600/40">
 <div class="text-green-300 font-bold text-sm mb-3">✅ Put Here</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• How we write code (async/await, not promises)</li>
-<li>• What we avoid (no class components)</li>
-<li>• Team standards (Jest for testing, Tailwind for CSS)</li>
-<li>• Error handling expectations (always catch errors)</li>
+<li>How we write code (async/await, not promises)</li>
+<li>What we avoid (no class components)</li>
+<li>Team standards (Jest for testing, Tailwind for CSS)</li>
+<li>Error handling expectations (always catch errors)</li>
 </ul>
 </div>
 
 <div class="p-4 rounded-xl bg-red-900/30 border border-red-600/40">
 <div class="text-red-300 font-bold text-sm mb-3">❌ Put Elsewhere</div>
 <ul class="text-sm text-gray-300 space-y-2">
-<li>• Architecture diagrams (belongs in ARCHITECTURE.md)</li>
-<li>• API documentation (use docs/ or separate files)</li>
-<li>• Detailed how-to guides (path-based files)</li>
-<li>• Full system context (too much for a baseline)</li>
+<li>Architecture diagrams (belongs in ARCHITECTURE.md)</li>
+<li>API documentation (use docs/ or separate files)</li>
+<li>Detailed how-to guides (path-based files)</li>
+<li>Full system context (too much for a baseline)</li>
 </ul>
 </div>
 </div>

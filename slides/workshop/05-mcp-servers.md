@@ -33,12 +33,12 @@ updated: 2026-03-25
 
   <div class="mt-4 relative z-10">
     <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-      ⏰ Give Copilot live context
+      ⏰ Copilot gets live context
     </span>
   </div>
 
   <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
-    "Skills package workflow. MCP servers connect that workflow to the real systems it depends on."
+    "Skills package expertise. MCP servers connect that expertise to real systems."
   </div>
 
   <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
@@ -46,63 +46,85 @@ updated: 2026-03-25
 
 ---
 
-# 📖 Story So Far
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-16 py-8">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
 
-<div class="grid grid-cols-5 gap-4 mt-8 text-left">
-
-  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
-    <div class="text-2xl mb-2">📚</div>
-    <div class="font-bold text-blue-300 mb-2">Module 1</div>
-    <div class="text-sm text-gray-300">The team documented repo structure and working standards.</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
-    <div class="text-2xl mb-2">🧩</div>
-    <div class="font-bold text-purple-300 mb-2">Module 2</div>
-    <div class="text-sm text-gray-300">They learned to research and validate a plan before acting.</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
-    <div class="text-2xl mb-2">🔁</div>
-    <div class="font-bold text-orange-300 mb-2">Module 3</div>
-    <div class="text-sm text-gray-300">They turned repeated requests into reusable prompts.</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
-    <div class="text-2xl mb-2">🎓</div>
-    <div class="font-bold text-purple-300 mb-2">Module 4</div>
-    <div class="text-sm text-gray-300">They packaged specialized workflows into Agent Skills.</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
-    <div class="text-2xl mb-2">🔌</div>
-    <div class="font-bold text-orange-300 mb-2">Module 5</div>
-    <div class="text-sm text-gray-300">Now they need live databases, APIs, and services in the loop.</div>
-  </div>
-
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="text-orange-300 font-bold text-lg tracking-wide">⏰ : Monday, 2:30 PM</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
-<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-  <div class="text-xl text-white font-semibold mb-2">The gap is no longer workflow knowledge. It is system access.</div>
-  <div class="text-sm text-gray-300">MCP servers let Copilot query real tools and live resources instead of depending only on files in the repo.</div>
+<div class="relative z-10 mb-2 flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-base font-bold text-white shadow-lg shadow-cyan-500/30 flex-shrink-0">R</div>
+<div class="text-gray-300 text-sm">
+<span class="text-white font-semibold">Rafael</span> opens a feature ticket and realizes every answer still requires leaving the editor to check a live system.
+</div>
+</div>
+
+<div class="relative z-10 mb-3 py-2 px-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm">
+<p class="text-gray-200 text-xs leading-relaxed">
+<span class="text-orange-300/60 font-serif text-base">"</span>
+The workflow is better. The context is richer. But the moment someone asks about live data, we're back to switching tabs and copying field values by hand. The gap is no longer <span class="text-orange-300 font-semibold">workflow knowledge</span> — it's system access.
+<span class="text-orange-300/60 font-serif text-base">"</span>
+</p>
+</div>
+
+<div class="relative z-10 grid grid-cols-5 gap-3 mb-3 text-left">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-xs mb-1">Module 1</div>
+<div class="text-white font-semibold text-xs mb-1">Document the standards</div>
+<div class="text-xs text-gray-400 leading-tight">Structure and instructions created a reliable baseline.</div>
+</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-purple-500/30">
+<div class="text-purple-300 font-bold text-xs mb-1">Module 2</div>
+<div class="text-white font-semibold text-xs mb-1">Plan the work</div>
+<div class="text-xs text-gray-400 leading-tight">Plan mode made complex work reviewable.</div>
+</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-orange-500/30">
+<div class="text-orange-300 font-bold text-xs mb-1">Module 3</div>
+<div class="text-white font-semibold text-xs mb-1">Save the best prompts</div>
+<div class="text-xs text-gray-400 leading-tight">Repeated prompts became reusable entry points.</div>
+</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-purple-500/30">
+<div class="text-purple-300 font-bold text-xs mb-1">Module 4</div>
+<div class="text-white font-semibold text-xs mb-1">Package expertise</div>
+<div class="text-xs text-gray-400 leading-tight">Specialized workflows became teachable skills.</div>
+</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-xs mb-1">Module 5</div>
+<div class="text-white font-semibold text-xs mb-1">Connect live systems</div>
+<div class="text-xs text-gray-400 leading-tight">Now the goal is live databases, APIs, and services in the loop.</div>
+</div>
+</div>
+
+<div class="relative z-10 flex items-center gap-3 p-3 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/40 shadow-lg">
+<span class="text-xl flex-shrink-0">⚡</span>
+<p class="text-white font-bold text-sm">
+MCP servers let Copilot query <span class="text-orange-300">real tools and live resources</span> without leaving the workflow.
+</p>
+</div>
 </div>
 
 ---
 
-# 🎯 What You'll Build
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
+</div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
   <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
     <div class="text-2xl mb-3">🗄️</div>
     <div class="text-lg font-bold text-blue-300 mb-2">Live character data access</div>
-    <div class="text-sm text-gray-300">Connect Copilot to FanHub data so character schema, sample rows, and duplicate records can be inspected directly in chat.</div>
+    <div class="text-sm text-gray-300">Connect Copilot to FanHub data so character schema, content, and records can be inspected directly in chat.</div>
   </div>
 
   <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
     <div class="text-2xl mb-3">🧠</div>
     <div class="text-lg font-bold text-purple-300 mb-2">An MCP-aware skill</div>
-    <div class="text-sm text-gray-300">Upgrade the Module 4.2 skill so it can use live FanHub data when investigating duplicate character records and recommending follow-up work.</div>
+    <div class="text-sm text-gray-300">Upgrade the Module 4.2 skill so it can use live FanHub data when investigating character records to recommend follow-up work.</div>
   </div>
 
   <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
@@ -125,7 +147,9 @@ updated: 2026-03-25
 
 ---
 
-# 📚 What MCP Servers Actually Add
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What MCP Servers Actually Add</span>
+</div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
@@ -165,7 +189,9 @@ updated: 2026-03-25
 
 ---
 
-# 🔎 Skills and MCP Work Better Together
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skills and MCP Work Better Together</span>
+</div>
 
 <div class="grid grid-cols-3 gap-5 mt-8 text-left">
 
@@ -192,7 +218,9 @@ updated: 2026-03-25
 
 ---
 
-# ⚙️ Core MCP Patterns in This Module
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Core MCP Patterns in This Module</span>
+</div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
@@ -234,83 +262,56 @@ updated: 2026-03-25
 </div>
 
 ---
-layout: two-cols
----
 
-# ❌ Before
-
-<div class="space-y-4 mt-6 text-left">
-
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
+<div class="relative z-10 grid grid-cols-2 gap-8">
+<div class="pr-4 border-r border-white/10">
+<div class="mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-red-700/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before</span>
+</div>
+<div class="space-y-4 text-left">
 <div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
   <div class="font-bold text-red-300 mb-2">Manual lookup work keeps breaking flow</div>
   <div class="text-sm text-gray-300">Schema checks, PR validation, and API inspection all require extra tabs, terminals, or tools.</div>
 </div>
-
 <div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
   <div class="font-bold text-red-300 mb-2">Static documentation goes stale</div>
   <div class="text-sm text-gray-300">The team can document expected behavior, but production reality still lives elsewhere.</div>
 </div>
-
 <div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
   <div class="font-bold text-red-300 mb-2">Live validation is too slow to become habit</div>
   <div class="text-sm text-gray-300">When every check is manual, the team does fewer checks and catches issues later.</div>
 </div>
-
 </div>
-
-::right::
-
-# ✨ After
-
-<div class="space-y-4 mt-6 text-left">
-
+</div>
+<div class="pl-4">
+<div class="mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-green-700/80 to-green-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ After</span>
+</div>
+<div class="space-y-4 text-left">
 <div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
   <div class="font-bold text-green-300 mb-2">Live system questions stay in chat</div>
   <div class="text-sm text-gray-300">Copilot can query databases, repositories, or APIs without requiring a context switch.</div>
 </div>
-
 <div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
   <div class="font-bold text-green-300 mb-2">Earlier customizations become more useful</div>
   <div class="text-sm text-gray-300">Skills and prompts can now operate on real data and live service output.</div>
 </div>
-
 <div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
   <div class="font-bold text-green-300 mb-2">Validation gets faster and more credible</div>
   <div class="text-sm text-gray-300">The team can confirm reality directly instead of depending on memory or copied snapshots.</div>
 </div>
-
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# 📊 What to Validate in the Workshop
-
-<div class="grid grid-cols-3 gap-5 mt-8 text-left">
-
-  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-2">Connection quality</div>
-    <div class="text-sm text-gray-300">Does the server start cleanly and expose the tools or resources the scenario actually needs?</div>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
-    <div class="text-purple-300 font-bold mb-2">Workflow quality</div>
-    <div class="text-sm text-gray-300">Does live context meaningfully improve the speed or quality of the outcome?</div>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
-    <div class="text-orange-300 font-bold mb-2">Compounding value</div>
-    <div class="text-sm text-gray-300">Can this MCP integration work with existing prompts, skills, or standards instead of standing alone?</div>
-  </div>
-
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
 </div>
-
-<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-  <div class="text-xl font-bold text-white">The win is not “we connected a server.” The win is “we improved a real workflow with live context.”</div>
-</div>
-
----
-
-# 🔨 Exercise Roadmap
 
 <div class="mt-6 grid grid-cols-3 gap-5 text-left">
 
@@ -353,7 +354,6 @@ layout: two-cols
 
 ---
 
-# 🔨 Exercise Section
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
@@ -426,6 +426,35 @@ Character schema and sample rows still live outside the editor, so feature work 
 
 ---
 
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: .vscode/mcp.json — FanHub Database</span>
+</div>
+
+<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
+<div class="text-gray-400">{</div>
+<div class="pl-4 text-blue-300">"servers"<span class="text-white">: {</span></div>
+<div class="pl-8 text-green-300">"fanhub-db"<span class="text-white">: {</span></div>
+<div class="pl-12 text-blue-300">"command"<span class="text-white">: </span><span class="text-orange-300">"npx"</span><span class="text-white">,</span></div>
+<div class="pl-12 text-blue-300">"args"<span class="text-white">: [</span><span class="text-orange-300">"-y", "mcp-sqlite"</span><span class="text-white">],</span></div>
+<div class="pl-12 text-blue-300">"env"<span class="text-white">: {</span></div>
+<div class="pl-16 text-blue-300">"SQLITE_DB_PATH"<span class="text-white">: </span><span class="text-orange-300">"${workspaceFolder}/dotnet/fanhub.db"</span></div>
+<div class="pl-12 text-white">}</div>
+<div class="pl-8 text-white">}</div>
+<div class="pl-4 text-white">}</div>
+<div class="text-gray-400">}</div>
+<div class="mt-3 text-gray-400">// Now available in chat as:</div>
+<div class="text-cyan-300">#fanhub-db what character fields are nullable?</div>
+<div class="text-cyan-300">#fanhub-db show me 5 sample rows from the characters table</div>
+<div class="text-cyan-300">#fanhub-db which records have missing display_name values?</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .vscode/mcp.json · SQLite MCP server connecting Copilot to live FanHub character data</div>
+</div>
+---
+
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -463,6 +492,36 @@ The Module 4.2 skill is useful, but it still depends on user-supplied context. <
 </div>
 </div>
 
+---
+
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: character-change-test-workflow — MCP upgrade</span>
+</div>
+
+<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
+<div class="text-purple-300">---</div>
+<div class="text-blue-300">name: <span class="text-green-300">character-change-test-workflow</span></div>
+<div class="text-blue-300">description: <span class="text-green-300">Review test impact for character-detail changes using live data.</span></div>
+<div class="text-blue-300">tags: <span class="text-green-300">[character-detail, testing, pre-pr, mcp]</span></div>
+<div class="text-purple-300">---</div>
+<div class="mt-2 text-gray-400"># Skill: character-change-test-workflow (MCP-aware)</div>
+<div class="mt-2 text-gray-300">## When to use this skill</div>
+<div class="text-gray-400">After modifying character-detail fields — now with live data access.</div>
+<div class="mt-2 text-gray-300">## Workflow</div>
+<div class="text-gray-400">1. Use <span class="text-cyan-300">#mcp-fanhub-db</span> to inspect current character records</div>
+<div class="text-gray-400">2. Identify duplicate or inconsistent records relevant to the change</div>
+<div class="text-gray-400">3. Flag edge cases using examples/edge-case-checklist.md</div>
+<div class="text-gray-400">4. Recommend tests, data cleanup, or defensive handling from evidence</div>
+<div class="mt-2 text-gray-300">## Resources</div>
+<div class="text-gray-400">- <span class="text-cyan-300">#mcp-fanhub-db</span> — live character schema and records</div>
+<div class="text-gray-400">- examples/edge-case-checklist.md — known character-detail edge cases</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/skills/character-change-test-workflow/SKILL.md · Now recommends tests from real data, not guesswork</div>
+</div>
 ---
 
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
@@ -504,7 +563,67 @@ Duplicate or messy records in the database only matter if the running system exp
 
 ---
 
-# 🔗 Compounding Value
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: docs/5.3-fanhub-api-server.js</span>
+</div>
+
+<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
+<div class="text-gray-500">// Minimal stdio MCP server — wraps the running FanHub API</div>
+<div class="text-blue-300">const <span class="text-white">http</span> = require(<span class="text-orange-300">"http"</span>);</div>
+<div class="text-blue-300">const <span class="text-white">readline</span> = require(<span class="text-orange-300">"readline"</span>);</div>
+<div class="mt-2 text-blue-300">const <span class="text-white">API_BASE_URL</span> = process.env.<span class="text-cyan-300">FANHUB_API_URL</span> || <span class="text-orange-300">"http://localhost:5265"</span>;</div>
+<div class="mt-2 text-gray-500">// tools/list — two tools exposed to Copilot</div>
+<div class="text-white">tools: [</div>
+<div class="pl-4 text-white">{ name: <span class="text-orange-300">"get_characters"</span>,</div>
+<div class="pl-6 text-gray-300">description: <span class="text-orange-300">"Fetch all characters from the running FanHub API"</span> },</div>
+<div class="pl-4 text-white">{ name: <span class="text-orange-300">"get_character_by_id"</span>,</div>
+<div class="pl-6 text-gray-300">description: <span class="text-orange-300">"Fetch a single character detail record from the running FanHub API"</span>,</div>
+<div class="pl-6 text-gray-300">inputSchema: { id: { type: <span class="text-orange-300">"string"</span> } } }</div>
+<div class="text-white">]</div>
+<div class="mt-2 text-gray-500">// tools/call — routes to /api/characters or /api/characters/:id</div>
+<div class="text-blue-300">if <span class="text-white">(tool ===</span> <span class="text-orange-300">"get_characters"</span><span class="text-white">)</span> getJson(<span class="text-orange-300">"/api/characters"</span>);</div>
+<div class="text-blue-300">if <span class="text-white">(tool ===</span> <span class="text-orange-300">"get_character_by_id"</span><span class="text-white">)</span> getJson(<span class="text-orange-300">`/api/characters/${args.id}`</span>);</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">📁 docs/5.3-fanhub-api-server.js · Custom stdio MCP server — run with <code>node docs/5.3-fanhub-api-server.js</code></div>
+</div>
+---
+
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: .vscode/mcp.json — FanHub API Server</span>
+</div>
+
+<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
+<div class="text-gray-400">{</div>
+<div class="pl-4 text-blue-300">"servers"<span class="text-white">: {</span></div>
+<div class="pl-8 text-green-300">"fanhub-db"<span class="text-white">: { </span><span class="text-gray-500">/* SQLite from 5.1 */</span><span class="text-white"> },</span></div>
+<div class="pl-8 text-green-300">"fanhub-api"<span class="text-white">: {</span></div>
+<div class="pl-12 text-blue-300">"command"<span class="text-white">: </span><span class="text-orange-300">"node"</span><span class="text-white">,</span></div>
+<div class="pl-12 text-blue-300">"args"<span class="text-white">: [</span><span class="text-orange-300">"docs/5.3-fanhub-api-server.js"</span><span class="text-white">],</span></div>
+<div class="pl-12 text-blue-300">"env"<span class="text-white">: {</span></div>
+<div class="pl-16 text-blue-300">"FANHUB_API_URL"<span class="text-white">: </span><span class="text-orange-300">"http://localhost:5265"</span></div>
+<div class="pl-12 text-white">}</div>
+<div class="pl-8 text-white">}</div>
+<div class="pl-4 text-white">}</div>
+<div class="text-gray-400">}</div>
+<div class="mt-3 text-gray-400">// Now available in chat as:</div>
+<div class="text-cyan-300">@fanhub-api GET /characters/jesse-pinkman</div>
+<div class="text-cyan-300">@fanhub-api which character endpoints return optional fields as null vs missing?</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .vscode/mcp.json · Runs the custom API server via node, connects Copilot to live character-detail endpoints</div>
+</div>
+---
+
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
+</div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
 
@@ -533,7 +652,9 @@ Duplicate or messy records in the database only matter if the running system exp
 
 ---
 
-# ✅ Module Checklist
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
+</div>
 
 <div class="grid grid-cols-3 gap-5 mt-8 text-left text-sm">
 
@@ -571,28 +692,45 @@ Duplicate or messy records in the database only matter if the running system exp
 </div>
 
 ---
-layout: center
----
 
-# ➡️ Next Up: Module 6
-
-<div class="p-8 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-xl shadow-lg max-w-3xl">
-  <div class="text-5xl mb-4 text-center">🤖</div>
-  <h2 class="text-3xl text-center text-white font-bold mb-4">
-    Custom Agents
-  </h2>
-  <div class="text-lg text-center text-purple-200 mb-6">
-    Combine prompts, skills, and MCP servers into one domain-ready workflow
-  </div>
-  <div class="text-base text-gray-300 text-center mb-4">
-    By this point the team has reusable prompts, packaged skills, and live integrations. Next, they bundle those capabilities into focused agents that can orchestrate the whole workflow.
-  </div>
-  <blockquote class="text-lg text-center text-white italic">
-    "What if one Copilot workflow could know our standards, use our skills, and query our live systems at the same time?"
-  </blockquote>
-  <div class="mt-4 text-center text-purple-300">
-    Module 5 complete — ready for orchestration.
-  </div>
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 via-red-500/10 to-purple-500/15 rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-4">
+<div class="absolute inset-0 blur-2xl opacity-50">
+<img src="./sdp-logo.png" class="w-48 mx-auto" alt="" />
+</div>
+<img src="./sdp-logo.png" class="w-48 mx-auto relative" alt="SDP Logo" />
+</div>
+<h1 class="!text-[2.7rem] !font-bold !mb-3 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
+Module 5 Is Locked In
+</h1>
+<div class="relative z-10 mb-6">
+<span class="px-5 py-2 bg-gradient-to-r from-purple-600/80 to-red-600/80 rounded-full text-white text-base font-medium shadow-lg shadow-purple-500/25">
+🤖 Next Up: Module 6 — Custom Agents
+</span>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3 max-w-3xl w-full px-6 mb-6">
+<div class="p-3 bg-gradient-to-br from-orange-900/40 to-orange-800/20 rounded-xl border border-orange-500/30 text-center">
+<div class="text-xl mb-1">🔌</div>
+<div class="text-orange-300 font-bold text-sm">You Connected Live Data</div>
+<div class="text-gray-400 text-xs mt-1">FanHub character data is now queryable directly from Copilot chat</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-red-900/40 to-red-800/20 rounded-xl border border-red-500/30 text-center">
+<div class="text-xl mb-1">🧪</div>
+<div class="text-red-300 font-bold text-sm">You Upgraded the Skill</div>
+<div class="text-gray-400 text-xs mt-1">The character-change workflow now operates on real records, not guesswork</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/20 rounded-xl border border-purple-500/30 text-center">
+<div class="text-xl mb-1">🤖</div>
+<div class="text-purple-300 font-bold text-sm">Now Build the Agent</div>
+<div class="text-gray-400 text-xs mt-1">Module 6 combines prompts, skills, and live data into one orchestrated workflow</div>
+</div>
+</div>
+<div class="relative z-10 text-base text-gray-200 max-w-3xl px-10 mb-6 leading-snug">
+MCP servers let Copilot see the real world. <span class="text-white font-semibold">Custom agents will let it act on all of it at once.</span>
+</div>
+<div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
 </div>
 
 ---
