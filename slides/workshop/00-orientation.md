@@ -13,7 +13,7 @@ title: Module 0 - The Challenge
 module: workshop/00-orientation
 mdc: true
 status: active
-updated: 2026-03-24
+updated: 2026-03-25
 ---
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
@@ -54,70 +54,54 @@ updated: 2026-03-24
 
 ---
 
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-16 py-6">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
-  <!-- Ambient glow -->
-  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-16 py-4">
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/15 to-orange-900/15"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/15 to-transparent rounded-full blur-3xl"></div>
   <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
-
-  <!-- Section label -->
-  <div class="relative z-10 mb-4">
-    <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg">
-      📖 The Story
-    </span>
-  </div>
-
-  <!-- Time marker -->
-  <div class="relative z-10 flex items-center gap-3 mb-4">
-    <span class="text-xl">⏰</span>
-    <span class="text-orange-300 font-bold text-lg tracking-wide">Monday Morning, 9:00 AM</span>
+  <div class="relative z-10 flex items-center gap-3 mb-3">
+    <span class="text-lg">⏰</span>
+    <span class="text-orange-300 font-bold text-base tracking-wide">Monday Morning, 9:00 AM</span>
     <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
   </div>
-
-  <!-- Scene setter -->
-  <div class="relative z-10 mb-4 flex items-center gap-3">
-    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-base font-bold text-white shadow-lg shadow-orange-500/30 flex-shrink-0">S</div>
+  <div class="relative z-10 mb-3 flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-sm font-bold text-white shadow-lg shadow-blue-500/30 flex-shrink-0">S</div>
     <div class="text-gray-300 text-sm">
       <span class="text-white font-semibold">Sarah</span> walks into standup and drops a challenge:
     </div>
   </div>
-
-  <!-- Quote callout -->
-  <div class="relative z-10 mb-4 p-5 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm">
-    <div class="text-orange-300/60 text-4xl leading-none font-serif mb-1">"</div>
-    <p class="text-gray-200 text-sm leading-relaxed -mt-3">
-      A contractor bailed halfway through building a generic fan site. The code works, barely, but it's a mess — no documentation, inconsistent patterns, completely generic. Pick your favorite show and turn this into a <span class="text-orange-300 font-semibold">production-ready fan hub</span>. Authentication, search, admin tools, deployment pipeline, the works.
+  <div class="relative z-10 mb-3 p-4 bg-gray-900/60 rounded-xl border-l-4 border-white/30 shadow-xl backdrop-blur-sm">
+    <div class="text-white/40 text-3xl leading-none font-serif mb-1">"</div>
+    <p class="text-gray-200 text-sm leading-relaxed -mt-2">
+      A contractor bailed halfway through building a generic fan site. The code works, barely, but it's a mess — no documentation, inconsistent patterns, completely generic. Pick your favorite show and turn this into <span class="text-cyan-300 font-semibold">your fan hub</span>.
     </p>
-    <div class="text-orange-300/60 text-4xl leading-none font-serif text-right">"</div>
+    <div class="text-white/40 text-3xl leading-none font-serif text-right">"</div>
   </div>
-
-  <!-- Bomb drop statement -->
-  <div class="relative z-10 flex items-center gap-3 p-4 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/40 shadow-lg">
-    <span class="text-xl flex-shrink-0">⚡</span>
-    <p class="text-white font-bold text-base">
+  <div class="relative z-10 flex items-center gap-3 p-3 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/40 shadow-lg">
+    <span class="text-lg flex-shrink-0">⚡</span>
+    <p class="text-white font-bold text-sm">
       You have until end of day. Oh, and you're all using <span class="text-orange-300">GitHub Copilot.</span>
     </p>
   </div>
 </div>
 
 ---
-layout: center
----
 
-# 🎯 The Mission
-
-<div class="max-w-4xl mx-auto mt-8">
-
-<div class="p-6 bg-gradient-to-r from-orange-600 to-red-700 rounded-xl shadow-lg shadow-orange-500/20 text-center mb-8">
-  <div class="text-3xl font-bold text-white mb-2">
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-gray-900/40 via-purple-900/15 to-blue-900/10"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 The Mission</span>
+</div>
+<div class="relative z-10">
+<div class="max-w-4xl mx-auto mt-4">
+<div class="p-5 bg-gradient-to-r from-gray-800 to-slate-700 rounded-xl shadow-lg shadow-black/30 border border-white/10 text-center mb-5">
+  <div class="text-2xl font-bold text-white mb-1">
     Transform a generic mess into a production-ready fan hub
   </div>
-  <div class="text-orange-100 text-lg">
+  <div class="text-gray-300 text-base">
     In 8 hours, using GitHub Copilot
   </div>
 </div>
-
 <div class="grid grid-cols-2 gap-4 text-sm">
   <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-green-500">
     <div class="font-bold text-green-400 mb-2">✅ By End of Day</div>
@@ -133,21 +117,28 @@ layout: center
   <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-blue-500">
     <div class="font-bold text-blue-400 mb-2">🎨 Your Choice</div>
     <div class="text-gray-300 space-y-1">
-      <div>Pick your favorite show:</div>
+      <div>Pick your favorite show (or 3):</div>
       <div class="text-xs mt-2">
-        📺 The Office • 🔦 Stranger Things<br/>
+        �� The Office • 🔦 Stranger Things<br/>
         🧪 Breaking Bad • 🛡️ The Mandalorian<br/>
         🐉 Game of Thrones • 🚀 The Expanse
       </div>
     </div>
   </div>
 </div>
-
+</div>
+</div>
 </div>
 
 ---
 
-# The Evolution
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🌍 The Evolution</span>
+</div>
+<div class="relative z-10">
 
 <div class="grid grid-cols-3 gap-5 mt-5">
 
@@ -216,12 +207,17 @@ layout: center
 <div class="mt-4 p-3 bg-gradient-to-r from-orange-900/40 to-purple-900/40 rounded-lg border border-orange-500/30 text-center text-xs text-gray-300">
   💡 <strong class="text-orange-300">Markdown is the medium</strong> — the best teams will be those with the best prose, not the most elegant syntax
 </div>
-
+</div>
+</div>
 ---
-layout: center
----
 
-# 🧠 The Mindset Shift
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 The Mindset Shift</span>
+</div>
+<div class="relative z-10">
 
 <div class="max-w-5xl mx-auto mt-6">
 
@@ -267,10 +263,17 @@ layout: center
 </div>
 
 </div>
-
+</div>
+</div>
 ---
 
-# The 5 Principles
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔑 The 5 Principles</span>
+</div>
+<div class="relative z-10">
 
 <div class="grid grid-cols-1 gap-3 mt-6 text-sm">
 
@@ -315,10 +318,17 @@ layout: center
 </div>
 
 </div>
-
+</div>
+</div>
 ---
 
-# 🗺️ The Customization Map
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🗺️ The Customization Map</span>
+</div>
+<div class="relative z-10">
 
 <div class="mt-6">
 
@@ -382,10 +392,17 @@ layout: center
 </div>
 
 </div>
-
+</div>
+</div>
 ---
 
-# 👥 Meet The Team
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">👥 Meet The Team</span>
+</div>
+<div class="relative z-10">
 
 <div class="grid grid-cols-3 gap-4 mt-6 text-xs">
 
@@ -448,10 +465,17 @@ layout: center
 <div class="mt-6 text-center text-sm text-gray-400">
   Each persona has a transformation arc throughout this 8-hour journey
 </div>
-
+</div>
+</div>
 ---
 
-# 🔨 Exercises
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
+</div>
+<div class="relative z-10">
 
 <div class="mt-6">
 
@@ -493,22 +517,24 @@ layout: center
 <div class="mt-6 p-4 bg-yellow-900/30 rounded-lg border-l-4 border-yellow-500">
   <div class="font-bold text-yellow-400 mb-2">💡 Exercise 0.2 is Critical</div>
   <div class="text-gray-300 text-sm">
-    You <strong>must</strong> experience frustration with generic Copilot suggestions before Module 1.
-    This "before" state makes the transformation meaningful.
+    Copilot without any customizations <strong>will be frustrating</strong>, no matter the model we choose. Here's our chance to feel the pain of someone who just <em>types a prompt and hopes for the best</em>. Suffering or laughing here will make the rest of the workshop make an impact.
   </div>
 </div>
 
 </div>
+</div>
+</div>
 
 ---
-layout: two-cols
----
-
-# ❌ The "Before"
-
-<div class="mt-6 space-y-3">
-
-<div class="p-4 bg-red-900/30 rounded-lg border-l-4 border-red-500">
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
+<div class="relative z-10 grid grid-cols-2 gap-8">
+<div class="pr-4 border-r border-white/10">
+<div class="mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-red-700/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ The "Before"</span>
+</div>
+<div class="space-y-4 text-left">
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
   <div class="font-bold text-red-400 mb-2">What You'll Experience</div>
   <ul class="text-sm text-gray-300 space-y-2">
     <li>❌ Generic suggestions</li>
@@ -518,9 +544,8 @@ layout: two-cols
     <li>❌ Multiple failed attempts</li>
   </ul>
 </div>
-
-<div class="p-4 bg-gray-800 rounded-lg">
-  <div class="font-bold text-gray-400 mb-2 text-sm">💭 Team Reactions</div>
+<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
+  <div class="font-bold text-red-400 mb-2">💭 Team Reactions</div>
   <div class="text-xs text-gray-400 space-y-2">
     <div><strong>Marcus:</strong> "Fighting with autocomplete..."</div>
     <div><strong>Priya:</strong> "Am I using it wrong?"</div>
@@ -528,16 +553,14 @@ layout: two-cols
     <div><strong>David:</strong> "AI doesn't know our patterns."</div>
   </div>
 </div>
-
 </div>
-
-::right::
-
-# ✨ The Promise
-
-<div class="ml-4 mt-6 space-y-3">
-
-<div class="p-4 bg-green-900/30 rounded-lg border-l-4 border-green-500">
+</div>
+<div class="pl-4">
+<div class="mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-green-700/80 to-green-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ The Promise</span>
+</div>
+<div class="space-y-4 text-left">
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
   <div class="font-bold text-green-400 mb-2">After Configuration</div>
   <ul class="text-sm text-gray-300 space-y-2">
     <li>✅ Context-aware suggestions</li>
@@ -547,8 +570,7 @@ layout: two-cols
     <li>✅ First-try success</li>
   </ul>
 </div>
-
-<div class="p-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
+<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
   <div class="font-bold text-white text-base mb-2">The Transformation</div>
   <div class="text-blue-100 text-sm">
     From frustration to flow.<br/>
@@ -556,14 +578,18 @@ layout: two-cols
     From guessing to understanding.
   </div>
 </div>
-
+</div>
+</div>
+</div>
 </div>
 
----
-layout: center
----
-
-# 📊 Success Metrics
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Success Metrics</span>
+</div>
+<div class="relative z-10">
 
 <div class="max-w-4xl mx-auto mt-6">
 
@@ -626,12 +652,17 @@ layout: center
 </div>
 
 </div>
-
+</div>
+</div>
 ---
-layout: center
----
 
-# 🔗 The Compounding Effect
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 The Compounding Effect</span>
+</div>
+<div class="relative z-10">
 
 <div class="max-w-3xl mx-auto mt-8">
 
@@ -645,6 +676,7 @@ layout: center
     <div>⚡ <strong>Module 3:</strong> Prompts → Reusable task templates</div>
     <div>🤖 <strong>Module 4:</strong> Agents → Specialist personas</div>
     <div>🎓 <strong>Module 5:</strong> Skills → Domain expertise</div>
+    <div>🎓 <strong>Module 6:</strong> Copilot as a Coworker</div>
   </div>
 </div>
 
@@ -653,12 +685,17 @@ layout: center
 </div>
 
 </div>
-
+</div>
+</div>
 ---
-layout: center
----
 
-# ➡️ Next Steps
+<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">➡️ Next Steps</span>
+</div>
+<div class="relative z-10">
 
 <div class="max-w-3xl mx-auto mt-8 space-y-6">
 
@@ -696,6 +733,8 @@ layout: center
   </div>
 </div>
 
+</div>
+</div>
 </div>
 
 ---
