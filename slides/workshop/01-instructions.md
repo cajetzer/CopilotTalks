@@ -193,7 +193,61 @@ This module stops at repository and file-pattern guidance. We keep custom agents
 
 ---
 
-# 🔎 Which File Does What?
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-4">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-purple-900/20"></div>
+<div class="absolute top-1/3 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+🔄 How It Works
+</span>
+</div>
+
+<div class="relative z-10 flex flex-col gap-4 text-left">
+<div>
+<div class="text-xl font-bold text-white mb-2">The Full Orchestration Sequence</div>
+<div class="text-sm text-gray-300 leading-relaxed">
+When Copilot evaluates your code, it loads all four sources in parallel, applies a priority hierarchy to resolve conflicts, and generates guidance that's uniquely tailored to your project.
+</div>
+</div>
+
+<div class="p-3 rounded-xl bg-gray-900/60 border border-purple-500/30">
+<div class="text-purple-300 font-semibold text-sm mb-2">📊 The sequence diagram in detail</div>
+<div class="text-gray-300 text-sm leading-snug mb-2">
+We'll walk through the complete orchestration flow showing how all context sources are queried, merged, and prioritized. See the full diagram in the module documentation:
+</div>
+<a href="https://github.com/MSBart2/CopilotTraining/blob/main/workshop/01-instructions/README.md#how-custom-agents-orchestrate-these-layers" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm underline">View the orchestration sequence diagram →</a>
+</div>
+
+<div class="grid grid-cols-2 gap-3 text-left text-xs">
+<div class="p-2.5 rounded-lg bg-orange-900/40 border border-orange-500/30">
+<div class="font-bold text-orange-300 mb-1">What gets loaded</div>
+<div class="text-gray-300">Project context, standards, patterns, and guidance</div>
+</div>
+
+<div class="p-2.5 rounded-lg bg-purple-900/40 border border-purple-500/30">
+<div class="font-bold text-purple-300 mb-1">The priority order</div>
+<div class="text-gray-300">Most specific source wins on conflicts</div>
+</div>
+
+<div class="p-2.5 rounded-lg bg-blue-900/40 border border-blue-500/30">
+<div class="font-bold text-blue-300 mb-1">The outcome</div>
+<div class="text-gray-300">Consistent, team-aligned code suggestions</div>
+</div>
+
+<div class="p-2.5 rounded-lg bg-cyan-900/40 border border-cyan-500/30">
+<div class="font-bold text-cyan-300 mb-1">The benefit</div>
+<div class="text-gray-300">Fewer review comments, faster merges</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Which File Does What?</span>
+</div>
 
 <div class="mt-2 mb-2 p-2 rounded-xl bg-gradient-to-r from-orange-900/30 via-red-900/20 to-purple-900/30 border border-orange-500/20 text-center">
 <div class="text-sm text-white font-semibold">Use the lightest layer that solves the problem.</div>
@@ -248,7 +302,9 @@ This module stops at repository and file-pattern guidance. We keep custom agents
 
 ---
 
-# 🔗 How the Layers Work Together
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 How the Layers Work Together</span>
+</div>
 
 <div class="flex flex-col items-center gap-2 mt-3 text-center">
 
@@ -286,9 +342,11 @@ This module stops at repository and file-pattern guidance. We keep custom agents
 layout: two-cols
 ---
 
-# ❌ Before
+<div class="relative z-10 mb-3 mr-4">
+<span class="px-4 py-1 bg-gradient-to-r from-red-700/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before</span>
+</div>
 
-<div class="space-y-4 mt-6 text-left">
+<div class="space-y-4 mt-6 text-left mr-4">
 
 <div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
 <div class="font-bold text-red-300 mb-2">Manual instruction writing</div>
@@ -309,9 +367,11 @@ layout: two-cols
 
 ::right::
 
-# ✨ After
+<div class="relative z-10 mb-3 ml-4">
+<span class="px-4 py-1 bg-gradient-to-r from-green-700/80 to-green-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ After</span>
+</div>
 
-<div class="space-y-4 mt-6 text-left">
+<div class="space-y-4 mt-6 text-left ml-4">
 
 <div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
 <div class="font-bold text-green-300 mb-2"><code>/init</code> gives you a head start</div>
@@ -332,14 +392,16 @@ layout: two-cols
 
 ---
 
-# 🔨 Exercise Roadmap
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
+</div>
 
-<div class="mt-5 mb-3 p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-blue-900/20 to-purple-900/30 border border-white/10 text-center">
+<div class="mt-2 mb-2 p-2 rounded-xl bg-gradient-to-r from-orange-900/30 via-blue-900/20 to-purple-900/30 border border-white/10 text-center">
 <div class="text-sm text-white font-semibold">One continuous flow: bootstrap, document the baseline, then add precision where it matters.</div>
 </div>
 
-<div class="mt-4 text-left">
-<table class="w-full text-sm border-separate border-spacing-y-2">
+<div class="mt-2 text-left">
+<table class="w-full text-sm border-separate border-spacing-y-1">
 <thead>
 <tr class="bg-gray-900/80">
 <th class="p-3 rounded-l-lg text-orange-300 text-left">#</th>
@@ -354,56 +416,58 @@ layout: two-cols
 <td class="p-3 rounded-l-lg font-semibold text-orange-300">1.0</td>
 <td class="p-3">Bootstrap with <code>/init</code></td>
 <td class="p-3">Starting point</td>
-<td class="p-3">David ⭐</td>
+<td class="p-2">David ⭐</td>
 <td class="p-3 rounded-r-lg">8 min</td>
 </tr>
 <tr class="bg-gray-900/50">
 <td class="p-3 rounded-l-lg font-semibold text-blue-300">1.1</td>
 <td class="p-3">Create <code>ARCHITECTURE.md</code></td>
 <td class="p-3">System context</td>
-<td class="p-3">David ⭐</td>
+<td class="p-2">David ⭐</td>
 <td class="p-3 rounded-r-lg">10 min</td>
 </tr>
 <tr class="bg-gray-900/50">
 <td class="p-3 rounded-l-lg font-semibold text-blue-300">1.2</td>
 <td class="p-3">Create <code>copilot-instructions.md</code></td>
 <td class="p-3">Repo defaults</td>
-<td class="p-3">Sarah ⭐</td>
+<td class="p-2">Sarah ⭐</td>
 <td class="p-3 rounded-r-lg">10 min</td>
 </tr>
 <tr class="bg-gray-900/50">
 <td class="p-3 rounded-l-lg font-semibold text-purple-300">1.3</td>
 <td class="p-3">Path-specific instructions</td>
 <td class="p-3">Context precision</td>
-<td class="p-3">Sarah ⭐</td>
+<td class="p-2">Sarah ⭐</td>
 <td class="p-3 rounded-r-lg">10 min</td>
 </tr>
 <tr class="bg-gray-900/50">
 <td class="p-3 rounded-l-lg font-semibold text-purple-300">1.4</td>
 <td class="p-3">Language-specific standards</td>
 <td class="p-3">Language rules</td>
-<td class="p-3">Elena ⭐</td>
+<td class="p-2">Elena ⭐</td>
 <td class="p-3 rounded-r-lg">8 min</td>
 </tr>
 <tr class="bg-gray-900/50">
 <td class="p-3 rounded-l-lg font-semibold text-purple-300">1.5</td>
 <td class="p-3">File-type specialized guidance</td>
 <td class="p-3">Final polish</td>
-<td class="p-3">Marcus ⭐</td>
+<td class="p-2">Marcus ⭐</td>
 <td class="p-3 rounded-r-lg">12 min</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
+<div class="mt-2 p-3 bg-gray-900/60 rounded-xl border border-white/10 text-center">
 <div class="text-white font-semibold">The sequence matters.</div>
 <div class="text-sm text-gray-300">First establish a baseline. Then document structure. Then add precision where the defaults are too broad.</div>
 </div>
 
 ---
 
-# ✅ What Good Looks Like
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What Good Looks Like</span>
+</div>
 
 <div class="grid grid-cols-3 gap-5 mt-8 text-left">
 
@@ -445,9 +509,11 @@ layout: two-cols
 
 ---
 
-# 📊 What to Validate in the Workshop
+<div class="relative z-10 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 What to Validate in the Workshop</span>
+</div>
 
-<div class="grid grid-cols-3 gap-5 mt-8 text-left">
+<div class="grid grid-cols-3 gap-5 mt-4 text-left">
 
 <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
 <div class="text-orange-300 font-bold mb-2">Faster setup</div>
@@ -472,8 +538,6 @@ layout: two-cols
 </div>
 
 ---
-
-# 🔨 Exercise Section
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
@@ -590,8 +654,52 @@ Copilot keeps rediscovering the same structure because nothing explains the syst
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> It includes stack, folders, flow, and patterns</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Structural answers become easier to trust</div>
 </div>
-<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">David:</strong> "This should read like onboarding notes for a strong engineer, not like a file dump."</div>
+<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">David:</strong> "This reads like onboarding notes for a strong engineer, not like a file dump."</div>
 </div>
+</div>
+</div>
+
+---
+
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+📐 Example: ARCHITECTURE.md
+</span>
+</div>
+
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-blue-300 mb-2"># FanHub Architecture</div>
+
+<div class="text-blue-300 mb-2">## Tech Stack</div>
+<div class="text-gray-400">- <span class="text-blue-100">Frontend:</span> React 18, Tailwind CSS</div>
+<div class="text-gray-400">- <span class="text-blue-100">Backend:</span> Express.js, Node.js</div>
+<div class="text-gray-400">- <span class="text-blue-100">Database:</span> SQLite3</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">Deployment:</span> Docker containers</div>
+
+<div class="text-blue-300 mb-2">## Folder Structure</div>
+<div class="text-gray-400">```</div>
+<div class="text-gray-400"><span class="text-cyan-300">fanhub/</span></div>
+<div class="text-gray-400">├── <span class="text-cyan-300">frontend/</span> → React components, pages, hooks</div>
+<div class="text-gray-400">├── <span class="text-cyan-300">backend/</span>  → Express routes, middleware, database</div>
+<div class="text-gray-400">├── <span class="text-cyan-300">docs/</span>     → ARCHITECTURE.md, guides</div>
+<div class="text-gray-400">└── <span class="text-cyan-300">infra/</span>    → Docker, compose files</div>
+<div class="text-gray-400">```</div>
+<div class="text-gray-400 mb-3"></div>
+
+<div class="text-blue-300 mb-2">## Key Flows</div>
+<div class="text-gray-400">- <span class="text-blue-100">User requests</span> → Frontend → API calls → Backend routes → Database queries</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">Error handling:</span> Backend returns error codes → Frontend displays messages</div>
+
+<div class="text-blue-300 mb-2">## Key Boundaries</div>
+<div class="text-gray-400">- Backend owns all data access (no frontend queries to DB)</div>
+<div class="text-gray-400">- Frontend owns all UI state (no business logic)</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Length:</strong> ~15 lines  <strong class="text-gray-300">Purpose:</strong> Fast structural context
 </div>
 </div>
 
@@ -636,6 +744,41 @@ The same defaults keep getting re-explained in code review. <strong class="text-
 
 ---
 
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+🪄 Example: copilot-instructions.md
+</span>
+</div>
+
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-purple-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-purple-300 mb-2"># FanHub Coding Standards</div>
+
+<div class="text-purple-300 mb-2">## Async Patterns</div>
+<div class="text-gray-400 mb-3">Always use async/await. Never mix promises and await. Wrap async calls in try/catch for error handling.</div>
+
+<div class="text-purple-300 mb-2">## React Components</div>
+<div class="text-gray-400 mb-3">Use functional components only. Use React hooks for state (useState, useEffect). Avoid class components and legacy patterns.</div>
+
+<div class="text-purple-300 mb-2">## Error Handling</div>
+<div class="text-gray-400 mb-3">Always catch errors. Log them with context. Return meaningful error messages to the client, not stack traces.</div>
+
+<div class="text-purple-300 mb-2">## Testing</div>
+<div class="text-gray-400 mb-3">Test the happy path and error cases. Mock external API calls. Use Jest and React Testing Library.</div>
+
+<div class="text-purple-300 mb-2">## Imports</div>
+<div class="text-gray-400">Use named imports for utilities. Use default imports only for React and third-party libraries.</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Length:</strong> ~20 lines  <strong class="text-gray-300">Scope:</strong> All files, all interactions
+</div>
+</div>
+
+---
+
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -670,6 +813,39 @@ Frontend and backend keep borrowing the wrong patterns from each other. <strong 
 </div>
 <div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">Sarah:</strong> "Precision beats volume. The right rule in the right place wins."</div>
 </div>
+</div>
+</div>
+
+---
+
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+📂 Example: frontend.instructions.md
+</span>
+</div>
+
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-purple-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-purple-300 mb-2">---</div>
+<div class="text-purple-300 mb-2">applyTo: "frontend/**"</div>
+<div class="text-purple-300 mb-2">---</div>
+
+<div class="text-purple-300 mb-2"># Frontend Patterns</div>
+
+<div class="text-purple-300 mb-2">## Components</div>
+<div class="text-gray-400 mb-3">Small, focused components. Extract logic into hooks. Use props for input, context for shared state.</div>
+
+<div class="text-purple-300 mb-2">## Performance</div>
+<div class="text-gray-400 mb-3">Memoize expensive components. Avoid inline functions. Use useCallback for stable references.</div>
+
+<div class="text-purple-300 mb-2">## Styling</div>
+<div class="text-gray-400">Tailwind classes only. No inline styles. Mobile-first responsive design.</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Applies to:</strong> Only <code>frontend/**</code>  <strong class="text-gray-300">Purpose:</strong> React-specific guidance
 </div>
 </div>
 
@@ -714,6 +890,39 @@ Python, JavaScript, and TypeScript each have different expectations. <strong cla
 
 ---
 
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+🐍 Example: python.instructions.md
+</span>
+</div>
+
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-blue-300 mb-2">---</div>
+<div class="text-blue-300 mb-2">applyTo: "**/*.py"</div>
+<div class="text-blue-300 mb-2">---</div>
+
+<div class="text-blue-300 mb-2"># Python Standards (PEP 8)</div>
+
+<div class="text-blue-300 mb-2">## Type Hints</div>
+<div class="text-gray-400 mb-3">Always include type hints on function parameters and returns. Use typing module for complex types.</div>
+
+<div class="text-blue-300 mb-2">## Naming</div>
+<div class="text-gray-400 mb-3">snake_case for functions, CapitalCase for classes. Private methods start with _.</div>
+
+<div class="text-blue-300 mb-2">## Docstrings</div>
+<div class="text-gray-400">Use triple-quoted docstrings. Document parameters, return values, and side effects.</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Applies to:</strong> Only <code>**/*.py</code>  <strong class="text-gray-300">Purpose:</strong> Python-native conventions
+</div>
+</div>
+
+---
+
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-purple-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -753,7 +962,42 @@ Tests, Docker files, and docs serve different purposes than production app code.
 
 ---
 
-# 🔗 Compounding Value
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+🧪 Example: tests.instructions.md
+</span>
+</div>
+
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-orange-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="text-orange-300 mb-2">---</div>
+<div class="text-orange-300 mb-2">applyTo: "**/__tests__/**,**/*.test.{ts,tsx,js}"</div>
+<div class="text-orange-300 mb-2">---</div>
+
+<div class="text-orange-300 mb-2"># Test Suite Patterns</div>
+
+<div class="text-orange-300 mb-2">## Test Structure</div>
+<div class="text-gray-400 mb-3">Write for clarity first. Test both happy path and error cases. Use descriptive test names that read like documentation.</div>
+
+<div class="text-orange-300 mb-2">## Mocking</div>
+<div class="text-gray-400 mb-3">Mock external API calls. Mock database queries. Avoid testing integration dependencies within unit tests.</div>
+
+<div class="text-orange-300 mb-2">## Assertions</div>
+<div class="text-gray-400">Test behavior, not implementation. Use meaningful assertions. Avoid testing unrelated concerns.</div>
+</div>
+
+<div class="relative z-10 mt-3 text-xs text-gray-400">
+<strong class="text-gray-300">Applies to:</strong> Test files only  <strong class="text-gray-300">Purpose:</strong> Test-specific patterns distinct from production
+</div>
+</div>
+
+---
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
+</div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
 <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
@@ -782,31 +1026,33 @@ Every minute invested here pays off in later modules because the context keeps g
 
 ---
 
-# ✅ Module Checklist
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
+</div>
 
 <div class="grid grid-cols-3 gap-5 mt-8 text-left text-sm">
 <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
 <div class="text-orange-300 font-bold mb-3">Quick Start</div>
 <ul class="space-y-2 text-gray-300">
-<li>• Run <code>/init</code></li>
-<li>• Review what it generated</li>
-<li>• Note what needs refinement</li>
+<li>Run <code>/init</code></li>
+<li>Review what it generated</li>
+<li>Note what needs refinement</li>
 </ul>
 </div>
 <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
 <div class="text-blue-300 font-bold mb-3">Foundation</div>
 <ul class="space-y-2 text-gray-300">
-<li>• Create <code>docs/ARCHITECTURE.md</code></li>
-<li>• Create <code>.github/copilot-instructions.md</code></li>
-<li>• Confirm both describe reality clearly</li>
+<li>Create <code>docs/ARCHITECTURE.md</code></li>
+<li>Create <code>.github/copilot-instructions.md</code></li>
+<li>Confirm both describe reality clearly</li>
 </ul>
 </div>
 <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
 <div class="text-purple-300 font-bold mb-3">Precision</div>
 <ul class="space-y-2 text-gray-300">
-<li>• Add matching instruction files</li>
-<li>• Verify file patterns behave as intended</li>
-<li>• Avoid duplicating baseline repo rules</li>
+<li>Add matching instruction files</li>
+<li>Verify file patterns behave as intended</li>
+<li>Avoid duplicating baseline repo rules</li>
 </ul>
 </div>
 </div>

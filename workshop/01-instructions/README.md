@@ -173,6 +173,53 @@ For teams using GitHub Enterprise, organization-level instructions cascade to al
 └────────────────────────────────────────────────────────────────────┘
 ```
 
+#### How Copilot Orchestrate These Layers
+
+When you invoke Copilot, it loads and combines context from all these sources in a specific priority order. Here's the complete sequence:
+
+```mermaid
+sequenceDiagram
+    participant U as User Request
+    participant A as Custom Agent
+    participant R as Repository Instructions
+    participant C as Custom Instructions
+    participant S as Skills
+    participant P as Prompts
+    participant M as MCP Servers
+    participant W as @workspace
+
+    U->>A: "Add character search endpoint"
+
+    Note over A: Agent defines workflow:<br/>Research → Plan → Implement
+
+    A->>R: Load project-wide context
+    R-->>A: REST API standards<br/>Error handling patterns<br/>Testing requirements
+
+    A->>C: Load path-specific guidance
+    C-->>A: React component patterns<br/>Express route structure<br/>PostgreSQL query conventions
+
+    A->>S: Load domain expertise
+    S-->>A: API endpoint design<br/>Database schema knowledge<br/>React component best practices
+
+    A->>P: Load formatting template
+    P-->>A: Feature plan structure<br/>Test suite format<br/>Documentation templates
+
+    A->>M: Query external systems
+    M-->>A: PostgreSQL schema (characters table)<br/>Existing API routes<br/>Component examples
+
+    A->>W: Analyze workspace
+    W-->>A: Express route patterns<br/>React component structure<br/>Database connection setup
+
+    Note over A: Priority hierarchy:<br/>Agent > Skills > Prompts ><br/>Custom Instructions ><br/>Repository Instructions
+
+    A->>U: Generated plan with FanHub-specific<br/>endpoints, components, and tests
+
+    U->>A: Accept and implement
+    A->>U: Creates Express routes, React components,<br/>PostgreSQL queries following hierarchy
+```
+
+**Key insight:** Agents don't just follow one set of instructions—they orchestrate all of them. When conflicts arise, the priority hierarchy ensures consistent behavior: agent instructions override skills, skills override prompts, prompts override custom instructions, and custom instructions override repository instructions.
+
 ### Part 2: Path-Based Instructions
 
 #### The applyTo Pattern System
