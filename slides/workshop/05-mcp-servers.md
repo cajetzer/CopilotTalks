@@ -1,3 +1,4 @@
+
 ---
 theme: default
 class: text-center
@@ -16,6 +17,7 @@ status: active
 updated: 2026-03-25
 ---
 
+<!-- SLIDE: Module 5: MCP Servers -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
   <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
@@ -42,10 +44,42 @@ updated: 2026-03-25
   </div>
 
   <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
-</div>
 
+  <div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
+    <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+      <div class="font-bold text-gray-400 text-xs">M1</div>
+      <div class="text-gray-500 mt-0.5">Instructions</div>
+    </div>
+    <div class="flex items-center text-gray-600 px-0.5">›</div>
+    <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+      <div class="font-bold text-gray-400 text-xs">M2</div>
+      <div class="text-gray-500 mt-0.5">Plan Mode</div>
+    </div>
+    <div class="flex items-center text-gray-600 px-0.5">›</div>
+    <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+      <div class="font-bold text-gray-400 text-xs">M3</div>
+      <div class="text-gray-500 mt-0.5">Prompts</div>
+    </div>
+    <div class="flex items-center text-gray-600 px-0.5">›</div>
+    <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+      <div class="font-bold text-gray-400 text-xs">M4</div>
+      <div class="text-gray-500 mt-0.5">Skills</div>
+    </div>
+    <div class="flex items-center text-gray-600 px-0.5">›</div>
+    <div class="flex-1 p-2 bg-gradient-to-b from-orange-600/80 to-orange-800/60 rounded-lg border border-orange-400/50 text-center shadow-lg shadow-orange-900/30">
+      <div class="font-bold text-white text-xs">M5</div>
+      <div class="text-orange-200 mt-0.5">MCP</div>
+    </div>
+    <div class="flex items-center text-gray-600 px-0.5">›</div>
+    <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+      <div class="font-bold text-gray-400 text-xs">M6</div>
+      <div class="text-gray-500 mt-0.5">Agents</div>
+    </div>
+  </div>
+</div>
 ---
 
+<!-- SLIDE: The workflow is better. The context is richer. But -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-16 py-8">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
@@ -106,9 +140,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 </p>
 </div>
 </div>
-
 ---
 
+<!-- SLIDE: 🎯 What Youll Build -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
 </div>
@@ -144,9 +178,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <div class="mt-8 text-center text-lg text-gray-300">
   This module moves from static context to live operational context.
 </div>
-
 ---
 
+<!-- SLIDE: 📚 What MCP Servers Actually Add -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What MCP Servers Actually Add</span>
 </div>
@@ -186,9 +220,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
   </div>
 
 </div>
-
 ---
 
+<!-- SLIDE: 🔎 Skills and MCP Work Better Together -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skills and MCP Work Better Together</span>
 </div>
@@ -215,9 +249,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
   <div class="text-xl font-bold text-white">A strong pattern is: standards guide the work, skills package the workflow, MCP supplies live context.</div>
 </div>
-
 ---
 
+<!-- SLIDE: ⚙️ Core MCP Patterns in This Module -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Core MCP Patterns in This Module</span>
 </div>
@@ -260,9 +294,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
     <div class="text-sm text-gray-300">Copilot can call the right tool when the task needs live system access.</div>
   </div>
 </div>
-
 ---
 
+<!-- SLIDE: ❌ Before -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
 <div class="relative z-10 grid grid-cols-2 gap-8">
@@ -306,9 +340,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 </div>
 </div>
 </div>
-
 ---
 
+<!-- SLIDE: 🔨 Exercise Roadmap -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
 </div>
@@ -351,10 +385,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
   <div class="text-white font-semibold">The sequence matters.</div>
   <div class="text-sm text-gray-300">Start with live data access, use it to upgrade the Module 4 workflow, then validate the running FanHub API before moving to agents.</div>
 </div>
-
 ---
 
-
+<!-- SLIDE: 3 exercises · ~45 minutes · shared leadership -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
@@ -384,9 +417,9 @@ Exercises
 </div>
 <div class="relative z-10 mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
 </div>
-
 ---
 
+<!-- SLIDE: Character schema and sample rows still live outsid -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -419,13 +452,13 @@ Character schema and sample rows still live outside the editor, so feature work 
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Schema and sample-row lookup time drops dramatically</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Marcus can stay in flow instead of opening a separate database tool</div>
 </div>
-<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Marcus:</strong> "If Copilot can see the real character data, I can stop treating every schema question like a detour."</div>
+<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Marcus:</strong> "Wait — it's querying the actual database? Not a mock? Hold on, let me re-ask that schema question. Okay this changes things."</div>
 </div>
 </div>
 </div>
-
 ---
 
+<!-- SLIDE: 📋 Example: .vscode/mcp.json — FanHub Database -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 
@@ -455,6 +488,7 @@ Character schema and sample rows still live outside the editor, so feature work 
 </div>
 ---
 
+<!-- SLIDE: The Module 4.2 skill is useful, but it still depen -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -487,13 +521,13 @@ The Module 4.2 skill is useful, but it still depends on user-supplied context. <
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Duplicate character records can be investigated from live data</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Elena gets a faster, clearer recommendation for tests, cleanup, or guardrails</div>
 </div>
-<div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">Elena:</strong> "Now the workflow can inspect the real duplicates before it tells me what should change."</div>
+<div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">Elena:</strong> "Good. But what about duplicates introduced mid-workflow? Does it re-query, or is it working from a snapshot?"</div>
 </div>
 </div>
 </div>
-
 ---
 
+<!-- SLIDE: 📋 Example: character-change-test-workflow — MCP u -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 
@@ -524,6 +558,7 @@ The Module 4.2 skill is useful, but it still depends on user-supplied context. <
 </div>
 ---
 
+<!-- SLIDE: Duplicate or messy records in the database only ma -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -556,13 +591,13 @@ Duplicate or messy records in the database only matter if the running system exp
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Runtime risks for the character-detail experience are surfaced clearly</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Elena can validate running behavior much faster than manual curl-based checks</div>
 </div>
-<div class="mt-4 p-3 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">💭 <strong class="text-orange-300">Elena:</strong> "The question now is whether the live API shows the same edge cases the workflow already warned us about."</div>
+<div class="mt-4 p-3 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">💭 <strong class="text-orange-300">Elena:</strong> "So the workflow flagged edge cases from a sample. But what about the live API? If they don't match, we have a different problem."</div>
 </div>
 </div>
 </div>
-
 ---
 
+<!-- SLIDE: 📋 Example: docs/5.3-fanhub-api-server.js -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 
@@ -592,6 +627,7 @@ Duplicate or messy records in the database only matter if the running system exp
 </div>
 ---
 
+<!-- SLIDE: 📋 Example: .vscode/mcp.json — FanHub API Server -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 
@@ -621,6 +657,7 @@ Duplicate or messy records in the database only matter if the running system exp
 </div>
 ---
 
+<!-- SLIDE: 🔗 Compounding Value -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
 </div>
@@ -649,9 +686,9 @@ Duplicate or messy records in the database only matter if the running system exp
 <div class="mt-8 text-center text-lg text-yellow-300">
   Skills teach a workflow. MCP lets that workflow see the real world it must act on.
 </div>
-
 ---
 
+<!-- SLIDE: ✅ Module Checklist -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
 </div>
@@ -690,9 +727,9 @@ Duplicate or messy records in the database only matter if the running system exp
 <div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
   <div class="text-lg text-white font-semibold">A good MCP integration reduces switching, grounds the workflow in live systems, and increases confidence.</div>
 </div>
-
 ---
 
+<!-- SLIDE: Module 5 Is Locked In -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 via-red-500/10 to-purple-500/15 rounded-full blur-3xl"></div>
@@ -732,9 +769,9 @@ MCP servers let Copilot see the real world. <span class="text-white font-semibol
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
 </div>
-
 ---
 
+<!-- SLIDE: Live context makes the workflow feel grounded -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
@@ -785,5 +822,47 @@ Copilot works from live systems rather than static files, so context stays curre
 <div class="relative z-10 mt-6 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
 <div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
 <div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Reference Material -->
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-10 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/15 via-gray-900/40 to-purple-900/15"></div>
+<div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+
+<div class="relative z-10 text-center mb-5">
+<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Further Reading</div>
+<h1 class="!text-3xl !font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent !mb-0">Reference Material</h1>
+<div class="text-sm text-gray-400 mt-1">Official documentation for Module 5 — MCP Servers</div>
+</div>
+
+<div class="relative z-10 grid grid-cols-2 gap-3">
+<a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-cyan-500/40 transition-colors no-underline">
+<div class="font-semibold text-cyan-300 text-sm mb-1">MCP Servers in VS Code</div>
+<div class="text-xs text-gray-400">Configuring MCP servers, tool exposure, and resource access</div>
+</a>
+<a href="https://modelcontextprotocol.io/" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-blue-500/40 transition-colors no-underline">
+<div class="font-semibold text-blue-300 text-sm mb-1">Model Context Protocol Specification</div>
+<div class="text-xs text-gray-400">The open protocol that connects AI agents to external tools and data</div>
+</a>
+<a href="https://github.com/modelcontextprotocol/servers" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-500/40 transition-colors no-underline">
+<div class="font-semibold text-purple-300 text-sm mb-1">MCP Servers Repository</div>
+<div class="text-xs text-gray-400">Official and community MCP server implementations ready to use</div>
+</a>
+<a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-cyan-500/40 transition-colors no-underline">
+<div class="font-semibold text-cyan-300 text-sm mb-1">MCP TypeScript SDK</div>
+<div class="text-xs text-gray-400">Build your own MCP server to expose custom tools and data sources</div>
+</a>
+<a href="https://code.visualstudio.com/blogs/2026/01/26/mcp-apps-support" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-blue-500/40 transition-colors no-underline">
+<div class="font-semibold text-blue-300 text-sm mb-1">MCP Apps Support in VS Code</div>
+<div class="text-xs text-gray-400">Rich interactive UI components surfaced directly through MCP</div>
+</a>
+<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-500/40 transition-colors no-underline">
+<div class="font-semibold text-purple-300 text-sm mb-1">Add an MCP Server to Copilot CLI</div>
+<div class="text-xs text-gray-400">Extending terminal-based AI workflows with MCP tools</div>
+</a>
 </div>
 </div>

@@ -1,10 +1,106 @@
-# Exercise 3.2: Referencing Standards and Docs
+# Exercise 3.2: Creating a Context-Aware Prompt File
 
 ## 🔨 Exercise
 
-### Exercise 3.2: Referencing Standards and Docs — "Link Once, Use Forever"
+### Exercise 3.2: Creating a Context-Aware Prompt File — "Save One Strong Team Prompt"
 
-**Lead:** Sarah ⭐ | **Support:** David 🤝 | **Time:** 7 min
+**Lead:** Elena ⭐ | **Support:** Sarah 🤝 | **Time:** 12 min
+
+#### 📖 The Challenge
+
+Elena is tired of retyping the same character-detail request, and Sarah is tired of pasting the same standards and roadmap context into every review. Each time one of them runs a character-detail review, they reassemble the same pieces: the architecture guidance, the team instructions, the enhancement roadmap.
+
+The stronger move is one reusable prompt file that links to living docs and pulls in the right context with variables — so the prompt always starts with current guidance and current file context, not what someone remembered to copy this time.
+
+💭 *Elena: "This stopped being a saved snippet and started becoming a real team function — current guidance, current file, current context."*
+
+#### 🔄 The Transformation
+
+| Before ❌ | After ✨ |
+|---|---|
+| Elena and Sarah paste the same standards and roadmap context into every review prompt by hand. | Elena invokes `/Character-Detail-Review "Jesse Pinkman"`. The prompt links to living docs and pulls in current file context via variables. |
+| **Setup:** Copy standards, paste roadmap, specify file — every time | **Setup:** One invocation with the character name — everything else loads automatically |
+| **Risk:** Stale copied guidance, missed checks, inconsistent results | **Result:** Always current standards, always current file, zero manual setup |
+
+#### 🎯 Your Goal
+
+Create a workspace prompt file that references living architecture and instruction docs, uses variables to capture file context automatically, and is invokable as a shared team function.
+
+#### 📋 Steps
+
+1. **Create `character-review.prompt.md` with frontmatter and linked docs**
+
+   Create `.github/prompts/character-review.prompt.md`:
+
+   ```markdown
+   ---
+   name: Character Detail Review
+   description: Review a character detail enhancement against FanHub standards
+   mode: agent
+   ---
+
+   Review the character detail enhancement for ${input:characterName} in ${file}.
+
+   ## Check against
+
+   - [Architecture guide](./ARCHITECTURE.md): file structure, module boundaries
+   - [Team instructions](./.github/copilot-instructions.md): naming, patterns, review habits
+   - [Enhancement roadmap](./plans/roadmap.md): sequencing and dependencies
+
+   ## Output
+
+   1. What looks good
+   2. What needs adjustment before merging
+   3. Open questions to resolve
+   ```
+
+   **Key design choices:**
+   - **Markdown links to living docs** — when docs update, the prompt behavior stays aligned automatically
+   - **`${file}` variable** — pulls in the currently open file so no manual copy-paste of the file path
+   - **`${input:characterName}`** — prompts for the character name at invocation time
+   - **Structured output** — the three-section format makes results consistent and easy to act on
+
+2. **Use prompt variables for context that changes between invocations**
+
+   Variables remove the setup friction that makes teams skip the review step. Add variables for:
+   - `${file}` — the current file (VS Code substitutes this automatically)
+   - `${input:characterName}` — an input the user provides at invocation time
+   - `${workspaceFolder}` — useful if you want to reference the workspace root in links
+
+   The goal is: the prompt knows what it needs from the environment, and only asks the user for what the environment cannot provide.
+
+3. **Invoke the prompt as a team function**
+
+   Open a character-related source file, then in Copilot Chat:
+
+   ```
+   /Character-Detail-Review "Jesse Pinkman"
+   ```
+
+   VS Code will prompt for the `characterName` input, then pass `${file}` and the linked doc content to the prompt automatically. The review runs against the current architecture guide, current team instructions, and current roadmap — with no manual context assembly.
+
+#### ✅ Success Criteria
+
+- [ ] The prompt is discoverable and invokable like a shared team function
+- [ ] It references source-of-truth docs and roadmap files instead of copied guidance
+- [ ] Variables remove setup friction while keeping the results grounded in current context
+
+---
+
+## 🔗 What You Built
+
+**In this exercise:** `.github/prompts/character-review.prompt.md` — a reusable prompt that links to living docs, captures dynamic context via variables, and runs as a single team-wide invocation.
+
+**Why it matters:** The review prompt stays aligned with the docs automatically. When the architecture guide or team instructions evolve, the prompt behavior evolves with them — without anyone touching the prompt file. This is the compounding value of linking to sources of truth instead of copying from them.
+
+---
+
+## ➡️ Next Up
+
+**Module 4: Agent Skills** — take prompt files further by packaging deeper domain knowledge into reusable skills that agents can call on demand.
+
+---
+
 
 #### 📖 The Challenge
 
@@ -184,7 +280,7 @@ Create a character detail review prompt that links to your existing documentatio
 
 **[Exercise 3.3: Variable-Driven Prompts](exercise-3.3.md)** — Make prompts even more powerful by using variables to capture dynamic context like the current file, selected text, or user input.
 
-> _"The documentation links are brilliant, but I still retype the next enhancement name and file context every time we plan follow-on work. Can prompts capture that automatically?"_  
+> _"The documentation links are brilliant, but I still retype the next enhancement name and file context every time we plan follow-on work. Can prompts capture that automatically?"_
 > — Marcus, about to discover prompt file variables
 
 ---

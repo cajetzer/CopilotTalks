@@ -16,36 +16,7 @@ status: active
 updated: 2026-03-25
 ---
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
-
-  <div class="relative z-10">
-    <div class="absolute inset-0 blur-2xl opacity-50">
-      <img src="./sdp-logo.png" class="w-72" alt="" />
-    </div>
-    <img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
-  </div>
-
-  <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
-    Module 4: Agent Skills
-  </h1>
-
-  <div class="mt-4 relative z-10">
-    <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-      ⏰ Teach capabilities, not just behavior
-    </span>
-  </div>
-
-  <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
-    "Instructions tell Copilot how to behave. Skills teach it how to do work it could not do well before."
-  </div>
-
-  <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
-</div>
-
----
-
+<!-- SLIDE: ⏰ The Story — Monday 1:30 PM -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-16 py-8">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
@@ -100,10 +71,43 @@ Good documentation and reusable prompts are a start. But some work requires the 
 Skills turn <span class="text-orange-300">repeated specialized work</span> into teachable capabilities the whole team can invoke.
 </p>
 </div>
+
+<div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+    <div class="font-bold text-gray-400 text-xs">M1</div>
+    <div class="text-gray-500 mt-0.5">Instructions</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+    <div class="font-bold text-gray-400 text-xs">M2</div>
+    <div class="text-gray-500 mt-0.5">Plan Mode</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+    <div class="font-bold text-gray-400 text-xs">M3</div>
+    <div class="text-gray-500 mt-0.5">Prompts</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gradient-to-b from-orange-600/80 to-orange-800/60 rounded-lg border border-orange-400/50 text-center shadow-lg shadow-orange-900/30">
+    <div class="font-bold text-white text-xs">M4</div>
+    <div class="text-orange-200 mt-0.5">Skills</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M5</div>
+    <div class="text-gray-500 mt-0.5">MCP</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M6</div>
+    <div class="text-gray-500 mt-0.5">Agents</div>
+  </div>
+</div>
 </div>
 
 ---
 
+<!-- SLIDE: 🎯 What You'll Build -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
 </div>
@@ -145,6 +149,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
+<!-- SLIDE: 📚 What Agent Skills Actually Are -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Agent Skills Actually Are</span>
 </div>
@@ -187,6 +192,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
+<!-- SLIDE: 🔎 Skill Structure and Loading -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skill Structure and Loading</span>
 </div>
@@ -222,6 +228,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
+<!-- SLIDE: ⚡ Why Scripts Matter -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Why Scripts Matter</span>
 </div>
@@ -259,6 +266,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
+<!-- SLIDE: 🔄 Skills vs Instructions vs Prompts -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Skills vs Instructions vs Prompts</span>
 </div>
@@ -300,6 +308,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
+<!-- SLIDE: ❌✨ Before and After -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
 <div class="relative z-10 grid grid-cols-2 gap-8">
@@ -346,6 +355,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
+<!-- SLIDE: 📊 What to Validate -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 What to Validate in the Workshop</span>
 </div>
@@ -375,6 +385,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
+<!-- SLIDE: 🔨 Exercise Roadmap -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
 </div>
@@ -428,7 +439,7 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
-
+<!-- SLIDE: 🔨 Exercises -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
@@ -461,6 +472,7 @@ Exercises
 
 ---
 
+<!-- SLIDE: 🔧 Exercise 1 — Install make-skill-template -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -501,6 +513,7 @@ The team is ready to build real skills, but blank-page setup still slows them do
 
 ---
 
+<!-- SLIDE: 📋 make-skill-template SKILL.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 
@@ -533,6 +546,7 @@ The team is ready to build real skills, but blank-page setup still slows them do
 
 ---
 
+<!-- SLIDE: 🧪 Exercise 2 — Character Change Test Workflow -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -573,6 +587,7 @@ After each character-detail change, the team still has to decide which tests sho
 
 ---
 
+<!-- SLIDE: 📋 character-change-test-workflow SKILL.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 
@@ -604,6 +619,7 @@ After each character-detail change, the team still has to decide which tests sho
 
 ---
 
+<!-- SLIDE: ✅ Exercise 3 — Character Detail Readiness Checker -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -644,6 +660,7 @@ The code and tests may be done, but the team still does one last manual sweep be
 
 ---
 
+<!-- SLIDE: 📋 character-detail-readiness-checker SKILL.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 
@@ -674,6 +691,7 @@ The code and tests may be done, but the team still does one last manual sweep be
 </div>
 ---
 
+<!-- SLIDE: 🔗 Compounding Value -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
 </div>
@@ -722,6 +740,7 @@ The code and tests may be done, but the team still does one last manual sweep be
 
 ---
 
+<!-- SLIDE: ✅ Module Checklist -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
 </div>
@@ -788,6 +807,7 @@ The code and tests may be done, but the team still does one last manual sweep be
 
 ---
 
+<!-- SLIDE: ➡️ Next Up — Module 5 MCP Servers -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 via-red-500/10 to-purple-500/15 rounded-full blur-3xl"></div>
@@ -830,6 +850,38 @@ Skills taught Copilot your local workflow. <span class="text-white font-semibold
 
 ---
 
+<!-- SLIDE: 🚀 Module 4: Agent Skills -->
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
+
+  <div class="relative z-10">
+    <div class="absolute inset-0 blur-2xl opacity-50">
+      <img src="./sdp-logo.png" class="w-72" alt="" />
+    </div>
+    <img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
+  </div>
+
+  <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
+    Module 4: Agent Skills
+  </h1>
+
+  <div class="mt-4 relative z-10">
+    <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
+      ⏰ Teach capabilities, not just behavior
+    </span>
+  </div>
+
+  <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
+    "Instructions tell Copilot how to behave. Skills teach it how to do work it could not do well before."
+  </div>
+
+  <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
+</div>
+
+---
+
+<!-- SLIDE: 💭 Team Takeaways -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>

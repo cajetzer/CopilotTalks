@@ -142,6 +142,7 @@ Add section divider slides for each 🎬 major section (tech talks / exec talks)
 
 Before writing any slide with HTML:
 
+- **Slide name comment** — The first line of every content slide must be `<!-- SLIDE: Name -->` using the pill label or heading as the name. Never omit this. It is the only reliable way to locate a slide — do NOT count `---` separators (they appear inside content too).
 - **Tag balance** — count every `<div>` and `</div>`; they must match exactly
 - **Consistent quotes** — use `"` throughout; never mix `"` and `'`
 - **Backtick balance** — count opening and closing backticks in code blocks
@@ -218,6 +219,8 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 
 | Mistake                     | Prevention                                                                     |
 | --------------------------- | ------------------------------------------------------------------------------ |
+| Counting `---` to find slides | **Nth `<!-- SLIDE: -->` = slide N**; `---` appears inside content too        |
+| Missing slide name comment  | First line of every content slide must be `<!-- SLIDE: Name -->`              |
 | Unclosed `<div>` tags       | Count open/close before writing                                                |
 | 7+ bullets on one slide     | Split at 5; create (1/2)/(2/2)                                                 |
 | Mixed `"` and `'` quotes    | Use `"` everywhere                                                             |

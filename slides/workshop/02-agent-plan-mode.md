@@ -16,37 +16,7 @@ status: active
 updated: 2026-03-25
 ---
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
-
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50">
-<img src="./sdp-logo.png" class="w-72" alt="" />
-</div>
-<img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
-</div>
-
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
-Module 2: Agent Plan Mode
-</h1>
-
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-⏰ Research before code
-</span>
-</div>
-
-<div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
-"The problem is not writing the code. The problem is knowing what to change, in what order, and why."
-</div>
-
-<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
-</div>
-
----
-
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-16 py-6">
+<!-- SLIDE: ⏰ The Plan Mode Story --><div class="h-full flex flex-col justify-center relative overflow-hidden px-16 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
 <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
@@ -95,11 +65,41 @@ Copilot understands the architecture, the team standards, and the shape of the p
 Plan mode turns <span class="text-orange-300">“Where do I start?”</span> into a reviewable roadmap before code starts landing.
 </p>
 </div>
-</div>
+<div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+    <div class="font-bold text-gray-400 text-xs">M1</div>
+    <div class="text-gray-500 mt-0.5">Instructions</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gradient-to-b from-orange-600/80 to-orange-800/60 rounded-lg border border-orange-400/50 text-center shadow-lg shadow-orange-900/30">
+    <div class="font-bold text-white text-xs">M2</div>
+    <div class="text-orange-200 mt-0.5">Plan Mode</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M3</div>
+    <div class="text-gray-500 mt-0.5">Prompts</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M4</div>
+    <div class="text-gray-500 mt-0.5">Skills</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M5</div>
+    <div class="text-gray-500 mt-0.5">MCP</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M6</div>
+    <div class="text-gray-500 mt-0.5">Agents</div>
+  </div>
+</div></div>
 
 ---
 
-
+<!-- SLIDE: 🎯 What You'll Build -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
 </div>
@@ -141,7 +141,7 @@ One feature, three exercises, one calmer path to implementation
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: 📚 What Plan Mode Actually Does --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Plan Mode Actually Does</span>
 </div>
 
@@ -191,7 +191,7 @@ One feature, three exercises, one calmer path to implementation
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: 🔗 The Plan-First Workflow --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 The Plan-First Workflow</span>
 </div>
 
@@ -233,7 +233,7 @@ One feature, three exercises, one calmer path to implementation
 layout: two-cols
 ---
 
-<div class="relative z-10 mb-2">
+<!-- SLIDE: ❌ Before — Jumping Straight to Code --><div class="relative z-10 mb-2">
 <span class="px-3 py-0.5 bg-gradient-to-r from-red-700/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before</span>
 </div>
 
@@ -283,7 +283,7 @@ layout: two-cols
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: ✅ What Good Plan Output Looks Like --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What Good Plan Output Looks Like</span>
 </div>
 
@@ -317,7 +317,7 @@ layout: two-cols
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: 📊 What to Validate in the Workshop --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 What to Validate in the Workshop</span>
 </div>
 
@@ -347,7 +347,7 @@ layout: two-cols
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: 🔨 Exercise Roadmap --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
 </div>
 
@@ -400,7 +400,7 @@ layout: two-cols
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: 🔨 Exercise Section Header --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Section</span>
 </div>
 
@@ -436,7 +436,7 @@ Exercises
 
 ---
 
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<!-- SLIDE: 🔨 Exercise 2.1: Invoking Plan Mode --><div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">2.1</div>
@@ -475,7 +475,7 @@ Marcus is staring at a lightweight enhancement to the character detail page. <st
 
 ---
 
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: 📋 Example: First Plan Output --><div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: First Plan Output</span>
@@ -505,7 +505,7 @@ Marcus is staring at a lightweight enhancement to the character detail page. <st
 
 ---
 
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<!-- SLIDE: 🔨 Exercise 2.2: Planning a Second Enhancement --><div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">2.2</div>
@@ -544,7 +544,7 @@ The team has one clean plan already. <strong class="text-white">Now David wants 
 
 ---
 
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: 📋 Example: Second Plan Output --><div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 
 <div class="relative z-10 mb-4">
@@ -583,7 +583,7 @@ The team has one clean plan already. <strong class="text-white">Now David wants 
 
 ---
 
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<!-- SLIDE: 🔨 Exercise 2.3: Combining Plans into a Delivery Roadmap --><div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">2.3</div>
@@ -622,7 +622,7 @@ Marcus now has two solid plans. <strong class="text-white">Instead of treating t
 
 ---
 
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: 📋 Example: Merged Roadmap --><div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 
 <div class="relative z-10 mb-4">
@@ -660,7 +660,7 @@ Marcus now has two solid plans. <strong class="text-white">Instead of treating t
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: 🔗 Compounding Value --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
 </div>
 
@@ -691,7 +691,7 @@ Better planning compounds because every later customization has a cleaner workfl
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: ✅ Module Checklist --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
 </div>
 
@@ -755,7 +755,7 @@ Better planning compounds because every later customization has a cleaner workfl
 
 ---
 
-<div class="relative z-10 mb-3">
+<!-- SLIDE: 📚 Keep the Foundation Evergreen --><div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 Keep the Foundation Evergreen</span>
 </div>
 
@@ -799,7 +799,7 @@ Better planning compounds because every later customization has a cleaner workfl
 
 ---
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<!-- SLIDE: 🎉 Module 2 Is Locked In --><div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 via-red-500/10 to-purple-500/15 rounded-full blur-3xl"></div>
 <div class="relative z-10 mb-4">
@@ -841,7 +841,37 @@ Better planning makes execution calmer. <span class="text-white font-semibold">C
 
 ---
 
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
+<!-- SLIDE: 🚀 Module 2: Agent Plan Mode (Cover) --><div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
+
+<div class="relative z-10">
+<div class="absolute inset-0 blur-2xl opacity-50">
+<img src="./sdp-logo.png" class="w-72" alt="" />
+</div>
+<img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
+</div>
+
+<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
+Module 2: Agent Plan Mode
+</h1>
+
+<div class="mt-4 relative z-10">
+<span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
+⏰ Research before code
+</span>
+</div>
+
+<div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
+"The problem is not writing the code. The problem is knowing what to change, in what order, and why."
+</div>
+
+<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
+</div>
+
+---
+
+<!-- SLIDE: 📊 Module 2 Impact --><div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
 <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>

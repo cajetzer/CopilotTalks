@@ -166,6 +166,38 @@ Strategic, outcome-focused, always connecting work to user value. Appreciates wh
 
 ---
 
+
+## Jessica — The Eager Junior
+
+**Experience:** 1 year
+
+### Background
+
+- Junior developer fresh out of a bootcamp, eight months into her first real job
+- Knows enough JavaScript and Python to be dangerous, not enough to feel safe
+- Watches senior engineers debug in seconds what takes her hours
+- Frequently second-guesses her own code before it's even written
+
+### Goals
+
+- Build skills fast enough to stop feeling like she doesn't belong
+- Deliver working features without needing to ask for help on every step
+- Understand *why* code works, not just copy patterns until something compiles
+- Prove to herself (and her team) that she earned her seat at the table
+
+### Fears
+
+- 😰 **Imposter syndrome in overdrive** — Everyone else seems to just *know* things she doesn't
+- 😰 **Being exposed as "not a real developer"** if she asks one more obvious question
+- 😰 **Relying on Copilot as a crutch** that prevents her from actually learning
+- 😰 **Breaking something in production** — The stakes feel impossibly high for every commit
+
+### Voice in Exercises
+
+Quietly terrified but quietly determined. Asks fewer questions than she should. Lights up when something clicks. Needs reassurance that using AI assistance is a skill, not a shortcut. Her transformation arc is about discovering that Copilot doesn't replace learning—it accelerates it.
+
+---
+
 ## The FanHub Team
 
 In this workshop, these six personas work together to build FanHub—a TV show fan site—in a 9-10 hour sprint. Each persona has a specific role and transformation arc:
@@ -177,6 +209,7 @@ In this workshop, these six personas work together to build FanHub—a TV show f
 | **Marcus** | DevOps & infrastructure | From infrastructure-only to full-stack confident |
 | **Elena** | Testing, quality assurance | From AI-skeptical QA to AI-assisted QA |
 | **Rafael** | Product, specifications | From requirements writer to execution enabler |
+| **Jessica** | Feature implementation, learning | From imposter syndrome to "I can do this" |
 
 ### The Story Arc
 
@@ -190,6 +223,7 @@ In this workshop, these six personas work together to build FanHub—a TV show f
 - Marcus gains full-stack confidence and masters deployment automation through systematic AI workflows
 - Elena integrates AI into quality assurance without sacrificing rigor
 - Rafael bridges requirements and implementation more effectively through domain skills
+- Jessica overcomes imposter syndrome and discovers that AI-assisted development accelerates genuine learning
 - The whole team works more effectively together
 
 ---
@@ -207,5 +241,6 @@ As you work through this training, consider which persona resonates most with yo
 | Come from infrastructure/DevOps | Marcus |
 | Focus on testing and quality | Elena |
 | Bridge business and technical teams | Rafael |
+| Are early in your career and feeling overwhelmed | Jessica |
 
 > **Remember:** This training exists to help developers at all levels embrace AI-assisted development while honoring the expertise they bring. AI is a tool; wisdom is human.

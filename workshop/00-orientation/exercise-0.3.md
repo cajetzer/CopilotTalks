@@ -98,7 +98,7 @@ Add a character detail page that shows:
 
 **Marcus thinks:** "Is Copilot even helping? This feels like fighting with autocomplete."
 
-**Priya worries:** "If I can't get good results, maybe I'm not using it right?"
+**Jessica worries:** "If I can't get good results, maybe I'm not using it right?"
 
 **Sarah observes:** "This is what I was afraid of. Generic garbage that doesn't understand our domain."
 

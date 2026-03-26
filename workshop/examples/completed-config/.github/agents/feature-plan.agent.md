@@ -116,6 +116,6 @@ IMPORTANT:
 
 ## Use Available Skills
 
-If the `feature-requirements` skill is available, reference it for ADR templates and planning best practices.
+If the `feature-requirements` skill is available, reference it for Feature Spec templates and planning best practices.
 
 Reference `.github/copilot-instructions.md` for coding standards that implementation must follow.

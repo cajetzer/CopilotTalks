@@ -119,6 +119,29 @@ When creating Slidev presentations, follow these principles:
 - **Balanced HTML for Slidev** — When a slide uses raw HTML, keep wrapper tags strictly balanced. Prefer one obvious outer container for section-opener slides, and verify every opened `<div>` is closed before the `---` slide separator.
 - **Ending slide quality** — Decks should include a polished references slide before the final slide and a designed thank-you slide, not plain closing text.
 
+### Slide Name Comments (required)
+
+Every content slide **must** begin with a named HTML comment:
+
+```html
+<!-- SLIDE: Slide Name Here -->
+```
+
+Use the slide's pill label or heading text as the name. This is the **only reliable way to locate a slide** — do not count `---` separators to find slides, as `---` also appears inside slide content (code examples, tables, horizontal rules) and produces unreliable counts.
+
+**The Nth `<!-- SLIDE: -->` comment = Slidev slide N** (1-indexed). To find slide 5:
+```powershell
+$comments = [regex]::Matches($content, '<!-- SLIDE:.*?-->')
+$name = $comments[4].Value  # index 4 = slide 5
+```
+
+**To find a slide by name:**
+```powershell
+[regex]::Match($content, '(?s)<!-- SLIDE: Mindset Shift -->.*?(?=\n---\n)').Value
+```
+
+**When editing or inserting slides**, always refer to them by their `<!-- SLIDE: Name -->` comment, not by position number.
+
 ### Slide Frontmatter Requirements
 
 All slide files **must** include these fields in the YAML frontmatter:

@@ -17,7 +17,8 @@ When generating or modifying test files, follow these standards.
 
 ## Test Categories
 
-Every function/component should have tests for:
+Every function/component must have tests for:
+
 1. **Happy path** — Normal successful operation
 2. **Edge cases** — Boundary conditions, empty inputs, max values
 3. **Error handling** — Invalid inputs, failures, exceptions
@@ -26,6 +27,7 @@ Every function/component should have tests for:
 ## FanHub-Specific Test Patterns
 
 For character/episode/show data:
+
 - Test with complete data AND partial data (missing optional fields)
 - Test empty arrays (character with no episodes, show with no quotes)
 - Test loading states and error states
@@ -40,16 +42,16 @@ For character/episode/show data:
 
 ```javascript
 // ✅ Good - mock external dependency at module level
-jest.mock('axios');
-import axios from 'axios';
+jest.mock("axios");
+import axios from "axios";
 
 beforeEach(() => {
   jest.clearAllMocks();
 });
 
 // ❌ Bad - inconsistent inline mocking
-it('should fetch data', () => {
-  jest.mock('axios');  // Don't mock inside tests
+it("should fetch data", () => {
+  jest.mock("axios"); // Don't mock inside tests
 });
 ```
 
@@ -57,19 +59,19 @@ it('should fetch data', () => {
 
 ```javascript
 // ✅ Test behavior, not implementation
-it('should display character episodes when data loads', async () => {
+it("should display character episodes when data loads", async () => {
   axios.get.mockResolvedValue({ data: mockCharacterWithEpisodes });
   render(<CharacterDetail id="1" />);
-  
+
   await waitFor(() => {
-    expect(screen.getByText('Episode 1')).toBeInTheDocument();
+    expect(screen.getByText("Episode 1")).toBeInTheDocument();
   });
 });
 
 // ❌ Don't test implementation details
-it('should call fetchCharacter once', async () => {
+it("should call fetchCharacter once", async () => {
   await getCharacter(1);
-  expect(fetchCharacter).toHaveBeenCalledTimes(1);  // Brittle!
+  expect(fetchCharacter).toHaveBeenCalledTimes(1); // Brittle!
 });
 ```
 
@@ -77,19 +79,19 @@ it('should call fetchCharacter once', async () => {
 
 ```javascript
 // Always test error scenarios for data-fetching components
-it('should show error message when character not found', async () => {
+it("should show error message when character not found", async () => {
   axios.get.mockRejectedValue({ response: { status: 404 } });
   render(<CharacterDetail id="999" />);
-  
+
   await waitFor(() => {
     expect(screen.getByText(/not found/i)).toBeInTheDocument();
   });
 });
 
-it('should show error message when network fails', async () => {
-  axios.get.mockRejectedValue(new Error('Network error'));
+it("should show error message when network fails", async () => {
+  axios.get.mockRejectedValue(new Error("Network error"));
   render(<CharacterDetail id="1" />);
-  
+
   await waitFor(() => {
     expect(screen.getByText(/error/i)).toBeInTheDocument();
   });

@@ -10,7 +10,7 @@
 
 Marcus now has two solid plans: one for adding a character tagline or summary, and one for adding status badges. Both are small. Both are reasonable. But if the team starts implementing them independently, they'll duplicate file analysis, repeat API changes, and risk doing the work in the wrong order.
 
-Before this workflow, that kind of sequencing problem created quiet inefficiency: one developer would update the response shape for summaries, another would reopen the same files for badges, and the team would only later realize the work should have been grouped.
+Before this workflow, that kind of sequencing problem created quiet inefficiency: one developer would update the response shape for summaries, another would reopen the same files for badges, and the team would only later realize the work could have been grouped.
 
 Now Marcus wants to turn two separate planning outputs into one practical roadmap: what should happen first, what can be combined, and where the dependencies overlap.
 
@@ -28,7 +28,7 @@ Combine the tagline and status badge plans into one prioritized implementation r
 #### 📋 Steps
 
 1. **Open Both Plans Side by Side**
-   
+
     Open the saved plan from Exercise 2.1:
 
     - `fanhub/docs/FEATURE-CHARACTER-TAGLINE.md`
@@ -40,7 +40,7 @@ Combine the tagline and status badge plans into one prioritized implementation r
     Read them together. You are not implementing yet. You are identifying overlap, dependencies, and the best order of work.
 
 2. **Identify Overlap Between the Plans**
-   
+
     In plan mode or in your notes, compare the two plans and look for shared work:
 
     - Do both plans touch the same API endpoint or response shape?
@@ -55,7 +55,7 @@ Combine the tagline and status badge plans into one prioritized implementation r
     - Shared test file locations
 
 3. **Ask Copilot to Build a Combined Roadmap**
-   
+
     In plan mode, ask Copilot to merge the two plans:
 
     ```
@@ -70,7 +70,7 @@ Combine the tagline and status badge plans into one prioritized implementation r
     **What to observe:** The plan agent is now acting like a sequencing assistant. Instead of generating a plan from scratch, it is synthesizing two smaller plans into one practical roadmap.
 
 4. **Review the Combined Roadmap**
-   
+
     Review the combined roadmap and verify:
 
     - [ ] The roadmap covers both tagline/summary and status badges
@@ -121,7 +121,7 @@ Combine the tagline and status badge plans into one prioritized implementation r
 
 **[Module 3: Custom Prompts](../03-custom-prompts/README.md)** — Turn repeated planning workflows into reusable prompt templates that capture your team's domain expertise.
 
-> *"We just planned two related enhancements with the same workflow. Can we save that planning pattern as a reusable template?"*  
+> *"We just planned two related enhancements with the same workflow. Can we save that planning pattern as a reusable template?"*
 > — Sarah, recognizing the next level of efficiency
 
 ---

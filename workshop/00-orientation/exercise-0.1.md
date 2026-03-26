@@ -74,7 +74,7 @@ Confirm GitHub Copilot is active (look for the Copilot icon in the status bar). 
 
 #### 🧠 Mindful Moment
 
-**Priya's realization:** "I don't need to know the whole codebase. I just need enough to start asking good questions."
+**Jessica's realization:** "I don't need to know the whole codebase. I just need enough to start asking good questions."
 
 **Sarah's note:** "The repo is messy by design. That's the point — you're about to make it yours."
 

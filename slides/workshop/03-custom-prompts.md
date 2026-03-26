@@ -16,36 +16,7 @@ status: active
 updated: 2026-03-25
 ---
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
-
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50">
-<img src="./sdp-logo.png" class="w-72" alt="" />
-</div>
-<img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
-</div>
-
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
-Module 3: Custom Prompts
-</h1>
-
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-⏰ Save the prompt, avoid the typing
-</span>
-</div>
-
-<div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
-"When a prompt has good reuse value, let's treat it as a function."
-</div>
-
-<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
-</div>
-
----
-
+<!-- SLIDE: Elena's Challenge -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-16 py-8">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
@@ -95,10 +66,43 @@ The standards are documented, and we've proved they work by planning features. I
 Custom prompts turn <span class="text-orange-300">personal prompt craft</span> into invokable team workflow.
 </p>
 </div>
+
+<div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+    <div class="font-bold text-gray-400 text-xs">M1</div>
+    <div class="text-gray-500 mt-0.5">Instructions</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
+    <div class="font-bold text-gray-400 text-xs">M2</div>
+    <div class="text-gray-500 mt-0.5">Plan Mode</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gradient-to-b from-orange-600/80 to-orange-800/60 rounded-lg border border-orange-400/50 text-center shadow-lg shadow-orange-900/30">
+    <div class="font-bold text-white text-xs">M3</div>
+    <div class="text-orange-200 mt-0.5">Prompts</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M4</div>
+    <div class="text-gray-500 mt-0.5">Skills</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M5</div>
+    <div class="text-gray-500 mt-0.5">MCP</div>
+  </div>
+  <div class="flex items-center text-gray-600 px-0.5">›</div>
+  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
+    <div class="font-bold text-gray-400 text-xs">M6</div>
+    <div class="text-gray-500 mt-0.5">Agents</div>
+  </div>
+</div>
 </div>
 
 ---
 
+<!-- SLIDE: What You'll Build -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
 </div>
@@ -134,6 +138,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: What Prompt Files Actually Are -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Prompt Files Actually Are</span>
 </div>
@@ -186,6 +191,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: Why Prompt Files Matter Here -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Why Prompt Files Matter Here</span>
 </div>
@@ -215,6 +221,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: What a Strong Prompt File Includes -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 What a Strong Prompt File Includes</span>
 </div>
@@ -260,6 +267,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: How Prompt Files Build on the Foundation -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 How Prompt Files Build on the Foundation</span>
 </div>
@@ -288,6 +296,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: Before and After -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
 <div class="relative z-10 grid grid-cols-2 gap-8">
@@ -334,6 +343,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: What to Validate in the Workshop -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 What to Validate in the Workshop</span>
 </div>
@@ -364,6 +374,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: Exercise Roadmap -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
 </div>
@@ -410,6 +421,7 @@ A docs-refresh prompt and a review prompt that stays grounded in living document
 
 ---
 
+<!-- SLIDE: Exercise Section -->
 # 🔨 Exercise Section
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
@@ -440,6 +452,7 @@ Exercises
 
 ---
 
+<!-- SLIDE: Exercise 3.1 Creating a Docs Refresh Prompt -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -479,6 +492,7 @@ After every meaningful code change, the team needs to refresh <span class="font-
 
 ---
 
+<!-- SLIDE: Example refresh-docs.prompt.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 mb-4">
@@ -506,6 +520,7 @@ After every meaningful code change, the team needs to refresh <span class="font-
 
 ---
 
+<!-- SLIDE: Exercise 3.2 Creating a Context-Aware Prompt File -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -545,6 +560,7 @@ Elena is tired of retyping the same character-detail request, and Sarah is tired
 
 ---
 
+<!-- SLIDE: Example character-review.prompt.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 mb-4">
@@ -573,6 +589,7 @@ Elena is tired of retyping the same character-detail request, and Sarah is tired
 
 ---
 
+<!-- SLIDE: Compounding Value -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
 </div>
@@ -621,6 +638,7 @@ Elena is tired of retyping the same character-detail request, and Sarah is tired
 
 ---
 
+<!-- SLIDE: Module Checklist -->
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
 </div>
@@ -673,6 +691,7 @@ Elena is tired of retyping the same character-detail request, and Sarah is tired
 
 ---
 
+<!-- SLIDE: Module 3 Is Locked In -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 via-red-500/10 to-purple-500/15 rounded-full blur-3xl"></div>
@@ -715,6 +734,38 @@ Prompt files make repeated work reusable. <span class="text-white font-semibold"
 
 ---
 
+<!-- SLIDE: Reference Material -->
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
+
+<div class="relative z-10">
+<div class="absolute inset-0 blur-2xl opacity-50">
+<img src="./sdp-logo.png" class="w-72" alt="" />
+</div>
+<img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
+</div>
+
+<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
+Module 3: Custom Prompts
+</h1>
+
+<div class="mt-4 relative z-10">
+<span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
+⏰ Save the prompt, avoid the typing
+</span>
+</div>
+
+<div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
+"When a prompt has good reuse value, let's treat it as a function."
+</div>
+
+<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
+</div>
+
+---
+
+<!-- SLIDE: Reusable prompts turn one good request into a team habit -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>

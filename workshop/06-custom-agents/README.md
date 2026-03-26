@@ -62,7 +62,7 @@ In **Module 5**, they connected **MCP servers**—direct access to databases, AP
 
 **AI-native thinking:** *"I'll create workflow-based agents that automatically configure tools, instructions, and capabilities for specific tasks—switching contexts becomes instant."*
 
-This isn't just about convenience. Custom agents transform Copilot from a general-purpose assistant into a specialized teammate for each role. A "Character Review" agent can stay read-only while bundling the team's prompt, skill, and MCP workflow. An "Implement" agent can focus on systematic ADR execution and then hand off cleanly into review. A "DevOps" agent can still bundle infrastructure skills and deployment MCP servers. The result: context-appropriate AI assistance with zero configuration overhead.
+This isn't just about convenience. Custom agents transform Copilot from a general-purpose assistant into a specialized teammate for each role. A "Character Review" agent can stay read-only while bundling the team's prompt, skill, and MCP workflow. An "Implement" agent can focus on systematic Feature Spec execution and then hand off cleanly into review. A "DevOps" agent can still bundle infrastructure skills and deployment MCP servers. The result: context-appropriate AI assistance with zero configuration overhead.
 
 ---
 
@@ -110,7 +110,7 @@ This isn't just about convenience. Custom agents transform Copilot from a genera
 
 **Custom agents** bundle instructions, tools, skills, and MCP servers into workflow configurations you can instantly switch between. You'll create specialized agents for implementation and character review, then end with an "art of the possible" example showing how agent teams can extend those ideas further.
 
-**Time:** ~65 minutes | **Exercises:** 4
+**Time:** ~75 minutes | **Exercises:** 5
 
 ---
 
@@ -122,8 +122,9 @@ The exercises below create custom agents that orchestrate capabilities from Modu
 |---|----------|------|---------|---------|----------|-------------|-----------|
 | [6.1](exercise-6.1.md) | Understand the Default Plan Agent | All | All | Need to understand agent structure before building custom ones: frontmatter, tools, handoffs, stopping rules, workflows | Reverse-engineer Microsoft's `@plan` agent to learn production-quality patterns for role enforcement, tool selection, and workflow design | 100% questions answered, understand all agent components, ready to build own agents | Knowledge of agent architecture and best practices |
 | [6.2](exercise-6.2.md) | Create Character Review Agent | Elena | Sarah | Manual review setup: 5 min rebuilding prompt, skill, and MCP context before each character-detail review | `@character-review` agent with read-only tools that bundles the Module 3.2 prompt, Module 4.2 skill, and Module 5.2 MCP workflow into one role | 5→0 min setup, repeatable review behavior, live-data checks easier to trigger | `.github/agents/character-review.agent.md` |
-| [6.3](exercise-6.3.md) | Create Implementation Agent for ADR Execution | Sarah | Marcus, David | Manual ADR implementation: 8 min reading/searching, 60% first-time completeness (missing components), ad-hoc order causing rework | `@implement` agent with full editing tools, API design skill, ADR-reading workflow, handoff to @character-review | 8→0 min setup, 60%→100% completeness, systematic execution order, integrated review workflow | `.github/agents/implement.agent.md`, verified ADR-driven implementation |
-| [6.4](exercise-6.4.md) | Explore Agent Teams with Squad | Marcus | Sarah, Rafael | Custom agents solve focused workflow problems, but it is still hard to picture what a persistent multi-agent development team could look like in practice | Install Squad, initialize a team in the repo, and use it for a simple FanHub-style agent-team interaction | working Squad install, `.squad/` created, clear understanding of custom agents vs. agent teams | `.squad/`, initial Squad team setup |
+| [6.3](exercise-6.3.md) | Create Implementation Agent for Feature Spec Execution | Sarah | Marcus, David | Manual Feature Spec implementation: 8 min reading/searching, 60% first-time completeness (missing components), ad-hoc order causing rework | `@implement` agent with full editing tools, Feature Spec-reading workflow, handoff to @character-review | 8→0 min setup, 60%→100% completeness, systematic execution order, integrated review workflow | `.github/agents/implement.agent.md` |
+| [6.4](exercise-6.4.md) | Sharpen the Feature Spec | David | Sarah, Marcus | Implementation agent produces incomplete or misaligned output when the spec leaves gaps | Use `@plan` to audit and improve the Feature Spec before passing it to `@implement` — resolve API shapes, migrations, and test expectations from real codebase evidence | Spec grows from design doc to implementation contract; `/implement` output is more complete and reliable | Improved `fanhub/docs/FEATURE-CHARACTER-DETAIL.md` |
+| [6.5](exercise-6.5.md) | Explore Agent Teams with Squad | Marcus | Sarah, Rafael | Custom agents solve focused workflow problems, but it is still hard to picture what a persistent multi-agent development team could look like in practice | Install Squad, initialize a team in the repo, and use it for a simple FanHub-style agent-team interaction | working Squad install, `.squad/` created, clear understanding of custom agents vs. agent teams | `.squad/`, initial Squad team setup |
 
 ---
 
@@ -135,8 +136,9 @@ The exercises below create custom agents that orchestrate capabilities from Modu
 
 **What you'll build:**
 - **Character review agent** — Read-only tools, character-review workflow, duplicate-data escalation through MCP when relevant
-- **Implementation agent** — Full editing capabilities, API design skills, systematic ADR execution workflow
+- **Implementation agent** — Full editing capabilities, systematic Feature Spec execution workflow
 - **Connected workflow** — Handoff from implementation into prompt + skill + MCP-backed character review
+- **Sharpened Feature Spec** — Plan mode audits and improves the spec before implementation runs
 - **Agent-team capstone** — An example of persistent multi-agent collaboration using Squad
 
 **Official Documentation:**

@@ -11,6 +11,7 @@ This skill helps validate TV show data against FanHub's domain rules and busines
 ## When to Use This Skill
 
 Use this skill when:
+
 - Creating or updating TV show data
 - Validating data imports or migrations
 - Writing tests that need valid test data
@@ -38,6 +39,7 @@ Shows (1) ───────────────────────�
 ### Core Entities
 
 #### Shows
+
 - **Required fields**: `title`, `start_year`
 - **Optional fields**: `end_year`, `genre`, `description`, `network`, `status`
 - **Constraints**:
@@ -47,6 +49,7 @@ Shows (1) ───────────────────────�
   - `status` must be: 'running', 'ended', 'cancelled', or 'upcoming'
 
 #### Characters
+
 - **Required fields**: `name`, `show_id`
 - **Optional fields**: `actor_name`, `status`, `bio`, `is_main_character`
 - **Constraints**:
@@ -56,6 +59,7 @@ Shows (1) ───────────────────────�
   - `show_id` must reference an existing show
 
 #### Episodes
+
 - **Required fields**: `title`, `show_id`, `season_number`, `episode_number`
 - **Optional fields**: `air_date`, `synopsis`, `runtime_minutes`, `director`, `writer`
 - **Constraints**:
@@ -66,6 +70,7 @@ Shows (1) ───────────────────────�
   - `air_date` should not be in the future (unless show status is 'upcoming')
 
 #### Quotes
+
 - **Required fields**: `quote_text`, `show_id`
 - **Optional fields**: `character_id`, `episode_id`, `speaker_context`
 - **Constraints**:
@@ -79,18 +84,21 @@ Shows (1) ───────────────────────�
 ### Cross-Entity Validation
 
 1. **Character-Show Consistency**
+
    ```
    INVALID: Character references show_id=5, but that show doesn't exist
    VALID: Character's show_id matches an existing show
    ```
 
 2. **Quote-Character Consistency**
+
    ```
    INVALID: Quote has show_id=1 but character_id references character from show_id=2
    VALID: Quote's character belongs to the same show as the quote
    ```
 
 3. **Episode-Season Consistency**
+
    ```
    INVALID: Episode references season_number=3 but show only has 2 seasons
    VALID: Episode's season exists for that show
@@ -110,13 +118,13 @@ Shows (1) ───────────────────────�
    - Related character relationships should be bidirectional
 
 2. **Episode Ordering**
-   - Episodes within a season should have sequential episode numbers
+   - Episodes within a season use sequential episode numbers
    - No gaps in episode numbering (1, 2, 3... not 1, 3, 5)
    - Season numbers should be sequential (1, 2, 3... not 1, 3)
 
 3. **Quote Attribution**
-   - Quotes with `character_id` should have proper attribution
-   - Quotes without `character_id` should have `speaker_context` for context
+   - Quotes with `character_id` require proper attribution
+   - Quotes without `character_id` require `speaker_context` for context
    - Famous quotes should be verified for accuracy
 
 ## Validation Examples
@@ -163,19 +171,19 @@ Shows (1) ───────────────────────�
   "character": {
     "name": "Jesse Pinkman",
     "show_id": 1,
-    "status": "retired"  // ❌ Invalid status - must be alive/deceased/unknown
+    "status": "retired" // ❌ Invalid status - must be alive/deceased/unknown
   },
   "episode": {
     "title": "Future Episode",
     "show_id": 1,
     "season_number": 1,
     "episode_number": 1,
-    "air_date": "2099-01-01"  // ❌ Future date for ended show
+    "air_date": "2099-01-01" // ❌ Future date for ended show
   },
   "quote": {
     "quote_text": "Famous quote",
     "show_id": 1,
-    "character_id": 999  // ❌ References non-existent character
+    "character_id": 999 // ❌ References non-existent character
   }
 }
 ```
@@ -214,6 +222,7 @@ When building episode detail pages:
 ## Integration with Other Skills
 
 This skill works alongside:
+
 - **bug-reproduction-test-generator**: Provides schema knowledge for writing valid test data
 - **feature-requirements**: Ensures features respect data model constraints
 - **effort-estimator**: Understanding data complexity informs effort estimates
@@ -221,6 +230,7 @@ This skill works alongside:
 ## When NOT to Use This Skill
 
 Don't use this skill for:
+
 - General code style or formatting questions
 - Non-FanHub domain data validation
 - Authentication or authorization logic

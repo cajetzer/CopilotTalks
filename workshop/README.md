@@ -60,7 +60,7 @@ Throughout this training, you'll work alongside six personas representing real d
 
 - **Sarah** (15 years) — Skeptical senior who demands proof of value
 - **Marcus** (5 years) — DevOps dev improving application skills
-- **Priya** (1 year) — Recent grad eager to learn
+- **Jessica** (1 year) — Recent grad eager to learn
 - **David** (20 years) — Seasoned architect concerned about relevance
 - **Elena** (8 years) — Quality champion ensuring comprehensive testing
 - **Rafael** (10 years) — Product visionary bridging business and tech
@@ -139,7 +139,7 @@ Every module connects back to these core ideas:
 | **6: MCP Servers** | 75 min | Connect to SQLite, GitHub via Model Context Protocol | Knowledge → Action | MCP config, databases |
 | **7: Custom Agents** ⭐ | 90 min | **THE FINALE** — Autonomous agent orchestrates everything you've built | Sequential → Autonomous | Agent design, orchestration |
 
-**Featured Personas:** Sarah (skeptical senior), Marcus (DevOps), David (architect), Elena (QA), Rafael (product), Priya (junior)
+**Featured Personas:** Sarah (skeptical senior), Marcus (DevOps), David (architect), Elena (QA), Rafael (product), Jessica (junior)
 
 ---
 

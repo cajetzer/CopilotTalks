@@ -174,9 +174,8 @@ The exercises below demonstrate how prompt files transform repetitive tasks into
 
 | # | Exercise | Lead | Support | Problem | Solution | Key Metrics | Artifacts |
 |---|----------|------|---------|---------|----------|-------------|-----------|
-| [3.1](exercise-3.1.md) | Creating Your First Prompt File | Elena | Marcus | Character enhancement tests are still requested manually: 3 min each, inconsistent edge-case coverage | Create `.github/prompts/character-test-suite.prompt.md` for standardized tagline and status badge test generation | 3→0.1 min per invocation, 5 invocations/day = 14.5 min/day saved | `.github/prompts/character-test-suite.prompt.md` |
-| [3.2](exercise-3.2.md) | Referencing Standards and Docs | Sarah | David | Character detail reviews still repeat standards and roadmap context: 8 lines, 3 min setup, missed checks | Create `/character-review` prompt that links to copilot-instructions.md, ARCHITECTURE.md, and the Module 2 roadmap | 8→1 lines, 3→0.1 min setup, 0 missed checks | `.github/prompts/character-review.prompt.md` |
-| [3.3](exercise-3.3.md) | Variable-Driven Prompts | Marcus | Rafael, Elena | Planning the next character enhancement still requires retyping feature names and context | Create `/character-enhancement-plan` with input variables for the next follow-on enhancement | 5→0.5 min context gathering, 10× faster planning | `.github/prompts/character-enhancement-plan.prompt.md` |
+| [3.1](exercise-3.1.md) | Creating a Docs Refresh Prompt | Sarah | David | 6 min | Keep foundational docs evergreen after code changes |
+| [3.2](exercise-3.2.md) | Creating a Context-Aware Prompt File | Elena | Sarah | 12 min | Save one reusable prompt with docs, roadmap, and variables |
 
 ---
 

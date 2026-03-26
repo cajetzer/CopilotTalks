@@ -73,7 +73,7 @@ Each character represents a real archetype that learners recognize—either in t
 | **Sarah** | 15 years | Sprint Lead | Skeptical challenger | Convinced advocate |
 | **David** | 20 years | Architect | Worried about relevance | Empowered expert |
 | **Marcus** | 5 years | DevOps Developer | Infrastructure-only | Full-stack + automation confident |
-| **Priya** | 1 year | Junior Dev | Intimidated learner | Empowered contributor |
+| **Jessica** | 1 year | Junior Dev | Intimidated learner | Empowered contributor |
 | **Elena** | 8 years | QA Lead | Quality skeptic | AI-assisted QA champion |
 | **Rafael** | 10 years | Product Manager | Requirements writer | Execution enabler |
 
@@ -193,9 +193,9 @@ David's "will AI replace me?" fear must be handled carefully:
 3. **Create "AI got it wrong" moments** — Experience catches AI mistakes
 4. **Celebrate expertise** — Deep knowledge produces better AI results
 
-### The Learner's Growth (Priya's Arc)
+### The Learner's Growth (Jessica's Arc)
 
-Priya represents anyone feeling overwhelmed:
+Jessica represents anyone feeling overwhelmed:
 
 1. **Normalize not knowing** — It's okay to be new
 2. **Celebrate questions** — Curiosity is a strength

@@ -4,7 +4,7 @@
 
 ### Exercise 1.1: Create ARCHITECTURE.md — "Reduce Context Waste with Structural Documentation"
 
-**Lead:** David ⭐ | **Support:** All 🤝 | **Time:** 15 min
+**Lead:** David ⭐ | **Support:** All 🤝 | **Time:** 10 min
 
 #### 📖 The Challenge
 
@@ -28,15 +28,15 @@ Create `fanhub/docs/ARCHITECTURE.md` that gives Copilot (and humans) structural 
 #### 📋 Steps
 
 1. **Open Copilot Chat and use `@workspace` to analyze the structure**
-   
+
    ```
-   @workspace Analyze the FanHub project structure. Create an ARCHITECTURE.md 
+   @workspace Analyze the FanHub project structure. Create an ARCHITECTURE.md
    that includes:
    - Tech stack (frontend, backend, database)
    - Folder structure (what goes where)
    - Data flow (how requests move through the system)
    - Key patterns (how we handle routes, database queries, API calls)
-   
+
    Keep it concise—focus on structure, not implementation details.
    Save to fanhub/docs/ARCHITECTURE.md
    ```
@@ -44,31 +44,31 @@ Create `fanhub/docs/ARCHITECTURE.md` that gives Copilot (and humans) structural 
    **Expected behavior:** Copilot analyzes the workspace and generates documentation covering the React frontend, Express backend, SQLite database, and folder organization.
 
 2. **Review the generated ARCHITECTURE.md**
-   
+
    Open `fanhub/docs/ARCHITECTURE.md` and verify it includes:
    - **Tech Stack** section listing React, Express, SQLite, Docker
    - **Folder Structure** section showing `/frontend`, `/backend`, `/docs`
    - **Data Flow** section explaining request routing
    - **Key Patterns** section describing how routes, database access, and error handling work
-   
+
    Look for any inaccuracies (files that don't exist, wrong patterns) and correct them.
 
 3. **Test the improvement with a query**
-   
+
    In Copilot Chat, ask:
    ```
    @workspace Where should I add a new database query for retrieving show details?
    ```
-   
+
    **Expected result:** Copilot references ARCHITECTURE.md and immediately suggests `backend/src/database/` following the documented pattern. Response should be faster (2-3 seconds) and more specific than before.
 
 4. **Refine based on team feedback**
-   
+
    Share the ARCHITECTURE.md with the team. Ask:
    - Is the tech stack complete?
    - Does the folder structure match reality?
    - Are the key patterns accurate?
-   
+
    Make any necessary adjustments before committing.
 
 #### ✅ Success Criteria
@@ -104,7 +104,7 @@ Create `fanhub/docs/ARCHITECTURE.md` that gives Copilot (and humans) structural 
 
 **[Exercise 1.2: Create copilot-instructions.md](exercise-1.2.md)** — Now that Copilot knows your structure, teach it your standards
 
-> *"Architecture documentation tells Copilot WHERE things go. Now we need to tell it HOW to write them."*  
+> *"Architecture documentation tells Copilot WHERE things go. Now we need to tell it HOW to write them."*
 > — Sarah, ready to enforce React patterns automatically
 
 ---

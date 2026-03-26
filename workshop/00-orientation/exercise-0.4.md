@@ -110,7 +110,7 @@ Create `docs/my-success-metrics.md`:
 
 **David realizes:** "I spent 20 years learning to write code. Now I need to learn to express what I know clearly. That's not a step backward—it's the next level."
 
-**Priya realizes:** "I don't need to know everything. I need to know what questions to ask and how to evaluate the answers."
+**Jessica realizes:** "I don't need to know everything. I need to know what questions to ask and how to evaluate the answers."
 
 **Sarah decides:** "I'll measure this by time-to-production and code quality, not by 'cool AI tricks.' Show me the value."
 
