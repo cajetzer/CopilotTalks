@@ -293,47 +293,44 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 
 ---
 
-<!-- SLIDE: Before and After -->
+<!-- SLIDE: 💭 The Team, After Module 3 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
-<div class="relative z-10 grid grid-cols-2 gap-8">
-<div class="pr-4 border-r border-white/10">
-<div class="mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-red-700/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before</span>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 3</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="space-y-4 text-left">
-<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
-  <div class="font-bold text-red-300 mb-2">High-value prompts are trapped in notes</div>
-  <div class="text-sm text-gray-300">The team retypes or copy-pastes prompts instead of treating them like reusable assets.</div>
-</div>
-<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
-  <div class="font-bold text-red-300 mb-2">Manual setup adds friction</div>
-  <div class="text-sm text-gray-300">Every review, test, or debugging prompt requires recreating context by hand.</div>
-</div>
-<div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
-  <div class="font-bold text-red-300 mb-2">Standards are easy to miss</div>
-  <div class="text-sm text-gray-300">A forgotten checklist item or stale copied guidance leads to inconsistent outcomes.</div>
-</div>
-</div>
-</div>
-<div class="pl-4">
-<div class="mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-green-700/80 to-green-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ After</span>
-</div>
-<div class="space-y-4 text-left">
-<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
-  <div class="font-bold text-green-300 mb-2">Invocation is instant</div>
-  <div class="text-sm text-gray-300">The team can run strong prompts in seconds instead of rebuilding them from memory.</div>
-</div>
-<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
-  <div class="font-bold text-green-300 mb-2">Context is captured more reliably</div>
-  <div class="text-sm text-gray-300">Variables and linked docs keep the prompt grounded in the current file, current selection, and current standards.</div>
-</div>
-<div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
-  <div class="font-bold text-green-300 mb-2">Team reuse becomes real</div>
-  <div class="text-sm text-gray-300">A good prompt stops being personal know-how and starts becoming shared workflow.</div>
-</div>
-</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I saved my first prompt file today. Now the whole team can run it. That&#39;s... that&#39;s just software, but for prompts."</div>
+<div class="text-xs text-gray-500">First contribution the whole team will actually use.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"A prompt file is just an interface contract for a repeatable workflow. We have been doing this with scripts for decades."</div>
+<div class="text-xs text-gray-500">Thirty years of patterns, now expressible in markdown.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I ran the doc refresh prompt on three files. Same quality, zero context-setting. This is what reuse should feel like."</div>
+<div class="text-xs text-gray-500">Quality consistent enough to stop explaining it.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Does the prompt file version? Can I see diffs? ...Yes? Then this is just code review for prompts."</div>
+<div class="text-xs text-gray-500">Version control solved every objection she had.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Saving prompts as files is like... remembering things permanently. For the whole team. That&#39;s kind of amazing, actually."</div>
+<div class="text-xs text-gray-500">Immediately saved four more.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Prompt files encode what 'done' looks like. Nobody debates it because it&#39;s in the file."</div>
+<div class="text-xs text-gray-500">Definition of done, shipped in a .prompt.md.</div>
 </div>
 </div>
 </div>

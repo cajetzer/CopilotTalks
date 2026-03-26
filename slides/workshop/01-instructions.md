@@ -1448,23 +1448,22 @@ Every minute invested here pays off forever because the context keeps getting re
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-500/15 via-red-500/10 to-purple-500/15 rounded-full blur-3xl"></div>
-<div class="relative z-10 mb-4">
+<div class="relative z-10 mb-2">
 <div class="absolute inset-0 blur-2xl opacity-50">
-<img src="./sdp-logo.png" class="w-48 mx-auto" alt="" />
+<img src="./sdp-logo.png" class="w-32 mx-auto" alt="" />
 </div>
-<img src="./sdp-logo.png" class="w-48 mx-auto relative" alt="SDP Logo" />
+<img src="./sdp-logo.png" class="w-32 mx-auto relative" alt="SDP Logo" />
 </div>
-<h1 class="!text-[2.7rem] !font-bold !mb-3 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
+<h1 class="!text-4xl !font-bold !mb-2 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
 Module 1 Is Locked In
 </h1>
-<div class="relative z-10 flex items-center gap-3 mb-6">
-<span class="px-5 py-2 bg-gradient-to-r from-purple-600/80 to-red-600/80 rounded-full text-white text-base font-medium shadow-lg shadow-purple-500/25">
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1.5 bg-gradient-to-r from-purple-600/80 to-red-600/80 rounded-full text-white text-sm font-medium shadow-lg shadow-purple-500/25">
 🧠 Next Up: Module 2 — Agent Plan Mode
 </span>
-
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 grid grid-cols-3 gap-3 max-w-3xl w-full px-6 mb-6">
+<div class="relative z-10 grid grid-cols-3 gap-2 max-w-3xl w-full px-6 mb-3">
 <div class="p-3 bg-gradient-to-br from-orange-900/40 to-orange-800/20 rounded-xl border border-orange-500/30 text-center">
 <div class="text-xl mb-1">🏗️</div>
 <div class="text-orange-300 font-bold text-sm">You Built the Baseline</div>
@@ -1481,66 +1480,61 @@ Module 1 Is Locked In
 <div class="text-gray-400 text-xs mt-1">Module 2 teaches Copilot to think through the work before it starts typing</div>
 </div>
 </div>
-<div class="relative z-10 p-4 bg-gradient-to-r from-orange-900/30 via-red-900/20 to-purple-900/30 rounded-xl border border-orange-500/30 max-w-3xl w-full px-10 mb-6 text-center shadow-lg shadow-orange-900/20">
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/30 via-red-900/20 to-purple-900/30 rounded-xl border border-orange-500/30 max-w-3xl w-full px-8 mb-3 text-center shadow-lg shadow-orange-900/20">
 Better instructions create better starting conditions. <span class="text-white font-semibold">Module 2 turns that strong context into better decisions.</span>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
 </div>
+
 ---
 
-<!-- SLIDE: The baseline changes how the whole team works -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-3">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
+<!-- SLIDE: 💭 The Team, After Module 1 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 1</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Wait — it just found all our patterns? I've been copying those from Marcus's PR comments one by one. ...Does everyone else already know about this?"</div>
+<div class="text-xs text-gray-500">The moment imposter syndrome took a lunch break.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The codebase doesn't tell Copilot what it's for. That's not a Copilot limitation — that's just information nobody wrote down yet."</div>
+<div class="text-xs text-gray-500">Twenty years of hard lessons, now in a file.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I've answered 'What is Breaking Bad about?' twelve times this week. After this, the answer lives in the file — zero times next week."</div>
+<div class="text-xs text-gray-500">ROI measured in review cycles, not enthusiasm.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Fine. But does your TypeScript rule activate on a .tsx file? Did you check? That's the one that bites."</div>
+<div class="text-xs text-gray-500">Suspicious by default. Convinced by process.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The best instruction file isn't one you read. It's one you never have to. Like good Wi-Fi — you only notice when it's gone. ...anyway."</div>
+<div class="text-xs text-gray-500">Clicked the moment it had an analogy.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The architecture is fine. The data is wrong. One file fixes both. I'm already thinking about Module 2."</div>
+<div class="text-xs text-gray-500">Translating everything to OKR-speak since 2019.</div>
+</div>
+</div>
+</div>
 
-<div class="relative z-10 text-center mb-3">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 1 impact</div>
-<h1 class="!text-3xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
-The baseline changes how the whole team works
-</h1>
-<div class="text-sm text-gray-300 max-w-4xl mx-auto">
-Clearer defaults, sharper guidance, and fewer avoidable corrections before work even starts.
-</div>
-</div>
-
-<div class="relative z-10 grid grid-cols-5 gap-3">
-<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
-<div class="text-orange-300 font-bold text-sm mb-2">Sarah</div>
-<div class="text-sm text-white leading-snug mb-3">“Fine. If it stops me from leaving the same comment seventeen times in code review, it earned its keep.”</div>
-<div class="text-xs text-gray-400">ROI measured in review cycles, not enthusiasm.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-<div class="text-emerald-300 font-bold text-sm mb-2">Marcus</div>
-<div class="text-sm text-white leading-snug mb-3">“Wait — so it's like the Wi-Fi password for Copilot? You tell it the network once and it just knows? Okay yeah, I'm in.”</div>
-<div class="text-xs text-gray-400">Clicked the moment it had an analogy.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-<div class="text-blue-300 font-bold text-sm mb-2">David</div>
-<div class="text-sm text-white leading-snug mb-3">“Technically we're encoding assumptions, not instructions. Which is arguably more valuable  assumptions are what usually bite you.”</div>
-<div class="text-xs text-gray-400">Twenty years of hard lessons, now in a file.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
-<div class="text-purple-300 font-bold text-sm mb-2">Elena</div>
-<div class="text-sm text-white leading-snug mb-3">“But what if someone edits the instructions file and breaks the scoping? ...Actually that's just a PR. Okay, that's fine.”</div>
-<div class="text-xs text-gray-400">Suspicious by default. Convinced by process.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-sm mb-2">Rafael</div>
-<div class="text-sm text-white leading-snug mb-3">“This maps to alignment. If Copilot's aligned on how we build, that's cycles we're not spending re-explaining context every sprint.”</div>
-<div class="text-xs text-gray-400">Translating everything to OKR-speak since 2019.</div>
-</div>
-</div>
-
-<div class="relative z-10 mt-3 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
-<div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
-<div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
-</div>
-</div>
 
 ---
 

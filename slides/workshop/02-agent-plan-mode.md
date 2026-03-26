@@ -1183,56 +1183,49 @@ Better planning makes execution calmer. <span class="text-white font-semibold">C
 
 ---
 
-<!-- SLIDE: 📊 Module 2 Impact -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
+<!-- SLIDE: 💭 The Team, After Module 2 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
-
-<div class="relative z-10 text-center mb-3">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 2 impact</div>
-<h1 class="!text-2xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
-Planning turns good intent into a calmer execution path
-</h1>
-<div class="text-sm text-gray-300 max-w-4xl mx-auto">
-The team leaves with smaller, clearer moves instead of vague goals and implementation thrash.
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 2</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Marcus said 'use plan mode.' I didn&#39;t know that was a thing. Now I have a whole roadmap before I&#39;ve touched a single file."</div>
+<div class="text-xs text-gray-500">Found a workflow nobody put in the onboarding docs.</div>
 </div>
-
-<div class="relative z-10 grid grid-cols-5 gap-3">
-<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
-<div class="text-orange-300 font-bold text-sm mb-2">Sarah</div>
-<div class="text-sm text-white leading-snug mb-2">"I&#39;ve seen teams plan for weeks and still blow up. This gets the hard questions answered in minutes."</div>
-<div class="text-xs text-gray-400">Concrete evidence matters more than promises — now she has it.</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The plan surfaces assumptions before they become implementation constraints. That is not a shortcut — that is just better engineering."</div>
+<div class="text-xs text-gray-500">Externalizes the unknowns before they become blockers.</div>
 </div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-<div class="text-blue-300 font-bold text-sm mb-2">Marcus</div>
-<div class="text-sm text-white leading-snug mb-2">"Give me the workflow. This is it — five minutes of planning, then I actually know where to start."</div>
-<div class="text-xs text-gray-400">Practical, friction-free, repeatable. Exactly what he wants.</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"It flagged a dependency conflict and identified the right files before we wrote a line. I ran the numbers. Yes."</div>
+<div class="text-xs text-gray-500">Measured it. Liked what she found.</div>
 </div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
-<div class="text-purple-300 font-bold text-sm mb-2">David</div>
-<div class="text-sm text-white leading-snug mb-2">"It&#39;s not replacing my judgment — it&#39;s doing the tedious groundwork. I can focus on the important decisions."</div>
-<div class="text-xs text-gray-400">Expertise is amplified, not bypassed.</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The plan output has open questions in it. Which means it doesn&#39;t pretend to know things it doesn&#39;t. That I can work with."</div>
+<div class="text-xs text-gray-500">Trusts the tool that shows its work.</div>
 </div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-<div class="text-emerald-300 font-bold text-sm mb-2">Elena</div>
-<div class="text-sm text-white leading-snug mb-2">"The plan surface is the test surface. When I can see the steps before anyone writes code, I can write the tests first."</div>
-<div class="text-xs text-gray-400">Shift-left gets real when quality enters at planning time.</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Wait — it planned the whole feature? The files, the order, the dependencies? I just asked? That&#39;s it?"</div>
+<div class="text-xs text-gray-500">Immediately wanted to try it on something bigger.</div>
 </div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-sm mb-2">Rafael</div>
-<div class="text-sm text-white leading-snug mb-2">"For the first time I can hand a PM-readable plan to stakeholders and a dev-ready sequence to the team."</div>
-<div class="text-xs text-gray-400">Business and engineering finally speaking the same language.</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Execution without a plan is expensive guessing. This turns 'let&#39;s see what happens' into a sequenced delivery roadmap."</div>
+<div class="text-xs text-gray-500">Already mapped it to Q3 velocity targets.</div>
 </div>
-</div>
-
-<div class="relative z-10 mt-6 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
-<div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
-<div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
 </div>
 </div>

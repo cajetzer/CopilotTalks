@@ -1228,54 +1228,45 @@ Module 6 is where the earlier customizations stop feeling like parts and start f
 </div>
 ---
 
-<!-- SLIDE: The workflow feels different now -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
-
-<div class="relative z-10 text-center mb-6">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 6 impact</div>
-<h1 class="!text-3xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
-The workflow feels different now
-</h1>
-<div class="text-sm text-gray-300 max-w-4xl mx-auto">
-Less setup, clearer handoffs, and a better sense of how Copilot fits into real team delivery.
+<!-- SLIDE: 💭 The Team, After Module 6 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 6</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I built an agent today. A real one. It has a name, instructions, and it knows our show. I&#39;m going to show everyone."</div>
+<div class="text-xs text-gray-500">Built something with her name on it.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"A custom agent is a well-specified collaborator. Give it context, tools, and a clear mandate — and it operates consistently."</div>
+<div class="text-xs text-gray-500">A collaborator, not a chatbot.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The show-expert agent produced better content than the prompts we&#39;d been iterating on for three modules. First pass."</div>
+<div class="text-xs text-gray-500">Better first draft than three modules of iteration.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"It has constraints, a persona, and escalation rules. It&#39;s the first AI tool I&#39;d actually trust in production."</div>
+<div class="text-xs text-gray-500">The first AI tool she&#39;d sign off on for production.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I gave the agent a bad question on purpose. It said it didn&#39;t know and asked for clarification. That&#39;s the first time I&#39;ve trusted it."</div>
+<div class="text-xs text-gray-500">Trusted it because it admitted uncertainty.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"One agent deployment covers every future content task for this feature. That&#39;s not velocity — that&#39;s leverage."</div>
+<div class="text-xs text-gray-500">Leverage that compounds across every sprint.</div>
 </div>
-
-<div class="relative z-10 grid grid-cols-5 gap-3">
-<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
-<div class="text-orange-300 font-bold text-sm mb-2">Sarah</div>
-<div class="text-sm text-white leading-snug mb-3">“The real win is not just faster implementation — it’s making review the natural next step instead of an afterthought.”</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-<div class="text-emerald-300 font-bold text-sm mb-2">Marcus</div>
-<div class="text-sm text-white leading-snug mb-3">“This is the first time I can really picture agent workflows scaling beyond one specialized role at a time.”</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-<div class="text-blue-300 font-bold text-sm mb-2">David</div>
-<div class="text-sm text-white leading-snug mb-3">“What I like here is that the agent doesn’t replace judgment — it gives the team a stronger operating model for using it.”</div>
-<div class="text-xs text-gray-400">Good agents don't replace judgment — they give it structure.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
-<div class="text-purple-300 font-bold text-sm mb-2">Elena</div>
-<div class="text-sm text-white leading-snug mb-3">“Now the full character-review workflow feels like one teammate instead of three separate setup steps.”</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-sm mb-2">Rafael</div>
-<div class="text-sm text-white leading-snug mb-3">“This is the first module where I can see requirements, implementation, and review connecting as one delivery story.”</div>
-<div class="text-xs text-gray-400">When everything connects, the whole system feels intentional.</div>
-</div>
-</div>
-
-<div class="relative z-10 mt-6 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
-<div class="text-white font-semibold">Agents turn customization into collaboration.</div>
-<div class="text-xs text-gray-300 mt-1">That shift is what the whole team actually feels in day-to-day work.</div>
 </div>
 </div>
 

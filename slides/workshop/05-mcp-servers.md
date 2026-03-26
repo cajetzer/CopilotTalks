@@ -961,57 +961,45 @@ MCP servers let Copilot see the real world. <span class="text-white font-semibol
 </div>
 ---
 
-<!-- SLIDE: Live context makes the workflow feel grounded -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-8 py-6">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
-
-<div class="relative z-10 text-center mb-6">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 5 impact</div>
-<h1 class="!text-3xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
-Live context makes the workflow feel grounded
-</h1>
-<div class="text-sm text-gray-300 max-w-4xl mx-auto">
-Copilot works from live systems rather than static files, so context stays current without extra effort.
+<!-- SLIDE: 💭 The Team, After Module 5 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 5</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Copilot just queried the actual database and told me the character count was wrong. While I was looking at the seed data."</div>
+<div class="text-xs text-gray-500">The gap between local and live just closed.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Live context changes the nature of the question. You&#39;re no longer asking Copilot to reason about what might be true."</div>
+<div class="text-xs text-gray-500">Reasoning about reality instead of assumptions.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The MCP tool found the endpoint regression before the test suite did. That&#39;s not a demo — that&#39;s a workflow."</div>
+<div class="text-xs text-gray-500">Found the regression. Flagged it. Moved on.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"It called the API, got the response, and flagged the schema mismatch. I didn&#39;t prompt it to. It just did the work."</div>
+<div class="text-xs text-gray-500">Expected a false positive. Got a real one.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Copilot can read the database now? The real one? While we&#39;re talking to it? I need a minute."</div>
+<div class="text-xs text-gray-500">Still processing what a tool call actually means.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Real-time data means the plan is always current. We&#39;re not coordinating around stale context anymore."</div>
+<div class="text-xs text-gray-500">Current data. Current plan. No sync meeting required.</div>
 </div>
-
-<div class="relative z-10 grid grid-cols-5 gap-3">
-<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
-<div class="text-orange-300 font-bold text-sm mb-2">Sarah</div>
-<div class="text-sm text-white leading-snug mb-3">“This is when Copilot stops sounding smart and starts proving it.”</div>
-<div class="text-xs text-gray-400">Live context makes the outputs easier to trust.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-<div class="text-blue-300 font-bold text-sm mb-2">Marcus</div>
-<div class="text-sm text-white leading-snug mb-3">“If Copilot can see the real character data, I can stop treating every schema question like a detour.”</div>
-<div class="text-xs text-gray-400">The workflow stays inside the tools the team already uses.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-<div class="text-emerald-300 font-bold text-sm mb-2">David</div>
-<div class="text-sm text-white leading-snug mb-3">“The important shift is that reasoning can now be anchored to reality instead of reconstructed from memory.”</div>
-<div class="text-xs text-gray-400">Architecture and review get a stronger factual base.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
-<div class="text-purple-300 font-bold text-sm mb-2">Elena</div>
-<div class="text-sm text-white leading-snug mb-3">“Now Copilot can inspect the actual state of data before it tells me what should change.”</div>
-<div class="text-xs text-gray-400">Quality guidance becomes evidence-based instead of speculative.</div>
-</div>
-
-<div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-sm mb-2">Rafael</div>
-<div class="text-sm text-white leading-snug mb-3">“This is where clarity appears, Copilot can point to live behavior instead of abstract possibility.”</div>
-<div class="text-xs text-gray-400">Product conversations become more concrete and credible.</div>
-</div>
-</div>
-
-<div class="relative z-10 mt-6 p-3 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
-<div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
-<div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
 </div>
 </div>
 
