@@ -119,15 +119,46 @@ When creating Slidev presentations, follow these principles:
 - **Balanced HTML for Slidev** — When a slide uses raw HTML, keep wrapper tags strictly balanced. Prefer one obvious outer container for section-opener slides, and verify every opened `<div>` is closed before the `---` slide separator.
 - **Ending slide quality** — Decks should include a polished references slide before the final slide and a designed thank-you slide, not plain closing text.
 
-### Slide Name Comments (required)
+### Slide Separator Rules (CRITICAL)
 
-Every content slide **must** begin with a named HTML comment:
+**`---` must always be on its own line, surrounded by newlines — never on the same line as any other content.**
 
-```html
-<!-- SLIDE: Slide Name Here -->
+✅ Correct:
+```
+</div>
+
+---
+
+<!-- SLIDE: Next Slide -->
 ```
 
-Use the slide's pill label or heading text as the name. This is the **only reliable way to locate a slide** — do not count `---` separators to find slides, as `---` also appears inside slide content (code examples, tables, horizontal rules) and produces unreliable counts.
+❌ Wrong — breaks counting and causes parse errors:
+```
+</div>
+---<!-- SLIDE: Next Slide -->
+---
+layout: two-cols
+---
+```
+
+**Never use per-slide frontmatter blocks** (`layout:`, `class:`, `transition:`, etc.) between `---` separators. These create double-separator patterns that break slide counting. Instead:
+- Replace `layout: two-cols` with a `grid grid-cols-2` CSS div
+- Replace `class: text-center` with `class="... text-center ..."` on the outer content wrapper
+
+With this rule enforced, **slide N = the Nth `\n---\n` separator** — no special-case parsing needed.
+
+### Slide Name Comments (required)
+
+Every content slide **must** begin with a named HTML comment on its own line:
+
+```
+---
+
+<!-- SLIDE: Slide Name Here -->
+<div class="...">
+```
+
+Use the slide's pill label or heading text as the name. The comment enables both name-based lookup and human navigation of the file.
 
 **The Nth `<!-- SLIDE: -->` comment = Slidev slide N** (1-indexed). To find slide 5:
 ```powershell

@@ -1,131 +1,91 @@
-# Exercise 2.1: Plan the Universe Stat Cards
+# Exercise 2.1: Swap the Show
 
 ## 🔨 Exercise
 
-### Exercise 2.1: Plan the Universe Stat Cards — "Research Before the First Line"
+### Exercise 2.1: Swap the Show — "Align the Foundation Before the Sprint Starts"
 
-**Lead:** Marcus ⭐ | **Support:** Sarah 🤝, Elena 🤝 | **Time:** 10 min
+**Lead:** Rafael ⭐ | **Support:** Sarah 🤝 | **Time:** 10 min
 
 #### 📖 The Challenge
 
-It's 10:00 AM. Marcus opens the FanHub homepage and stares at placeholder text. The Breaking Bad data is all there in the database — one full season of characters, episodes, locations — but nothing surfaces on the site. He's been asked to add a "Universe at a Glance" section: three animated stat cards showing live counts of Characters, Locations, and Canon Facts.
+It's 9:00 AM. Sprint planning starts in 15 minutes. Rafael opens the FanHub repo and sees what he already suspected: the seed data is still Breaking Bad. Characters, episodes, locations — all placeholder content from the workshop scaffold. The team's chosen show is sitting in a doc somewhere and in the `docs/[show]-universe.md` they created in Module 1. The product they're building features on top of? Still Walter White.
 
-The feature sounds small. That's the trap.
+Rafael doesn't care which files need updating. He cares that the team doesn't spend the next three sprints building features on the wrong foundation.
 
-Last sprint Marcus started three features that "looked small" and hit mid-implementation walls: once when a UI change needed a DB migration he hadn't anticipated, once when two API routes collided because he hadn't checked what already existed, and once when a new React component needed to slot into the component tree in a way that broke existing styling. Total restart cost: about 90 minutes across those three incidents, and 2–3 discovered dependencies per feature *after* coding had started.
+*"The architecture is fine. The data is wrong. Before anyone opens a feature branch, the repo needs to reflect what we're actually shipping."*
 
-*"I keep figuring out the real scope halfway through,"* Marcus admits. *"I need to see the whole map before I take the first step."*
+He's not going to hand-edit seed files. He's going to ask Copilot to enumerate what needs to change, generate the replacement content, and execute the swap — before standup.
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Marcus dives into coding, hits a missing DB migration 20 minutes in, discovers the API routes don't exist 30 minutes in, realizes he needs a new React component he hasn't planned for at the 45-minute mark | Marcus runs plan mode first: 90 seconds of codebase research surfaces the DB migration, the three new API routes, the React component, and exactly where it slots into the homepage — all before a line is written |
-| **Planning time:** 30–35 min (gut-check + mid-feature discoveries)<br>**Discovered-late dependencies:** 2–3 per feature<br>**Restart incidents:** 3 last sprint | **Planning time:** 10 min (2 min AI research + 8 min review)<br>**Discovered-late dependencies:** 0<br>**Restart incidents:** 0 |
+| Team builds features on Breaking Bad placeholder data. Every exercise, every example, every test uses the wrong show. Inconsistencies compound across modules. | Repo reflects the team's chosen show from day one. Every subsequent exercise, plan, and prompt runs against real data — the product they're actually building. |
+| **Data alignment:** Manual, deferred ("we'll swap it later") | **Data alignment:** Done in Agent mode before sprint planning |
+| **Confidence in examples:** Low — everything references the wrong show | **Confidence in examples:** High — exercises are grounded in their own content |
 
-**Time saved:** 30+ min planning + 90 min restart recovery → 10 min planning + 0 recovery
+**Time saved:** 10 min now prevents hours of confusion across five modules of exercises.
 
 #### 🎯 Your Goal
 
-Switch Copilot to plan mode and run a single prompt to generate a complete implementation plan for the "Universe at a Glance" stat cards. The plan will surface every file that needs to change — before any code is written. Then annotate the plan with at least one refinement and save it for Exercise 2.3.
+Use Copilot in Agent mode to replace the Breaking Bad seed data with content for your chosen show. By the end of this exercise, the FanHub site should load characters, episodes, and locations from your show — not Breaking Bad.
 
 #### 📋 Steps
 
-1. **Switch to Plan Mode**
+1. **Open Agent mode**
 
-   Open the Copilot Chat panel (`Ctrl+Alt+I` / `Cmd+Alt+I` on Mac). At the top of the chat input, find the **mode selector** (it shows "Ask", "Edit", or "Agent" depending on your current mode). Switch it to **Plan**.
+   Open Copilot Chat (`Ctrl+Alt+I` / `Cmd+Alt+I` on Mac) and switch to **Agent** mode. Agent mode can read files, generate new content, and write changes — which is exactly what a data swap requires.
 
-   > **Why plan mode?** Plan mode is read-only by design — it can open files, read your codebase, analyze dependencies, and draft an implementation plan, but it will never write or modify a file until you explicitly approve. Default agent mode starts making changes immediately. Plan mode separates research from execution.
+2. **Ask Copilot to audit the seed data**
 
-   You should see the mode indicator change. There's no code to run yet — you're just switching modes.
-
-2. **Before You Prompt — Make Your Guess**
-
-   Before entering the prompt, take 30 seconds and write down your answer to this question in your notes:
-
-   > *How many files will this feature touch?*
-
-   Most participants guess 2–3. Hold that guess — you'll compare it to the plan's output.
-
-3. **Enter the Plan Prompt**
-
-   In the plan mode chat, enter this prompt exactly:
+   Paste the following prompt:
 
    ```
-   Add a "Universe at a Glance" section to the FanHub homepage with three stat cards showing live counts: Characters, Locations, and Canon Facts. Each card should fetch its count from the API and animate the number on load.
+   @workspace Audit the FanHub seed data and list every file that contains
+   Breaking Bad-specific content (character names, episode titles, locations,
+   show-specific terminology). Don't make any changes yet — just list the files
+   and summarize what each one contains.
    ```
 
-   Wait for plan mode to finish researching. This typically takes 60–120 seconds. Watch the tool calls — you'll see it reading ARCHITECTURE.md, your existing route files, the DB schema, the homepage component — all without making a change.
+   Review the list. This is your swap inventory.
 
-   **What to observe:** The read-only research is the feature of plan mode. Every file it reads is a file it might have *changed* without warning if you'd used agent mode instead.
+3. **Ask Copilot to generate replacement content**
 
-4. **Count the Files**
-
-   When the plan finishes, look at the **Implementation Steps** section. Count the distinct files the plan proposes touching:
-
-   - A DB migration file (new table for `lore_entries` with a `type` column covering locations and canon facts)
-   - Three new API route handlers: `GET /api/stats/characters`, `GET /api/stats/locations`, `GET /api/stats/canon-facts`
-   - A new `<UniverseStats>` React component with fetch logic and CSS animation
-   - The homepage component (to wire in `<UniverseStats>`)
-
-   That's typically 5–7 files. Compare to your pre-prompt guess. The gap between your guess and the real count is the lesson plan mode teaches every time.
-
-5. **Annotate at Least One Refinement**
-
-   Read the plan carefully and add at least one annotation or clarification. Examples:
-
-   - If the plan called the table `universe_facts`, note: *"Rename to `lore_entries` — matches our naming convention for world-building data"*
-   - If the plan proposed class components, note: *"Prefer `useEffect` hooks — consistent with our functional component pattern"*
-   - If the plan didn't specify animation style, note: *"Animate with a count-up on mount, 1-second duration, using CSS transitions"*
-
-   Annotations become the refinement instructions you'll pass to agent mode in Exercise 2.4.
-
-6. **Save the Plan**
-
-   Copy the plan output (or use the "Open in Editor" button in Copilot Chat) and save it to:
+   Once you've seen what needs to change, prompt:
 
    ```
-   docs/universe-dashboard-plan.md
+   Using docs/[show]-universe.md as the source of truth, generate replacement
+   seed data for [Your Show] to replace the Breaking Bad content in the files
+   you just listed. Match the existing data structure exactly — same field names,
+   same format, same number of entries where possible. Apply the changes.
    ```
 
-   You'll merge this with the Exercise 2.2 plan in Exercise 2.3.
+   Replace `[Your Show]` and `[show]` with your actual show name and slug.
+
+4. **Verify the swap**
+
+   Once Copilot completes the changes, open the FanHub app (or check the data files directly) and confirm:
+   - At least 3 characters from your show appear
+   - At least 1 episode or season entry is present
+   - No "Walter White" or "Jesse Pinkman" remain in the seed data
 
 #### ✅ Success Criteria
 
-- [ ] Plan mode runs without making any code changes to the codebase
-- [ ] Plan identifies the DB migration (new `lore_entries` table), three API routes, `<UniverseStats>` React component, and homepage wiring
-- [ ] You recorded your pre-prompt file-count guess and compared it to the plan's actual count
-- [ ] At least one plan refinement annotated (naming, pattern, or behavior)
-- [ ] Plan saved to `docs/universe-dashboard-plan.md` for use in Exercise 2.3
+- [ ] Agent mode used to audit and swap seed data (not manual find/replace)
+- [ ] Characters, episodes, and/or locations reflect your chosen show
+- [ ] Breaking Bad character names no longer appear in seed data files
+- [ ] `docs/[show]-universe.md` referenced as the content source
 
-#### 📚 Official Docs
+#### 💭 Reflection
 
-- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) — How plan mode researches tasks before proposing changes
-- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How Copilot uses workspace context for comprehensive analysis
+> **Rafael:** "The architecture is fine. The data is wrong. This is a 15-minute alignment — not a feature."
+>
+> Sarah, reviewing the PR: "This should have been the first thing we did."
+>
+> Rafael: "It is. I'm already on the next OKR."
 
----
+#### 🔗 Connection to the Module
 
-## 🔗 What You Built
+This exercise is the only one in Module 2 that isn't about planning a feature. It's about **establishing the foundation** that makes every plan meaningful. When the data matches your product, every subsequent plan, every example output, and every test you run throughout the workshop is grounded in something real.
 
-**In this exercise:**
-- `docs/universe-dashboard-plan.md` — A research-backed implementation plan with file paths, step ordering, and at least one refinement annotation
-
-**How it compounds:**
-
-| Previous Modules | This Exercise | Combined Power |
-|------------------|---------------|----------------|
-| `copilot-instructions.md` (Module 1) | Plan mode research | The plan already follows your naming conventions and project patterns — you didn't have to explain them |
-| `ARCHITECTURE.md` (Module 1) | Dependency mapping | Plan mode read your architecture doc and used it to trace the data flow from DB → API → Component → Page |
-
-**Why this matters:** The pre-prompt guess vs. actual file count is repeatable. Every time participants run plan mode on something that "looks simple," the gap appears. That gap represents bugs, restarts, and mid-feature surprises that plan mode eliminates permanently.
-
----
-
-## ➡️ Next Exercise
-
-**[Exercise 2.2: Plan the Quick-Add Form](exercise-2.2.md)** — David spots a gap in the 2.1 plan: there's no way to add data without a database client. Run a second plan mode pass to design the quick-add form — and check whether it correctly inherits context from the first plan.
-
-> *"The counters show what's there. But how does data get there in the first place?"*
-> — David, spotting the gap
-
----
+Everything from Exercise 2.2 forward builds on top of what you just swapped in.

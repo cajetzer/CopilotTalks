@@ -1,4 +1,3 @@
-
 ---
 theme: default
 class: text-center
@@ -14,7 +13,7 @@ title: Module 5 - MCP Servers
 module: workshop/05-mcp-servers
 mdc: true
 status: active
-updated: 2026-03-25
+updated: 2026-03-26
 ---
 
 <!-- SLIDE: Module 5: MCP Servers -->
@@ -48,32 +47,32 @@ updated: 2026-03-25
   <div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
     <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
       <div class="font-bold text-gray-400 text-xs">M1</div>
-      <div class="text-gray-500 mt-0.5">Instructions</div>
+      <div class="text-gray-500 mt-0.5 whitespace-nowrap">Instructions</div>
     </div>
     <div class="flex items-center text-gray-600 px-0.5">›</div>
     <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
       <div class="font-bold text-gray-400 text-xs">M2</div>
-      <div class="text-gray-500 mt-0.5">Plan Mode</div>
+      <div class="text-gray-500 mt-0.5 whitespace-nowrap">Plan Mode</div>
     </div>
     <div class="flex items-center text-gray-600 px-0.5">›</div>
     <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
       <div class="font-bold text-gray-400 text-xs">M3</div>
-      <div class="text-gray-500 mt-0.5">Prompts</div>
+      <div class="text-gray-500 mt-0.5 whitespace-nowrap">Prompts</div>
     </div>
     <div class="flex items-center text-gray-600 px-0.5">›</div>
     <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
       <div class="font-bold text-gray-400 text-xs">M4</div>
-      <div class="text-gray-500 mt-0.5">Skills</div>
+      <div class="text-gray-500 mt-0.5 whitespace-nowrap">Skills</div>
     </div>
     <div class="flex items-center text-gray-600 px-0.5">›</div>
     <div class="flex-1 p-2 bg-gradient-to-b from-orange-600/80 to-orange-800/60 rounded-lg border border-orange-400/50 text-center shadow-lg shadow-orange-900/30">
       <div class="font-bold text-white text-xs">M5</div>
-      <div class="text-orange-200 mt-0.5">MCP</div>
+      <div class="text-orange-200 mt-0.5 whitespace-nowrap">MCP</div>
     </div>
     <div class="flex items-center text-gray-600 px-0.5">›</div>
     <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
       <div class="font-bold text-gray-400 text-xs">M6</div>
-      <div class="text-gray-500 mt-0.5">Agents</div>
+      <div class="text-gray-500 mt-0.5 whitespace-nowrap">Agents</div>
     </div>
   </div>
 </div>
@@ -143,6 +142,7 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 ---
 
 <!-- SLIDE: 🎯 What Youll Build -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
 </div>
@@ -181,6 +181,7 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 ---
 
 <!-- SLIDE: 📚 What MCP Servers Actually Add -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What MCP Servers Actually Add</span>
 </div>
@@ -223,6 +224,7 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 ---
 
 <!-- SLIDE: 🔎 Skills and MCP Work Better Together -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skills and MCP Work Better Together</span>
 </div>
@@ -252,6 +254,7 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 ---
 
 <!-- SLIDE: ⚙️ Core MCP Patterns in This Module -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Core MCP Patterns in This Module</span>
 </div>
@@ -297,7 +300,7 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 ---
 
 <!-- SLIDE: ❌ Before -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
 <div class="relative z-10 grid grid-cols-2 gap-8">
 <div class="pr-4 border-r border-white/10">
@@ -343,84 +346,113 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 ---
 
 <!-- SLIDE: 🔨 Exercise Roadmap -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
 </div>
 
-<div class="mt-6 grid grid-cols-3 gap-5 text-left">
+<div class="mt-6 grid grid-cols-4 gap-4 text-left">
 
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-    <div class="flex items-center justify-between mb-4">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+    <div class="flex items-center justify-between mb-3">
       <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 text-xs font-bold border border-blue-400/30">5.1</span>
       <span class="text-xs text-gray-400">15 min</span>
     </div>
-    <div class="text-lg font-bold text-blue-300 mb-2">Connect to FanHub Character Data</div>
-    <div class="text-sm text-gray-300 mb-4">Give Copilot direct access to live schema and sample character records.</div>
+    <div class="text-base font-bold text-blue-300 mb-2">Connect to FanHub Character Data</div>
+    <div class="text-xs text-gray-300 mb-3">Give Copilot direct access to live schema and sample character records.</div>
     <div class="text-xs text-gray-400">Lead: Marcus ⭐</div>
   </div>
 
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
-    <div class="flex items-center justify-between mb-4">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+    <div class="flex items-center justify-between mb-3">
       <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-200 text-xs font-bold border border-purple-400/30">5.2</span>
       <span class="text-xs text-gray-400">15 min</span>
     </div>
-    <div class="text-lg font-bold text-purple-300 mb-2">Upgrade Character Test Workflow with MCP</div>
-    <div class="text-sm text-gray-300 mb-4">Use live duplicate data to make the Module 4 skill smarter and more grounded.</div>
+    <div class="text-base font-bold text-purple-300 mb-2">Upgrade Character Test Workflow</div>
+    <div class="text-xs text-gray-300 mb-3">Use live duplicate data to make the Module 4 skill smarter and more grounded.</div>
     <div class="text-xs text-gray-400">Lead: Elena ⭐</div>
   </div>
 
-  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
-    <div class="flex items-center justify-between mb-4">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
+    <div class="flex items-center justify-between mb-3">
       <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-200 text-xs font-bold border border-orange-400/30">5.3</span>
       <span class="text-xs text-gray-400">15 min</span>
     </div>
-    <div class="text-lg font-bold text-orange-300 mb-2">Validate Running Character Detail API</div>
-    <div class="text-sm text-gray-300 mb-4">Check whether the live API exposes the behaviors your frontend and workflow depend on.</div>
+    <div class="text-base font-bold text-orange-300 mb-2">Validate Running Character API</div>
+    <div class="text-xs text-gray-300 mb-3">Check whether the live API exposes the behaviors your frontend depends on.</div>
     <div class="text-xs text-gray-400">Lead: Elena ⭐</div>
+  </div>
+
+  <div class="p-4 rounded-xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
+    <div class="flex items-center justify-between mb-3">
+      <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-200 text-xs font-bold border border-cyan-400/30">5.4</span>
+      <span class="text-xs text-gray-400">12 min</span>
+    </div>
+    <div class="text-base font-bold text-cyan-300 mb-2">Live Data + Show Knowledge</div>
+    <div class="text-xs text-gray-300 mb-3">Apply domain expertise as a quality gate — Copilot retrieves, you evaluate.</div>
+    <div class="text-xs text-gray-400">Lead: Rafael ⭐</div>
   </div>
 
 </div>
 
-<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
+<div class="mt-5 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
   <div class="text-white font-semibold">The sequence matters.</div>
-  <div class="text-sm text-gray-300">Start with live data access, use it to upgrade the Module 4 workflow, then validate the running FanHub API before moving to agents.</div>
+  <div class="text-sm text-gray-300">Connect live data → upgrade the workflow → validate the API → apply domain knowledge as a quality gate.</div>
 </div>
 ---
 
-<!-- SLIDE: 3 exercises · ~45 minutes · shared leadership -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 text-8xl mb-6">🔨</div>
-<h1 class="!text-5xl !font-bold bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10 !mb-4">
-Exercises
-</h1>
-<div class="relative z-10 mb-8">
-<span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-lg font-medium shadow-lg">
-3 exercises · ~45 minutes · shared leadership
-</span>
+<!-- SLIDE: 🔨 Exercises -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">�� Exercises</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 grid grid-cols-3 gap-4 max-w-4xl w-full px-8">
-<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40 text-center text-sm">
-<div class="text-blue-300 font-bold">5.1</div>
-<div class="text-gray-400 text-xs mt-1">Connect live data</div>
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
+<div class="text-lg font-bold text-white">4 exercises · ~57 minutes · shared leadership</div>
 </div>
-<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40 text-center text-sm">
-<div class="text-purple-300 font-bold">5.2</div>
-<div class="text-gray-400 text-xs mt-1">Upgrade the skill</div>
+<div class="relative z-10 grid grid-cols-4 gap-3">
+<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
+<div class="flex items-center justify-between mb-1">
+<div class="text-blue-300 font-bold text-base">5.1</div>
+<span class="text-xs text-gray-500">Marcus ⭐</span>
 </div>
-<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40 text-center text-sm">
-<div class="text-orange-300 font-bold">5.3</div>
-<div class="text-gray-400 text-xs mt-1">Validate runtime</div>
+<div class="text-white text-xs font-semibold mb-1">Connect live data</div>
+<div class="text-gray-400 text-xs leading-snug">Configure an MCP server for direct Copilot access to FanHub character data</div>
+</div>
+<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40">
+<div class="flex items-center justify-between mb-1">
+<div class="text-purple-300 font-bold text-base">5.2</div>
+<span class="text-xs text-gray-500">Elena ⭐</span>
+</div>
+<div class="text-white text-xs font-semibold mb-1">Upgrade the skill</div>
+<div class="text-gray-400 text-xs leading-snug">Update the test-workflow skill to call MCP tools instead of local commands</div>
+</div>
+<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40">
+<div class="flex items-center justify-between mb-1">
+<div class="text-orange-300 font-bold text-base">5.3</div>
+<span class="text-xs text-gray-500">Elena ⭐</span>
+</div>
+<div class="text-white text-xs font-semibold mb-1">Validate runtime</div>
+<div class="text-gray-400 text-xs leading-snug">Use MCP to verify running character-detail endpoints return correct data</div>
+</div>
+<div class="p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/40">
+<div class="flex items-center justify-between mb-1">
+<div class="text-cyan-300 font-bold text-base">5.4</div>
+<span class="text-xs text-gray-500">Rafael ⭐</span>
+</div>
+<div class="text-white text-xs font-semibold mb-1">Apply domain knowledge</div>
+<div class="text-gray-400 text-xs leading-snug">Run targeted MCP queries and evaluate results using show-specific expertise</div>
 </div>
 </div>
-<div class="relative z-10 mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
+<div class="relative z-10 mt-3 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
+Each exercise rotates the lead persona — everyone contributes, everyone follows.
+</div>
 </div>
 ---
 
 <!-- SLIDE: Character schema and sample rows still live outsid -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">5.1</div>
@@ -459,7 +491,7 @@ Character schema and sample rows still live outside the editor, so feature work 
 ---
 
 <!-- SLIDE: 📋 Example: .vscode/mcp.json — FanHub Database -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 
 <div class="relative z-10 mb-4">
@@ -488,8 +520,42 @@ Character schema and sample rows still live outside the editor, so feature work 
 </div>
 ---
 
+<!-- SLIDE: 📋 Example: Copilot Chat — Character Data Queries -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Copilot Chat — Character Data Queries</span>
+</div>
+
+<div class="relative z-10 mb-4 text-sm text-gray-300">
+Once <code class="text-blue-300 font-mono">fanhub-db</code> is running in Agent mode, reference it directly in Copilot Chat:
+</div>
+
+<div class="relative z-10 space-y-3">
+<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 font-mono text-xs p-4 text-gray-300">
+<div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">schema lookup</div>
+<div class="text-cyan-300">@workspace #mcp-fanhub-db</div>
+<div class="text-gray-200 ml-4">Show me the schema for character-related tables.</div>
+</div>
+<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 font-mono text-xs p-4 text-gray-300">
+<div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">sample data + optional fields</div>
+<div class="text-cyan-300">@workspace #mcp-fanhub-db</div>
+<div class="text-gray-200 ml-4">Show me sample character rows and highlight optional fields or empty values.</div>
+</div>
+<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 font-mono text-xs p-4 text-gray-300">
+<div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">feature relevance</div>
+<div class="text-cyan-300">@workspace #mcp-fanhub-db</div>
+<div class="text-gray-200 ml-4">Which columns look most relevant to the character detail experience?</div>
+</div>
+</div>
+
+<div class="relative z-10 mt-4 text-xs text-gray-400">💡 Each query stays in chat — no tab switch, no separate database tool, no copy-paste into context</div>
+</div>
+---
+
 <!-- SLIDE: The Module 4.2 skill is useful, but it still depen -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">5.2</div>
@@ -528,7 +594,7 @@ The Module 4.2 skill is useful, but it still depends on user-supplied context. <
 ---
 
 <!-- SLIDE: 📋 Example: character-change-test-workflow — MCP u -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 
 <div class="relative z-10 mb-4">
@@ -559,7 +625,7 @@ The Module 4.2 skill is useful, but it still depends on user-supplied context. <
 ---
 
 <!-- SLIDE: Duplicate or messy records in the database only ma -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">5.3</div>
@@ -598,7 +664,7 @@ Duplicate or messy records in the database only matter if the running system exp
 ---
 
 <!-- SLIDE: 📋 Example: docs/5.3-fanhub-api-server.js -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 
 <div class="relative z-10 mb-4">
@@ -627,37 +693,121 @@ Duplicate or messy records in the database only matter if the running system exp
 </div>
 ---
 
-<!-- SLIDE: 📋 Example: .vscode/mcp.json — FanHub API Server -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: 📋 Example: validate-character-api-contract.prompt.md -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 
 <div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: .vscode/mcp.json — FanHub API Server</span>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: validate-character-api-contract.prompt.md</span>
 </div>
 
-<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
-<div class="text-gray-400">{</div>
-<div class="pl-4 text-blue-300">"servers"<span class="text-white">: {</span></div>
-<div class="pl-8 text-green-300">"fanhub-db"<span class="text-white">: { </span><span class="text-gray-500">/* SQLite from 5.1 */</span><span class="text-white"> },</span></div>
-<div class="pl-8 text-green-300">"fanhub-api"<span class="text-white">: {</span></div>
-<div class="pl-12 text-blue-300">"command"<span class="text-white">: </span><span class="text-orange-300">"node"</span><span class="text-white">,</span></div>
-<div class="pl-12 text-blue-300">"args"<span class="text-white">: [</span><span class="text-orange-300">"docs/5.3-fanhub-api-server.js"</span><span class="text-white">],</span></div>
-<div class="pl-12 text-blue-300">"env"<span class="text-white">: {</span></div>
-<div class="pl-16 text-blue-300">"FANHUB_API_URL"<span class="text-white">: </span><span class="text-orange-300">"http://localhost:5265"</span></div>
-<div class="pl-12 text-white">}</div>
-<div class="pl-8 text-white">}</div>
-<div class="pl-4 text-white">}</div>
-<div class="text-gray-400">}</div>
-<div class="mt-3 text-gray-400">// Now available in chat as:</div>
-<div class="text-cyan-300">@fanhub-api GET /characters/jesse-pinkman</div>
-<div class="text-cyan-300">@fanhub-api which character endpoints return optional fields as null vs missing?</div>
+<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-[26rem] text-gray-300 leading-relaxed">
+<div class="text-purple-300">---</div>
+<div class="text-blue-300">mode: <span class="text-green-300">ask</span></div>
+<div class="text-blue-300">description: <span class="text-green-300">Validate the running FanHub character API against expected character-detail behavior.</span></div>
+<div class="text-purple-300">---</div>
+<div class="mt-2 text-gray-300">Use <span class="text-cyan-300">`#mcp-fanhub-api`</span> and, when useful, <span class="text-cyan-300">`#mcp-fanhub-db`</span>.</div>
+<div class="mt-2 text-gray-300">Your job:</div>
+<div class="text-gray-400">1. Query the running FanHub API for the character-detail response</div>
+<div class="text-gray-400">2. Identify missing or surprising fields</div>
+<div class="text-gray-400">3. Compare runtime behavior to what the UI and tests likely expect</div>
+<div class="text-gray-400">4. Flag fallback or optional-field risks before the PR</div>
+<div class="mt-2 text-gray-300">Return:</div>
+<div class="text-gray-400">- endpoint checked</div>
+<div class="text-gray-400">- response observations</div>
+<div class="text-gray-400">- likely frontend/test risks</div>
+<div class="text-gray-400">- recommendation: <span class="text-green-300">looks safe</span> / <span class="text-orange-300">needs follow-up</span></div>
+<div class="mt-3 text-gray-500">// Usage:</div>
+<div class="text-cyan-300">@workspace /validate-character-api-contract</div>
+<div class="text-gray-400 ml-4">Validate the running character detail API. Focus on optional</div>
+<div class="text-gray-400 ml-4">fields, fallback behavior, and anything that could break the</div>
+<div class="text-gray-400 ml-4">character detail experience.</div>
 </div>
 
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .vscode/mcp.json · Runs the custom API server via node, connects Copilot to live character-detail endpoints</div>
+<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/prompts/validate-character-api-contract.prompt.md · Validates runtime API response against character-detail expectations</div>
+</div>
+---
+
+<!-- SLIDE: Live Data + Show Knowledge — Rafael applies domain kno -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/30 flex-shrink-0">5.4</div>
+<div>
+<div class="text-cyan-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
+<h2 class="!text-2xl !font-bold text-white !m-0">Live Data + Show Knowledge</h2>
+</div>
+<div class="ml-auto flex gap-3 text-xs text-gray-400">
+<span class="px-3 py-1 bg-gray-800 rounded-full">Rafael ⭐</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">Marcus 🤝</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 12 min</span>
+</div>
+</div>
+<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
+The queries work and the data comes back — but every result is abstract. <strong class="text-white">This exercise combines MCP queries with show knowledge as a quality gate: Copilot retrieves the data, Rafael evaluates correctness against what he knows about the show.</strong>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div>
+<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Challenges</div>
+<div class="space-y-2 text-xs">
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300"><strong>Alive/Dead Audit</strong> — query all characters marked alive, evaluate against show canon</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300"><strong>Missing Bio Detection</strong> — find empty bios, rank by show importance not field emptiness</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300"><strong>Faction/Classification Check</strong> — distinguish intentionally empty factions from data gaps</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300"><strong>Character Count Sanity Check</strong> — identify missing characters using show knowledge</span></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
+<div class="space-y-2 text-xs text-gray-300">
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> At least one finding: "Copilot returned X, but I know the show well enough to know it should be Y"</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Faction classifications evaluated using show knowledge, not just query logic</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Prioritized remediation plan created with ≥3 items ordered by priority</div>
+</div>
+<div class="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Rafael:</strong> "I've been querying a dataset I know better than Copilot does. And I haven't used that knowledge once — until now."</div>
+</div>
+</div>
+</div>
+---
+
+<!-- SLIDE: 📋 Example: Exercise 5.4 — The Four Challenge Queries -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-transparent"></div>
+
+<div class="relative z-10 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Exercise 5.4 — The Four Challenge Queries</span>
+</div>
+
+<div class="relative z-10 grid grid-cols-2 gap-3">
+<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 p-4">
+<div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">challenge 1 — alive/dead audit</div>
+<div class="font-mono text-xs text-gray-300">Query the FanHub database for all characters<br/>currently marked as alive. List them sorted<br/>by name. How many total?</div>
+<div class="mt-2 text-[10px] text-gray-500 italic">→ evaluate: does this match how Season 1 of your show ends?</div>
+</div>
+<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 p-4">
+<div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">challenge 2 — missing bio detection</div>
+<div class="font-mono text-xs text-gray-300">Query all characters where the bio field is<br/>empty or less than 20 characters.<br/>List them with their names.</div>
+<div class="mt-2 text-[10px] text-gray-500 italic">→ evaluate: rank by show importance, not field emptiness</div>
+</div>
+<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 p-4">
+<div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">challenge 3 — faction/classification check</div>
+<div class="font-mono text-xs text-gray-300">Which characters have no faction or affiliation<br/>listed? List them with any other classification<br/>fields that are populated.</div>
+<div class="mt-2 text-[10px] text-gray-500 italic">→ evaluate: intentional vs data gap (requires show knowledge)</div>
+</div>
+<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 p-4">
+<div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">challenge 4 — character count sanity check</div>
+<div class="font-mono text-xs text-gray-300">How many characters are in the FanHub database?<br/>How many locations? How many canon facts?<br/>Return the counts.</div>
+<div class="mt-2 text-[10px] text-gray-500 italic">→ evaluate: who is missing that should be there?</div>
+</div>
+</div>
+
+<div class="relative z-10 mt-4 p-3 bg-gradient-to-r from-cyan-900/30 to-blue-900/20 rounded-xl border border-cyan-500/20">
+<div class="text-xs text-gray-300"><span class="text-cyan-300 font-semibold">The pattern:</span> Copilot retrieves → You evaluate → Together you find what neither could alone</div>
+</div>
 </div>
 ---
 
 <!-- SLIDE: 🔗 Compounding Value -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
 </div>
@@ -689,6 +839,7 @@ Duplicate or messy records in the database only matter if the running system exp
 ---
 
 <!-- SLIDE: ✅ Module Checklist -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
 </div>
@@ -729,6 +880,45 @@ Duplicate or messy records in the database only matter if the running system exp
 </div>
 ---
 
+---
+
+<!-- SLIDE: 📚 Keep the Foundation Evergreen -->
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 Keep the Foundation Evergreen</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div><div class="mt-4 p-5 bg-gradient-to-r from-blue-900/25 via-purple-900/25 to-orange-900/20 rounded-2xl border border-white/10 text-center">
+<div class="text-lg font-bold text-white">Before Module 6, document the live context you've wired in.</div>
+<div class="text-sm text-gray-300 mt-2">Update <span class="font-mono text-blue-200">ARCHITECTURE.md</span> and <span class="font-mono text-purple-200">.github/copilot-instructions.md</span> so agents you build next know what data sources are available.</div>
+</div><div class="grid grid-cols-2 gap-5 mt-4 text-left">
+<div class="p-5 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">🏗️</div>
+<div>
+<div class="text-blue-300 font-bold">Document your MCP infrastructure</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">ARCHITECTURE.md</div>
+</div>
+</div>
+<div class="text-sm text-gray-300 space-y-2">
+<div>Add an MCP section listing each server, what it exposes (DB schema, API routes), and how it's configured.</div>
+<div class="text-blue-200">Custom agents in Module 6 will need to know which external systems they can query.</div>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🧭</div>
+<div>
+<div class="text-purple-300 font-bold">Declare live data capabilities</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">copilot-instructions.md</div>
+</div>
+</div>
+<div class="text-sm text-gray-300 space-y-2">
+<div>Tell Copilot it can now query the FanHub database and API directly — and when to do so vs. relying on static files.</div>
+<div class="text-purple-200">Without this, Copilot won't reach for live data even when it would give better answers.</div>
+</div>
+</div>
+</div><div class="mt-4 p-4 rounded-xl bg-gray-900/60 border border-white/10 text-center">
+<div class="text-sm text-yellow-300 font-semibold">Evergreen docs are not cleanup work — they are leverage for every later module.</div>
+</div>
 <!-- SLIDE: Module 5 Is Locked In -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>

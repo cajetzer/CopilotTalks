@@ -39,7 +39,9 @@ Understanding these personas will help you:
 
 ### Voice in Exercises
 
-Skeptical but open-minded. Needs to be convinced with concrete demonstrations and quantifiable metrics, not promises. Focuses on ROI, time saved, and consistency improvements. Validates through experimentation and evidence.
+Drily skeptical. Needs concrete numbers and demonstrations before she'll acknowledge value. Won't fake enthusiasm — when she says "okay, that's actually useful," it means something. Focuses on ROI, time saved, and consistency improvements. Her approval is the team's signal that something is genuinely working.
+
+**Personality quirk:** *Drily skeptical* — "I've outlasted three 'revolutionary' tools this decade. I'll believe it when my PR review time drops."
 
 ---
 
@@ -70,7 +72,9 @@ Skeptical but open-minded. Needs to be convinced with concrete demonstrations an
 
 ### Voice in Exercises
 
-Eager to learn, appreciates practical tips, responds well to "here's the workflow" guidance.
+Half-present, half-somewhere-else — but when something genuinely clicks for him, he snaps into focus and immediately wants to know how it works. Explains things through practical analogies. Responds to "here's the workflow" framing. Tends to wander off topic but gets excited when tooling actually reduces friction.
+
+**Personality quirk:** *Chronically distracted* — "Sorry — I was half-reading a Hacker News thread about this. What were you saying?"
 
 ---
 
@@ -100,7 +104,9 @@ Eager to learn, appreciates practical tips, responds well to "here's the workflo
 
 ### Voice in Exercises
 
-Evaluative, analytical, impressed by genuine capability, dismissive of hype. Needs to see that Copilot respects and augments expertise rather than replacing it.
+Precise to a fault — he'll correct your framing before engaging with your question. Genuinely impressed by things that hold up under scrutiny, genuinely dismissive of things that don't. His concerns aren't obstruction; they're quality control with 20 years of pattern recognition behind them.
+
+**Personality quirk:** *Pleasantly pedantic* — "Technically, the concern isn't replacement — it's whether the abstractions hold under real pressure."
 
 ---
 
@@ -131,7 +137,9 @@ Evaluative, analytical, impressed by genuine capability, dismissive of hype. Nee
 
 ### Voice in Exercises
 
-Methodical, detail-oriented, always asking "but what about...?" Appreciates tools that enhance coverage but insists on understanding what's being tested and why.
+Methodical and detail-oriented, always asking "but what about the edge case?" Professionally suspicious of anything that claims to be complete — her job is finding what breaks. Lights up when a tool actually catches something she would have caught herself.
+
+**Personality quirk:** *Professionally suspicious* — "My job is finding what breaks. I'm going to need edge cases. Lots of them."
 
 ---
 
@@ -162,7 +170,9 @@ Methodical, detail-oriented, always asking "but what about...?" Appreciates tool
 
 ### Voice in Exercises
 
-Strategic, outcome-focused, always connecting work to user value. Appreciates when tools help bridge the communication gap between business needs and technical implementation.
+Already three steps ahead in his head — he's mapping the outcome to a roadmap while the team is still discussing implementation. Speaks in outcomes and OKRs. Genuinely values the technical detail when it informs a decision, tunes out when it doesn't.
+
+**Personality quirk:** *Smoothly disengaged* — "I'm already mapping this to an OKR. Can we circle back to the 'how' after?"
 
 ---
 

@@ -5,19 +5,61 @@ description: "Use when editing Slidev deck markdown files, section opener slides
 
 # Slidev Deck Editing
 
+## Slide Separator Rules (CRITICAL)
+
+**`---` must always be on its own line, surrounded by newlines (`\n---\n`) — never on the same line as any other content.**
+
+✅ Correct:
+```
+</div>
+
+---
+
+<!-- SLIDE: Next Slide -->
+<div class="...">
+```
+
+❌ Wrong — breaks counting and causes parse errors:
+```
+</div>
+---<!-- SLIDE: Next Slide -->
+```
+
+**Never use per-slide frontmatter blocks** between `---` separators. This means never writing:
+```
+---
+layout: two-cols
+---
+```
+or
+```
+---
+class: text-center
+---
+```
+
+These create double-separator patterns that make simple `\n---\n` counting impossible. Use CSS instead:
+- Replace `layout: two-cols` with `<div class="grid grid-cols-2 gap-4">` inside the content wrapper
+- Replace `class: text-center` with `class="... text-center ..."` on the outer content div
+
+With this rule enforced, **every `\n---\n` = one slide boundary** — no special-case parsing needed.
+
 ## Finding and Identifying Slides
 
-**Never split a Slidev file on `---` to count or index slides.** The `---` separator also appears inside slide content (code examples, markdown tables, horizontal rules), which makes counting unreliable.
+Every content slide must begin with a named HTML comment on its own line, after a blank line:
 
-Instead, every content slide must begin with a named HTML comment:
-
-```html
-<!-- SLIDE: Slide Name Here -->
 ```
+---
+
+<!-- SLIDE: Slide Name Here -->
+<div class="...">
+```
+
+Never write `---<!-- SLIDE: Name -->` on the same line — always a blank line between the separator and the comment.
 
 ### Counting and finding slides
 
-**The Nth `<!-- SLIDE: -->` comment = Slidev slide N** (1-indexed). This is the canonical mapping between slide numbers and file content — no counting of `---` needed.
+**The Nth `<!-- SLIDE: -->` comment = Slidev slide N** (1-indexed). This is the canonical name-based mapping.
 
 **To find slide N by number:**
 ```powershell
@@ -29,8 +71,6 @@ $name = $comments[$N - 1].Value  # e.g. N=5 → index 4
 ```powershell
 [regex]::Match($content, '(?s)<!-- SLIDE: Mindset Shift -->.*?(?=\n---\n)').Value
 ```
-
-**When creating a new slide**, always add the `<!-- SLIDE: Name -->` comment as the first line of the slide's content block. Use the slide's pill label or heading as the name.
 
 **When editing a slide**, refer to it by name ("the Mindset Shift slide"), not by position number.
 

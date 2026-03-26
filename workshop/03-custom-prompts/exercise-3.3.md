@@ -4,36 +4,34 @@
 
 ### Exercise 3.3: Show-Accuracy Check Prompt — "Encode Your Domain Knowledge"
 
-**Lead:** Elena ⭐ | **Support:** Sarah 🤝 | **Time:** 12 min
+**Lead:** Marcus ⭐ | **Support:** Sarah 🤝 | **Time:** 12 min
 
 #### 📖 The Challenge
 
-It's 10:20 AM. Elena is reviewing the character bios and episode descriptions that got added to FanHub during Module 2. Most look fine. Then she hits Jesse Pinkman's bio.
+It's 10:20 AM. Marcus just opened a PR — he used Copilot to scaffold character bios for the detail page. The code looks fine.
 
-It says he was "Walter's former college student."
+Sarah reviews it. Jesse Pinkman's bio says he was "Walter's former college student." He wasn't — Walter was a chemistry *teacher*, not a professor. Jesse was his high school student. She keeps reading. A second bio misattributes a line of dialogue. A third calls it "the lab" instead of "the Superlab."
 
-He wasn't. Jesse was Walter's former *high school* student. It's one of the foundational facts of the show — Walter was a chemistry teacher, not a professor. Someone copy-pasted from a draft, Copilot hallucinated during a content generation task, and the error made it into the database.
+She finds three errors. She flags them. She is not doing this every sprint.
 
-Elena keeps reading. A second bio misattributes a line of dialogue to the wrong character. A third gets a location name wrong — calling it "the lab" when the show consistently refers to it as "the Superlab" in the later seasons the FanHub content covers.
+*"Marcus. You used Copilot to write these. You need to use Copilot to check them. The canon rules are sitting in `docs/breaking-bad-universe.md` from Module 1. Build a prompt that applies them — before anything hits review."*
 
-She catches all three. It takes her 8–10 minutes of careful reading per content review pass — holding the show's canon in her head, cross-referencing against what she knows, flagging contradictions by eye. There's no systematic check. It's entirely her memory and attention.
+Marcus blinks. He tab-switches to Hacker News. Then he tab-switches back.
 
-Elena knows this pattern: it's the same as any domain compliance review. A fintech QA engineer hand-checks whether generated content uses "APR" vs. "interest rate" correctly. A healthcare writer manually verifies clinical terminology. The problem isn't catching the error once — it's that the check has to happen every time, by memory, with no automation.
+*"Wait — if the rules are already in the file, I just... point the prompt at it? I don't have to hold the whole show in my head every time?"*
 
-Then she realizes: *"I already wrote the accuracy rules. They're sitting in `docs/breaking-bad-universe.md` from Module 1. What if I built a prompt that applied those rules automatically — every time, to any content piece, without me holding the rulebook in my head?"*
-
-The catch: Copilot can't know whether "former college student" is wrong on its own. Someone has to encode the truth. Elena did that work in Exercise 1.6. Now she transforms that knowledge into a systematic check that runs consistently, at scale.
+That's exactly it. The knowledge exists. The prompt just makes it run consistently, at scale, by anyone on the team.
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Elena reads each content piece against her memory of the show. Accuracy depends entirely on her recall and attention in the moment. | Elena invokes `/breaking-bad-accuracy-check` on any content piece. The prompt applies the canon rules from `docs/breaking-bad-universe.md` and flags violations systematically. |
-| **Review time:** 8–10 min/piece, entirely manual | **Review time:** ~2 min/piece — reads the prompt output, confirms or overrides |
-| **Error catch rate:** Varies by Elena's fatigue and recall | **Error catch rate:** 100% for rules encoded in the universe file |
-| **Scale:** Elena is the bottleneck — only one person knows the canon well enough to review | **Scale:** Any team member invokes the prompt; the domain knowledge is in the file |
+| Marcus ships Copilot-generated content; Sarah manually cross-references canon during PR review. | Marcus invokes `/data-accuracy-check` before opening the PR. Canon errors are caught before Sarah ever sees the code. |
+| **Review time:** 8–10 min/PR, entirely on Sarah | **Review time:** ~2 min — Marcus reads the prompt output, fixes before pushing |
+| **Error catch rate:** Varies by Sarah's availability and recall | **Error catch rate:** 100% for rules encoded in the universe file |
+| **Scale:** Sarah is the bottleneck on every content PR | **Scale:** Any team member runs the check; the domain knowledge lives in a file |
 
-**Time saved:** 7 min avg × 20 content reviews/sprint = **140 min/sprint** = **60 hours/year**. More importantly: accuracy review is no longer blocked on one person's availability — the knowledge lives in a file, not a person.
+**Time saved:** 7 min avg × 20 content reviews/sprint = **140 min/sprint** = **60 hours/year**. More importantly: Sarah stops being the accuracy bottleneck for content Marcus generates.
 
 #### 🎯 Your Goal
 
@@ -46,11 +44,11 @@ Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt t
    In GitHub Copilot Chat, switch to **Agent mode**. Paste the following to generate the initial prompt file:
 
    ```
-   Create a new prompt file at `.github/prompts/breaking-bad-accuracy-check.prompt.md`.
+   Create a new prompt file at `.github/prompts/data-accuracy-check.prompt.md`.
 
    The prompt should:
    - Have frontmatter with name, description, and mode: ask
-   - Reference docs/breaking-bad-universe.md as its accuracy source using a #file: reference
+   - Reference `docs/[show]-universe.md` as its accuracy source using a `#file:` reference
    - Instruct Copilot to check provided content against canon rules
    - Flag anything that contradicts show canon, misattributes dialogue or roles, or
      makes claims not established in the show
@@ -64,11 +62,11 @@ Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt t
 
 2. **Review and refine the prompt body**
 
-   Open the generated `.github/prompts/breaking-bad-accuracy-check.prompt.md`. It should look roughly like this — adjust yours if it doesn't:
+   Open the generated `.github/prompts/data-accuracy-check.prompt.md`. It should look roughly like this — adjust yours if it doesn't:
 
    ```markdown
    ---
-   name: breaking-bad-accuracy-check
+   name: data-accuracy-check
    description: 'Validates FanHub content for accuracy against Breaking Bad canon rules'
    mode: ask
    ---
@@ -99,7 +97,7 @@ Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt t
 
 3. **Test against a known-bad input — find the seed data error**
 
-   The FanHub seed data contains a deliberately wrong character description. Use this bio as your test input — either select it in the editor and invoke the prompt, or paste it directly in chat after invoking `/breaking-bad-accuracy-check`:
+   The FanHub seed data contains a deliberately wrong character description. Use this bio as your test input — either select it in the editor and invoke the prompt, or paste it directly in chat after invoking `/data-accuracy-check`:
 
    ```
    Jesse Pinkman is Walter White's former college student and chemistry protégé.

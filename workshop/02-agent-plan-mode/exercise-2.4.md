@@ -1,134 +1,115 @@
-# Exercise 2.4: Execute the Plan and Populate Your Universe
+# Exercise 2.3: Combine Plans into a Delivery Roadmap
 
 ## 🔨 Exercise
 
-### Exercise 2.4: Execute the Plan and Populate Your Universe — "From Roadmap to Reality"
+### Exercise 2.3: Combine Plans into a Delivery Roadmap — "Merge Before You Build"
 
-**Lead:** Sarah ⭐ | **Support:** Marcus 🤝, David 🤝 | **Time:** 15 min
+**Lead:** Marcus ⭐ | **Support:** Elena 🤝 | **Time:** 10 min
 
 #### 📖 The Challenge
 
-It's 11:30 AM. Sarah is looking at `docs/universe-dashboard-plan.md` — the most thorough pre-implementation roadmap the team has ever produced. Three exercises of plan mode research, two merged plans, a sequenced dependency chain. And zero lines of code written.
+It's 11:00 AM. Marcus has two plans on his screen: stat cards from Exercise 2.1 and the quick-add form from Exercise 2.2. Both are well-reasoned. Both mention the `lore_entries` table. Both touch the homepage component. And neither one specifies which to build first.
 
-*"Plans don't ship product,"* Sarah says. *"And I've learned the hard way that handing a plan to an AI in default mode without instruction leads to drift. It starts adding things. It skips steps. It makes reasonable assumptions that conflict with what we actually decided."*
+Two sprints ago, Marcus and a teammate wrote parallel plans for two features that shared a DB migration. They merged to main on the same day. The migration ran twice. The rollback cost them an afternoon.
 
-Sarah's approach: hand the roadmap to agent mode as explicit instructions — step by step — and watch every file change. If the agent deviates from the plan, she decides in real time whether the deviation is an improvement or a mistake. And when the feature is running, she does something that changes the feel of the whole exercise: she opens the quick-add form and enters real characters, locations, and facts from her show. The counters change from `0 · 0 · 0` to something real. *"That's when it started feeling like my site,"* she'll say.
+*"Parallel plans need to be merged before anyone writes a line of code,"* Marcus says. *"It's not bureaucracy — it's just not paying for the same work twice."*
+
+Elena adds the QA perspective: *"And the sequence matters. If the React component gets wired in before the API endpoint exists, I get nothing to test. DB schema first, API second, component third, homepage wiring last — or everything's blocked."*
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Start coding from memory → DB migration forgotten until runtime error, API routes created in wrong order, React component has no real data to test against, fandom content never added because there's no easy UI | Execute from roadmap → every step in order, app runs on first attempt, quick-add form immediately populated with show-specific data, counters reflect real content |
-| **Runtime errors from skipped migration:** 1–2 per sprint<br>**Time from "code done" to "data in DB":** Days (manual SQL)<br>**Sense of personalization:** Low | **Runtime errors:** 0 (followed plan)<br>**Time from "code done" to "data in DB":** Minutes (used the form you just built)<br>**Sense of personalization:** High — your show, your data |
+| Ship two plans directly to implementation → `lore_entries` migration runs twice, homepage component updated twice in two PRs, counter-refresh logic written inconsistently in each feature branch | Merge both plans into one roadmap → one migration, one homepage update, one clear sequence: DB → API → Component → Wiring |
+| **Duplicate steps across separate plans:** 3<br>**Merge conflicts from parallel implementation:** 2 last sprint<br>**Post-merge rework:** High | **Duplicate steps:** 0 (resolved before coding)<br>**Merge conflicts:** 0<br>**Post-merge rework:** None |
 
-**Time saved:** Hours of debugging and manual DB work → minutes of form submission
+**Time saved:** 2 sprint-day incidents → 0, replaced by a 10-minute merge conversation with Copilot
 
 #### 🎯 Your Goal
 
-Switch from plan mode to agent mode, hand the merged roadmap to Copilot as explicit execution instructions, verify the running feature, and then populate your site with at least 6 real entries from your chosen show.
+Share both plans with Copilot and ask it to produce a single merged delivery roadmap with no duplicate steps and a dependency-safe execution sequence. Verify the sequence yourself, then save the roadmap.
 
 #### 📋 Steps
 
-1. **Switch from Plan Mode to Agent Mode**
+1. **Share Both Plans with Copilot**
 
-   In Copilot Chat, switch the mode selector from **Plan** back to **Agent**. This is a meaningful switch: agent mode can now write files, run terminal commands, and modify the codebase. The research phase is over.
+   In the same plan mode session (or a new one if needed), paste in — or reference — the content of both plans:
 
-   Open `docs/universe-dashboard-plan.md` in the editor so you have it visible while the agent works.
+   - The stat card plan from Exercise 2.1 (saved as `docs/universe-dashboard-plan.md` or in your notes)
+   - The form panel plan from Exercise 2.2
 
-2. **Give the Execution Prompt**
+   If both are in the same Copilot Chat session already, Copilot can reference them directly. If you saved them to files, open those files and use `#file:docs/universe-dashboard-plan.md` to reference them in the prompt.
 
-   Reference the roadmap file and issue this instruction:
+2. **Enter the Merge Prompt**
 
    ```
-   Execute this plan. Start with the database schema, then the API endpoints, then the React component, then wire it into the homepage.
+   Combine these two plans into a single delivery roadmap. Identify any shared steps (like DB schema), resolve duplicates, and sequence everything so there are no dependency conflicts.
    ```
 
-   Watch the agent work file by file. It should follow the dependency sequence from the roadmap: migration → routes → component → homepage.
+   The roadmap Copilot produces should arrive in this sequence:
+   1. **DB schema and migration** — `lore_entries` table (shared between both plans, built once)
+   2. **API routes** — `GET /api/stats/*` endpoints, then `POST /api/characters` and `POST /api/lore-entries`
+   3. **React components** — `<UniverseStats>` first (read-only), then the form panel (write + refresh)
+   4. **Homepage wiring** — import and render both components in the correct order
 
-   **Your job during execution:** Monitor for deviations. If the agent:
+   If the roadmap doesn't arrive in this order, that's worth flagging.
 
-   - Creates a table named differently than `lore_entries` → flag it and ask it to match the plan
-   - Adds a feature not in the roadmap (e.g., pagination, search) → decide whether to accept or revert
-   - Skips a step → point it back to the roadmap
+3. **Spot-Check for Duplicates**
 
-   This active monitoring is the human judgment that plan mode preserved for you. You understood the plan, so you can evaluate deviations in context.
+   Before accepting the roadmap, verify manually:
 
-3. **Verify the Running Feature**
+   - Is the `lore_entries` migration mentioned once or twice? (Should be once.)
+   - Is the homepage component update mentioned once or twice? (Should be once.)
+   - Does the form panel's counter-refresh reference the same API route the stat cards use? (It should.)
 
-   Start the FanHub app and confirm:
+   Elena's QA lens: check that no component appears before its API endpoint in the sequence. If `<UniverseStats>` is listed before `GET /api/stats/characters` exists, the app will render broken state during development.
 
-   - **Homepage loads** with all three stat cards visible
-   - **Initial counters show `0`** — the tables exist but no data is in them yet
-   - **The "Add to Universe" panel** appears (collapsed or open) with a type selector and name/description fields
-   - **Form submits successfully** — open the browser Network tab, submit the form, and confirm a `POST` request goes out and returns `200`
-   - **Counter refreshes** after submit — the correct card (not all three) increments by 1
+4. **Save the Merged Roadmap**
 
-   If any of these fail, check the roadmap for the step that was skipped or misimplemented. Ask the agent to revisit that specific step rather than rerunning everything.
+   Save the final combined roadmap to:
 
-4. **Populate Your Universe (The Payoff)**
+   ```
+   docs/universe-dashboard-plan.md
+   ```
 
-   Open the "Add to Universe" form and start entering real data from your show. Use the type selector to add entries across all three categories:
-
-   **If you're working with Breaking Bad:**
-   - Character: Walter White — "Chemistry teacher turned methamphetamine manufacturer, motivated by pride as much as survival"
-   - Character: Jesse Pinkman — "Walt's former student, whose moral conscience becomes the show's emotional center"
-   - Character: Saul Goodman — "Criminal lawyer who provides Walt and Jesse with legal cover and criminal connections"
-   - Location: Albuquerque — "The New Mexico city where almost every scene in the series takes place"
-   - Location: The Superlab — "Industrial-scale meth lab built beneath a laundry facility, hidden in plain sight"
-   - Canon Fact: "Walt's chemistry knowledge predates his cancer diagnosis — his meth quality reflects decades of academic expertise, not desperation"
-
-   **For any other show:** Add at least 3 characters, 2 locations, and 1 canon fact. Use details that only a fan of the show would know — not just Wikipedia summaries. The specificity matters; it's what makes the accuracy check in Module 3 meaningful.
-
-   After each submission, watch the matching counter increment. After all six entries: the counters show real numbers. The site now has actual data from your chosen show.
-
-5. **Answer the Debrief Question**
-
-   Before moving on, write your answer to this question in your notes:
-
-   > *Did Copilot follow the plan faithfully? Where did it deviate — and was the deviation an improvement or a mistake?*
-
-   At least one deviation is likely. Name one you accepted (the agent saw a useful pattern you hadn't specified) and, if you can, one you overrode (the agent made an assumption that conflicted with the plan). This reflection closes the loop on the entire plan → execute arc.
+   Overwrite the earlier partial draft from Exercise 2.1. The final version of this file is the artifact you hand to agent mode in Exercise 2.4.
 
 #### ✅ Success Criteria
 
-- [ ] Agent mode used (not plan mode) for all code execution
-- [ ] Homepage renders all three stat cards with live counts fetched from the API
-- [ ] "Add to Universe" form accepts input, posts to the DB, and refreshes the correct counter
-- [ ] At least 6 entries added from your show (3 characters, 2 locations, 1 canon fact)
-- [ ] Network tab confirms the API call on form submit
-- [ ] You can describe one decision Copilot made that you accepted — and one you overrode (or explain why no overrides were needed)
+- [ ] Combined roadmap produced with no duplicate steps (DB migration appears once, homepage wiring appears once)
+- [ ] Shared artifacts (`lore_entries` table, homepage component) correctly identified and merged into single steps
+- [ ] Sequence is dependency-safe: DB → API → Components → Homepage wiring
+- [ ] Roadmap saved as `docs/universe-dashboard-plan.md`
 
 #### 📚 Official Docs
 
-- [Agent Mode in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-agent) — How agent mode executes multi-step tasks autonomously
-- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) — The full plan → execute workflow end to end
+- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning#_how-to-plan-a-task) — Multi-step planning and plan synthesis
+- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How Copilot synthesizes multiple context sources into coherent plans
 
 ---
 
 ## 🔗 What You Built
 
 **In this exercise:**
-- A running "Universe at a Glance" section on the FanHub homepage with live animated stat counters
-- A working "Add to Universe" form that writes to the database and refreshes the correct counter
-- At least 6 real entries from your chosen show now in the database
+- `docs/universe-dashboard-plan.md` (final version) — A single dependency-safe delivery roadmap covering both the stat cards and the quick-add form
 
 **How it compounds:**
 
 | Previous Modules | This Exercise | Combined Power |
 |------------------|---------------|----------------|
-| `copilot-instructions.md` (Module 1) | Agent execution | The agent followed your naming and styling conventions without being reminded — because the instructions were already in context |
-| Exercises 2.1–2.3 (Plans + Roadmap) | Execution fidelity | The agent had a concrete roadmap to follow, not a vague prompt — every implementation step had a defined reason and sequence |
-| Show data entered here | Module 3 foundation | The characters, locations, and canon facts you just added become the target data for Elena's accuracy-check prompt in Module 3 |
+| `copilot-instructions.md` (Module 1) | Merge arbitration | The merged roadmap follows your conventions without re-specifying them during the merge prompt |
+| Exercise 2.1 plan | Shared foundation | DB schema from the first plan becomes the single source of truth in the merged roadmap |
+| Exercise 2.2 plan | Conflict surface | Second plan exposed the overlap — merge step eliminated it before it could become a PR conflict |
 
-**Why this matters:** The data you entered in Step 4 isn't busywork. In Module 3, Elena will build a reusable accuracy-check prompt that validates whether FanHub's content matches real show canon. The specific entries you added here — the ones that require fan knowledge, not Wikipedia knowledge — are exactly what that prompt will test. Plan mode made the implementation safe; your show data makes it yours.
+**Why this matters:** On a real team, two engineers writing parallel plans for adjacent features is unavoidable. The merge step is the discipline that prevents double migrations, duplicate PRs, and integration failures. Plan mode makes the merge fast enough that skipping it is never worth the risk.
 
 ---
 
-## ➡️ Next Module
+## ➡️ Next Exercise
 
-**[Module 3: Custom Prompts](../03-custom-prompts/README.md)** — Elena has been running the same show-accuracy validation by hand five times a sprint. She's done. Module 3 turns that repeated check into a reusable `.prompt.md` file — and the first thing it validates is the data you just added.
+**[Exercise 2.4: Execute the Plan and Populate Your Universe](exercise-2.4.md)** — Switch from plan mode back to agent mode and hand the merged roadmap to Copilot for execution. Then populate your site with real show data and watch the counters change from `0 · 0 · 0` to something real.
 
-> *"I've typed the same accuracy check into Copilot so many times I could write it in my sleep. There has to be a way to save it."*
-> — Elena, ready for Module 3
+> *"The roadmap is perfect. Now let's find out if Copilot can follow it."*
+> — Sarah, switching to agent mode
 
 ---

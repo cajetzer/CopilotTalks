@@ -1,116 +1,131 @@
-# Exercise 2.2: Plan the Quick-Add Form
+# Exercise 2.1: Plan the Universe Stat Cards
 
 ## 🔨 Exercise
 
-### Exercise 2.2: Plan the Quick-Add Form — "Continuity Is the Test"
+### Exercise 2.1: Plan the Universe Stat Cards — "Research Before the First Line"
 
-**Lead:** David ⭐ | **Support:** Elena 🤝, Sarah 🤝 | **Time:** 10 min
+**Lead:** Marcus ⭐ | **Support:** Sarah 🤝, Elena 🤝 | **Time:** 10 min
 
 #### 📖 The Challenge
 
-It's 10:30 AM. David reviews the 2.1 plan and nods — the stat cards are well-designed. Then he spots the gap: *the counters can show counts, but there's no way to add data without opening a database client.* He wants an "Add to Universe" form panel right on the homepage, so participants can type in a character name or location and watch the counter tick up in real time.
+It's 10:00 AM. Marcus opens the FanHub homepage and stares at placeholder text. The Breaking Bad data is all there in the database — one full season of characters, episodes, locations — but nothing surfaces on the site. He's been asked to add a "Universe at a Glance" section: three animated stat cards showing live counts of Characters, Locations, and Canon Facts.
 
-The form sounds straightforward. But David has been in enough architectural reviews to know that "simple form" often means "three hidden problems." He's seen two developers spend hours on a form that inserted into the wrong table, skipped validation, and had no UX feedback when submission failed. More relevant right now: the form needs to reference the `lore_entries` table that was *planned* in Exercise 2.1 but hasn't been built yet. If plan mode doesn't maintain context across planning sessions, the second plan will propose a different table name — and the two plans will conflict before implementation even starts.
+The feature sounds small. That's the trap.
 
-*"The continuity check is the whole point,"* David says. *"Does the second plan know what the first plan decided?"*
+Last sprint Marcus started three features that "looked small" and hit mid-implementation walls: once when a UI change needed a DB migration he hadn't anticipated, once when two API routes collided because he hadn't checked what already existed, and once when a new React component needed to slot into the component tree in a way that broke existing styling. Total restart cost: about 90 minutes across those three incidents, and 2–3 discovered dependencies per feature *after* coding had started.
+
+*"I keep figuring out the real scope halfway through,"* Marcus admits. *"I need to see the whole map before I take the first step."*
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Plan the form independently from the stat cards → different table name assumed, form posts to wrong endpoint, counter doesn't refresh after submit, discovered during integration testing | Run the second plan in the same chat session as the first → plan mode inherits context, references `lore_entries` correctly, proposes the POST endpoint and counter-refresh pattern as a connected sequence |
-| **Integration bugs from dual-plan drift:** 2–3 per feature pair<br>**Time to discover:** During testing, 45 min in<br>**Rework required:** High | **Integration bugs from dual-plan drift:** 0<br>**Human judgment calls surfaced:** 1–2 deliberately<br>**Rework required:** None (resolved before coding) |
+| Marcus dives into coding, hits a missing DB migration 20 minutes in, discovers the API routes don't exist 30 minutes in, realizes he needs a new React component he hasn't planned for at the 45-minute mark | Marcus runs plan mode first: 90 seconds of codebase research surfaces the DB migration, the three new API routes, the React component, and exactly where it slots into the homepage — all before a line is written |
+| **Planning time:** 30–35 min (gut-check + mid-feature discoveries)<br>**Discovered-late dependencies:** 2–3 per feature<br>**Restart incidents:** 3 last sprint | **Planning time:** 10 min (2 min AI research + 8 min review)<br>**Discovered-late dependencies:** 0<br>**Restart incidents:** 0 |
 
-**Time saved:** 45 min integration debugging → 0, replaced by 2 min of reading the plan carefully
+**Time saved:** 30+ min planning + 90 min restart recovery → 10 min planning + 0 recovery
 
 #### 🎯 Your Goal
 
-In the same Copilot Chat session from Exercise 2.1, run a second plan mode prompt to design the quick-add form panel. Then verify the plan correctly references the `lore_entries` table from the first plan — and identify at least one decision the plan surfaced that required your own judgment.
+Switch Copilot to plan mode and run a single prompt to generate a complete implementation plan for the "Universe at a Glance" stat cards. The plan will surface every file that needs to change — before any code is written. Then annotate the plan with at least one refinement and save it for Exercise 2.3.
 
 #### 📋 Steps
 
-1. **Stay in the Same Chat Session**
+1. **Switch to Plan Mode**
 
-   Do not open a new Copilot Chat window. Stay in the same session where you ran the Exercise 2.1 plan. This is important: plan mode's research context is session-scoped. The second plan should "remember" that the first plan decided to use `lore_entries` with a `type` column.
+   Open the Copilot Chat panel (`Ctrl+Alt+I` / `Cmd+Alt+I` on Mac). At the top of the chat input, find the **mode selector** (it shows "Ask", "Edit", or "Agent" depending on your current mode). Switch it to **Plan**.
 
-   If you accidentally closed the session, you can still proceed — but note in your annotations that you restarted, and check extra carefully whether the plan references the same table name.
+   > **Why plan mode?** Plan mode is read-only by design — it can open files, read your codebase, analyze dependencies, and draft an implementation plan, but it will never write or modify a file until you explicitly approve. Default agent mode starts making changes immediately. Plan mode separates research from execution.
 
-2. **Enter the Form Plan Prompt**
+   You should see the mode indicator change. There's no code to run yet — you're just switching modes.
 
-   Enter this prompt in the same plan mode session:
+2. **Before You Prompt — Make Your Guess**
+
+   Before entering the prompt, take 30 seconds and write down your answer to this question in your notes:
+
+   > *How many files will this feature touch?*
+
+   Most participants guess 2–3. Hold that guess — you'll compare it to the plan's output.
+
+3. **Enter the Plan Prompt**
+
+   In the plan mode chat, enter this prompt exactly:
 
    ```
-   Add a collapsible "Add to Universe" form panel next to the stat cards. The form should let me add a Character, Location, or Canon Fact by selecting a type and filling in a name and description. On submit, the matching stat card should refresh with the new count.
+   Add a "Universe at a Glance" section to the FanHub homepage with three stat cards showing live counts: Characters, Locations, and Canon Facts. Each card should fetch its count from the API and animate the number on load.
    ```
 
-   Wait for the plan to generate. This prompt has more moving parts than Exercise 2.1 — expect the plan to take 90–120 seconds and surface more open questions.
+   Wait for plan mode to finish researching. This typically takes 60–120 seconds. Watch the tool calls — you'll see it reading ARCHITECTURE.md, your existing route files, the DB schema, the homepage component — all without making a change.
 
-3. **Run the Continuity Check**
+   **What to observe:** The read-only research is the feature of plan mode. Every file it reads is a file it might have *changed* without warning if you'd used agent mode instead.
 
-   When the plan finishes, search it for the word `lore_entries`. The plan should:
+4. **Count the Files**
 
-   - Reference `lore_entries` as the target table for Location and Canon Fact inserts
-   - Propose a `POST /api/lore-entries` endpoint (not a new table)
-   - Show the Character insert as a separate `POST /api/characters` endpoint
+   When the plan finishes, look at the **Implementation Steps** section. Count the distinct files the plan proposes touching:
 
-   If the plan proposes a *different* table name (like `universe_facts` or `locations`) — that's drift. Note it. This is the exact failure mode David described: two independently-planned features that conflict at the table level.
+   - A DB migration file (new table for `lore_entries` with a `type` column covering locations and canon facts)
+   - Three new API route handlers: `GET /api/stats/characters`, `GET /api/stats/locations`, `GET /api/stats/canon-facts`
+   - A new `<UniverseStats>` React component with fetch logic and CSS animation
+   - The homepage component (to wire in `<UniverseStats>`)
 
-   Breaking Bad example of what good continuity looks like in the plan:
-   > *"Insert into `lore_entries` with `type: 'location'` when submitting Albuquerque, and `type: 'canon_fact'` when submitting 'Walter White's chemistry background is self-taught.'"*
+   That's typically 5–7 files. Compare to your pre-prompt guess. The gap between your guess and the real count is the lesson plan mode teaches every time.
 
-   For your show: the type selector ("Character / Location / Canon Fact") is what makes every participant's form unique. A Stranger Things participant types "Eleven" in the Character field; a Game of Thrones participant types "King's Landing" in the Location field. Same form component, your show's data.
+5. **Annotate at Least One Refinement**
 
-4. **Find the Open Question**
+   Read the plan carefully and add at least one annotation or clarification. Examples:
 
-   Every good plan surfaces at least one decision it couldn't make without human input. Look for questions like:
+   - If the plan called the table `universe_facts`, note: *"Rename to `lore_entries` — matches our naming convention for world-building data"*
+   - If the plan proposed class components, note: *"Prefer `useEffect` hooks — consistent with our functional component pattern"*
+   - If the plan didn't specify animation style, note: *"Animate with a count-up on mount, 1-second duration, using CSS transitions"*
 
-   - *"Should the counter refresh optimistically (instant UI update before the server confirms) or wait for the POST to return a success response?"*
-   - *"What should happen if a duplicate character name is submitted?"*
-   - *"Should the form collapse back automatically after a successful add, or stay open?"*
+   Annotations become the refinement instructions you'll pass to agent mode in Exercise 2.4.
 
-   Pick one. Write your answer. This is the human judgment that plan mode is deliberately leaving for you — it surfaces decisions it can't make, rather than guessing and embedding a silent assumption in code.
+6. **Save the Plan**
 
-5. **Save the Form Plan**
+   Copy the plan output (or use the "Open in Editor" button in Copilot Chat) and save it to:
 
-   Copy the plan or use the "Open in Editor" button. You'll need it in Exercise 2.3 for the merge step.
+   ```
+   docs/universe-dashboard-plan.md
+   ```
+
+   You'll merge this with the Exercise 2.2 plan in Exercise 2.3.
 
 #### ✅ Success Criteria
 
-- [ ] Second plan generated in the same chat session as Exercise 2.1
-- [ ] Plan references `lore_entries` as the shared table (continuity confirmed — or drift documented if it occurred)
-- [ ] `POST /api/characters` and `POST /api/lore-entries` endpoints identified in the plan
-- [ ] At least one open question the plan raised, answered with your own judgment
-- [ ] Plan saved for use in Exercise 2.3
+- [ ] Plan mode runs without making any code changes to the codebase
+- [ ] Plan identifies the DB migration (new `lore_entries` table), three API routes, `<UniverseStats>` React component, and homepage wiring
+- [ ] You recorded your pre-prompt file-count guess and compared it to the plan's actual count
+- [ ] At least one plan refinement annotated (naming, pattern, or behavior)
+- [ ] Plan saved to `docs/universe-dashboard-plan.md` for use in Exercise 2.3
 
 #### 📚 Official Docs
 
-- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning#_how-to-plan-a-task) — Iterating on plans and maintaining session context
-- [Configure Tools for Agents](https://code.visualstudio.com/docs/copilot/chat/chat-tools) — Understanding what plan mode can and cannot infer
+- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) — How plan mode researches tasks before proposing changes
+- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How Copilot uses workspace context for comprehensive analysis
 
 ---
 
 ## 🔗 What You Built
 
 **In this exercise:**
-- A second plan covering the form panel, POST endpoints, form state management, and counter-refresh pattern
-- A continuity check result: whether plan mode maintained context across two planning prompts in a single session
+- `docs/universe-dashboard-plan.md` — A research-backed implementation plan with file paths, step ordering, and at least one refinement annotation
 
 **How it compounds:**
 
 | Previous Modules | This Exercise | Combined Power |
 |------------------|---------------|----------------|
-| `copilot-instructions.md` (Module 1) | Form naming conventions | The plan proposes endpoint names that match your team's conventions — without you specifying them |
-| Exercise 2.1 plan | Session continuity | The form plan inherits the table schema from the stat card plan — one decision, not two |
+| `copilot-instructions.md` (Module 1) | Plan mode research | The plan already follows your naming conventions and project patterns — you didn't have to explain them |
+| `ARCHITECTURE.md` (Module 1) | Dependency mapping | Plan mode read your architecture doc and used it to trace the data flow from DB → API → Component → Page |
 
-**Why this matters:** The continuity check is a habit, not a one-time trick. On real teams, parallel planning creates silent conflicts that only surface during integration. Running sequential plans in one session — and verifying they reference the same artifacts — is a discipline that plan mode makes easy to enforce.
+**Why this matters:** The pre-prompt guess vs. actual file count is repeatable. Every time participants run plan mode on something that "looks simple," the gap appears. That gap represents bugs, restarts, and mid-feature surprises that plan mode eliminates permanently.
 
 ---
 
 ## ➡️ Next Exercise
 
-**[Exercise 2.3: Combine Plans into a Delivery Roadmap](exercise-2.3.md)** — Marcus takes both plans and merges them into one conflict-free, dependency-sequenced delivery roadmap. The two plans overlap in three places — the merge step surfaces them all.
+**[Exercise 2.2: Plan the Quick-Add Form](exercise-2.2.md)** — David spots a gap in the 2.1 plan: there's no way to add data without a database client. Run a second plan mode pass to design the quick-add form — and check whether it correctly inherits context from the first plan.
 
-> *"Two plans, shared tables, overlapping homepage changes. Let's make sure we build this once, not twice."*
-> — Marcus, ready to merge
+> *"The counters show what's there. But how does data get there in the first place?"*
+> — David, spotting the gap
 
 ---

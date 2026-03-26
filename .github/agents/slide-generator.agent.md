@@ -142,7 +142,9 @@ Add section divider slides for each 🎬 major section (tech talks / exec talks)
 
 Before writing any slide with HTML:
 
-- **Slide name comment** — The first line of every content slide must be `<!-- SLIDE: Name -->` using the pill label or heading as the name. Never omit this. It is the only reliable way to locate a slide — do NOT count `---` separators (they appear inside content too).
+- **Separator rule** — Every slide separator must be `\n---\n` — `---` on its own line with a blank line before and after. Never write `---<!-- SLIDE: ...` on the same line.
+- **No per-slide frontmatter** — Never use `layout:`, `class:`, or `transition:` blocks between `---` separators. Use CSS instead: `grid grid-cols-2` replaces `layout: two-cols`; `class="... text-center"` on the outer div replaces `class: text-center`.
+- **Slide name comment** — The first line of every content slide (after the blank line following `---`) must be `<!-- SLIDE: Name -->` using the pill label or heading as the name. Never omit this.
 - **Tag balance** — count every `<div>` and `</div>`; they must match exactly
 - **Consistent quotes** — use `"` throughout; never mix `"` and `'`
 - **Backtick balance** — count opening and closing backticks in code blocks
@@ -219,8 +221,11 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 
 | Mistake                     | Prevention                                                                     |
 | --------------------------- | ------------------------------------------------------------------------------ |
-| Counting `---` to find slides | **Nth `<!-- SLIDE: -->` = slide N**; `---` appears inside content too        |
-| Missing slide name comment  | First line of every content slide must be `<!-- SLIDE: Name -->`              |
+| `---` on same line as content | Always `\n---\n` — blank line before and after every separator              |
+| Per-slide frontmatter blocks | Never use `layout:`, `class:`, `transition:` — use CSS in the content div   |
+| `layout: two-cols`          | Use `<div class="grid grid-cols-2 gap-4">` inside the content wrapper          |
+| Counting `---` to find slides | **Nth `<!-- SLIDE: -->` = slide N**; with separator rule enforced, `\n---\n` count also works |
+| Missing slide name comment  | First line after blank line after `---` must be `<!-- SLIDE: Name -->`        |
 | Unclosed `<div>` tags       | Count open/close before writing                                                |
 | 7+ bullets on one slide     | Split at 5; create (1/2)/(2/2)                                                 |
 | Mixed `"` and `'` quotes    | Use `"` everywhere                                                             |
