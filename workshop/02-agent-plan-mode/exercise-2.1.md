@@ -1,115 +1,131 @@
-# Exercise 2.1: Invoking Plan Mode
+# Exercise 2.1: Plan the Universe Stat Cards
 
 ## 🔨 Exercise
 
-### Exercise 2.1: Invoking Plan Mode — "Research Before Code"
+### Exercise 2.1: Plan the Universe Stat Cards — "Research Before the First Line"
 
-**Lead:** Marcus ⭐ | **Support:** Sarah 🤝 | **Time:** 8 min
+**Lead:** Marcus ⭐ | **Support:** Sarah 🤝, Elena 🤝 | **Time:** 10 min
 
 #### 📖 The Challenge
 
-Marcus has been assigned a lightweight enhancement to the character detail experience: add a short tagline or summary beneath the character name. The change sounds simple, but he still has to figure out where the page gets its data, which files shape the response, and how FanHub handles display patterns consistently.
+It's 10:00 AM. Marcus opens the FanHub homepage and stares at placeholder text. The Breaking Bad data is all there in the database — one full season of characters, episodes, locations — but nothing surfaces on the site. He's been asked to add a "Universe at a Glance" section: three animated stat cards showing live counts of Characters, Locations, and Canon Facts.
 
-The old approach: spend 20 minutes manually exploring the codebase, opening files, tracing imports, checking existing patterns, and hoping he doesn't miss a dependency between the API response and the UI. Last sprint, he missed 3 dependencies across similar enhancements, leading to mismatched UI states and cleanup work that could have been avoided.
+The feature sounds small. That's the trap.
 
-Sarah has been watching this pattern across the team: *"We spend more time figuring out what to change than actually changing it. There has to be a better way to map the work before diving in."*
+Last sprint Marcus started three features that "looked small" and hit mid-implementation walls: once when a UI change needed a DB migration he hadn't anticipated, once when two API routes collided because he hadn't checked what already existed, and once when a new React component needed to slot into the component tree in a way that broke existing styling. Total restart cost: about 90 minutes across those three incidents, and 2–3 discovered dependencies per feature *after* coding had started.
+
+*"I keep figuring out the real scope halfway through,"* Marcus admits. *"I need to see the whole map before I take the first step."*
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Marcus spends 20 minutes manually analyzing: opening page components, tracing API responses, checking where summary content belongs, making notes about what needs to change, second-guessing dependencies | Marcus invokes plan mode: types one request, waits 90 seconds, gets a focused implementation plan with file paths, step ordering, dependencies, and open questions |
-| **Planning time:** 20 min<br>**Missed dependencies:** 3 per sprint<br>**Confidence:** Low (guessing) | **Planning time:** 7 min (2 min AI + 5 min review)<br>**Missed dependencies:** 0 per sprint<br>**Confidence:** High (validated plan) |
+| Marcus dives into coding, hits a missing DB migration 20 minutes in, discovers the API routes don't exist 30 minutes in, realizes he needs a new React component he hasn't planned for at the 45-minute mark | Marcus runs plan mode first: 90 seconds of codebase research surfaces the DB migration, the three new API routes, the React component, and exactly where it slots into the homepage — all before a line is written |
+| **Planning time:** 30–35 min (gut-check + mid-feature discoveries)<br>**Discovered-late dependencies:** 2–3 per feature<br>**Restart incidents:** 3 last sprint | **Planning time:** 10 min (2 min AI research + 8 min review)<br>**Discovered-late dependencies:** 0<br>**Restart incidents:** 0 |
+
+**Time saved:** 30+ min planning + 90 min restart recovery → 10 min planning + 0 recovery
 
 #### 🎯 Your Goal
 
-Use the plan agent to research and generate an implementation plan for adding a character tagline or summary to the existing character detail experience.
+Switch Copilot to plan mode and run a single prompt to generate a complete implementation plan for the "Universe at a Glance" stat cards. The plan will surface every file that needs to change — before any code is written. Then annotate the plan with at least one refinement and save it for Exercise 2.3.
 
 #### 📋 Steps
 
-1. **Open Copilot Chat in Plan Mode**
+1. **Switch to Plan Mode**
 
-   Open the Chat view (`Ctrl+Alt+I` or `Cmd+Alt+I` on Mac) and select **Plan** from the agents dropdown at the top. You should see the plan agent icon (📋) indicating you're in planning mode, not default chat mode.
+   Open the Copilot Chat panel (`Ctrl+Alt+I` / `Cmd+Alt+I` on Mac). At the top of the chat input, find the **mode selector** (it shows "Ask", "Edit", or "Agent" depending on your current mode). Switch it to **Plan**.
 
-   Why plan mode? Because it uses read-only research tools to analyze your codebase comprehensively before proposing any changes. The default agent starts implementing immediately; plan mode separates research from execution.
+   > **Why plan mode?** Plan mode is read-only by design — it can open files, read your codebase, analyze dependencies, and draft an implementation plan, but it will never write or modify a file until you explicitly approve. Default agent mode starts making changes immediately. Plan mode separates research from execution.
 
-2. **Request the Character Tagline Plan**
+   You should see the mode indicator change. There's no code to run yet — you're just switching modes.
 
-   In the plan mode chat, enter this request:
+2. **Before You Prompt — Make Your Guess**
+
+   Before entering the prompt, take 30 seconds and write down your answer to this question in your notes:
+
+   > *How many files will this feature touch?*
+
+   Most participants guess 2–3. Hold that guess — you'll compare it to the plan's output.
+
+3. **Enter the Plan Prompt**
+
+   In the plan mode chat, enter this prompt exactly:
 
    ```
-     @workspace Add a lightweight enhancement to the existing character detail experience:
-     - Frontend: Display a short character tagline or summary beneath the name
-     - Backend/API: Ensure the page has the summary data it needs
-     - Follow existing FanHub patterns for routing, error handling, and styling
-     ```
+   Add a "Universe at a Glance" section to the FanHub homepage with three stat cards showing live counts: Characters, Locations, and Canon Facts. Each card should fetch its count from the API and animate the number on load.
+   ```
 
-   Press Enter and wait for the plan agent to research your codebase. This takes 60-120 seconds—it's reading ARCHITECTURE.md, copilot-instructions.md, analyzing existing patterns, mapping dependencies, and identifying constraints.
+   Wait for plan mode to finish researching. This typically takes 60–120 seconds. Watch the tool calls — you'll see it reading ARCHITECTURE.md, your existing route files, the DB schema, the homepage component — all without making a change.
 
-   **What to observe:** The plan agent doesn't make any code changes. It's gathering context to propose a research-based implementation plan.
+   **What to observe:** The read-only research is the feature of plan mode. Every file it reads is a file it might have *changed* without warning if you'd used agent mode instead.
 
-3. **Review the Generated Plan**
+4. **Count the Files**
 
-   Examine the plan output, which should include:
+   When the plan finishes, look at the **Implementation Steps** section. Count the distinct files the plan proposes touching:
 
-     - **Summary**: High-level approach (e.g., "Update character response shape, enhance existing page, add focused tests")
-     - **Implementation Steps**: Ordered tasks like:
-      - Step 1: Update the character data source or response mapping to include tagline/summary
-      - Step 2: Update the existing character detail page to render the new content
-      - Step 3: Add tests for missing summaries and empty-state behavior
-     - **Open Questions**: Ambiguities like "What should display when no tagline exists?" or "Should long summaries be truncated?"
-     - **Dependencies**: What order steps must execute (data/API updates before frontend rendering, implementation before tests are finalized)
+   - A DB migration file (new table for `lore_entries` with a `type` column covering locations and canon facts)
+   - Three new API route handlers: `GET /api/stats/characters`, `GET /api/stats/locations`, `GET /api/stats/canon-facts`
+   - A new `<UniverseStats>` React component with fetch logic and CSS animation
+   - The homepage component (to wire in `<UniverseStats>`)
 
-   **Note the file paths:** The plan references specific files in your FanHub codebase. It analyzed your project structure from ARCHITECTURE.md and existing code patterns.
+   That's typically 5–7 files. Compare to your pre-prompt guess. The gap between your guess and the real count is the lesson plan mode teaches every time.
 
-    **Note the time:** Planning took ~2 minutes of AI research plus your ~5 minutes of review = 7 minutes total, compared to 20 minutes of manual analysis.
+5. **Annotate at Least One Refinement**
 
-4. **Save the Plan (Don't Execute Yet)**
+   Read the plan carefully and add at least one annotation or clarification. Examples:
 
-   Use the **"Open in Editor"** button to save the plan as a markdown file, or simply copy the plan content into a new file:
+   - If the plan called the table `universe_facts`, note: *"Rename to `lore_entries` — matches our naming convention for world-building data"*
+   - If the plan proposed class components, note: *"Prefer `useEffect` hooks — consistent with our functional component pattern"*
+   - If the plan didn't specify animation style, note: *"Animate with a count-up on mount, 1-second duration, using CSS transitions"*
 
-    ```
-     fanhub/docs/FEATURE-CHARACTER-TAGLINE.md
-    ```
+   Annotations become the refinement instructions you'll pass to agent mode in Exercise 2.4.
 
-   Don't execute the plan yet—that's Exercise 2.3. Right now, focus on seeing how plan mode researches and proposes implementation strategies.
+6. **Save the Plan**
 
-   **Why save it?** Plans become documentation: a record of *what* you're building, *why*, and *how* the pieces fit together. Share with team members, reference during implementation, or revisit when requirements change.
+   Copy the plan output (or use the "Open in Editor" button in Copilot Chat) and save it to:
+
+   ```
+   docs/universe-dashboard-plan.md
+   ```
+
+   You'll merge this with the Exercise 2.2 plan in Exercise 2.3.
 
 #### ✅ Success Criteria
 
-- [ ] Plan agent generates 4-6 implementation steps with specific file paths
-- [ ] Plan includes summary, steps, open questions, and dependencies sections
-- [ ] File paths reference your actual FanHub codebase structure (e.g., `backend/src/routes/`, `frontend/src/pages/`)
-- [ ] Planning completed in ~7 minutes (compared to 20 minutes manual analysis)
-- [ ] Plan saved for review and team discussion
+- [ ] Plan mode runs without making any code changes to the codebase
+- [ ] Plan identifies the DB migration (new `lore_entries` table), three API routes, `<UniverseStats>` React component, and homepage wiring
+- [ ] You recorded your pre-prompt file-count guess and compared it to the plan's actual count
+- [ ] At least one plan refinement annotated (naming, pattern, or behavior)
+- [ ] Plan saved to `docs/universe-dashboard-plan.md` for use in Exercise 2.3
 
 #### 📚 Official Docs
 
-- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) — How the plan agent researches tasks and generates implementation plans
-- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How `@workspace` enables comprehensive codebase analysis
+- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) — How plan mode researches tasks before proposing changes
+- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How Copilot uses workspace context for comprehensive analysis
 
 ---
 
 ## 🔗 What You Built
 
 **In this exercise:**
-- `fanhub/docs/FEATURE-CHARACTER-TAGLINE.md` — Implementation plan with step-by-step breakdown, dependencies, and open questions
+- `docs/universe-dashboard-plan.md` — A research-backed implementation plan with file paths, step ordering, and at least one refinement annotation
 
 **How it compounds:**
 
-| Previous Modules | This Module | Combined Power |
-|------------------|-------------|----------------|
-| ARCHITECTURE.md (Module 1) | Plan agent research | Plan understands your tech stack, folder structure, and data flow automatically |
-| copilot-instructions.md (Module 1) | Plan agent proposals | Plans follow your coding standards and patterns without explicit reminders |
+| Previous Modules | This Exercise | Combined Power |
+|------------------|---------------|----------------|
+| `copilot-instructions.md` (Module 1) | Plan mode research | The plan already follows your naming conventions and project patterns — you didn't have to explain them |
+| `ARCHITECTURE.md` (Module 1) | Dependency mapping | Plan mode read your architecture doc and used it to trace the data flow from DB → API → Component → Page |
+
+**Why this matters:** The pre-prompt guess vs. actual file count is repeatable. Every time participants run plan mode on something that "looks simple," the gap appears. That gap represents bugs, restarts, and mid-feature surprises that plan mode eliminates permanently.
 
 ---
 
-## ➡️ Next Up
+## ➡️ Next Exercise
 
-**[Exercise 2.2: Validating and Refining Plans](exercise-2.2.md)** — Review the AI-generated plan with David's architectural expertise to catch what AI can't see.
+**[Exercise 2.2: Plan the Quick-Add Form](exercise-2.2.md)** — David spots a gap in the 2.1 plan: there's no way to add data without a database client. Run a second plan mode pass to design the quick-add form — and check whether it correctly inherits context from the first plan.
 
-> *"The plan looks solid, but I see three things that could break in production..."*
-> — David, applying 20 years of experience to the AI-generated plan
+> *"The counters show what's there. But how does data get there in the first place?"*
+> — David, spotting the gap
 
 ---

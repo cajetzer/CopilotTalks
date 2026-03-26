@@ -1,127 +1,115 @@
-# Exercise 2.3: Combining Plans into a Delivery Roadmap
+# Exercise 2.3: Combine Plans into a Delivery Roadmap
 
 ## 🔨 Exercise
 
-### Exercise 2.3: Combining Plans into a Delivery Roadmap — "Two Good Plans, One Smart Sequence"
+### Exercise 2.3: Combine Plans into a Delivery Roadmap — "Merge Before You Build"
 
-**Lead:** Marcus ⭐ | **Support:** Elena 🤝 | **Time:** 7 min
+**Lead:** Marcus ⭐ | **Support:** Elena 🤝 | **Time:** 10 min
 
 #### 📖 The Challenge
 
-Marcus now has two solid plans: one for adding a character tagline or summary, and one for adding status badges. Both are small. Both are reasonable. But if the team starts implementing them independently, they'll duplicate file analysis, repeat API changes, and risk doing the work in the wrong order.
+It's 11:00 AM. Marcus has two plans on his screen: stat cards from Exercise 2.1 and the quick-add form from Exercise 2.2. Both are well-reasoned. Both mention the `lore_entries` table. Both touch the homepage component. And neither one specifies which to build first.
 
-Before this workflow, that kind of sequencing problem created quiet inefficiency: one developer would update the response shape for summaries, another would reopen the same files for badges, and the team would only later realize the work could have been grouped.
+Two sprints ago, Marcus and a teammate wrote parallel plans for two features that shared a DB migration. They merged to main on the same day. The migration ran twice. The rollback cost them an afternoon.
 
-Now Marcus wants to turn two separate planning outputs into one practical roadmap: what should happen first, what can be combined, and where the dependencies overlap.
+*"Parallel plans need to be merged before anyone writes a line of code,"* Marcus says. *"It's not bureaucracy — it's just not paying for the same work twice."*
+
+Elena adds the QA perspective: *"And the sequence matters. If the React component gets wired in before the API endpoint exists, I get nothing to test. DB schema first, API second, component third, homepage wiring last — or everything's blocked."*
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Create two separate plans and treat them as separate projects → duplicated steps, repeated file changes, unclear sequencing | Compare both plans, merge overlaps, and produce one prioritized roadmap → cleaner execution path, less duplicated effort |
-| **Separate plans:** 2<br>**Duplicated steps:** 3<br>**Execution order clarity:** Low | **Combined roadmap:** 1<br>**Duplicated steps:** 0<br>**Execution order clarity:** High |
+| Ship two plans directly to implementation → `lore_entries` migration runs twice, homepage component updated twice in two PRs, counter-refresh logic written inconsistently in each feature branch | Merge both plans into one roadmap → one migration, one homepage update, one clear sequence: DB → API → Component → Wiring |
+| **Duplicate steps across separate plans:** 3<br>**Merge conflicts from parallel implementation:** 2 last sprint<br>**Post-merge rework:** High | **Duplicate steps:** 0 (resolved before coding)<br>**Merge conflicts:** 0<br>**Post-merge rework:** None |
+
+**Time saved:** 2 sprint-day incidents → 0, replaced by a 10-minute merge conversation with Copilot
 
 #### 🎯 Your Goal
 
-Combine the tagline and status badge plans into one prioritized implementation roadmap the team can execute efficiently.
+Share both plans with Copilot and ask it to produce a single merged delivery roadmap with no duplicate steps and a dependency-safe execution sequence. Verify the sequence yourself, then save the roadmap.
 
 #### 📋 Steps
 
-1. **Open Both Plans Side by Side**
+1. **Share Both Plans with Copilot**
 
-    Open the saved plan from Exercise 2.1:
+   In the same plan mode session (or a new one if needed), paste in — or reference — the content of both plans:
 
-    - `fanhub/docs/FEATURE-CHARACTER-TAGLINE.md`
+   - The stat card plan from Exercise 2.1 (saved as `docs/universe-dashboard-plan.md` or in your notes)
+   - The form panel plan from Exercise 2.2
 
-    And the saved plan from Exercise 2.2:
+   If both are in the same Copilot Chat session already, Copilot can reference them directly. If you saved them to files, open those files and use `#file:docs/universe-dashboard-plan.md` to reference them in the prompt.
 
-    - `fanhub/docs/FEATURE-STATUS-BADGES.md`
+2. **Enter the Merge Prompt**
 
-    Read them together. You are not implementing yet. You are identifying overlap, dependencies, and the best order of work.
+   ```
+   Combine these two plans into a single delivery roadmap. Identify any shared steps (like DB schema), resolve duplicates, and sequence everything so there are no dependency conflicts.
+   ```
 
-2. **Identify Overlap Between the Plans**
+   The roadmap Copilot produces should arrive in this sequence:
+   1. **DB schema and migration** — `lore_entries` table (shared between both plans, built once)
+   2. **API routes** — `GET /api/stats/*` endpoints, then `POST /api/characters` and `POST /api/lore-entries`
+   3. **React components** — `<UniverseStats>` first (read-only), then the form panel (write + refresh)
+   4. **Homepage wiring** — import and render both components in the correct order
 
-    In plan mode or in your notes, compare the two plans and look for shared work:
+   If the roadmap doesn't arrive in this order, that's worth flagging.
 
-    - Do both plans touch the same API endpoint or response shape?
-    - Do both plans update the same page component?
-    - Can tests for one enhancement be grouped with the other?
-    - Are there setup steps that should happen once instead of twice?
+3. **Spot-Check for Duplicates**
 
-    Create a short overlap list such as:
+   Before accepting the roadmap, verify manually:
 
-    - Shared backend response update
-    - Shared frontend page component
-    - Shared test file locations
+   - Is the `lore_entries` migration mentioned once or twice? (Should be once.)
+   - Is the homepage component update mentioned once or twice? (Should be once.)
+   - Does the form panel's counter-refresh reference the same API route the stat cards use? (It should.)
 
-3. **Ask Copilot to Build a Combined Roadmap**
+   Elena's QA lens: check that no component appears before its API endpoint in the sequence. If `<UniverseStats>` is listed before `GET /api/stats/characters` exists, the app will render broken state during development.
 
-    In plan mode, ask Copilot to merge the two plans:
+4. **Save the Merged Roadmap**
 
-    ```
-    Combine these two enhancement plans into one prioritized implementation roadmap.
+   Save the final combined roadmap to:
 
-    Keep both enhancements lightweight.
-    Remove duplicated steps.
-    Group shared backend, frontend, and testing work.
-    Show the best execution order with dependencies.
-    ```
+   ```
+   docs/universe-dashboard-plan.md
+   ```
 
-    **What to observe:** The plan agent is now acting like a sequencing assistant. Instead of generating a plan from scratch, it is synthesizing two smaller plans into one practical roadmap.
-
-4. **Review the Combined Roadmap**
-
-    Review the combined roadmap and verify:
-
-    - [ ] The roadmap covers both tagline/summary and status badges
-    - [ ] Shared steps are merged rather than repeated
-    - [ ] The execution order is logical (data/API before UI, tests placed appropriately)
-    - [ ] The scope stays lightweight
-    - [ ] The roadmap is easier to execute than the two plans separately
-
-    Save the combined roadmap as:
-
-    ```
-    fanhub/docs/FEATURE-CHARACTER-ENHANCEMENTS.md
-    ```
+   Overwrite the earlier partial draft from Exercise 2.1. The final version of this file is the artifact you hand to agent mode in Exercise 2.4.
 
 #### ✅ Success Criteria
 
-- [ ] Both enhancement plans reviewed together
-- [ ] At least 2-3 overlapping steps identified and consolidated
-- [ ] Combined roadmap produced with clear priorities and dependencies
-- [ ] Shared backend, frontend, and test work grouped logically
-- [ ] Final roadmap saved as a separate artifact for later execution
+- [ ] Combined roadmap produced with no duplicate steps (DB migration appears once, homepage wiring appears once)
+- [ ] Shared artifacts (`lore_entries` table, homepage component) correctly identified and merged into single steps
+- [ ] Sequence is dependency-safe: DB → API → Components → Homepage wiring
+- [ ] Roadmap saved as `docs/universe-dashboard-plan.md`
 
 #### 📚 Official Docs
 
-- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning#_how-to-plan-a-task) — Creating and refining plans for complex or multi-step work
-- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How Copilot synthesizes workspace context into practical plans
+- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning#_how-to-plan-a-task) — Multi-step planning and plan synthesis
+- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How Copilot synthesizes multiple context sources into coherent plans
 
 ---
 
 ## 🔗 What You Built
 
 **In this exercise:**
-- `fanhub/docs/FEATURE-CHARACTER-ENHANCEMENTS.md` — Combined implementation roadmap for tagline/summary plus status badges
-- A prioritized execution sequence that removes duplicated steps across the two smaller plans
+- `docs/universe-dashboard-plan.md` (final version) — A single dependency-safe delivery roadmap covering both the stat cards and the quick-add form
 
 **How it compounds:**
 
-| Previous Modules | This Module | Combined Power |
-|------------------|-------------|----------------|
-| ARCHITECTURE.md (Module 1) | Roadmap synthesis | Combined roadmap still follows the project structure |
-| copilot-instructions.md (Module 1) | Standards-aware sequencing | Shared UI and API work stays aligned with team conventions |
-| Exercise 2.1 (Tagline plan) | Scoped enhancement planning | First plan establishes the baseline enhancement |
-| Exercise 2.2 (Badge plan) | Multi-plan coordination | Second plan creates the need for sequencing and consolidation |
+| Previous Modules | This Exercise | Combined Power |
+|------------------|---------------|----------------|
+| `copilot-instructions.md` (Module 1) | Merge arbitration | The merged roadmap follows your conventions without re-specifying them during the merge prompt |
+| Exercise 2.1 plan | Shared foundation | DB schema from the first plan becomes the single source of truth in the merged roadmap |
+| Exercise 2.2 plan | Conflict surface | Second plan exposed the overlap — merge step eliminated it before it could become a PR conflict |
+
+**Why this matters:** On a real team, two engineers writing parallel plans for adjacent features is unavoidable. The merge step is the discipline that prevents double migrations, duplicate PRs, and integration failures. Plan mode makes the merge fast enough that skipping it is never worth the risk.
 
 ---
 
-## ➡️ Next Module
+## ➡️ Next Exercise
 
-**[Module 3: Custom Prompts](../03-custom-prompts/README.md)** — Turn repeated planning workflows into reusable prompt templates that capture your team's domain expertise.
+**[Exercise 2.4: Execute the Plan and Populate Your Universe](exercise-2.4.md)** — Switch from plan mode back to agent mode and hand the merged roadmap to Copilot for execution. Then populate your site with real show data and watch the counters change from `0 · 0 · 0` to something real.
 
-> *"We just planned two related enhancements with the same workflow. Can we save that planning pattern as a reusable template?"*
-> — Sarah, recognizing the next level of efficiency
+> *"The roadmap is perfect. Now let's find out if Copilot can follow it."*
+> — Sarah, switching to agent mode
 
 ---

@@ -147,6 +147,108 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
 </div>
 ---
 
+<!-- SLIDE: 🛠️ Before We Start -->
+<div class="h-full flex flex-col justify-start px-10 pt-6 pb-2 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-gray-900/40 to-blue-900/20"></div>
+<div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-orange-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛠️ Before We Start</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div>
+<div class="text-sm font-bold text-orange-300 uppercase tracking-wider mb-2 text-xs">What you'll need</div>
+<div class="space-y-1">
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-gray-900/50 border border-orange-500/20">
+<span class="text-base mt-0.5">🐙</span>
+<div>
+<div class="text-xs font-semibold text-white">GitHub account with Copilot access</div>
+<div class="text-xs text-gray-400">Individual, Business, or Enterprise — any tier works</div>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-gray-900/50 border border-blue-500/20">
+<span class="text-base mt-0.5">💻</span>
+<div>
+<div class="text-xs font-semibold text-white">VS Code + GitHub Copilot extension</div>
+<div class="text-xs text-gray-400">Enable agent mode in settings if not already on</div>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-gray-900/50 border border-green-500/20">
+<span class="text-base mt-0.5">📦</span>
+<div>
+<div class="text-xs font-semibold text-white">Git + local stack (node/dotnet/java/go)</div>
+<div class="text-xs text-gray-400">For running the FanHub starter app locally</div>
+</div>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-gray-900/50 border border-purple-500/20">
+<span class="text-base mt-0.5">🔗</span>
+<div>
+<div class="text-xs font-semibold text-white">FanHub starter repo cloned</div>
+<div class="text-xs text-gray-400">Link in the Reference Material slide at the end</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="text-sm font-bold text-blue-300 uppercase tracking-wider mb-2 text-xs">What we'll cover</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2.5 p-2 rounded-lg bg-gray-900/40 border border-white/10">
+<span class="text-xs font-mono text-orange-400 w-5 shrink-0">00</span>
+<span class="text-xs text-gray-300">Orientation — the challenge, the team, the mindset shift</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg bg-gray-900/40 border border-white/10">
+<span class="text-xs font-mono text-orange-400 w-5 shrink-0">01</span>
+<span class="text-xs text-gray-300">Instructions — teaching Copilot your repo's conventions</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg bg-gray-900/40 border border-white/10">
+<span class="text-xs font-mono text-orange-400 w-5 shrink-0">02</span>
+<span class="text-xs text-gray-300">Agent Plan Mode — structured thinking before doing</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg bg-gray-900/40 border border-white/10">
+<span class="text-xs font-mono text-orange-400 w-5 shrink-0">03</span>
+<span class="text-xs text-gray-300">Custom Prompts — turning repeatable work into reusable assets</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg bg-gray-900/40 border border-white/10">
+<span class="text-xs font-mono text-orange-400 w-5 shrink-0">04</span>
+<span class="text-xs text-gray-300">Agent Skills — encoding domain knowledge Copilot can load</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg bg-gray-900/40 border border-white/10">
+<span class="text-xs font-mono text-orange-400 w-5 shrink-0">05</span>
+<span class="text-xs text-gray-300">MCP Servers — connecting agents to real tools and data</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg bg-gray-900/40 border border-white/10">
+<span class="text-xs font-mono text-orange-400 w-5 shrink-0">06</span>
+<span class="text-xs text-gray-300">Custom Agents — pulling it all together autonomously</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 mt-2 grid grid-cols-4 gap-3">
+<div class="p-1.5 rounded-lg bg-gray-900/50 border border-white/10 text-center">
+<div class="text-[10px] text-gray-400 mb-0.5 uppercase tracking-wider">Difficulty</div>
+<div class="text-lg">⭐⭐⭐</div>
+<div class="text-xs text-gray-500">Moderate</div>
+</div>
+<div class="p-1.5 rounded-lg bg-gray-900/50 border border-white/10 text-center">
+<div class="text-[10px] text-gray-400 mb-0.5 uppercase tracking-wider">Hands-on</div>
+<div class="text-lg">⭐⭐⭐⭐</div>
+<div class="text-xs text-gray-500">Build as you learn</div>
+</div>
+<div class="p-1.5 rounded-lg bg-gray-900/50 border border-white/10 text-center">
+<div class="text-[10px] text-gray-400 mb-0.5 uppercase tracking-wider">Payoff</div>
+<div class="text-lg">⭐⭐⭐⭐⭐</div>
+<div class="text-xs text-gray-500">Worth every hour</div>
+</div>
+<div class="p-1.5 rounded-lg bg-gray-900/50 border border-orange-500/30 text-center">
+<div class="text-[10px] text-orange-300 mb-0.5 uppercase tracking-wider">Relevance</div>
+<div class="text-lg">⭐⭐⭐⭐⭐</div>
+<div class="text-xs text-orange-400/70">If you use Copilot today</div>
+</div>
+</div>
+</div>
+
+---
+
 <!-- SLIDE: Our Evolution -->
 <div class="h-full flex flex-col justify-center px-14 py-2 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-950/40 via-gray-950 to-orange-950/30"></div>

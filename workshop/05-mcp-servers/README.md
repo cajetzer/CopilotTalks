@@ -58,7 +58,7 @@ This isn't just about convenience. MCP servers transform Copilot from a code gen
 
 **Model Context Protocol (MCP) servers** extend GitHub Copilot with live access to external systems—databases, APIs, version control, and other tools. You'll configure a local MCP server using the stdio transport method to query the FanHub database, and measure how direct database access eliminates context-switching and manual schema lookups.
 
-**Time:** ~45 minutes | **Exercises:** 3
+**Time:** ~57 minutes | **Exercises:** 4
 
 ---
 
@@ -71,6 +71,7 @@ The exercises below use MCP servers to solve real problems by connecting Copilot
 | [5.1](exercise-5.1.md) | Connect to FanHub Character Data | Marcus | Elena, David | Character schema and sample data still live outside the editor, forcing manual lookups before feature work | Configure SQLite MCP server using stdio to query FanHub character data directly in chat | 5→0 min (eliminated), 0 context switches, live schema/data access | `.vscode/mcp.json`, verified database queries |
 | [5.2](exercise-5.2.md) | Upgrade Character Test Workflow with MCP | Elena | Marcus | The Module 4.2 skill can review test impact, but it still relies on user-supplied context instead of live FanHub data like known duplicate character records | Update `character-change-test-workflow` so it uses FanHub database MCP to investigate duplicate records and recommend the right test or guardrail follow-up | 15→3 min/investigation, faster duplicate diagnosis, clearer test/cleanup plan | updated `character-change-test-workflow`, `.github/prompts/investigate-character-duplicates.prompt.md` |
 | [5.3](exercise-5.3.md) | Validate Running Character Detail API | Elena | Marcus | Character-detail API responses can drift from database-backed expectations, but manual curl checks are slow and easy to skip | Configure a FanHub API MCP server and validate running character endpoints against expected fields and fallback behavior | 10 min→30 sec, 95%+ contract confidence, catches runtime drift in development | `mcp-servers/fanhub-api-server.js`, API validation prompt |
+| [5.4](exercise-5.4.md) | Live Data + Show Knowledge | Rafael | Marcus | MCP queries return raw data; without show knowledge, quality issues go unnoticed until a fan reports them | Run four show-specific data challenges (alive/dead audit, missing bios, faction check, coverage count) — Copilot retrieves, participant evaluates with show knowledge | ≥1 data gap requiring show knowledge identified; remediation plan created | Prioritized content remediation list |
 
 ---
 

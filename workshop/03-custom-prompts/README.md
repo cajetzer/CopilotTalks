@@ -164,7 +164,7 @@ Include:
 
 **Custom prompt files** turn your best prompts into reusable functions that standardize team practices and save repetitive typing. You'll create workspace prompts for code review and test generation, configure YAML frontmatter to control agent behavior, and measure time saved through prompt reuse. You'll document specialized functions once and invoke them in seconds.
 
-**Time:** ~20 minutes | **Exercises:** 3
+**Time:** ~32 minutes | **Exercises:** 3
 
 ---
 
@@ -176,6 +176,7 @@ The exercises below demonstrate how prompt files transform repetitive tasks into
 |---|----------|------|---------|---------|----------|-------------|-----------|
 | [3.1](exercise-3.1.md) | Creating a Docs Refresh Prompt | Sarah | David | 6 min | Keep foundational docs evergreen after code changes |
 | [3.2](exercise-3.2.md) | Creating a Context-Aware Prompt File | Elena | Sarah | 12 min | Save one reusable prompt with docs, roadmap, and variables |
+| [3.3](exercise-3.3.md) | Show-Accuracy Check Prompt | Elena | Sarah | The seeded Breaking Bad data has bugs; manual accuracy review takes 8–10 min per content pass | Create `[show]-accuracy-check.prompt.md` referencing the universe file; catch seeded errors automatically | 8→1 min/review, catches errors on first invocation | `.github/prompts/[show]-accuracy-check.prompt.md` |
 
 ---
 

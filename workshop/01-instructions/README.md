@@ -319,8 +319,9 @@ repo/
 | [1.3](exercise-1.3.md) | Path-Specific Instructions | Sarah | David | 10 min | Frontend vs Backend patterns |
 | [1.4](exercise-1.4.md) | Language-Specific Standards | Elena | Marcus | 8 min | PEP 8, Airbnb, TypeScript |
 | [1.5](exercise-1.5.md) | File-Type Specialized Guidance | Marcus | Elena, David | 12 min | Tests, Docker, Docs |
+| [1.6](exercise-1.6.md) | Define Your Universe | Sarah | David | 15 min | Show-specific domain context + pointer pattern |
 
-**Total Time**: ~58 minutes
+**Total Time**: ~73 minutes
 
 ---
 
