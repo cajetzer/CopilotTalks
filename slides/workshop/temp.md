@@ -812,6 +812,54 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 ---
 
+<!-- SLIDE: &#x1F4AC; The Team, After the Prompt Exercises -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; The Team, After the Prompt Exercises</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Wait &mdash; I can just pick the one I need? The risk-prioritizer or the commit-helper? Even me? I don't have to write the whole thing from scratch every time?"</div>
+<div class="text-xs text-gray-500">Realizing she can use the good version, not just her version.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"To be precise: this isn't automation. It's codification. We're encoding the decision, not removing it. That distinction matters."</div>
+<div class="text-xs text-gray-500">Correcting the framing before conceding the point.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I checked. The lore prompt caught the same error three times in a row. Three for three. Consistent beats clever. I'll take it."</div>
+<div class="text-xs text-gray-500">Running the numbers before endorsing anything.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Okay but I need edge cases. What if the lore entry is partially correct? Does it flag the wrong part? Show me the failure mode first."</div>
+<div class="text-xs text-gray-500">Not satisfied until she's seen what breaks.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Sorry &mdash; I was half-reading a thread about prompt files. Wait. We can check these in? They travel with the repo? That's actually&hellip; hold on."</div>
+<div class="text-xs text-gray-500">Snapping into focus mid-sentence.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The lore check is already an OKR input. If canon accuracy goes up, lore engagement goes up. I'm mapping this to Q3. Can we move on?"</div>
+<div class="text-xs text-gray-500">Already three steps ahead, agenda in hand.</div>
+</div>
+</div>
+</div>
+---
+
 <!-- SLIDE: The Check Works. It Just Doesn't Run Itself. -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
@@ -1588,53 +1636,60 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 ---
 
 <!-- SLIDE: Compounding Value -->
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-purple-900/10 to-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F517; Compounding Value</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
-<div class="text-lg text-white font-semibold mb-1">Every prompt file built here is a reusable team asset.</div>
-<div class="text-sm text-gray-300">The work done in Module 3 becomes the stable foundation that Modules 4, 5, and 6 build on top of.</div>
+<div class="p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center mb-4">
+<div class="text-lg text-white font-semibold mb-0.5">You've built two layers. They multiply each other.</div>
+<div class="text-sm text-gray-300">Prompts capture intent. Skills make that intent available to Copilot. Together they become a workflow layer that grows with the team.</div>
 </div>
-
-<div class="grid grid-cols-2 gap-4 mt-5 text-left">
+<div class="grid grid-cols-3 gap-4 text-left">
 <div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
 <div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">📈</div>
+<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">&#x1F4DD;</div>
 <div>
-<div class="text-blue-300 font-bold">What Module 3 adds</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">Immediate value</div>
+<div class="text-blue-300 font-bold">Prompt files (M3)</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Captured &amp; repeatable</div>
 </div>
 </div>
 <div class="space-y-2 text-xs text-gray-300 leading-snug">
-<div class="p-2.5 bg-gray-900/40 rounded-lg">Turn good prompts into shared team assets.</div>
-<div class="p-2.5 bg-gray-900/40 rounded-lg">Get more consistent outputs from the same guidance.</div>
-<div class="p-2.5 bg-gray-900/40 rounded-lg">Reduce setup and mental load during repeated work.</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Best thinking preserved as team assets</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Consistent outputs across teammates</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Version-controlled &amp; discoverable</div>
 </div>
 </div>
-
 <div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
 <div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🚀</div>
+<div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">&#x26A1;</div>
 <div>
-<div class="text-purple-300 font-bold">How later modules benefit</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">Compounding payoff</div>
+<div class="text-purple-300 font-bold">Agent skills (M4)</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Embedded &amp; automatic</div>
 </div>
 </div>
 <div class="space-y-2 text-xs text-gray-300 leading-snug">
-<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong>Module 4:</strong> clearer task shapes for skills.</div>
-<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong>Module 5:</strong> stable entry points for integrations.</div>
-<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong>Module 6:</strong> more trustworthy custom agents.</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Copilot reaches for the right behavior</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Templates guarantee consistent output</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg">Scripts validate and verify each run</div>
+</div>
+</div>
+<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30 shadow-lg shadow-orange-900/20">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-orange-500/20 border border-orange-400/30 flex items-center justify-center text-lg">&#x1F680;</div>
+<div>
+<div class="text-orange-300 font-bold">Modules 5 &amp; 6</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Built on this foundation</div>
+</div>
+</div>
+<div class="space-y-2 text-xs text-gray-300 leading-snug">
+<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong class="text-orange-200">Module 5:</strong> stable skills become integration entry points</div>
+<div class="p-2.5 bg-gray-900/40 rounded-lg"><strong class="text-orange-200">Module 6:</strong> skills + prompts power trustworthy custom agents</div>
 </div>
 </div>
 </div>
-
-<div class="mt-5 p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-center">
-<div class="text-base text-yellow-300 font-semibold">Reusable prompts compound because every future customization starts cleaner.</div>
-<div class="text-sm text-gray-300 mt-1">Stable entry points now mean richer workflow packaging later.</div>
+<div class="mt-4 p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-center">
+<div class="text-base text-yellow-300 font-semibold">Every future feature starts with a prompt. The best ones become skills — and the whole team benefits automatically.</div>
 </div>
-
 ---
 
 <!-- SLIDE: &#x2705; Module Checklist -->
@@ -1642,71 +1697,78 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x2705; Module Checklist</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="mt-2 p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
-<div class="text-base text-white font-semibold">By the end of this combined module, the team has both reusable prompt habits and embedded workflow skills.</div>
+<div class="mb-3 p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
+<div class="text-base text-white font-semibold">Six exercises. Two layers. One complete workflow foundation.</div>
 </div>
-
-<div class="mt-3 mb-1 text-xs font-bold text-orange-400 uppercase tracking-widest">&#x1F4DD; Prompts &mdash; M3</div>
-<div class="grid grid-cols-2 gap-3 text-left text-xs mb-3">
+<div class="mb-1 text-xs font-bold text-orange-400 uppercase tracking-widest">&#x1F4DD; Part 1 &mdash; Prompt Files (E1&ndash;E3)</div>
+<div class="grid grid-cols-3 gap-3 text-left text-xs mb-3">
 <div class="p-3 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-7 h-7 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sm">&#x1F4DA;</div>
-<div class="text-blue-300 font-bold">E1 &mdash; Docs Refresh Prompt</div>
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-xs font-bold text-blue-300">E1</div>
+<div class="text-blue-300 font-bold">Refresh the source of truth</div>
 </div>
-<div class="space-y-1 text-gray-300">
-<div>&#x2022; <code>refresh-docs.prompt.md</code> created in <code>.github/prompts/</code></div>
-<div>&#x2022; Keeps <code>ARCHITECTURE.md</code> and team instructions aligned after changes</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2022; <code class="text-gray-300">refresh-docs.prompt.md</code> created</div>
+<div>&#x2022; ARCHITECTURE.md stays aligned after changes</div>
+</div>
+</div>
+<div class="p-3 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-xs font-bold text-purple-300">E2</div>
+<div class="text-purple-300 font-bold">Save one strong prompt</div>
+</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2022; One of: good-idea-fairy, risk-prioritizer,</div>
+<div>&#x2022; or commit-helper &mdash; saved &amp; reusable</div>
 </div>
 </div>
 <div class="p-3 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-7 h-7 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-sm">&#x1F3AF;</div>
-<div class="text-emerald-300 font-bold">E2 &mdash; Lore Accuracy Check Prompt</div>
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-xs font-bold text-emerald-300">E3</div>
+<div class="text-emerald-300 font-bold">Encode domain knowledge</div>
 </div>
-<div class="space-y-1 text-gray-300">
-<div>&#x2022; <code>lore-accuracy-check.prompt.md</code> referencing universe file</div>
-<div>&#x2022; Tested bad entry (flags canon error) + good entry (passes clean)</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2022; <code class="text-gray-300">lore-accuracy-check.prompt.md</code></div>
+<div>&#x2022; Canon errors flagged, good entries pass</div>
 </div>
 </div>
 </div>
-
-<div class="mt-1 mb-1 text-xs font-bold text-orange-400 uppercase tracking-widest">&#x26A1; Skills &mdash; M4</div>
-<div class="grid grid-cols-4 gap-3 text-left text-xs">
+<div class="mb-1 text-xs font-bold text-orange-400 uppercase tracking-widest">&#x26A1; Part 2 &mdash; Agent Skills (E4&ndash;E6)</div>
+<div class="grid grid-cols-3 gap-3 text-left text-xs">
 <div class="p-3 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-1">E3 &mdash; Scaffold</div>
-<div class="space-y-1 text-gray-300">
-<div>&#x2022; <code>make-skill-template</code> installed</div>
-<div>&#x2022; Future skills start from scaffold</div>
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-xs font-bold text-blue-300">E4</div>
+<div class="text-blue-300 font-bold">Install skill template</div>
+</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2022; <code class="text-gray-300">make-skill-template</code> installed</div>
+<div>&#x2022; Future skills scaffold from proven template</div>
 </div>
 </div>
 <div class="p-3 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-<div class="text-emerald-300 font-bold mb-1">E4 &mdash; Lore Skill</div>
-<div class="space-y-1 text-gray-300">
-<div>&#x2022; Accuracy check embedded as skill</div>
-<div>&#x2022; Copilot auto-cites universe file</div>
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-xs font-bold text-emerald-300">E5</div>
+<div class="text-emerald-300 font-bold">Lore accuracy skill</div>
+</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2022; E3 prompt graduated to <code class="text-gray-300">lore-accuracy-check/</code></div>
+<div>&#x2022; Copilot consults universe file automatically</div>
 </div>
 </div>
-<div class="p-3 rounded-2xl bg-gradient-to-br from-blue-800/40 to-gray-900/50 border border-blue-400/30">
-<div class="text-blue-200 font-bold mb-1">E5 &mdash; Card+Page</div>
-<div class="space-y-1 text-gray-300">
-<div>&#x2022; Parameterized skill + templates/</div>
-<div>&#x2022; Any entity in 30 seconds</div>
+<div class="p-3 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-xs font-bold text-purple-300">E6</div>
+<div class="text-purple-300 font-bold">Card &amp; page skill</div>
 </div>
-</div>
-<div class="p-3 rounded-2xl bg-gradient-to-br from-green-900/40 to-gray-900/50 border border-green-500/30">
-<div class="text-green-300 font-bold mb-1">E6 &mdash; Show-Lore</div>
-<div class="space-y-1 text-gray-300">
-<div>&#x2022; &#x2265;5 characters written by hand</div>
-<div>&#x2022; Copilot cites resources, facts pass E2</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2022; M2 plan graduated to <code class="text-gray-300">new-card-skill/</code></div>
+<div>&#x2022; Any entity type scaffolded in 30 seconds</div>
 </div>
 </div>
 </div>
-
-<div class="mt-3 p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-center text-xs text-gray-300">
+<div class="mt-3 p-2.5 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-center text-xs text-gray-300">
 Later modules get better because the team knows how to package repeatable work into invokable, trustworthy prompt and skill assets.
 </div>
-
 ---
 
 <!-- SLIDE: 📚 Keep the Foundation Evergreen -->
@@ -1765,7 +1827,7 @@ Module 3+4 Is Locked In
 </div>
 <div class="relative z-10 max-w-3xl w-full px-6">
 <div class="p-4 bg-gradient-to-br from-orange-900/30 via-red-900/20 to-purple-900/30 rounded-2xl border border-orange-500/30 shadow-lg shadow-orange-900/20 text-center">
-<p class="text-base text-gray-200 leading-snug !m-0">Prompt files make repeated work reusable. <span class="text-white font-semibold">Agent skills make deeper workflow knowledge reusable for the whole team.</span> MCP servers will let it bring live systems into that same workflow.</p>
+<p class="text-base text-gray-200 leading-snug !m-0">Prompt files make repeated work reusable. <span class="text-white font-semibold">Agent skills go further — Copilot itself can reach for them, without being asked.</span> MCP servers will let it bring live systems into that same workflow.</p>
 </div>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full mt-4"></div>
@@ -1773,53 +1835,52 @@ Module 3+4 Is Locked In
 
 ---
 
-<!-- SLIDE: 💭 The Team, After Module 3+4 -->
+<!-- SLIDE: &#x1F4AC; The Team, After Module 3+4 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 3+4</span>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; The Team, After Module 3+4</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I packaged the test runner as a skill. Elena showed me how. Twenty minutes. Now anyone on the team can run it."</div>
-<div class="text-xs text-gray-500">Packaged something real, not just copied a tutorial.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I just said 'check lore' and it&hellip; did it. Automatically. With the canon citations. I didn't invoke anything. That's new."</div>
+<div class="text-xs text-gray-500">Not quite believing it worked without her asking.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
-<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The skill pattern is a formalized capability contract. It gives Copilot something to reason against instead of improvising."</div>
-<div class="text-xs text-gray-500">Formalizes the contract so Copilot doesn&#39;t have to guess.</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"A skill is a capability contract. The description is the interface. Once you understand that, the rest follows naturally. I'll grant it's well-designed."</div>
+<div class="text-xs text-gray-500">Conceding after verifying the abstraction holds.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Our test coverage check runs in Agent mode now. I used to explain that workflow to every new hire. It&#39;s in a file now."</div>
-<div class="text-xs text-gray-500">Onboarding just got one step shorter.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"New entity type, from zero to browsable page: twenty-three minutes. I timed it. That's down from a half-day. You're welcome."</div>
+<div class="text-xs text-gray-500">Did the math. Filed the result. Moving on.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The skill has the schema, the examples, and the edge cases. Everything a junior needs to not break the build."</div>
-<div class="text-xs text-gray-500">Every edge case she knows, now encoded for the team.</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The verify-endpoints script failed on a missing migration. That's exactly what it should do. I'm adding edge cases to the skill. This is fine."</div>
+<div class="text-xs text-gray-500">Found a failure mode. Considers it a success.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
-<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I packaged the debugging workflow I always do in my head. Now I can just invoke it. Past me would be furious."</div>
-<div class="text-xs text-gray-500">Externalizing his own brain, one skill at a time.</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I ran new-card-skill for Ratings, then for Themes, then for Factions. Same output every time. I opened a Hacker News tab and closed it. That's how good this is."</div>
+<div class="text-xs text-gray-500">The highest praise: he stayed focused.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Skills turn individual expertise into team capability. That&#39;s institutional knowledge that actually scales."</div>
-<div class="text-xs text-gray-500">Expertise that scales without requiring its source.</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Skills are institutional knowledge that scales. That's not a tech story &mdash; that's a resourcing story. I'm already mapping it to Module 6."</div>
+<div class="text-xs text-gray-500">Already on the next module before this one closes.</div>
 </div>
 </div>
 </div>
-
 ---
 
 <!-- SLIDE: Reference Material -->
