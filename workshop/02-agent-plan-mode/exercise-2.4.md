@@ -1,115 +1,128 @@
-# Exercise 2.3: Combine Plans into a Delivery Roadmap
+# Exercise 2.4: Execute the Plan and Populate Your Universe
 
 ## 🔨 Exercise
 
-### Exercise 2.3: Combine Plans into a Delivery Roadmap — "Merge Before You Build"
+### Exercise 2.4: Execute the Plan and Populate Your Universe — "From Roadmap to Reality"
 
-**Lead:** Marcus ⭐ | **Support:** Elena 🤝 | **Time:** 10 min
+**Lead:** Sarah ⭐ | **Support:** Marcus 🤝, David 🤝 | **Time:** 15 min
 
 #### 📖 The Challenge
 
-It's 11:00 AM. Marcus has two plans on his screen: stat cards from Exercise 2.1 and the quick-add form from Exercise 2.2. Both are well-reasoned. Both mention the `lore_entries` table. Both touch the homepage component. And neither one specifies which to build first.
+It's 11:30 AM. Sarah reviews the combined plan file — the most thorough pre-implementation roadmap the team has produced. Two plans merged: Jessica's Lore card and page, David's Show Lore entry form. A sequenced dependency chain. Open questions already answered. And zero lines of code written.
 
-Two sprints ago, Marcus and a teammate wrote parallel plans for two features that shared a DB migration. They merged to main on the same day. The migration ran twice. The rollback cost them an afternoon.
+The homepage already has Characters, Episodes, Seasons, and Network. After execution, the **Lore card** will complete the set — and the form will let anyone add lore entries so the count is never zero again.
 
-*"Parallel plans need to be merged before anyone writes a line of code,"* Marcus says. *"It's not bureaucracy — it's just not paying for the same work twice."*
-
-Elena adds the QA perspective: *"And the sequence matters. If the React component gets wired in before the API endpoint exists, I get nothing to test. DB schema first, API second, component third, homepage wiring last — or everything's blocked."*
+*"Plans don't ship product,"* Sarah says. *"But a plan this specific means execution is calmer. I know exactly what gets built and in what order."*
 
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Ship two plans directly to implementation → `lore_entries` migration runs twice, homepage component updated twice in two PRs, counter-refresh logic written inconsistently in each feature branch | Merge both plans into one roadmap → one migration, one homepage update, one clear sequence: DB → API → Component → Wiring |
-| **Duplicate steps across separate plans:** 3<br>**Merge conflicts from parallel implementation:** 2 last sprint<br>**Post-merge rework:** High | **Duplicate steps:** 0 (resolved before coding)<br>**Merge conflicts:** 0<br>**Post-merge rework:** None |
+| Start coding from memory → DB route created with wrong table name, counter doesn't refresh, form discovered to be broken during integration | Execute from plan file → every step in order, Show Lore form works on first attempt, counter reflects real content immediately |
+| **Runtime errors from skipped steps:** 1–2<br>**Time from "code done" to "Show Lore in DB":** Manual SQL inserts, 20+ min<br>**Sense of ownership:** Low | **Runtime errors:** 0 (followed plan)<br>**Time from "code done" to "Show Lore in DB":** Minutes (used the form)<br>**Sense of ownership:** High — your show's lore, in your site |
 
-**Time saved:** 2 sprint-day incidents → 0, replaced by a 10-minute merge conversation with Copilot
+**Time saved:** Hours of debugging and manual DB work → minutes of form submission
 
 #### 🎯 Your Goal
 
-Share both plans with Copilot and ask it to produce a single merged delivery roadmap with no duplicate steps and a dependency-safe execution sequence. Verify the sequence yourself, then save the roadmap.
+Switch from plan mode to agent mode, run the combined plan file, verify the Show Lore form works, and populate your site with at least 3 real Show Lore entries from your chosen show.
 
 #### 📋 Steps
 
-1. **Share Both Plans with Copilot**
+1. **Switch from Plan Mode to Agent Mode**
 
-   In the same plan mode session (or a new one if needed), paste in — or reference — the content of both plans:
+   In Copilot Chat, switch the mode selector from **Plan** to **Agent**. Agent mode can now write files, run terminal commands, and modify the codebase. The research phase is over.
 
-   - The stat card plan from Exercise 2.1 (saved as `docs/universe-dashboard-plan.md` or in your notes)
-   - The form panel plan from Exercise 2.2
+2. **Run the Plan File**
 
-   If both are in the same Copilot Chat session already, Copilot can reference them directly. If you saved them to files, open those files and use `#file:docs/universe-dashboard-plan.md` to reference them in the prompt.
-
-2. **Enter the Merge Prompt**
+   Run the combined plan file directly:
 
    ```
-   Combine these two plans into a single delivery roadmap. Identify any shared steps (like DB schema), resolve duplicates, and sequence everything so there are no dependency conflicts.
+   /universe-dashboard-plan.prompt.md
    ```
 
-   The roadmap Copilot produces should arrive in this sequence:
-   1. **DB schema and migration** — `lore_entries` table (shared between both plans, built once)
-   2. **API routes** — `GET /api/stats/*` endpoints, then `POST /api/characters` and `POST /api/lore-entries`
-   3. **React components** — `<UniverseStats>` first (read-only), then the form panel (write + refresh)
-   4. **Homepage wiring** — import and render both components in the correct order
+   Watch the agent work step by step: migration → API route → React component → homepage wiring. It should follow the dependency sequence from the plan.
 
-   If the roadmap doesn't arrive in this order, that's worth flagging.
+   **Your job during execution:** Monitor for deviations. If the agent:
 
-3. **Spot-Check for Duplicates**
+   - Creates a table named differently than `lore_entries` → flag it and redirect to the plan
+   - Adds a feature not in the plan (e.g., search, filtering) → decide whether to accept or revert
+   - Skips a step → point it back to the roadmap
 
-   Before accepting the roadmap, verify manually:
+3. **Verify the Running Feature**
 
-   - Is the `lore_entries` migration mentioned once or twice? (Should be once.)
-   - Is the homepage component update mentioned once or twice? (Should be once.)
-   - Does the form panel's counter-refresh reference the same API route the stat cards use? (It should.)
+   Start the FanHub app and confirm:
 
-   Elena's QA lens: check that no component appears before its API endpoint in the sequence. If `<UniverseStats>` is listed before `GET /api/stats/characters` exists, the app will render broken state during development.
+   - **Homepage Lore card** appears alongside Characters, Episodes, Seasons, and Network
+   - **Lore card shows `0`** — the table exists but no entries yet
+   - **Clicking the Lore card** navigates to `/lore` and shows an empty card layout
+   - **The Show Lore form** appears with title and description fields
+   - **Form submits successfully** — open the browser Network tab, submit the form, confirm a `POST` to `/api/lore-entries` returns `200`
+   - **Lore card count refreshes** after submit — increments by 1, Lore page shows the new entry
 
-4. **Save the Merged Roadmap**
+   If anything fails, check the plan for the step that was skipped or misimplemented. Ask the agent to revisit that specific step.
 
-   Save the final combined roadmap to:
+4. **Populate Your Show Lore (The Payoff)**
 
-   ```
-   docs/universe-dashboard-plan.md
-   ```
+   Open the form and add at least 3 Show Lore entries from your show. Use details only a real fan would know:
 
-   Overwrite the earlier partial draft from Exercise 2.1. The final version of this file is the artifact you hand to agent mode in Exercise 2.4.
+   **Breaking Bad examples:**
+   - "Walt's chemistry knowledge predates his cancer diagnosis — his meth quality reflects decades of academic expertise, not desperation"
+   - "The blue color of Heisenberg's product is a deliberate visual shorthand for purity — 99.1%, chemically impossible in reality"
+   - "Saul Goodman's real name is Jimmy McGill — 'Better Call Saul' was Jesse's suggestion, not a pre-existing alias"
+
+   **For any other show:** Add at least 3 entries with show-specific details — not Wikipedia summaries. The specificity matters; it's what makes the accuracy check in Module 3 meaningful.
+
+   After each submission, watch the Show Lore counter increment. Characters and Locations stay the same. *Only Show Lore changes* — because that's exactly what you built.
+
+5. **Answer the Debrief Question**
+
+   Before moving on, write your answer:
+
+   > *Did Copilot follow the plan faithfully? Where did it deviate — and was the deviation an improvement or a mistake?*
+
+   At least one deviation is likely. Name one you accepted and one you overrode (or explain why no overrides were needed).
 
 #### ✅ Success Criteria
 
-- [ ] Combined roadmap produced with no duplicate steps (DB migration appears once, homepage wiring appears once)
-- [ ] Shared artifacts (`lore_entries` table, homepage component) correctly identified and merged into single steps
-- [ ] Sequence is dependency-safe: DB → API → Components → Homepage wiring
-- [ ] Roadmap saved as `docs/universe-dashboard-plan.md`
+- [ ] Agent mode used (not plan mode) for all code execution
+- [ ] Lore card appears on homepage alongside the existing four cards
+- [ ] Lore page (`/lore`) renders lore facts in a card layout
+- [ ] Show Lore form posts to `lore_entries` and the Lore card count refreshes
+- [ ] Lore card count goes from `0` to real numbers (≥ 3 entries added)
+- [ ] Network tab confirms `POST /api/lore-entries` on form submit
+- [ ] You can describe one decision Copilot made that you accepted — and one you overrode (or explain why no overrides were needed)
 
 #### 📚 Official Docs
 
-- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning#_how-to-plan-a-task) — Multi-step planning and plan synthesis
-- [Context Engineering Guide](https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide) — How Copilot synthesizes multiple context sources into coherent plans
+- [Agent Mode in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-agent) — How agent mode executes multi-step tasks
+- [Planning in VS Code Chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) — The full plan → execute workflow end to end
 
 ---
 
 ## 🔗 What You Built
 
 **In this exercise:**
-- `docs/universe-dashboard-plan.md` (final version) — A single dependency-safe delivery roadmap covering both the stat cards and the quick-add form
+- A working Show Lore form that writes to `lore_entries` and refreshes the counter
+- Real Show Lore entries from your chosen show now in the database
 
 **How it compounds:**
 
 | Previous Modules | This Exercise | Combined Power |
 |------------------|---------------|----------------|
-| `copilot-instructions.md` (Module 1) | Merge arbitration | The merged roadmap follows your conventions without re-specifying them during the merge prompt |
-| Exercise 2.1 plan | Shared foundation | DB schema from the first plan becomes the single source of truth in the merged roadmap |
-| Exercise 2.2 plan | Conflict surface | Second plan exposed the overlap — merge step eliminated it before it could become a PR conflict |
+| `copilot-instructions.md` (Module 1) | Agent execution | The agent followed your naming and styling conventions without being reminded |
+| Exercise 2.2 (Lore card plan) | Execution fidelity | The Lore card, Lore page, and form all followed the plan — every step had a defined reason and sequence |
+| Show Lore entries added here | Module 3 foundation | The lore entries you added become the target data for Elena's accuracy-check prompt in Module 3 |
 
-**Why this matters:** On a real team, two engineers writing parallel plans for adjacent features is unavoidable. The merge step is the discipline that prevents double migrations, duplicate PRs, and integration failures. Plan mode makes the merge fast enough that skipping it is never worth the risk.
+**Why this matters:** The data you entered in Step 4 isn't busywork. In Module 3, Elena builds a reusable accuracy-check prompt that validates whether FanHub's content matches real show canon. The Show Lore entries you added here — the ones that require fan knowledge, not Wikipedia knowledge — are exactly what that prompt will test.
 
 ---
 
-## ➡️ Next Exercise
+## ➡️ Next Module
 
-**[Exercise 2.4: Execute the Plan and Populate Your Universe](exercise-2.4.md)** — Switch from plan mode back to agent mode and hand the merged roadmap to Copilot for execution. Then populate your site with real show data and watch the counters change from `0 · 0 · 0` to something real.
+**[Module 3: Custom Prompts](../03-custom-prompts/README.md)** — Elena has been running the same show-accuracy validation by hand five times a sprint. Module 3 turns that repeated check into a reusable `.prompt.md` file — and the first thing it validates is the Show Lore you just added.
 
-> *"The roadmap is perfect. Now let's find out if Copilot can follow it."*
-> — Sarah, switching to agent mode
+> *"I've typed the same accuracy check into Copilot so many times I could write it in my sleep. There has to be a way to save it."*
+> — Elena, ready for Module 3
 
 ---

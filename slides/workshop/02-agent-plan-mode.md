@@ -135,7 +135,7 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 </div>
 <div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-3 shadow-lg shadow-orange-900/20">
 <div class="text-xl font-bold text-white mb-1">From feature request to step-by-step execution roadmap.</div>
-<div class="text-sm text-orange-100">One feature, five exercises, one calmer path to implementation</div>
+<div class="text-sm text-orange-100">One feature, four exercises, one calmer path to implementation</div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-3 text-xs text-left">
 <div class="p-3 rounded-lg border-l-4 border-orange-500 bg-gray-900/60">
@@ -148,13 +148,8 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 <div class="text-gray-400 font-mono text-xs mb-2">/plan mode</div>
 <div class="text-gray-300">Two first-pass roadmaps with likely files, dependencies, and open questions surfaced before coding.</div>
 </div>
-<div class="p-3 rounded-lg border-l-4 border-purple-500 bg-gray-900/60">
-<div class="font-bold text-purple-300 mb-0.5 text-sm">2.4 — Merged delivery roadmap</div>
-<div class="text-gray-400 font-mono text-xs mb-2">Plan consolidation</div>
-<div class="text-gray-300">Combine and sequence two plans into one prioritized implementation order — before a line is written.</div>
-</div>
 <div class="p-3 rounded-lg border-l-4 border-green-500 bg-gray-900/60">
-<div class="font-bold text-green-300 mb-0.5 text-sm">2.5 — Cleaner execution</div>
+<div class="font-bold text-green-300 mb-0.5 text-sm">2.4 — Cleaner execution</div>
 <div class="text-gray-400 font-mono text-xs mb-2">Agent mode handoff</div>
 <div class="text-gray-300">Hand the validated roadmap to Agent mode — implementation with less guesswork and fewer conflicts.</div>
 </div>
@@ -163,56 +158,56 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 💡 <strong class="text-blue-300">A good plan changes how you start</strong> — you know which files to touch, in what order, before the first change lands.
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: 📚 What Plan Mode Actually Does -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
+<div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Plan Mode Actually Does</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-2 gap-4 mt-4 text-left">
-
-<div class="p-3 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30 shadow-lg shadow-orange-500/10">
-<div class="text-orange-300 font-bold mb-2 text-sm">Researches read-only first</div>
+<div class="relative z-10 grid grid-cols-2 gap-3 flex-1">
+<div class="p-3 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+<div class="text-orange-300 font-bold mb-1 text-sm">Researches read-only first</div>
+<div class="text-xs text-gray-400 mb-2">Reads and maps before touching code — never modifies your files.</div>
 <ul class="text-xs text-gray-300 space-y-1">
 <li>Reads the codebase, docs, and existing patterns</li>
 <li>Maps dependencies and likely file touch points</li>
 <li>Surfaces assumptions and open questions</li>
 </ul>
 </div>
-
-<div class="p-3 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30 shadow-lg shadow-purple-500/10">
-<div class="text-purple-300 font-bold mb-2 text-sm">Produces a reviewable draft</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+<div class="text-purple-300 font-bold mb-1 text-sm">Produces a reviewable draft</div>
+<div class="text-xs text-gray-400 mb-2">A structured plan to read, challenge, and refine before implementation starts.</div>
 <ul class="text-xs text-gray-300 space-y-1">
-<li>Summary of the approach</li>
+<li>Summary of the approach and scope</li>
 <li>Ordered implementation steps</li>
 <li>Dependencies and unresolved questions</li>
 </ul>
 </div>
-
-<div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30 shadow-lg shadow-blue-500/10">
-<div class="text-blue-300 font-bold mb-2 text-sm">Builds on Module 1</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
+<div class="text-blue-300 font-bold mb-1 text-sm">Builds on Module 1</div>
+<div class="text-xs text-gray-400 mb-2">Your context files become the planning foundation, not just completion hints.</div>
 <ul class="text-xs text-gray-300 space-y-1">
-<li>Uses your architecture context</li>
+<li>Uses your architecture context automatically</li>
 <li>Follows your documented conventions</li>
-<li>Starts from a better baseline than generic code search</li>
+<li>Understands your show's domain from the universe file</li>
 </ul>
 </div>
-
-<div class="p-3 rounded-xl bg-gradient-to-br from-red-900/30 to-gray-900/40 border border-red-500/30 shadow-lg shadow-red-500/10">
-<div class="text-red-300 font-bold mb-2 text-sm">Still needs human judgment</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-red-900/30 to-gray-900/40 border border-red-500/30">
+<div class="text-red-300 font-bold mb-1 text-sm">Still needs human judgment</div>
+<div class="text-xs text-gray-400 mb-2">Reduces discovery work — doesn't replace architectural thinking or team decisions.</div>
 <ul class="text-xs text-gray-300 space-y-1">
-<li>Edge cases</li>
-<li>Architecture tradeoffs</li>
+<li>Edge cases and failure modes</li>
+<li>Architecture tradeoffs and tech debt</li>
 <li>Testing completeness and rollout decisions</li>
 </ul>
 </div>
-
 </div>
-
-<div class="mt-4 p-3 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-red-900/20 rounded-xl border border-white/10 text-center">
+<div class="relative z-10 mt-4 p-3 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-red-900/20 rounded-xl border border-white/10 text-center">
 <div class="text-sm text-white font-semibold">Plan mode improves the first draft. It does not replace review.</div>
+</div>
 </div>
 
 ---
@@ -367,90 +362,17 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 
 ---
 
-<!-- SLIDE: 🔨 Exercise Roadmap -->
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="mt-6 p-5 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-xl border border-white/10 text-center">
-<div class="text-lg text-white font-semibold mb-2">This module is one clean progression.</div>
-<div class="text-sm text-gray-300">Plan the stat cards. Plan the add form. Merge both into one roadmap. Then hand it to agent mode and ship it.</div>
-</div>
-
-<div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
-<table class="w-full text-left text-sm">
-<thead class="bg-gray-900/80 text-gray-300 uppercase tracking-wider text-xs">
-<tr>
-<th class="p-3">#</th>
-<th class="p-3">Exercise</th>
-<th class="p-3">Focus</th>
-<th class="p-3">Lead</th>
-<th class="p-3">Time</th>
-</tr>
-</thead>
-<tbody class="bg-gray-950/60 text-gray-300">
-<tr class="border-t border-white/5">
-<td class="p-3 font-semibold text-amber-300">2.1</td>
-<td class="p-3">Swap the Show</td>
-<td class="p-3">Replace Breaking Bad seed data with your chosen show</td>
-<td class="p-3">Rafael ⭐</td>
-<td class="p-3">10 min</td>
-</tr>
-<tr class="border-t border-white/5 bg-gray-900/40">
-<td class="p-3 font-semibold text-blue-300">2.2</td>
-<td class="p-3">Plan the Universe Stat Cards</td>
-<td class="p-3">Research-first plan — guess the file count first</td>
-<td class="p-3">Marcus ⭐</td>
-<td class="p-3">10 min</td>
-</tr>
-<tr class="border-t border-white/5 bg-gray-900/40">
-<td class="p-3 font-semibold text-purple-300">2.3</td>
-<td class="p-3">Plan the Quick-Add Form</td>
-<td class="p-3">Second plan in same session — continuity check</td>
-<td class="p-3">David ⭐</td>
-<td class="p-3">10 min</td>
-</tr>
-<tr class="border-t border-white/5">
-<td class="p-3 font-semibold text-orange-300">2.4</td>
-<td class="p-3">Combine Plans into a Delivery Roadmap</td>
-<td class="p-3">Merge two plans, resolve duplicates, sequence safely</td>
-<td class="p-3">Marcus ⭐</td>
-<td class="p-3">10 min</td>
-</tr>
-<tr class="border-t border-white/5 bg-gray-900/40">
-<td class="p-3 font-semibold text-green-300">2.5</td>
-<td class="p-3">Execute the Plan and Populate Your Universe</td>
-<td class="p-3">Switch to agent mode, execute roadmap, add real data</td>
-<td class="p-3">Sarah ⭐</td>
-<td class="p-3">15 min</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-<div class="text-white font-semibold">The progression is intentional.</div>
-<div class="text-sm text-gray-300">Align the foundation first. Then plan, validate continuity, merge, and execute — on data that actually reflects your product.</div>
-</div>
-
----
-
-<!-- SLIDE: 🔨 Exercise Section Header -->
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Section</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
 <!-- SLIDE: 🔨 Exercises -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">�� Exercises</span>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">Exercises</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
-<div class="text-lg font-bold text-white">5 exercises · ~55 minutes · shared leadership</div>
+<div class="text-lg font-bold text-white">4 exercises · ~45 minutes · shared leadership</div>
 </div>
-<div class="relative z-10 grid grid-cols-5 gap-3">
+<div class="relative z-10 grid grid-cols-4 gap-3">
 <div class="p-3 bg-amber-900/30 rounded-lg border border-amber-500/40">
 <div class="flex items-center justify-between mb-1">
 <div class="text-amber-300 font-bold text-base">2.1</div>
@@ -459,13 +381,13 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 <div class="text-white text-xs font-semibold mb-1">Swap the show</div>
 <div class="text-gray-400 text-xs leading-snug">Replace Breaking Bad seed data with your team's chosen show in Agent mode</div>
 </div>
-<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
+<div class="p-3 bg-amber-900/30 rounded-lg border border-amber-500/40">
 <div class="flex items-center justify-between mb-1">
-<div class="text-blue-300 font-bold text-base">2.2</div>
-<span class="text-xs text-gray-500">Marcus ⭐</span>
+<div class="text-amber-300 font-bold text-base">2.2</div>
+<span class="text-xs text-gray-500">Jessica ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Plan stat cards</div>
-<div class="text-gray-400 text-xs leading-snug">Generate a complete implementation roadmap before a single line is written</div>
+<div class="text-white text-xs font-semibold mb-1">Plan Lore card</div>
+<div class="text-gray-400 text-xs leading-snug">Add a Lore card to the homepage and a new Lore page before writing a line of code</div>
 </div>
 <div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40">
 <div class="flex items-center justify-between mb-1">
@@ -475,17 +397,9 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 <div class="text-white text-xs font-semibold mb-1">Plan add form</div>
 <div class="text-gray-400 text-xs leading-snug">Produce a second roadmap for the add-episode feature in the same session</div>
 </div>
-<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-orange-300 font-bold text-base">2.4</div>
-<span class="text-xs text-gray-500">Marcus ⭐</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Merge both plans</div>
-<div class="text-gray-400 text-xs leading-snug">Consolidate two roadmaps into one sequenced, conflict-free delivery plan</div>
-</div>
 <div class="p-3 bg-green-900/30 rounded-lg border border-green-500/40">
 <div class="flex items-center justify-between mb-1">
-<div class="text-green-300 font-bold text-base">2.5</div>
+<div class="text-green-300 font-bold text-base">2.4</div>
 <span class="text-xs text-gray-500">Sarah ⭐</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Execute + populate</div>
@@ -551,11 +465,11 @@ The repo still has Breaking Bad placeholder data. The team's chosen show is in <
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div class="flex flex-col gap-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Step 1 — Audit</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed">
+<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-text cursor-text">
 <span class="text-amber-300">@workspace</span> Audit the FanHub seed data and list every file that contains Breaking Bad-specific content. Don't make any changes yet — just list the files and summarize what each one contains.
 </div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2 mb-1">Step 2 — Swap</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed">
+<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-text cursor-text">
 Using <span class="text-amber-300">#file:docs/[show]-universe.md</span> as the source of truth, generate replacement seed data for <span class="text-amber-300">[Your Show]</span>. Match the existing data structure exactly — same field names, same format. Apply the changes.
 </div>
 </div>
@@ -578,41 +492,41 @@ Using <span class="text-amber-300">#file:docs/[show]-universe.md</span> as the s
 
 ---
 
-<!-- SLIDE: 🔨 Exercise 2.2: Plan the Universe Stat Cards -->
+<!-- SLIDE: 🔨 Exercise 2.2: Plan the Lore Card & Page -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-3">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">2.2</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">2.2</div>
 <div>
-<div class="text-blue-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Plan the Universe Stat Cards</h2>
+<div class="text-amber-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
+<h2 class="!text-2xl !font-bold text-white !m-0">Plan the Lore Card & Page</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Marcus ⭐</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">Jessica ⭐</span>
 <span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 10 min</span>
 </div>
 </div>
-<div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
-Marcus needs three animated stat cards — Characters, Locations, Canon Facts — on the FanHub homepage. <strong class="text-white">Before writing a line of code, he switches to plan mode and asks Copilot to map every file that needs to change.</strong>
-<div class="mt-1 text-xs italic text-blue-200">💭 "I keep figuring out the real scope halfway through. I need to see the whole map before I take the first step." — Marcus</div>
+<div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-amber-400 text-sm text-gray-300">
+The homepage already has cards for Characters, Episodes, Seasons, and Network. Jessica is adding the missing one: a <strong class="text-white">Lore card</strong> that shows the count of lore facts and navigates to a new Lore page listing them in a card layout. She loves it — visible, interactive, exactly what users notice. <strong class="text-white">She runs plan mode to map the work before touching code, completely focused on making the display right.</strong>
+<div class="mt-1 text-xs italic text-amber-200">💭 "A new page, new route, DB migration — I thought I was just dropping in another card." — Jessica</div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Switch to <strong>Plan</strong> mode — then write down your guess: how many files will this touch?</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Enter the stat-cards prompt and watch plan mode read the codebase (60–120 s)</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Count files, compare to your guess, annotate ≥ 1 refinement</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Save the plan to <code class="text-xs">docs/universe-dashboard-plan.md</code> — you'll merge it with the 2.2 plan in Exercise 2.3</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Switch to <strong>Plan</strong> mode — then write down your guess: how many files will this touch?</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Enter the Lore card prompt and watch plan mode read the codebase (60–120 s)</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Count files in the plan, compare to your guess, annotate ≥ 1 refinement you'd make</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Click <strong>Open in Editor</strong>, then <strong>Save As Prompt File</strong> (lower-right) — David will spot what's missing in 2.3</span></div>
 </div>
 </div>
 <div class="space-y-2">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Plan mode runs without modifying any file</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Plan identifies DB migration, 3 API routes, &lt;UniverseStats&gt; component, homepage wiring</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> File-count guess recorded and compared (most guess 2–3, plan shows 5–7)</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Refinement annotated; plan saved to docs/universe-dashboard-plan.md</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Plan runs without modifying any file</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Plan identifies DB migration, <span class="font-mono text-xs">GET /api/lore-entries</span>, Lore page component, homepage card update</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> File-count guess recorded and compared (most guess 2–3, plan shows 4–6)</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Plan saved as <code class="text-xs">.prompt.md</code> via Save As Prompt File</div>
 </div>
 </div>
 </div>
@@ -620,24 +534,24 @@ Marcus needs three animated stat cards — Characters, Locations, Canon Facts �
 
 ---
 
-<!-- SLIDE: 💬 Example: The Stat Cards Plan Prompt -->
+<!-- SLIDE: 💬 Example: The Lore Card Plan Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Stat Cards Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Lore Card Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 mb-3 text-xs text-gray-400">Use <span class="text-orange-300 font-mono font-semibold">/plan</span> at the start of your prompt — this switches to plan mode automatically if you forgot to change the mode selector:</div>
 
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4">
-<span class="text-orange-400 font-bold">/plan</span> Add a "Universe at a Glance" section to the FanHub homepage with three stat cards showing live counts: Characters, Locations, and Canon Facts. Each card should fetch its count from the API and animate the number on load.
+<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-text cursor-text">
+<span class="text-orange-400 font-bold">/plan</span> Add a Lore card to the FanHub homepage that shows the count of lore facts for the show. Clicking the card should navigate to a new /lore page that lists all lore facts in a card layout.
 </div>
 
 <div class="relative z-10 grid grid-cols-2 gap-3 text-xs mb-3">
-<div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20">
-<div class="text-orange-300 font-bold mb-1">⚡ Why /plan</div>
-<div class="text-gray-300">Works even if mode selector is still on Ask or Agent — no mode-switching required</div>
+<div class="p-3 bg-gray-900/60 rounded-xl border border-amber-500/20">
+<div class="text-amber-300 font-bold mb-1">👀 Check the bottom of the plan</div>
+<div class="text-gray-300">Plan mode often auto-seeds lore data from the universe file you created in Exercise 2.1 — scroll down before moving on</div>
 </div>
 <div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20">
 <div class="text-orange-300 font-bold mb-1">⏱ What to expect</div>
@@ -646,7 +560,10 @@ Marcus needs three animated stat cards — Characters, Locations, Canon Facts �
 </div>
 
 <div class="relative z-10 p-3 bg-orange-900/20 rounded-xl border border-orange-400/40 text-xs text-gray-300">
-👀 <strong class="text-orange-300">Watch the chat window while it runs.</strong> You'll see Copilot reading <span class="font-mono text-orange-200">ARCHITECTURE.md</span>, your DB schema, existing API routes, and the homepage component — each one listed as a tool call. Every file it reads is a file it understands before proposing a single change.
+👀 <strong class="text-orange-300">Watch the chat window while it runs.</strong> You'll see Copilot reading <span class="font-mono text-orange-200">ARCHITECTURE.md</span>, the existing card components, routing config, and DB schema — each listed as a tool call. It's learning the pattern of the existing cards before proposing how to add a new one.
+</div>
+<div class="relative z-10 mt-3 p-3 bg-blue-900/20 rounded-xl border border-blue-400/40 text-xs text-gray-300">
+💾 <strong class="text-blue-300">Save the plan:</strong> Click <span class="font-mono text-blue-200">Open in Editor</span> when the plan finishes. A <span class="font-mono text-blue-200">Save As Prompt File</span> button will appear in the lower-right — click it to save as a <span class="font-mono text-blue-200">.prompt.md</span> file for Exercise 2.3.
 </div>
 </div>
 
@@ -656,27 +573,27 @@ Marcus needs three animated stat cards — Characters, Locations, Canon Facts �
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: First Plan Output (Stat Cards)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: First Plan Output (Lore Card & Page)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-blue-300 mb-2">## Add "Universe at a Glance" Stat Cards</div>
-<div class="text-gray-400 mb-3"><span class="text-blue-100">**Scope:**</span> New homepage section with 3 animated counters fetched from the API</div>
+<div class="text-blue-300 mb-2">## Add Lore Card to Homepage + /lore Page</div>
+<div class="text-gray-400 mb-3"><span class="text-blue-100">**Scope:**</span> New Lore card on homepage showing lore count; new /lore route listing entries in card layout</div>
 <div class="text-blue-300 mb-1">### Step 1: Database</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">migrations/add_lore_entries.sql</span> → New <code>lore_entries</code> table with <code>type</code> column (location | canon_fact)</div>
-<div class="text-blue-300 mb-1">### Step 2: API Routes (3 new endpoints)</div>
-<div class="text-gray-400">- <span class="text-blue-100">routes/stats.ts</span> → GET /api/stats/characters</div>
-<div class="text-gray-400">- <span class="text-blue-100">routes/stats.ts</span> → GET /api/stats/locations</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">routes/stats.ts</span> → GET /api/stats/canon-facts</div>
-<div class="text-blue-300 mb-1">### Step 3: React Component</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">components/UniverseStats.tsx</span> → fetch all 3 counts, animate number on mount</div>
-<div class="text-blue-300 mb-1">### Step 4: Homepage Wiring</div>
-<div class="text-gray-400 mb-2">- <span class="text-blue-100">pages/index.tsx</span> → import &lt;UniverseStats /&gt; and render in hero section</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">migrations/add_lore_entries.sql</span> → New <code>lore_entries</code> table (id, title, description, created_at)</div>
+<div class="text-blue-300 mb-1">### Step 2: API Route</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">routes/lore.ts</span> → GET /api/lore-entries (returns all entries + count)</div>
+<div class="text-blue-300 mb-1">### Step 3: Lore Page Component</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">pages/lore.tsx</span> → fetches lore entries, renders each as a card (title + description)</div>
+<div class="text-blue-300 mb-1">### Step 4: Homepage Card Update</div>
+<div class="text-gray-400 mb-2">- <span class="text-blue-100">pages/index.tsx</span> → add Lore card to existing grid, link to /lore, show count from API</div>
+<div class="text-blue-300 mb-1">### Step 5: Routing</div>
+<div class="text-gray-400 mb-2">- <span class="text-blue-100">router/index.ts</span> → register /lore route pointing to lore.tsx</div>
 <div class="text-blue-300 mb-1">### Open Questions</div>
-<div class="text-gray-400">- Animation style: count-up on mount (1 s) or just fade-in?</div>
-<div class="text-gray-400">- Table naming: <code>lore_entries</code> (proposed) vs <code>universe_facts</code>?</div>
+<div class="text-gray-400">- Card style: match existing card pattern exactly, or differentiate Lore visually?</div>
+<div class="text-gray-400">- Empty state: what should /lore show when no entries exist yet?</div>
 </div>
 <div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Files touched:</strong> ~6 &nbsp; <strong class="text-gray-300">Most guessed:</strong> 2–3 &nbsp; <strong class="text-gray-300">Gap:</strong> this is the lesson
+<strong class="text-gray-300">Files touched:</strong> ~5 &nbsp; <strong class="text-gray-300">Most guessed:</strong> 2–3 &nbsp; <strong class="text-gray-300">Gap:</strong> this is the lesson
 </div>
 </div>
 
@@ -689,7 +606,7 @@ Marcus needs three animated stat cards — Characters, Locations, Canon Facts �
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">2.3</div>
 <div>
 <div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Plan the Quick-Add Form</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Plan the Lore Entry Form</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">David ⭐</span>
@@ -697,26 +614,26 @@ Marcus needs three animated stat cards — Characters, Locations, Canon Facts �
 </div>
 </div>
 <div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-Marcus shares his plan output with the group. David reads it and immediately notices something missing: <em>the stat cards show live counts, but there's no way to actually add data without a database client.</em> <strong class="text-white">David runs a second plan — for an "Add to Universe" form — and checks whether it picks up the table name Marcus's plan already decided on.</strong>
-<div class="mt-1 text-xs italic text-purple-200">💭 "The continuity check is the whole point. Does the second plan know what the first plan decided?" — David</div>
+Jessica shares her plan output with the group. David reads it line by line — all the way through. The Lore card, the `/lore` page, the migration, the API route. <em>He notices the plan has no step for adding entries. The table gets created, the page reads from it — but nothing writes to it.</em>
+<strong class="text-white">David opens Jessica's saved plan file in VS Code, then runs a second plan for a Show Lore entry form — VS Code detects the open plan and offers to combine them.</strong>
+<div class="mt-1 text-xs italic text-purple-200">💭 "The plan creates the table and reads from it. Nothing writes to it. How do entries ever get in there?" — David</div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">📋 Steps</div>
 <div class="space-y-1 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300"><strong>Stay in the same chat session</strong> from Exercise 2.1 — context is session-scoped</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Enter the "Add to Universe" form plan prompt</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Run the continuity check: does the plan reference <code>lore_entries</code> — the same table Marcus's plan named?</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Find the open question the plan surfaces that requires your judgment; write your answer</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">5</span><span class="text-gray-300">Save the plan to <code class="text-xs">docs/universe-quickadd-plan.md</code> — both plans go into Exercise 2.3</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300"><strong>Open Jessica's plan file</strong> in VS Code — having it open is how Copilot detects the existing plan context</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Run the Show Lore form plan prompt — VS Code will ask to <strong>combine</strong> or keep plans separate — choose <strong>Combine</strong></span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Find the open question the plan surfaces that requires your judgment; write your answer</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Click <strong>Open in Editor</strong>, then <strong>Save As Prompt File</strong> (lower-right) — combined plan ready for execution</span></div>
 </div>
 </div>
 <div class="space-y-2">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">✅ Success Criteria</div>
 <div class="space-y-1 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Second plan generated in the same chat session as Exercise 2.1</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Plan references <code>lore_entries</code> as the shared table (continuity confirmed)</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> POST /api/characters and POST /api/lore-entries endpoints identified</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Jessica's plan file open in VS Code before running the second plan</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Combined plan references existing table — no new table invented</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> <span class="font-mono">POST /api/lore-entries</span> endpoint identified in the plan</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> At least one open question answered with your own judgment</div>
 </div>
 </div>
@@ -730,17 +647,17 @@ Marcus shares his plan output with the group. David reads it and immediately not
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Quick-Add Form Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Lore Entry Form Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
-<div class="relative z-10 mb-3 text-xs text-gray-400">David enters this in the <strong class="text-white">same chat session</strong> as Exercise 2.1 — no new window, no lost context:</div>
+<div class="relative z-10 mb-3 text-xs text-gray-400">David enters this with Jessica's plan file open in VS Code:</div>
 
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4">
-<span class="text-orange-400 font-bold">/plan</span> Add a collapsible "Add to Universe" form panel next to the stat cards. The form should let me add a Character, Location, or Canon Fact by selecting a type and filling in a name and description. On submit, the matching stat card should refresh with the new count.
+<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-text cursor-text">
+<span class="text-orange-400 font-bold">/plan</span> Add a form to the /lore page that lets me add a new lore entry. The form should have a title and description field. On submit, save the new entry and refresh the list so the new card appears immediately. The Lore count on the homepage card should also update.
 </div>
 
 <div class="relative z-10 p-3 bg-orange-900/20 rounded-xl border border-orange-400/40 text-xs text-gray-300">
-🔍 <strong class="text-orange-300">The continuity check:</strong> Once the plan output arrives, search it for <span class="font-mono text-orange-200">lore_entries</span>. If it references the same table name Marcus's plan decided on, context carried across. If it proposes something different — <span class="font-mono text-orange-200">universe_entries</span>, <span class="font-mono text-orange-200">facts</span>, anything else — you've found a drift problem to resolve before writing a single line of code.
+🔍 <strong class="text-orange-300">The continuity check:</strong> Once the new plan arrives, scan it against Jessica's plan for three things — <strong class="text-orange-200">table names</strong> (not a new name), <strong class="text-orange-200">naming conventions</strong> (consistent, same route pattern as <span class="font-mono text-orange-200">/api/characters</span>), and <strong class="text-orange-200">data types</strong> (the <span class="font-mono text-orange-200">type</span> column uses the same enum values). Any drift here means the two plans will conflict the moment they're executed together.
 </div>
 </div>
 
@@ -749,155 +666,34 @@ Marcus shares his plan output with the group. David reads it and immediately not
 <!-- SLIDE: 📋 Example: Second Plan Output -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-📋 Example: Second Plan Output (Quick-Add Form)
-</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Second Plan Output (Lore Entry Form)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
 <div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-purple-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-purple-300 mb-2">## Add "Add to Universe" Form Panel</div>
-<div class="text-gray-400 mb-3"><span class="text-blue-100">**Scope:**</span> Collapsible form next to stat cards; type selector + name + description; counter refresh on submit</div>
-
-<div class="text-purple-300 mb-1">### Step 1: API Endpoints (2 new)</div>
-<div class="text-gray-400">- <span class="text-blue-100">routes/characters.ts</span> → POST /api/characters</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">routes/lore-entries.ts</span> → POST /api/lore-entries (inserts into <span class="text-green-300">lore_entries</span> ✓ same table)</div>
-
-<div class="text-purple-300 mb-1">### Step 2: React Component</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">components/AddToUniverse.tsx</span> → form state, type selector, submit handler, counter-refresh callback</div>
-
-<div class="text-purple-300 mb-1">### Step 3: Homepage Wiring</div>
-<div class="text-gray-400 mb-2">- <span class="text-blue-100">pages/index.tsx</span> → render &lt;AddToUniverse /&gt; alongside &lt;UniverseStats /&gt;</div>
-
+<div class="text-purple-300 mb-2">## Add Entry Form to /lore Page</div>
+<div class="text-gray-400 mb-3"><span class="text-blue-100">**Scope:**</span> Form on /lore page with title + description fields; on submit, entry saved and card list refreshes; homepage Lore count updates</div>
+<div class="text-purple-300 mb-1">### Step 1: API Endpoint</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">routes/lore.ts</span> → POST /api/lore-entries (inserts into <span class="text-green-300">lore_entries</span> ✓ same table as Jessica's plan)</div>
+<div class="text-purple-300 mb-1">### Step 2: Form Component</div>
+<div class="text-gray-400 mb-3">- <span class="text-blue-100">pages/lore.tsx</span> → add form above card list; title + description inputs; submit handler calls POST, then re-fetches list</div>
+<div class="text-purple-300 mb-1">### Step 3: Homepage Count Sync</div>
+<div class="text-gray-400 mb-2">- <span class="text-blue-100">pages/index.tsx</span> → Lore card count re-fetches from GET /api/lore-entries on navigation back to homepage</div>
 <div class="text-purple-300 mb-1">### Open Questions (requires your judgment)</div>
-<div class="text-gray-400">- Optimistic counter refresh (instant UI) or wait for POST 200?</div>
-<div class="text-gray-400">- Form collapse after successful submission: auto or manual?</div>
+<div class="text-gray-400">- Should the form appear above or below the existing lore cards?</div>
+<div class="text-gray-400">- New entry: append to bottom of list, or sort newest-first?</div>
 </div>
-
 <div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Continuity check:</strong> references <code>lore_entries</code> ✓ &nbsp; <strong class="text-gray-300">Drift risk:</strong> zero (same session)
+<strong class="text-gray-300">Continuity check:</strong> references <code>lore_entries</code> ✓ &nbsp; <strong class="text-gray-300">Route pattern:</strong> matches <code>/api/lore-entries</code> from plan 1 ✓
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: 🔨 Exercise 2.4: Combining Plans into a Delivery Roadmap -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">2.4</div>
-<div>
-<div class="text-orange-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Combining Plans into a Delivery Roadmap</h2>
-</div>
-<div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Marcus ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 10 min</span>
-</div>
-</div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-sm text-gray-300">
-Marcus now has two plans: stat cards from 2.1 and the form from 2.2. Both mention <code>lore_entries</code> and the homepage. <strong class="text-white">2 parallel implementations would collide on the DB migration and homepage wiring.</strong>
-<div class="mt-2 text-xs italic text-orange-200">💭 "Two plans, shared tables, overlapping homepage changes. Merge before we build." — Marcus</div>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
-<div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">Share both plans with Copilot using <code>#file:</code></span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Enter the merge prompt: &quot;Combine into one roadmap. Identify shared steps, resolve duplicates, sequence safely.&quot;</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Spot-check: DB migration listed once? Homepage wiring listed once? Sequence: DB → API → Component → Wiring?</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Save merged roadmap to <code>docs/universe-dashboard-plan.md</code> (overwrite 2.1 draft)</span></div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Combined roadmap has no duplicate steps (DB migration appears once, homepage wiring appears once)</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Shared artifacts (lore_entries table, homepage) correctly merged into single steps</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Sequence is dependency-safe: DB → API → Components → Homepage wiring</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Roadmap saved as docs/universe-dashboard-plan.md (ready for Exercise 2.4)</div>
-</div>
-</div>
-</div>
-</div>
-
-
----
-
-<!-- SLIDE: 💬 Example: The Merge Prompt -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Merge Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="relative z-10 mb-3 text-xs text-gray-400">Still in the same chat session — attach both plan files with <span class="font-mono text-orange-300">#file:</span> so plan mode has both in context:</div>
-
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4">
-<span class="text-orange-400 font-bold">/plan</span> <span class="text-cyan-300">#file:docs/universe-dashboard-plan.md</span> <span class="text-cyan-300">#file:docs/universe-quickadd-plan.md</span><br><br>
-Combine these two plans into a single delivery roadmap. Identify any shared steps (like DB schema), resolve duplicates, and sequence everything so there are no dependency conflicts.
-</div>
-
-<div class="relative z-10 grid grid-cols-2 gap-3 text-xs">
-<div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20">
-<div class="text-orange-300 font-bold mb-1">🔗 Why #file:</div>
-<div class="text-gray-300">Explicitly attaches both saved plans to the prompt — plan mode won't guess at filenames or rely on session memory alone</div>
-</div>
-<div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20">
-<div class="text-orange-300 font-bold mb-1">✅ What to check in the output</div>
-<div class="text-gray-300">One DB migration (not two), sequenced as: DB → API → Components → Homepage wiring</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: 📋 Example: Merged Roadmap -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-📋 Example: Merged Delivery Roadmap
-</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-orange-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-orange-300 mb-2">## Delivery Roadmap: Stat Cards + Quick-Add Form</div>
-<div class="text-gray-400 mb-3"><span class="text-orange-100">**Sequence:**</span> DB → API → Components → Homepage wiring</div>
-
-<div class="text-orange-300 mb-1">### Phase 1: Database (once, shared)</div>
-<div class="text-gray-400 mb-3">1. <span class="text-blue-100">migrations/add_lore_entries.sql</span> → <code>lore_entries</code> table with <code>type</code> column — built once, used by both features</div>
-
-<div class="text-orange-300 mb-1">### Phase 2: API Routes</div>
-<div class="text-gray-400">2. GET /api/stats/characters, /locations, /canon-facts</div>
-<div class="text-gray-400 mb-3">3. POST /api/characters, POST /api/lore-entries</div>
-
-<div class="text-orange-300 mb-1">### Phase 3: React Components</div>
-<div class="text-gray-400">4. <span class="text-blue-100">UniverseStats.tsx</span> — fetch + animate counters</div>
-<div class="text-gray-400 mb-3">5. <span class="text-blue-100">AddToUniverse.tsx</span> — form + submit + counter-refresh callback</div>
-
-<div class="text-orange-300 mb-1">### Phase 4: Homepage Wiring (once, shared)</div>
-<div class="text-gray-400 mb-2">6. <span class="text-blue-100">pages/index.tsx</span> → import both components in the correct order — one PR</div>
-
-<div class="text-orange-300 mb-1">### Duplicates Resolved</div>
-<div class="text-gray-400">- DB migration: 1 (not 2) &nbsp; Homepage update: 1 (not 2) &nbsp; Counter-refresh: shared pattern</div>
-</div>
-
-<div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Result:</strong> 6 ordered steps · zero duplicate migrations · safe for hand-off to agent mode
-</div>
-</div>
-
----
-
-<!-- SLIDE: 🔨 Exercise 2.5: Execute the Plan -->
+<!-- SLIDE: 🔨 Exercise 2.4: Execute the Plan -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-green-500/30 flex-shrink-0">2.5</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-green-500/30 flex-shrink-0">2.4</div>
 <div>
 <div class="text-green-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
 <h2 class="!text-2xl !font-bold text-white !m-0">Execute the Plan and Populate Your Universe</h2>
@@ -908,26 +704,25 @@ Combine these two plans into a single delivery roadmap. Identify any shared step
 </div>
 </div>
 <div class="relative z-10 mb-4 p-3 bg-gray-900/60 rounded-xl border-l-4 border-green-400 text-sm text-gray-300">
-Sarah is looking at <code>docs/universe-dashboard-plan.md</code> — the most thorough roadmap the team has ever produced. <strong class="text-white">Now she hands it to agent mode as explicit execution instructions and watches every file change. </strong>
-<div class="mt-2 text-xs italic text-green-200">💭 "Plans don't ship product. But a plan this specific makes execution calmer." — Sarah</div>
+Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore card and page, David's Show Lore entry form. <strong class="text-white">She simply runs the prompt file and watches every file change.</strong>
+<div class="mt-2 text-xs italic text-green-200">💭 "After execution, the homepage will have five cards. And the Lore count won't stay at zero." — Sarah</div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Switch Copilot Chat from <strong>Plan</strong> to <strong>Agent</strong> mode — execution begins</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Run <strong>/{plan}.prompt.md</strong>  — execution begins</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Monitor for deviations — if agent drifts from the plan, flag it and redirect</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Verify: homepage shows all 3 stat cards, form submits, counter refreshes, Network tab confirms POST</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Add ≥ 6 entries from your show (3 characters, 2 locations, 1 canon fact) — watch the counters change from 0</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Verify: Show Lore form submits, Show Lore counter increments, Network tab confirms POST to <span class="font-mono text-green-300">/api/lore-entries</span></span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Add ≥ 3 Show Lore entries from your show — watch the counter climb from 0</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Agent mode used (not plan mode) for all code execution</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Homepage renders all 3 stat cards with live counts fetched from the API</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> "Add to Universe" form posts to DB and refreshes the correct counter</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> ≥ 6 entries added from your show; counters show real numbers</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Homepage renders all 5 stat cards</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Lore form posts correctly and refreshes the Show Lore counter</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> ≥ 3 Show Lore entries added; Show Lore counter goes from 0 to real numbers</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> You can name one decision you accepted and one you overrode (or why none were needed)</div>
 </div>
 </div>
@@ -947,25 +742,24 @@ Sarah is looking at <code>docs/universe-dashboard-plan.md</code> — the most th
 </div>
 
 <div class="relative z-10 grid grid-cols-2 gap-4">
-<div class="text-sm font-mono bg-gray-900/80 rounded-lg border border-green-500/30 p-4 text-gray-300">
+<div class="text-sm font-mono bg-gray-900/80 rounded-lg border border-green-500/30 p-4 text-gray-300 select-text cursor-text">
 <div class="text-green-300 mb-2">The execution prompt</div>
 <div class="text-gray-400 mb-3 text-xs italic">[Switch mode selector to <span class="text-green-200">Agent</span>]</div>
-<div class="text-gray-300 text-xs">"Execute this plan. Start with the database schema, then the API endpoints, then the React component, then wire it into the homepage."</div>
+<div class="text-white text-sm font-bold mb-3">/plan-loreCardAndLorePageForm.prompt</div>
 <div class="text-gray-400 mt-3 mb-2 text-xs border-t border-green-500/20 pt-2">What to watch for:</div>
 <div class="text-gray-400 text-xs">- Agent creates table named differently → flag it</div>
 <div class="text-gray-400 text-xs">- Agent adds pagination (not in plan) → decide: accept or revert</div>
 <div class="text-gray-400 text-xs">- Agent skips a step → point it back to the roadmap</div>
 </div>
 <div class="text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 text-gray-300">
-<div class="text-blue-300 mb-2">The payoff — your show, your data</div>
-<div class="text-gray-400 text-xs mb-1">Breaking Bad example entries:</div>
-<div class="text-gray-400 text-xs">Character: Walter White — "Chemistry teacher..."</div>
-<div class="text-gray-400 text-xs">Character: Jesse Pinkman — "Walt's former student..."</div>
-<div class="text-gray-400 text-xs">Location: Albuquerque — "Where almost every scene..."</div>
-<div class="text-gray-400 text-xs">Location: The Superlab — "Industrial-scale meth lab..."</div>
-<div class="text-gray-400 text-xs mb-3">Canon Fact: "Walt's chemistry knowledge predates his cancer diagnosis"</div>
-<div class="text-green-300 text-xs font-bold">Counters: 0 · 0 · 0 → 3 · 2 · 1</div>
-<div class="text-gray-400 text-xs mt-2 italic">Use details only a fan would know — they become the target data for Module 3.</div>
+<div class="text-blue-300 mb-2">The payoff — Lore card complete</div>
+<div class="text-gray-400 text-xs mb-2">Homepage before execution:</div>
+<div class="text-gray-400 text-xs">Characters ✓ · Episodes ✓ · Seasons ✓ · Network ✓</div>
+<div class="text-red-400 text-xs mb-3">Lore: missing</div>
+<div class="text-gray-400 text-xs mb-2">After execution + adding entries:</div>
+<div class="text-gray-400 text-xs">Characters ✓ · Episodes ✓ · Seasons ✓ · Network ✓</div>
+<div class="text-green-300 text-xs font-bold">Lore: 3 ✓ → /lore page lists them all</div>
+<div class="text-gray-400 text-xs mt-2 italic">The plan described exactly what got built — no surprises.</div>
 </div>
 </div>
 
@@ -1012,130 +806,123 @@ Better planning compounds — every later customization has a cleaner workflow t
 ---
 
 <!-- SLIDE: ✅ Module Checklist -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
-<div class="text-lg text-white font-semibold mb-1">By the end of Module 2, the team should have a planning rhythm.</div>
-<div class="text-sm text-gray-300">Not one plan. A repeatable cycle: plan → validate continuity → merge → execute with real data.</div>
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-xl border border-white/10 text-center mb-3">
+<div class="text-base text-white font-semibold mb-0.5">By the end of Module 2, the team has a planning rhythm.</div>
+<div class="text-xs text-gray-300">Read the plan before touching code. Improve and Iterate. Execute with confidence.</div>
 </div>
-
-<div class="grid grid-cols-4 gap-3 mt-6 text-left text-sm">
-<div class="p-4 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">📝</div>
+<div class="relative z-10 grid grid-cols-4 gap-3 text-left text-sm">
+<div class="p-3 rounded-xl bg-gradient-to-br from-amber-900/40 to-gray-900/50 border border-amber-500/30">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-base">🔄</div>
 <div>
-<div class="text-blue-300 font-bold text-xs">Plan the stat cards</div>
+<div class="text-amber-300 font-bold text-xs">Swap the show</div>
 <div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.1</div>
 </div>
 </div>
-<ul class="space-y-2 text-xs text-gray-300">
-<li>Research-first plan before any code</li>
-<li>Guess file count → compare to plan's actual count</li>
-<li>Annotate ≥ 1 refinement; save plan</li>
+<ul class="space-y-1 text-xs text-gray-300">
+<li>Agent mode swaps seed data</li>
+<li>Universe file drives the change</li>
+<li>No manual edits needed</li>
 </ul>
 </div>
-<div class="p-4 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🔁</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-base">📝</div>
 <div>
-<div class="text-purple-300 font-bold text-xs">Plan the form</div>
+<div class="text-blue-300 font-bold text-xs">Plan Lore card & page</div>
 <div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.2</div>
 </div>
 </div>
-<ul class="space-y-2 text-xs text-gray-300">
-<li>Same session as 2.1</li>
-<li>Continuity check: does plan reference lore_entries?</li>
-<li>Answer one open question with your judgment</li>
+<ul class="space-y-1 text-xs text-gray-300">
+<li>Research-first before any code</li>
+<li>Guess file count → compare</li>
+<li>Save plan as .prompt.md</li>
 </ul>
 </div>
-<div class="p-4 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30 shadow-lg shadow-orange-900/20">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-xl bg-orange-500/20 border border-orange-400/30 flex items-center justify-center text-lg">🗺️</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-base">🔍</div>
 <div>
-<div class="text-orange-300 font-bold text-xs">Merge the plans</div>
+<div class="text-purple-300 font-bold text-xs">Plan the Lore form</div>
 <div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.3</div>
 </div>
 </div>
-<ul class="space-y-2 text-xs text-gray-300">
-<li>One DB migration, one homepage update</li>
-<li>Sequence: DB → API → Components → Wiring</li>
-<li>Save final roadmap</li>
+<ul class="space-y-1 text-xs text-gray-300">
+<li>Read the plan — spot the write gap</li>
+<li>Combine with Jessica's plan</li>
+<li>Continuity check: lore_entries ✓</li>
 </ul>
 </div>
-<div class="p-4 rounded-2xl bg-gradient-to-br from-green-900/40 to-gray-900/50 border border-green-500/30 shadow-lg shadow-green-900/20">
-<div class="flex items-center gap-3 mb-3">
-<div class="w-9 h-9 rounded-xl bg-green-500/20 border border-green-400/30 flex items-center justify-center text-lg">🚀</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-green-900/40 to-gray-900/50 border border-green-500/30">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-8 h-8 rounded-lg bg-green-500/20 border border-green-400/30 flex items-center justify-center text-base">🚀</div>
 <div>
 <div class="text-green-300 font-bold text-xs">Execute + populate</div>
 <div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.4</div>
 </div>
 </div>
-<ul class="space-y-2 text-xs text-gray-300">
-<li>Switch to agent mode, hand it the roadmap</li>
-<li>Verify running feature end-to-end</li>
-<li>Add ≥ 6 real show entries; counters go live</li>
+<ul class="space-y-1 text-xs text-gray-300">
+<li>Run /{plan}.prompt.md in agent mode</li>
+<li>Verify Lore card, page, and form</li>
+<li>Add ≥ 3 lore entries; count goes live</li>
 </ul>
 </div>
 </div>
-
-<div class="mt-4 grid grid-cols-2 gap-4">
-<div class="p-4 rounded-xl bg-gray-900/60 border border-white/10 text-left">
-<div class="text-sm font-bold text-white mb-2">What good looks like</div>
-<div class="text-sm text-gray-300">Four exercises, one clean arc: plan → validate → merge → execute. The feature is live. The counters show real data from your show.</div>
+<div class="relative z-10 mt-3 grid grid-cols-2 gap-3">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-white/10 text-left">
+<div class="text-xs font-bold text-white mb-1">What good looks like</div>
+<div class="text-xs text-gray-300">Four exercises, one arc: swap → plan → gap-check → execute. The Lore card is live. Real entries from your show are in the database.</div>
 </div>
-<div class="p-4 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-left">
-<div class="text-sm font-bold text-white mb-2">Why this matters</div>
-<div class="text-sm text-gray-300">The data you entered in 2.4 becomes the target for Elena's accuracy-check prompt in Module 3 — Module 2 output feeds Module 3 input.</div>
+<div class="p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-left">
+<div class="text-xs font-bold text-white mb-1">Why this matters</div>
+<div class="text-xs text-gray-300">The lore entries you added in 2.4 become the target for Elena's accuracy-check prompt in Module 3 — Module 2 output feeds Module 3 input.</div>
+</div>
 </div>
 </div>
 
 ---
 
 <!-- SLIDE: 📚 Keep the Foundation Evergreen -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
+<div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 Keep the Foundation Evergreen</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="mt-6 p-5 bg-gradient-to-r from-blue-900/25 via-purple-900/25 to-orange-900/20 rounded-2xl border border-white/10 text-center">
-<div class="text-lg font-bold text-white">Before Module 3, refresh the source of truth.</div>
-<div class="text-sm text-gray-300 mt-2">Update <span class="font-mono text-blue-200">ARCHITECTURE.md</span> and <span class="font-mono text-purple-200">.github/copilot-instructions.md</span> so the prompts you build next are grounded in current reality.</div>
+<div class="relative z-10 p-4 bg-gradient-to-r from-blue-900/25 via-purple-900/25 to-orange-900/20 rounded-xl border border-white/10 text-center mb-5">
+<div class="text-lg font-bold text-white">You just added new files, routes, and a page.</div>
+<div class="text-sm text-gray-300 mt-1">The codebase changed. The source of truth hasn't caught up yet.</div>
 </div>
-
-<div class="grid grid-cols-2 gap-5 mt-6 text-left">
-<div class="p-5 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">🏗️</div>
+<div class="relative z-10 grid grid-cols-2 gap-5 text-left">
+<div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">🏗️</div>
 <div>
-<div class="text-blue-300 font-bold">Refresh architecture context</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">ARCHITECTURE.md</div>
+<div class="text-blue-300 font-bold text-sm">ARCHITECTURE.md</div>
+<div class="text-xs text-gray-400">Needs updating</div>
 </div>
 </div>
-<div class="text-sm text-gray-300 space-y-2">
-<div>Capture any new structure, file relationships, or workflow boundaries you uncovered while planning.</div>
-<div class="text-blue-200">Keep future planning grounded in reality instead of memory.</div>
+<div class="text-sm text-gray-300">The Lore card, <span class="font-mono text-blue-200">/lore</span> page, and <span class="font-mono text-blue-200">lore_entries</span> table are new. Future planning prompts won't know about them unless the architecture doc reflects them.</div>
 </div>
-</div>
-<div class="p-5 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🧭</div>
+<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🧭</div>
 <div>
-<div class="text-purple-300 font-bold">Refresh team guidance</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">copilot-instructions.md</div>
+<div class="text-purple-300 font-bold text-sm">copilot-instructions.md</div>
+<div class="text-xs text-gray-400">Needs updating</div>
 </div>
 </div>
-<div class="text-sm text-gray-300 space-y-2">
-<div>Update expectations, patterns, and review habits so prompts, skills, and agents inherit current team practice.</div>
-<div class="text-purple-200">Evergreen guidance makes every later customization smarter.</div>
+<div class="text-sm text-gray-300">Any new naming conventions or patterns from this module should be captured — so every future prompt, skill, and agent inherits current practice.</div>
 </div>
 </div>
+<div class="relative z-10 mt-5 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/20 to-blue-900/20 rounded-xl border border-orange-500/30 text-center">
+<div class="text-sm text-white font-semibold">In Module 3, Exercise 3.1 — you'll build <span class="font-mono text-orange-300">refresh-docs.prompt.md</span></div>
+<div class="text-xs text-gray-400 mt-1">One reusable prompt that keeps both files current after any meaningful code change. For now, update them <strong class="text-white">using Copilot Chat</strong>.</div>
 </div>
-
-<div class="mt-6 p-4 rounded-xl bg-gray-900/60 border border-white/10 text-center">
-<div class="text-sm text-yellow-300 font-semibold">Evergreen docs are not cleanup work — they are leverage for every later module.</div>
 </div>
 
 ---
@@ -1175,7 +962,7 @@ Module 2 Is Locked In
 <div class="text-gray-400 text-xs mt-1">Module 3 turns repeatable planning requests into reusable custom prompts</div>
 </div>
 </div>
-<div class="relative z-10 text-base text-gray-200 max-w-3xl px-10 mb-6 leading-snug">
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/30 via-red-900/20 to-purple-900/30 rounded-xl border border-orange-500/30 max-w-3xl w-full px-8 mb-6 text-center shadow-lg shadow-orange-900/20">
 Better planning makes execution calmer. <span class="text-white font-semibold">Custom prompts make that better workflow repeatable for the whole team.</span>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>

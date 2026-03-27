@@ -144,7 +144,7 @@ The exercises below use plan mode to design and build the "Universe at a Glance"
 **When to use it:** When implementing features that span multiple files or layers, refactoring code with unclear dependencies, or breaking down ambiguous requirements into actionable steps.
 
 **What you'll build:**
-- **"Universe at a Glance" stat card row** — Three animated counter cards (Characters · Locations · Canon Facts) fetching live counts from new API endpoints
+- **"Universe at a Glance" stat card row** — Three animated counter cards (Characters · Locations · Show Lore) fetching live counts from new API endpoints
 - **Quick-add form panel** — A collapsible homepage form that writes to the database and refreshes the correct counter on submit
 - **Delivery roadmap** — A merged, dependency-safe plan saved to `docs/universe-dashboard-plan.md`
 - **Seeded show data** — At least 6 real entries from the participant's chosen show, ready for Modules 3–6
