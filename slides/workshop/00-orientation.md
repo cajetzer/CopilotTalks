@@ -1045,7 +1045,7 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
 
   <div class="relative z-10 text-8xl mb-6">🔨</div>
   <h1 class="!text-5xl !font-bold bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10 !mb-4">
-    Exercises
+&#x1F528; Exercises &mdash; Orientation
   </h1>
   <div class="relative z-10 mb-8">
     <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-lg font-medium shadow-lg">
