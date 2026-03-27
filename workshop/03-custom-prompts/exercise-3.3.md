@@ -1,24 +1,24 @@
-# Exercise 3.3: Show-Accuracy Check Prompt
+# Exercise 3.3: Lore Entry Accuracy Check Prompt
 
 ## 🔨 Exercise
 
-### Exercise 3.3: Show-Accuracy Check Prompt — "Encode Your Domain Knowledge"
+### Exercise 3.3: Lore Entry Accuracy Check Prompt — "Encode Your Domain Knowledge"
 
 **Lead:** Marcus ⭐ | **Support:** Sarah 🤝 | **Time:** 12 min
 
 #### 📖 The Challenge
 
-It's 10:20 AM. Marcus just opened a PR — he used Copilot to scaffold character bios for the detail page. The code looks fine.
+It's 10:20 AM. Marcus just opened a PR — he used Copilot to batch-generate lore entries for the `/lore` page the team built last sprint. Ten facts about the show, fifteen minutes of work. The code looks fine.
 
-Sarah reviews it. Jesse Pinkman's bio says he was "Walter's former college student." He wasn't — Walter was a chemistry *teacher*, not a professor. Jesse was his high school student. She keeps reading. A second bio misattributes a line of dialogue. A third calls it "the lab" instead of "the Superlab."
+Sarah reviews it. One entry says Walter White first met Jesse "at a university chemistry program." He didn't — Walter was Jesse's high school chemistry teacher at J.P. Wynne High School. She keeps reading. A second entry misattributes a quote. A third has the wrong location.
 
 She finds three errors. She flags them. She is not doing this every sprint.
 
-*"Marcus. You used Copilot to write these. You need to use Copilot to check them. The canon rules are sitting in `docs/breaking-bad-universe.md` from Module 1. Build a prompt that applies them — before anything hits review."*
+*"Marcus. You used Copilot to write these entries. You need to use Copilot to check them. The canon rules are sitting in `docs/breaking-bad-universe.md` from Module 1. Build a prompt that validates lore entries — before anything goes into the database."*
 
 Marcus blinks. He tab-switches to Hacker News. Then he tab-switches back.
 
-*"Wait — if the rules are already in the file, I just... point the prompt at it? I don't have to hold the whole show in my head every time?"*
+*"Wait — if the rules are already in the file, I just... point the prompt at each entry? Before it hits the database?"*
 
 That's exactly it. The knowledge exists. The prompt just makes it run consistently, at scale, by anyone on the team.
 
@@ -26,16 +26,16 @@ That's exactly it. The knowledge exists. The prompt just makes it run consistent
 
 | Before ❌ | After ✨ |
 |-----------|----------|
-| Marcus ships Copilot-generated content; Sarah manually cross-references canon during PR review. | Marcus invokes `/data-accuracy-check` before opening the PR. Canon errors are caught before Sarah ever sees the code. |
+| Marcus ships Copilot-generated lore entries; Sarah manually cross-references canon during PR review. | Marcus invokes `/lore-accuracy-check` before opening the PR. Canon errors are caught before Sarah ever sees the code. |
 | **Review time:** 8–10 min/PR, entirely on Sarah | **Review time:** ~2 min — Marcus reads the prompt output, fixes before pushing |
 | **Error catch rate:** Varies by Sarah's availability and recall | **Error catch rate:** 100% for rules encoded in the universe file |
-| **Scale:** Sarah is the bottleneck on every content PR | **Scale:** Any team member runs the check; the domain knowledge lives in a file |
+| **Scale:** Sarah is the bottleneck on every lore PR | **Scale:** Any team member runs the check; the domain knowledge lives in a file |
 
-**Time saved:** 7 min avg × 20 content reviews/sprint = **140 min/sprint** = **60 hours/year**. More importantly: Sarah stops being the accuracy bottleneck for content Marcus generates.
+**Time saved:** 7 min avg × 20 lore reviews/sprint = **140 min/sprint** = **60 hours/year**. More importantly: Sarah stops being the accuracy bottleneck for lore Marcus generates.
 
 #### 🎯 Your Goal
 
-Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt that validates any FanHub content against the canon rules in your universe file. The prompt should catch errors in character descriptions, episode summaries, and lore entries, pass cleanly on correct content, and work on any content type without being hardcoded to a specific character or field.
+Create `.github/prompts/lore-accuracy-check.prompt.md` — a reusable prompt that validates any lore entry against the canon rules in your universe file. The prompt should catch errors in lore descriptions, pass cleanly on correct content, and work on any lore entry without being hardcoded to a specific title or character.
 
 #### 📋 Steps
 
@@ -44,17 +44,16 @@ Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt t
    In GitHub Copilot Chat, switch to **Agent mode**. Paste the following to generate the initial prompt file:
 
    ```
-   Create a new prompt file at `.github/prompts/data-accuracy-check.prompt.md`.
+   Create a new prompt file at `.github/prompts/lore-accuracy-check.prompt.md`.
 
    The prompt should:
    - Have frontmatter with name, description, and mode: ask
    - Reference `docs/[show]-universe.md` as its accuracy source using a `#file:` reference
-   - Instruct Copilot to check provided content against canon rules
-   - Flag anything that contradicts show canon, misattributes dialogue or roles, or
+   - Instruct Copilot to check provided lore entry content against canon rules
+   - Flag anything that contradicts show canon, misattributes relationships or locations, or
      makes claims not established in the show
    - List specific rule violations if any are found
    - Pass cleanly (with a brief confirmation) when no violations are detected
-   - Accept any content type: character bio, episode description, or lore entry
    - Use ${selection} so it operates on selected text, or instruct the user to paste content after invoking it
    ```
 
@@ -62,19 +61,19 @@ Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt t
 
 2. **Review and refine the prompt body**
 
-   Open the generated `.github/prompts/data-accuracy-check.prompt.md`. It should look roughly like this — adjust yours if it doesn't:
+   Open the generated `.github/prompts/lore-accuracy-check.prompt.md`. It should look roughly like this — adjust yours if it doesn't:
 
    ```markdown
    ---
-   name: data-accuracy-check
-   description: 'Validates FanHub content for accuracy against Breaking Bad canon rules'
+   name: lore-accuracy-check
+   description: 'Validates lore entries for accuracy against show canon rules'
    mode: ask
    ---
 
-   You are a canon accuracy reviewer for a Breaking Bad fan site.
+   You are a canon accuracy reviewer for a fan site.
 
-   Check the following content against the established canon in
-   [docs/breaking-bad-universe.md](../docs/breaking-bad-universe.md).
+   Check the following lore entry against the established canon in
+   [docs/[show]-universe.md](../docs/[show]-universe.md).
 
    Content to review:
    ${selection}
@@ -92,39 +91,40 @@ Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt t
    **Key design decisions to preserve:**
    - **`#file:` or markdown link to the universe file** — this is what makes the prompt accurate. Without it, the prompt is generic and Copilot will fall back on training data, which may contain the same errors you're trying to catch.
    - **`${selection}`** — lets you select text in the editor and invoke the prompt against it, rather than copy-pasting into chat manually.
-   - **No hardcoded character names** — the prompt works on any content. Don't constrain it to "Jesse Pinkman bios."
+   - **No hardcoded entry titles** — the prompt works on any lore entry. Don't constrain it to a specific title or character name.
    - **Separate factual from stylistic** — the last line is important. Without it, the prompt may flag valid creative choices as errors.
 
-3. **Test against a known-bad input — find the seed data error**
+3. **Test against a known-bad lore entry**
 
-   The FanHub seed data contains a deliberately wrong character description. Use this bio as your test input — either select it in the editor and invoke the prompt, or paste it directly in chat after invoking `/data-accuracy-check`:
-
-   ```
-   Jesse Pinkman is Walter White's former college student and chemistry protégé.
-   Now working as Walter's partner in methamphetamine production, Jesse handles
-   street-level distribution through his connections in Albuquerque's drug scene.
-   ```
-
-   **Expected result:** The prompt should flag "former college student" as a canon violation. Jesse was Walter's former *high school* student — Walter was a high school chemistry teacher, not a college professor. The corrected version should read "former high school student."
-
-   If the prompt doesn't catch this, check that your universe file (from Exercise 1.6) correctly states Jesse's role and that the prompt file actually references it. The prompt is only as accurate as the rules you encoded.
-
-4. **Test against a correct input — confirm it passes cleanly**
-
-   Now test a correctly described character to confirm the prompt doesn't generate false positives:
+   The FanHub seed data contains a deliberately wrong lore entry. Use this as your test input — either select it in the editor and invoke the prompt, or paste it directly in chat after invoking `/lore-accuracy-check`:
 
    ```
-   Walter White is a former Albuquerque high school chemistry teacher diagnosed
-   with inoperable lung cancer. Faced with mounting medical bills, he begins
-   cooking methamphetamine with former student Jesse Pinkman, initially to
-   secure his family's financial future.
+   Title: "Walter & Jesse — Origin"
+   Walter White recruited Jesse Pinkman as his partner after reconnecting with him on
+   the street. Jesse had been Walter's former student at the University of New Mexico,
+   where Walter taught a chemistry course.
    ```
 
-   **Expected result:** The prompt should confirm this passes — the key facts (high school teacher, lung cancer diagnosis, Jesse as a former student) are consistent with established canon.
+   **Expected result:** The prompt should flag "University of New Mexico" as a canon violation. Walter White was a chemistry teacher at J.P. Wynne **High School** — not a university professor. The corrected version should reference J.P. Wynne High School.
+
+   If the prompt doesn't catch this, check that your universe file (from Exercise 1.6) correctly states Walter's role and that the prompt file actually references it. The prompt is only as accurate as the rules you encoded.
+
+4. **Test against a correct lore entry — confirm it passes cleanly**
+
+   Now test an accurate lore entry to confirm the prompt doesn't generate false positives:
+
+   ```
+   Title: "The Blue Sky Formula"
+   Walter White's methamphetamine, known on the street as "Blue Sky," achieved a purity
+   level exceeding 99% — far beyond any competitor. Its distinctive blue tint came from
+   the synthesis method Walter developed at the Superlab.
+   ```
+
+   **Expected result:** The prompt should confirm this passes — the key facts (purity over 99%, the Superlab) are consistent with established canon.
 
 5. **Test on your own show's content (non-Breaking Bad participants)**
 
-   If you're building a site for a different show, find or write one intentionally wrong content description and one accurate one from your show, then run both through your show's accuracy-check prompt.
+   If you're building a site for a different show, write one intentionally wrong lore entry and one accurate one from your show, then run both through your show's accuracy-check prompt.
 
    **Stranger Things example (wrong):**
    ```
@@ -137,7 +137,7 @@ Create `.github/prompts/[show]-accuracy-check.prompt.md` — a reusable prompt t
 
 #### ✅ Success Criteria
 
-- [ ] `.github/prompts/[show]-accuracy-check.prompt.md` exists with correct frontmatter (`name`, `description`, `mode: ask`)
+- [ ] `.github/prompts/lore-accuracy-check.prompt.md` exists with correct frontmatter (`name`, `description`, `mode: ask`)
 - [ ] The prompt references `docs/[show]-universe.md` using a `#file:` reference or markdown link
 - [ ] The prompt is invokable in Copilot Chat as `/[show]-accuracy-check`
 - [ ] The prompt catches the "former college student" error (or equivalent error for your show)

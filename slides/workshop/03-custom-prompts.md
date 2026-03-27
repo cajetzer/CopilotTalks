@@ -35,7 +35,7 @@ Module 3: Custom Prompts
 </span>
 </div>
 <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
-The standards are set. The plan mode works. Now let's make the workflows that keep working — without rebuilding them from memory each time.
+Plan mode just produced a prompt file. Module 3 is about doing that deliberately — and building prompts the whole team can run.
 </div>
 <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 <div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
@@ -134,8 +134,8 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 p-5 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-5 shadow-lg shadow-orange-900/20">
-<div class="text-2xl font-bold text-white mb-1">Three prompt files. One reusable habit. Zero repeated setup.</div>
-<div class="text-sm text-orange-100">A docs-refresh prompt, a context-aware review prompt, and a canon-accuracy checker built on your universe file</div>
+<div class="text-2xl font-bold text-white mb-1">Two prompt files. One reusable habit. Zero repeated setup.</div>
+<div class="text-sm text-orange-100">A docs-refresh prompt and a canon-accuracy checker — plus a tip of the hat to what you already built in Module 2</div>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-4 text-sm text-left">
 <div class="p-4 rounded-lg border-l-4 border-blue-500 bg-gray-900/60">
@@ -143,10 +143,11 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <div class="text-gray-400 font-mono text-xs mb-2">refresh-docs.prompt.md</div>
 <div class="text-gray-300">A reusable prompt that keeps <code>ARCHITECTURE.md</code> and team instructions aligned with the repo after code changes.</div>
 </div>
-<div class="p-4 rounded-lg border-l-4 border-purple-500 bg-gray-900/60">
-<div class="font-bold text-purple-300 mb-1">3.2 — Save a reusable feature brief</div>
-<div class="text-gray-400 font-mono text-xs mb-2">feature-kickoff.prompt.md</div>
-<div class="text-gray-300">A prompt that takes a feature name as input and returns a structured brief — files, patterns, sequencing, and first PR scope — grounded in current docs.</div>
+<div class="p-4 rounded-lg border-l-4 border-purple-500/40 bg-gray-900/40 opacity-60">
+<div class="font-bold text-purple-300/70 mb-1 line-through">3.2 — Save a reusable feature brief</div>
+<div class="text-gray-500 font-mono text-xs mb-2 line-through">feature-kickoff.prompt.md</div>
+<div class="text-gray-500 line-through text-xs">A prompt that takes a feature name as input and returns a structured brief — files, patterns, sequencing, and first PR scope — grounded in current docs.</div>
+<div class="mt-2 text-xs text-purple-300/80 not-italic">✓ Already done — Module 2 plan mode produced exactly this. Your <span class="font-mono">.prompt.md</span> file is the feature brief.</div>
 </div>
 <div class="p-4 rounded-lg border-l-4 border-emerald-500 bg-gray-900/60">
 <div class="font-bold text-emerald-300 mb-1">3.3 — Encode domain knowledge</div>
@@ -216,32 +217,31 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 ---
 
 <!-- SLIDE: Why Prompt Files Matter Here -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
+<div class="relative z-10 flex items-center gap-3 mb-5">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Why Prompt Files Matter Here</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-3 gap-5 mt-4 text-left">
-
-  <div class="p-5 rounded-xl bg-gray-900/60 border border-orange-500/30">
-    <div class="text-orange-300 font-bold mb-3">Less retyping</div>
-    <div class="text-sm text-gray-300">The team stops rebuilding the same careful prompt every time a familiar task appears.</div>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gray-900/60 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">Less standards drift</div>
-    <div class="text-sm text-gray-300">Prompts can point to current architecture and instruction files instead of embedding stale copies.</div>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gray-900/60 border border-purple-500/30">
-    <div class="text-purple-300 font-bold mb-3">More reusable expertise</div>
-    <div class="text-sm text-gray-300">A strong review prompt or debugging prompt becomes something the entire team can benefit from immediately.</div>
-  </div>
-
+<div class="relative z-10 grid grid-cols-3 gap-5 flex-1 text-left">
+<div class="p-6 rounded-xl bg-gray-900/60 border border-orange-500/30 flex flex-col">
+<div class="text-3xl mb-3">⏳</div>
+<div class="text-orange-300 font-bold text-lg mb-3">Less retyping</div>
+<div class="text-sm text-gray-300 leading-relaxed">The team stops rebuilding the same careful prompt every time a familiar task appears. Write it once, invoke it forever.</div>
 </div>
-
-<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-  <div class="text-xl font-bold text-white">Prompt files make standards easier to invoke than to forget.</div>
+<div class="p-6 rounded-xl bg-gray-900/60 border border-blue-500/30 flex flex-col">
+<div class="text-3xl mb-3">📐</div>
+<div class="text-blue-300 font-bold text-lg mb-3">Less standards drift</div>
+<div class="text-sm text-gray-300 leading-relaxed">Prompts can reference current architecture and instruction files instead of embedding stale assumptions copied from memory.</div>
+</div>
+<div class="p-6 rounded-xl bg-gray-900/60 border border-purple-500/30 flex flex-col">
+<div class="text-3xl mb-3">🤝</div>
+<div class="text-purple-300 font-bold text-lg mb-3">More reusable expertise</div>
+<div class="text-sm text-gray-300 leading-relaxed">A strong review or debugging prompt becomes something the entire team can benefit from — not just the person who wrote it.</div>
+</div>
+</div>
+<div class="relative z-10 mt-5 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+<div class="text-xl font-bold text-white">Prompt files make standards easier to invoke than to forget.</div>
+</div>
 </div>
 
 ---
@@ -293,50 +293,6 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 
 ---
 
-<!-- SLIDE: 💭 The Team, After Module 3 -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 3</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
-<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
-<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I saved my first prompt file today. Now the whole team can run it. That&#39;s... that&#39;s just software, but for prompts."</div>
-<div class="text-xs text-gray-500">First contribution the whole team will actually use.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
-<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
-<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"A prompt file is just an interface contract for a repeatable workflow. We have been doing this with scripts for decades."</div>
-<div class="text-xs text-gray-500">Thirty years of patterns, now expressible in markdown.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
-<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
-<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I ran the doc refresh prompt on three files. Same quality, zero context-setting. This is what reuse should feel like."</div>
-<div class="text-xs text-gray-500">Quality consistent enough to stop explaining it.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
-<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Does the prompt file version? Can I see diffs? ...Yes? Then this is just code review for prompts."</div>
-<div class="text-xs text-gray-500">Version control solved every objection she had.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
-<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
-<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Saving prompts as files is like... remembering things permanently. For the whole team. That&#39;s kind of amazing, actually."</div>
-<div class="text-xs text-gray-500">Immediately saved four more.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
-<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Prompt files encode what 'done' looks like. Nobody debates it because it&#39;s in the file."</div>
-<div class="text-xs text-gray-500">Definition of done, shipped in a .prompt.md.</div>
-</div>
-</div>
-</div>
-
----
-
 <!-- SLIDE: What to Validate in the Workshop -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
@@ -368,98 +324,46 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 
 ---
 
-<!-- SLIDE: Exercise Roadmap -->
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="mt-4 p-5 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-xl border border-white/10 text-center">
-<div class="text-lg text-white font-semibold mb-2">This module is one clean progression.</div>
-<div class="text-sm text-gray-300">Refresh the docs first. Then save one stronger review prompt with living-doc links and variables. Then encode domain knowledge as a systematic accuracy check.</div>
-</div>
-
-<div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
-<table class="w-full text-left text-sm">
-<thead class="bg-gray-900/80 text-gray-300 uppercase tracking-wider text-xs">
-<tr>
-<th class="p-3">#</th>
-<th class="p-3">Exercise</th>
-<th class="p-3">Focus</th>
-<th class="p-3">Lead</th>
-<th class="p-3">Time</th>
-</tr>
-</thead>
-<tbody class="bg-gray-950/60 text-gray-300">
-<tr class="border-t border-white/5">
-<td class="p-3 font-semibold text-blue-300">3.1</td>
-<td class="p-3">Creating a Docs Refresh Prompt</td>
-<td class="p-3">Keep foundational docs evergreen</td>
-<td class="p-3">Sarah ⭐</td>
-<td class="p-3">6 min</td>
-</tr>
-<tr class="border-t border-white/5 bg-gray-900/40">
-<td class="p-3 font-semibold text-cyan-300">3.2</td>
-<td class="p-3">Creating a Context-Aware Prompt File</td>
-<td class="p-3">Save one reusable prompt with docs, roadmap, and variables</td>
-<td class="p-3">Marcus ⭐</td>
-<td class="p-3">12 min</td>
-</tr>
-<tr class="border-t border-white/5">
-<td class="p-3 font-semibold text-emerald-300">3.3</td>
-<td class="p-3">Show-Accuracy Check Prompt</td>
-<td class="p-3">Encode domain knowledge as a reusable accuracy check</td>
-<td class="p-3">Marcus ⭐</td>
-<td class="p-3">12 min</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div class="mt-6 p-4 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-<div class="text-white font-semibold">Three steps, one compounding pattern.</div>
-<div class="text-sm text-gray-300">Refresh the docs first. Then standardize review work with a living-docs prompt. Then wire your domain knowledge into an accuracy check anyone can invoke.</div>
-</div>
-
----
-
 <!-- SLIDE: 🔨 Exercises -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">�� Exercises</span>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercises</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
-<div class="text-lg font-bold text-white">3 exercises · ~30 minutes · shared leadership</div>
+<div class="text-lg font-bold text-white">2 exercises · ~18 minutes · one already done</div>
 </div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-blue-300 font-bold text-base">3.1</div>
-<span class="text-xs text-gray-500">Sarah ⭐</span>
+<div class="relative z-10 grid grid-cols-3 gap-4 flex-1">
+<div class="p-4 bg-blue-900/30 rounded-xl border border-blue-500/40 flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<div class="text-blue-300 font-bold text-lg">3.1</div>
+<span class="text-xs text-gray-500">Rafael ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Refresh the docs</div>
-<div class="text-gray-400 text-xs leading-snug">Update stale ARCHITECTURE.md and instructions with a reusable prompt file</div>
+<div class="text-white text-sm font-semibold mb-2">Refresh the docs</div>
+<div class="text-gray-400 text-xs leading-snug mb-3">Every code change makes the source of truth a little stale. Rafael builds a prompt that reviews the workspace and updates only what changed — so the whole team's context stays current without anyone manually tracking it.</div>
+<div class="mt-auto text-xs text-blue-300/70 italic">💭 "One prompt. Run it after every meaningful change. Done."</div>
 </div>
-<div class="p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-cyan-300 font-bold text-base">3.2</div>
+<div class="p-4 bg-gray-800/30 rounded-xl border border-gray-600/30 flex flex-col opacity-50">
+<div class="flex items-center justify-between mb-2">
+<div class="text-gray-500 font-bold text-lg line-through">3.2</div>
+<span class="text-xs text-gray-600 line-through">Marcus ⭐</span>
+</div>
+<div class="text-gray-500 text-sm font-semibold mb-2 line-through">Save one stronger prompt</div>
+<div class="text-gray-600 text-xs leading-snug mb-3 line-through">Turn a winning one-off prompt into a reusable .prompt.md for the whole team</div>
+<div class="mt-auto text-xs text-green-400/80 not-italic">✓ Already done — your plan mode output from Module 2 <em>is</em> the prompt file.</div>
+</div>
+<div class="p-4 bg-emerald-900/30 rounded-xl border border-emerald-500/40 flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<div class="text-emerald-300 font-bold text-lg">3.3</div>
 <span class="text-xs text-gray-500">Marcus ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Save one stronger prompt</div>
-<div class="text-gray-400 text-xs leading-snug">Turn a winning one-off prompt into a reusable .prompt.md for the whole team</div>
-</div>
-<div class="p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-emerald-300 font-bold text-base">3.3</div>
-<span class="text-xs text-gray-500">Marcus ⭐</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Encode domain knowledge</div>
-<div class="text-gray-400 text-xs leading-snug">Build a prompt that pulls show universe context into every accuracy check</div>
+<div class="text-white text-sm font-semibold mb-2">Encode domain knowledge</div>
+<div class="text-gray-400 text-xs leading-snug mb-3">Marcus shipped Copilot-generated content in a PR. Three canon errors. Sarah caught them. The rules are already in the universe file — Marcus just needs a prompt that applies them automatically before anything hits review.</div>
+<div class="mt-auto text-xs text-emerald-300/70 italic">💭 "If the universe file has the rules, the prompt should use them."</div>
 </div>
 </div>
-<div class="relative z-10 mt-3 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
+<div class="relative z-10 mt-4 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
 Each exercise rotates the lead persona — everyone contributes, everyone follows.
 </div>
 </div>
@@ -476,20 +380,20 @@ Each exercise rotates the lead persona — everyone contributes, everyone follow
 <h2 class="!text-2xl !font-bold text-white !m-0">Creating a Docs Refresh Prompt</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Sarah ⭐</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">Rafael ⭐</span>
 <span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 6 min</span>
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
-After every meaningful code change, the team needs to refresh <span class="font-mono text-blue-200">ARCHITECTURE.md</span> and <span class="font-mono text-blue-200">.github/copilot-instructions.md</span>. <strong class="text-white">That is exactly the kind of repeated, high-value work a reusable prompt should handle first.</strong>
+Rafael's already thinking about the next sprint. He's noticed that every time the team plans a feature, Copilot's suggestions drift slightly from what the codebase actually is — because nobody updated the docs after Module 2. <em>That drift compounds.</em> <strong class="text-white">He wants one prompt he can hand to the team: run it after any meaningful change, docs stay current, problem never comes back.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create a workspace prompt like <span class="font-mono text-blue-300">refresh-docs.prompt.md</span> that updates foundational docs after code changes</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Tell the prompt to review the current workspace and update <span class="font-mono text-blue-300">ARCHITECTURE.md</span> and <span class="font-mono text-blue-300">copilot-instructions.md</span> only when the codebase has changed</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Invoke it after a change and confirm it keeps the docs aligned with current reality instead of stale memory</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create a workspace prompt named <span class="font-mono text-blue-300">refresh-docs.prompt.md</span> that updates foundational docs after code changes</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Use <code>/plan </code> and ask for a review the current workspace and update <span class="font-mono text-blue-300">ARCHITECTURE.md</span> and <span class="font-mono text-blue-300">copilot-instructions.md</span> only when the codebase has changed</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Save it, and invoke it after each change to keep the docs aligned with current reality instead of stale memory</span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -499,36 +403,86 @@ After every meaningful code change, the team needs to refresh <span class="font-
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> It updates the two source-of-truth docs without turning into a generic repo rewrite</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The team sees evergreen docs as leverage, not cleanup</div>
 </div>
-<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Sarah:</strong> "If we do this after every code change, the rest of our prompts get smarter without extra effort."</div>
+<div class="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Rafael:</strong> "The docs drift is a compounding risk. One prompt, maintained. I'm already thinking about what we build next."</div>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: Example refresh-docs.prompt.md -->
+<!-- SLIDE: 💬 Example: The refresh-docs Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: refresh-docs.prompt.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The refresh-docs Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-gray-500 mb-2">---</div>
-<div class="text-blue-300">name: Refresh Docs</div>
-<div class="text-blue-300">description: Update ARCHITECTURE.md and copilot-instructions.md after code changes</div>
-<div class="text-blue-300">mode: agent</div>
-<div class="text-gray-500 mb-2">---</div>
-<div class="text-gray-400 mb-3">Review the current workspace and update the two foundational docs if the codebase has changed since they were last written.</div>
-<div class="text-purple-300 mb-1">## What to update</div>
-<div class="text-gray-400">- <span class="text-blue-100">ARCHITECTURE.md</span>: Any new modules, file relationships, or workflow boundaries</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">.github/copilot-instructions.md</span>: Team expectations, review patterns, naming conventions</div>
-<div class="text-purple-300 mb-1">## Rules</div>
-<div class="text-gray-400">- Only update sections that have actually changed</div>
-<div class="text-gray-400">- Do not rewrite sections that are still accurate</div>
-<div class="text-gray-400">- Keep both files concise and actionable</div>
+<div class="relative z-10 grid grid-cols-2 gap-5">
+<div>
+<div class="text-xs text-gray-400 mb-2">Save this to <span class="font-mono text-orange-300">.github/prompts/refresh-docs.prompt.md</span>:</div>
+<div class="font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-4 text-gray-200 leading-relaxed select-text cursor-text">
+<div class="text-gray-500 text-xs mb-2">---</div>
+<div class="text-blue-300 text-xs mb-1">description: Refresh architecture and team instructions after code changes</div>
+<div class="text-gray-500 text-xs mb-3">---</div>
+<span class="text-orange-400 font-bold">/plan</span> Review the current workspace and identify what has changed since ARCHITECTURE.md and .github/copilot-instructions.md were last updated. Propose specific updates to each file — only the sections that are now inaccurate or missing. Don't rewrite what's still correct.
 </div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Invoke with:</strong> <span class="font-mono text-blue-300">/Refresh-Docs</span> &nbsp; <strong class="text-gray-300">After:</strong> any meaningful code change &nbsp; <strong class="text-gray-300">Result:</strong> evergreen source-of-truth
+</div>
+<div class="space-y-3">
+<div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20 text-xs">
+<div class="text-orange-300 font-bold mb-2">How it works</div>
+<div class="flex items-start gap-2 text-gray-300 mb-1"><span class="text-orange-400 mt-0.5">1</span><span>Save the file to <span class="font-mono text-orange-200">.github/prompts/</span></span></div>
+<div class="flex items-start gap-2 text-gray-300 mb-1"><span class="text-orange-400 mt-0.5">2</span><span>Run <span class="font-mono text-orange-200">/refresh-docs</span> in Copilot Chat</span></div>
+<div class="flex items-start gap-2 text-gray-300 mb-1"><span class="text-orange-400 mt-0.5">3</span><span>The <span class="font-mono text-orange-200">/plan</span> inside the prompt runs automatically — producing a reviewable plan before anything changes</span></div>
+<div class="flex items-start gap-2 text-gray-300"><span class="text-orange-400 mt-0.5">4</span><span>Review the plan, approve, execute</span></div>
+</div>
+<div class="p-3 bg-blue-900/20 rounded-xl border border-blue-500/30 text-xs text-gray-300">
+<div class="text-blue-300 font-bold mb-1">Why this matters</div>
+The <span class="font-mono text-blue-200">/plan</span> inside the prompt is what makes it safe — it never blindly rewrites docs. You always see what it wants to change before a single file is touched.
+</div>
+<div class="p-3 bg-orange-900/20 rounded-xl border border-orange-500/30 text-xs text-gray-300 italic">
+💭 <strong class="text-orange-300">Marcus:</strong> "Wait, the prompt runs /plan automatically? So I don't have to remember to do it? ...I could get used to this. Anyway — I was reading this Hacker News thread about—"
+</div>
+</div>
+</div>
+</div>
+
+
+---
+
+<!-- SLIDE: 📋 Example: Plan Output from /refresh-docs -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Plan Output from /refresh-docs</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4 flex-1">
+<div class="font-mono text-xs bg-gray-900/80 rounded-xl border border-blue-500/30 p-4 text-gray-300 overflow-auto">
+<div class="text-blue-300 font-bold mb-1">## Plan: Docs Gap Analysis</div>
+<div class="text-gray-400 mb-2 not-italic text-xs"><strong class="text-gray-200">TL;DR:</strong> copilot-instructions.md has 3 gaps from LoreController. ARCHITECTURE.md also needs updates.</div>
+<div class="text-blue-300 mb-1">### For copilot-instructions.md (3 edits)</div>
+<div class="text-gray-300 text-xs mb-0.5">1. <strong class="text-white">API Routes table</strong> — Add missing /api/lore row (LoreController GET + POST undocumented)</div>
+<div class="text-gray-300 text-xs mb-0.5">2. <strong class="text-white">Models Reference</strong> — Add Lore and CharacterRelationship models</div>
+<div class="text-gray-300 text-xs mb-2">3. <strong class="text-white">Docs section</strong> — Remove or fix dead link to ARCHITECTURE.md</div>
+<div class="text-blue-300 mb-1">### For ARCHITECTURE.md (does not exist)</div>
+<div class="text-gray-300 text-xs mb-0.5"><strong class="text-white">Option A:</strong> Create it — layers, data flow, EF config, seeding behavior</div>
+<div class="text-gray-300 text-xs mb-2"><strong class="text-white">Option B:</strong> Remove the dead link and skip creation</div>
+<div class="text-blue-300 mb-1">### Open Questions</div>
+<div class="text-gray-300 text-xs mb-0.5">→ Create ARCHITECTURE.md fresh or remove dead link? (Recommend A — spec and bug catalog both reference it)</div>
+<div class="text-gray-300 text-xs">→ LoreController also has known issues (no PUT/DELETE, no validation) — add to High Priority bugs section?</div>
+</div>
+<div class="space-y-3 text-xs">
+<div class="p-3 bg-green-900/20 rounded-xl border border-green-500/30">
+<div class="text-green-300 font-bold mb-1">What makes this useful</div>
+<div class="text-gray-300 leading-snug">It found a dead link that no one noticed. It scoped exactly 3 edits — not a full rewrite. It surfaced a judgment call (create vs. remove) before touching anything.</div>
+</div>
+<div class="p-3 bg-orange-900/20 rounded-xl border border-orange-500/30">
+<div class="text-orange-300 font-bold mb-1">Your job at this stage</div>
+<div class="text-gray-300 leading-snug">Read the TL;DR. Check the open questions. Answer the judgment calls. <strong class="text-white">Then</strong> execute — knowing exactly what will change and why.</div>
+</div>
+<div class="p-3 bg-blue-900/20 rounded-xl border border-blue-500/30">
+<div class="text-blue-300 font-bold mb-1">The pattern in action</div>
+<div class="text-gray-300 leading-snug">The <span class="font-mono text-blue-200">/plan</span> inside the prompt is what produces this. You reviewed it. Nothing has changed yet. That's the point.</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -541,7 +495,7 @@ After every meaningful code change, the team needs to refresh <span class="font-
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/30 flex-shrink-0">3.2</div>
 <div>
 <div class="text-cyan-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Feature Kickoff Brief</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0"><s>Feature Kickoff Brief</s></h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Marcus ⭐</span>
@@ -620,14 +574,14 @@ Marcus usually starts a feature without a kickoff brief. Halfway through he hits
 
 ---
 
-<!-- SLIDE: Exercise 3.3 Data-Accuracy Check Prompt -->
+<!-- SLIDE: Exercise 3.3 Lore Entry Accuracy Check -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">3.3</div>
 <div>
 <div class="text-emerald-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Data-Accuracy Check Prompt</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Lore Entry Accuracy Check</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Marcus ⭐</span>
@@ -636,98 +590,82 @@ Marcus usually starts a feature without a kickoff brief. Halfway through he hits
 </div>
 </div>
 <div class="relative z-10 mb-4 p-3 bg-gray-900/60 rounded-xl border-l-4 border-emerald-400 text-sm text-gray-300">
-Marcus shipped Copilot-generated bios in a PR. Sarah reviewed it and found three canon errors. She's not doing that every time — and neither is Marcus. The canon rules are in <span class="font-mono text-emerald-200">docs/[show]-universe.md</span>. <strong class="text-white">Marcus needs a prompt that applies them automatically, before anything hits review.</strong>
+Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page last sprint. Now he's batch-generating entries with Copilot — ten show facts in fifteen minutes. The PR looks fine. Sarah reviews it and finds errors. One entry has Walter meeting Jesse "at a university." She flags it. She is not doing this every sprint. The canon lore is already in <span class="font-mono text-emerald-200">docs/[show]-universe.md</span>. <strong class="text-white">Marcus needs a prompt that validates lore entries before they go into the database.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">In Agent mode, ask Copilot to scaffold <span class="font-mono text-emerald-300">data-accuracy-check.prompt.md</span> referencing <span class="font-mono text-emerald-300">docs/[show]-universe.md</span></span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Review: <span class="font-mono text-cyan-300">#file:</span> present, <span class="font-mono text-cyan-300">${selection}</span> used, no hardcoded names, factual-only</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Test: select the known-bad Jesse bio → prompt must flag <span class="text-red-300">"college student"</span></span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">4</span><span class="text-gray-300">Test: select the correct Walter White bio → prompt must pass with no violations</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">Create <span class="font-mono text-emerald-300">check-lore-accuracy.prompt.md</span> that references <span class="font-mono text-emerald-300">docs/[show]-universe.md</span></span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Review: <span class="font-mono text-cyan-300">#file:</span> present, <span class="font-mono text-cyan-300">${selection}</span> used, no hardcoded entry titles, factual-only</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Test: ask a known-bad lore question → prompt must flag the canon error</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">4</span><span class="text-gray-300">Test: ask a correct lore question → prompt must pass with no violations</span></div>
 </div>
 </div>
 <div class="space-y-2">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Prompt scaffolded in Agent (or Plan) mode</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> <span class="font-mono">${selection}</span> used — no hardcoded character names</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Flags "former college student" as a violation</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Walter White bio passes with no false positives</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Prompt saved under <code>.github\prompts</code></div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> <span class="font-mono">${selection}</span> used — no hardcoded entry titles</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Flags the university/college error as a canon violation</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Correct lore entry passes with no false positives</div>
 </div>
-<div class="mt-3 p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Marcus:</strong> "Wait — if the rules are already in the file, I just... point the prompt at it? I don't have to hold the whole show in my head every time?"</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: 💬 Example: Step 1 — Scaffold the Prompt -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 1 — Scaffold the Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3 text-xs text-gray-400">In Agent mode, ask Copilot to create the file — describe what you want, let it do the scaffolding:</div>
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4">
-Create <span class="text-emerald-300">.github/prompts/data-accuracy-check.prompt.md</span><br><br>
-It should check content against show's canon rules in <span class="text-cyan-300">#file:docs/[show]-universe.md</span>.<br>
-Use <span class="text-orange-300 font-bold">${selection}</span> for the content to check.<br>
-Only flag factual violations — not stylistic choices.
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-3 text-xs">
-<div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20">
-<div class="text-orange-300 font-bold mb-1">🔑 Why Agent mode</div>
-<div class="text-gray-300">Agent mode can create the file in <span class="font-mono">.github/prompts/</span> directly — no copy-paste required</div>
-</div>
-<div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20">
-<div class="text-orange-300 font-bold mb-1">👀 What to watch for</div>
-<div class="text-gray-300">Copilot may generate plausible-looking structure but miss the <span class="font-mono">#file:</span> reference — that's what Step 2 catches</div>
+<div class="mt-3 p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Marcus:</strong> "Wait — if the canon rules are in the universe file, I just... point the prompt at each entry? Before it goes into the database?"</div>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: 📋 Example: Step 2 — The Generated Prompt -->
+<!-- SLIDE: 📋 Example: lore-accuracy-check.prompt.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 2 — The Generated Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: lore-accuracy-check.prompt.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-emerald-500/30 p-4 text-gray-300 leading-relaxed">
-<div class="text-gray-500">---</div>
-<div class="text-emerald-300">name: data-accuracy-check</div>
-<div class="text-emerald-300">description: 'Validates content against show canon'</div>
-<div class="text-emerald-300">mode: ask</div>
-<div class="text-gray-500 mb-2">---</div>
-<div class="text-gray-400 mb-2">Check the following content against established canon in<br><span class="text-blue-300">[docs/[show]-universe.md](../docs/[show]-universe.md)</span>.</div>
-<div class="text-gray-400 mb-2">Content to review:<br><span class="text-cyan-200">${selection}</span></div>
-<div class="text-gray-400 mb-1">For each violation found:</div>
-<div class="text-gray-400">- Quote the problematic text</div>
-<div class="text-gray-400">- Explain the canon rule</div>
-<div class="text-gray-400 mb-2">- Suggest a correction</div>
-<div class="text-gray-500 text-[10px] italic">Only flag factual contradictions — not stylistic choices.</div>
+<div class="relative z-10 flex gap-4 flex-1 min-h-0">
+<div class="select-all font-mono text-[10.5px] bg-gray-900/80 rounded-xl border border-emerald-500/30 p-4 text-gray-300 leading-relaxed flex-1 overflow-auto whitespace-pre-wrap">
+<div><span class="text-gray-500">---</span></div>
+<div><span class="text-emerald-300">agent: ask</span></div>
+<div><span class="text-emerald-300">description: Verify lore entry accuracy against the canonical Breaking Bad universe reference</span></div>
+<div><span class="text-gray-500">---</span></div>
+<div> </div>
+<div>You are a Breaking Bad canon expert. Check the following lore entry for factual accuracy against the canonical reference in <span class="text-blue-300">docs/breaking-bad-universe.md</span>.</div>
+<div> </div>
+<div><span class="text-purple-300">## Lore entry to check</span></div>
+<div> </div>
+<div><span class="text-cyan-300">${selection}</span></div>
+<div> </div>
+<div><span class="text-purple-300">## Instructions</span></div>
+<div> </div>
+<div>1. Identify every factual claim in the entry (character names, statuses, relationships, locations, episode references, dates, quotes, plot events).</div>
+<div>2. For each claim, verify it against breaking-bad-universe.md.</div>
+<div>3. Flag any inaccuracies, inconsistencies, or missing context — be specific about what is wrong and what the correct information is.</div>
+<div>4. Note any claims that cannot be verified from the reference document.</div>
+<div>5. If the entry is fully accurate, confirm that explicitly.</div>
+<div> </div>
+<div>Respond with:</div>
+<div> </div>
+<div>- <strong class="text-white">Status</strong>: Accurate / Inaccurate / Partially Accurate / Unverifiable</div>
+<div>- <strong class="text-white">Issues</strong> (if any): bulleted list of specific problems with corrections</div>
+<div>- <strong class="text-white">Verified claims</strong>: brief list of facts that are confirmed correct</div>
 </div>
-<div class="flex flex-col gap-3 text-xs">
-<div class="p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
-<div class="text-emerald-300 font-bold mb-1">✅ Check for these</div>
-<div class="text-gray-300 space-y-1">
-<div>☐ <span class="font-mono text-cyan-300">#file:</span> or markdown link to <span class="font-mono">universe.md</span></div>
-<div>☐ <span class="font-mono text-cyan-300">${selection}</span> as the input variable</div>
-<div>☐ No hardcoded character names in the prompt body</div>
-<div>☐ "Factual only" instruction present</div>
+<div class="flex flex-col gap-2 text-xs w-44 flex-shrink-0">
+<div class="p-2 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
+<div class="text-emerald-300 font-bold mb-1">🔗 Linked doc</div>
+<div class="text-gray-300">Markdown link to universe file — accuracy is only as good as the reference</div>
 </div>
+<div class="p-2 bg-cyan-900/20 rounded-lg border border-cyan-500/30">
+<div class="text-cyan-300 font-bold mb-1">✂️ ${selection}</div>
+<div class="text-gray-300">Select any lore entry in the editor, invoke — no copy-paste needed</div>
 </div>
-<div class="p-3 bg-red-900/20 rounded-lg border border-red-500/30">
-<div class="text-red-300 font-bold mb-1">❌ Common Copilot mistakes</div>
-<div class="text-gray-300 space-y-1">
-<div>Missing <span class="font-mono">#file:</span> — falls back to training data</div>
-<div>Hardcoded "Jesse Pinkman" — not reusable</div>
-<div>Stylistic flags — noisy, not useful</div>
+<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/30">
+<div class="text-purple-300 font-bold mb-1">📊 Structured output</div>
+<div class="text-gray-300">Status + Issues + Verified — consistent format, easy to act on</div>
 </div>
+<div class="p-2 bg-gray-900/60 rounded-lg border border-gray-700/40">
+<div class="text-gray-400 font-bold mb-1">💡 Click to select all</div>
+<div class="text-gray-400">Click inside the code block to select the full prompt for copying</div>
 </div>
 </div>
 </div>
@@ -735,19 +673,20 @@ Only flag factual violations — not stylistic choices.
 
 ---
 
-<!-- SLIDE: 💬 Example: Step 3 — Test the Bad Bio -->
+<!-- SLIDE: 💬 Example: Step 3 — Test the Bad Lore Entry -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 3 — Test the Bad Bio</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 3 — Test the Bad Lore Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 mb-3 text-xs text-gray-400">Select this text in your editor, then run the prompt:</div>
-<div class="relative z-10 font-mono text-sm bg-red-900/20 rounded-xl border border-red-500/30 p-4 text-gray-200 leading-relaxed mb-4">
-<div class="text-orange-400 font-bold mb-3">/data-accuracy-check</div>
-<div>Jesse Pinkman is Walter White's former <span class="text-red-400 font-bold">college student</span> and chemistry protégé. Now working as Walter's partner in methamphetamine production, Jesse handles street-level distribution through his connections in Albuquerque's drug scene.</div>
+<div class="relative z-10 mb-3 text-xs text-gray-400">Select this lore entry in your editor, then run the prompt:</div>
+<div class="relative z-10 font-mono text-base bg-red-900/20 rounded-xl border border-red-500/30 p-6 text-gray-200 leading-relaxed mb-5 select-all flex-1">
+<div class="text-orange-400 font-bold mb-4 text-lg">/check-lore-accuracy</div>
+<div class="text-gray-500 text-sm mb-3">Title: "Walter &amp; Jesse — Origin"</div>
+<div class="text-base leading-loose">Walter White recruited Jesse Pinkman as his partner after reconnecting with him on the street. Jesse had been Walter's former student at the <span class="text-red-400 font-bold">University of New Mexico</span>, where Walter taught a chemistry course.</div>
 </div>
-<div class="relative z-10 p-3 bg-orange-900/20 rounded-xl border border-orange-400/40 text-xs text-gray-300">
-<span class="text-orange-300 font-bold">Expected:</span> The prompt should flag <span class="text-red-300 font-mono">"college student"</span> — Walter White was a high school chemistry teacher, not a college professor
+<div class="relative z-10 p-4 bg-gray-900/60 rounded-xl border border-gray-600/40 text-sm text-gray-300 italic">
+💭 <strong class="text-cyan-300">David:</strong> "I'm going to stop you right there. Walter White has a <em>Master's degree</em>. From the show. That he teaches at a high school is, frankly, the entire dramatic irony of the series. This is not a subtle error."
 </div>
 </div>
 
@@ -759,48 +698,67 @@ Only flag factual violations — not stylistic choices.
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 3 — Output (Violation Found)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-red-500/30 p-5 text-gray-200 leading-relaxed">
-<div class="text-red-400 font-bold mb-3">❌ ACCURACY VIOLATION FOUND</div>
-<div class="mb-3"><span class="text-gray-500">Problematic text:</span> <span class="text-red-300">"Walter White's former college student"</span></div>
-<div class="mb-3"><span class="text-gray-500">Canon rule:</span> <span class="text-gray-300">Walter White was a chemistry teacher at J.P. Wynne <span class="text-orange-300 font-bold">High School</span>, not a college or university. Jesse Pinkman was his former <span class="text-green-300 font-bold">high school</span> student.</span></div>
-<div class="mb-3"><span class="text-gray-500">Source:</span> <span class="text-blue-300">docs/breaking-bad-universe.md — Character Facts</span></div>
-<div><span class="text-gray-500">Suggested correction:</span> <span class="text-green-300">"Walter White's former high school student"</span></div>
+<div class="relative z-10 font-mono text-xs bg-gray-900/80 rounded-xl border border-red-500/30 p-4 text-gray-200 leading-relaxed">
+<div class="text-red-400 font-bold mb-3 text-sm">Status: <span class="text-red-300">Inaccurate</span></div>
+<div class="text-gray-400 font-semibold mb-2">Issues:</div>
+<div class="space-y-2 mb-3 pl-3 border-l-2 border-red-500/40">
+<div class="text-gray-300">Walter White taught at J.P. Wynne <span class="text-orange-300 font-bold">High School</span> — not the University of New Mexico. He was a high school chemistry teacher, not a university lecturer.</div>
+<div class="text-gray-300">Jesse Pinkman is described as Walt's former student, which is correct, but the institution is wrong. The connection is from <span class="text-orange-300 font-bold">high school</span>, not a university.</div>
 </div>
-<div class="relative z-10 mt-4 p-3 bg-green-900/20 rounded-xl border border-green-500/30 text-xs text-gray-300">
-<span class="text-green-300 font-bold">✅ This is the right result</span> — the prompt caught an error that Copilot introduced, using the canon rules Elena encoded in Module 1
+<div class="text-gray-400 font-semibold mb-2">Verified claims:</div>
+<div class="space-y-1 pl-3 border-l-2 border-green-500/40">
+<div class="text-green-300">✓ Walter White and Jesse Pinkman are partners</div>
+<div class="text-green-300">✓ Jesse was Walter's former student</div>
+<div class="text-green-300">✓ Jesse was a small-time meth cook prior to their partnership</div>
 </div>
 </div>
-
----
-
-<!-- SLIDE: 💬 Example: Step 4 — Test the Good Bio -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 4 — Test the Good Bio</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3 text-xs text-gray-400">Select this text in your editor, then run the prompt again:</div>
-<div class="relative z-10 font-mono text-sm bg-green-900/20 rounded-xl border border-green-500/30 p-4 text-gray-200 leading-relaxed mb-4">
-<div class="text-orange-400 font-bold mb-3">/data-accuracy-check</div>
-<div>Walter White is a former Albuquerque <span class="text-green-300 font-bold">high school chemistry teacher</span> diagnosed with inoperable lung cancer. Faced with mounting medical bills, he begins cooking methamphetamine with former student Jesse Pinkman.</div>
-</div>
-<div class="relative z-10 p-3 bg-orange-900/20 rounded-xl border border-orange-400/40 text-xs text-gray-300">
-<span class="text-orange-300 font-bold">Expected:</span> Clean pass — no violations. This confirms the prompt isn't over-flagging accurate content.
+<div class="relative z-10 mt-4 p-3 bg-gray-900/60 rounded-xl border border-gray-600/40 text-xs text-gray-300 italic">
+💭 <strong class="text-cyan-300">Sarah:</strong> "Yes, Marcus. Walter White was a <em>high school</em> teacher. This is literally the premise of the show. The prompt caught it. You're welcome."
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: 📋 Example: Step 4 — Output (Clean Pass) -->
+<!-- SLIDE: 💬 Example: Step 4 — Test the Good Lore Entry -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 4 — Output (Clean Pass)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 4 — Test the Good Lore Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-green-500/30 p-5 text-gray-200 leading-relaxed mb-4">
-<div class="text-green-400 font-bold mb-3">✅ ACCURACY CHECK PASSED</div>
-<div class="mb-3 text-gray-300">All facts in this content are consistent with <span class="text-blue-300">docs/breaking-bad-universe.md</span>.</div>
-<div class="text-gray-500">No violations found.</div>
+<div class="relative z-10 mb-3 text-xs text-gray-400">Select this lore entry in your editor, then run the prompt again:</div>
+<div class="relative z-10 font-mono text-base bg-green-900/20 rounded-xl border border-green-500/30 p-6 text-gray-200 leading-relaxed mb-5 select-all flex-1">
+<div class="text-orange-400 font-bold mb-4 text-lg">/lore-accuracy-check</div>
+<div class="text-gray-500 text-sm mb-3">Title: "The Blue Sky Formula"</div>
+<div class="text-base leading-loose">Walter White's methamphetamine, known on the street as "Blue Sky," achieved a purity level exceeding <span class="text-green-300 font-bold">99%</span> — far beyond any competitor. Its distinctive blue tint came from the synthesis method Walter developed at the Superlab.</div>
+</div>
+<div class="relative z-10 p-4 bg-gray-900/60 rounded-xl border border-gray-600/40 text-sm text-gray-300 italic">
+💭 <strong class="text-cyan-300">Jessica:</strong> "Wait, so if it passes that means it's... good? Like, Copilot checked it and it was right? That's so cool. I feel like we just gave the app a immune system."
+</div>
+</div>
+
+---
+
+<!-- SLIDE: 📋 Example: Step 4 — Output (Partially Accurate) -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 4 — Output (Partially Accurate)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 font-mono text-[10.5px] bg-gray-900/80 rounded-xl border border-yellow-500/30 p-4 text-gray-200 leading-relaxed mb-3 flex-1">
+<div class="text-yellow-400 font-bold mb-2 text-xs">Status: <span class="text-yellow-300">Partially Accurate / Partially Unverifiable</span></div>
+<div class="text-gray-400 font-semibold mb-1">Issues:</div>
+<div class="space-y-1 mb-3 pl-3 border-l-2 border-yellow-500/40">
+<div class="text-gray-300">The exact purity figure in the reference is <span class="text-orange-300 font-bold">99.1%</span>, not just "exceeding 99%" — minor but worth being precise in a lore entry.</div>
+<div class="text-gray-300">The claim that the blue tint came from "the synthesis method Walter developed" is <span class="text-yellow-300">not verifiable</span> from breaking-bad-universe.md — the reference does not explain the chemical reason for the color.</div>
+</div>
+<div class="text-gray-400 font-semibold mb-1">Verified claims:</div>
+<div class="space-y-1 pl-3 border-l-2 border-green-500/40">
+<div class="text-green-300">✓ The product is known as "Blue Sky" (implied by the blue color reference)</div>
+<div class="text-green-300">✓ Purity exceeds 99% — confirmed at 99.1% in the reference</div>
+<div class="text-green-300">✓ The product has a distinctive blue color — confirmed</div>
+<div class="text-green-300">✓ It was cooked in the Superlab — confirmed</div>
+<div class="text-green-300">✓ It became known worldwide — confirmed explicitly in the reference</div>
+</div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-3 text-xs">
 <div class="p-3 bg-green-900/20 rounded-xl border border-green-500/30">
@@ -988,10 +946,56 @@ Module 3 Is Locked In
 <div class="text-gray-400 text-xs mt-1">Module 4 moves from reusable prompts into reusable domain-specific skills</div>
 </div>
 </div>
-<div class="relative z-10 text-base text-gray-200 max-w-3xl px-10 mb-6 leading-snug">
-Prompt files make repeated work reusable. <span class="text-white font-semibold">Agent skills make deeper workflow knowledge reusable for the whole team.</span>
+<div class="relative z-10 max-w-3xl w-full px-6">
+<div class="p-4 bg-gradient-to-br from-orange-900/30 via-red-900/20 to-purple-900/30 rounded-2xl border border-orange-500/30 shadow-lg shadow-orange-900/20 text-center">
+<p class="text-base text-gray-200 leading-snug !m-0">Prompt files make repeated work reusable. <span class="text-white font-semibold">Agent skills make deeper workflow knowledge reusable for the whole team.</span></p>
+</div>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
+</div>
+
+---
+
+<!-- SLIDE: 💭 The Team, After Module 3 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 3</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I saved my first prompt file today. Now the whole team can run it. That&#39;s... that&#39;s just software, but for prompts."</div>
+<div class="text-xs text-gray-500">First contribution the whole team will actually use.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"A prompt file is just an interface contract for a repeatable workflow. We have been doing this with scripts for decades."</div>
+<div class="text-xs text-gray-500">Thirty years of patterns, now expressible in markdown.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I ran the doc refresh prompt on three files. Same quality, zero context-setting. This is what reuse should feel like."</div>
+<div class="text-xs text-gray-500">Quality consistent enough to stop explaining it.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Does the prompt file version? Can I see diffs? ...Yes? Then this is just code review for prompts."</div>
+<div class="text-xs text-gray-500">Version control solved every objection she had.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Saving prompts as files is like... remembering things permanently. For the whole team. That&#39;s kind of amazing, actually."</div>
+<div class="text-xs text-gray-500">Immediately saved four more.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"Prompt files encode what 'done' looks like. Nobody debates it because it&#39;s in the file."</div>
+<div class="text-xs text-gray-500">Definition of done, shipped in a .prompt.md.</div>
+</div>
+</div>
 </div>
 
 ---
@@ -1033,60 +1037,5 @@ Prompt files make repeated work reusable. <span class="text-white font-semibold"
 <div class="font-semibold text-red-300 text-sm mb-1">Customize AI in VS Code</div>
 <div class="text-xs text-gray-400">Overview of all Copilot customization primitives — instructions, prompt files, and how they compose</div>
 </a>
-</div>
-</div>
----
-
-<!-- SLIDE: Reusable prompts turn one good request into a team habit -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-8 py-4">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-orange-900/20"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/12 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/12 to-transparent rounded-full blur-3xl"></div>
-
-<div class="relative z-10 text-center mb-3">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Module 3 impact</div>
-<h1 class="!text-2xl !font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 bg-clip-text text-transparent !mb-2">
-Reusable prompts turn one good request into a team habit
-</h1>
-<div class="text-sm text-gray-300 max-w-4xl mx-auto">
-The team stops rewriting good asks from memory and starts reusing proven entry points.
-</div>
-</div>
-
-<div class="relative z-10 grid grid-cols-5 gap-3">
-<div class="p-3 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-<div class="text-blue-300 font-bold text-sm mb-2">Sarah</div>
-<div class="text-xs text-white leading-snug mb-2">"I&#39;ve been skeptical about every shortcut for 15 years. This one actually reduces the &#39;what did you mean?&#39; review comments."</div>
-<div class="text-xs text-gray-400">15 years of skepticism, finally paid off.</div>
-</div>
-
-<div class="p-3 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-<div class="text-emerald-300 font-bold text-sm mb-2">Marcus</div>
-<div class="text-xs text-white leading-snug mb-2">"Sorry — was half-reading something. But this is like bookmarking the exact tab you need instead of googling it every time."</div>
-<div class="text-xs text-gray-400">He snapped back in at exactly the right moment.</div>
-</div>
-
-<div class="p-3 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
-<div class="text-orange-300 font-bold text-sm mb-2">David</div>
-<div class="text-xs text-white leading-snug mb-2">"Technically it&#39;s not that the prompt gets smarter — the context stays stable. But yes, that&#39;s precisely why the output quality improves."</div>
-<div class="text-xs text-gray-400">Correct framing, correct conclusion.</div>
-</div>
-
-<div class="p-3 rounded-2xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-sm mb-2">Elena</div>
-<div class="text-xs text-white leading-snug mb-2">"I kept waiting for it to drift. It didn&#39;t. The prompt stays honest because the docs it references stay honest. That&#39;s actually a sound design."</div>
-<div class="text-xs text-gray-400">Suspicious until proven otherwise. This passed.</div>
-</div>
-
-<div class="p-3 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
-<div class="text-purple-300 font-bold text-sm mb-2">Rafael</div>
-<div class="text-xs text-white leading-snug mb-2">"Already mapped this to Q3. Every prompt file we ship is a reduction in onboarding friction. That&#39;s an OKR."</div>
-<div class="text-xs text-gray-400">He was already on the next one.</div>
-</div>
-</div>
-
-<div class="relative z-10 mt-3 p-2 rounded-xl bg-gradient-to-r from-purple-900/25 via-blue-900/20 to-orange-900/20 border border-white/10 text-center">
-<div class="text-white font-semibold">This is what the module changes in day-to-day work.</div>
-<div class="text-xs text-gray-300 mt-1">The payoff shows up in how the team thinks, coordinates, and ships.</div>
 </div>
 </div>
