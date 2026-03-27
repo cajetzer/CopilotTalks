@@ -465,11 +465,11 @@ The repo still has Breaking Bad placeholder data. The team's chosen show is in <
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div class="flex flex-col gap-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Step 1 — Audit</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-text cursor-text">
+<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-all cursor-text">
 <span class="text-amber-300">@workspace</span> Audit the FanHub seed data and list every file that contains Breaking Bad-specific content. Don't make any changes yet — just list the files and summarize what each one contains.
 </div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2 mb-1">Step 2 — Swap</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-text cursor-text">
+<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-all cursor-text">
 Using <span class="text-amber-300">#file:docs/[show]-universe.md</span> as the source of truth, generate replacement seed data for <span class="text-amber-300">[Your Show]</span>. Match the existing data structure exactly — same field names, same format. Apply the changes.
 </div>
 </div>
@@ -544,7 +544,7 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 
 <div class="relative z-10 mb-3 text-xs text-gray-400">Use <span class="text-orange-300 font-mono font-semibold">/plan</span> at the start of your prompt — this switches to plan mode automatically if you forgot to change the mode selector:</div>
 
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-text cursor-text">
+<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-all cursor-text">
 <span class="text-orange-400 font-bold">/plan</span> Add a Lore card to the FanHub homepage that shows the count of lore facts for the show. Clicking the card should navigate to a new /lore page that lists all lore facts in a card layout.
 </div>
 
@@ -599,7 +599,7 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 
 ---
 
-<!-- SLIDE: 🔨 Exercise 2.3: Plan the Quick-Add Form -->
+<!-- SLIDE: 🔨 Exercise 2.3: Plan the Lore Entry Form -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-3">
@@ -642,7 +642,7 @@ Jessica shares her plan output with the group. David reads it line by line — a
 
 ---
 
-<!-- SLIDE: 💬 Example: The Quick-Add Form Plan Prompt -->
+<!-- SLIDE: 💬 Example: The Lore Form Plan Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 
@@ -652,7 +652,7 @@ Jessica shares her plan output with the group. David reads it line by line — a
 
 <div class="relative z-10 mb-3 text-xs text-gray-400">David enters this with Jessica's plan file open in VS Code:</div>
 
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-text cursor-text">
+<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-all cursor-text">
 <span class="text-orange-400 font-bold">/plan</span> Add a form to the /lore page that lets me add a new lore entry. The form should have a title and description field. On submit, save the new entry and refresh the list so the new card appears immediately. The Lore count on the homepage card should also update.
 </div>
 
