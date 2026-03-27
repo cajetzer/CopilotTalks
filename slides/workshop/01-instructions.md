@@ -876,6 +876,7 @@ Jessica has been hand-copying patterns from senior PR comments into her prompts 
 </div>
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: Copilot keeps rediscovering the same structure bec -->
@@ -965,6 +966,56 @@ Copilot keeps rediscovering the same structure because nothing explains the syst
 
 ---
 
+<!-- SLIDE: &#x1F4AC; Prompt: Creating ARCHITECTURE.md -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; Prompt: Creating ARCHITECTURE.md</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot</div>
+<div class="bg-blue-900/30 rounded-xl p-4 border border-blue-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
+<div>Look at this codebase and create a concise <span class="font-mono text-blue-300">ARCHITECTURE.md</span> file that gives Copilot the context it needs to give better suggestions.</div>
+<div class="mt-3">It should cover:</div>
+<div class="mt-1 text-gray-300">&#x2023; <strong>Tech stack</strong> &mdash; languages, frameworks, key libraries</div>
+<div class="text-gray-300">&#x2023; <strong>Folder structure</strong> &mdash; major directories and what lives in each</div>
+<div class="text-gray-300">&#x2023; <strong>Key flows</strong> &mdash; how a request moves through the system</div>
+<div class="text-gray-300">&#x2023; <strong>Key boundaries</strong> &mdash; what owns what, what must not cross</div>
+<div class="text-gray-300">&#x2023; <strong>Patterns</strong> &mdash; error handling, naming, async conventions</div>
+<div class="mt-3">Keep it under 40 lines. This is a navigation aid, not a spec.</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
+<div class="text-blue-400 font-semibold text-sm mb-2">&#x1F4A1; Why this prompt works</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Scoped output</strong> &mdash; "under 40 lines" prevents a novel</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Named purpose</strong> &mdash; "gives Copilot context" focuses it on the right level of detail</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Explicit sections</strong> &mdash; each bullet maps to a section Copilot generates</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Framing the audience</strong> &mdash; "navigation aid, not a spec" prevents over-engineering</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">After the file exists, verify with:</div>
+<div class="bg-gray-950 rounded-lg p-3 font-mono text-xs text-gray-300 space-y-1 select-all cursor-text">
+<div>Where does a request go after the frontend</div>
+<div>calls an API endpoint?</div>
+</div>
+<div class="text-gray-500 text-xs mt-2">If Copilot's answer references your actual folder structure and layer names, the file is working.</div>
+</div>
+<div class="bg-blue-900/20 rounded-lg p-2.5 border border-blue-500/20 text-xs text-gray-300">
+&#x1F4A1; <strong class="text-blue-300">David's note:</strong> <span class="italic">"The real test is whether a new hire could read this and model how we think &mdash; not just what files exist."</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
 <!-- SLIDE: The same defaults keep getting re-explained in cod -->
 <div class="h-full flex flex-col justify-center relative overflow-hidden px-14 py-6">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
@@ -1005,42 +1056,50 @@ The same defaults keep getting re-explained in code review. <strong class="text-
 
 ---
 
-<!-- SLIDE: 🪄 Example: copilot-instructions.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: &#x1F4AC; Prompt: Updating copilot-instructions.md -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-🪄 Example: copilot-instructions.md
-</span>
-
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; Prompt: Updating copilot-instructions.md</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-purple-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-purple-300 mb-2"># FanHub Coding Standards</div>
-
-<div class="text-purple-300 mb-2">## Async Patterns</div>
-<div class="text-gray-400 mb-3">Always use async/await. Never mix promises and await. Wrap async calls in try/catch for error handling.</div>
-
-<div class="text-purple-300 mb-2">## React Components</div>
-<div class="text-gray-400 mb-3">Use functional components only. Use React hooks for state (useState, useEffect). Avoid class components and legacy patterns.</div>
-
-<div class="text-purple-300 mb-2">## Error Handling</div>
-<div class="text-gray-400 mb-3">Always catch errors. Log them with context. Return meaningful error messages to the client, not stack traces.</div>
-
-<div class="text-purple-300 mb-2">## Testing</div>
-<div class="text-gray-400 mb-3">Test the happy path and error cases. Mock external API calls. Use Jest and React Testing Library.</div>
-
-<div class="text-purple-300 mb-2">## Imports</div>
-<div class="text-gray-400">Use named imports for utilities. Use default imports only for React and third-party libraries.</div>
-</div>
-
-<div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Length:</strong> ~20 lines  <strong class="text-gray-300">Scope:</strong> All files, all interactions
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot</div>
+<div class="bg-purple-900/20 rounded-xl p-4 border border-purple-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
+<div>We now have <span class="font-mono text-purple-300">ARCHITECTURE.md</span>. Update <span class="font-mono text-purple-300">.github/copilot-instructions.md</span> to reflect that.</div>
+<div class="mt-3">Specifically:</div>
+<div class="mt-1 text-gray-300">&#x2023; <strong>Remove</strong> any detailed tech stack descriptions &mdash; folder names, framework versions, request flow diagrams</div>
+<div class="mt-1 text-gray-300">&#x2023; <strong>Replace</strong> them with a single reference: <span class="font-mono text-purple-200">See ARCHITECTURE.md for system structure and key boundaries</span></div>
+<div class="mt-1 text-gray-300">&#x2023; <strong>Keep</strong> all coding standards, conventions, and behavioral rules &mdash; those belong here</div>
+<div class="mt-1 text-gray-300">&#x2023; <strong>Keep</strong> the file short &mdash; this is a behavioral guide, not a reference manual</div>
+<div class="mt-3">The goal: instructions that rarely change, and architecture context that stays in the right file.</div>
 </div>
 </div>
-
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
+<div class="text-purple-400 font-semibold text-sm mb-2">&#x1F4A1; Why this matters</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-purple-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Single source of truth</strong> &mdash; stack details live in ARCHITECTURE.md, not duplicated in two files</div></div>
+<div class="flex items-start gap-2"><div class="text-purple-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Lower maintenance cost</strong> &mdash; when the stack changes, update one file</div></div>
+<div class="flex items-start gap-2"><div class="text-purple-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Cleaner signal</strong> &mdash; instructions stay focused on behavior, not facts</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">Before &rarr; After</div>
+<div class="space-y-2">
+<div class="bg-red-900/20 rounded-lg p-2 border border-red-700/30 font-mono text-xs text-red-300 line-through opacity-60">Frontend: React 18, Tailwind CSS<br>Backend: Express.js, Node.js<br>Database: SQLite3</div>
+<div class="bg-purple-900/20 rounded-lg p-2 border border-purple-500/30 font-mono text-xs text-purple-200">See ARCHITECTURE.md for system<br>structure and key boundaries.</div>
+</div>
+</div>
+<div class="bg-purple-900/20 rounded-lg p-2.5 border border-purple-500/20 text-xs text-gray-300">
+&#x1F4A1; <strong class="text-purple-300">Sarah's rule:</strong> <span class="italic">"If it changes every sprint, it doesn't belong in instructions. Put it where it belongs and link to it."</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 <!-- SLIDE: ⚠️ Critical Scope Boundary -->
@@ -1130,40 +1189,56 @@ Frontend and backend keep borrowing the wrong patterns from each other. <strong 
 
 ---
 
-<!-- SLIDE: 📂 Example: frontend.instructions.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: &#x1F4AC; Prompt: Path-Specific Instructions (E1.3) -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-📂 Example: frontend.instructions.md
-</span>
-
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; Prompt: Path-Specific Instructions (E1.3)</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-purple-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-purple-300 mb-2">---</div>
-<div class="text-purple-300 mb-2">applyTo: "frontend/**"</div>
-<div class="text-purple-300 mb-2">---</div>
-
-<div class="text-purple-300 mb-2"># Frontend Patterns</div>
-
-<div class="text-purple-300 mb-2">## Components</div>
-<div class="text-gray-400 mb-3">Small, focused components. Extract logic into hooks. Use props for input, context for shared state.</div>
-
-<div class="text-purple-300 mb-2">## Performance</div>
-<div class="text-gray-400 mb-3">Memoize expensive components. Avoid inline functions. Use useCallback for stable references.</div>
-
-<div class="text-purple-300 mb-2">## Styling</div>
-<div class="text-gray-400">Tailwind classes only. No inline styles. Mobile-first responsive design.</div>
-</div>
-
-<div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Applies to:</strong> Only <code>frontend/**</code>  <strong class="text-gray-300">Purpose:</strong> React-specific guidance
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot</div>
+<div class="bg-purple-900/20 rounded-xl p-4 border border-purple-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
+<div>Create two path-scoped instruction files in <span class="font-mono text-purple-300">.github/instructions/</span>.</div>
+<div class="mt-3"><strong>File 1:</strong> <span class="font-mono text-purple-200">frontend.instructions.md</span></div>
+<div class="text-gray-300 mt-1">&#x2023; <code>applyTo: "frontend/**"</code></div>
+<div class="text-gray-300">&#x2023; React patterns: functional components, hooks for state, props vs context</div>
+<div class="text-gray-300">&#x2023; Performance: memoization, stable references</div>
+<div class="text-gray-300">&#x2023; Styling: Tailwind only, mobile-first</div>
+<div class="mt-3"><strong>File 2:</strong> <span class="font-mono text-purple-200">backend.instructions.md</span></div>
+<div class="text-gray-300 mt-1">&#x2023; <code>applyTo: "backend/**"</code></div>
+<div class="text-gray-300">&#x2023; Express patterns: route structure, middleware order, error handling</div>
+<div class="text-gray-300">&#x2023; Data access: no raw SQL outside db layer, parameterized queries</div>
+<div class="mt-3">Do not repeat anything already in <span class="font-mono text-purple-200">copilot-instructions.md</span>.</div>
 </div>
 </div>
-
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
+<div class="text-purple-400 font-semibold text-sm mb-2">&#x1F4A1; Why this works</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-purple-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">applyTo scoping</strong> &mdash; guidance activates only for matching files, not everywhere</div></div>
+<div class="flex items-start gap-2"><div class="text-purple-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">No duplication rule</strong> &mdash; keeps repo-wide defaults in one place</div></div>
+<div class="flex items-start gap-2"><div class="text-purple-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Two files, two audiences</strong> &mdash; frontend and backend conventions no longer compete</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">Verify with</div>
+<div class="bg-gray-950 rounded-lg p-3 font-mono text-xs text-gray-300 space-y-1 select-all cursor-text">
+<div>Open a frontend file and ask Copilot to add a</div>
+<div>new component. Check it follows React patterns.</div>
+<div class="mt-2">Open a backend route. Ask for error handling.</div>
+<div>Confirm it doesn't suggest React patterns.</div>
+</div>
+</div>
+<div class="bg-purple-900/20 rounded-lg p-2.5 border border-purple-500/20 text-xs text-gray-300">
+&#x1F4A1; <strong class="text-purple-300">Sarah's rule:</strong> <span class="italic">"Precision beats volume. The right rule in the right place wins."</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 <!-- SLIDE: Python, JavaScript, and TypeScript each have diffe -->
@@ -1206,40 +1281,55 @@ Python, JavaScript, and TypeScript each have different expectations. <strong cla
 
 ---
 
-<!-- SLIDE: 🐍 Example: python.instructions.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: &#x1F4AC; Prompt: Language-Specific Instructions (E1.4) -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-🐍 Example: python.instructions.md
-</span>
-
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; Prompt: Language-Specific Instructions (E1.4)</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-blue-300 mb-2">---</div>
-<div class="text-blue-300 mb-2">applyTo: "**/*.py"</div>
-<div class="text-blue-300 mb-2">---</div>
-
-<div class="text-blue-300 mb-2"># Python Standards (PEP 8)</div>
-
-<div class="text-blue-300 mb-2">## Type Hints</div>
-<div class="text-gray-400 mb-3">Always include type hints on function parameters and returns. Use typing module for complex types.</div>
-
-<div class="text-blue-300 mb-2">## Naming</div>
-<div class="text-gray-400 mb-3">snake_case for functions, CapitalCase for classes. Private methods start with _.</div>
-
-<div class="text-blue-300 mb-2">## Docstrings</div>
-<div class="text-gray-400">Use triple-quoted docstrings. Document parameters, return values, and side effects.</div>
-</div>
-
-<div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Applies to:</strong> Only <code>**/*.py</code>  <strong class="text-gray-300">Purpose:</strong> Python-native conventions
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot</div>
+<div class="bg-blue-900/20 rounded-xl p-4 border border-blue-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
+<div>Create three language-specific instruction files in <span class="font-mono text-blue-300">.github/instructions/</span>.</div>
+<div class="mt-3"><strong>python.instructions.md</strong> &mdash; <code class="text-blue-200">applyTo: "**/*.py"</code></div>
+<div class="text-gray-300 mt-1">&#x2023; PEP 8 naming: snake_case functions, CapitalCase classes</div>
+<div class="text-gray-300">&#x2023; Always include type hints on parameters and returns</div>
+<div class="text-gray-300">&#x2023; Triple-quoted docstrings with params, returns, side effects</div>
+<div class="mt-2"><strong>javascript.instructions.md</strong> &mdash; <code class="text-blue-200">applyTo: "**/*.js"</code></div>
+<div class="text-gray-300 mt-1">&#x2023; ES modules, no CommonJS require()</div>
+<div class="text-gray-300">&#x2023; camelCase variables, PascalCase classes</div>
+<div class="mt-2"><strong>typescript.instructions.md</strong> &mdash; <code class="text-blue-200">applyTo: "**/*.ts,**/*.tsx"</code></div>
+<div class="text-gray-300 mt-1">&#x2023; Explicit types, no implicit any</div>
+<div class="text-gray-300">&#x2023; Interfaces over type aliases for object shapes</div>
 </div>
 </div>
-
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
+<div class="text-blue-400 font-semibold text-sm mb-2">&#x1F4A1; Why this works</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Glob by extension</strong> &mdash; <code>**/*.py</code> activates only for Python files across any folder</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Language idioms, not project rules</strong> &mdash; these travel well across repos</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Three files, three contexts</strong> &mdash; no cross-language noise in suggestions</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">Verify with</div>
+<div class="bg-gray-950 rounded-lg p-3 font-mono text-xs text-gray-300 space-y-1">
+<div>Open a .py file and ask Copilot to add a helper</div>
+<div>function. Check: type hints present, snake_case,</div>
+<div>docstring included.</div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-lg p-2.5 border border-blue-500/20 text-xs text-gray-300">
+&#x1F4A1; <strong class="text-blue-300">Elena's note:</strong> <span class="italic">"Each language has a contract. The instruction file makes that contract explicit so Copilot doesn't have to guess which style you're in."</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 <!-- SLIDE: Tests, Docker files, and docs serve different purp -->
@@ -1282,40 +1372,56 @@ Tests, Docker files, and docs serve different purposes than production app code.
 
 ---
 
-<!-- SLIDE: 🧪 Example: tests.instructions.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<!-- SLIDE: &#x1F4AC; Prompt: File-Type Instructions (E1.5) -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-🧪 Example: tests.instructions.md
-</span>
-
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; Prompt: File-Type Instructions (E1.5)</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-orange-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-orange-300 mb-2">---</div>
-<div class="text-orange-300 mb-2">applyTo: "**/__tests__/**,**/*.test.{ts,tsx,js}"</div>
-<div class="text-orange-300 mb-2">---</div>
-
-<div class="text-orange-300 mb-2"># Test Suite Patterns</div>
-
-<div class="text-orange-300 mb-2">## Test Structure</div>
-<div class="text-gray-400 mb-3">Write for clarity first. Test both happy path and error cases. Use descriptive test names that read like documentation.</div>
-
-<div class="text-orange-300 mb-2">## Mocking</div>
-<div class="text-gray-400 mb-3">Mock external API calls. Mock database queries. Avoid testing integration dependencies within unit tests.</div>
-
-<div class="text-orange-300 mb-2">## Assertions</div>
-<div class="text-gray-400">Test behavior, not implementation. Use meaningful assertions. Avoid testing unrelated concerns.</div>
-</div>
-
-<div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Applies to:</strong> Test files only  <strong class="text-gray-300">Purpose:</strong> Test-specific patterns distinct from production
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot</div>
+<div class="bg-orange-900/20 rounded-xl p-4 border border-orange-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
+<div>Create three file-type instruction files in <span class="font-mono text-orange-300">.github/instructions/</span>.</div>
+<div class="mt-3"><strong>tests.instructions.md</strong></div>
+<div class="text-gray-300 mt-1">&#x2023; <code class="text-orange-200">applyTo: "**/__tests__/**,**/*.test.{ts,tsx,js}"</code></div>
+<div class="text-gray-300">&#x2023; Test both happy path and error cases</div>
+<div class="text-gray-300">&#x2023; Mock external API calls and database queries</div>
+<div class="text-gray-300">&#x2023; Test behavior, not implementation details</div>
+<div class="mt-2"><strong>docker.instructions.md</strong></div>
+<div class="text-gray-300 mt-1">&#x2023; <code class="text-orange-200">applyTo: "**/Dockerfile*,**/docker-compose*"</code></div>
+<div class="text-gray-300">&#x2023; Multi-stage builds, non-root user, minimal base images</div>
+<div class="mt-2"><strong>docs.instructions.md</strong></div>
+<div class="text-gray-300 mt-1">&#x2023; <code class="text-orange-200">applyTo: "docs/**,**/*.md"</code></div>
+<div class="text-gray-300">&#x2023; Plain language, no jargon, examples over descriptions</div>
 </div>
 </div>
-
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
+<div class="text-orange-400 font-semibold text-sm mb-2">&#x1F4A1; Why this works</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-orange-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Purpose-specific rules</strong> &mdash; tests, infra, and docs each have a different job; one set of rules can't cover all three</div></div>
+<div class="flex items-start gap-2"><div class="text-orange-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Glob by purpose</strong> &mdash; test files match by pattern, Docker by filename prefix</div></div>
+<div class="flex items-start gap-2"><div class="text-orange-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Narrow and specific</strong> &mdash; each file stays under 15 lines</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">Verify with</div>
+<div class="bg-gray-950 rounded-lg p-3 font-mono text-xs text-gray-300 space-y-1">
+<div>Open a test file and ask Copilot to add a test</div>
+<div>case for a failing API call. Confirm it mocks</div>
+<div>the external call and tests the error branch.</div>
+</div>
+</div>
+<div class="bg-orange-900/20 rounded-lg p-2.5 border border-orange-500/20 text-xs text-gray-300">
+&#x1F4A1; <strong class="text-orange-300">Marcus's take:</strong> <span class="italic">"I'd never thought about giving Docker files their own instructions. But yeah &mdash; multi-stage builds are the only sane approach and I was tired of explaining that."</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 <!-- SLIDE: Sarah keeps re-explaining the show in every content ta -->
@@ -1334,13 +1440,13 @@ Tests, Docker files, and docs serve different purposes than production app code.
 </div>
 </div>
 <div class="relative z-10 mb-4 p-3 bg-gray-900/60 rounded-xl border-l-4 border-green-400 text-sm text-gray-300">
-Every content task takes 5–8 minutes re-explaining show context before Copilot can help. <strong class="text-white">Create a universe file that captures show canon once — so Copilot never has to be told again.</strong>
+<strong class="text-white">This is where you make FanHub your own &mdash; swap Breaking Bad for any show your team loves.</strong> Encode that show's canon once so Copilot never has to be told again.
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">In Agent mode, scaffold <span class="font-mono text-green-300">docs/[show]-universe.md</span> with premise, characters, terminology, and canon rules</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300"><strong class="text-green-300">Choose your show</strong> &mdash; any TV series, game, or universe you know well. Then in Agent mode, scaffold <span class="font-mono text-green-300">docs/[show]-universe.md</span> using web search for premise, characters, terminology, and canon rules</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Review and correct the draft — find at least one inaccuracy Copilot introduced</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Add a <span class="font-mono text-green-300">## Universe</span> pointer section to <span class="font-mono text-green-300">copilot-instructions.md</span> linking to the file</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">4</span><span class="text-gray-300">Validate: ask Copilot for a character bio — it should return accurate, show-specific content on the first pass</span></div>
@@ -1356,6 +1462,60 @@ Every content task takes 5–8 minutes re-explaining show context before Copilot
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Bio test returns accurate, show-specific result</div>
 </div>
 <div class="mt-3 p-3 bg-green-900/20 rounded-lg border border-green-500/30 text-xs text-gray-300 italic">💭 <strong class="text-green-300">Sarah:</strong> "I&#39;ve answered &#39;What is Breaking Bad about?&#39; twelve times this week. After this, the answer lives in the file — zero times next week."</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: &#x1F4AC; Prompt: Creating the Universe File (E1.6) -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-green-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; Prompt: Creating the Universe File (E1.6)</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 mb-2 px-3 py-2 bg-gradient-to-r from-green-900/40 to-emerald-900/30 rounded-xl border border-green-400/40 flex items-center gap-3 text-xs">
+<div class="text-green-400 text-base">&#x2728;</div>
+<div class="text-gray-200"><strong class="text-green-300">This is where you make FanHub yours.</strong> Replace <span class="font-mono text-white">Breaking Bad</span> with any show your team loves &mdash; the rest of the workshop uses your universe file.</div>
+</div>
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot (Agent mode)</div>
+<div class="bg-green-900/20 rounded-xl p-4 border border-green-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
+<div>Let's create a file to contain domain knowledge for my <strong class="text-green-300">favorite show.</strong> Use web search to research <span class="text-yellow-300 bg-yellow-900/30 px-1 rounded">[your show]</span> and create <span class="font-mono text-green-300">docs/[show]-universe.md</span>.</div>
+<div class="mt-3">The file should cover:</div>
+<div class="mt-1 text-gray-300">&#x2023; <strong>Premise</strong> &mdash; one paragraph summary of the show</div>
+<div class="text-gray-300">&#x2023; <strong>Main characters</strong> &mdash; name, role, key traits, status (alive/deceased)</div>
+<div class="text-gray-300">&#x2023; <strong>Key locations</strong> &mdash; recurring places and their significance</div>
+<div class="text-gray-300">&#x2023; <strong>Terminology</strong> &mdash; show-specific terms and lore the team uses</div>
+<div class="text-gray-300">&#x2023; <strong>Canon accuracy rules</strong> &mdash; common mistakes to avoid</div>
+<div class="text-gray-300">&#x2023; <strong>Timeline</strong> &mdash; season/year markers for key events</div>
+<div class="mt-3">After creating the file, verify 3 specific facts against your sources and note confidence level for each.</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
+<div class="text-green-400 font-semibold text-sm mb-2">&#x1F4A1; Why Agent mode + web search</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Web search</strong> &mdash; fetches current, accurate canon instead of relying on training data alone</div></div>
+<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Agent mode</strong> &mdash; writes the file directly; no copy-paste needed</div></div>
+<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Confidence levels</strong> &mdash; forces Copilot to surface uncertainty so you know what to verify</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">&#x26A0; Always review the output</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2023; Check character statuses &mdash; alive/deceased is commonly wrong</div>
+<div>&#x2023; Verify titles and roles &mdash; Copilot often upgrades them</div>
+</div>
+<div class="text-gray-600 text-xs mt-2 italic">The exercise goal: find at least one error before saving the file.</div>
+</div>
+<div class="bg-green-900/20 rounded-lg p-2.5 border border-green-500/20 text-xs text-gray-300">
+&#x1F4A1; <strong class="text-green-300">The payoff:</strong> <span class="italic">Pick the universe <em>you</em> know cold. Copilot will meet you there &mdash; and every teammate who opens this repo gets that context for free.</span>
+</div>
+</div>
 </div>
 </div>
 </div>
