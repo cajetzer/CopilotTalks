@@ -31,11 +31,11 @@ Module 4: Agent Skills
 </h1>
 <div class="mt-4 relative z-10">
 <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-⏰ Build capabilities, not just context
+⚡ Package your team's expertise as reusable skills
 </span>
 </div>
 <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
-"Instructions tell Copilot how to behave — but they don't teach it how to do things it doesn't know how to do."
+"A skill is a move the whole team can make — built once, invoked by anyone, grounded in how your project actually works."
 </div>
 <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 <div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
@@ -72,6 +72,7 @@ Module 4: Agent Skills
 </div>
 
 ---
+
 <!-- SLIDE: ⏰ The Story — Monday 1:30 PM -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-16 py-8">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
@@ -86,14 +87,14 @@ Module 4: Agent Skills
 <div class="relative z-10 mb-2 flex items-center gap-3">
 <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-400 to-teal-500 flex items-center justify-center text-base font-bold text-white shadow-lg shadow-blue-500/30 flex-shrink-0">D</div>
 <div class="text-gray-300 text-sm">
-<span class="text-white font-semibold">David</span> looks at the skills folder and thinks about what it means to package expertise the whole team can use.
+<span class="text-white font-semibold">David</span> hears about "agent skills" and thinks about what it means to package expertise the whole team can use.
 </div>
 </div>
 
 <div class="relative z-10 mb-3 py-2 px-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm">
 <p class="text-gray-200 text-xs leading-relaxed">
 <span class="text-orange-300/60 font-serif text-base">"</span>
-Good documentation and reusable prompts are a start. But some work requires the team to teach Copilot a complete <span class="text-orange-300 font-semibold">repeatable capability</span>, not just remind it of the rules.
+There's a distinction worth making. Instructions shape behavior. Prompts guide output. A skill is something different — a defined domain capability with your project's context built in, that any team member can invoke and get the same result.
 <span class="text-orange-300/60 font-serif text-base">"</span>
 </p>
 </div>
@@ -127,80 +128,45 @@ Good documentation and reusable prompts are a start. But some work requires the 
 Skills turn <span class="text-orange-300">repeated specialized work</span> into teachable capabilities the whole team can invoke.
 </p>
 </div>
+</div>
 
-<div class="relative z-10 flex items-stretch gap-1 text-[10px] mt-4 px-4">
-  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
-    <div class="font-bold text-gray-400 text-xs">M1</div>
-    <div class="text-gray-500 mt-0.5">Instructions</div>
-  </div>
-  <div class="flex items-center text-gray-600 px-0.5">›</div>
-  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
-    <div class="font-bold text-gray-400 text-xs">M2</div>
-    <div class="text-gray-500 mt-0.5">Plan Mode</div>
-  </div>
-  <div class="flex items-center text-gray-600 px-0.5">›</div>
-  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center opacity-60">
-    <div class="font-bold text-gray-400 text-xs">M3</div>
-    <div class="text-gray-500 mt-0.5">Prompts</div>
-  </div>
-  <div class="flex items-center text-gray-600 px-0.5">›</div>
-  <div class="flex-1 p-2 bg-gradient-to-b from-orange-600/80 to-orange-800/60 rounded-lg border border-orange-400/50 text-center shadow-lg shadow-orange-900/30">
-    <div class="font-bold text-white text-xs">M4</div>
-    <div class="text-orange-200 mt-0.5">Skills</div>
-  </div>
-  <div class="flex items-center text-gray-600 px-0.5">›</div>
-  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
-    <div class="font-bold text-gray-400 text-xs">M5</div>
-    <div class="text-gray-500 mt-0.5">MCP</div>
-  </div>
-  <div class="flex items-center text-gray-600 px-0.5">›</div>
-  <div class="flex-1 p-2 bg-gray-800/50 rounded-lg border border-gray-700/40 text-center">
-    <div class="font-bold text-gray-400 text-xs">M6</div>
-    <div class="text-gray-500 mt-0.5">Agents</div>
-  </div>
-</div>
-</div>
 
 ---
 
 <!-- SLIDE: 🎯 What You'll Build -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="max-w-5xl mx-auto mt-6">
-
-<div class="p-4 bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-800 rounded-xl shadow-lg shadow-blue-500/20 text-center mb-6">
-<div class="text-2xl font-bold text-white mb-1">
-From repeated work to reusable capabilities
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-3 shadow-lg shadow-orange-900/20">
+<div class="text-xl font-bold text-white mb-1">From repeated work to reusable capabilities</div>
+<div class="text-sm text-orange-100">One starter template, two real skills, and much less blank-page setup</div>
 </div>
-<div class="text-blue-100 text-base">
-One starter template, two real skills, and much less blank-page setup
+<div class="relative z-10 grid grid-cols-2 gap-3 text-xs text-left">
+<div class="p-3 rounded-lg border-l-4 border-blue-500 bg-gray-900/60">
+<div class="font-bold text-blue-300 mb-0.5 text-sm"><code>make-skill-template</code></div>
+<div class="text-gray-400 font-mono text-xs mb-2">Exercise 4.1</div>
+<div class="text-gray-300">Bootstraps later skills from a proven scaffold — the team stops inventing folder structure and frontmatter from scratch.</div>
 </div>
+<div class="p-3 rounded-lg border-l-4 border-purple-500 bg-gray-900/60">
+<div class="font-bold text-purple-300 mb-0.5 text-sm"><code>character-change-test-workflow</code></div>
+<div class="text-gray-400 font-mono text-xs mb-2">Exercise 4.2</div>
+<div class="text-gray-300">Packages a reusable workflow for deciding what tests should change after any character-detail update.</div>
 </div>
-
-<div class="grid grid-cols-2 gap-3 text-sm text-left">
-<div class="p-3 rounded-lg border-l-4 border-blue-500 bg-gray-800">
-<div class="font-bold text-blue-300 mb-2"><code>make-skill-template</code></div>
-<div class="text-xs text-gray-300 leading-snug">Bootstraps later skills from a proven scaffold so the team stops inventing folder structure and frontmatter from scratch.</div>
+<div class="p-3 rounded-lg border-l-4 border-orange-500 bg-gray-900/60">
+<div class="font-bold text-orange-300 mb-0.5 text-sm"><code>character-detail-readiness-checker</code></div>
+<div class="text-gray-400 font-mono text-xs mb-2">Exercise 4.3</div>
+<div class="text-gray-300">Pre-PR review with checklist guidance, script support, and a clear readiness summary.</div>
 </div>
-<div class="p-3 rounded-lg border-l-4 border-purple-500 bg-gray-800">
-<div class="font-bold text-purple-300 mb-2"><code>character-change-test-workflow</code></div>
-<div class="text-xs text-gray-300 leading-snug">Packages a reusable workflow for deciding what tests should change after any character-detail update.</div>
-</div>
-<div class="p-3 rounded-lg border-l-4 border-orange-500 bg-gray-800">
-<div class="font-bold text-orange-300 mb-2"><code>character-detail-readiness-checker</code></div>
-<div class="text-xs text-gray-300 leading-snug">Packages pre-PR review with checklist guidance, script support, and a clear readiness summary.</div>
-</div>
-<div class="p-3 rounded-lg border-l-4 border-green-500 bg-gray-800">
-<div class="font-bold text-green-300 mb-2">A reusable team capability layer</div>
-<div class="text-xs text-gray-300 leading-snug">The team’s character-detail workflow stops living only in memory and starts becoming a reusable capability creation pattern.</div>
+<div class="p-3 rounded-lg border-l-4 border-green-500 bg-gray-900/60">
+<div class="font-bold text-green-300 mb-0.5 text-sm">A reusable team capability layer</div>
+<div class="text-gray-400 font-mono text-xs mb-2">The payoff</div>
+<div class="text-gray-300">Your team's best workflow knowledge lives in a reusable scaffold anyone can invoke — no longer just in memory.</div>
 </div>
 </div>
-
-<div class="mt-4 p-2.5 bg-gradient-to-r from-blue-900/40 to-purple-900/40 rounded-lg border border-blue-500/30 text-center text-sm text-gray-300">
-💡 <strong class="text-blue-300">Your best workflow knowledge stops being tribal memory</strong> and starts with a reusable scaffold the team can adapt.
+<div class="relative z-10 mt-3 p-3 bg-blue-900/20 rounded-lg border border-blue-500/30 text-center text-sm text-gray-300">
+💡 <strong class="text-blue-300">Your best workflow knowledge becomes a reusable capability</strong> the whole team can invoke, consistently, from day one.
 </div>
 </div>
 
@@ -208,8 +174,8 @@ One starter template, two real skills, and much less blank-page setup
 
 <!-- SLIDE: 📚 What Agent Skills Actually Are -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Agent Skills Actually Are</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Agent Skills Actually Are</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="grid grid-cols-2 gap-4 mt-6 text-left">
@@ -252,8 +218,8 @@ One starter template, two real skills, and much less blank-page setup
 
 <!-- SLIDE: 🔎 Skill Structure and Loading -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skill Structure and Loading</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skill Structure and Loading</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
@@ -289,8 +255,8 @@ One starter template, two real skills, and much less blank-page setup
 
 <!-- SLIDE: ⚡ Why Scripts Matter -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Why Scripts Matter</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Why Scripts Matter</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="grid grid-cols-2 gap-6 mt-8 text-left">
@@ -328,8 +294,8 @@ One starter template, two real skills, and much less blank-page setup
 
 <!-- SLIDE: 🔄 Skills vs Instructions vs Prompts -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Skills vs Instructions vs Prompts</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Skills vs Instructions vs Prompts</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="grid grid-cols-3 gap-5 mt-8 text-left">
@@ -369,54 +335,10 @@ One starter template, two real skills, and much less blank-page setup
 
 ---
 
-<!-- SLIDE: 💭 The Team, After Module 4 -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 4</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
-<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
-<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I packaged the test runner as a skill. Elena showed me how. Twenty minutes. Now anyone on the team can run it."</div>
-<div class="text-xs text-gray-500">Packaged something real, not just copied a tutorial.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
-<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
-<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The skill pattern is a formalized capability contract. It gives Copilot something to reason against instead of improvising."</div>
-<div class="text-xs text-gray-500">Formalizes the contract so Copilot doesn&#39;t have to guess.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
-<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
-<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Our test coverage check runs in Agent mode now. I used to explain that workflow to every new hire. It&#39;s in a file now."</div>
-<div class="text-xs text-gray-500">Onboarding just got one step shorter.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
-<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The skill has the schema, the examples, and the edge cases. Everything a junior needs to not break the build."</div>
-<div class="text-xs text-gray-500">Every edge case she knows, now encoded for the team.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
-<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
-<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I packaged the debugging workflow I always do in my head. Now I can just invoke it. Past me would be furious."</div>
-<div class="text-xs text-gray-500">Externalizing his own brain, one skill at a time.</div>
-</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
-<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Skills turn individual expertise into team capability. That&#39;s institutional knowledge that actually scales."</div>
-<div class="text-xs text-gray-500">Expertise that scales without requiring its source.</div>
-</div>
-</div>
-</div>
-
----
-
 <!-- SLIDE: 📊 What to Validate -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 What to Validate in the Workshop</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 What to Validate in the Workshop</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="grid grid-cols-3 gap-5 mt-8 text-left">
@@ -446,8 +368,8 @@ One starter template, two real skills, and much less blank-page setup
 
 <!-- SLIDE: 🔨 Exercise Roadmap -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="mt-6 p-5 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-xl border border-white/10 text-center">
@@ -602,8 +524,8 @@ The team is ready to build real skills, but blank-page setup still slows them do
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: make-skill-template SKILL.md</span>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: make-skill-template SKILL.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
@@ -676,8 +598,8 @@ After each character-detail change, the team still has to decide which tests sho
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
 
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: character-change-test-workflow SKILL.md</span>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: character-change-test-workflow SKILL.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
@@ -749,8 +671,8 @@ The code and tests may be done, but the team still does one last manual sweep be
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: character-detail-readiness-checker SKILL.md</span>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: character-detail-readiness-checker SKILL.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
@@ -774,6 +696,7 @@ The code and tests may be done, but the team still does one last manual sweep be
 
 <div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/skills/character-detail-readiness-checker/SKILL.md · Run before every character-detail PR</div>
 </div>
+
 ---
 
 <!-- SLIDE: 🌐 Exercise 4 — Show-Lore Skill -->
@@ -816,12 +739,14 @@ David asks Copilot for a Gustavo Fring bio — and gets something plausible, con
 </div>
 </div>
 </div>
+
 ---
+
 <!-- SLIDE: 📋 Show-Lore Skill — characters.md format -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-green-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: [show]-lore/resources/characters.md</span>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: [show]-lore/resources/characters.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-5">
 <div>
@@ -865,10 +790,13 @@ David asks Copilot for a Gustavo Fring bio — and gets something plausible, con
 </div>
 <div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/skills/[show]-lore/resources/characters.md · Human knowledge as primary input — the first exercise where you are the source of truth</div>
 </div>
----<!-- SLIDE: 🔗 Compounding Value -->
+
+---
+
+<!-- SLIDE: 🔗 Compounding Value -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="mt-5 p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
@@ -917,8 +845,8 @@ David asks Copilot for a Gustavo Fring bio — and gets something plausible, con
 
 <!-- SLIDE: ✅ Module Checklist -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
 <div class="mt-6 p-4 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
@@ -983,8 +911,6 @@ David asks Copilot for a Gustavo Fring bio — and gets something plausible, con
 
 ---
 
----
-
 <!-- SLIDE: 📚 Keep the Foundation Evergreen -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
@@ -1022,6 +948,9 @@ David asks Copilot for a Gustavo Fring bio — and gets something plausible, con
 </div><div class="mt-4 p-4 rounded-xl bg-gray-900/60 border border-white/10 text-center">
 <div class="text-sm text-yellow-300 font-semibold">Evergreen docs are not cleanup work — they are leverage for every later module.</div>
 </div>
+
+---
+
 <!-- SLIDE: ➡️ Next Up — Module 5 MCP Servers -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
@@ -1061,37 +990,6 @@ Module 4 Is Locked In
 Skills taught Copilot your local workflow. <span class="text-white font-semibold">MCP servers will let it bring live systems and external tools into that same workflow.</span>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
-</div>
-
----
-
-<!-- SLIDE: 🚀 Module 4: Agent Skills -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
-
-  <div class="relative z-10">
-    <div class="absolute inset-0 blur-2xl opacity-50">
-      <img src="./sdp-logo.png" class="w-72" alt="" />
-    </div>
-    <img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
-  </div>
-
-  <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">
-    Module 4: Agent Skills
-  </h1>
-
-  <div class="mt-4 relative z-10">
-    <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">
-      ⏰ Teach capabilities, not just behavior
-    </span>
-  </div>
-
-  <div class="mt-8 text-lg opacity-70 max-w-2xl italic relative z-10">
-    "Instructions tell Copilot how to behave. Skills teach it how to do work it could not do well before."
-  </div>
-
-  <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 </div>
 
 ---
@@ -1140,5 +1038,45 @@ Skills taught Copilot your local workflow. <span class="text-white font-semibold
 <div class="text-xs text-gray-200 italic leading-snug mb-2">"Skills turn individual expertise into team capability. That&#39;s institutional knowledge that actually scales."</div>
 <div class="text-xs text-gray-500">Expertise that scales without requiring its source.</div>
 </div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Reference Material -->
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-10 py-6">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/15 via-gray-900/40 to-red-900/15"></div>
+<div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-orange-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-red-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 text-center mb-5">
+<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Further Reading</div>
+<h1 class="!text-3xl !font-bold bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent !mb-0">Reference Material</h1>
+<div class="text-sm text-gray-400 mt-1">Official documentation for Module 4 — Agent Skills</div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-3">
+<a href="https://code.visualstudio.com/docs/copilot/copilot-customization" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-orange-500/40 transition-colors no-underline">
+<div class="font-semibold text-orange-300 text-sm mb-1">Customize AI in VS Code</div>
+<div class="text-xs text-gray-400">Overview of all Copilot customization primitives — instructions, prompt files, and agent skills and how they compose</div>
+</a>
+<a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-red-500/40 transition-colors no-underline">
+<div class="font-semibold text-red-300 text-sm mb-1">Agent Mode in VS Code</div>
+<div class="text-xs text-gray-400">How agent mode executes multi-step tasks autonomously, invokes skills, and handles tool calls</div>
+</a>
+<a href="https://code.visualstudio.com/docs/copilot/copilot-customization#agent-skills" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-500/40 transition-colors no-underline">
+<div class="font-semibold text-purple-300 text-sm mb-1">Agent Skills Reference</div>
+<div class="text-xs text-gray-400">SKILL.md structure, frontmatter fields, script integration, and how VS Code discovers and loads skills</div>
+</a>
+<a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-cyan-500/40 transition-colors no-underline">
+<div class="font-semibold text-cyan-300 text-sm mb-1">Repository Custom Instructions</div>
+<div class="text-xs text-gray-400">How copilot-instructions.md, prompt files, and skills layer together as a composable context stack</div>
+</a>
+<a href="https://code.visualstudio.com/api/references/workspace-context" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-orange-500/40 transition-colors no-underline">
+<div class="font-semibold text-orange-300 text-sm mb-1">Workspace Context Reference</div>
+<div class="text-xs text-gray-400">All variables available across instructions, prompt files, and skills — &#36;{workspaceFolder}, &#36;{file}, and more</div>
+</a>
+<a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-red-500/40 transition-colors no-underline">
+<div class="font-semibold text-red-300 text-sm mb-1">Building Copilot Extensions</div>
+<div class="text-xs text-gray-400">Going beyond skills — packaging capabilities as shareable Copilot extensions for broader distribution</div>
+</a>
 </div>
 </div>
