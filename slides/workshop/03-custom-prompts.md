@@ -12,7 +12,7 @@ transition: slide-left
 title: Module 3 - Custom Prompts
 module: workshop/03-custom-prompts
 mdc: true
-status: active
+status: archived
 updated: 2026-03-26
 ---
 

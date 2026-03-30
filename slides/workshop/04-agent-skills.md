@@ -12,7 +12,7 @@ transition: slide-left
 title: Module 4 - Agent Skills
 module: workshop/04-agent-skills
 mdc: true
-status: active
+status: archived
 updated: 2026-03-26
 ---
 
