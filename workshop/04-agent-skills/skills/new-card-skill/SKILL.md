@@ -1,5 +1,5 @@
 ---
-name: new-card-skill
+name: create-card-and-page skill
 description: >
   Use this skill when asked to add a new entity type with a card grid page to FanHub.
   It scaffolds the full stack: backend model, DbContext registration, seed data,
@@ -60,7 +60,7 @@ All records must use `ShowId = 1`. Draw content faithfully from the seed source 
 Before running the migration, verify all files are in place:
 
 ```powershell
-.github/skills/new-card-skill/scripts/check-scaffold.ps1 -EntityName {EntityName}
+.github/skills/create-card-and-page skill/scripts/check-scaffold.ps1 -EntityName {EntityName}
 ```
 
 Fix any missing items reported before continuing.
@@ -70,7 +70,7 @@ Fix any missing items reported before continuing.
 Run the migration script:
 
 ```powershell
-.github/skills/new-card-skill/scripts/run-migration.ps1 -EntityName {EntityName}
+.github/skills/create-card-and-page skill/scripts/run-migration.ps1 -EntityName {EntityName}
 ```
 
 Or run manually in `dotnet/Backend/`:
@@ -132,7 +132,7 @@ Adjust bound fields and card markup to match the actual properties requested. Do
 After all steps are complete, run the endpoint verification script (requires the backend to be running):
 
 ```powershell
-.github/skills/new-card-skill/scripts/verify-endpoints.ps1 -EntityName {EntityName}
+.github/skills/create-card-and-page skill/scripts/verify-endpoints.ps1 -EntityName {EntityName}
 ```
 
 Then confirm manually:

@@ -151,8 +151,8 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 </div>
 <div class="p-3 rounded-lg border-l-4 border-emerald-500 bg-gray-900/60">
 <div class="font-bold text-emerald-300 mb-0.5">E3 &mdash; Encode domain knowledge</div>
-<div class="text-gray-400 font-mono text-xs mb-1">lore-accuracy-check.prompt.md</div>
-<div class="text-gray-300 text-xs">A canon-accuracy checker that applies universe file rules to any content piece &mdash; systematically, every time.</div>
+<div class="text-gray-400 font-mono text-xs mb-1">check-data-accuracy.prompt.md</div>
+<div class="text-gray-300 text-xs">A generic accuracy checker that applies canonical reference rules to any entity type — lore, characters, episodes — and upgrades to live DB queries via MCP in Module 5.</div>
 </div>
 </div>
 </div>
@@ -165,9 +165,9 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <div class="text-gray-300 text-xs">Bootstrap future skills from a proven scaffold instead of a blank folder.</div>
 </div>
 <div class="p-3 rounded-lg border-l-4 border-emerald-400 bg-gray-900/60">
-<div class="font-bold text-emerald-300 mb-0.5">E5 &mdash; Lore accuracy skill</div>
-<div class="text-gray-400 font-mono text-xs mb-1">lore-accuracy-check/</div>
-<div class="text-gray-300 text-xs">Graduate the E3 prompt to an embedded skill Copilot reaches for automatically.</div>
+<div class="font-bold text-emerald-300 mb-0.5">E5 &mdash; Data accuracy skill</div>
+<div class="text-gray-400 font-mono text-xs mb-1">data-accuracy-check/</div>
+<div class="text-gray-300 text-xs">Graduate the E3 prompt to an embedded skill Copilot reaches for automatically — for any entity type, with MCP DB query support in Module 5.</div>
 </div>
 <div class="p-3 rounded-lg border-l-4 border-purple-400 bg-gray-900/60">
 <div class="font-bold text-purple-300 mb-0.5">E6 &mdash; Card &amp; page skill</div>
@@ -381,7 +381,7 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <div class="p-4 flex-1">
 <div class="flex items-center justify-between mb-3"><div class="text-emerald-300 font-bold text-lg">E3</div><span class="text-xs text-gray-500">Marcus &#x2B50;</span></div>
 <div class="text-white text-sm font-semibold mb-2">Encode domain knowledge</div>
-<div class="text-gray-400 text-xs leading-relaxed">Build a lore-accuracy-check prompt that applies universe rules before anything hits review. Marcus already learned this the hard way &mdash; three canon errors in one PR.</div>
+<div class="text-gray-400 text-xs leading-relaxed">Build a check-data-accuracy prompt that validates any data entity — lore, characters, episodes — against its canonical source before anything hits review. MCP upgrades this to live DB queries in Module 5.</div>
 </div>
 <div class="px-4 pb-4 pt-3 border-t border-emerald-500/20"><p class="text-emerald-200 text-xs italic">"I had a tab open. Wait. I spent an hour checking that PR manually?"</p></div>
 </div>
@@ -441,9 +441,9 @@ Rafael's already thinking about the next sprint. He's noticed that every time th
 <div>
 <div class="text-xs text-gray-400 mb-2">Save this to <span class="font-mono text-orange-300">.github/prompts/refresh-docs.prompt.md</span>:</div>
 <div class="font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-4 text-gray-200 leading-relaxed select-text cursor-text">
-<div class="text-gray-500 text-xs mb-2">---</div>
+<div class="text-gray-500 text-xs mb-2">&#45;&#45;&#45;</div>
 <div class="text-blue-300 text-xs mb-1">description: Refresh architecture and team instructions after code changes</div>
-<div class="text-gray-500 text-xs mb-3">---</div>
+<div class="text-gray-500 text-xs mb-3">&#45;&#45;&#45;</div>
 <span class="text-orange-400 font-bold">/plan</span> Review the current workspace and identify what has changed since ARCHITECTURE.md and .github/copilot-instructions.md were last updated. Propose specific updates to each file — only the sections that are now inaccurate or missing. Don't rewrite what's still correct.
 </div>
 </div>
@@ -612,14 +612,14 @@ Jessica has been quietly watching Rafael and Marcus work. She&rsquo;s convinced 
 
 ---
 
-<!-- SLIDE: Exercise 3.3 Lore Entry Accuracy Check -->
+<!-- SLIDE: Exercise 3.3 Data Accuracy Check -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">E2</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">E3</div>
 <div>
-<div class="text-emerald-300 text-xs font-semibold tracking-widest uppercase">Exercise 2</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Lore Entry Accuracy Check</h2>
+<div class="text-emerald-300 text-xs font-semibold tracking-widest uppercase">Exercise 3</div>
+<h2 class="!text-2xl !font-bold text-white !m-0">Data Accuracy Check</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Marcus ⭐</span>
@@ -628,78 +628,79 @@ Jessica has been quietly watching Rafael and Marcus work. She&rsquo;s convinced 
 </div>
 </div>
 <div class="relative z-10 mb-4 p-3 bg-gray-900/60 rounded-xl border-l-4 border-emerald-400 text-sm text-gray-300">
-Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page last sprint. Now he's batch-generating entries with Copilot — ten show facts in fifteen minutes. The PR looks fine. Sarah reviews it and finds errors. One entry has Walter meeting Jesse "at a university." She flags it. She is not doing this every sprint. The canon lore is already in <span class="font-mono text-emerald-200">docs/[show]-universe.md</span>. <strong class="text-white">Marcus needs a prompt that validates lore entries before they go into the database.</strong>
+Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page last sprint. Now he's batch-generating entries with Copilot — ten show facts in fifteen minutes. The PR looks fine. Sarah reviews it and finds errors. She flags them. She is not doing this every sprint. <strong class="text-white">Marcus needs a prompt that validates any data entity — lore entries, character bios, episode records — against the canonical source before it goes into the database.</strong> In Module 5, MCP gives that source live DB access. For now, the reference is a markdown file.
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">Create <span class="font-mono text-emerald-300">check-lore-accuracy.prompt.md</span> that references <span class="font-mono text-emerald-300">docs/[show]-universe.md</span></span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Review: <span class="font-mono text-cyan-300">#file:</span> present, <span class="font-mono text-cyan-300">${selection}</span> used, no hardcoded entry titles, factual-only</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Test: ask a known-bad lore question → prompt must flag the canon error</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">4</span><span class="text-gray-300">Test: ask a correct lore question → prompt must pass with no violations</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">Create <span class="font-mono text-emerald-300">check-data-accuracy.prompt.md</span> — use <span class="font-mono text-cyan-300">${selection}</span> for the content and <span class="font-mono text-cyan-300">${input:entityType}</span> for the domain, or let Copilot infer it</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Reference your canonical source file (e.g. <span class="font-mono text-emerald-300">docs/[show]-universe.md</span>) — no hardcoded entity names in the prompt body</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Test: select a known-bad entry → prompt must flag the error with the correct value</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0">4</span><span class="text-gray-300">Test: select a correct entry → prompt must pass with no false positives</span></div>
 </div>
 </div>
 <div class="space-y-2">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Prompt saved under <code>.github\prompts</code></div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> <span class="font-mono">${selection}</span> used — no hardcoded entry titles</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Flags the university/college error as a canon violation</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Correct lore entry passes with no false positives</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Prompt saved under <code>.github/prompts</code></div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> <span class="font-mono">${selection}</span> used — no hardcoded entry names</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Works on at least two different entity types (e.g. lore + character)</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Correct entry passes with no false positives</div>
 </div>
-<div class="mt-3 p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Marcus:</strong> "Wait — if the canon rules are in the universe file, I just... point the prompt at each entry? Before it goes into the database?"</div>
+<div class="mt-3 p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Marcus:</strong> "Wait — if the canonical rules are in a reference file, I just... point the prompt at each entry? And in Module 5, that reference becomes a live DB query?"</div>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: 📋 Example: lore-accuracy-check.prompt.md -->
+<!-- SLIDE: 📋 Example: check-data-accuracy.prompt.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: lore-accuracy-check.prompt.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: check-data-accuracy.prompt.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex gap-4 flex-1 min-h-0">
 <div class="select-all font-mono text-[10.5px] bg-gray-900/80 rounded-xl border border-emerald-500/30 p-4 text-gray-300 leading-relaxed flex-1 overflow-auto whitespace-pre-wrap">
 <div><span class="text-gray-500">&#45;&#45;&#45;</span></div>
 <div><span class="text-emerald-300">agent: ask</span></div>
-<div><span class="text-emerald-300">description: Verify lore entry accuracy against the canonical Breaking Bad universe reference</span></div>
+<div><span class="text-emerald-300">description: Verify any data entry against the canonical reference for that domain</span></div>
 <div><span class="text-gray-500">&#45;&#45;&#45;</span></div>
 <div> </div>
-<div>You are a Breaking Bad canon expert. Check the following lore entry for factual accuracy against the canonical reference in <span class="text-blue-300">docs/breaking-bad-universe.md</span>.</div>
+<div>You are a data accuracy reviewer. Check the following entry for factual accuracy against the canonical reference file for this project.</div>
 <div> </div>
-<div><span class="text-purple-300">## Lore entry to check</span></div>
+<div><span class="text-purple-300">## Entry to check</span></div>
 <div> </div>
 <div><span class="text-cyan-300">${selection}</span></div>
 <div> </div>
 <div><span class="text-purple-300">## Instructions</span></div>
 <div> </div>
-<div>1. Identify every factual claim in the entry (character names, statuses, relationships, locations, episode references, dates, quotes, plot events).</div>
-<div>2. For each claim, verify it against breaking-bad-universe.md.</div>
-<div>3. Flag any inaccuracies, inconsistencies, or missing context — be specific about what is wrong and what the correct information is.</div>
-<div>4. Note any claims that cannot be verified from the reference document.</div>
-<div>5. If the entry is fully accurate, confirm that explicitly.</div>
+<div>1. Identify the entity type from the content (lore entry, character bio, episode record, etc.).</div>
+<div>2. Locate the relevant canonical reference in the project (e.g. <span class="text-blue-300">docs/[show]-universe.md</span>, or query via MCP if available).</div>
+<div>3. For each factual claim, verify it against the canonical source.</div>
+<div>4. Flag any inaccuracies — be specific about what is wrong and what the correct value is.</div>
+<div>5. Note any claims that cannot be verified from available sources.</div>
+<div>6. If the entry is fully accurate, confirm that explicitly.</div>
 <div> </div>
 <div>Respond with:</div>
 <div> </div>
 <div>- <strong class="text-white">Status</strong>: Accurate / Inaccurate / Partially Accurate / Unverifiable</div>
 <div>- <strong class="text-white">Issues</strong> (if any): bulleted list of specific problems with corrections</div>
-<div>- <strong class="text-white">Verified claims</strong>: brief list of facts that are confirmed correct</div>
+<div>- <strong class="text-white">Verified claims</strong>: brief list of facts confirmed correct</div>
 </div>
 <div class="flex flex-col gap-2 text-xs w-44 flex-shrink-0">
 <div class="p-2 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
-<div class="text-emerald-300 font-bold mb-1">🔗 Linked doc</div>
-<div class="text-gray-300">Markdown link to universe file — accuracy is only as good as the reference</div>
+<div class="text-emerald-300 font-bold mb-1">🔗 No hardcoded domain</div>
+<div class="text-gray-300">Copilot infers entity type from the selection — works for lore, characters, episodes, ratings, or any new entity</div>
 </div>
 <div class="p-2 bg-cyan-900/20 rounded-lg border border-cyan-500/30">
 <div class="text-cyan-300 font-bold mb-1">✂️ ${selection}</div>
-<div class="text-gray-300">Select any lore entry in the editor, invoke — no copy-paste needed</div>
+<div class="text-gray-300">Select any entry in the editor, invoke — no copy-paste needed</div>
 </div>
 <div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-1">📊 Structured output</div>
-<div class="text-gray-300">Status + Issues + Verified — consistent format, easy to act on</div>
+<div class="text-purple-300 font-bold mb-1">🗄️ MCP-ready</div>
+<div class="text-gray-300">In Module 5, "query via MCP if available" activates — same prompt, live DB reference instead of a markdown file</div>
 </div>
 <div class="p-2 bg-gray-900/60 rounded-lg border border-gray-700/40">
 <div class="text-gray-400 font-bold mb-1">💡 Click to select all</div>
@@ -711,15 +712,15 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 ---
 
-<!-- SLIDE: 💬 Example: Step 3 — Test the Bad Lore Entry -->
+<!-- SLIDE: 💬 Example: Step 3 — Test an Inaccurate Entry -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 3 — Test the Bad Lore Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 3 — Test an Inaccurate Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 mb-3 text-xs text-gray-400">Select this lore entry in your editor, then run the prompt:</div>
+<div class="relative z-10 mb-3 text-xs text-gray-400">Demo domain: Breaking Bad lore. Select this entry in your editor, then run <span class="font-mono text-emerald-300">/check-data-accuracy</span>:</div>
 <div class="relative z-10 font-mono text-base bg-red-900/20 rounded-xl border border-red-500/30 p-6 text-gray-200 leading-relaxed mb-5 select-all flex-1">
-<div class="text-orange-400 font-bold mb-4 text-lg">/check-lore-accuracy</div>
+<div class="text-orange-400 font-bold mb-4 text-lg">/check-data-accuracy</div>
 <div class="text-gray-500 text-sm mb-3">Title: "Walter &amp; Jesse — Origin"</div>
 <div class="text-base leading-loose">Walter White recruited Jesse Pinkman as his partner after reconnecting with him on the street. Jesse had been Walter's former student at the <span class="text-red-400 font-bold">University of New Mexico</span>, where Walter taught a chemistry course.</div>
 </div>
@@ -730,11 +731,11 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 ---
 
-<!-- SLIDE: 📋 Example: Step 3 — Output (Violation Found) -->
+<!-- SLIDE: 📋 Example: Step 3 — Output (Error Flagged) -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 3 — Output (Violation Found)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 3 — Output (Error Flagged)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 font-mono text-xs bg-gray-900/80 rounded-xl border border-red-500/30 p-4 text-gray-200 leading-relaxed">
 <div class="text-red-400 font-bold mb-3 text-sm">Status: <span class="text-red-300">Inaccurate</span></div>
@@ -757,15 +758,15 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 ---
 
-<!-- SLIDE: 💬 Example: Step 4 — Test the Good Lore Entry -->
+<!-- SLIDE: 💬 Example: Step 4 — Test a Correct Entry -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 4 — Test the Good Lore Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 4 — Test a Correct Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 mb-3 text-xs text-gray-400">Select this lore entry in your editor, then run the prompt again:</div>
+<div class="relative z-10 mb-3 text-xs text-gray-400">Same demo domain. Select this entry and run <span class="font-mono text-emerald-300">/check-data-accuracy</span> again — validate no false positives:</div>
 <div class="relative z-10 font-mono text-base bg-green-900/20 rounded-xl border border-green-500/30 p-6 text-gray-200 leading-relaxed mb-5 select-all flex-1">
-<div class="text-orange-400 font-bold mb-4 text-lg">/lore-accuracy-check</div>
+<div class="text-orange-400 font-bold mb-4 text-lg">/check-data-accuracy</div>
 <div class="text-gray-500 text-sm mb-3">Title: "The Blue Sky Formula"</div>
 <div class="text-base leading-loose">Walter White's methamphetamine, known on the street as "Blue Sky," achieved a purity level exceeding <span class="text-green-300 font-bold">99%</span> — far beyond any competitor. Its distinctive blue tint came from the synthesis method Walter developed at the Superlab.</div>
 </div>
@@ -776,11 +777,11 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 ---
 
-<!-- SLIDE: 📋 Example: Step 4 — Output (Partially Accurate) -->
+<!-- SLIDE: 📋 Example: Step 4 — Output (Partially Accurate / Unverifiable) -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 4 — Output (Partially Accurate)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 4 — Output (Partially Accurate / Unverifiable)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 font-mono text-[10.5px] bg-gray-900/80 rounded-xl border border-yellow-500/30 p-4 text-gray-200 leading-relaxed mb-3 flex-1">
 <div class="text-yellow-400 font-bold mb-2 text-xs">Status: <span class="text-yellow-300">Partially Accurate / Partially Unverifiable</span></div>
@@ -805,7 +806,7 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 </div>
 <div class="p-3 bg-orange-900/20 rounded-xl border border-orange-500/30">
 <div class="text-orange-300 font-bold mb-1">Now try it on your show</div>
-<div class="text-gray-300">The same prompt works on any content piece — it reads the rules from your universe file, not from hardcoded character names</div>
+<div class="text-gray-300">The same prompt works for any entity type — lore, characters, episodes, ratings, or any data domain. It infers the domain from <span class="font-mono text-cyan-300">${selection}</span> and reads the reference dynamically. In Module 5, that reference becomes a live DB query via MCP.</div>
 </div>
 </div>
 </div>
@@ -835,7 +836,7 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I checked. The lore prompt caught the same error three times in a row. Three for three. Consistent beats clever. I'll take it."</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I checked. The data-accuracy-check caught the same error three times in a row. Three for three. Consistent beats clever. I'll take it."</div>
 <div class="text-xs text-gray-500">Running the numbers before endorsing anything.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
@@ -853,11 +854,12 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The lore check is already an OKR input. If canon accuracy goes up, lore engagement goes up. I'm mapping this to Q3. Can we move on?"</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The data-check is already an OKR input. If canon accuracy goes up, lore engagement goes up. I'm mapping this to Q3. Can we move on?"</div>
 <div class="text-xs text-gray-500">Already three steps ahead, agenda in hand.</div>
 </div>
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: The Check Works. It Just Doesn't Run Itself. -->
@@ -886,7 +888,7 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 </div>
 </div>
 <h2 class="relative z-10 text-2xl font-bold text-white mb-1">Prompts Work. But They Don't Run Themselves.</h2>
-<p class="relative z-10 text-gray-400 text-xs mb-3">Elena spent the morning running <code class="bg-gray-800 px-1 rounded text-orange-300">/lore-accuracy-check</code> before every PR. It worked perfectly &mdash; every time she remembered to invoke it.</p>
+<p class="relative z-10 text-gray-400 text-xs mb-3">Elena spent the morning running <code class="bg-gray-800 px-1 rounded text-orange-300">/check-data-accuracy</code> before every PR. It worked perfectly &mdash; every time she remembered to invoke it.</p>
 <div class="relative z-10 grid grid-cols-2 gap-4 mb-3">
 <div class="bg-gray-900/40 rounded-xl p-4 border border-gray-700/30 flex flex-col gap-2 opacity-75">
 <div class="text-gray-400 font-semibold text-xs tracking-wide uppercase">A prompt is invoked</div>
@@ -976,7 +978,7 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 <div class="flex flex-col p-4 rounded-xl bg-gradient-to-br from-blue-900/50 to-gray-900/50 border border-blue-500/30">
 <div class="flex items-center gap-2 mb-3"><span class="text-2xl">&#x1F4C1;</span><div class="text-blue-300 font-bold text-sm">Typical structure</div></div>
 <div class="font-mono text-xs text-gray-300 space-y-1 flex-1">
-<div class="text-blue-300">.github/skills/lore-accuracy-check/</div>
+<div class="text-blue-300">.github/skills/data-accuracy-check/</div>
 <div class="pl-4 text-orange-300">&#x251C;&#x2500; SKILL.md</div>
 <div class="pl-4 text-gray-400">&#x251C;&#x2500; scripts/</div>
 <div class="pl-4 text-gray-400">&#x251C;&#x2500; examples/</div>
@@ -1114,8 +1116,8 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 <div class="flex flex-col bg-emerald-900/30 rounded-xl border border-emerald-500/40 overflow-hidden">
 <div class="p-4 flex-1">
 <div class="flex items-center justify-between mb-3"><div class="text-emerald-300 font-bold text-lg">E5</div><span class="text-xs text-gray-500">David &#x2B50;</span></div>
-<div class="text-white text-sm font-semibold mb-2">Graduate lore-check to a skill</div>
-<div class="text-gray-400 text-xs leading-relaxed">Take the lore-accuracy-check prompt from E3 and promote it to a skill &mdash; so Copilot reaches for it automatically when working with lore content, with auto-citation built in.</div>
+<div class="text-white text-sm font-semibold mb-2">Graduate data-check to a skill</div>
+<div class="text-gray-400 text-xs leading-relaxed">Take the check-data-accuracy prompt from E3 and promote it to a skill — so Copilot reaches for it automatically for any entity type, with MCP DB query support when available.</div>
 </div>
 <div class="px-4 pb-4 pt-3 border-t border-emerald-500/20"><p class="text-emerald-200 text-xs italic">"A prompt you invoke and a skill Copilot reaches for are not the same thing. The distinction is worth encoding correctly."</p></div>
 </div>
@@ -1155,7 +1157,7 @@ The team is ready to build real skills, but blank-page setup still slows them do
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Install or copy <span class="font-mono text-blue-300">make-skill-template</span> into <span class="font-mono text-blue-300">.github/skills/</span></span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Inspect the template’s frontmatter, body structure, and optional resource folders</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Inspect the template's frontmatter, body structure, and optional resource folders</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Practice duplicating the scaffold so the next skill starts from a proven structure</span></div>
 </div>
 </div>
@@ -1173,83 +1175,70 @@ The team is ready to build real skills, but blank-page setup still slows them do
 
 ---
 
-<!-- SLIDE: 📋 make-skill-template SKILL.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: make-skill-template SKILL.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
-<div class="text-purple-300">&#45;&#45;&#45;</div>
-<div class="text-blue-300">name<span class="text-white">:</span> <span class="text-green-300">your-skill-name</span></div>
-<div class="text-blue-300">description<span class="text-white">:</span> <span class="text-green-300">One sentence: what this skill enables Copilot to do.</span></div>
-<div class="text-blue-300">tags<span class="text-white">:</span> <span class="text-green-300">[your-domain, workflow-type]</span></div>
-<div class="text-purple-300">&#45;&#45;&#45;</div>
-<div class="mt-2 text-gray-400"># Skill: your-skill-name</div>
-<div class="mt-2 text-gray-300">## Purpose</div>
-<div class="text-gray-400">Explain what workflow this skill teaches. What can Copilot now do that it couldn't reliably do before?</div>
-<div class="mt-2 text-gray-300">## When to use this skill</div>
-<div class="text-gray-400">- Trigger 1: describe the situation or request that activates this skill</div>
-<div class="text-gray-400">- Trigger 2: describe another trigger scenario</div>
-<div class="mt-2 text-gray-300">## Workflow</div>
-<div class="text-gray-400">Step-by-step instructions Copilot should follow when this skill is active.</div>
-<div class="mt-2 text-gray-300">## Resources</div>
-<div class="text-gray-400">- `scripts/` — optional runnable helpers</div>
-<div class="text-gray-400">- `examples/` — sample inputs and expected outputs</div>
-<div class="text-gray-400">- `templates/` — reusable output structures</div>
-</div>
-
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/skills/make-skill-template/SKILL.md · The scaffold every new skill starts from</div>
-</div>
-
----
-
 <!-- SLIDE: &#x1F4AC; make-skill-template in Action -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
+<div class="relative z-10 flex items-center gap-3 mb-2">
 <span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; make-skill-template in Action</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="relative z-10 flex-1 flex flex-col gap-2">
 <div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-1">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">📄 .github/prompts/make-skill-from-prompt.prompt.md</div>
+<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-3 font-mono text-[10px] flex-1 overflow-auto select-all leading-relaxed">
+<div class="text-purple-300">&#45;&#45;&#45;</div>
+<div class="text-blue-300">agent<span class="text-white">:</span> <span class="text-green-300">agent</span></div>
+<div class="text-blue-300">description<span class="text-white">:</span> <span class="text-green-300">Convert an existing prompt file into a reusable,</span></div>
+<div class="text-green-300 ml-4">auto-discoverable Copilot skill</div>
+<div class="text-purple-300">&#45;&#45;&#45;</div>
+<div class="mt-2 text-gray-300">You are a Copilot skill architect for FanHub. Your job</div>
+<div class="text-gray-300">is to convert an existing <span class="text-orange-300">.prompt.md</span> file into a</div>
+<div class="text-gray-300">well-structured, auto-discoverable skill at</div>
+<div class="text-blue-300">.github/skills/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>/SKILL.md</div>
+<div class="mt-2 text-orange-400">## Source prompt</div>
+<div class="text-gray-400">Read and fully understand</div>
+<div class="text-blue-300">.github/prompts/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>.prompt.md</div>
+<div class="text-gray-400">before proceeding. Preserve every instruction exactly.</div>
+<div class="mt-2 text-orange-400">## What to produce</div>
+<div class="mt-1 text-gray-300">1. <span class="text-white">Preserve all logic</span> — copy every instruction, step,</div>
+<div class="text-gray-400 ml-3">rule, and output format from the source exactly</div>
+<div class="mt-1 text-gray-300">2. <span class="text-white">Keyword-rich description</span> — 2–4 sentences covering</div>
+<div class="text-gray-400 ml-3">synonyms, verb forms, domain terms (verify, validate,</div>
+<div class="text-gray-400 ml-3">fact-check, canon check) and entity types</div>
+<div class="mt-1 text-gray-300">3. <span class="text-white">Trigger phrases</span> — <span class="text-orange-400">## When to use this skill</span></div>
+<div class="text-gray-400 ml-3">with ≥5 phrases as a team member would type them</div>
+<div class="mt-1 text-gray-300">4. <span class="text-white">Output template</span> — if the prompt produces structured</div>
+<div class="text-gray-400 ml-3">output, add <span class="text-orange-400">## Output template</span> section</div>
+<div class="mt-1 text-gray-300">5. <span class="text-white">MCP tool guidance</span> — if the skill queries live data,</div>
+<div class="text-gray-400 ml-3">add <span class="text-orange-400">## MCP tools</span>: get_characters, get_lore,</div>
+<div class="text-gray-400 ml-3">get_episodes, get_quotes</div>
+<div class="mt-2 text-orange-400">## Output</div>
+<div class="text-gray-400">Write the complete skill to</div>
+<div class="text-blue-300">.github/skills/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>/SKILL.md</div>
+<div class="text-gray-400">Confirm: what was preserved, what was added, and why.</div>
+</div>
+</div>
 <div class="flex flex-col gap-2">
-<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F4C4; .github/prompts/graduate-to-skill.prompt.md</div>
-<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 font-mono text-xs flex-1 select-all">
-<div class="mt-2 text-gray-300">Look at <span class="text-blue-300">.github/prompts/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>.prompt.md</span>.</div>
-<div class="mt-1 text-gray-300">Let's create a new skill at <span class="text-blue-300">.github/skills/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>/SKILL.md</span>.</div>
-<div class="mt-2 text-gray-300">The skill should:</div>
-<div class="text-gray-400">1. Preserve all logic from the prompt file</div>
-<div class="text-gray-400">2. Have a keyword-rich description so Copilot</div>
-<div class="text-gray-400 ml-3">discovers it automatically</div>
-<div class="text-gray-400">3. Include explicit trigger phrases matching</div>
-<div class="text-gray-400 ml-3">how team members ask for this task</div>
+<div class="bg-gray-900/60 rounded-xl p-2.5 border border-gray-700/50 text-xs">
+<div class="text-gray-500 uppercase tracking-widest text-xs mb-1.5">&#x25B6; Running /make-skill</div>
+
+<div class="text-gray-400 text-xs">&#x2192; Copilot reads <span class="font-mono text-green-300">check-data-accuracy.prompt.md</span>, infers trigger phrases from its content, scaffolds <span class="font-mono text-green-300">SKILL.md</span></div>
 </div>
-</div>
-<div class="flex flex-col gap-3">
-<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
-<div class="text-gray-500 uppercase tracking-widest text-xs mb-2">&#x25B6; Running /graduate-to-skill</div>
-<div class="bg-gray-800/60 rounded-lg p-2 border border-gray-600/40 font-mono text-xs mb-2">
-<div class="text-gray-500 text-xs mb-1">Which prompt to graduate?</div>
-<div class="text-white bg-blue-600/30 border border-blue-400/50 rounded px-2 py-0.5">lore-accuracy-check</div>
-</div>
-<div class="text-gray-400 text-xs">&#x2192; Copilot reads <span class="font-mono text-green-300">lore-accuracy-check.prompt.md</span>, infers trigger phrases from its content, scaffolds <span class="font-mono text-green-300">SKILL.md</span></div>
-</div>
-<div class="bg-gray-950 rounded-xl border border-purple-700/50 p-4 font-mono text-xs flex-1 select-all">
+<div class="bg-gray-950 rounded-xl border border-purple-700/50 p-3 font-mono text-xs flex-1 select-all">
 <div class="text-gray-500 mb-1 not-italic">// Generated</div>
 <div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">lore-accuracy-check</span></div>
+<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">data-accuracy-check</span></div>
 <div class="text-orange-300">description<span class="text-white">: &gt;</span></div>
 <div class="text-green-300 ml-4">Use this skill when asked to verify,</div>
-<div class="text-green-300 ml-4">validate, or fact-check lore entries.</div>
-<div class="text-green-300 ml-4">Triggers on: check lore, verify lore,</div>
-<div class="text-green-300 ml-4">fact-check, canon check, is this correct.</div>
+<div class="text-green-300 ml-4">validate, or fact-check any data entry —</div>
+<div class="text-green-300 ml-4">lore, characters, episodes, ratings.</div>
+<div class="text-green-300 ml-4">Triggers on: check data, verify entry,</div>
+<div class="text-green-300 ml-4">fact-check, accuracy check, is this correct.</div>
 <div class="text-gray-500">&#45;&#45;&#45;</div>
 <div class="text-gray-500 ml-3 mt-1">// body preserved from prompt...</div>
 </div>
-<div class="bg-blue-900/20 rounded-lg p-2.5 border border-blue-500/20 text-xs text-gray-300">
+<div class="bg-blue-900/20 rounded-lg p-2 border border-blue-500/20 text-xs text-gray-300">
 &#x1F4A1; <strong class="text-blue-300">One prompt, any graduation.</strong> Change <span class="font-mono text-yellow-300">&#36;{input:promptName}</span> to <span class="font-mono text-white">good-idea-fairy</span> and the same workflow graduates that skill instead.
 </div>
 </div>
@@ -1259,14 +1248,14 @@ The team is ready to build real skills, but blank-page setup still slows them do
 
 ---
 
-<!-- SLIDE: Exercise 5 — Lore Accuracy Check as a Skill -->
+<!-- SLIDE: Exercise 5 — Data Accuracy Check as a Skill -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-5">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">E5</div>
 <div>
 <div class="text-emerald-300 text-xs font-semibold tracking-widest uppercase">Exercise 5</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Graduate Lore-Check to a Skill</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Graduate Data-Check to a Skill</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">David &#x2B50;</span>
@@ -1275,63 +1264,65 @@ The team is ready to build real skills, but blank-page setup still slows them do
 </div>
 </div>
 <div class="relative z-10 mb-4 p-4 bg-gray-900/60 rounded-xl border-l-4 border-emerald-400 text-sm text-gray-300">
-Elena has been invoking <code class="bg-gray-800 px-1 rounded text-orange-300">/lore-accuracy-check</code> manually before every PR. David watches her do it for the third time before lunch. <em>The prompt is correct. The invocation is the problem.</em> <strong class="text-white">Embed it as a skill so Copilot reaches for it automatically &mdash; no reminder needed.</strong>
+Elena has been invoking <code class="bg-gray-800 px-1 rounded text-orange-300">/check-data-accuracy</code> manually before every PR. David watches her do it for the third time before lunch. <em>The prompt is correct. The invocation is the problem.</em> <strong class="text-white">Embed it as a skill so Copilot reaches for it automatically — no reminder needed. In Module 5, the skill's reference source upgrades from a markdown file to a live DB query via MCP.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x1F4CB; Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code class="text-emerald-300">.github/skills/lore-accuracy-check/</code> using the template from E4</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Write <code class="text-emerald-300">SKILL.md</code> &mdash; instruct Copilot when and how to apply the check</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Reference the universe file as the authority source for all lore claims</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Test: ask Copilot to generate a lore entry &mdash; does it cite the universe file automatically?</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code class="text-emerald-300">.github/skills/data-accuracy-check/</code> using <code>/make-skill-from-prompt</code></span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Review <code class="text-emerald-300">SKILL.md</code> — broad trigger phrases covering verify, validate, fact-check for any entity type</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Reference the canonical source — markdown file now, MCP DB tool when available in Module 5</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Test: ask Copilot to generate a data entry for any entity — does it cite the skill and reference automatically?</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x2705; Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> <code class="text-emerald-300">.github/skills/lore-accuracy-check/SKILL.md</code> exists</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> SKILL.md references the universe file explicitly</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Copilot cites the skill when asked to write a lore entry</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Generated lore passes the E3 accuracy-check prompt</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> <code class="text-emerald-300">.github/skills/data-accuracy-check/SKILL.md</code> exists</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Triggers fire on verify / validate / fact-check for any entity type</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Copilot cites the skill when asked to write or check any data entry</div>
 </div>
-<div class="mt-3 p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-emerald-300">David:</strong> "You just showed me what should be a skill. The prompt is correct. It&rsquo;s the invocation that&rsquo;s manual &mdash; and that&rsquo;s the part we&rsquo;re about to fix."</div>
+<div class="mt-3 p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-emerald-300">David:</strong> "The prompt checks one entity at a time. The skill makes the check available for every entity — automatically, regardless of which team member is writing the code."</div>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: &#x1F4CB; E5 &#x2014; Inside lore-accuracy-check -->
+<!-- SLIDE: &#x1F4CB; E5 &#x2014; Inside data-accuracy-check -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4CB; E5 &mdash; Inside lore-accuracy-check</span>
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4CB; E5 &mdash; Inside data-accuracy-check</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
 <div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 font-mono text-xs overflow-auto select-all">
 <div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">lore-accuracy-check</span></div>
+<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">data-accuracy-check</span></div>
 <div class="text-orange-300">description<span class="text-white">: &gt;</span></div>
 <div class="text-green-300 ml-4">Use this skill when asked to verify, validate,</div>
-<div class="text-green-300 ml-4">or fact-check a lore entry, character bio,</div>
-<div class="text-green-300 ml-4">seed data, or any Breaking Bad content.</div>
-<div class="text-green-300 ml-4">Triggers on: check lore, verify lore,</div>
-<div class="text-green-300 ml-4">fact-check, canon check, lore accuracy,</div>
-<div class="text-green-300 ml-4">is this correct, seed data accuracy.</div>
+<div class="text-green-300 ml-4">or fact-check any data entry — lore, character</div>
+<div class="text-green-300 ml-4">bios, episode records, ratings, or seed data.</div>
+<div class="text-green-300 ml-4">Triggers on: check data, verify entry,</div>
+<div class="text-green-300 ml-4">fact-check, accuracy check, is this correct,</div>
+<div class="text-green-300 ml-4">validate seed data, canon check.</div>
 <div class="text-gray-500">&#45;&#45;&#45;</div>
+<div class="mt-2 text-orange-400">## Reference sources (in priority order)</div>
+<div class="text-gray-400">1. MCP DB tool — query canonical table if available</div>
+<div class="text-gray-400">2. docs/[show]-universe.md — fallback markdown reference</div>
 <div class="mt-2 text-orange-400">## Verification process</div>
-<div class="text-gray-400">1. Read the content to check carefully</div>
-<div class="text-gray-400">2. Read relevant sections of breaking-bad-universe.md</div>
-<div class="text-gray-400">3. For each claim, find the corresponding fact</div>
-<div class="text-gray-400">4. Flag discrepancies with the exact correct info</div>
-<div class="text-gray-400">5. Note Unverifiable claims (reference has nothing)</div>
+<div class="text-gray-400">1. Infer entity type from the content being checked</div>
+<div class="text-gray-400">2. Query the appropriate canonical source</div>
+<div class="text-gray-400">3. For each factual claim, verify against source</div>
+<div class="text-gray-400">4. Flag discrepancies with exact correct information</div>
+<div class="text-gray-400">5. Note Unverifiable claims (no record in source)</div>
 <div class="text-gray-400">6. If all claims check out, confirm explicitly</div>
 </div>
 <div class="flex flex-col gap-3">
-<div class="bg-gray-900/60 rounded-xl p-4 border border-gray-700/50 flex-1">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50">
 <div class="text-emerald-400 font-semibold text-sm mb-2">&#x1F4CB; Output Format</div>
 <div class="font-mono text-xs space-y-1">
 <div class="text-orange-300">**Status**: <span class="text-gray-400">Accurate / Inaccurate /</span></div>
@@ -1341,59 +1332,18 @@ Elena has been invoking <code class="bg-gray-800 px-1 rounded text-orange-300">/
 <div class="mt-1 text-orange-300">**Verified claims**:</div>
 <div class="text-gray-400 ml-3">- facts confirmed correct</div>
 </div>
-<div class="mt-3 pt-2 border-t border-gray-700/50">
-<div class="text-xs text-gray-500 uppercase tracking-widest mb-1.5">Confidence levels</div>
-<div class="text-xs text-gray-400">&#x2023; <span class="text-white">Confirmed</span> &mdash; reference states it explicitly</div>
-<div class="text-xs text-gray-400">&#x2023; <span class="text-white">Consistent</span> &mdash; nothing contradicts it</div>
-<div class="text-xs text-gray-400">&#x2023; <span class="text-white">Unverifiable</span> &mdash; reference has no info</div>
-<div class="text-xs text-gray-400">&#x2023; <span class="text-white">Contradicted</span> &mdash; reference directly contradicts</div>
+<div class="mt-2 pt-2 border-t border-gray-700/50">
+<div class="text-xs text-gray-500 uppercase tracking-widest mb-1.5">Reference strategy</div>
+<div class="text-xs text-gray-400">&#x2023; <span class="text-cyan-300">MCP DB query</span> — live, authoritative, always current</div>
+<div class="text-xs text-gray-400">&#x2023; <span class="text-blue-300">Markdown file</span> — static fallback, good for Module 5 setup</div>
+<div class="text-xs text-gray-400">&#x2023; Copilot picks whichever is available — same skill, either source</div>
 </div>
 </div>
 <div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
-<div class="text-gray-400 italic">"A prompt is something you invoke. A skill is something Copilot already knows. That distinction is worth encoding correctly."</div>
-<div class="text-emerald-400 text-xs mt-1">&mdash; David, correcting the framing before agreeing it was a good idea</div>
+<div class="text-gray-400 italic">"The skill doesn't care which entity type you're checking. It infers from context. When MCP is live in Module 5, it queries the real table instead of reading a file — same trigger, better source."</div>
+<div class="text-emerald-400 text-xs mt-1">&mdash; David, noting the upgrade path with visible satisfaction</div>
 </div>
 </div>
-</div>
-</div>
-</div>
----
-
-<!-- SLIDE: &#x26A0; Institutional Knowledge Baked In -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x26A0; Institutional Knowledge Baked In</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 flex flex-col gap-3">
-<div class="text-xs text-gray-400">The SKILL.md includes a table of common errors Copilot watches for automatically &mdash; domain knowledge a new team member would take months to accumulate.</div>
-<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 flex-1">
-<div class="grid grid-cols-2 gap-x-6 text-xs">
-<div class="text-orange-400 font-bold uppercase tracking-wide pb-1 border-b border-gray-700/50 mb-2">&#x274C; Common mistake in seed data</div>
-<div class="text-emerald-400 font-bold uppercase tracking-wide pb-1 border-b border-gray-700/50 mb-2">&#x2705; Correct per canon</div>
-<div class="text-red-300 py-0.5">"university professor"</div>
-<div class="text-gray-300 py-0.5">High school chemistry teacher</div>
-<div class="text-red-300 py-0.5">Purity "over 99%" (vague)</div>
-<div class="text-gray-300 py-0.5">Exactly 99.1% purity</div>
-<div class="text-red-300 py-0.5">Blue color from the synthesis method</div>
-<div class="text-gray-300 py-0.5">Cooking impurity in the P2P/methylamine method</div>
-<div class="text-red-300 py-0.5">Jesse as Walt's "friend" early on</div>
-<div class="text-gray-300 py-0.5">Former student, small-time dealer &mdash; not a friend</div>
-<div class="text-red-300 py-0.5">Gus Fring killed by a gunshot</div>
-<div class="text-gray-300 py-0.5">Pipe bomb in Hector Salamanca's wheelchair</div>
-<div class="text-red-300 py-0.5">Hank killed by Walt</div>
-<div class="text-gray-300 py-0.5">Executed by Jack Welker &mdash; Walt tried to stop it</div>
-<div class="text-red-300 py-0.5">Jane died, Walt uninvolved</div>
-<div class="text-gray-300 py-0.5">Walt watched Jane choke and did not intervene</div>
-<div class="text-red-300 py-0.5">Mike as Gus's "bodyguard"</div>
-<div class="text-gray-300 py-0.5">Fixer / cleaner / enforcer &mdash; not a bodyguard</div>
-<div class="text-red-300 py-0.5">Saul's real name is Saul Goodman</div>
-<div class="text-gray-300 py-0.5">Real name Jimmy McGill &mdash; Saul Goodman is a pseudonym</div>
-</div>
-</div>
-<div class="bg-emerald-900/20 rounded-lg p-2.5 border border-emerald-500/20 text-xs text-gray-300">
-&#x1F4A1; <strong class="text-emerald-300">This is what a skill does that a prompt cannot.</strong> These patterns are consulted every time, automatically &mdash; no one has to remember to include them in the request.
 </div>
 </div>
 </div>
@@ -1422,11 +1372,10 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x1F4CB; Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code class="text-purple-300">.github/skills/create-card-and-page/</code> using the E4 template</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Use the M2 Lore plan as the base <code class="text-purple-300">SKILL.md</code> body</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Parameterize with <code class="text-purple-300">&#36;{input:entityName}</code> and <code class="text-purple-300">&#36;{input:entityType}</code></span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Add a <code class="text-purple-300">templates/</code> folder with starter scaffolds for each artifact type</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">5</span><span class="text-gray-300">Test: invoke for "Ratings" &mdash; plan should match the same 4&ndash;5 files as the Lore plan</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code class="text-purple-300">.github/skills/create-card-and-page/</code> using the <code>make-skill-from-prompt</code></span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Use the Lore plan from Module 2 as the base <code class="text-purple-300">SKILL.md</code> body</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Ask copilot "Can we make this better?" and iterate to improve the skill & templates</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Test: invoke for "Locations" &mdash; plan should match the same 4&ndash;5 files as the Lore plan</span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -1444,18 +1393,64 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 
 ---
 
-<!-- SLIDE: &#x1F3D7; E6 &#x2014; Inside new-card-skill -->
+<!-- SLIDE: 💬 Step 3 — Improve the Skill with Templates & Scripts -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-3 py-1 bg-gradient-to-r from-purple-600/80 to-blue-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">💬 Step 3 — Improve the Skill with Templates &amp; Scripts</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-1">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">📄 Prompt Copilot in your skill file</div>
+<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-3 font-mono text-xs flex-1 select-all">
+<div class="text-gray-300">Look at <span class="text-blue-300">.github/skills/create-card-and-page/SKILL.md</span>.</div>
+<div class="mt-2 text-gray-300">Let's improve this skill by adding:</div>
+<div class="mt-1 text-gray-400">1. A <span class="text-purple-300">templates/</span> folder with a starter</div>
+<div class="text-gray-400 ml-3">scaffold for each file the skill generates.</div>
+<div class="text-gray-400 ml-3">Use the existing Lore entity files as</div>
+<div class="text-gray-400 ml-3">reference. Replace entity-specific names</div>
+<div class="text-gray-400 ml-3">with <span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{entityName}</span> placeholders.</div>
+<div class="mt-1 text-gray-400">2. A <span class="text-purple-300">scripts/</span> folder with:</div>
+<div class="text-gray-400 ml-3">- <span class="text-green-300">check-scaffold.ps1</span> — verifies all</div>
+<div class="text-gray-400 ml-5">expected files were generated</div>
+<div class="text-gray-400 ml-3">- <span class="text-green-300">run-migration.ps1</span> — applies the</div>
+<div class="text-gray-400 ml-5">EF Core migration for the new entity</div>
+<div class="mt-2 text-gray-300">Update SKILL.md to reference both folders</div>
+<div class="text-gray-300">in the <span class="text-orange-300">## Resources</span> section.</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">🔁 Iterate until it's right</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-purple-500/30 flex-1 text-xs text-gray-300 space-y-2">
+<div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">1</span><span>Run the skill for <span class="font-mono text-white">"Ratings"</span> — does the plan reference the same files as the Lore plan? If not, describe what's missing and ask Copilot to fix the template.</span></div>
+<div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">2</span><span>Ask Copilot to run <span class="font-mono text-green-300">check-scaffold.ps1</span> after a test invocation. Let it read the errors and self-correct.</span></div>
+<div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">3</span><span>If a template generates wrong output, paste the diff and ask: <span class="italic text-gray-400">"This generated X but I expected Y — update the template."</span></span></div>
+<div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">4</span><span>Keep looping. The goal isn't a perfect first prompt — it's a skill that gets better with each round of feedback.</span></div>
+</div>
+<div class="bg-purple-900/20 rounded-lg p-2.5 border border-purple-500/20 text-xs text-gray-300">
+💡 <strong class="text-purple-300">Copilot as collaborator, not oracle.</strong> The first version of the skill will be close but not complete. Describe what's wrong, show it the output, ask it to improve. Three or four rounds gets you to production-ready.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: &#x1F3D7; E6 &#x2014; Inside create-card-and-page skill -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F3D7; E6 &mdash; Inside new-card-skill</span>
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F3D7; E6 &mdash; Inside create-card-and-page skill</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
 <div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 font-mono text-xs overflow-auto select-all">
 <div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">new-card-skill</span></div>
+<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">create-card-and-page</span></div>
 <div class="text-orange-300">description<span class="text-white">: &gt;</span></div>
 <div class="text-green-300 ml-4">Use this skill when asked to add a new</div>
 <div class="text-green-300 ml-4">entity type with a card grid page to FanHub.</div>
@@ -1476,7 +1471,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="bg-gray-900/60 rounded-xl p-4 border border-gray-700/50 flex-1">
 <div class="text-purple-400 font-semibold text-sm mb-2">&#x1F4C1; Skill Directory</div>
 <div class="font-mono text-xs text-gray-400 space-y-0.5">
-<div>.github/skills/new-card-skill/</div>
+<div>.github/skills/create-card-and-page/</div>
 <div class="ml-3">&#x251C;&#x2500;&#x2500; SKILL.md</div>
 <div class="ml-3">&#x251C;&#x2500;&#x2500; templates/</div>
 <div class="ml-6">&#x251C;&#x2500;&#x2500; BackendModel.cs</div>
@@ -1499,6 +1494,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 </div>
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: &#x1F9E9; Templates &#x2014; The Factory Floor -->
@@ -1557,6 +1553,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 </div>
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: &#x1F504; 9 Steps, 3 Scripts -->
@@ -1633,6 +1630,51 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: ▶ Running new-card-skill for Locations -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-purple-600/80 to-blue-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">▶ Running new-card-skill for Locations</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-4 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">💬 Invoke the skill</div>
+<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 text-xs flex-1">
+<div class="text-gray-400 mb-3 italic">Ask Copilot in any file — it picks up the skill automatically:</div>
+<div class="bg-gray-800/60 rounded-lg p-3 border border-purple-500/30 text-gray-200 font-mono leading-relaxed">
+<span class="text-purple-300">Add a new Locations entity to FanHub.</span><br/>
+<span class="text-gray-400">Entity: Location</span><br/>
+<span class="text-gray-400">Properties: Name, Description, Address</span><br/>
+<span class="text-gray-400">Nav label: "Locations"</span><br/>
+<span class="text-gray-400">Icon: 📍</span><br/>
+<span class="text-gray-400">Seed: breaking-bad-universe.md</span>
+</div>
+<div class="mt-3 text-gray-500 text-xs italic">Or just say <span class="text-purple-300 font-mono not-italic">"add a Locations card to FanHub"</span> — the skill triggers and asks for what it needs.</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">📋 Expected output</div>
+<div class="bg-gray-900/60 rounded-xl border border-gray-700/50 p-4 text-xs flex-1 space-y-2">
+<div class="text-gray-400 font-semibold mb-1">Copilot generates a scoped plan covering:</div>
+<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Backend/Models/Location.cs</span></div>
+<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Backend/Controllers/LocationController.cs</span></div>
+<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Frontend/Models/Location.cs</span></div>
+<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Components/LocationStatCard.razor</span></div>
+<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Components/LocationNavCard.razor</span></div>
+<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Pages/Locations.razor</span></div>
+<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300">DbContext entry + EF migration + seed data</span></div>
+<div class="mt-2 pt-2 border-t border-gray-700/50 text-gray-400 italic">Same 9-step plan as Lore and Ratings — just with <span class="font-mono text-green-300 not-italic">Location</span> everywhere <span class="font-mono text-gray-400 not-italic">Lore</span> was.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 ---
 
 <!-- SLIDE: Compounding Value -->
@@ -1690,6 +1732,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="mt-4 p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-center">
 <div class="text-base text-yellow-300 font-semibold">Every future feature starts with a prompt. The best ones become skills — and the whole team benefits automatically.</div>
 </div>
+
 ---
 
 <!-- SLIDE: &#x2705; Module Checklist -->
@@ -1728,8 +1771,8 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="text-emerald-300 font-bold">Encode domain knowledge</div>
 </div>
 <div class="space-y-1 text-gray-400">
-<div>&#x2022; <code class="text-gray-300">lore-accuracy-check.prompt.md</code></div>
-<div>&#x2022; Canon errors flagged, good entries pass</div>
+<div>&#x2022; <code class="text-gray-300">check-data-accuracy.prompt.md</code></div>
+<div>&#x2022; Works for any entity type, MCP-ready for Module 5</div>
 </div>
 </div>
 </div>
@@ -1748,11 +1791,11 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="p-3 rounded-2xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
 <div class="flex items-center gap-2 mb-1">
 <div class="w-6 h-6 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-xs font-bold text-emerald-300">E5</div>
-<div class="text-emerald-300 font-bold">Lore accuracy skill</div>
+<div class="text-emerald-300 font-bold">Data accuracy skill</div>
 </div>
 <div class="space-y-1 text-gray-400">
-<div>&#x2022; E3 prompt graduated to <code class="text-gray-300">lore-accuracy-check/</code></div>
-<div>&#x2022; Copilot consults universe file automatically</div>
+<div>&#x2022; E3 prompt graduated to <code class="text-gray-300">data-accuracy-check/</code></div>
+<div>&#x2022; Triggers on any entity type, MCP DB query in Module 5</div>
 </div>
 </div>
 <div class="p-3 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
@@ -1761,7 +1804,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="text-purple-300 font-bold">Card &amp; page skill</div>
 </div>
 <div class="space-y-1 text-gray-400">
-<div>&#x2022; M2 plan graduated to <code class="text-gray-300">new-card-skill/</code></div>
+<div>&#x2022; M2 plan graduated to <code class="text-gray-300">create-card-and-page skill/</code></div>
 <div>&#x2022; Any entity type scaffolded in 30 seconds</div>
 </div>
 </div>
@@ -1769,6 +1812,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="mt-3 p-2.5 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-center text-xs text-gray-300">
 Later modules get better because the team knows how to package repeatable work into invokable, trustworthy prompt and skill assets.
 </div>
+
 ---
 
 <!-- SLIDE: 📚 Keep the Foundation Evergreen -->
@@ -1846,7 +1890,7 @@ Module 3+4 Is Locked In
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I just said 'check lore' and it&hellip; did it. Automatically. With the canon citations. I didn't invoke anything. That's new."</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I just ran data-accuracy-check and it&hellip; did it. Automatically. With the canon citations. I didn't invoke anything extra. That's new."</div>
 <div class="text-xs text-gray-500">Not quite believing it worked without her asking.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
@@ -1870,7 +1914,7 @@ Module 3+4 Is Locked In
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I ran new-card-skill for Ratings, then for Themes, then for Factions. Same output every time. I opened a Hacker News tab and closed it. That's how good this is."</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I ran create-card-and-page skill for Ratings, then for Themes, then for Factions. Same output every time. I opened a Hacker News tab and closed it. That's how good this is."</div>
 <div class="text-xs text-gray-500">The highest praise: he stayed focused.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
@@ -1879,52 +1923,5 @@ Module 3+4 Is Locked In
 <div class="text-xs text-gray-200 italic leading-snug mb-2">"Skills are institutional knowledge that scales. That's not a tech story &mdash; that's a resourcing story. I'm already mapping it to Module 6."</div>
 <div class="text-xs text-gray-500">Already on the next module before this one closes.</div>
 </div>
-</div>
-</div>
----
-
-<!-- SLIDE: Reference Material -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-10 py-6">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/15 via-gray-900/40 to-red-900/15"></div>
-<div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-orange-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-red-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 text-center mb-4">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Further Reading</div>
-<h1 class="!text-3xl !font-bold bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent !mb-0">Reference Material</h1>
-<div class="text-sm text-gray-400 mt-1">Official documentation for Module 3+4 &mdash; Prompts &amp; Skills</div>
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<a href="https://code.visualstudio.com/docs/copilot/customization/prompt-files" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-orange-500/40 transition-colors no-underline">
-<div class="font-semibold text-orange-300 text-sm mb-1">Prompt Files in VS Code</div>
-<div class="text-xs text-gray-400">Complete guide to .prompt.md files, frontmatter, variables, and invocation</div>
-</a>
-<a href="https://code.visualstudio.com/docs/copilot/copilot-customization#agent-skills" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-500/40 transition-colors no-underline">
-<div class="font-semibold text-purple-300 text-sm mb-1">Agent Skills Reference</div>
-<div class="text-xs text-gray-400">SKILL.md structure, frontmatter fields, script integration, and how VS Code discovers skills</div>
-</a>
-<a href="https://code.visualstudio.com/docs/copilot/copilot-customization" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-red-500/40 transition-colors no-underline">
-<div class="font-semibold text-red-300 text-sm mb-1">Customize AI in VS Code</div>
-<div class="text-xs text-gray-400">Overview of all Copilot customization primitives &mdash; instructions, prompt files, and agent skills</div>
-</a>
-<a href="https://code.visualstudio.com/api/references/workspace-context" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-cyan-500/40 transition-colors no-underline">
-<div class="font-semibold text-cyan-300 text-sm mb-1">Workspace Context Reference</div>
-<div class="text-xs text-gray-400">All variables in prompts and skills &mdash; &#36;{input:name}, &#36;{selection}, &#36;{file}, &#36;{workspaceFolder}</div>
-</a>
-<a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-orange-500/40 transition-colors no-underline">
-<div class="font-semibold text-orange-300 text-sm mb-1">Repository Custom Instructions</div>
-<div class="text-xs text-gray-400">How copilot-instructions.md, prompt files, and skills layer together as a composable context stack</div>
-</a>
-<a href="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-red-500/40 transition-colors no-underline">
-<div class="font-semibold text-red-300 text-sm mb-1">Agent Mode in VS Code</div>
-<div class="text-xs text-gray-400">How agent mode executes multi-step tasks autonomously, invokes skills, and handles tool calls</div>
-</a>
-<a href="https://github.com/stars/aaravnavani/lists/copilot-customization" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-500/40 transition-colors no-underline">
-<div class="font-semibold text-purple-300 text-sm mb-1">Awesome Copilot &mdash; Community Prompts</div>
-<div class="text-xs text-gray-400">Community-contributed prompt and skill examples to inspire your own reusable workflows</div>
-</a>
-<a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-cyan-500/40 transition-colors no-underline">
-<div class="font-semibold text-cyan-300 text-sm mb-1">Building Copilot Extensions</div>
-<div class="text-xs text-gray-400">Going beyond skills &mdash; packaging capabilities as shareable Copilot extensions for broader distribution</div>
-</a>
 </div>
 </div>

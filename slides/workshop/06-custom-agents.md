@@ -1,4 +1,4 @@
----
+﻿---
 theme: default
 class: text-center
 highlighter: shiki
@@ -524,58 +524,18 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
       <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 text-xs font-bold border border-blue-400/30">6.1</span>
       <span class="text-xs text-gray-400">15 min</span>
     </div>
-    <div class="text-base font-bold text-blue-300 mb-2 leading-tight">Understand the Default Plan Agent</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">Study a strong built-in pattern before creating your own.</div>
+    <div class="text-base font-bold text-blue-300 mb-2 leading-tight">Study the Default Plan Agent</div>
+    <div class="text-xs text-gray-300 mb-3 leading-snug">Learn the Explore subagent pattern, tool-list-as-role-boundary, and handoff chain before building your own.</div>
     <div class="text-xs text-gray-400">Lead: All ⭐</div>
   </div>
 
-  <div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
     <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-200 text-xs font-bold border border-purple-400/30">6.2</span>
-      <span class="text-xs text-gray-400">15 min</span>
-    </div>
-    <div class="text-base font-bold text-purple-300 mb-2 leading-tight">Create Character Review Agent</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">Package the prompt, skill, and MCP workflow into one review role.</div>
-    <div class="text-xs text-gray-400">Lead: Elena ⭐</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
-    <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-200 text-xs font-bold border border-cyan-400/30">6.3</span>
-      <span class="text-xs text-gray-400">15 min</span>
-    </div>
-    <div class="text-base font-bold text-cyan-300 mb-2 leading-tight">Compose Skills: Content-Author Agent</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">Bundle <code>new-card-skill</code> + <code>lore-accuracy-check</code> — scaffold and verify in one session.</div>
-    <div class="text-xs text-gray-400">Lead: Rafael ⭐</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30">
-    <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-200 text-xs font-bold border border-orange-400/30">6.4</span>
-      <span class="text-xs text-gray-400">15 min</span>
-    </div>
-    <div class="text-base font-bold text-orange-300 mb-2 leading-tight">Create Implementation Agent</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">Give Feature Spec execution its own editing role, then hand off to review.</div>
-    <div class="text-xs text-gray-400">Lead: Sarah ⭐</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gradient-to-br from-indigo-900/40 to-gray-900/50 border border-indigo-500/30">
-    <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-200 text-xs font-bold border border-indigo-400/30">6.5</span>
-      <span class="text-xs text-gray-400">15 min</span>
-    </div>
-    <div class="text-base font-bold text-indigo-300 mb-2 leading-tight">Sharpen the Feature Spec</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">Use plan mode to audit and improve the spec before the implementation agent reads it.</div>
-    <div class="text-xs text-gray-400">Lead: David ⭐</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gradient-to-br from-emerald-900/30 to-blue-900/20 border border-emerald-500/30">
-    <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-400/30">6.6</span>
+      <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-400/30">6.2</span>
       <span class="text-xs text-gray-400">15 min</span>
     </div>
     <div class="text-base font-bold text-emerald-300 mb-2 leading-tight">Explore Agent Teams with Squad</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">End with a VS Code-first look at persistent multi-agent collaboration.</div>
+    <div class="text-xs text-gray-300 mb-3 leading-snug">See where the Explore subagent pattern goes at scale — persistent multi-agent coordination in VS Code.</div>
     <div class="text-xs text-gray-400">Lead: Marcus ⭐</div>
   </div>
 
@@ -584,20 +544,20 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <div class="mt-3 p-4 rounded-xl bg-gradient-to-br from-amber-900/40 via-orange-900/30 to-amber-900/40 border border-amber-500/40 text-left">
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 text-xs font-bold border border-amber-400/30">6.7</span>
-      <span class="text-base font-bold text-amber-300">The Show-Expert Agent</span>
-      <span class="px-2 py-0.5 bg-amber-500/20 rounded-full text-amber-200 text-[10px] border border-amber-400/30">⭐ CAPSTONE — Five Modules, One Agent, Zero Setup</span>
+      <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 text-xs font-bold border border-amber-400/30">6.3</span>
+      <span class="text-base font-bold text-amber-300">Build the @content-author Agent</span>
+      <span class="px-2 py-0.5 bg-amber-500/20 rounded-full text-amber-200 text-[10px] border border-amber-400/30">⭐ CAPSTONE — Five Modules, One Agent</span>
     </div>
     <div class="flex gap-3 text-xs text-gray-400">
       <span>Lead: All ⭐🤝</span>
-      <span>20 min</span>
+      <span>25 min</span>
     </div>
   </div>
-  <div class="mt-2 text-xs text-gray-300">Create <code>@[show]-expert</code> — bundles universe context (M1), accuracy-check standards (M3), lore skill (M4), and live MCP data (M5) into one zero-setup entry point that hands off to <code>@implement</code>.</div>
+  <div class="mt-2 text-xs text-gray-300">Create <code>@content-author</code> — wires universe context (M1), <code>create-card-and-page skill</code> (M4), <code>data-accuracy-check</code> (M3/M4), and live MCP data (M5) into one agent that adds a Quotes entity end-to-end from a single instruction.</div>
 </div>
 
 <div class="mt-4 p-3 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-  <div class="text-sm text-white font-semibold">One arc: pattern → review → spec → implementation → agent team → capstone.</div>
+  <div class="text-sm text-white font-semibold">One arc: study the pattern → explore agent teams → build the capstone.</div>
 </div>
 </div>
 
@@ -649,7 +609,7 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
-<div class="text-lg font-bold text-white">7 exercises · ~105 minutes · shared leadership</div>
+<div class="text-lg font-bold text-white">3 exercises · ~55 minutes · shared leadership</div>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
@@ -658,59 +618,27 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <span class="text-xs text-gray-500">All ⭐</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Study the pattern</div>
-<div class="text-gray-400 text-xs leading-snug">Analyze existing agents to understand the agent.md structure and conventions</div>
-</div>
-<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-purple-300 font-bold text-base">6.2</div>
-<span class="text-xs text-gray-500">Elena ⭐</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Package review</div>
-<div class="text-gray-400 text-xs leading-snug">Build a code review agent from the template with domain-specific rules</div>
-</div>
-<div class="p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-cyan-300 font-bold text-base">6.3</div>
-<span class="text-xs text-gray-500">Rafael ⭐</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Compose skills</div>
-<div class="text-gray-400 text-xs leading-snug">Bundle new-card-skill + lore-accuracy-check into one content-author agent</div>
-</div>
-<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-orange-300 font-bold text-base">6.4</div>
-<span class="text-xs text-gray-500">Sarah ⭐</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Connect delivery</div>
-<div class="text-gray-400 text-xs leading-snug">Wire a custom agent into the delivery pipeline as an automated check</div>
-</div>
-<div class="p-3 bg-indigo-900/30 rounded-lg border border-indigo-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-indigo-300 font-bold text-base">6.5</div>
-<span class="text-xs text-gray-500">David ⭐</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Sharpen the spec</div>
-<div class="text-gray-400 text-xs leading-snug">Refine agent instructions until outputs are consistent and accurate</div>
+<div class="text-gray-400 text-xs leading-snug">Explore subagent pattern, tool-list boundary, stopping rules, handoff chain</div>
 </div>
 <div class="p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/40">
 <div class="flex items-center justify-between mb-1">
-<div class="text-emerald-300 font-bold text-base">6.6</div>
+<div class="text-emerald-300 font-bold text-base">6.2</div>
 <span class="text-xs text-gray-500">Marcus ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">See the horizon</div>
-<div class="text-gray-400 text-xs leading-snug">Explore what fully customized agents unlock for your team's workflow</div>
+<div class="text-white text-xs font-semibold mb-1">Explore Squad</div>
+<div class="text-gray-400 text-xs leading-snug">See the Explore subagent pattern at scale — persistent multi-agent coordination</div>
 </div>
 <div class="p-3 bg-amber-900/30 rounded-lg border border-amber-500/40">
 <div class="flex items-center justify-between mb-1">
-<div class="text-amber-300 font-bold text-base">6.7</div>
-<span class="text-xs text-gray-500">All ⭐ capstone</span>
+<div class="text-amber-300 font-bold text-base">6.3</div>
+<span class="text-xs text-gray-500">All ⭐🤝 capstone</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Build the capstone</div>
-<div class="text-gray-400 text-xs leading-snug">Create a complete show-expert agent bundling every skill from the workshop</div>
+<div class="text-gray-400 text-xs leading-snug">Create @content-author — one agent that activates M1–M5 from a single instruction</div>
 </div>
 </div>
 <div class="relative z-10 mt-3 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
-Each exercise rotates the lead persona — everyone contributes, everyone follows.
+Study the pattern → explore what it becomes → build it yourself.
 </div>
 </div>
 
@@ -723,7 +651,7 @@ Each exercise rotates the lead persona — everyone contributes, everyone follow
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">6.1</div>
 <div>
 <div class="text-blue-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Understand the Default Plan Agent</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Study the Default Plan Agent</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">All ⭐</span>
@@ -731,23 +659,23 @@ Each exercise rotates the lead persona — everyone contributes, everyone follow
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
-Before building custom agents, the team needs a mental model for how a well-designed agent uses tools, instructions, and handoffs. <strong class="text-white">This exercise studies the default <code>@plan</code> agent so the team can borrow production-quality patterns before writing its own configurations.</strong>
+Before building a custom agent, study how the default <code>@plan</code> agent is designed — its Explore subagent, its tool list, its stopping rules. <strong class="text-white">This is where you learn to read agent configs like architecture, not just configuration files.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Study frontmatter, stopping rules, workflow, and handoffs in the default plan agent</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Identify which tools are present and which are intentionally absent</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Capture the frontmatter and workflow patterns worth reusing in team agents</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open the Plan agent file — find <code>agents: ['Explore']</code> and explain why it spawns a subagent before doing anything else</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Study the tool list — note what is <em>absent</em> (<code>edit</code>, <code>create</code>, <code>delete</code>). The only write tool is <code>vscode/memory</code> — for the plan itself, never code</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Trace the handoff chain: <code>@plan</code> → <code>Start Implementation</code>. Name the design decision each step encodes</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The team can explain how the default agent stays in role</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Key configuration concepts are clear before customization starts</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Everyone leaves with a trustworthy reference pattern to borrow from</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Can explain why Explore subagents run before planning begins</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Can name what's absent from the tool list and why that's intentional</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Can trace the full handoff chain and explain each transition</div>
 </div>
 <div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">David:</strong> "Technically, a custom agent is just a deliberate override of the default. The real question is whether we understand what we’re overriding — otherwise we’re not customizing, we’re guessing with extra steps."</div>
 </div>
@@ -785,305 +713,11 @@ Before building custom agents, the team needs a mental model for how a well-desi
 
 ---
 
-<!-- SLIDE: Character-detail review still takes repeated setup -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">6.2</div>
-<div>
-<div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Create Character Review Agent</h2>
-</div>
-<div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Elena ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 15 min</span>
-</div>
-</div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-Character-detail review still takes repeated setup unless the prompt, skill, and MCP workflow are packaged into one reusable role. <strong class="text-white">This exercise creates a read-only <code>@character-review</code> agent that reuses the established review workflow and knows when live FanHub data matters.</strong>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
-<div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create the review agent frontmatter and instructions</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Package the prompt, skill, and MCP escalation path into one reusable role</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Confirm it stays analysis-only and returns tests, edge cases, and follow-up work</span></div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Review setup overhead drops sharply</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Prompt, skill, and MCP behavior become easier to trigger consistently</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Output stays focused on tests, risks, and follow-up work</div>
-</div>
-<div class="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">💭 <strong class="text-purple-300">Elena:</strong> "Okay, but what happens when one step fails mid-workflow? If this is supposed to feel like one teammate, I need to know exactly where it can drop the baton — because it will, and I want to be the one who finds it first."</div>
-<div class="text-xs text-gray-400">One preset. Three modules of work. Zero repeated setup.</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: 📋 Example: character-review.agent.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: character-review.agent.md</span>
-</div>
-<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
-<div class="text-purple-300">---</div>
-<div class="text-blue-300">name: <span class="text-green-300">Character Review</span></div>
-<div class="text-blue-300">description: <span class="text-green-300">Review character-detail changes with prompt + skill + MCP workflow</span></div>
-<div class="text-blue-300">tools: <span class="text-orange-300">['search', 'fetch', 'usages', 'problems']</span></div>
-<div class="text-blue-300">model: <span class="text-green-300">Claude Sonnet 4</span></div>
-<div class="text-blue-300">handoffs:</div>
-<div class="pl-4 text-blue-300">- label: <span class="text-green-300">Fix Character Issues</span></div>
-<div class="pl-6 text-blue-300">agent: <span class="text-green-300">implement</span></div>
-<div class="pl-6 text-blue-300">send: <span class="text-orange-300">false</span></div>
-<div class="text-purple-300">---</div>
-<div class="mt-2 text-gray-400"># Character Review Mode</div>
-<div class="text-gray-400">Analysis only. Do not modify files.</div>
-<div class="mt-2 text-gray-400">1. Apply the character-review-prompt workflow</div>
-<div class="text-gray-400">2. Use character-change-test-workflow skill</div>
-<div class="text-gray-400">3. Consult <span class="text-cyan-300">#mcp-fanhub-db</span> if duplicate records may affect behavior</div>
-<div class="text-gray-400">4. Return tests, edge cases, cleanup, and guardrails</div>
-</div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/agents/character-review.agent.md · Prompt + skill + MCP in one read-only role</div>
-</div>
-
----
-
-<!-- SLIDE: Bundle skills: an agent that scaffolds AND verifies -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/30 flex-shrink-0">6.3</div>
-<div>
-<div class="text-cyan-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Compose Skills: The Content-Author Agent</h2>
-</div>
-<div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Rafael ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 15 min</span>
-</div>
-</div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
-Adding a new entity type to FanHub currently means two separate workflows: scaffold the full-stack feature, then separately verify every seeded record is lore-accurate. <strong class="text-white">This exercise creates a <code>@content-author</code> agent that bundles <code>new-card-skill</code> (scaffold) and <code>lore-accuracy-check</code> (verify) into one workflow — build it right and lore-correct in the same session.</strong>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
-<div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code>.github/agents/content-author.agent.md</code> with both skills referenced and full editing tools</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Use <code>@content-author</code> to add a new entity type — agent scaffolds it via <code>new-card-skill</code>, then runs <code>lore-accuracy-check</code> on every seeded record automatically</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Confirm the agent surfaces lore errors in seed data <em>before</em> the migration runs</span></div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> New entity type is scaffolded end-to-end (model → controller → Blazor page)</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> At least one lore error in seed data is caught and corrected before migration</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Both skills fired in a single agent session — no tool-switching required</div>
-</div>
-<div class="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/30 text-xs text-gray-300 italic">💭 <strong class="text-cyan-300">Rafael:</strong> "I need three new entity types this sprint and they all have to be lore-accurate. One agent. Both checks. I&#39;m not reviewing seed data manually — I&#39;m barely reviewing the output."</div>
-<div class="text-xs text-gray-400">Two skills, one session. Scaffold → verify → fix → ship.</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: 📋 Example: content-author.agent.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: content-author.agent.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 font-mono text-xs p-4 text-gray-300 overflow-auto leading-relaxed">
-<div class="text-purple-300">---</div>
-<div class="text-blue-300">name: <span class="text-green-300">Content Author</span></div>
-<div class="text-blue-300">description: <span class="text-green-300">"Add new entity types to FanHub with lore-accurate seed data"</span></div>
-<div class="text-blue-300">tools: <span class="text-orange-300">['edit', 'create', 'search', 'fetch', 'problems', 'usages']</span></div>
-<div class="text-blue-300">model: <span class="text-green-300">Claude Sonnet 4</span></div>
-<div class="text-purple-300">---</div>
-<div class="mt-2 text-gray-400"># Content Author Mode</div>
-<div class="text-gray-400">When asked to add a new entity type to FanHub:</div>
-<div class="mt-1 text-gray-400">1. Use the <span class="text-cyan-300">new-card-skill</span> to scaffold the full stack</div>
-<div class="text-gray-400">   (model → DbSet → seed → migration → controller</div>
-<div class="text-gray-400">    → frontend → Home.razor → list page)</div>
-<div class="mt-1 text-gray-400">2. Before committing seed data, run</div>
-<div class="text-gray-400">   <span class="text-amber-300">lore-accuracy-check</span> on every seeded record</div>
-<div class="mt-1 text-gray-400">3. Fix any inaccuracies identified — correct the</div>
-<div class="text-gray-400">   seed data before running the migration</div>
-<div class="mt-1 text-gray-400">4. Report: what was built, what was corrected,</div>
-<div class="text-gray-400">   what the canonical source confirmed</div>
-<div class="mt-2 text-cyan-300">// Two skills, one session</div>
-<div class="text-cyan-300">// Scaffold first, verify second, fix before commit</div>
-</div>
-<div class="flex flex-col gap-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">🔗 What this composes</div>
-<div class="p-3 bg-purple-900/20 rounded-lg border border-purple-500/20 text-xs">
-<div class="text-purple-300 font-semibold mb-1">new-card-skill</div>
-<div class="text-gray-300">Full-stack entity scaffold: backend model, DbContext, seed data, EF migration, REST controller, Blazor frontend page + Home.razor cards. 9 steps, strict order.</div>
-</div>
-<div class="p-3 bg-amber-900/20 rounded-lg border border-amber-500/20 text-xs">
-<div class="text-amber-300 font-semibold mb-1">lore-accuracy-check</div>
-<div class="text-gray-300">Verifies every fact in the seed data against <code>docs/breaking-bad-universe.md</code> — catches "university professor" vs "high school chemistry teacher" before it ships.</div>
-</div>
-<div class="p-3 bg-cyan-900/20 rounded-lg border border-cyan-500/20 text-xs">
-<div class="text-cyan-300 font-semibold mb-1">Why compose them in an agent?</div>
-<div class="text-gray-300">Either skill is useful standalone. Together in one agent, scaffold quality and lore accuracy become a single workflow — <span class="text-white font-semibold">the agent enforces the pairing so it can&#39;t be skipped.</span></div>
-</div>
-<div class="p-2 rounded-lg bg-gradient-to-r from-cyan-900/30 to-teal-900/20 border border-cyan-500/20 text-xs text-gray-400">
-📁 .github/agents/content-author.agent.md
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Even with a strong specification, implementation c -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">6.3</div>
-<div>
-<div class="text-orange-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Create Implementation Agent for Feature Spec Execution</h2>
-</div>
-<div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Sarah ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 15 min</span>
-</div>
-</div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-sm text-gray-300">
-Even with a strong specification, implementation can become ad hoc, incomplete, or out of order if the workflow is not packaged well. <strong class="text-white">This exercise creates an implementation agent that reads Feature Specs, executes in a sensible order, and hands off directly into character review when done.</strong>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
-<div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Define editing tools, implementation instructions, and the handoff boundary</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Test the agent against a feature Feature Spec that changes the character experience</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Confirm the implementation flow is systematic and ends in review by default</span></div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Completeness improves versus manual implementation</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Execution order becomes more reliable</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Character-review handoff becomes part of the default path</div>
-</div>
-<div class="mt-4 p-3 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">💭 <strong class="text-orange-300">Sarah:</strong> "Review as an afterthought has a cost. We just never measure it. If this makes it structural, show me the before/after on escape defects — that’s the number I actually care about."</div>
-<div class="text-xs text-gray-400">Agents make review part of delivery, not an afterthought.</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: 📋 Example: implement.agent.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: implement.agent.md</span>
-</div>
-<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
-<div class="text-purple-300">---</div>
-<div class="text-blue-300">name: <span class="text-green-300">Implement</span></div>
-<div class="text-blue-300">description: <span class="text-green-300">Implement features from Feature Specs with full editing capabilities</span></div>
-<div class="text-blue-300">tools: <span class="text-orange-300">['edit', 'create', 'delete', 'search', 'fetch', 'githubRepo', 'usages', 'problems']</span></div>
-<div class="text-blue-300">model: <span class="text-green-300">Claude Sonnet 4</span></div>
-<div class="text-blue-300">handoffs:</div>
-<div class="pl-4 text-blue-300">- label: <span class="text-green-300">Review Character Change</span></div>
-<div class="pl-6 text-blue-300">agent: <span class="text-green-300">character-review</span></div>
-<div class="pl-6 text-blue-300">send: <span class="text-orange-300">false</span></div>
-<div class="text-purple-300">---</div>
-<div class="mt-2 text-gray-400"># Implementation Mode</div>
-<div class="text-gray-400">Read the Feature Spec. Plan execution order.</div>
-<div class="text-gray-400">Implement: database → backend → frontend → tests</div>
-<div class="text-gray-400">Handoff to @character-review when complete.</div>
-<div class="mt-2 text-cyan-300">// Feature Spec is the source of truth — implement everything it specifies</div>
-</div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/agents/implement.agent.md · Full editing tools + Feature Spec-driven workflow + handoff to review</div>
-</div>
-
----
-
-<!-- SLIDE: Exercise 6.4 — Sharpen the Feature Spec -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-indigo-500/30 flex-shrink-0">6.4</div>
-<div>
-<div class="text-indigo-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Sharpen the Feature Spec for the Implementation Agent</h2>
-</div>
-<div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">David ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 15 min</span>
-</div>
-</div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-indigo-400 text-sm text-gray-300">
-<strong class="text-white">Great implementation needs a great spec.</strong> Use <code>@plan</code> to improve <code></code>, with real context to produce a spec the <code>@implement</code> agent can execute without guessing.
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
-<div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-indigo-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300"><code>/plan Improve fanhub/docs/FEATURE-CHARACTER-DETAIL.md using mcp, skills and architecture.md.</code></span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-indigo-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Let plan mode research the codebase to resolve ambiguous sections and fill missing details</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-indigo-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Save the improved spec, then run <code>/implement</code> — compare results against using the original</span></div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The spec has concrete API shapes, migration details, and test expectations</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Ambiguous sections are resolved with actual codebase evidence</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> <code>/implement</code> produces more complete, reliable results from the improved spec</div>
-</div>
-<div class="mt-4 p-3 bg-indigo-900/30 rounded-lg border border-indigo-500/30 text-xs text-gray-300 italic">💭 <strong class="text-indigo-300">David:</strong> "Technically, ambiguity in the spec is just ambiguity in the output with extra latency. Plan mode doesn’t fix a bad spec — it surfaces the gaps before they become load-bearing implementation decisions. That distinction matters."</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: 📋 Example: @plan improving FEATURE-CHARACTER-DETA -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: @plan improving FEATURE-CHARACTER-DETAIL.md</span>
-</div>
-<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
-<div class="text-gray-400"># @plan — review FEATURE-CHARACTER-DETAIL.md for implementation readiness</div>
-<div class="mt-2 text-orange-300">## Gaps identified:</div>
-<div class="mt-1 text-gray-400">❌ API response shape not specified — searched routes/characters.js</div>
-<div class="pl-4 text-green-300">✓ Added: GET /api/characters/:id returns { id, name, displayName, bio, imageUrl, status }</div>
-<div class="mt-1 text-gray-400">❌ Database migration missing — inspected schema/characters.sql</div>
-<div class="pl-4 text-green-300">✓ Added: ALTER TABLE characters ADD COLUMN status VARCHAR(20) DEFAULT 'active'</div>
-<div class="mt-1 text-gray-400">❌ Test expectations vague — cross-referenced existing test patterns</div>
-<div class="pl-4 text-green-300">✓ Added: unit test for null displayName fallback, integration test for 404 on unknown id</div>
-<div class="mt-2 text-cyan-300">// Spec: 3 pages → 5 pages with concrete, verifiable requirements</div>
-<div class="text-cyan-300">// @implement can now execute without interpretation gaps</div>
-</div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 fanhub/docs/FEATURE-CHARACTER-DETAIL.md · Plan mode turns a design doc into an implementation contract</div>
-</div>
-
----
-
 <!-- SLIDE: Single custom agents solve focused workflow proble -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">6.5</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">6.2</div>
 <div>
 <div class="text-emerald-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
 <h2 class="!text-2xl !font-bold text-white !m-0">Explore Agent Teams with Squad</h2>
@@ -1145,101 +779,97 @@ Single custom agents solve focused workflow problems, but it is still hard to pi
 ---
 
 
-<!-- SLIDE: Exercise 6.6 — The Show-Expert Agent (Capstone) -->
+<!-- SLIDE: Exercise 6.3 — Build the @content-author Agent (Capstone) -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-amber-900/25 via-yellow-900/10 to-orange-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/20 to-transparent rounded-full blur-3xl"></div>
 <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-orange-500/20 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">6.6</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">6.3</div>
 <div>
 <div class="flex items-center gap-2">
 <div class="text-amber-300 text-xs font-semibold tracking-widest uppercase">Exercise · CAPSTONE</div>
 <span class="px-2 py-0.5 bg-gradient-to-r from-amber-500/30 to-orange-500/30 rounded-full text-amber-200 text-[10px] font-bold border border-amber-400/40">⭐ Five Modules, One Agent</span>
 </div>
-<h2 class="!text-2xl !font-bold text-white !m-0">The Show-Expert Agent</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Build the @content-author Agent</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">All ⭐🤝</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 20 min</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 25 min</span>
 </div>
 </div>
 <div class="relative z-10 mb-4 p-4 bg-gray-900/60 rounded-xl border-l-4 border-amber-400 text-sm text-gray-300">
-Starting a session still means reconstructing context — universe file, lore skill, MCP, accuracy-check prompt — <em>every time</em>. <strong class="text-white">This capstone creates <code>@[show]-expert</code>: a single agent that bundles every show-specific capability from all five modules into one zero-setup entry point that hands off to <code>@implement</code>.</strong>
+Every prior module built a reusable piece. <strong class="text-white">This capstone wires them together: one agent, one instruction — "Add a Quotes entity to FanHub with 5 iconic lines" — and every module's investment pays off in a single session.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">📋 Steps</div>
 <div class="space-y-1.5 text-xs">
-<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code>.github/agents/[show]-expert.agent.md</code> with <code>mode: ask</code>, lore skill reference, and MCP server</span></div>
-<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Add <code>handoffs</code> block passing to <code>@implement</code> when content changes are ready to apply</span></div>
-<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Run all 4 scenarios: lore query, accuracy error catch, MCP + canon cross-check, constrained generation</span></div>
-<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Debrief: map each scenario to the module that enabled it — every participant fills in the table</span></div>
+<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code>.github/agents/content-author.agent.md</code> with full editing tools, <code>agents: ['Explore']</code>, and the fanhub-db MCP server</span></div>
+<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Write instructions: check universe doc, query MCP, invoke <code>create-card-and-page skill</code>, run <code>data-accuracy-check</code> on every seeded record before migration</span></div>
+<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Run: <em>"Add a Quotes entity to FanHub — seed it with 5 iconic Breaking Bad lines"</em> and let the agent work</span></div>
+<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Debrief: for each thing the agent did, name the module that made it possible</span></div>
 </div>
 </div>
 <div class="space-y-2">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">✅ Success Criteria</div>
 <div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Session setup time drops from 4+ min to ~0</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Agent catches the seeded bio error and cites the lore resource it drew from</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Agent queries MCP and evaluates against canon in a single turn</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Agent refuses code edits and redirects to <code>@implement</code></div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Every participant names the module behind each scenario</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Quote entity scaffolded end-to-end (model → controller → Blazor page)</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The <code>data-accuracy-check</code> skill catches the planted misattribution before migration</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Every participant names the module behind each action the agent took</div>
 </div>
-<div class="mt-3 p-3 bg-amber-900/30 rounded-lg border border-amber-500/30 text-xs text-gray-300 italic">💭 <strong class="text-amber-300">Sarah:</strong> "This is what five modules of progressive customization feels like when it snaps together. Everything we built is in here — and it just knows."</div>
+<div class="mt-3 p-3 bg-amber-900/30 rounded-lg border border-amber-500/30 text-xs text-gray-300 italic">💭 <strong class="text-amber-300">Sarah:</strong> "One instruction. It checked the canon, checked the live data, scaffolded the whole stack, and caught an attribution error before it shipped. Five modules of work paid for itself in this session."</div>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: 📋 Example: [show]-expert.agent.md — the capstone config -->
+<!-- SLIDE: 📋 Example: content-author.agent.md — the capstone config -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: [show]-expert.agent.md</span>
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: content-author.agent.md</span>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div class="bg-gray-950/80 rounded-xl border border-amber-500/30 font-mono text-xs p-4 text-gray-300 overflow-auto leading-relaxed">
 <div class="text-purple-300">---</div>
-<div class="text-blue-300">name: <span class="text-green-300">breaking-bad-expert</span></div>
-<div class="text-blue-300">description: <span class="text-green-300">"Expert in Breaking Bad canon, FanHub accuracy, and content review"</span></div>
-<div class="text-blue-300">tools:</div>
-<div class="pl-4 text-blue-300">- type: <span class="text-orange-300">skill</span></div>
-<div class="pl-6 text-blue-300">path: <span class="text-green-300">.github/skills/breaking-bad-lore</span></div>
-<div class="pl-4 text-blue-300">- type: <span class="text-orange-300">mcp</span></div>
-<div class="pl-6 text-blue-300">server: <span class="text-green-300">fanhub-db</span></div>
-<div class="text-blue-300">mode: <span class="text-orange-300">ask</span></div>
+<div class="text-blue-300">name: <span class="text-green-300">Content Author</span></div>
+<div class="text-blue-300">description: <span class="text-green-300">"Add new FanHub entities end-to-end — scaffold, validate, implement"</span></div>
+<div class="text-blue-300">tools: <span class="text-orange-300">['edit', 'create', 'search', 'read', 'fetch', 'usages', 'problems', 'agent']</span></div>
+<div class="pl-8 text-orange-300">  <span class="text-gray-500"># + fanhub-db MCP tools from M5</span></div>
+<div class="text-blue-300">agents: <span class="text-orange-300">['Explore']</span></div>
 <div class="text-blue-300">handoffs:</div>
-<div class="pl-4 text-blue-300">- agent: <span class="text-green-300">implement</span></div>
-<div class="pl-6 text-blue-300">label: <span class="text-green-300">"Apply this to FanHub"</span></div>
-<div class="pl-6 text-blue-300">prompt: <span class="text-green-300">"Implement the recommended content changes."</span></div>
+<div class="pl-4 text-blue-300">- label: <span class="text-green-300">Review Changes</span></div>
+<div class="pl-6 text-blue-300">  agent: <span class="text-green-300">security-review</span></div>
+<div class="pl-6 text-blue-300">  send: <span class="text-orange-300">false</span></div>
 <div class="text-purple-300">---</div>
-<div class="mt-2 text-gray-400"># No code edits. Redirects to @implement.</div>
-<div class="mt-1 text-amber-300">// mode: ask = read-only, analysis only</div>
-<div class="text-amber-300">// tools: skill + mcp = M4 lore + M5 live data</div>
-<div class="text-amber-300">// handoff = M6 agent-to-agent transition</div>
+<div class="mt-2 text-gray-400"># Content Author Mode</div>
+<div class="text-gray-400">When asked to add a new entity type to FanHub:</div>
+<div class="mt-1 text-gray-400">1. Check <span class="text-cyan-300">docs/breaking-bad-universe.md</span> for canon facts</div>
+<div class="text-gray-400">2. Query fanhub-db MCP for existing patterns</div>
+<div class="text-gray-400">3. Use <span class="text-amber-300">create-card-and-page skill</span> to scaffold the full stack</div>
+<div class="text-gray-400">4. Run <span class="text-amber-300">data-accuracy-check</span> on every seeded record</div>
+<div class="text-gray-400">5. Follow <span class="text-cyan-300">.github/copilot-instructions.md</span> throughout</div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">🔗 What this bundles</div>
 <div class="space-y-2 text-xs">
-<div class="p-2.5 bg-blue-900/20 rounded-lg border border-blue-500/20"><span class="text-blue-300 font-semibold">Module 1</span> <span class="text-gray-300">— universe context in <code>docs/[show]-universe.md</code></span></div>
-<div class="p-2.5 bg-orange-900/20 rounded-lg border border-orange-500/20"><span class="text-orange-300 font-semibold">Module 3</span> <span class="text-gray-300">— accuracy-check standards from <code>prompts/</code></span></div>
-<div class="p-2.5 bg-purple-900/20 rounded-lg border border-purple-500/20"><span class="text-purple-300 font-semibold">Module 4</span> <span class="text-gray-300">— lore skill: characters, seasons, canon-facts</span></div>
+<div class="p-2.5 bg-blue-900/20 rounded-lg border border-blue-500/20"><span class="text-blue-300 font-semibold">Module 1</span> <span class="text-gray-300">— universe context + coding standards from <code>copilot-instructions.md</code></span></div>
+<div class="p-2.5 bg-orange-900/20 rounded-lg border border-orange-500/20"><span class="text-orange-300 font-semibold">Module 3/4</span> <span class="text-gray-300">— <code>data-accuracy-check</code> validates seed data before migration</span></div>
+<div class="p-2.5 bg-purple-900/20 rounded-lg border border-purple-500/20"><span class="text-purple-300 font-semibold">Module 4</span> <span class="text-gray-300">— <code>create-card-and-page skill</code> scaffolds full stack: model → controller → Blazor page</span></div>
 <div class="p-2.5 bg-cyan-900/20 rounded-lg border border-cyan-500/20"><span class="text-cyan-300 font-semibold">Module 5</span> <span class="text-gray-300">— live FanHub data via <code>fanhub-db</code> MCP server</span></div>
-<div class="p-2.5 bg-amber-900/20 rounded-lg border border-amber-500/30"><span class="text-amber-300 font-semibold">Module 6</span> <span class="text-gray-300">— agent config, <code>mode: ask</code>, handoff to <code>@implement</code></span></div>
 </div>
 <div class="mt-3 p-3 bg-gray-900/50 rounded-lg border border-amber-500/20 text-xs text-gray-300">
-<div class="text-amber-300 font-semibold mb-1">4 min setup → 0 min setup</div>
-<div>4 min avg × 3 sessions/day × 20 days/sprint = <span class="text-white font-bold">240 min/sprint</span> in setup overhead eliminated.</div>
+<div class="text-amber-300 font-semibold mb-1">The planted error makes it concrete</div>
+<div>One seeded quote has a wrong episode attribution. Without the agent, it ships. The <code>data-accuracy-check</code> skill catches it — before migration runs.</div>
 </div>
 </div>
 </div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/agents/[show]-expert.agent.md · Five modules, one entry point, zero repeated setup</div>
+<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/agents/content-author.agent.md · Five modules of investment. One instruction. One session.</div>
 </div>
 
 ---
-
 <!-- SLIDE: ✅ Module Checklist -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
@@ -1247,73 +877,36 @@ Starting a session still means reconstructing context — universe file, lore sk
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="mt-2 p-3 bg-gradient-to-r from-orange-900/25 via-purple-900/20 to-blue-900/15 rounded-2xl border border-white/10 text-center">
-<div class="text-base text-white font-semibold mb-0.5">By the end of Module 6, the team has a real character-agent workflow.</div>
-<div class="text-xs text-gray-300">Not just agent files. A review role, an implementation role, a handoff between them, and a clear sense of what comes next.</div>
+<div class="text-base text-white font-semibold mb-0.5">By the end of Module 6, the team understands how agents are designed — and has built one.</div>
+<div class="text-xs text-gray-300">Three exercises. One arc: study the pattern → explore where it goes → build it yourself.</div>
 </div>
 <div class="grid grid-cols-3 gap-2 mt-3 text-left text-sm">
 <div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
 <div class="flex items-center gap-2 mb-2">
-<div class="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sm">��</div>
+<div class="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sm">🧠</div>
 <div>
 <div class="text-blue-300 font-bold text-xs">Study the pattern</div>
 <div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.1</div>
 </div>
 </div>
 <div class="space-y-1 text-gray-300 text-xs">
-<div>• Learn how a production agent stays in role</div>
-<div>• Borrow the strongest frontmatter ideas</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-sm">🧪</div>
-<div>
-<div class="text-purple-300 font-bold text-xs">Package review</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.2</div>
-</div>
-</div>
-<div class="space-y-1 text-gray-300 text-xs">
-<div>• Prompt + skill + MCP into one review role</div>
-<div>• Make character review instant and repeatable</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/30 shadow-lg shadow-orange-900/20">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-7 h-7 rounded-lg bg-orange-500/20 border border-orange-400/30 flex items-center justify-center text-sm">🛠️</div>
-<div>
-<div class="text-orange-300 font-bold text-xs">Connect delivery</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.3</div>
-</div>
-</div>
-<div class="space-y-1 text-gray-300 text-xs">
-<div>• Build from the Feature Spec with full tools</div>
-<div>• Hand off into review when implementation ends</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-indigo-900/40 to-gray-900/50 border border-indigo-500/30 shadow-lg shadow-indigo-900/20">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-7 h-7 rounded-lg bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-sm">📋</div>
-<div>
-<div class="text-indigo-300 font-bold text-xs">Sharpen the spec</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.4</div>
-</div>
-</div>
-<div class="space-y-1 text-gray-300 text-xs">
-<div>• Use plan mode to audit the Feature Spec</div>
-<div>• Fill gaps with real codebase context</div>
+<div>• Explore subagent pattern — parallel research before planning</div>
+<div>• Tool list as role boundary — what's absent is intentional</div>
+<div>• Handoff chain: @plan → implementation</div>
 </div>
 </div>
 <div class="p-3 rounded-xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30 shadow-lg shadow-emerald-900/20">
 <div class="flex items-center gap-2 mb-2">
 <div class="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-sm">🚀</div>
 <div>
-<div class="text-emerald-300 font-bold text-xs">See the horizon</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.5</div>
+<div class="text-emerald-300 font-bold text-xs">Explore Squad</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.2</div>
 </div>
 </div>
 <div class="space-y-1 text-gray-300 text-xs">
-<div>• Install Squad and initialize a persistent team</div>
-<div>• See what multi-agent collaboration could become</div>
+<div>• The Explore pattern at team scale</div>
+<div>• Persistent multi-agent coordination in VS Code</div>
+<div>• Difference between a workflow preset and an agent team</div>
 </div>
 </div>
 <div class="p-3 rounded-xl bg-gradient-to-br from-amber-900/40 to-gray-900/50 border border-amber-500/40 shadow-lg shadow-amber-900/20">
@@ -1321,71 +914,29 @@ Starting a session still means reconstructing context — universe file, lore sk
 <div class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-sm">⭐</div>
 <div>
 <div class="text-amber-300 font-bold text-xs">Build the capstone</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.6</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider" style="font-size:0.6rem">Exercise 6.3</div>
 </div>
 </div>
 <div class="space-y-1 text-gray-300 text-xs">
-<div>• Bundle all 5 modules into one expert agent</div>
-<div>• Zero-setup show knowledge, all modules compounding</div>
+<div>• @content-author wires M1–M5 in one agent</div>
+<div>• Quotes entity scaffolded + validated in one instruction</div>
+<div>• Every participant names the module behind each action</div>
 </div>
 </div>
 </div>
 <div class="mt-3 grid grid-cols-2 gap-3">
 <div class="p-3 rounded-xl bg-gray-900/60 border border-white/10 text-left">
 <div class="text-xs font-bold text-white mb-1">What good looks like</div>
-<div class="text-xs text-gray-300">Review, implementation, spec sharpening, Squad, and a capstone expert agent — six exercises that turn separate customizations into a complete operating model.</div>
+<div class="text-xs text-gray-300">The team can read an agent config like architecture — and can write one that composes everything they've built since Module 1.</div>
 </div>
 <div class="p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-left">
 <div class="text-xs font-bold text-white mb-1">Why this matters</div>
-<div class="text-xs text-gray-300">Module 6 is where the earlier customizations stop feeling like parts and start feeling like an operating model the team can actually use.</div>
+<div class="text-xs text-gray-300">Module 6 is where earlier investments — instructions, prompts, skills, MCP — stop feeling like separate tools and start working as a coordinated system.</div>
 </div>
 </div>
 </div>
 
 ---
-
-<!-- SLIDE: 📚 Keep the Foundation Evergreen -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 Keep the Foundation Evergreen</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div><div class="mt-4 p-5 bg-gradient-to-r from-blue-900/25 via-purple-900/25 to-orange-900/20 rounded-2xl border border-white/10 text-center">
-<div class="text-lg font-bold text-white">The capstone: make the whole system discoverable.</div>
-<div class="text-sm text-gray-300 mt-2">Update <span class="font-mono text-blue-200">ARCHITECTURE.md</span> and <span class="font-mono text-purple-200">.github/copilot-instructions.md</span> to document the full agent system — the team's guide to their own AI workflow.</div>
-</div><div class="grid grid-cols-2 gap-5 mt-4 text-left">
-<div class="p-5 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30 shadow-lg shadow-blue-900/20">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-lg">🏗️</div>
-<div>
-<div class="text-blue-300 font-bold">Document the agent system</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">ARCHITECTURE.md</div>
-</div>
-</div>
-<div class="text-sm text-gray-300 space-y-2">
-<div>Add an agents section: each agent's role, tool access, handoff patterns, and how they compose with skills and MCP.</div>
-<div class="text-blue-200">New team members should be able to read this and understand the full AI workflow at a glance.</div>
-</div>
-</div>
-<div class="p-5 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/30 shadow-lg shadow-purple-900/20">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-lg">🧭</div>
-<div>
-<div class="text-purple-300 font-bold">Make instructions a workflow guide</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">copilot-instructions.md</div>
-</div>
-</div>
-<div class="text-sm text-gray-300 space-y-2">
-<div>Map each common task to the right agent — which to use for review, implementation, planning, and show-expert queries.</div>
-<div class="text-purple-200">Instructions that say "use @character-review for X" are 10× more useful than generic guidance.</div>
-</div>
-</div>
-</div><div class="mt-4 p-4 rounded-xl bg-gray-900/60 border border-white/10 text-center">
-<div class="text-sm text-yellow-300 font-semibold">Six modules of work only compounds if the team can find and use what they built.</div>
-</div>
-</div>
-
----
-
 <!-- SLIDE: Module 6 Is Locked In -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
@@ -1404,46 +955,30 @@ Module 6 Is Locked In
 🌐 Congratulations!
 </span>
 </div>
-<div class="relative z-10 grid grid-cols-3 gap-3 max-w-6xl w-full px-6 mb-4">
+<div class="relative z-10 grid grid-cols-3 gap-3 max-w-5xl w-full px-6 mb-4">
 <div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/20 rounded-xl border border-blue-500/30 text-center">
 <div class="text-xl mb-1">🧠</div>
 <div class="text-blue-300 font-bold text-sm">You Studied the Pattern</div>
-<div class="text-gray-400 text-xs mt-1">The default <code>@plan</code> agent gave you a production reference point</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/20 rounded-xl border border-purple-500/30 text-center">
-<div class="text-xl mb-1">🧪</div>
-<div class="text-purple-300 font-bold text-sm">You Packaged Review</div>
-<div class="text-gray-400 text-xs mt-1">Character review now bundles the prompt, skill, and MCP-aware workflow</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-orange-900/40 to-orange-800/20 rounded-xl border border-orange-500/30 text-center">
-<div class="text-xl mb-1">🛠️</div>
-<div class="text-orange-300 font-bold text-sm">You Connected Delivery</div>
-<div class="text-gray-400 text-xs mt-1">Implementation and review now meet through a deliberate handoff</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/20 rounded-xl border border-indigo-500/30 text-center">
-<div class="text-xl mb-1">📋</div>
-<div class="text-indigo-300 font-bold text-sm">You Sharpened the Spec</div>
-<div class="text-gray-400 text-xs mt-1">Plan mode turned a design doc into an implementation contract</div>
+<div class="text-gray-400 text-xs mt-1">Explore subagents, tool boundaries, stopping rules, and handoff chains — read as architecture</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-emerald-900/40 to-emerald-800/20 rounded-xl border border-emerald-500/30 text-center">
 <div class="text-xl mb-1">🚀</div>
-<div class="text-emerald-300 font-bold text-sm">You Saw the Horizon</div>
-<div class="text-gray-400 text-xs mt-1">Squad showed what agent workflows might become at a team scale</div>
+<div class="text-emerald-300 font-bold text-sm">You Explored the Horizon</div>
+<div class="text-gray-400 text-xs mt-1">Squad showed what agent workflows become when they're persistent, named, and coordinated</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-amber-900/40 to-amber-800/20 rounded-xl border border-amber-500/40 text-center ring-1 ring-amber-400/30">
 <div class="text-xl mb-1">⭐</div>
 <div class="text-amber-300 font-bold text-sm">You Built the Capstone</div>
-<div class="text-gray-400 text-xs mt-1">Five modules of expertise bundled into one zero-setup expert agent</div>
+<div class="text-gray-400 text-xs mt-1">@content-author activated five modules of investment from a single instruction</div>
 </div>
 </div>
 <div class="relative z-10 text-base text-gray-200 max-w-4xl px-10 mb-6 leading-snug text-center">
-Module 6 is where the earlier customizations stop feeling like parts and start feeling like an operating model. <span class="text-white font-semibold">From here, the team is ready to explore how those workflows extend beyond the core editor experience.</span>
+Module 6 is where the earlier customizations stop feeling like parts and start feeling like an operating model. <span class="text-white font-semibold">The team built something that compounds across every sprint from here.</span>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
 </div>
 
 ---
-
 <!-- SLIDE: 💭 The Team, After Module 6 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
@@ -1465,7 +1000,7 @@ Module 6 is where the earlier customizations stop feeling like parts and start f
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The show-expert agent produced better content than the prompts we&#39;d been iterating on for three modules. First pass."</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"The content-author agent scaffolded the whole stack and caught an attribution error before migration. First pass. That&#39;s what five modules feels like when it&#39;s working."</div>
 <div class="text-xs text-gray-500">Better first draft than three modules of iteration.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
@@ -1483,47 +1018,5 @@ Module 6 is where the earlier customizations stop feeling like parts and start f
 <div class="text-xs text-gray-200 italic leading-snug mb-2">"One agent deployment covers every future content task for this feature. That&#39;s not velocity — that&#39;s leverage."</div>
 <div class="text-xs text-gray-500">Leverage that compounds across every sprint.</div>
 </div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Reference Material -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-10 py-6">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/15 via-gray-900/40 to-cyan-900/15"></div>
-<div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-
-<div class="relative z-10 text-center mb-5">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Further Reading</div>
-<h1 class="!text-3xl !font-bold bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent !mb-0">Reference Material</h1>
-<div class="text-sm text-gray-400 mt-1">Official documentation for Module 6 — Custom Agents</div>
-</div>
-
-<div class="relative z-10 grid grid-cols-2 gap-3">
-<a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-indigo-500/40 transition-colors no-underline">
-<div class="font-semibold text-indigo-300 text-sm mb-1">Custom Agents in VS Code</div>
-<div class="text-xs text-gray-400">Defining agent modes with .agent.md files, tool constraints, and handoffs</div>
-</a>
-<a href="https://code.visualstudio.com/docs/copilot/agents/subagents" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-blue-500/40 transition-colors no-underline">
-<div class="font-semibold text-blue-300 text-sm mb-1">Subagents Documentation</div>
-<div class="text-xs text-gray-400">Orchestrating work across multiple specialized agents</div>
-</a>
-<a href="https://code.visualstudio.com/docs/copilot/agents/overview" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-cyan-500/40 transition-colors no-underline">
-<div class="font-semibold text-cyan-300 text-sm mb-1">Agents Overview in VS Code</div>
-<div class="text-xs text-gray-400">Architecture of agent mode, modes, tool access, and skill integration</div>
-</a>
-<a href="https://agents.md/" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-indigo-500/40 transition-colors no-underline">
-<div class="font-semibold text-indigo-300 text-sm mb-1">AGENTS.md Open Format</div>
-<div class="text-xs text-gray-400">Cross-agent playbook convention for sharing agent instructions</div>
-</a>
-<a href="https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-blue-500/40 transition-colors no-underline">
-<div class="font-semibold text-blue-300 text-sm mb-1">Managing Copilot in Your Organization</div>
-<div class="text-xs text-gray-400">Governing agent configurations and policies at scale</div>
-</a>
-<a href="https://docs.github.com/en/rest/copilot/copilot-metrics" target="_blank" class="block p-3 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-cyan-500/40 transition-colors no-underline">
-<div class="font-semibold text-cyan-300 text-sm mb-1">Copilot Metrics REST API</div>
-<div class="text-xs text-gray-400">Measuring agent adoption, acceptance rates, and impact across teams</div>
-</a>
 </div>
 </div>

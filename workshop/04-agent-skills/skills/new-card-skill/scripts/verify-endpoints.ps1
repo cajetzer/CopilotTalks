@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Verifies GET and POST endpoints for a newly scaffolded FanHub entity (new-card-skill verification checklist).
+    Verifies GET and POST endpoints for a newly scaffolded FanHub entity (create-card-and-page skill verification checklist).
 
 .PARAMETER EntityName
     Singular PascalCase entity name (e.g. "Location", "Faction").

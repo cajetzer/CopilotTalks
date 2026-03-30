@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Runs the EF Core migration for a new FanHub entity (new-card-skill Step 4).
+    Runs the EF Core migration for a new FanHub entity (create-card-and-page skill Step 4).
 
 .PARAMETER EntityName
     Singular PascalCase entity name (e.g. "Location", "Faction").

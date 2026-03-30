@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Checks that all files expected by new-card-skill exist before running the EF migration.
+    Checks that all files expected by create-card-and-page skill exist before running the EF migration.
     Run this after Steps 1-3 and 5-6, before Step 4 (migration).
 
 .PARAMETER EntityName
