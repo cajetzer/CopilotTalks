@@ -152,7 +152,7 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
 <div class="flex items-center gap-2 mb-2">
 <div class="text-xl">⚡</div>
-<div class="text-blue-300 font-bold text-sm">Copilot Coding Agent</div>
+<div class="text-blue-300 font-bold text-sm">Copilot Cloud Agent</div>
 </div>
 <div class="text-xs text-gray-300 mb-3">Assigns itself to a GitHub Issue, works autonomously in a sandboxed environment, and opens a pull request when done.</div>
 <div class="space-y-1.5 text-xs text-gray-300">
@@ -196,42 +196,39 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">�� What You'll Build</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-
+<div class="grid grid-cols-3 gap-5 mt-6 text-left">
   <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-    <div class="text-2xl mb-3">🧪</div>
-    <div class="text-lg font-bold text-blue-300 mb-2">A character-review agent</div>
-    <div class="text-sm text-gray-300">Read-only tools plus the prompt, skill, and MCP-aware workflow the team already built for character-detail review.</div>
+    <div class="flex items-center gap-2 mb-3">
+      <span class="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-200 text-xs font-bold border border-blue-400/30">6.1</span>
+      <span class="text-xs text-gray-400">15 min &middot; All &#x2B50;</span>
+    </div>
+    <div class="text-base font-bold text-blue-300 mb-2">Read the Plan Agent</div>
+    <div class="text-sm text-gray-300 leading-relaxed">Trace <code class="text-blue-200">plan.agent.md</code> as architecture &mdash; why every tool is listed, what&rsquo;s deliberately absent, and how the Explore subagent and handoff chain work together.</div>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-    <div class="text-2xl mb-3">🛠️</div>
-    <div class="text-lg font-bold text-purple-300 mb-2">An implementation agent</div>
-    <div class="text-sm text-gray-300">Full editing tools and systematic Feature Spec-driven execution for getting work done thoroughly.</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-emerald-900/40 to-gray-900/40 border border-emerald-500/30">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-400/30">6.2</span>
+      <span class="text-xs text-gray-400">30 min &middot; Marcus &#x2B50;</span>
+    </div>
+    <div class="text-base font-bold text-emerald-300 mb-2">Explore Agent Teams</div>
+    <div class="text-sm text-gray-300 leading-relaxed">Install Squad, initialize it in the repo, and watch a natural language command cast a named team, hold a design review, and commit decisions &mdash; all without manual wiring.</div>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
-    <div class="text-2xl mb-3">🔗</div>
-    <div class="text-lg font-bold text-orange-300 mb-2">A connected handoff flow</div>
-    <div class="text-sm text-gray-300">Implementation and review become part of the same deliberate workflow instead of two disconnected chats.</div>
+  <div class="p-5 rounded-xl bg-gradient-to-br from-amber-900/40 to-gray-900/40 border border-amber-500/30">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-200 text-xs font-bold border border-amber-400/30">6.3</span>
+      <span class="text-xs text-gray-400">25 min &middot; All &#x2B50;&#x1F91D; capstone</span>
+    </div>
+    <div class="text-base font-bold text-amber-300 mb-2">Build <code class="text-amber-200">&#64;content-author</code></div>
+    <div class="text-sm text-gray-300 leading-relaxed">Wire M1 context, M3/M4 skills, and M5 live data into one agent. One instruction scaffolds an entity end-to-end &mdash; and catches accuracy errors before migration.</div>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-emerald-900/30 to-blue-900/20 border border-emerald-500/30">
-    <div class="text-2xl mb-3">🚀</div>
-    <div class="text-lg font-bold text-emerald-300 mb-2">An agent-team capstone</div>
-    <div class="text-sm text-gray-300">Squad gives the team one glimpse of what persistent, multi-agent collaboration could look like inside the repo.</div>
-  </div>
-
 </div>
-
-<div class="mt-8 text-center text-lg text-gray-300">
-  Module 6 is about operationalizing everything the workshop has taught so far.
+<div class="mt-5 p-4 bg-gradient-to-r from-blue-900/20 via-emerald-900/20 to-amber-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-base text-white font-semibold">Study the pattern &rarr; see where it scales &rarr; build it yourself.</div>
+  <div class="text-sm text-gray-400 mt-1">Module 6 operationalizes everything the workshop has taught so far.</div>
 </div>
 </div>
-
 ---
 
 <!-- SLIDE: 📚 What Custom Agents Actually Are -->
@@ -276,6 +273,9 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
   </div>
 
 </div>
+<div class="mt-3 p-3 bg-gray-900/50 rounded-xl border-l-2 border-orange-400/50 text-xs text-gray-300 italic">
+💭 <strong class="text-orange-300">Marcus:</strong> "Wait — sorry, I was half on something else — but the tool list is the role boundary? That&rsquo;s not configuration. That&rsquo;s a job description that enforces itself."
+</div>
 </div>
 
 ---
@@ -311,9 +311,12 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 
 </div>
 
-<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-  <div class="text-xl font-bold text-white">Agents are the orchestration layer.</div>
-  <div class="text-sm text-gray-300">They decide which capabilities are available, when to stop, and where the workflow goes next.</div>
+<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10">
+  <div class="text-xl font-bold text-white text-center">Agents are the orchestration layer.</div>
+  <div class="text-sm text-gray-300 text-center mt-1">They decide which capabilities are available, when to stop, and where the workflow goes next.</div>
+</div>
+<div class="mt-3 p-3 bg-gray-900/50 rounded-xl border-l-2 border-purple-400/50 text-xs text-gray-300 italic">
+💭 <strong class="text-purple-300">Jessica:</strong> "Oh. OH. So when it kept going rogue and doing whatever it wanted &mdash; that wasn&rsquo;t a Copilot problem. That was a me-not-knowing-there-were-four-different-things problem. Those are very different problems."
 </div>
 </div>
 
@@ -360,9 +363,12 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
   </div>
 
   <div class="p-3 rounded-xl bg-gray-900/60 border border-orange-500/30">
-    <div class="text-orange-300 font-bold text-sm mb-1">Workspace vs web</div>
-    <div class="text-xs text-gray-300">Some workflows stay focused and local. Others hint at broader team orchestration.</div>
+    <div class="text-orange-300 font-bold text-sm mb-1">Subagent delegation</div>
+    <div class="text-xs text-gray-300">Isolate focused subtasks — research, analysis, parallel reviews — in separate context windows. The main agent gets only the summary.</div>
   </div>
+</div>
+<div class="mt-3 p-3 bg-gray-900/50 rounded-xl border-l-2 border-cyan-400/50 text-xs text-gray-300 italic">
+💭 <strong class="text-cyan-300">Rafael:</strong> "Defined role, explicit stopping point, structured handoff. I&rsquo;ve been asking engineering for that for years. Turns out it just needed to be a config file."
 </div>
 </div>
 
@@ -374,15 +380,15 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📄 The AGENTS.md Standard</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 grid grid-cols-2 gap-5">
-<div class="flex flex-col gap-3">
-<div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30">
-<div class="text-blue-300 font-bold text-sm mb-2">What it is</div>
+<div class="relative z-10 grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-sm mb-1">What it is</div>
 <div class="text-xs text-gray-300 leading-relaxed">An open community convention for documenting AI agent instructions in a way that works across editors — VS Code, Cursor, and others. A plain markdown file in <code>.github/agents/</code> that any agent-aware tool can read.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30">
-<div class="text-purple-300 font-bold text-sm mb-2">YAML frontmatter + Markdown body</div>
-<div class="bg-gray-950 rounded-lg font-mono text-xs p-3 text-gray-300 leading-relaxed">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-purple-500/30">
+<div class="text-purple-300 font-bold text-sm mb-1">YAML frontmatter + Markdown body</div>
+<div class="bg-gray-950 rounded-lg font-mono text-xs p-2 text-gray-300 leading-relaxed">
 <div class="text-purple-300">---</div>
 <div class="text-blue-300">name: <span class="text-green-300">character-review</span></div>
 <div class="text-blue-300">description: <span class="text-green-300">Review character changes</span></div>
@@ -395,19 +401,19 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 </div>
 </div>
 </div>
-<div class="flex flex-col gap-3">
-<div class="p-4 rounded-xl bg-gray-900/60 border border-orange-500/30">
-<div class="text-orange-300 font-bold text-sm mb-2">Why it matters for the team</div>
-<div class="space-y-2 text-xs text-gray-300">
+<div class="flex flex-col gap-2">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-orange-500/30">
+<div class="text-orange-300 font-bold text-sm mb-1">Why it matters for the team</div>
+<div class="space-y-1 text-xs text-gray-300">
 <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">▸</span><span><strong class="text-white">Portable</strong> — The same <code>.agent.md</code> file works in any AGENTS.md-compatible editor</span></div>
 <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">▸</span><span><strong class="text-white">Shareable</strong> — Commit agent configs to the repo; the whole team gets the same presets</span></div>
 <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">▸</span><span><strong class="text-white">Discoverable</strong> — New team members open VS Code and the agents are already there</span></div>
 <div class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">▸</span><span><strong class="text-white">Convention-based</strong> — No proprietary lock-in; the format is community-owned</span></div>
 </div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/60 border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-sm mb-2">Where agents live</div>
-<div class="font-mono text-xs text-gray-300 space-y-1">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-sm mb-1">Where agents live</div>
+<div class="font-mono text-xs text-gray-300 space-y-0.5">
 <div><span class="text-orange-300">.github/agents/</span><span class="text-gray-500">  ← workspace agents (team)</span></div>
 <div class="pl-4 text-gray-400">character-review.agent.md</div>
 <div class="pl-4 text-gray-400">implement.agent.md</div>
@@ -501,8 +507,14 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 
 </div>
 
-<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-  <div class="text-xl font-bold text-white">A good custom agent feels like a workflow upgrade, not just a renamed chat mode.</div>
+<div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-lg font-bold text-white">If it stays in its lane, delivers reliably, and hands off cleanly &mdash; you&rsquo;ve built an agent. Everything else is just a prompt with a name.</div>
+</div>
+<div class="mt-3 px-4 py-2 bg-emerald-900/20 border border-emerald-500/30 rounded-lg text-left flex gap-3 items-start">
+  <div class="flex flex-col gap-1">
+    <span class="text-emerald-300 text-sm italic">&ldquo;I built a checklist for validating agents. Then I realized I was describing the agent itself.&rdquo;</span>
+    <span class="text-emerald-500 text-xs text-right">&mdash; Elena</span>
+  </div>
 </div>
 </div>
 
@@ -599,7 +611,7 @@ Before building a custom agent, study how the default <code>@plan</code> agent i
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Can name what's absent from the tool list and why that's intentional</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Can trace the full handoff chain and explain each transition</div>
 </div>
-<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">David:</strong> "Technically, a custom agent is just a deliberate override of the default. The real question is whether we understand what we’re overriding — otherwise we’re not customizing, we’re guessing with extra steps."</div>
+<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">David:</strong> "Technically, a custom agent is a deliberate override of the default execution context. The interesting question isn&rsquo;t whether you can override it &mdash; it&rsquo;s whether you understand what you&rsquo;re overriding well enough to do it intentionally."</div>
 </div>
 </div>
 </div>
@@ -664,6 +676,9 @@ Before building a custom agent, study how the default <code>@plan</code> agent i
 </div>
 <div class="p-2 rounded-lg bg-blue-900/20 border border-blue-500/20 text-[10px] text-blue-300">
 &#x1F4C1; <code>.github/agents/plan.agent.md</code> · study this before building your own
+</div>
+<div class="p-2 rounded-lg bg-gray-900/50 border-l-2 border-blue-400/40 text-[10px] text-gray-300 italic">
+💭 <strong class="text-blue-300">Marcus:</strong> "I&rsquo;ve been trying to enforce that boundary with code review comments for three years. They just put it in the agent config. One line."
 </div>
 </div>
 </div>
@@ -834,6 +849,9 @@ Each agent has their charter and history pre-seeded with codebase context — th
 <div class="text-emerald-300 text-[10px] font-semibold mb-1">Try next:</div>
 <div class="text-[10px] text-gray-300 italic">"Mal, design the character detail API contract"</div>
 <div class="text-[10px] text-gray-300 italic mt-0.5">"Kaylee, fix GET /api/characters/{id}"</div>
+</div>
+<div class="p-2.5 rounded-lg bg-gray-900/50 border-l-2 border-emerald-400/40 text-[10px] text-gray-300 italic">
+💭 <strong class="text-emerald-300">Elena:</strong> "I opened the history files to verify. Each agent was pre-seeded with actual codebase context &mdash; Kaylee already knows about the broken controller. I&rsquo;m still writing tests for it. But that part held up."
 </div>
 </div>
 </div>
@@ -1066,7 +1084,7 @@ Every prior module built a reusable piece. <strong class="text-white">This capst
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The <code>check-data-accuracy</code> skill catches the planted misattribution before migration</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Every participant names the module behind each action the agent took</div>
 </div>
-<div class="mt-3 p-3 bg-amber-900/30 rounded-lg border border-amber-500/30 text-xs text-gray-300 italic">💭 <strong class="text-amber-300">Sarah:</strong> "One instruction. It checked the canon, checked the live data, scaffolded the whole stack, and caught an attribution error before it shipped. Five modules of work paid for itself in this session."</div>
+<div class="mt-3 p-3 bg-amber-900/30 rounded-lg border border-amber-500/30 text-xs text-gray-300 italic">💭 <strong class="text-amber-300">Sarah:</strong> "One instruction. It scaffolded the stack, queried live data, validated against the universe doc, and caught a misattribution before migration. I was keeping count. That&rsquo;s five manual steps I didn&rsquo;t do. Okay &mdash; that&rsquo;s a real number."</div>
 </div>
 </div>
 </div>
@@ -1147,6 +1165,9 @@ Can you help me create the <span class="font-mono text-amber-300">.github/agents
 </div>
 <div class="p-2 rounded-lg bg-amber-900/20 border border-amber-500/20 text-[10px] text-amber-300">
 &#x1F4C1; <code>.github/agents/scaffold-entity.agent.md</code> · this is what five modules of skill-building enables
+</div>
+<div class="p-2 rounded-lg bg-gray-900/50 border-l-2 border-amber-400/40 text-[10px] text-gray-300 italic">
+💭 <strong class="text-amber-300">Sarah:</strong> "I gave it a paragraph. It produced a four-phase workflow that referenced the skill files by name &mdash; correctly. I&rsquo;m going to run this on something harder before I call it. But that&rsquo;s the first time I haven&rsquo;t had to correct it."
 </div>
 </div>
 </div>
