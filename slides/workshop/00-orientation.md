@@ -474,6 +474,43 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
 </div>
 ---
 
+<!-- SLIDE: 🔑 The 5 Principles -->
+<div class="h-full flex flex-col justify-start px-14 py-3 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-950/30 via-gray-950 to-orange-950/20"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-500/8 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔑 The 5 Principles</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/30 to-transparent"></div>
+</div>
+<div class="relative z-10 py-2 px-4 bg-gradient-to-r from-gray-900/80 to-blue-900/20 rounded-xl border border-blue-500/20 text-center mb-3">
+<span class="text-white font-bold text-base">Five patterns that show up in every module today.</span>
+<span class="text-gray-300 text-sm"> Learn them once &mdash; you&rsquo;ll see them compound all day.</span>
+</div>
+<div class="relative z-10 flex flex-col gap-2 flex-1">
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-gray-900/40 border border-white/8">
+<div class="w-6 h-6 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">1</div>
+<div><div class="text-white font-semibold text-sm">🔍 Clarity Over Cleverness</div><div class="text-gray-400 text-xs mt-0.5">If I can&rsquo;t explain it plainly to a coworker, I can&rsquo;t prompt it effectively to Copilot.</div></div>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-gray-900/40 border border-white/8">
+<div class="w-6 h-6 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">2</div>
+<div><div class="text-white font-semibold text-sm">🎯 Intent Over Implementation</div><div class="text-gray-400 text-xs mt-0.5">Describe the outcome I want &mdash; not how to build it.</div></div>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-gray-900/40 border border-white/8">
+<div class="w-6 h-6 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">3</div>
+<div><div class="text-white font-semibold text-sm">📚 Documentation as Leverage</div><div class="text-gray-400 text-xs mt-0.5">Write once, benefit infinitely &mdash; every doc is a force multiplier for humans and Copilot alike.</div></div>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-gray-900/40 border border-white/8">
+<div class="w-6 h-6 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">4</div>
+<div><div class="text-white font-semibold text-sm">🔄 Dialogue, Not Delegation</div><div class="text-gray-400 text-xs mt-0.5">Start rough, iterate, refine. Good results come from conversation, not one perfect prompt.</div></div>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-xl bg-gray-900/40 border border-white/8">
+<div class="w-6 h-6 rounded-lg bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">5</div>
+<div><div class="text-white font-semibold text-sm">⚖️ Validate, Don&rsquo;t Automate</div><div class="text-gray-400 text-xs mt-0.5">Copilot proposes. I decide. Every output earns its place by surviving my judgement.</div></div>
+</div>
+</div>
+</div>
+---
+
 <!-- SLIDE: Principle 1 — Clarity Over Cleverness -->
 <div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
@@ -488,7 +525,7 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
 <div class="text-xl font-bold text-white mb-1">🔍 Clarity Over Cleverness</div>
 </div>
 <div class="relative z-10 mb-4 p-3 bg-gray-900/50 rounded-xl border border-white/10 text-sm text-gray-300">
-Clear thinking enables effective Copilot collaboration. If I  can't explain it plainly to a human, I can't prompt it effectively to AI. The quality of the output starts with the quality of my thinking.
+Clear thinking enables effective Copilot collaboration. If I can't explain it plainly to a human, I can't prompt it effectively to AI. The quality of the output starts with the quality of my thinking.
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-3 rounded-xl bg-gradient-to-br from-red-950/60 to-gray-900/80 border border-red-500/20">
@@ -517,7 +554,7 @@ Clear thinking enables effective Copilot collaboration. If I  can't explain it p
 </div>
 </div>
 <div class="relative z-10 mt-4 px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg flex flex-col gap-1">
-<span class="text-amber-300 text-sm italic">&ldquo;I thought being junior meant I had to prove I knew as much as David. Apparently I just have to think clearly and write things down. I can do that.&rdquo;</span>
+<span class="text-amber-300 text-sm italic">&ldquo;I kept looking for the sophisticated trick. Turns out &lsquo;just say what you mean&rsquo; was the whole answer. Nobody told me that was a skill.&rdquo;</span>
 <span class="text-amber-500 text-xs text-right">&mdash; Jessica</span>
 </div>
 </div>
