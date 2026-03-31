@@ -447,29 +447,29 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/30 to-transparent"></div>
 </div>
 <div class="relative z-10 py-3 px-5 bg-gradient-to-r from-gray-900/80 to-orange-900/20 rounded-xl border border-orange-500/20 text-center mb-5">
-<span class="text-white font-bold text-lg">The Markdown Whisperer column wasn&rsquo;t aspirational.</span><br/>
-<span class="text-gray-300 text-sm">It&rsquo;s already who the best teams are becoming &mdash; and it reframes what your existing skills are <em>worth</em>.</span>
+<span class="text-white font-bold text-lg">Three ways yesterday's work means something different now.</span><br/>
+<span class="text-gray-300 text-sm">None of them require starting over.</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-4 flex-1">
 <div class="flex flex-col gap-3 p-4 rounded-xl bg-gradient-to-br from-purple-900/30 to-gray-900/50 border border-purple-500/20">
-<div class="text-purple-300 font-bold text-sm">Memory → Judgment</div>
+<div class="text-purple-300 font-bold text-sm">Memory &rarr; Judgment</div>
 <div class="text-xs text-gray-400 leading-relaxed">Knowing the right API used to be your edge.</div>
 <div class="text-xs text-gray-200 leading-relaxed border-t border-purple-500/20 pt-2">Knowing when Copilot&rsquo;s answer is <em>wrong</em> is your edge now. That takes everything you&rsquo;ve built.</div>
 </div>
 <div class="flex flex-col gap-3 p-4 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/50 border border-orange-500/20">
-<div class="text-orange-300 font-bold text-sm">Typing Speed → Thinking Speed</div>
+<div class="text-orange-300 font-bold text-sm">Typing Speed &rarr; Thinking Speed</div>
 <div class="text-xs text-gray-400 leading-relaxed">The bottleneck used to be your hands.</div>
 <div class="text-xs text-gray-200 leading-relaxed border-t border-orange-500/20 pt-2">The bottleneck moved upstream. The constraint now is how fast you can think clearly &mdash; and how precisely you can say what you mean.</div>
 </div>
 <div class="flex flex-col gap-3 p-4 rounded-xl bg-gradient-to-br from-green-900/30 to-gray-900/50 border border-green-500/20">
-<div class="text-green-300 font-bold text-sm">Knowledge Hoarding → Knowledge Scaling</div>
+<div class="text-green-300 font-bold text-sm">Knowledge Hoarding &rarr; Knowledge Scaling</div>
 <div class="text-xs text-gray-400 leading-relaxed">Your expertise used to live in your head.</div>
 <div class="text-xs text-gray-200 leading-relaxed border-t border-green-500/20 pt-2">Now it lives in your docs &mdash; and Copilot runs on it. Writing things down stopped being overhead. It became leverage.</div>
 </div>
 </div>
-<div class="relative z-10 mt-4 px-4 py-2 bg-blue-900/20 border border-blue-500/30 rounded-lg flex flex-col gap-1">
-<span class="text-blue-300 text-sm italic">&ldquo;I thought being junior meant I had to prove I knew as much as David. Apparently I just have to think clearly and write things down. I can do that.&rdquo;</span>
-<span class="text-blue-500 text-xs text-right">&mdash; Jessica</span>
+<div class="relative z-10 mt-4 px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-amber-300 text-sm italic">&ldquo;I thought being junior meant I had to prove I knew as much as David. Apparently I just have to think clearly and write things down. I can do that.&rdquo;</span>
+<span class="text-amber-500 text-xs text-right">&mdash; Jessica</span>
 </div>
 </div>
 ---
