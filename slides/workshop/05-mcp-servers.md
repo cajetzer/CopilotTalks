@@ -224,7 +224,7 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <span class="text-xs text-gray-500">Elena ⭐</span>
 </div>
 <div class="text-white text-sm font-semibold mb-2">Upgrade the Accuracy Skill</div>
-<div class="text-gray-300 text-xs leading-snug mb-3">Extend <code>check-lore-accuracy</code> to validate against the live database instead of the static universe file — and watch it catch what the old skill missed.</div>
+<div class="text-gray-300 text-xs leading-snug mb-3">Extend <code>check-data-accuracy</code> to validate against the live database instead of the static universe file — and watch it catch what the old skill missed.</div>
 <div class="mt-auto space-y-1 text-xs text-gray-400 border-t border-purple-500/20 pt-2">
 <div class="text-purple-300 font-semibold text-xs mb-1">You&rsquo;ll see:</div>
 <div class="flex items-start gap-1.5"><span class="text-purple-400">▸</span>Skills + MCP working in combination</div>
@@ -252,78 +252,78 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 ---
 
 <!-- SLIDE: 📚 What MCP Servers Actually Add -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What MCP Servers Actually Add</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What MCP Servers Actually Add</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-    <div class="text-purple-300 font-bold mb-3">A standard way to reach external systems</div>
-    <ul class="text-sm text-gray-300 space-y-2">
+<div class="relative z-10 grid grid-cols-2 gap-3 mt-3 text-left">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2 text-sm">A standard way to reach external systems</div>
+    <ul class="text-xs text-gray-300 space-y-1">
       <li>MCP servers expose tools, resources, and prompts</li>
       <li>VS Code can talk to local or remote servers through a shared protocol</li>
       <li>The same pattern works across many MCP-compatible clients</li>
     </ul>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">Live context instead of copied context</div>
-    <ul class="text-sm text-gray-300 space-y-2">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2 text-sm">Live context instead of copied context</div>
+    <ul class="text-xs text-gray-300 space-y-1">
       <li>Query FanHub data without leaving chat</li>
       <li>Investigate duplicate records from live data instead of assumptions</li>
       <li>Validate runtime API responses against real lore expectations</li>
     </ul>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">Two common transport patterns</div>
-    <ul class="text-sm text-gray-300 space-y-2">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2 text-sm">Two common transport patterns</div>
+    <ul class="text-xs text-gray-300 space-y-1">
       <li><code>stdio</code> for local processes and tools</li>
       <li><code>http</code> for hosted or remote services</li>
       <li>Choose transport based on security, locality, and deployment model</li>
     </ul>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/40 border border-orange-500/30">
-    <div class="text-orange-300 font-bold mb-3">The unlock</div>
-    <div class="text-sm text-gray-300">Copilot stops depending on screenshots, pasted output, and stale docs. It can ask the source system directly.</div>
+  <div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2 text-sm">The unlock</div>
+    <div class="text-xs text-gray-300">Copilot stops depending on screenshots, pasted output, and stale docs. It can ask the source system directly.</div>
   </div>
-
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-green-300 text-sm italic">&ldquo;I&rsquo;ve been pasting query results into chat for three sprints. This is the last time I do that.&rdquo;</span>
+  <span class="text-green-500 text-xs text-right">&mdash; Sarah</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: 🔎 Skills and MCP Work Better Together -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skills and MCP Work Better Together</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 Skills and MCP Work Better Together</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-3 gap-5 mt-8 text-left">
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">Instructions</div>
-    <div class="text-sm text-gray-300">Define standards and expected behavior.</div>
+<div class="relative z-10 grid grid-cols-3 gap-4 mt-4 text-left">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2 text-sm">Instructions</div>
+    <div class="text-xs text-gray-300">Define standards and expected behavior.</div>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-    <div class="text-purple-300 font-bold mb-3">Skills</div>
-    <div class="text-sm text-gray-300">Package a domain workflow with examples, templates, and scripts.</div>
+  <div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2 text-sm">Skills</div>
+    <div class="text-xs text-gray-300">Package a domain workflow with examples, templates, and scripts.</div>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
-    <div class="text-orange-300 font-bold mb-3">MCP Servers</div>
-    <div class="text-sm text-gray-300">Bring live databases, APIs, repositories, and other systems into that workflow.</div>
+  <div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2 text-sm">MCP Servers</div>
+    <div class="text-xs text-gray-300">Bring live databases, APIs, repositories, and other systems into that workflow.</div>
   </div>
-
 </div>
-
-<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-  <div class="text-xl font-bold text-white">A strong pattern is: standards guide the work, skills package the workflow, MCP supplies live context.</div>
+<div class="relative z-10 mt-4 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+  <div class="text-lg font-bold text-white">A strong pattern is: standards guide the work, skills package the workflow, MCP supplies live context.</div>
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-orange-900/20 border border-orange-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-orange-300 text-sm italic">&ldquo;Oh &mdash; it&rsquo;s a stack. Instructions are config, skills are runbooks, MCP is the live system. I&rsquo;ve been building this exact layering in bash for two years.&rdquo;</span>
+  <span class="text-orange-500 text-xs text-right">&mdash; Marcus</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: ⚙️ Core MCP Patterns in This Module -->
@@ -453,8 +453,8 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <div class="text-purple-300 font-bold text-base">5.2</div>
 <span class="text-xs text-gray-500">Elena &#x2B50;</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Upgrade lore-accuracy skill</div>
-<div class="text-gray-400 text-xs leading-snug mb-2">Extend the <span class="text-gray-200">check-lore-accuracy</span> skill to validate against the live database instead of the static universe file.</div>
+<div class="text-white text-xs font-semibold mb-1">Upgrade data-accuracy-check Skill</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Extend the <span class="text-gray-200">check-data-accuracy</span> skill to validate against the live database instead of the static universe file.</div>
 <div class="text-[10px] text-gray-400 space-y-0.5 border-t border-purple-500/20 pt-2 mt-auto">
 <div class="text-purple-300/80 font-semibold mb-1">You'll see:</div>
 <div>&#x2022; Skills + MCP working in combination</div>
@@ -499,7 +499,7 @@ Each exercise rotates the lead persona &mdash; everyone contributes, everyone fo
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
-The <code class="text-emerald-300">lore-accuracy-check</code> skill validates entries against the universe file — but it can&#39;t catch errors that are ALREADY in the database. <strong class="text-white">This exercise connects Copilot to live FanHub lore data so the skill can cross-check real records, not just the universe file.</strong>
+The <code class="text-emerald-300">data-accuracy-check</code> skill validates entries against the universe file — but it can&#39;t catch errors that are ALREADY in the database. <strong class="text-white">This exercise connects Copilot to live FanHub lore data so the skill can cross-check real records, not just the universe file.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
@@ -606,14 +606,14 @@ Once <code class="text-blue-300 font-mono">fanhub-db</code> is running in Agent 
 
 ---
 
-<!-- SLIDE: The lore-accuracy skill catches writing errors. MCP catches data entry errors. -->
+<!-- SLIDE: The data-accuracy-check skill catches writing errors. MCP catches data entry errors. -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">5.2</div>
 <div>
 <div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Upgrade lore-accuracy-check with MCP</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Upgrade data-accuracy-check with MCP</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Elena &#x2B50;</span>
@@ -621,13 +621,13 @@ Once <code class="text-blue-300 font-mono">fanhub-db</code> is running in Agent 
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-The <code class="text-emerald-300">lore-accuracy-check</code> skill from M3/M4 verifies lore entries against the universe file. <strong class="text-white">This exercise upgrades it to also query live FanHub data via MCP &mdash; so it catches discrepancies between what the universe file says and what's actually stored in the database.</strong>
+The <code class="text-emerald-300">data-accuracy-check</code> skill from M3/M4 verifies lore entries against the universe file. <strong class="text-white">This exercise upgrades it to also query live FanHub data via MCP &mdash; so it catches discrepancies between what the universe file says and what's actually stored in the database.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">&#x1F4CB; Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open <span class="font-mono text-emerald-300">.github/skills/lore-accuracy-check/SKILL.md</span> from M3/M4</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open <span class="font-mono text-emerald-300">.github/skills/data-accuracy-check/SKILL.md</span> from M3/M4</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Add a verification step that queries <span class="font-mono text-purple-300">#mcp-fanhub-db</span> to cross-check lore claims against live character records</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Test: submit a lore entry that conflicts with a database record &mdash; does the skill catch it?</span></div>
 </div>
@@ -646,18 +646,18 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill from M3/M4 v
 
 ---
 
-<!-- SLIDE: 📋 Example: lore-accuracy-check — MCP upgrade -->
+<!-- SLIDE: 📋 Example: data-accuracy-check — MCP upgrade -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: lore-accuracy-check &mdash; MCP upgrade</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: data-accuracy-check &mdash; MCP upgrade</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
 <div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 font-mono text-xs overflow-auto select-all">
 <div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">lore-accuracy-check</span></div>
+<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">data-accuracy-check</span></div>
 <div class="text-orange-300">description<span class="text-white">: &gt;</span></div>
 <div class="text-green-300 ml-4">Use this skill when asked to verify, validate,</div>
 <div class="text-green-300 ml-4">or fact-check a lore entry, character bio,</div>
@@ -761,7 +761,7 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill from M3/M4 v
 <!-- SLIDE: Run the upgraded skill — does it catch what the static check missed? -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-4">
+<div class="relative z-10 flex items-center gap-4 mb-2">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">5.3</div>
 <div>
 <div class="text-orange-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
@@ -772,28 +772,28 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill from M3/M4 v
 <span class="px-3 py-1 bg-gray-800 rounded-full">&#x23F1; 20 min</span>
 </div>
 </div>
-<div class="relative z-10 mb-4 p-4 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-sm text-gray-300">
+<div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-xs text-gray-300">
 The skill now has DB access. But what about entries that <em>exist in the database but never reach the client</em>? <strong class="text-white">This exercise adds a second MCP server for the running FanHub API — so the audit can catch not just DB-vs-universe errors, but also DB-vs-API gaps.</strong>
 </div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
+<div class="relative z-10 grid grid-cols-2 gap-3">
 <div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">&#x1F4CB; Steps</div>
-<div class="space-y-2 text-xs">
+<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x1F4CB; Steps</div>
+<div class="space-y-1.5 text-xs">
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Use <span class="font-mono text-cyan-300">#mcp-fanhub-db</span> to query existing lore entries from the database</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Run <span class="font-mono text-emerald-300">/lore-accuracy-check</span> — the skill cross-checks both the universe file and live DB records</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Run <span class="font-mono text-emerald-300">/data-accuracy-check</span> — the skill cross-checks both the universe file and live DB records</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Add <span class="font-mono text-orange-300">fanhub-api</span> to <span class="font-mono text-blue-300">.vscode/mcp.json</span> — a second MCP server wrapping the running FanHub API</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Use <span class="font-mono text-amber-300">#mcp-fanhub-api</span> to check whether DB lore records are actually returned by the API &mdash; find entries that exist in the database but are absent or incomplete in the API response</span></div>
 </div>
 </div>
-<div class="space-y-2">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">&#x2705; Success Criteria</div>
-<div class="space-y-1.5 text-xs text-gray-300">
+<div class="space-y-1.5">
+<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x2705; Success Criteria</div>
+<div class="space-y-1 text-xs text-gray-300">
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> The skill surfaces at least one DB record that contradicts the universe file</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Sarah can generate an actionable correction list without leaving the workflow</div>
 <div class="flex items-center gap-2 p-2 bg-amber-900/20 rounded-lg border border-amber-700/30"><span class="text-amber-400">&#x2610;</span> Elena finds at least one lore entry present in the DB but absent or incomplete in the API response</div>
 <div class="flex items-center gap-2 p-2 bg-amber-900/20 rounded-lg border border-amber-700/30"><span class="text-amber-400">&#x2610;</span> The audit pattern covers both failure modes: wrong data stored, and correct data not surfaced</div>
 </div>
-<div class="mt-3 p-3 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-orange-300">Sarah:</strong> "Every lore entry added before we had the skill is potentially wrong. I want the DB check <em>and</em> the API check. If a bad record survives both, I want to know how."</div>
+<div class="mt-2 p-2 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-orange-300">Sarah:</strong> "Every lore entry added before we had the skill is potentially wrong. I want the DB check <em>and</em> the API check. If a bad record survives both, I want to know how."</div>
 </div>
 </div>
 </div>
@@ -856,18 +856,18 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 
 ---
 
-<!-- SLIDE: 📋 Example: lore-accuracy-check — API upgrade -->
+<!-- SLIDE: 📋 Example: data-accuracy-check — API upgrade -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: lore-accuracy-check &mdash; API upgrade</span>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: data-accuracy-check &mdash; API upgrade</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
 <div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 font-mono text-xs overflow-auto select-all">
 <div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">lore-accuracy-check</span></div>
+<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">data-accuracy-check</span></div>
 <div class="text-orange-300">description<span class="text-white">: &gt;</span></div>
 <div class="text-green-300 ml-4">Use this skill when asked to verify, validate,</div>
 <div class="text-green-300 ml-4">or fact-check a lore entry, character bio,</div>
