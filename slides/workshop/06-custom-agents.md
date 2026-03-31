@@ -520,6 +520,176 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 
 ---
 
+<!-- SLIDE: 🤖 How Subagents Work -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-purple-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-violet-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 How Subagents Work</span>
+<div class="flex-1 h-px bg-gradient-to-r from-violet-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-6">
+  <div>
+    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">The 5-step flow</div>
+    <div class="space-y-2">
+      <div class="flex items-start gap-3 p-3 bg-gray-900/50 rounded-lg border border-violet-500/20">
+        <span class="w-6 h-6 rounded-full bg-violet-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">1</span>
+        <span class="text-gray-300 text-sm">You (or agent instructions) describe a complex task</span>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-gray-900/50 rounded-lg border border-violet-500/20">
+        <span class="w-6 h-6 rounded-full bg-violet-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">2</span>
+        <span class="text-gray-300 text-sm">Main agent recognizes a subtask that benefits from <span class="text-violet-300 font-semibold">isolated context</span></span>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-gray-900/50 rounded-lg border border-violet-500/20">
+        <span class="w-6 h-6 rounded-full bg-violet-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">3</span>
+        <span class="text-gray-300 text-sm">Spawns a subagent — passes only the <span class="text-white font-semibold">relevant subtask</span>, nothing else</span>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-gray-900/50 rounded-lg border border-violet-500/20">
+        <span class="w-6 h-6 rounded-full bg-violet-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">4</span>
+        <span class="text-gray-300 text-sm">Subagent works autonomously, returns only a <span class="text-white font-semibold">summary</span></span>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-gray-900/50 rounded-lg border border-violet-500/20">
+        <span class="w-6 h-6 rounded-full bg-purple-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">5</span>
+        <span class="text-gray-300 text-sm">Main agent incorporates the result and <span class="text-white font-semibold">continues cleanly</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4">
+    <div>
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">What you see in VS Code</div>
+      <div class="p-4 bg-gray-950/80 rounded-xl border border-gray-700/50 font-mono text-xs space-y-2">
+        <div class="flex items-center gap-2 text-gray-500">▶ <span class="text-violet-300">Explore subagent</span> <span class="text-gray-600 ml-auto">Running...</span></div>
+        <div class="pl-4 text-gray-600">Reading file: routes/locations.ts</div>
+        <div class="pl-4 text-gray-600">Searching codebase: Entity pattern</div>
+        <div class="flex items-center gap-2 text-gray-500 mt-1">✓ <span class="text-violet-300">Explore subagent</span> <span class="text-gray-600 ml-auto">Done</span></div>
+        <div class="mt-2 text-gray-400 text-xs">Returned: <span class="text-emerald-400">summary only</span> — tool calls hidden</div>
+      </div>
+    </div>
+    <div class="p-4 bg-violet-900/20 rounded-xl border border-violet-500/30">
+      <div class="text-violet-300 font-bold text-sm mb-2">🔑 The key insight</div>
+      <div class="text-gray-300 text-sm">Subagents are <strong class="text-white">agent-initiated</strong>, not user-invoked. Enable <code class="text-violet-300">runSubagent</code> in the agent&rsquo;s tool list &mdash; then the agent decides when to use it.</div>
+    </div>
+    <div class="px-4 py-2 bg-purple-900/20 border border-purple-500/30 rounded-lg flex flex-col gap-1">
+      <span class="text-purple-300 text-sm italic">&ldquo;You&rsquo;re still on the &lsquo;how.&rsquo; I&rsquo;m already at &lsquo;what does this do to our sprint velocity.&rsquo; The answer is: a lot.&rdquo;</span>
+      <span class="text-purple-500 text-xs text-right">&mdash; Rafael</span>
+    </div>
+  </div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: 🔀 Invocation Patterns -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔀 Invocation Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-4">
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-blue-500/30 flex flex-col gap-3">
+    <div class="text-blue-300 font-bold text-sm">🔬 Research before acting</div>
+    <div class="text-gray-400 text-xs">Before writing code, delegate research to a subagent. Main agent gets a clean recommendation — not a context dump.</div>
+    <div class="bg-gray-950 rounded-lg p-3 font-mono text-xs text-gray-300 flex-1">
+      <span class="text-gray-500 block mb-1"># prompt</span>
+      <span class="text-cyan-300">Research OAuth 2.0 patterns</span><br/>
+      <span class="text-gray-400">for Node.js apps. Compare</span><br/>
+      <span class="text-gray-400">against current impl and</span><br/>
+      <span class="text-cyan-300">return a recommendation.</span>
+    </div>
+    <div class="text-xs text-gray-500 italic">Main agent receives: recommendation only</div>
+  </div>
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-purple-500/30 flex flex-col gap-3">
+    <div class="text-purple-300 font-bold text-sm">⚡ Parallel analysis</div>
+    <div class="text-gray-400 text-xs">Run multiple subagents simultaneously — each with a clean slate, no anchoring bias from other findings.</div>
+    <div class="bg-gray-950 rounded-lg p-3 font-mono text-xs text-gray-300 flex-1">
+      <span class="text-gray-500 block mb-1"># prompt</span>
+      <span class="text-purple-300">Analyze in parallel:</span><br/>
+      <span class="text-gray-400">1. Duplicate code</span><br/>
+      <span class="text-gray-400">2. Unused exports</span><br/>
+      <span class="text-gray-400">3. Security gaps</span><br/>
+      <span class="text-purple-300">Compile into a plan.</span>
+    </div>
+    <div class="text-xs text-gray-500 italic">Each analysis: independent context</div>
+  </div>
+  <div class="p-4 rounded-xl bg-gray-900/60 border border-emerald-500/30 flex flex-col gap-3">
+    <div class="text-emerald-300 font-bold text-sm">🧐 Multi-perspective review</div>
+    <div class="text-gray-400 text-xs">Specialized agents review the same code independently — no anchoring, each uses the right tools for its lens.</div>
+    <div class="bg-gray-950 rounded-lg p-3 font-mono text-xs text-gray-300 flex-1">
+      <span class="text-gray-500 block mb-1"># prompt</span>
+      <span class="text-emerald-300">Run in parallel:</span><br/>
+      <span class="text-gray-400">- @security-reviewer</span><br/>
+      <span class="text-gray-400">- @performance-reviewer</span><br/>
+      <span class="text-gray-400">- @a11y-reviewer</span><br/>
+      <span class="text-emerald-300">Consolidate findings.</span>
+    </div>
+    <div class="text-xs text-gray-500 italic">Each agent: specialized tools + focus</div>
+  </div>
+</div>
+<div class="relative z-10 mt-4 p-3 bg-gradient-to-r from-cyan-900/30 to-blue-900/20 rounded-xl border border-cyan-500/20 text-center">
+  <span class="text-gray-300 text-sm">In all three patterns, the main agent&rsquo;s context stays <strong class="text-white">clean and focused</strong> on the high-level task</span>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: 🏗️ Coordinator + Worker Pattern -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Coordinator + Worker Pattern</span>
+<div class="flex-1 h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-6">
+  <div>
+    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">How it&rsquo;s structured</div>
+    <div class="p-4 bg-gray-950/70 rounded-xl border border-amber-500/20 font-mono text-xs space-y-1 mb-3">
+      <div class="text-gray-500 mb-1">feature-builder.agent.md</div>
+      <div class="text-amber-300">name: Feature Builder</div>
+      <div class="text-blue-300">tools: [&apos;agent&apos;, &apos;edit&apos;, &apos;read&apos;]</div>
+      <div class="text-purple-300">agents: [&apos;Planner&apos;, &apos;Implementer&apos;, &apos;Reviewer&apos;]</div>
+    </div>
+    <div class="p-4 bg-gray-950/70 rounded-xl border border-gray-700/40 font-mono text-xs space-y-1">
+      <div class="text-gray-500 mb-1">planner.agent.md (worker)</div>
+      <div class="text-white">name: Planner</div>
+      <div class="text-red-400">user-invocable: false</div>
+      <div class="text-blue-300">tools: [&apos;read&apos;, &apos;search&apos;]</div>
+      <div class="text-gray-500 mt-1 text-xs"># no edit, no create — read-only by design</div>
+    </div>
+    <div class="mt-3 p-3 bg-red-900/20 rounded-lg border border-red-500/30 text-xs text-gray-300">
+      <span class="text-red-300 font-bold">user-invocable: false</span> — worker agents stay hidden from the agent dropdown. Only the coordinator can invoke them.
+    </div>
+  </div>
+  <div>
+    <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">The flow</div>
+    <div class="space-y-2">
+      <div class="flex items-center gap-3 p-3 bg-amber-900/20 rounded-lg border border-amber-500/30">
+        <span class="text-amber-300 font-bold text-sm w-6 text-center">👤</span>
+        <div class="text-sm text-gray-300"><span class="text-amber-300 font-semibold">Feature Builder</span> receives the request — coordinates everything</div>
+      </div>
+      <div class="flex items-center gap-2 pl-8 text-gray-600 text-xs">↓ delegates to</div>
+      <div class="flex items-center gap-3 p-3 bg-blue-900/20 rounded-lg border border-blue-500/20">
+        <span class="text-blue-300 font-bold text-sm w-6 text-center">📋</span>
+        <div class="text-sm text-gray-300"><span class="text-blue-300 font-semibold">Planner</span> — read-only, breaks feature into tasks</div>
+      </div>
+      <div class="flex items-center gap-3 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/20">
+        <span class="text-emerald-300 font-bold text-sm w-6 text-center">⚙️</span>
+        <div class="text-sm text-gray-300"><span class="text-emerald-300 font-semibold">Implementer</span> — write access, executes tasks</div>
+      </div>
+      <div class="flex items-center gap-3 p-3 bg-purple-900/20 rounded-lg border border-purple-500/20">
+        <span class="text-purple-300 font-bold text-sm w-6 text-center">🔍</span>
+        <div class="text-sm text-gray-300"><span class="text-purple-300 font-semibold">Reviewer</span> — read-only, checks the output</div>
+      </div>
+    </div>
+    <div class="mt-3 px-4 py-2 bg-orange-900/20 border border-orange-500/30 rounded-lg flex flex-col gap-1">
+      <span class="text-orange-300 text-sm italic">&ldquo;Hold on &mdash; read-only Planner, write-access Implementer. That&rsquo;s least-privilege. For agents. I was half-checked-out and now I need to go rewrite some things.&rdquo;</span>
+      <span class="text-orange-500 text-xs text-right">&mdash; Marcus</span>
+    </div>
+  </div>
+</div>
+</div>
+
+---
+
 <!-- SLIDE: 🔨 Exercises -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
@@ -576,6 +746,7 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 </div>
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: 🔧 Exercise 6.1 — Study the Default Plan Agent -->
@@ -683,6 +854,7 @@ Before building a custom agent, study how the default <code>@plan</code> agent i
 </div>
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: 🔧 Exercise 6.2 — Explore Agent Teams with Squad -->
@@ -1042,6 +1214,7 @@ Wash can scaffold against the agreed JSON shape before backend is live.
 - [ ] Wash: scaffold CharacterDetailDto.cs and CharacterDetail.razor
 - [ ] Zoe: write integration test spec for Phase 1 endpoint and page`.replaceAll('&#45;&#45;&#45;', '---')
 </script>
+
 ---
 
 
@@ -1286,6 +1459,7 @@ When complete, provide a summary that includes:
 - Accuracy check results (pass / flagged items fixed)
 - Any errors encountered and how they were resolved`.replaceAll('&#45;&#45;&#45;', '---')
 </script>
+
 ---
 
 <!-- SLIDE: ✅ Module Checklist -->
