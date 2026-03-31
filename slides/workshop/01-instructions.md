@@ -1541,7 +1541,20 @@ Tests, Docker files, and docs serve different purposes than production app code.
 
 ---
 
-<!-- SLIDE: &#x1F4AC; Prompt: Creating the Universe File (E1.6) -->
+<!-- SLIDE: 💬 Prompt: Creating the Universe File (E1.6) -->
+<script setup>
+const prompt = `Use #file:breaking-bad-universe.md as the exemplar and let's create a file to contain domain knowledge for my favorite show. Use web search to research [your show] and create docs/[show]-universe.md.
+
+The file should cover:
+• Premise — one paragraph summary of the show
+• Main characters — name, role, key traits, status (alive/deceased)
+• Key locations — recurring places and their significance
+• Terminology — show-specific terms and lore the team uses
+• Canon accuracy rules — common mistakes to avoid
+• Timeline — season/year markers for key events
+
+After creating the file, update copilot-instructions to refer to it for domain-related questions.`
+</script>
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-green-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
@@ -1550,49 +1563,38 @@ Tests, Docker files, and docs serve different purposes than production app code.
 </div>
 <div class="relative z-10 mb-2 px-3 py-2 bg-gradient-to-r from-green-900/40 to-emerald-900/30 rounded-xl border border-green-400/40 flex items-center gap-3 text-xs">
 <div class="text-green-400 text-base">&#x2728;</div>
-<div class="text-gray-200"><strong class="text-green-300">This is where you make FanHub yours.</strong> Replace <span class="font-mono text-white">Breaking Bad</span> with any show your team loves &mdash; the rest of the workshop uses your universe file.</div>
+<div class="text-gray-200"><strong class="text-green-300">This is where you make FanHub yours.</strong> Replace <span class="font-mono text-white">Breaking Bad</span> with any show your team loves — the rest of the workshop uses your universe file.</div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
-<div class="flex flex-col gap-2">
+<div class="flex flex-col gap-2 min-h-0">
 <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot (Agent mode)</div>
-<div class="bg-green-900/20 rounded-xl p-4 border border-green-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
-<div>Let's create a file to contain domain knowledge for my <strong class="text-green-300">favorite show.</strong> Use web search to research <span class="text-yellow-300 bg-yellow-900/30 px-1 rounded">[your show]</span> and create <span class="font-mono text-green-300">docs/[show]-universe.md</span>.</div>
-<div class="mt-3">The file should cover:</div>
-<div class="mt-1 text-gray-300">&#x2023; <strong>Premise</strong> &mdash; one paragraph summary of the show</div>
-<div class="text-gray-300">&#x2023; <strong>Main characters</strong> &mdash; name, role, key traits, status (alive/deceased)</div>
-<div class="text-gray-300">&#x2023; <strong>Key locations</strong> &mdash; recurring places and their significance</div>
-<div class="text-gray-300">&#x2023; <strong>Terminology</strong> &mdash; show-specific terms and lore the team uses</div>
-<div class="text-gray-300">&#x2023; <strong>Canon accuracy rules</strong> &mdash; common mistakes to avoid</div>
-<div class="text-gray-300">&#x2023; <strong>Timeline</strong> &mdash; season/year markers for key events</div>
-<div class="mt-3">After creating the file, update copilot-instructions to refer to it for domain-related questions.</div>
-</div>
+<pre class="bg-green-900/20 rounded-xl p-4 border border-green-500/30 text-gray-200 text-xs leading-relaxed select-all cursor-text whitespace-pre-wrap font-mono m-0 overflow-auto" style="max-height: 320px;">{{ prompt }}</pre>
 </div>
 <div class="flex flex-col gap-3">
 <div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
 <div class="text-green-400 font-semibold text-sm mb-2">&#x1F4A1; Why Agent mode + web search</div>
 <div class="space-y-2 text-gray-300">
-<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Web search</strong> &mdash; fetches current, accurate canon instead of relying on training data alone</div></div>
-<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Agent mode</strong> &mdash; writes the file directly; no copy-paste needed</div></div>
-<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Confidence levels</strong> &mdash; forces Copilot to surface uncertainty so you know what to verify</div></div>
+<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Web search</strong> — fetches current, accurate canon instead of relying on training data alone</div></div>
+<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Agent mode</strong> — writes the file directly; no copy-paste needed</div></div>
+<div class="flex items-start gap-2"><div class="text-green-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Confidence levels</strong> — forces Copilot to surface uncertainty so you know what to verify</div></div>
 </div>
 </div>
 <div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
 <div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">&#x26A0; Always review the output</div>
 <div class="space-y-1 text-gray-400">
-<div>&#x2023; Check character statuses &mdash; alive/deceased is commonly wrong</div>
-<div>&#x2023; Verify titles and roles &mdash; Copilot often upgrades them</div>
+<div>&#x2023; Check character statuses — alive/deceased is commonly wrong</div>
+<div>&#x2023; Verify titles and roles — Copilot often upgrades them</div>
 </div>
 <div class="text-gray-600 text-xs mt-2 italic">The exercise goal: find at least one error before saving the file.</div>
 </div>
 <div class="bg-green-900/20 rounded-lg p-2.5 border border-green-500/20 text-xs text-gray-300">
-&#x1F4A1; <strong class="text-green-300">The payoff:</strong> <span class="italic">Pick the universe <em>you</em> know cold. Copilot will meet you there &mdash; and every teammate who opens this repo gets that context for free.</span>
+&#x1F4A1; <strong class="text-green-300">The payoff:</strong> <span class="italic">Pick the universe <em>you</em> know cold. Copilot will meet you there — and every teammate who opens this repo gets that context for free.</span>
 </div>
 </div>
 </div>
 </div>
 </div>
-
 ---
 
 <!-- SLIDE: The universe file pays off immediately — the app is yours now. -->
