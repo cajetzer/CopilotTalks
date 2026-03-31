@@ -261,45 +261,44 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 ---
 
 <!-- SLIDE: 🔗 The Plan-First Workflow -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 The Plan-First Workflow</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 The Plan-First Workflow</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="flex flex-col items-center gap-4 mt-8 text-center">
-
-<div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
-<div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30 shadow-lg shadow-orange-500/10">
+<div class="relative z-10 flex flex-col items-center gap-3 mt-4 text-center">
+<div class="grid grid-cols-4 gap-3 w-full">
+<div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30 shadow-lg shadow-orange-500/10">
 <div class="text-3xl mb-2">🔍</div>
-<div class="text-orange-300 font-bold mb-2">Research</div>
-<div class="text-sm text-gray-300">Ask plan mode to map the work before touching code.</div>
+<div class="text-orange-300 font-bold mb-1">Research</div>
+<div class="text-xs text-gray-300">Ask plan mode to map the work before touching code.</div>
 </div>
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-red-900/40 to-gray-900/40 border border-red-500/30 shadow-lg shadow-red-500/10">
+<div class="p-4 rounded-xl bg-gradient-to-br from-red-900/40 to-gray-900/40 border border-red-500/30 shadow-lg shadow-red-500/10">
 <div class="text-3xl mb-2">👀</div>
-<div class="text-red-300 font-bold mb-2">Review</div>
-<div class="text-sm text-gray-300">Read the proposed steps like a design review, not a final answer.</div>
+<div class="text-red-300 font-bold mb-1">Review</div>
+<div class="text-xs text-gray-300">Read the proposed steps like a design review, not a final answer.</div>
 </div>
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30 shadow-lg shadow-purple-500/10">
+<div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30 shadow-lg shadow-purple-500/10">
 <div class="text-3xl mb-2">🔄</div>
-<div class="text-purple-300 font-bold mb-2">Refine</div>
-<div class="text-sm text-gray-300">Add missing requirements, edge cases, tests, and constraints.</div>
+<div class="text-purple-300 font-bold mb-1">Refine</div>
+<div class="text-xs text-gray-300">Add missing requirements, edge cases, tests, and constraints.</div>
 </div>
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30 shadow-lg shadow-blue-500/10">
+<div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30 shadow-lg shadow-blue-500/10">
 <div class="text-3xl mb-2">✅</div>
-<div class="text-blue-300 font-bold mb-2">Execute</div>
-<div class="text-sm text-gray-300">Implement from a clearer roadmap with less thrash.</div>
+<div class="text-blue-300 font-bold mb-1">Execute</div>
+<div class="text-xs text-gray-300">Implement from a clearer roadmap with less thrash.</div>
 </div>
 </div>
-
-<div class="mt-4 p-5 w-full max-w-4xl rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10">
-<div class="text-xl font-bold text-white">Move your thinking earlier — where it changes the outcome instead of the cleanup.</div>
+<div class="mt-1 p-4 w-full rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10">
+<div class="text-lg font-bold text-white">Move your thinking earlier &mdash; where it changes the outcome instead of the cleanup.</div>
 </div>
-
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-cyan-900/20 border border-cyan-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-cyan-300 text-sm italic">&ldquo;I&rsquo;ve been asking engineering to &lsquo;move the thinking earlier&rsquo; for ten years. Turns out there&rsquo;s a button.&rdquo;</span>
+  <span class="text-cyan-500 text-xs text-right">&mdash; Rafael</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: ❌ Before — Jumping Straight to Code -->
@@ -343,39 +342,40 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 ---
 
 <!-- SLIDE: ✅ What Good Plan Output Looks Like -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What Good Plan Output Looks Like</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What Good Plan Output Looks Like</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-3">A strong draft includes</div>
-<ul class="text-sm text-gray-300 space-y-2">
+<div class="relative z-10 grid grid-cols-2 gap-4 mt-4 text-left">
+<div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+<div class="text-blue-300 font-bold mb-2 text-sm">A strong draft includes</div>
+<ul class="text-xs text-gray-300 space-y-1.5">
 <li>A clear task summary</li>
 <li>Ordered implementation steps</li>
 <li>Specific file paths or system areas</li>
 <li>Dependencies and open questions</li>
 </ul>
 </div>
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">A strong review checks</div>
-<ul class="text-sm text-gray-300 space-y-2">
+<div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+<div class="text-purple-300 font-bold mb-2 text-sm">A strong review checks</div>
+<ul class="text-xs text-gray-300 space-y-1.5">
 <li>Error handling and edge cases</li>
 <li>Architectural fit and existing patterns</li>
 <li>Test coverage and affected test files</li>
 <li>Scope assumptions that need clarification</li>
 </ul>
 </div>
-
 </div>
-
-<div class="mt-8 p-5 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+<div class="relative z-10 mt-4 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
 <div class="text-lg text-white font-semibold">Good plan mode output is specific enough to challenge and simple enough to refine.</div>
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-blue-900/20 border border-blue-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-blue-300 text-sm italic">&ldquo;Specific enough to challenge, simple enough to refine. That&rsquo;s a well-formed specification. I&rsquo;ve been asking for those for twenty years.&rdquo;</span>
+  <span class="text-blue-500 text-xs text-right">&mdash; David</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: 📊 What to Validate in the Workshop -->
@@ -413,52 +413,52 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 <!-- SLIDE: 🔨 Exercises -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F528; Exercises &mdash; Plan Mode</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercises &mdash; Plan Mode</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
-<div class="text-lg font-bold text-white">4 exercises · ~45 minutes · shared leadership</div>
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-3 shadow-lg shadow-orange-900/20">
+<div class="text-lg font-bold text-white">4 exercises &middot; ~45 minutes &middot; shared leadership</div>
 </div>
-<div class="relative z-10 grid grid-cols-4 gap-3">
-<div class="p-3 bg-amber-900/30 rounded-lg border border-amber-500/40">
+<div class="relative z-10 grid grid-cols-2 gap-3 flex-1">
+<div class="p-4 bg-amber-900/30 rounded-lg border border-amber-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
-<div class="text-amber-300 font-bold text-base">2.1</div>
-<span class="text-xs text-gray-500">Rafael ⭐</span>
+<div class="text-amber-300 font-bold text-base">2.1 &mdash; Swap the show</div>
+<span class="text-xs text-amber-400/70">Rafael ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Swap the show</div>
-<div class="text-gray-400 text-xs leading-snug">Replace Breaking Bad seed data with your team's chosen show in Agent mode</div>
+<div class="text-gray-300 text-xs leading-snug">Replace the Breaking Bad seed data with your team&rsquo;s chosen show — all in Agent mode.</div>
+<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-amber-500/20">Plan first &rarr; confirm the scope &rarr; execute without surprises</div>
 </div>
-<div class="p-3 bg-amber-900/30 rounded-lg border border-amber-500/40">
+<div class="p-4 bg-amber-900/30 rounded-lg border border-amber-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
-<div class="text-amber-300 font-bold text-base">2.2</div>
-<span class="text-xs text-gray-500">Jessica ⭐</span>
+<div class="text-amber-300 font-bold text-base">2.2 &mdash; Plan Lore card</div>
+<span class="text-xs text-amber-400/70">Jessica ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Plan Lore card</div>
-<div class="text-gray-400 text-xs leading-snug">Add a Lore card to the homepage and a new Lore page before writing a line of code</div>
+<div class="text-gray-300 text-xs leading-snug">Add a Lore card to the homepage and a new Lore page. Build the plan before writing a single line of code.</div>
+<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-amber-500/20">Practice reviewing &amp; editing the plan before approving it</div>
 </div>
-<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40">
+<div class="p-4 bg-purple-900/30 rounded-lg border border-purple-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
-<div class="text-purple-300 font-bold text-base">2.3</div>
-<span class="text-xs text-gray-500">David ⭐</span>
+<div class="text-purple-300 font-bold text-base">2.3 &mdash; Plan add form</div>
+<span class="text-xs text-purple-400/70">David ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Plan add form</div>
-<div class="text-gray-400 text-xs leading-snug">Produce a second roadmap for the add-episode feature in the same session</div>
+<div class="text-gray-300 text-xs leading-snug">Produce a second roadmap for the add-episode feature — in the same session as 2.2, without losing context.</div>
+<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-purple-500/20">One conversation, two independent plans — no rediscovery needed</div>
 </div>
-<div class="p-3 bg-green-900/30 rounded-lg border border-green-500/40">
+<div class="p-4 bg-green-900/30 rounded-lg border border-green-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
-<div class="text-green-300 font-bold text-base">2.4</div>
-<span class="text-xs text-gray-500">Sarah ⭐</span>
+<div class="text-green-300 font-bold text-base">2.4 &mdash; Execute + populate</div>
+<span class="text-xs text-green-400/70">Sarah ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Execute + populate</div>
-<div class="text-gray-400 text-xs leading-snug">Hand the validated plan to Agent mode and implement without rediscovery</div>
-</div>
-</div>
-<div class="relative z-10 mt-3 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
-Each exercise rotates the lead persona — everyone contributes, everyone follows.
+<div class="text-gray-300 text-xs leading-snug">Hand the validated plan to Agent mode and let it implement — without re-explaining the codebase from scratch.</div>
+<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-green-500/20">The plan is the handoff — execution is just follow-through</div>
 </div>
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-green-300 text-sm italic">&ldquo;I kept wanting to just start typing. Making myself write the plan first felt slow. Then I saw how fast the execution went.&rdquo;</span>
+<span class="text-green-500 text-xs text-right">&mdash; Sarah</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: 🔨 Exercise 2.1: Swap the Show -->
