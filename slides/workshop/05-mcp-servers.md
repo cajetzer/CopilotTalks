@@ -13,7 +13,7 @@ title: Module 5 - MCP Servers
 module: workshop/05-mcp-servers
 mdc: true
 status: active
-updated: 2026-03-26
+updated: 2026-03-31
 ---
 
 <!-- SLIDE: Module 5: MCP Servers -->

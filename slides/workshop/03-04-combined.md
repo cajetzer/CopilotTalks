@@ -13,7 +13,7 @@ title: From Prompts to Skills
 module: workshop/03-custom-prompts
 mdc: true
 status: active
-updated: 2026-03-27
+updated: 2026-03-31
 ---
 
 <!-- SLIDE: From Prompts to Skills -->

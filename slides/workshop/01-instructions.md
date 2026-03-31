@@ -13,7 +13,7 @@ title: Module 1 - Instructions
 module: workshop/01-instructions
 mdc: true
 status: active
-updated: 2026-03-26
+updated: 2026-03-31
 ---
 
 <!-- SLIDE: Module 1: Instructions -->

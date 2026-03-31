@@ -13,7 +13,7 @@ title: Module 2 - Agent Plan Mode
 module: workshop/02-agent-plan-mode
 mdc: true
 status: active
-updated: 2026-03-26
+updated: 2026-03-31
 ---
 
 <!-- SLIDE: Module 2: Agent Plan Mode -->

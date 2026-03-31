@@ -13,7 +13,7 @@ title: Module 6 - Custom Agents
 module: workshop/06-custom-agents
 mdc: true
 status: active
-updated: 2026-03-26
+updated: 2026-03-31
 ---
 
 <!-- SLIDE: Module 6: Custom Agents -->

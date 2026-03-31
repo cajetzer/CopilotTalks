@@ -13,7 +13,7 @@ title: Module 0 - The Challenge
 module: workshop/00-orientation
 mdc: true
 status: active
-updated: 2026-03-25
+updated: 2026-03-31
 ---
 
 <!-- SLIDE: Title -->
