@@ -309,6 +309,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <!-- SLIDE: ❌ Before -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before vs ✨ After</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
 <div class="relative z-10 grid grid-cols-2 gap-8">
 <div class="pr-4 border-r border-white/10">
 <div class="mb-4">
@@ -1096,6 +1099,36 @@ MCP servers let Copilot see the real world. <span class="text-white font-semibol
 
 ---
 
+<!-- SLIDE: 💬 Reflect & Discuss -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-gray-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-5">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; Reflect &amp; Discuss</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-8 flex-1">
+<div class="flex flex-col gap-3">
+<div class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-2">&#x1F4D6; Story Moments</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">Marcus&rsquo;s grounding moment: &ldquo;it&rsquo;s showing me what&rsquo;s <em>actually</em> stored? Not what we think is stored?&rdquo; &mdash; assumptions met reality</div>
+</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">Two failure classes surfaced in one session: Sarah found a DB error the API masked; Elena found records silently dropped between layers</div>
+</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">Sarah ran checks at 2:30pm she&rsquo;d planned to do manually at 5pm &mdash; the tool got faster than her instinct to postpone</div>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<div class="p-6 bg-gradient-to-br from-amber-900/30 via-orange-900/20 to-transparent rounded-2xl border border-amber-500/30 shadow-lg">
+<div class="text-xs text-amber-400/80 uppercase tracking-widest font-semibold mb-4">&#x1F4A1; One Big Question</div>
+<div class="text-xl font-semibold text-white leading-relaxed">What&rsquo;s a question you&rsquo;ve answered this week that required switching to another tool &mdash; a database, a dashboard, a doc? What would it mean to answer that without leaving the workflow?</div>
+</div>
+</div>
+</div>
+</div>
+
+---
 <!-- SLIDE: 💭 The Team, After Module 5 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>

@@ -91,13 +91,13 @@ updated: 2026-03-26
 <div class="relative z-10 mb-2 flex items-center gap-3">
 <div class="w-9 h-9 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-base font-bold text-white shadow-lg shadow-orange-500/30 flex-shrink-0">S</div>
 <div class="text-gray-300 text-sm">
-<span class="text-white font-semibold">Sarah</span> looks at everything the team has built and starts thinking about what becomes possible when it all works together.
+<span class="text-white font-semibold">Sarah</span> stares at the <code class="text-orange-300">.github</code> folder. Prompts, skills, an MCP server, a universe file. Five modules of work. She still has to wire all of it together herself, every time.
 </div>
 </div>
 <div class="relative z-10 mb-3 py-2 px-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm">
 <p class="text-gray-200 text-xs leading-relaxed">
 <span class="text-orange-300/60 font-serif text-base">"</span>
-We have prompts, skills, and MCP — and they're all working. Now imagine if switching between review and implementation didn't require any setup at all. What if <span class="text-orange-300 font-semibold">Copilot</span> was already waiting for us?<span class="text-orange-300/60 font-serif text-base">"</span>
+Five modules of work sitting in this repo. Right now I have to invoke all of it manually, every time. What if there was just&hellip; <span class="text-orange-300 font-semibold">an agent for that?</span><span class="text-orange-300/60 font-serif text-base">"</span>
 </p>
 </div>
 <div class="relative z-10 grid grid-cols-6 gap-3 mb-3 text-left">
@@ -134,7 +134,7 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 </div>
 <div class="relative z-10 flex items-center gap-3 p-3 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/40 shadow-lg">
 <span class="text-xl flex-shrink-0">⚡</span>
-<p class="text-white font-bold text-sm">Custom agents let the team switch into the <span class="text-orange-300">right role instantly</span> — tools, instructions, and handoffs already configured.</p>
+<p class="text-white font-bold text-sm">Five modules. <span class="text-orange-300">One instruction.</span></p>
 </div>
 </div>
 
@@ -428,12 +428,15 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <!-- SLIDE: ❌ Before -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-red-900/15 via-transparent to-green-900/15"></div>
-<div class="relative z-10 grid grid-cols-2 gap-8 h-full py-4">
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before vs ✨ After</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-8">
 <div class="pr-4 border-r border-white/10">
 <div class="mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-red-700/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">❌ Before</span>
 </div>
-<div class="space-y-4">
+<div class="space-y-4 text-left">
 <div class="p-4 bg-red-900/25 rounded-lg border border-red-500/20">
 <div class="font-bold text-red-300 mb-2">Work starts with reconfiguration</div>
 <div class="text-sm text-gray-300">The user re-explains whether this is planning, implementation, review, or analysis work.</div>
@@ -452,7 +455,7 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <div class="mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-green-700/80 to-green-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ After</span>
 </div>
-<div class="space-y-4">
+<div class="space-y-4 text-left">
 <div class="p-4 bg-green-900/25 rounded-lg border border-green-500/20">
 <div class="font-bold text-green-300 mb-2">Roles become instant presets</div>
 <div class="text-sm text-gray-300">The team picks the right agent and starts in the right mode immediately.</div>
@@ -502,100 +505,6 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
   <div class="text-xl font-bold text-white">A good custom agent feels like a workflow upgrade, not just a renamed chat mode.</div>
 </div>
 </div>
-
----
-
-<!-- SLIDE: 🔨 Exercise Roadmap -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="mt-4 p-4 bg-gradient-to-r from-blue-900/25 via-purple-900/20 to-orange-900/15 rounded-xl border border-white/10 text-center">
-  <div class="text-base text-white font-semibold mb-1">Turn earlier customizations into reusable teammates.</div>
-  <div class="text-xs text-gray-300">Pattern first, then review, sharpen the spec, implement, and see the horizon.</div>
-</div>
-
-<div class="mt-4 grid grid-cols-3 gap-3 text-left">
-
-  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
-    <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 text-xs font-bold border border-blue-400/30">6.1</span>
-      <span class="text-xs text-gray-400">15 min</span>
-    </div>
-    <div class="text-base font-bold text-blue-300 mb-2 leading-tight">Study the Default Plan Agent</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">Learn the Explore subagent pattern, tool-list-as-role-boundary, and handoff chain before building your own.</div>
-    <div class="text-xs text-gray-400">Lead: All ⭐</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
-    <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-200 text-xs font-bold border border-emerald-400/30">6.2</span>
-      <span class="text-xs text-gray-400">15 min</span>
-    </div>
-    <div class="text-base font-bold text-emerald-300 mb-2 leading-tight">Explore Agent Teams with Squad</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">See where the Explore subagent pattern goes at scale — persistent multi-agent coordination in VS Code.</div>
-    <div class="text-xs text-gray-400">Lead: Marcus ⭐</div>
-  </div>
-
-  <div class="p-4 rounded-xl bg-gradient-to-br from-amber-900/40 to-gray-900/50 border border-amber-500/40">
-    <div class="flex items-center justify-between mb-3">
-      <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 text-xs font-bold border border-amber-400/30">6.3</span>
-      <span class="text-xs text-gray-400">25 min</span>
-    </div>
-    <div class="text-base font-bold text-amber-300 mb-1 leading-tight">Build the &#64;content-author Agent</div>
-    <div class="px-2 py-0.5 inline-block bg-amber-500/20 rounded-full text-amber-200 text-[10px] border border-amber-400/30 mb-2">⭐ CAPSTONE</div>
-    <div class="text-xs text-gray-300 mb-3 leading-snug">Wire M1 context, <code>create-card-and-page</code> (M4), <code>check-data-accuracy</code> (M3/M4), and live MCP data (M5) into one agent.</div>
-    <div class="text-xs text-gray-400">Lead: All ⭐🤝</div>
-  </div>
-
-</div>
-
-<div class="mt-4 p-3 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-  <div class="text-sm text-white font-semibold">One arc: study the pattern &#x2192; explore agent teams &#x2192; build the capstone.</div>
-</div>
-</div>
-
-
----
-
-<!-- SLIDE: 🔗 Compounding Value -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">What Module 6 adds</div>
-    <ul class="text-sm text-gray-300 space-y-2">
-      <li>Role-based presets instead of repetitive setup</li>
-      <li>Explicit workflow boundaries between review and implementation</li>
-      <li>Handoffs that connect Feature Spec execution to character review</li>
-      <li>A capstone glimpse of persistent agent teams beyond single-role presets</li>
-    </ul>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-    <div class="text-purple-300 font-bold mb-3">Why it matters</div>
-    <ul class="text-sm text-gray-300 space-y-2">
-      <li>Instructions, prompts, skills, and MCP are more valuable when they are easy to invoke in the right context</li>
-      <li>Teams get more consistency because workflow design is encoded, not remembered</li>
-      <li>Even a small two-agent flow makes Copilot feel more like a deliberate teammate system than a single chat box</li>
-    </ul>
-  </div>
-
-</div>
-
-<div class="mt-4 flex items-center gap-3 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30">
-<span class="text-xl flex-shrink-0">⚡</span>
-<p class="text-white font-bold text-sm">Module 6 is the orchestration layer that turns separate customizations into <span class="text-orange-300">repeatable delivery patterns</span>.</p>
-</div>
-</div>
-
 
 ---
 
@@ -1465,6 +1374,37 @@ Module 6 Is Locked In
 Module 6 is where the earlier customizations stop feeling like parts and start feeling like an operating model. <span class="text-white font-semibold">The team built something that compounds across every sprint from here.</span>
 </div>
 <div class="relative z-10 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
+</div>
+
+---
+
+<!-- SLIDE: 💬 Reflect & Discuss -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-gray-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-5">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; Reflect &amp; Discuss</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-8 flex-1">
+<div class="flex flex-col gap-3">
+<div class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-2">&#x1F4D6; Story Moments</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">Marcus saw one agent hand off to the next and immediately mapped it to the deploy pipeline &mdash; a mental model shift in real time</div>
+</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">Sarah&rsquo;s five-module payoff: &ldquo;checked the canon, checked the live data, scaffolded the whole stack, caught an attribution error before migration&rdquo; &mdash; all from one instruction</div>
+</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">Marcus gave the agent a bad question on purpose and it said &ldquo;I don&rsquo;t know&rdquo; &mdash; the first time he trusted it</div>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<div class="p-6 bg-gradient-to-br from-amber-900/30 via-orange-900/20 to-transparent rounded-2xl border border-amber-500/30 shadow-lg">
+<div class="text-xs text-amber-400/80 uppercase tracking-widest font-semibold mb-4">&#x1F4A1; One Big Question</div>
+<div class="text-xl font-semibold text-white leading-relaxed">If you could design one agent for your team today &mdash; something that owns a whole category of work end-to-end &mdash; what would it do, and what would it need to know?</div>
+</div>
+</div>
+</div>
 </div>
 
 ---

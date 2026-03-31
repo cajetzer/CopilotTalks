@@ -1522,40 +1522,6 @@ Tests, Docker files, and docs serve different purposes than production app code.
 
 ---
 
-<!-- SLIDE: 🔗 Compounding Value -->
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span>
-
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-<div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-3">What this module leaves behind</div>
-<ul class="text-sm text-gray-300 space-y-2">
-<li>A generated starting point from <code>/init</code></li>
-<li>A concise <code>ARCHITECTURE.md</code></li>
-<li>A repository baseline in <code>copilot-instructions.md</code></li>
-<li>Path-based files for targeted guidance</li>
-</ul>
-</div>
-<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
-<ul class="text-sm text-gray-300 space-y-2">
-<li><strong>Module 2:</strong> planning starts from better project context</li>
-<li><strong>Module 3:</strong> prompts can reference shared standards</li>
-<li><strong>Module 4:</strong> skills reinforce repeated patterns</li>
-<li><strong>Module 5:</strong> specialized workflows inherit clearer defaults</li>
-<li><strong>Module 6:</strong> custom agents benefit from the established baseline</li>
-</ul>
-</div>
-</div>
-<div class="mt-8 p-4 bg-gradient-to-r from-yellow-900/30 via-amber-900/20 to-yellow-900/30 rounded-xl border border-yellow-500/40 text-center text-lg font-semibold text-yellow-300 shadow-lg shadow-yellow-900/20">
-Every minute invested here pays off forever because the context keeps getting reused.
-</div>
-
----
-
 <!-- SLIDE: ✅ Module Checklist -->
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Module Checklist</span>
@@ -1648,6 +1614,37 @@ Better instructions create better starting conditions. <span class="text-white f
 
 ---
 
+
+<!-- SLIDE: 💬 Reflect & Discuss -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-gray-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-5">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; Reflect &amp; Discuss</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-8 flex-1">
+<div class="flex flex-col gap-3">
+<div class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-2">&#x1F4D6; Story Moments</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">The PR patterns Jessica had been manually copying from Marcus were already living in old conversations &mdash; Copilot found them instantly</div>
+</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">David realized the codebase doesn&rsquo;t tell Copilot what it&rsquo;s <em>for</em> &mdash; architecture and intent have to be written down explicitly</div>
+</div>
+<div class="p-4 bg-gray-900/50 rounded-xl border-l-2 border-indigo-400/50">
+<div class="text-sm text-gray-200 leading-relaxed">Sarah&rsquo;s 12 recurring weekly questions could disappear into a single file &mdash; answered once, referenced forever</div>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<div class="p-6 bg-gradient-to-br from-amber-900/30 via-orange-900/20 to-transparent rounded-2xl border border-amber-500/30 shadow-lg">
+<div class="text-xs text-amber-400/80 uppercase tracking-widest font-semibold mb-4">&#x1F4A1; One Big Question</div>
+<div class="text-xl font-semibold text-white leading-relaxed">What&rsquo;s one piece of context about your team or codebase that Copilot couldn&rsquo;t possibly know right now &mdash; and what would change if it did?</div>
+</div>
+</div>
+</div>
+</div>
+
+---
 <!-- SLIDE: 💭 The Team, After Module 1 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
