@@ -144,44 +144,111 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 
 ---
 
-<!-- SLIDE: 🎯 What Youll Build -->
+<!-- SLIDE: 💭 The Team, Before Module 5 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 5</span>
+<div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is how Copilot connects to the internet. That&rsquo;s why it sometimes knows current stuff. It&rsquo;s already on.&rdquo;</div>
+<div class="text-xs text-gray-500">Describing a completely different feature with total confidence.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is essentially SOAP with better branding and a younger demographic. I&rsquo;ll reserve judgment.&rdquo;</div>
+<div class="text-xs text-gray-500">Technically wrong. Spiritually on brand.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP means Copilot can write directly to the database now. That&rsquo;s what &lsquo;live data access&rsquo; means.&rdquo;</div>
+<div class="text-xs text-gray-500">She&rsquo;s going to have follow-up questions about prod access.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP servers run entirely in the cloud. There&rsquo;s nothing local to secure or audit.&rdquo;</div>
+<div class="text-xs text-gray-500">The security concern is coming. It&rsquo;s just aimed at the wrong layer.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is just a fancy name for the GitHub extension. I already have that installed. Is there a different download?&rdquo;</div>
+<div class="text-xs text-gray-500">Confidently conflating two unrelated things.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is already reading our Confluence docs, isn&rsquo;t it? I assumed that&rsquo;s what was happening.&rdquo;</div>
+<div class="text-xs text-gray-500">It was not happening. He has been very wrong for weeks.</div>
+</div>
+</div>
+</div>
+---
+
+<!-- SLIDE: 🎯 What You'll Build -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You'll Build</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 What You&rsquo;ll Build</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-    <div class="text-2xl mb-3">🗄️</div>
-    <div class="text-lg font-bold text-blue-300 mb-2">Live lore data access</div>
-    <div class="text-sm text-gray-300">Connect Copilot to FanHub so lore records, character data, and relationship fields can be inspected directly in chat.</div>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-    <div class="text-2xl mb-3">🧠</div>
-    <div class="text-lg font-bold text-purple-300 mb-2">An MCP-aware accuracy skill</div>
-    <div class="text-sm text-gray-300">Upgrade the <code class="text-emerald-300">lore-accuracy-check</code> skill so it validates against the actual database, not just the universe file.</div>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
-    <div class="text-2xl mb-3">🔍</div>
-    <div class="text-lg font-bold text-orange-300 mb-2">A lore consistency audit</div>
-    <div class="text-sm text-gray-300">Run the upgraded skill against existing database entries and surface discrepancies that the static check would have missed.</div>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
-    <div class="text-2xl mb-3">🤖</div>
-    <div class="text-lg font-bold text-purple-300 mb-2">A bridge to Module 6</div>
-    <div class="text-sm text-gray-300">By the end of this module, the team has live data access and runtime checks ready to be orchestrated by an agent.</div>
-  </div>
-
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
+<div class="text-base font-bold text-white">3 exercises &middot; ~45 minutes &middot; rotating leads</div>
+<div class="text-xs text-gray-400 mt-0.5">Connect live data &rarr; upgrade the skill &rarr; run the full audit</div>
 </div>
-
-<div class="mt-8 text-center text-lg text-gray-300">
-  This module moves from static context to live operational context.
+<div class="relative z-10 grid grid-cols-3 gap-4" style="flex: 1; min-height: 0;">
+<div class="flex flex-col p-4 bg-blue-900/30 rounded-xl border border-blue-500/40">
+<div class="flex items-center justify-between mb-2">
+<div class="text-blue-300 font-bold text-2xl">5.1</div>
+<span class="text-xs text-gray-500">Marcus ⭐</span>
 </div>
-
+<div class="text-white text-sm font-semibold mb-2">Connect Live Lore Data</div>
+<div class="text-gray-300 text-xs leading-snug mb-3">Configure an MCP server so Copilot can query live FanHub lore records directly in chat — no context-switching, no copy-paste.</div>
+<div class="mt-auto space-y-1 text-xs text-gray-400 border-t border-blue-500/20 pt-2">
+<div class="text-blue-300 font-semibold text-xs mb-1">You&rsquo;ll configure:</div>
+<div class="flex items-start gap-1.5"><span class="text-blue-400">▸</span><code>.vscode/mcp.json</code> for FanHub</div>
+<div class="flex items-start gap-1.5"><span class="text-blue-400">▸</span>Live lore queries in Copilot Chat</div>
+<div class="flex items-start gap-1.5"><span class="text-blue-400">▸</span>Validation that real data flows through</div>
+</div>
+</div>
+<div class="flex flex-col p-4 bg-purple-900/30 rounded-xl border border-purple-500/40">
+<div class="flex items-center justify-between mb-2">
+<div class="text-purple-300 font-bold text-2xl">5.2</div>
+<span class="text-xs text-gray-500">Elena ⭐</span>
+</div>
+<div class="text-white text-sm font-semibold mb-2">Upgrade the Accuracy Skill</div>
+<div class="text-gray-300 text-xs leading-snug mb-3">Extend <code>check-lore-accuracy</code> to validate against the live database instead of the static universe file — and watch it catch what the old skill missed.</div>
+<div class="mt-auto space-y-1 text-xs text-gray-400 border-t border-purple-500/20 pt-2">
+<div class="text-purple-300 font-semibold text-xs mb-1">You&rsquo;ll see:</div>
+<div class="flex items-start gap-1.5"><span class="text-purple-400">▸</span>Skills + MCP working in combination</div>
+<div class="flex items-start gap-1.5"><span class="text-purple-400">▸</span>Errors the static skill would have missed</div>
+<div class="flex items-start gap-1.5"><span class="text-purple-400">▸</span>Live DB records surfaced in skill output</div>
+</div>
+</div>
+<div class="flex flex-col p-4 bg-orange-900/30 rounded-xl border border-orange-500/40">
+<div class="flex items-center justify-between mb-2">
+<div class="text-orange-300 font-bold text-2xl">5.3</div>
+<span class="text-xs text-gray-500">Sarah ⭐</span>
+</div>
+<div class="text-white text-sm font-semibold mb-2">Run the Lore Consistency Audit</div>
+<div class="text-gray-300 text-xs leading-snug mb-3">Use both MCP servers together to catch DB-vs-universe mismatches and lore that exists in the database but never reaches the API.</div>
+<div class="mt-auto space-y-1 text-xs text-gray-400 border-t border-orange-500/20 pt-2">
+<div class="text-orange-300 font-semibold text-xs mb-1">You&rsquo;ll produce:</div>
+<div class="flex items-start gap-1.5"><span class="text-orange-400">▸</span>A cross-source discrepancy report</div>
+<div class="flex items-start gap-1.5"><span class="text-orange-400">▸</span>Orphaned lore records identified</div>
+<div class="flex items-start gap-1.5"><span class="text-orange-400">▸</span>A reusable on-demand audit prompt</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 mt-3 text-center text-sm text-gray-400">This module moves from <span class="text-white font-semibold">static context</span> to <span class="text-white font-semibold">live operational context</span> &mdash; and everything after this builds on that.</div>
+</div>
 ---
 
 <!-- SLIDE: 📚 What MCP Servers Actually Add -->
@@ -1129,6 +1196,7 @@ MCP servers let Copilot see the real world. <span class="text-white font-semibol
 </div>
 
 ---
+
 <!-- SLIDE: 💭 The Team, After Module 5 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
@@ -1140,33 +1208,33 @@ MCP servers let Copilot see the real world. <span class="text-white font-semibol
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I kept waiting for it to be wrong so I could go back to doing it manually. It wasn&#39;t wrong. I ran it three more times. I don&#39;t know what to do with that."</div>
-<div class="text-xs text-gray-500">Testing the tool to find an excuse not to trust it.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s not the internet connection &mdash; it&rsquo;s live data from the actual database. I kept waiting for it to be wrong. Three more runs. It was not the internet. It was worse: it was correct.&rdquo;</div>
+<div class="text-xs text-gray-500">Testing the tool to find the excuse. Didn&rsquo;t find it.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Technically the correct term is &#39;grounding&#39; — you&#39;re anchoring inference in verified external state rather than learned approximation. That it took this long is the more interesting observation."</div>
-<div class="text-xs text-gray-500">Corrected the vocabulary. Conceded the result.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It is not SOAP. The correct term is &lsquo;grounding&rsquo; &mdash; anchoring inference in verified external state rather than learned approximation. I retract the SOAP comparison. Partially.&rdquo;</div>
+<div class="text-xs text-gray-500">Corrected himself before anyone else could.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Three lore errors found. Two API gaps. One regression caught before the PR. I didn&#39;t ask for any of that. I was going to run those checks manually at 5pm. It&#39;s 2:30."</div>
-<div class="text-xs text-gray-500">Just the numbers. Zero enthusiasm. Entirely convinced.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It doesn&rsquo;t write to the database &mdash; it reads from it. Three lore errors. Two API gaps. One regression before the PR. I was going to run those checks manually at 5pm. It&rsquo;s 2:30.&rdquo;</div>
+<div class="text-xs text-gray-500">Wrong about the direction. Right that it changes everything.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"DB error in char-002: confirmed. API gap in char-011 and two more: confirmed. Seventeen edge cases still queued. I expect at least four to surface something. I am professionally obligated to keep checking."</div>
-<div class="text-xs text-gray-500">Already running the next test before finishing the last one.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;They don&rsquo;t run in the cloud &mdash; they run locally and that surface needs to be audited. DB error confirmed. API gap confirmed. Seventeen edge cases queued. I am professionally obligated to keep checking.&rdquo;</div>
+<div class="text-xs text-gray-500">Found the local surface. Already auditing it.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Sorry — I was reading an MCP internals thread while the audit ran and then I looked up and it had already found the thing. Also I&#39;m adding this to the CI pipeline. Give me a minute. Two things."</div>
-<div class="text-xs text-gray-500">Two parallel trains. Already shipping before he's finished reading.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It is not the GitHub extension &mdash; I have that and it does not do this. I was reading an MCP internals thread while it ran, looked up, and it had already found the thing. Adding it to CI. Two things.&rdquo;</div>
+<div class="text-xs text-gray-500">Two parallel trains. Already shipping before he finished reading.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I&#39;m going to stop you there. The three failure classes map to two epics and a Q3 OKR. &#39;Wrong data stored&#39; is content ops. &#39;API drops it&#39; is reliability. We&#39;re shipping this."</div>
-<div class="text-xs text-gray-500">Tuned out the implementation. Made the call.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It was not reading Confluence. It was catching data errors I didn&rsquo;t know existed. The three failure classes map to two epics and a Q3 OKR. We&rsquo;re shipping this.&rdquo;</div>
+<div class="text-xs text-gray-500">Tuned out the gap. Made the call anyway.</div>
 </div>
 </div>
 </div>

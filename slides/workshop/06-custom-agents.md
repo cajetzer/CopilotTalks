@@ -140,6 +140,54 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 
 ---
 
+<!-- SLIDE: 💭 The Team, Before Module 6 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 6</span>
+<div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Custom agents are just Copilot with a different name. Like a theme. A personality skin.&rdquo;</div>
+<div class="text-xs text-gray-500">About to discover it&rsquo;s considerably more than a skin.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;A custom agent is a system prompt with a YAML header. I could reproduce this in ten minutes. I&rsquo;ll wait.&rdquo;</div>
+<div class="text-xs text-gray-500">He could write the YAML. He could not write the agent.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Once it&rsquo;s built, the agent runs on its own indefinitely. Zero maintenance. That&rsquo;s the pitch, right?&rdquo;</div>
+<div class="text-xs text-gray-500">&lsquo;Zero maintenance&rsquo; has never been a pitch that held.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;The agent validates its own output. Self-testing. You don&rsquo;t need to review it &mdash; it reviews itself.&rdquo;</div>
+<div class="text-xs text-gray-500">She will spend the next hour testing that assumption to destruction.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Custom agents replace Copilot entirely. You&rsquo;re basically writing your own model config. That sounds like a lot.&rdquo;</div>
+<div class="text-xs text-gray-500">Half-checked-out. Catastrophically misinformed.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;So I assign the Jira ticket to the agent, add it to the sprint, and check out for the day. That&rsquo;s what this is, right?&rdquo;</div>
+<div class="text-xs text-gray-500">Already blocking off his afternoon calendar.</div>
+</div>
+</div>
+</div>
+---
+
 <!-- SLIDE: 🤖 Built-In Agents You Already Have -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
@@ -1614,13 +1662,13 @@ Module 6 is where the earlier customizations stop feeling like parts and start f
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I built an agent today. A real one. It has a name, instructions, and it knows our show. I&#39;m going to show everyone."</div>
-<div class="text-xs text-gray-500">Built something with her name on it.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I built an agent today. A real one. It has a name, instructions, and it knows our entire show. It is not a skin."</div>
+<div class="text-xs text-gray-500">Built something with her name on it. Corrected herself without being asked.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"A custom agent is a well-specified collaborator. Give it context, tools, and a clear mandate — and it operates consistently."</div>
-<div class="text-xs text-gray-500">A collaborator, not a chatbot.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I said I could write the YAML in ten minutes. I was wrong about what I was writing."</div>
+<div class="text-xs text-gray-500">Conceding the diff between the config and the collaborator.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
@@ -1629,18 +1677,18 @@ Module 6 is where the earlier customizations stop feeling like parts and start f
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"It has constraints, a persona, and escalation rules. It&#39;s the first AI tool I&#39;d actually trust in production."</div>
-<div class="text-xs text-gray-500">The first AI tool she&#39;d sign off on for production.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"It has constraints, a persona, and escalation rules. That&#39;s the opposite of self-validating. That&#39;s exactly why I trust it."</div>
+<div class="text-xs text-gray-500">Trusted it because it doesn&#39;t trust itself.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I gave the agent a bad question on purpose. It said it didn&#39;t know and asked for clarification. That&#39;s the first time I&#39;ve trusted it."</div>
-<div class="text-xs text-gray-500">Trusted it because it admitted uncertainty.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I gave it a bad question on purpose. Thought I was writing a model config. Turns out I was writing a teammate."</div>
+<div class="text-xs text-gray-500">Snapped into focus. Didn&#39;t see that coming.</div>
 </div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"One agent deployment covers every future content task for this feature. That&#39;s not velocity — that&#39;s leverage."</div>
-<div class="text-xs text-gray-500">Leverage that compounds across every sprint.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">"I didn&#39;t get to check out. But one deployment covers every future content task for this feature. That&#39;s not checking out &mdash; that&#39;s leverage."</div>
+<div class="text-xs text-gray-500">Afternoon calendar unblocked. For different reasons than expected.</div>
 </div>
 </div>
 </div>

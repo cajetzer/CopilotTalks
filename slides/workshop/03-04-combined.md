@@ -127,6 +127,54 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 
 ---
 
+<!-- SLIDE: 💭 The Team, Before Module 3+4 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 3+4</span>
+<div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;A skill is a really long prompt. Like, a detailed one you save so you don&rsquo;t have to retype it. That&rsquo;s it.&rdquo;</div>
+<div class="text-xs text-gray-500">Underselling it by about ninety percent.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Prompt files are macros. We solved this in 1980. I&rsquo;m going to need a more compelling pitch.&rdquo;</div>
+<div class="text-xs text-gray-500">Waiting for the pitch. About to get one.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Skills are pre-loaded context. You write it once and Copilot remembers it forever. Low maintenance.&rdquo;</div>
+<div class="text-xs text-gray-500">The &lsquo;forever&rsquo; is doing a lot of heavy lifting.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;A prompt file is always active. It runs on every request. You can&rsquo;t turn it off without deleting it.&rdquo;</div>
+<div class="text-xs text-gray-500">Already planning how to audit the always-on behavior.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Skills are aliases. You type the name, it expands to the full prompt. Like a bash alias but for chat.&rdquo;</div>
+<div class="text-xs text-gray-500">Close enough to feel right. Wrong enough to matter.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I turn our PRD template into a skill and it writes the whole spec from a one-line prompt. That&rsquo;s the use case.&rdquo;</div>
+<div class="text-xs text-gray-500">He&rsquo;s going to be partially right. That&rsquo;s almost worse.</div>
+</div>
+</div>
+</div>
+---
+
 <!-- SLIDE: What You'll Build -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
@@ -1909,49 +1957,44 @@ Module 3+4 Is Locked In
 
 ---
 
-<!-- SLIDE: &#x1F4AC; The Team, After Module 3+4 -->
+<!-- SLIDE: 💭 The Team, After Module 3+4 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; The Team, After Module 3+4</span>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 3+4</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I just ran data-accuracy-check and it&hellip; did it. Automatically. With the canon citations. I didn't invoke anything extra. That's new."</div>
-<div class="text-xs text-gray-500">Not quite believing it worked without her asking.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s not a saved prompt. I ran data-accuracy-check and it just&hellip; did it. Automatically. With the canon citations. I didn&rsquo;t type the prompt. That&rsquo;s new.&rdquo;</div>
+<div class="text-xs text-gray-500">Not quite believing it ran without her asking.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"A skill is a capability contract. The description is the interface. Once you understand that, the rest follows naturally. I'll grant it's well-designed."</div>
-<div class="text-xs text-gray-500">Conceding after verifying the abstraction holds.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s not a macro. A skill is a capability contract &mdash; the description is the interface. We have not solved this. 1980 will need to be revised.&rdquo;</div>
+<div class="text-xs text-gray-500">Conceding with precision. The highest form of David compliment.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"New entity type, from zero to browsable page: twenty-three minutes. I timed it. That's down from a half-day. You're welcome."</div>
-<div class="text-xs text-gray-500">Did the math. Filed the result. Moving on.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s not pre-loaded context &mdash; it&rsquo;s invocable capability. New entity type, zero to browsable page: twenty-three minutes. I timed it. That&rsquo;s down from a half-day. You&rsquo;re welcome.&rdquo;</div>
+<div class="text-xs text-gray-500">Wrong about the model. Right that it was worth writing once.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The verify-endpoints script failed on a missing migration. That's exactly what it should do. I'm adding edge cases to the skill. This is fine."</div>
-<div class="text-xs text-gray-500">Found a failure mode. Considers it a success.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It doesn&rsquo;t run on every request &mdash; it runs when it&rsquo;s relevant. The verify-endpoints script found a missing migration. That&rsquo;s exactly what controlled invocation is for. I&rsquo;m adding edge cases anyway.&rdquo;</div>
+<div class="text-xs text-gray-500">The failure mode confirmed the design. She&rsquo;s adding edge cases anyway.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I ran create-card-and-page skill for Ratings, then for Themes, then for Factions. Same output every time. I opened a Hacker News tab and closed it. That's how good this is."</div>
-<div class="text-xs text-gray-500">The highest praise: he stayed focused.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s not an alias. I ran create-card-and-page for Ratings, Themes, and Factions. Same output every time. I opened a Hacker News tab and closed it. That&rsquo;s how not-an-alias this is.&rdquo;</div>
+<div class="text-xs text-gray-500">The highest praise: stayed focused through three runs.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Skills are institutional knowledge that scales. That's not a tech story &mdash; that's a resourcing story. I'm already mapping it to Module 6."</div>
-<div class="text-xs text-gray-500">Already on the next module before this one closes.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I tried the PRD template. It helped more than expected and less than I claimed. Skills are institutional knowledge that scales &mdash; that&rsquo;s the real story. Already mapping it to Module 6.&rdquo;</div>
+<div class="text-xs text-gray-500">Revised the pitch upward. Already on the next module.</div>
 </div>
 </div>
 </div>

@@ -133,6 +133,54 @@ Frontend, backend, tests, docs, and Python utilities should not all receive the 
 
 ---
 
+<!-- SLIDE: 💭 The Team, Before Module 1 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 1</span>
+<div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Oh, I already did this! I put a comment at the top of every file saying &lsquo;be helpful.&rsquo; Is that not the same thing?&rdquo;</div>
+<div class="text-xs text-gray-500">Confident she solved it six months ago.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;This is a glorified .editorconfig. I&rsquo;ve had those since 2009. I&rsquo;m not sure what the announcement is.&rdquo;</div>
+<div class="text-xs text-gray-500">Pedantically wrong. Still technically impressive.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It reads the entire codebase automatically. You don&rsquo;t have to tell it anything. That&rsquo;s the whole product.&rdquo;</div>
+<div class="text-xs text-gray-500">Wrong about the most important part.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Instructions are suggestions. It&rsquo;ll ignore them the moment something more convenient comes up.&rdquo;</div>
+<div class="text-xs text-gray-500">Professionally certain it won&rsquo;t hold.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;The instructions file is basically a README. Copilot already reads READMEs, so this is already done. Right?&rdquo;</div>
+<div class="text-xs text-gray-500">Half-right. Wrong half.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I just paste our product brief in there and it knows our entire domain. Done in five minutes.&rdquo;</div>
+<div class="text-xs text-gray-500">Already scheduling the five-minute meeting.</div>
+</div>
+</div>
+</div>
+---
+
 <!-- SLIDE: 🎯 What You'll Build -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-4">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
@@ -1656,38 +1704,38 @@ Better instructions create better starting conditions. <span class="text-white f
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Wait — it just found all our patterns? I've been copying those from Marcus's PR comments one by one. ...Does everyone else already know about this?"</div>
-<div class="text-xs text-gray-500">The moment imposter syndrome took a lunch break.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It turns out &lsquo;be helpful&rsquo; was not a context file. It just found all our patterns &mdash; I&rsquo;ve been copying those from Marcus&rsquo;s PR comments one by one. Does everyone else already know about this?&rdquo;</div>
+<div class="text-xs text-gray-500">The moment imposter syndrome took a lunch break. Also: Marcus knows.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The codebase doesn't tell Copilot what it's for. That's not a Copilot limitation — that's just information nobody wrote down yet."</div>
-<div class="text-xs text-gray-500">Twenty years of hard lessons, now in a file.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;The codebase doesn&rsquo;t tell Copilot what it&rsquo;s for. An .editorconfig doesn&rsquo;t either &mdash; and I&rsquo;ve had those since 2009. Neither is the point.&rdquo;</div>
+<div class="text-xs text-gray-500">Twenty years of hard lessons. Turns out one was missing.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"I've answered 'What is Breaking Bad about?' twelve times this week. After this, the answer lives in the file — zero times next week."</div>
-<div class="text-xs text-gray-500">ROI measured in review cycles, not enthusiasm.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It does not read the codebase automatically. I know this because I&rsquo;ve answered &lsquo;What is Breaking Bad about?&rsquo; twelve times this week. After this, the answer lives in the file. Zero times next week.&rdquo;</div>
+<div class="text-xs text-gray-500">Wrong about the auto-reading. Right to be annoyed about the twelve times.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Fine. But does your TypeScript rule activate on a .tsx file? Did you check? That's the one that bites."</div>
-<div class="text-xs text-gray-500">Suspicious by default. Convinced by process.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It held the instruction. Fine. But does your TypeScript rule activate on a .tsx file? That&rsquo;s the one that bites. I&rsquo;m still checking.&rdquo;</div>
+<div class="text-xs text-gray-500">Instructions held. She moved the goalposts. Professionally.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The best instruction file isn't one you read. It's one you never have to. Like good Wi-Fi — you only notice when it's gone. ...anyway."</div>
-<div class="text-xs text-gray-500">Clicked the moment it had an analogy.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s not a README. It&rsquo;s the Wi-Fi router. You don&rsquo;t read it &mdash; you just stop noticing the friction. ...anyway.&rdquo;</div>
+<div class="text-xs text-gray-500">Clicked when he found a better analogy than his own.</div>
 </div>
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The architecture is fine. The data is wrong. One file fixes both. I'm already thinking about Module 2."</div>
-<div class="text-xs text-gray-500">Translating everything to OKR-speak since 2019.</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I did paste the product brief. It helped. Then I found out the architecture context was wrong and it had been guessing for weeks. One file fixes both. Now I&rsquo;m thinking about Module 2.&rdquo;</div>
+<div class="text-xs text-gray-500">Partially right. Immediately planning the next fix.</div>
 </div>
 </div>
 </div>

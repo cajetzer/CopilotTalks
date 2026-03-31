@@ -127,6 +127,54 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 
 ---
 
+<!-- SLIDE: 💭 The Team, Before Module 2 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 2</span>
+<div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode just writes the code more slowly so you can check it as it goes. It&rsquo;s like watching it think out loud.&rdquo;</div>
+<div class="text-xs text-gray-500">About to discover the plan is the point.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode outputs a structured diagram of the proposed changes. I&rsquo;ve been asking for that for two years.&rdquo;</div>
+<div class="text-xs text-gray-500">Correctly excited. Completely wrong about what it outputs.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s read mode. It reads the code before writing instead of after. Like a junior dev who actually does that.&rdquo;</div>
+<div class="text-xs text-gray-500">The bar she set is doing a lot of work here.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode means it won&rsquo;t write any code until you explicitly say go. It just waits. That&rsquo;s the feature.&rdquo;</div>
+<div class="text-xs text-gray-500">Wrong about the mechanism. Right about wanting control.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode is when it shows you the diff before applying it. I thought I was already using that.&rdquo;</div>
+<div class="text-xs text-gray-500">Mixing up three different features with confidence.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode auto-generates the ticket description. Marcus told me. That&rsquo;s what we&rsquo;re doing today, right?&rdquo;</div>
+<div class="text-xs text-gray-500">Marcus did not tell him that.</div>
+</div>
+</div>
+</div>
+---
+
 <!-- SLIDE: 🎯 What You'll Build -->
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
@@ -976,38 +1024,33 @@ Better planning makes execution calmer. <span class="text-white font-semibold">C
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Marcus said 'use plan mode.' I didn&#39;t know that was a thing. Now I have a whole roadmap before I&#39;ve touched a single file."</div>
-<div class="text-xs text-gray-500">Found a workflow nobody put in the onboarding docs.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It doesn&rsquo;t write slowly. It doesn&rsquo;t write at all yet &mdash; it thinks first. I have a whole roadmap before touching a single file. That&rsquo;s not slower. That&rsquo;s completely different.&rdquo;</div>
+<div class="text-xs text-gray-500">Found the workflow nobody put in the onboarding docs.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
-<div class="text-xs text-gray-500 italic mb-2">The Thoughtful Architect</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The plan surfaces assumptions before they become implementation constraints. That is not a shortcut — that is just better engineering."</div>
-<div class="text-xs text-gray-500">Externalizes the unknowns before they become blockers.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It doesn&rsquo;t output a diagram. It surfaces assumptions before they become implementation constraints. That&rsquo;s more useful than a diagram. I&rsquo;ll revise my position.&rdquo;</div>
+<div class="text-xs text-gray-500">Position revised. Without being asked.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"It flagged a dependency conflict and identified the right files before we wrote a line. I ran the numbers. Yes."</div>
-<div class="text-xs text-gray-500">Measured it. Liked what she found.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s not read mode. It flagged a dependency conflict and found the right files before a line was written. A junior dev who actually does that would be a very different conversation.&rdquo;</div>
+<div class="text-xs text-gray-500">The bar moved. The numbers moved with it.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Engineer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"The plan output has open questions in it. Which means it doesn&#39;t pretend to know things it doesn&#39;t. That I can work with."</div>
-<div class="text-xs text-gray-500">Trusts the tool that shows its work.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It does wait before writing &mdash; I was right about that. What I didn&rsquo;t expect: it also admits what it doesn&rsquo;t know. That&rsquo;s the part that matters.&rdquo;</div>
+<div class="text-xs text-gray-500">Right about one thing. The other thing was better.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
-<div class="text-xs text-gray-500 italic mb-2">The Curious Tinkerer</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Wait — it planned the whole feature? The files, the order, the dependencies? I just asked? That&#39;s it?"</div>
-<div class="text-xs text-gray-500">Immediately wanted to try it on something bigger.</div>
-</div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;That&rsquo;s not a diff preview. It planned the whole feature &mdash; the files, the order, the dependencies. I was not already using that. I was using something much smaller.&rdquo;</div>
+<div class="text-xs text-gray-500">Found out what he wasn&rsquo;t using. Immediately wanted more.</div>
+</div><div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
-<div class="text-xs text-gray-500 italic mb-2">The Pragmatic Lead</div>
-<div class="text-xs text-gray-200 italic leading-snug mb-2">"Execution without a plan is expensive guessing. This turns 'let&#39;s see what happens' into a sequenced delivery roadmap."</div>
-<div class="text-xs text-gray-500">Already mapped it to Q3 velocity targets.</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Marcus did not tell me that. What it actually does is turn &lsquo;let&rsquo;s see what happens&rsquo; into a sequenced delivery roadmap. That&rsquo;s not a ticket description. That&rsquo;s an entire sprint plan.&rdquo;</div>
+<div class="text-xs text-gray-500">Corrected the source. Upgraded the outcome.</div>
 </div>
 </div>
 </div>
