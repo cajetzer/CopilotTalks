@@ -329,7 +329,7 @@ We'll walk through the complete orchestration flow showing how all context sourc
 ---
 
 <!-- SLIDE: 🔎 File 1 of 5 — /init -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-yellow-900/20"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
@@ -338,15 +338,15 @@ We'll walk through the complete orchestration flow showing how all context sourc
 <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-400 shadow-lg shadow-orange-500/50"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span></div>
 <span class="text-white/40 text-xs ml-1">1 of 5</span>
 </div>
-<div class="relative z-10 mb-4 flex items-center gap-4">
+<div class="relative z-10 mb-3 flex items-center gap-4">
 <div class="text-5xl">🚀</div>
 <div>
 <div class="text-3xl font-bold text-orange-300 font-mono">/init</div>
-<div class="text-sm text-gray-400 mt-1">Copilot's <code class="text-orange-200">/init</code> command — your starting point</div>
+<div class="text-sm text-gray-400 mt-1">Copilot&rsquo;s <code class="text-orange-200">/init</code> command &mdash; your starting point</div>
 </div>
 </div>
-<div class="relative z-10 mb-4 p-3 bg-gray-900/50 rounded-xl border border-orange-500/20 text-sm text-gray-300">
-Generates a baseline <code class="text-orange-200">copilot-instructions.md</code> by scanning your repo. Think of it as Copilot reading your codebase and drafting its own briefing document. A good first draft — not a final answer.
+<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-orange-500/20 text-sm text-gray-300">
+Generates a baseline <code class="text-orange-200">copilot-instructions.md</code> by scanning your repo. Think of it as Copilot reading your codebase and drafting its own briefing document. A good first draft &mdash; not a final answer.
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-3 rounded-xl bg-gradient-to-br from-blue-950/60 to-gray-900/80 border border-blue-500/20">
@@ -374,12 +374,15 @@ Generates a baseline <code class="text-orange-200">copilot-instructions.md</code
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-orange-900/20 border border-orange-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-orange-300 text-sm italic">&ldquo;Wait &mdash; it scans the repo and writes its own briefing doc? That&rsquo;s the setup doc nobody ever wrote, written by the thing that needs it. I actually need this.&rdquo;</span>
+<span class="text-orange-500 text-xs text-right">&mdash; Marcus</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: 🔎 File 2 of 5 — copilot-instructions.md -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-indigo-900/15 to-gray-900/20"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
@@ -388,15 +391,15 @@ Generates a baseline <code class="text-orange-200">copilot-instructions.md</code
 <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-white/40"></span><span class="w-2.5 h-2.5 rounded-full bg-orange-400 shadow-lg shadow-orange-500/50"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span></div>
 <span class="text-white/40 text-xs ml-1">2 of 5</span>
 </div>
-<div class="relative z-10 mb-4 flex items-center gap-4">
+<div class="relative z-10 mb-3 flex items-center gap-4">
 <div class="text-5xl">🪄</div>
 <div>
 <div class="text-2xl font-bold text-purple-300 font-mono">copilot-instructions.md</div>
-<div class="text-sm text-gray-400 mt-1">Included with <span class="text-purple-300 font-semibold">every prompt</span> — automatically, without you asking</div>
+<div class="text-sm text-gray-400 mt-1">Included with <span class="text-purple-300 font-semibold">every prompt</span> &mdash; automatically, without you asking</div>
 </div>
 </div>
-<div class="relative z-10 mb-5 p-3 bg-gray-900/50 rounded-xl border border-purple-500/20 text-sm text-gray-300">
-This file is silently prepended to every Copilot interaction in the repo. Keep it <span class="text-white font-semibold">short and focused</span> — conventions, constraints, and defaults only. If it's in here, Copilot always knows it.
+<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-purple-500/20 text-sm text-gray-300">
+This file is silently prepended to every Copilot interaction in the repo. Keep it <span class="text-white font-semibold">short and focused</span> &mdash; conventions, constraints, and defaults only. If it&rsquo;s in here, Copilot always knows it.
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div class="p-4 rounded-xl bg-gradient-to-br from-green-950/60 to-gray-900/80 border border-green-500/20">
@@ -409,7 +412,7 @@ This file is silently prepended to every Copilot interaction in the repo. Keep i
 </div>
 </div>
 <div class="p-4 rounded-xl bg-gradient-to-br from-red-950/60 to-gray-900/80 border border-red-500/20">
-<div class="text-xs font-bold text-red-400 mb-3 uppercase tracking-wider">⚠️ Don't Put This Here</div>
+<div class="text-xs font-bold text-red-400 mb-3 uppercase tracking-wider">⚠️ Don&rsquo;t Put This Here</div>
 <div class="text-xs text-gray-300 space-y-2">
 <div>• Rules for specific files or folders</div>
 <div>• Architecture or system documentation</div>
@@ -418,12 +421,15 @@ This file is silently prepended to every Copilot interaction in the repo. Keep i
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-blue-900/20 border border-blue-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-blue-300 text-sm italic">&ldquo;Conventions and constraints only. If it &lsquo;sometimes applies,&rsquo; it does not belong here. This file is a contract &mdash; treat it like one.&rdquo;</span>
+<span class="text-blue-500 text-xs text-right">&mdash; David</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: 🔎 File 3 of 5 — *.instructions.md -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-gray-900/20"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
@@ -432,15 +438,15 @@ This file is silently prepended to every Copilot interaction in the repo. Keep i
 <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-white/40"></span><span class="w-2.5 h-2.5 rounded-full bg-white/40"></span><span class="w-2.5 h-2.5 rounded-full bg-orange-400 shadow-lg shadow-orange-500/50"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span><span class="w-2.5 h-2.5 rounded-full bg-white/20"></span></div>
 <span class="text-white/40 text-xs ml-1">3 of 5</span>
 </div>
-<div class="relative z-10 mb-4 flex items-center gap-4">
+<div class="relative z-10 mb-3 flex items-center gap-4">
 <div class="text-5xl">📂</div>
 <div>
 <div class="text-2xl font-bold text-blue-300 font-mono">*.instructions.md</div>
-<div class="text-sm text-gray-400 mt-1">Scoped instructions — only active for matching files</div>
+<div class="text-sm text-gray-400 mt-1">Scoped instructions &mdash; only active for matching files</div>
 </div>
 </div>
-<div class="relative z-10 mb-4 p-3 bg-gray-900/50 rounded-xl border border-blue-500/20 text-sm text-gray-300">
-When one area of your repo plays by different rules, give it its own instruction file. Uses glob patterns (<code class="text-blue-200">applyTo</code>) to target specific paths — only loaded when those files are in context.
+<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-blue-500/20 text-sm text-gray-300">
+When one area of your repo plays by different rules, give it its own instruction file. Uses glob patterns (<code class="text-blue-200">applyTo</code>) to target specific paths &mdash; only loaded when those files are in context.
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-3 rounded-xl bg-gradient-to-br from-blue-950/60 to-gray-900/80 border border-blue-500/20">
@@ -468,8 +474,11 @@ When one area of your repo plays by different rules, give it its own instruction
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-purple-900/20 border border-purple-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-purple-300 text-sm italic">&ldquo;Loaded only when the relevant files are in scope. That&rsquo;s not a configuration system &mdash; that&rsquo;s a context system. The distinction matters quite a lot.&rdquo;</span>
+<span class="text-purple-500 text-xs text-right">&mdash; Elena</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: 🔎 File 4 of 5 — ARCHITECTURE.md -->
@@ -573,44 +582,42 @@ Defined by your GitHub organization, not your repo. Every developer and every re
 ---
 
 <!-- SLIDE: 🔗 How the Layers Work Together -->
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-purple-900/10 to-blue-900/10"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 How the Layers Work Together</span>
-
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="flex flex-col items-center gap-2 mt-3 text-center">
-
-<div class="w-full max-w-4xl p-3 rounded-xl bg-gradient-to-r from-orange-900/40 to-gray-900/40 border border-orange-500/30">
-<div class="text-orange-300 font-semibold mb-1">Step 1</div>
+<div class="relative z-10 flex flex-col items-center gap-2 text-center">
+<div class="w-full p-3 rounded-xl bg-gradient-to-r from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+<div class="text-orange-300 font-semibold mb-1 text-xs uppercase tracking-wide">Step 1</div>
 <div class="text-white font-bold text-sm"><code>/init</code> discovers existing patterns</div>
 </div>
-
-<div class="text-sm text-gray-500 uppercase tracking-wide">then establish the shared baseline</div>
-
-<div class="grid grid-cols-2 gap-3 w-full max-w-4xl">
+<div class="text-xs text-gray-500 uppercase tracking-wide">then establish the shared baseline</div>
+<div class="grid grid-cols-2 gap-3 w-full">
 <div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30 text-left">
-<div class="text-blue-300 font-semibold mb-1">Step 2A</div>
+<div class="text-blue-300 font-semibold mb-1 text-xs uppercase tracking-wide">Step 2A</div>
 <div class="text-white font-bold text-sm"><code>ARCHITECTURE.md</code></div>
-<div class="text-sm text-gray-300 mt-1 leading-snug">Explains system shape, boundaries, and flows.</div>
+<div class="text-xs text-gray-300 mt-1 leading-snug">Explains system shape, boundaries, and flows.</div>
 </div>
-
 <div class="p-3 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30 text-left">
-<div class="text-purple-300 font-semibold mb-1">Step 2B</div>
+<div class="text-purple-300 font-semibold mb-1 text-xs uppercase tracking-wide">Step 2B</div>
 <div class="text-white font-bold text-sm"><code>copilot-instructions.md</code></div>
-<div class="text-sm text-gray-300 mt-1 leading-snug">Defines the repo's default rules.</div>
+<div class="text-xs text-gray-300 mt-1 leading-snug">Defines the repo&rsquo;s default rules.</div>
 </div>
 </div>
-
-<div class="w-full max-w-4xl p-3 rounded-xl bg-gradient-to-r from-purple-900/30 via-blue-900/20 to-orange-900/20 border border-purple-500/30 text-left">
-<div class="text-purple-300 font-semibold mb-1">Step 3</div>
+<div class="w-full p-3 rounded-xl bg-gradient-to-r from-purple-900/30 via-blue-900/20 to-orange-900/20 border border-purple-500/30 text-left">
+<div class="text-purple-300 font-semibold mb-1 text-xs uppercase tracking-wide">Step 3</div>
 <div class="text-white font-bold text-sm">Add path-based instruction files only where the work changes</div>
-<div class="text-sm text-gray-300 mt-1 leading-snug">Frontend gets frontend guidance. Tests get testing guidance. Generic repo rules do not repeat.</div>
-<div class="mt-2 pt-2 border-t border-white/10 text-sm text-white font-semibold">Result: more relevant suggestions, faster setup, fewer avoidable corrections</div>
+<div class="text-xs text-gray-300 mt-1 leading-snug">Frontend gets frontend guidance. Tests get testing guidance. Generic repo rules do not repeat.</div>
+<div class="mt-2 pt-2 border-t border-white/10 text-xs text-white font-semibold">Result: more relevant suggestions, faster setup, fewer avoidable corrections</div>
 </div>
-
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-green-300 text-sm italic">&ldquo;I set the context once &mdash; architecture here, rules there, exceptions scoped. After that I stopped re-explaining myself on every prompt. Took an afternoon. Paid back by Tuesday.&rdquo;</span>
+<span class="text-green-500 text-xs text-right">&mdash; Sarah</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: ❌ Before — Jumping Straight to Writing -->
@@ -732,50 +739,49 @@ Defined by your GitHub organization, not your repo. Every developer and every re
 ---
 
 <!-- SLIDE: ✅ What Good Looks Like -->
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-purple-900/10 to-blue-900/10"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What Good Looks Like</span>
-
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-3 gap-5 mt-8 text-left">
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-3">Architecture guidance</div>
-<ul class="text-sm text-gray-300 space-y-2">
+<div class="relative z-10 grid grid-cols-3 gap-4 text-left">
+<div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+<div class="text-blue-300 font-bold mb-2 text-sm">Architecture guidance</div>
+<ul class="text-xs text-gray-300 space-y-1.5">
 <li>Tech stack and major folders</li>
 <li>Data and request flow</li>
 <li>Key boundaries and ownership</li>
 <li>No giant file inventory</li>
 </ul>
 </div>
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">Repo-wide instructions</div>
-<ul class="text-sm text-gray-300 space-y-2">
+<div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+<div class="text-purple-300 font-bold mb-2 text-sm">Repo-wide instructions</div>
+<ul class="text-xs text-gray-300 space-y-1.5">
 <li>Stable conventions and defaults</li>
 <li>Error handling expectations</li>
 <li>Testing and review preferences</li>
 <li>No file-specific branching logic</li>
 </ul>
 </div>
-
-<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">Path-based instructions</div>
-<ul class="text-sm text-gray-300 space-y-2">
+<div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30">
+<div class="text-purple-300 font-bold mb-2 text-sm">Path-based instructions</div>
+<ul class="text-xs text-gray-300 space-y-1.5">
 <li>Frontend vs backend guidance</li>
 <li>Python vs TypeScript standards</li>
 <li>Tests, docs, Docker specialization</li>
 <li>Small, targeted, and matchable</li>
 </ul>
 </div>
-
 </div>
-
-<div class="mt-8 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-<div class="text-lg text-white font-semibold">The deck should teach an operating model, not just list files.</div>
+<div class="relative z-10 mt-4 p-4 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+<div class="text-lg text-white font-semibold">The goal is an operating model, not just a list of files.</div>
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-orange-900/20 border border-orange-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-orange-300 text-sm italic">&ldquo;I was reading Slack. Then I saw &lsquo;operating model&rsquo; and now I&rsquo;m fully here. That&rsquo;s not a config file &mdash; that&rsquo;s a model for how it thinks. Hold on. I need to go update something.&rdquo;</span>
+<span class="text-orange-500 text-xs text-right">&mdash; Marcus</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: 📊 What to Validate in the Workshop -->
@@ -968,50 +974,62 @@ Copilot keeps rediscovering the same structure because nothing explains the syst
 ---
 
 <!-- SLIDE: 📐 Example: ARCHITECTURE.md -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14 py-6">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
-📐 Example: ARCHITECTURE.md
-</span>
-
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">📐 Example: ARCHITECTURE.md</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
-<div class="text-blue-300 mb-2"># FanHub Architecture</div>
-
-<div class="text-blue-300 mb-2">## Tech Stack</div>
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">📄 The file</div>
+<div class="bg-gray-900/80 rounded-xl p-4 border border-blue-500/30 font-mono text-xs text-gray-300 leading-relaxed flex-1">
+<div class="text-blue-300 mb-1"># FanHub Architecture</div>
+<div class="text-blue-300 mb-1">## Tech Stack</div>
 <div class="text-gray-400">- <span class="text-blue-100">Frontend:</span> React 18, Tailwind CSS</div>
 <div class="text-gray-400">- <span class="text-blue-100">Backend:</span> Express.js, Node.js</div>
 <div class="text-gray-400">- <span class="text-blue-100">Database:</span> SQLite3</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">Deployment:</span> Docker containers</div>
-
-<div class="text-blue-300 mb-2">## Folder Structure</div>
-<div class="text-gray-400">```</div>
-<div class="text-gray-400"><span class="text-cyan-300">fanhub/</span></div>
+<div class="text-gray-400 mb-2">- <span class="text-blue-100">Deployment:</span> Docker containers</div>
+<div class="text-blue-300 mb-1">## Folder Structure</div>
+<div class="text-gray-400">fanhub/</div>
 <div class="text-gray-400">├── <span class="text-cyan-300">frontend/</span> → React components, pages, hooks</div>
-<div class="text-gray-400">├── <span class="text-cyan-300">backend/</span>  → Express routes, middleware, database</div>
+<div class="text-gray-400">├── <span class="text-cyan-300">backend/</span>  → Express routes, middleware, db</div>
 <div class="text-gray-400">├── <span class="text-cyan-300">docs/</span>     → ARCHITECTURE.md, guides</div>
-<div class="text-gray-400">└── <span class="text-cyan-300">infra/</span>    → Docker, compose files</div>
-<div class="text-gray-400">```</div>
-<div class="text-gray-400 mb-3"></div>
-
-<div class="text-blue-300 mb-2">## Key Flows</div>
-<div class="text-gray-400">- <span class="text-blue-100">User requests</span> → Frontend → API calls → Backend routes → Database queries</div>
-<div class="text-gray-400 mb-3">- <span class="text-blue-100">Error handling:</span> Backend returns error codes → Frontend displays messages</div>
-
-<div class="text-blue-300 mb-2">## Key Boundaries</div>
-<div class="text-gray-400">- Backend owns all data access (no frontend queries to DB)</div>
-<div class="text-gray-400">- Frontend owns all UI state (no business logic)</div>
-</div>
-
-<div class="relative z-10 mt-3 text-xs text-gray-400">
-<strong class="text-gray-300">Length:</strong> ~15 lines  <strong class="text-gray-300">Purpose:</strong> Fast structural context
+<div class="text-gray-400 mb-2">└── <span class="text-cyan-300">infra/</span>    → Docker, compose files</div>
+<div class="text-blue-300 mb-1">## Key Flows</div>
+<div class="text-gray-400 mb-2">- User → Frontend → API → Backend routes → DB</div>
+<div class="text-blue-300 mb-1">## Key Boundaries</div>
+<div class="text-gray-400">- Backend owns all data access</div>
+<div class="text-gray-400">- Frontend owns all UI state</div>
 </div>
 </div>
-
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
+<div class="text-blue-400 font-semibold text-sm mb-2">💡 What makes this effective</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">›</div><div><strong class="text-white">Short</strong> &mdash; specific and instructive, no sprawl</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">›</div><div><strong class="text-white">Structural</strong> &mdash; stack, folders, flows, boundaries</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">›</div><div><strong class="text-white">Opinionated</strong> &mdash; ownership rules are explicit</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">›</div><div><strong class="text-white">No noise</strong> &mdash; no file inventory, no history</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-red-400 font-semibold uppercase tracking-widest text-xs mb-2">⚠️ What does not belong here</div>
+<div class="space-y-1.5 text-gray-400">
+<div class="flex items-start gap-2"><div class="text-red-400 flex-shrink-0">›</div><div>A list of every file and class</div></div>
+<div class="flex items-start gap-2"><div class="text-red-400 flex-shrink-0">›</div><div>Historical context or changelogs</div></div>
+<div class="flex items-start gap-2"><div class="text-red-400 flex-shrink-0">›</div><div>Coding conventions (those go in instructions)</div></div>
+<div class="flex items-start gap-2"><div class="text-red-400 flex-shrink-0">›</div><div>Aspirational architecture not yet built</div></div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-lg p-2.5 border border-blue-500/20 text-xs text-gray-300">
+💡 <strong class="text-blue-300">Elena&rsquo;s note:</strong> <span class="italic">&ldquo;The boundaries section is the only part that matters. The rest is context. The boundaries are the contract.&rdquo;</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 <!-- SLIDE: &#x1F4AC; Prompt: Creating ARCHITECTURE.md -->
