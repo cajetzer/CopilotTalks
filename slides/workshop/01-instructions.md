@@ -825,13 +825,13 @@ Defined by your GitHub organization, not your repo. Every developer and every re
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
-<div class="text-lg font-bold text-white">7 exercises · ~73 minutes · shared leadership</div>
+<div class="text-lg font-bold text-white">8 exercises &middot; ~93 minutes &middot; shared leadership</div>
 </div>
 <div class="relative z-10 grid grid-cols-4 gap-3">
 <div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40">
 <div class="flex items-center justify-between mb-1">
 <div class="text-orange-300 font-bold text-base">1.0</div>
-<span class="text-xs text-gray-500">Jessica ⭐</span>
+<span class="text-xs text-gray-500">Jessica &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">/init baseline</div>
 <div class="text-gray-400 text-xs leading-snug">Generate a first-draft instruction baseline from your actual codebase</div>
@@ -839,7 +839,7 @@ Defined by your GitHub organization, not your repo. Every developer and every re
 <div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
 <div class="flex items-center justify-between mb-1">
 <div class="text-blue-300 font-bold text-base">1.1</div>
-<span class="text-xs text-gray-500">David ⭐</span>
+<span class="text-xs text-gray-500">David &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Architecture context</div>
 <div class="text-gray-400 text-xs leading-snug">Document system shape so structural questions get faster, clearer answers</div>
@@ -847,31 +847,31 @@ Defined by your GitHub organization, not your repo. Every developer and every re
 <div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40">
 <div class="flex items-center justify-between mb-1">
 <div class="text-purple-300 font-bold text-base">1.2</div>
-<span class="text-xs text-gray-500">Sarah ⭐</span>
+<span class="text-xs text-gray-500">Sarah &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Repo defaults</div>
 <div class="text-gray-400 text-xs leading-snug">Set repo-wide coding conventions that apply to every file Copilot touches</div>
 </div>
-<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40">
+<div class="p-3 bg-purple-900/30 rounded-lg border border-dashed border-purple-500/30 opacity-65">
 <div class="flex items-center justify-between mb-1">
 <div class="text-purple-300 font-bold text-base">1.3</div>
-<span class="text-xs text-gray-500">Sarah ⭐</span>
+<span class="text-[9px] text-gray-500 px-1.5 py-0.5 bg-gray-800/80 rounded border border-gray-600/50">optional</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Layer precision</div>
 <div class="text-gray-400 text-xs leading-snug">Apply React patterns to frontend and API rules to backend automatically</div>
 </div>
-<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
+<div class="p-3 bg-blue-900/30 rounded-lg border border-dashed border-blue-500/30 opacity-65">
 <div class="flex items-center justify-between mb-1">
 <div class="text-blue-300 font-bold text-base">1.4</div>
-<span class="text-xs text-gray-500">Elena ⭐</span>
+<span class="text-[9px] text-gray-500 px-1.5 py-0.5 bg-gray-800/80 rounded border border-gray-600/50">optional</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Language rules</div>
 <div class="text-gray-400 text-xs leading-snug">Tailored guidance for Python, JavaScript, and TypeScript in one pass</div>
 </div>
-<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40">
+<div class="p-3 bg-orange-900/30 rounded-lg border border-dashed border-orange-500/30 opacity-65">
 <div class="flex items-center justify-between mb-1">
 <div class="text-orange-300 font-bold text-base">1.5</div>
-<span class="text-xs text-gray-500">Marcus ⭐</span>
+<span class="text-[9px] text-gray-500 px-1.5 py-0.5 bg-gray-800/80 rounded border border-gray-600/50">optional</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">File-type guidance</div>
 <div class="text-gray-400 text-xs leading-snug">Specialized rules for tests, Docker configs, and documentation files</div>
@@ -879,17 +879,24 @@ Defined by your GitHub organization, not your repo. Every developer and every re
 <div class="p-3 bg-green-900/30 rounded-lg border border-green-500/40">
 <div class="flex items-center justify-between mb-1">
 <div class="text-green-300 font-bold text-base">1.6</div>
-<span class="text-xs text-gray-500">Sarah ⭐</span>
+<span class="text-xs text-gray-500">Sarah &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Universe file</div>
-<div class="text-gray-400 text-xs leading-snug">Encode show canon once — Copilot never has to guess the domain again</div>
+<div class="text-gray-400 text-xs leading-snug">Encode show canon once &mdash; Copilot never has to guess the domain again</div>
+</div>
+<div class="p-3 bg-cyan-900/30 rounded-lg border border-cyan-500/40">
+<div class="flex items-center justify-between mb-1">
+<div class="text-cyan-300 font-bold text-base">1.7</div>
+<span class="text-xs text-gray-500">Marcus &#x2B50;</span>
+</div>
+<div class="text-white text-xs font-semibold mb-1">Rebrand &amp; reseed</div>
+<div class="text-gray-400 text-xs leading-snug">Use the universe file to rebrand FanHub and populate it with your show&rsquo;s characters, quotes, and lore</div>
 </div>
 </div>
 <div class="relative z-10 mt-3 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
-Each exercise rotates the lead persona — everyone contributes, everyone follows.
+Each exercise rotates the lead persona &mdash; everyone contributes, everyone follows.
 </div>
 </div>
-
 ---
 
 <!-- SLIDE: Jessica has been copying patterns from PR comments one -->
@@ -914,9 +921,9 @@ Jessica has been hand-copying patterns from senior PR comments into her prompts 
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">Run <span class="font-mono text-orange-300">/init</span> in Copilot Chat</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><div class="flex-1"><div class="text-gray-300 text-xs mb-1">Run this in Copilot Chat:</div><code class="block font-mono text-orange-300 bg-gray-800 p-2 rounded border border-orange-600/30 text-xs whitespace-normal select-all cursor-text">/init I'll be using the [language] version of this app.</code></div></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Review the generated baseline — note which patterns it found, which it missed</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Write down 2&#8211;3 things the AI could not infer on its own &#8212; those are yours to add</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Consider 2&#8211;3 things the AI could not infer on its own &#8212; those are yours to add</span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -1512,7 +1519,7 @@ Tests, Docker files, and docs serve different purposes than production app code.
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300"><strong class="text-green-300">Choose your show</strong> &mdash; any TV series, game, or universe you know well. Then in Agent mode, scaffold <span class="font-mono text-green-300">docs/[show]-universe.md</span> using web search for premise, characters, terminology, and canon rules</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300"><strong class="text-green-300">Ground the content</strong> &mdash; any TV series, game, or universe you know well. Then in Agent mode, scaffold <span class="font-mono text-green-300">docs/[show]-universe.md</span> using web search for premise, characters, terminology, and canon rules</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Review and correct the draft — find at least one inaccuracy Copilot introduced</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Add a <span class="font-mono text-green-300">## Universe</span> pointer section to <span class="font-mono text-green-300">copilot-instructions.md</span> linking to the file</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-green-700 text-white text-xs flex items-center justify-center flex-shrink-0">4</span><span class="text-gray-300">Validate: ask Copilot for a character bio — it should return accurate, show-specific content on the first pass</span></div>
@@ -1558,7 +1565,7 @@ Tests, Docker files, and docs serve different purposes than production app code.
 <div class="text-gray-300">&#x2023; <strong>Terminology</strong> &mdash; show-specific terms and lore the team uses</div>
 <div class="text-gray-300">&#x2023; <strong>Canon accuracy rules</strong> &mdash; common mistakes to avoid</div>
 <div class="text-gray-300">&#x2023; <strong>Timeline</strong> &mdash; season/year markers for key events</div>
-<div class="mt-3">After creating the file, verify 3 specific facts against your sources and note confidence level for each.</div>
+<div class="mt-3">After creating the file, update copilot-instructions to refer to it for domain-related questions.</div>
 </div>
 </div>
 <div class="flex flex-col gap-3">
@@ -1586,6 +1593,105 @@ Tests, Docker files, and docs serve different purposes than production app code.
 </div>
 </div>
 
+---
+
+<!-- SLIDE: The universe file pays off immediately — the app is yours now. -->
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-cyan-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-4 mb-5">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/30 flex-shrink-0">1.7</div>
+<div>
+<div class="text-cyan-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
+<h2 class="!text-2xl !font-bold text-white !m-0">Rebrand and Reseed FanHub</h2>
+</div>
+<div class="ml-auto flex gap-3 text-xs text-gray-400">
+<span class="px-3 py-1 bg-gray-800 rounded-full">Marcus &#x2B50;</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">Rafael &#x1F91D;</span>
+<span class="px-3 py-1 bg-gray-800 rounded-full">&#x23F1; 20 min</span>
+</div>
+</div>
+<div class="relative z-10 mb-4 p-3 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
+<strong class="text-white">The universe file exists. Now use it.</strong> Ask Copilot to rebrand FanHub for your show &mdash; update the UI copy, app title, and any Breaking Bad references. Then use Agent mode to generate real seed data: characters, quotes, and lore, drawn directly from the file you just created.
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div>
+<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">&#x1F4CB; Steps</div>
+<div class="space-y-2 text-xs">
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">In Agent mode, ask Copilot to rebrand FanHub for your show &mdash; update the app title, nav copy, and any Breaking Bad references in the UI</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Ask Copilot to generate seed data using <span class="font-mono text-green-300">docs/[show]-universe.md</span> as context &mdash; at least 3 characters and 5 quotes per main character</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-cyan-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Apply the seed data and run the app &mdash; verify your show&rsquo;s content appears throughout</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0">4</span><span class="text-gray-300">Ask Copilot a domain question about your show without any extra context &mdash; does it answer from the universe file?</span></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">&#x2705; Success Criteria</div>
+<div class="space-y-2 text-xs text-gray-300">
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> App title and UI copy match your chosen show</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> No Breaking Bad references remain in the visible UI</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Seed data includes 3+ characters and 5+ quotes from your show</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Copilot answers a domain question using the universe file &mdash; without being told to</div>
+</div>
+<div class="mt-3 p-3 bg-cyan-900/20 rounded-lg border border-cyan-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-cyan-300">Marcus:</strong> &ldquo;It was Breaking Bad ten minutes ago. I added one file and now the whole thing knows what show we&rsquo;re building. I want to try this on my actual project.&rdquo;</div>
+</div>
+</div>
+</div>
+---
+
+<!-- SLIDE: 💬 Prompt: Rebrand + Reseed (E1.7) -->
+<script setup>
+const prompt = `FanHub is currently branded for Breaking Bad. Using docs/[show]-universe.md as context, rebrand it for [your show] and regenerate its seed data.
+
+Rebrand:
+• Update the app title, nav copy, and any Breaking Bad references in the UI
+• Update the color scheme and styles to match the tone of your show
+• Do not change app structure, routes, or data schema
+
+Reseed:
+• Find the existing seed data and replace it with content from the universe file
+• Include: Show, Seasons, Episodes, Characters, and Quotes
+• Match the format and structure of the existing seed data
+• Flag any quote you are not confident is verbatim`
+</script>
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; Prompt: Rebrand + Reseed (E1.7)</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 mb-2 px-3 py-2 bg-gradient-to-r from-cyan-900/40 to-blue-900/30 rounded-xl border border-cyan-400/40 flex items-center gap-3 text-xs">
+<div class="text-cyan-400 text-base">&#x2728;</div>
+<div class="text-gray-200"><strong class="text-cyan-300">The universe file does the explaining.</strong> You wrote it once — now Copilot reads it for every task that follows.</div>
+</div>
+<div class="relative z-10 flex-1 flex flex-col gap-3">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-2 min-h-0">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot (Agent mode)</div>
+<pre class="bg-cyan-900/20 rounded-xl p-4 border border-cyan-500/30 text-gray-200 text-xs leading-relaxed select-all cursor-text whitespace-pre-wrap font-mono m-0 overflow-auto" style="max-height: 320px;">{{ prompt }}</pre>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-cyan-500/30 text-xs">
+<div class="text-cyan-400 font-semibold text-sm mb-2">&#x1F4A1; Why this works</div>
+<div class="space-y-2 text-gray-300">
+<div class="flex items-start gap-2"><div class="text-cyan-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Universe file = zero re-explaining</strong> — Copilot reads your canon before generating anything</div></div>
+<div class="flex items-start gap-2"><div class="text-cyan-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Language-agnostic</strong> — Copilot finds the right files from context; same prompt works across all implementations</div></div>
+<div class="flex items-start gap-2"><div class="text-cyan-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">"Flag uncertain quotes"</strong> — forces Copilot to surface what it's guessing, so you only review what needs it</div></div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs flex-1">
+<div class="text-gray-400 font-semibold uppercase tracking-widest text-xs mb-2">&#x26A0; Always verify quotes</div>
+<div class="space-y-1 text-gray-400">
+<div>&#x2023; Copilot paraphrases — check verbatim accuracy on anything the app will display</div>
+<div>&#x2023; Character bios are usually reliable; episode-specific facts less so</div>
+<div>&#x2023; If in doubt, the universe file you wrote is the source of truth</div>
+</div>
+</div>
+<div class="bg-cyan-900/20 rounded-lg p-2.5 border border-cyan-500/20 text-xs text-gray-300">
+&#x1F4A1; <strong class="text-cyan-300">The payoff:</strong> <span class="italic">The universe file you wrote in E1.6 now drives the app's content. One file. Every module that follows builds on it.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 <!-- SLIDE: ✅ Module Checklist -->
