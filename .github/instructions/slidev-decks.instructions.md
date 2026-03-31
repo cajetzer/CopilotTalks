@@ -3,9 +3,53 @@ applyTo: "slides/**/*.md"
 description: "Use when editing Slidev deck markdown files, section opener slides, or raw HTML in slides. Covers balanced HTML, wrapper structure, and required deck build validation."
 ---
 
-# Slidev Deck Editing
+## ⛔ NEVER Restore from Git Without Asking First
 
-## Slide Separator Rules (CRITICAL)
+**You must NEVER run `git checkout <file>` or any git command that discards local changes to a slide deck without first asking the user for explicit permission.** This is an absolute rule with no exceptions.
+
+Restoring from git is destructive and irreversible — it will silently discard all in-session edits. Even if the file appears corrupted or broken, the correct action is to:
+
+1. **Stop and tell the user** what you observed (file size, apparent corruption, etc.)
+2. **Ask explicitly**: "The file appears corrupted. Can I restore it from git and reapply changes, or do you want to handle this differently?"
+3. **Wait for confirmation** before touching the file
+
+✅ Correct:
+> "The file is only 3905 bytes and appears to contain only the insert snippet. It may have been overwritten accidentally. Should I restore from git and reapply all session changes?"
+
+❌ Wrong — never do this without asking:
+```
+git checkout slides/workshop/06-custom-agents.md
+```
+
+This rule applies to `git checkout`, `git restore`, `git reset`, and any equivalent command that overwrites working tree files.
+
+---
+
+## File Encoding (CRITICAL)
+
+Slide deck files **must be saved as UTF-8 without BOM**. A UTF-8 BOM (`EF BB BF`) at the start of the file prevents Slidev from parsing the frontmatter, causing it to render as a visible slide.
+
+- When creating a new slide file, always write with `New-Object System.Text.UTF8Encoding $false` (no BOM) or equivalent
+- Never use `[System.IO.File]::WriteAllText` without explicitly passing a no-BOM encoding
+- If a deck renders its frontmatter as slide 1, strip the BOM: `$content = $content.TrimStart([char]0xFEFF)`
+
+## Literal Dashes in Slide Content
+
+**Never write literal `---` inside slide HTML content.** Slidev treats any `\n---\n` as a slide separator, so `---` appearing in a code block, frontmatter example, or any other content will split the slide.
+
+Always use the HTML entity `&#45;&#45;&#45;` when you need to display `---` inside slide content.
+
+✅ Correct (inside a code example):
+```html
+<div class="text-purple-300">&#45;&#45;&#45;</div>
+```
+
+❌ Wrong — splits the slide at that line:
+```html
+<div class="text-purple-300">---</div>
+```
+
+
 
 **`---` must always be on its own line, surrounded by newlines (`\n---\n`) — never on the same line as any other content.**
 

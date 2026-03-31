@@ -1,4 +1,4 @@
-﻿---
+---
 theme: default
 class: text-center
 highlighter: shiki
@@ -79,7 +79,7 @@ updated: 2026-03-26
 
 ---
 
-<!-- SLIDE: We have prompts, skills, and MCP — and theyre all -->
+<!-- SLIDE: We Have Prompts, Skills, and MCP —  Now What? -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-16 py-8">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
@@ -512,12 +512,12 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercise Roadmap</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 
-<div class="mt-5 p-4 bg-gradient-to-r from-blue-900/25 via-purple-900/20 to-orange-900/15 rounded-xl border border-white/10 text-center">
+<div class="mt-4 p-4 bg-gradient-to-r from-blue-900/25 via-purple-900/20 to-orange-900/15 rounded-xl border border-white/10 text-center">
   <div class="text-base text-white font-semibold mb-1">Turn earlier customizations into reusable teammates.</div>
   <div class="text-xs text-gray-300">Pattern first, then review, sharpen the spec, implement, and see the horizon.</div>
 </div>
 
-<div class="mt-5 grid grid-cols-5 gap-3 text-left">
+<div class="mt-4 grid grid-cols-3 gap-3 text-left">
 
   <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
     <div class="flex items-center justify-between mb-3">
@@ -539,27 +539,24 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
     <div class="text-xs text-gray-400">Lead: Marcus ⭐</div>
   </div>
 
-</div>
-
-<div class="mt-3 p-4 rounded-xl bg-gradient-to-br from-amber-900/40 via-orange-900/30 to-amber-900/40 border border-amber-500/40 text-left">
-  <div class="flex items-center justify-between">
-    <div class="flex items-center gap-3">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-amber-900/40 to-gray-900/50 border border-amber-500/40">
+    <div class="flex items-center justify-between mb-3">
       <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 text-xs font-bold border border-amber-400/30">6.3</span>
-      <span class="text-base font-bold text-amber-300">Build the @content-author Agent</span>
-      <span class="px-2 py-0.5 bg-amber-500/20 rounded-full text-amber-200 text-[10px] border border-amber-400/30">⭐ CAPSTONE — Five Modules, One Agent</span>
+      <span class="text-xs text-gray-400">25 min</span>
     </div>
-    <div class="flex gap-3 text-xs text-gray-400">
-      <span>Lead: All ⭐🤝</span>
-      <span>25 min</span>
-    </div>
+    <div class="text-base font-bold text-amber-300 mb-1 leading-tight">Build the &#64;content-author Agent</div>
+    <div class="px-2 py-0.5 inline-block bg-amber-500/20 rounded-full text-amber-200 text-[10px] border border-amber-400/30 mb-2">⭐ CAPSTONE</div>
+    <div class="text-xs text-gray-300 mb-3 leading-snug">Wire M1 context, <code>create-card-and-page</code> (M4), <code>check-data-accuracy</code> (M3/M4), and live MCP data (M5) into one agent.</div>
+    <div class="text-xs text-gray-400">Lead: All ⭐🤝</div>
   </div>
-  <div class="mt-2 text-xs text-gray-300">Create <code>@content-author</code> — wires universe context (M1), <code>create-card-and-page skill</code> (M4), <code>data-accuracy-check</code> (M3/M4), and live MCP data (M5) into one agent that adds a Quotes entity end-to-end from a single instruction.</div>
+
 </div>
 
 <div class="mt-4 p-3 bg-gray-900/60 rounded-xl border border-white/10 text-center">
-  <div class="text-sm text-white font-semibold">One arc: study the pattern → explore agent teams → build the capstone.</div>
+  <div class="text-sm text-white font-semibold">One arc: study the pattern &#x2192; explore agent teams &#x2192; build the capstone.</div>
 </div>
 </div>
+
 
 ---
 
@@ -598,6 +595,7 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <p class="text-white font-bold text-sm">Module 6 is the orchestration layer that turns separate customizations into <span class="text-orange-300">repeatable delivery patterns</span>.</p>
 </div>
 </div>
+
 
 ---
 
@@ -644,7 +642,7 @@ Study the pattern → explore what it becomes → build it yourself.
 
 ---
 
-<!-- SLIDE: Before building custom agents, the team needs a me -->
+<!-- SLIDE: 🔧 Exercise 6.1 — Study the Default Plan Agent -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -687,33 +685,68 @@ Before building a custom agent, study how the default <code>@plan</code> agent i
 <!-- SLIDE: 📋 Example: default plan agent — key patterns -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: default plan agent — key patterns</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-blue-800/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: default plan agent &#45;&#45; key patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
-<div class="text-purple-300">---</div>
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">plan.agent.md</div>
+<div class="bg-gray-950/80 rounded-lg border border-white/10 p-3 text-[10px] font-mono leading-relaxed overflow-auto" style="max-height: 370px;">
+<div class="text-purple-300">&#45;&#45;&#45;</div>
 <div class="text-blue-300">name: <span class="text-green-300">Plan</span></div>
 <div class="text-blue-300">description: <span class="text-green-300">Researches and outlines multi-step plans</span></div>
-<div class="text-blue-300">tools: <span class="text-orange-300">['search', 'fetch', 'usages', 'githubRepo', 'runSubAgent', 'get_issue', 'get_pull_request']</span></div>
+<div class="text-blue-300">target: <span class="text-green-300">vscode</span></div>
+<div class="text-blue-300">disable-model-invocation: <span class="text-orange-300">true</span></div>
+<div class="text-blue-300">tools: <span class="text-orange-300">&#x5B;'search', 'read', 'web',</span></div>
+<div class="pl-4 text-orange-300">'vscode/memory', 'agent',</div>
+<div class="pl-4 text-orange-300">'vscode/askQuestions'&#x5D;</div>
+<div class="text-yellow-300 font-bold">agents: <span class="text-green-300">&#x5B;'Explore'&#x5D;</span></div>
 <div class="text-blue-300">handoffs:</div>
-<div class="pl-4 text-blue-300">- label: <span class="text-green-300">Start Implementation</span></div>
-<div class="pl-6 text-blue-300">agent: <span class="text-green-300">agent</span></div>
-<div class="pl-6 text-blue-300">prompt: <span class="text-green-300">Start implementation</span></div>
-<div class="pl-4 text-blue-300">- label: <span class="text-green-300">Open in Editor</span></div>
-<div class="pl-6 text-blue-300">agent: <span class="text-green-300">agent</span></div>
-<div class="text-purple-300">---</div>
-<div class="mt-2 text-gray-400"># Planning Mode</div>
-<div class="text-gray-400">- Research only — never modify files</div>
-<div class="text-gray-400">- Stop when the plan is complete and ready for review</div>
-<div class="text-gray-400">- Use handoffs to pass context into the next role</div>
-<div class="mt-2 text-cyan-300">// Key insight: tool list + stopping rule = role boundary</div>
+<div class="pl-2 text-blue-300">- label: <span class="text-green-300">Start Implementation</span></div>
+<div class="pl-4 text-blue-300">agent: <span class="text-green-300">agent</span></div>
+<div class="pl-4 text-blue-300">prompt: <span class="text-green-300">Start implementation</span></div>
+<div class="pl-4 text-blue-300">send: <span class="text-orange-300">true</span></div>
+<div class="pl-2 text-blue-300">- label: <span class="text-green-300">Open in Editor</span></div>
+<div class="pl-4 text-blue-300">agent: <span class="text-green-300">agent</span></div>
+<div class="text-purple-300">&#45;&#45;&#45;</div>
+<div class="mt-2 text-gray-300">You are a PLANNING AGENT.</div>
+<div class="mt-1 text-gray-400">&lt;rules&gt;</div>
+<div class="pl-2 text-red-300 font-bold">STOP if you consider running</div>
+<div class="pl-2 text-red-300 font-bold">file editing tools.</div>
+<div class="pl-2 text-gray-400">Only write tool: #tool:vscode/memory</div>
+<div class="pl-2 text-gray-400">Use #tool:vscode/askQuestions freely.</div>
+<div class="text-gray-400">&lt;/rules&gt;</div>
+<div class="mt-1 text-gray-400">&lt;workflow&gt;</div>
+<div class="pl-2 text-gray-300">1. Discovery &#45;&#45; Explore subagents</div>
+<div class="pl-2 text-gray-300">2. Alignment &#45;&#45; clarify with user</div>
+<div class="pl-2 text-gray-300">3. Design &#45;&#45; write plan</div>
+<div class="pl-2 text-gray-300">4. Refinement &#45;&#45; iterate</div>
+<div class="text-gray-400">&lt;/workflow&gt;</div>
 </div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 examples/completed-config/.github/agents/default-plan.agent.md · Read-only tools + explicit handoffs define the workflow</div>
 </div>
-
+<div class="flex flex-col gap-3">
+<div class="p-3 rounded-xl bg-gradient-to-br from-yellow-900/40 to-gray-900/50 border border-yellow-500/30">
+<div class="text-yellow-300 font-bold text-sm mb-1">&#9312; Explore subagent pattern</div>
+<div class="text-xs text-gray-300 leading-relaxed"><code>agents: &#x5B;'Explore'&#x5D;</code> — the agent launches Explore subagents via <code>#runSubagent</code> to gather parallel context <em>before</em> planning begins. Delegate research; stay focused on planning.</div>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-red-900/40 to-gray-900/50 border border-red-500/30">
+<div class="text-red-300 font-bold text-sm mb-1">&#9313; Read-only tool list</div>
+<div class="text-xs text-gray-300 leading-relaxed">No <code>edit</code>, <code>create</code>, or <code>delete</code> in the tool list. <code>vscode/memory</code> is the <em>only</em> write capability — for the plan file only. <strong class="text-white">What's absent is as deliberate as what's present.</strong></div>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-sm mb-1">&#9314; Handoff chain</div>
+<div class="text-xs text-gray-300 leading-relaxed">Two handoff buttons appear: <span class="text-green-300">Start Implementation</span> passes context to &#64;implement; <span class="text-green-300">Open in Editor</span> saves plan to a file. Context flows forward — no copy-paste.</div>
+</div>
+<div class="p-2 rounded-lg bg-blue-900/20 border border-blue-500/20 text-[10px] text-blue-300">
+&#x1F4C1; <code>.github/agents/plan.agent.md</code> · study this before building your own
+</div>
+</div>
+</div>
+</div>
 ---
 
-<!-- SLIDE: Single custom agents solve focused workflow proble -->
+<!-- SLIDE: 🔧 Exercise 6.2 — Explore Agent Teams with Squad -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
@@ -757,25 +790,43 @@ Single custom agents solve focused workflow problems, but it is still hard to pi
 <!-- SLIDE: 📋 Example: Squad agent team setup -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Squad agent team setup</span>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Squad agent team setup</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 text-xs font-mono bg-gray-900/80 rounded-lg border border-white/10 p-4 overflow-auto max-h-96 text-gray-300 leading-relaxed">
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-3">
+<div class="bg-gray-950/80 rounded-lg border border-white/10 p-3 text-xs font-mono leading-relaxed">
 <div class="text-gray-400"># Install Squad CLI</div>
-<div class="text-green-300">npm install -g @bradygaster/squad-cli</div>
+<div class="text-green-300">npm install -g &#64;bradygaster/squad-cli</div>
 <div class="mt-2 text-gray-400"># Initialize Squad in the repo</div>
 <div class="text-green-300">squad init</div>
-<div class="mt-2 text-gray-400"># Open Copilot Chat in VS Code and type:</div>
-<div class="text-cyan-300">@squad Analyze the FanHub character-detail feature and coordinate a review</div>
-<div class="mt-2 text-gray-400">// Squad routes the task to its own agent team</div>
-<div class="text-gray-400">// Multiple specialized agents collaborate in parallel</div>
-<div class="text-gray-400">// Output is coordinated — not a single chat response</div>
-<div class="mt-2 text-orange-300">// Compare: @implement → @character-review (your chain)</div>
-<div class="text-gray-400">// vs. @squad (persistent multi-agent coordination)</div>
+<div class="mt-2 text-gray-400"># Open Copilot Chat and type:</div>
+<div class="mt-1 text-cyan-300">&#64;squad Analyze the FanHub character-detail</div>
+<div class="text-cyan-300">feature and coordinate a review</div>
 </div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 @bradygaster/squad-cli · Multi-agent team coordination — what workflows could become at scale</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-emerald-500/20 text-xs text-gray-300 leading-relaxed">
+<div class="text-emerald-300 font-semibold text-sm mb-1">&#x1F517; Connection to Exercise 6.1</div>
+The plan agent uses <code>agents: &#x5B;'Explore'&#x5D;</code> to spawn one subagent at a time. Squad extends that into a persistent, named team &#45;&#45; 6.1 shows the single-agent version; Squad shows where the pattern goes at scale.
 </div>
-
+</div>
+<div class="flex flex-col gap-3">
+<div class="p-3 rounded-xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
+<div class="text-emerald-300 font-bold text-sm mb-2">What Squad does</div>
+<div class="space-y-1.5 text-xs text-gray-300">
+<div class="flex items-start gap-2"><span class="text-emerald-400">&#9656;</span><span>Routes task to a <strong class="text-white">persistent multi-agent team</strong></span></div>
+<div class="flex items-start gap-2"><span class="text-emerald-400">&#9656;</span><span>Specialized agents <strong class="text-white">collaborate in parallel</strong></span></div>
+<div class="flex items-start gap-2"><span class="text-emerald-400">&#9656;</span><span>Output is <strong class="text-white">coordinated</strong> — not a single chat response</span></div>
+<div class="flex items-start gap-2"><span class="text-emerald-400">&#9656;</span><span>Team config lives in the repo — <strong class="text-white">everyone gets the same team</strong></span></div>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-sm mb-2">vs. your handoff chain</div>
+<div class="text-xs text-gray-300 leading-relaxed">Your <code>&#64;plan &#x2192; &#64;implement</code> chain is explicit and deterministic — you designed each transition. Squad is autonomous — it decides how to route internally. Both are valid; the right choice depends on how much control you need.</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 
@@ -806,7 +857,7 @@ Every prior module built a reusable piece. <strong class="text-white">This capst
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">📋 Steps</div>
 <div class="space-y-1.5 text-xs">
 <div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code>.github/agents/content-author.agent.md</code> with full editing tools, <code>agents: ['Explore']</code>, and the fanhub-db MCP server</span></div>
-<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Write instructions: check universe doc, query MCP, invoke <code>create-card-and-page skill</code>, run <code>data-accuracy-check</code> on every seeded record before migration</span></div>
+<div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Write instructions: check universe doc, query MCP, invoke <code>create-card-and-page skill</code>, run <code>check-data-accuracy</code> on every seeded record before migration</span></div>
 <div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Run: <em>"Add a Quotes entity to FanHub — seed it with 5 iconic Breaking Bad lines"</em> and let the agent work</span></div>
 <div class="flex items-start gap-3 p-2.5 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Debrief: for each thing the agent did, name the module that made it possible</span></div>
 </div>
@@ -815,7 +866,7 @@ Every prior module built a reusable piece. <strong class="text-white">This capst
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">✅ Success Criteria</div>
 <div class="space-y-1.5 text-xs text-gray-300">
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Quote entity scaffolded end-to-end (model → controller → Blazor page)</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The <code>data-accuracy-check</code> skill catches the planted misattribution before migration</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The <code>check-data-accuracy</code> skill catches the planted misattribution before migration</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Every participant names the module behind each action the agent took</div>
 </div>
 <div class="mt-3 p-3 bg-amber-900/30 rounded-lg border border-amber-500/30 text-xs text-gray-300 italic">💭 <strong class="text-amber-300">Sarah:</strong> "One instruction. It checked the canon, checked the live data, scaffolded the whole stack, and caught an attribution error before it shipped. Five modules of work paid for itself in this session."</div>
@@ -825,51 +876,200 @@ Every prior module built a reusable piece. <strong class="text-white">This capst
 
 ---
 
-<!-- SLIDE: 📋 Example: content-author.agent.md — the capstone config -->
+<!-- SLIDE: 💬 Creating the content-author Agent -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-transparent"></div>
-<div class="relative z-10 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: content-author.agent.md</span>
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Creating the content-author Agent</span><div class="flex-1 h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div class="bg-gray-950/80 rounded-xl border border-amber-500/30 font-mono text-xs p-4 text-gray-300 overflow-auto leading-relaxed">
-<div class="text-purple-300">---</div>
-<div class="text-blue-300">name: <span class="text-green-300">Content Author</span></div>
-<div class="text-blue-300">description: <span class="text-green-300">"Add new FanHub entities end-to-end — scaffold, validate, implement"</span></div>
-<div class="text-blue-300">tools: <span class="text-orange-300">['edit', 'create', 'search', 'read', 'fetch', 'usages', 'problems', 'agent']</span></div>
-<div class="pl-8 text-orange-300">  <span class="text-gray-500"># + fanhub-db MCP tools from M5</span></div>
-<div class="text-blue-300">agents: <span class="text-orange-300">['Explore']</span></div>
-<div class="text-blue-300">handoffs:</div>
-<div class="pl-4 text-blue-300">- label: <span class="text-green-300">Review Changes</span></div>
-<div class="pl-6 text-blue-300">  agent: <span class="text-green-300">security-review</span></div>
-<div class="pl-6 text-blue-300">  send: <span class="text-orange-300">false</span></div>
-<div class="text-purple-300">---</div>
-<div class="mt-2 text-gray-400"># Content Author Mode</div>
-<div class="text-gray-400">When asked to add a new entity type to FanHub:</div>
-<div class="mt-1 text-gray-400">1. Check <span class="text-cyan-300">docs/breaking-bad-universe.md</span> for canon facts</div>
-<div class="text-gray-400">2. Query fanhub-db MCP for existing patterns</div>
-<div class="text-gray-400">3. Use <span class="text-amber-300">create-card-and-page skill</span> to scaffold the full stack</div>
-<div class="text-gray-400">4. Run <span class="text-amber-300">data-accuracy-check</span> on every seeded record</div>
-<div class="text-gray-400">5. Follow <span class="text-cyan-300">.github/copilot-instructions.md</span> throughout</div>
+<div class="relative z-10 flex-1 flex flex-col gap-1">
+<div class="grid grid-cols-2 gap-2 flex-1">
+<div class="flex flex-col gap-1">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">💬 Start with this prompt</div>
+<div class="bg-gray-950/80 rounded-xl border border-amber-500/30 p-2.5 text-xs text-gray-200 flex-1 leading-relaxed select-all">
+I want to create a new agent. I want to be able to call it like this:<br/>
+<br/>
+<span class="text-amber-300 font-semibold italic">"Add a Locations entity to FanHub and seed it with 5 iconic Breaking Bad locations"</span><br/>
+<br/>
+I want the agent to:<br/>
+<span class="text-gray-300">&#x2022; Use the <span class="font-mono text-emerald-300">create-card-and-page</span> skill to do the scaffolding work</span><br/>
+<span class="text-gray-300">&#x2022; Use the <span class="font-mono text-emerald-300">check-data-accuracy</span> skill to verify the seed data against the universe file</span><br/>
+<span class="text-gray-300">&#x2022; Use the built-in <span class="font-mono text-blue-300">Explore</span> agent to check for architecture and code patterns before starting</span><br/>
+<span class="text-gray-300">&#x2022; Update <span class="font-mono text-cyan-300">fanhub-api-server.js</span> with the new entity endpoints after a successful build, so the MCP server exposes them automatically</span><br/>
+<br/>
+Can you help me create the <span class="font-mono text-amber-300">.github/agents/content-author.agent.md</span> file?
 </div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">🔗 What this bundles</div>
-<div class="space-y-2 text-xs">
-<div class="p-2.5 bg-blue-900/20 rounded-lg border border-blue-500/20"><span class="text-blue-300 font-semibold">Module 1</span> <span class="text-gray-300">— universe context + coding standards from <code>copilot-instructions.md</code></span></div>
-<div class="p-2.5 bg-orange-900/20 rounded-lg border border-orange-500/20"><span class="text-orange-300 font-semibold">Module 3/4</span> <span class="text-gray-300">— <code>data-accuracy-check</code> validates seed data before migration</span></div>
-<div class="p-2.5 bg-purple-900/20 rounded-lg border border-purple-500/20"><span class="text-purple-300 font-semibold">Module 4</span> <span class="text-gray-300">— <code>create-card-and-page skill</code> scaffolds full stack: model → controller → Blazor page</span></div>
-<div class="p-2.5 bg-cyan-900/20 rounded-lg border border-cyan-500/20"><span class="text-cyan-300 font-semibold">Module 5</span> <span class="text-gray-300">— live FanHub data via <code>fanhub-db</code> MCP server</span></div>
 </div>
-<div class="mt-3 p-3 bg-gray-900/50 rounded-lg border border-amber-500/20 text-xs text-gray-300">
-<div class="text-amber-300 font-semibold mb-1">The planted error makes it concrete</div>
-<div>One seeded quote has a wrong episode attribution. Without the agent, it ships. The <code>data-accuracy-check</code> skill catches it — before migration runs.</div>
+<div class="flex flex-col gap-1.5">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">🔍 What Copilot wires together</div>
+<div class="bg-amber-900/20 rounded-xl border border-amber-500/40 p-3 text-xs space-y-1.5 flex-1">
+<div class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">▸</span><span class="text-gray-300"><span class="font-mono text-blue-300">agents: [&#39;Explore&#39;]</span> &#x2014; reads the codebase before acting, same pattern as the Plan agent</span></div>
+<div class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">▸</span><span class="text-gray-300"><span class="font-mono text-emerald-300">create-card-and-page</span> &#x2014; skill from M4 does the scaffolding; the agent delegates, doesn&#39;t reimplement</span></div>
+<div class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">▸</span><span class="text-gray-300"><span class="font-mono text-emerald-300">check-data-accuracy</span> &#x2014; skill from M3/M4 validates seed data against the universe file before anything ships</span></div>
+<div class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">▸</span><span class="text-gray-300"><span class="font-mono text-cyan-300">fanhub-api-server.js</span> &#x2014; agent adds entity endpoints post-build so the MCP server exposes them to future skills</span></div>
+</div>
+<div class="bg-gray-900/40 rounded-lg p-2 border border-white/10 text-xs text-gray-400">
+&#x1F4A1; <strong class="text-white">You don&#39;t need to know the agent format.</strong> Describe what you want it to do &#x2014; Copilot reads the existing agents in <span class="font-mono text-amber-300">.github/agents/</span> as reference and produces the config for you.
 </div>
 </div>
 </div>
-<div class="relative z-10 mt-3 text-xs text-gray-400">📁 .github/agents/content-author.agent.md · Five modules of investment. One instruction. One session.</div>
+</div>
 </div>
 
 ---
+
+<!-- SLIDE: 📋 Example: scaffold-entity.agent.md — the capstone config -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: scaffold-entity.agent.md &#45;&#45; the capstone config</span>
+<div class="flex-1 h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
+<button onclick="navigator.clipboard.writeText(document.getElementById('s20a').value)" class="px-3 py-1 bg-amber-700/60 hover:bg-amber-600/80 text-white text-xs rounded-lg border border-amber-400/40 cursor-pointer flex-shrink-0">📋 Copy</button>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4" style="height: calc(100% - 3rem);">
+<div class="flex flex-col gap-1 overflow-hidden">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">scaffold-entity.agent.md</div>
+<textarea id="s20a" readonly :value="agentMd" class="flex-1 w-full overflow-auto bg-gray-950/90 rounded-lg border border-amber-500/30 p-3 text-[9px] font-mono text-gray-300 leading-relaxed resize-none focus:outline-none cursor-text"></textarea>
+</div>
+<div class="flex flex-col gap-2.5 overflow-auto">
+<div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
+<div class="text-blue-300 font-bold text-sm mb-1">&#9312; Explore before acting</div>
+<div class="text-xs text-gray-300 leading-relaxed"><code>agents: &#x5B;'Explore'&#x5D;</code> — same pattern as the Plan agent. Recon first, scaffold second. Architecture knowledge informs every naming and structural decision.</div>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-red-900/40 to-gray-900/50 border border-red-500/30">
+<div class="text-red-300 font-bold text-sm mb-1">&#9313; Delegates to skills, doesn't reimplement</div>
+<div class="text-xs text-gray-300 leading-relaxed">Phases 3 and 4 load <code>create-card-and-page</code> and <code>check-data-accuracy</code> by file path. The agent orchestrates; the skills do the heavy lifting.</div>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-emerald-900/40 to-gray-900/50 border border-emerald-500/30">
+<div class="text-emerald-300 font-bold text-sm mb-1">&#9314; Full write access + run terminal</div>
+<div class="text-xs text-gray-300 leading-relaxed">Unlike the Plan agent, this one <em>does</em> edit and create files, run migrations, build, and start the server. Tool list matches the role.</div>
+</div>
+<div class="p-3 rounded-xl bg-gradient-to-br from-cyan-900/40 to-gray-900/50 border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-sm mb-1">&#9315; MCP loop closes the circle</div>
+<div class="text-xs text-gray-300 leading-relaxed">After scaffolding, it updates <code>fanhub-api-server.js</code> so the new entity is immediately reachable via MCP tools — future agents and skills can query it without any manual wiring.</div>
+</div>
+<div class="p-2 rounded-lg bg-amber-900/20 border border-amber-500/20 text-[10px] text-amber-300">
+&#x1F4C1; <code>.github/agents/scaffold-entity.agent.md</code> · this is what five modules of skill-building enables
+</div>
+</div>
+</div>
+</div>
+
+<script setup>
+const agentMd = `---
+name: scaffold-entity
+description: >
+  Scaffolds a new entity type (e.g. Quotes, Locations, Factions) into FanHub
+  with a full-stack implementation: backend model, DbContext registration, seed data,
+  EF Core migration, REST controller, frontend model, homepage stat card + nav-card,
+  header navigation link, and a Blazor list page with an inline add form. After
+  scaffolding, verifies seed data accuracy against canonical Breaking Bad sources.
+  Trigger phrases: "add a [Entity] entity", "scaffold [Entity]", "add [Entity] to FanHub",
+  "create a [Entity] page", "add [Entity] with seed data".
+tools:
+  - search/codebase
+  - search/usages
+  - search/fileSearch
+  - search/textSearch
+  - search/listDirectory
+  - read/readFile
+  - read/problems
+  - edit/editFiles
+  - edit/createFile
+  - execute/runInTerminal
+  - execute/getTerminalOutput
+  - agent
+agents: ["Explore"]
+&#45;&#45;&#45;
+
+## Role
+
+You are a full-stack FanHub scaffolding agent. When asked to add a new entity to FanHub
+(e.g. "Add a Quotes entity and seed it with 5 iconic Breaking Bad lines"), you:
+
+1. **Explore first** -- use the Explore subagent to gather architecture and code guidance
+2. **Scaffold the full stack** -- follow the \`.replaceAll('&#45;&#45;&#45;', '---')create-card-and-page\` skill precisely
+3. **Update the MCP server** -- add tools to \`mcp-servers/fanhub-api-server.js\` so Copilot can reach the new entity
+4. **Verify seed data** -- use the \`check-data-accuracy\` skill to fact-check all seeded records
+
+&#45;&#45;&#45;
+
+## Workflow
+
+### Phase 1 -- Architecture reconnaissance
+
+Before writing any code, invoke the **Explore** subagent with a thorough search to answer:
+
+- What models already exist and how are they structured? (check \`dotnet/Backend/Models/\`)
+- How is \`FanHubContext\` set up? (check \`dotnet/Backend/Data/FanHubContext.cs\`)
+- How does \`SeedData.cs\` add records? (check \`dotnet/Backend/Data/SeedData.cs\`)
+- How are existing controllers structured? (check \`dotnet/Backend/Controllers/\`)
+- How does the Blazor frontend consume API data? (check \`dotnet/Frontend/Components/\`)
+- What homepage nav-cards already exist? (check \`dotnet/Frontend/Components/Pages/Home.razor\`)
+
+Use what Explore returns to inform all scaffolding decisions.
+
+### Phase 2 -- Clarify requirements
+
+If the entity name, properties, or seed count is not clear, ask before starting.
+Otherwise, infer sensible defaults and proceed.
+
+### Phase 3 -- Full-stack scaffold
+
+Load and follow the **\`create-card-and-page\`** skill exactly.
+
+
+Complete every step in order:
+
+1. Backend model
+2. Register DbSet in FanHubContext
+3. Seed data (use the requested count; default to 5 if specified)
+4. Pre-migration check
+5. EF Core migration
+6. REST controller (GET all + POST)
+7. Frontend model
+8. Homepage stat card + nav-card
+9. Blazor list page with inline add form
+10. Header navigation -- add link to \`dotnet/Frontend/Components/Layout/NavBar.razor\`
+
+### Phase 3.5 -- MCP server update
+
+After the REST controller exists, update \`mcp-servers/fanhub-api-server.js\`.
+Add tool definitions to TOOLS array and switch cases to the tools/call handler,
+mirroring the pattern used for \`get_characters\`, \`get_lore\`, etc.
+
+Then build and run:
+
+  dotnet build FanHub-1.sln
+  dotnet run --project Backend/Backend.csproj
+
+Confirm build succeeds with zero errors. Run the backend in the background
+so the live API is reachable for Phase 4.
+
+### Phase 4 -- Seed data accuracy check
+
+Load and apply the **\`check-data-accuracy\`** skill.
+
+
+- Cross-check each seeded record against \`docs/breaking-bad-universe.md\`
+- Query the live DB and live API via MCP tools to verify what the app returns
+- Fix any inaccuracies in \`SeedData.cs\`, re-run migration if needed, and re-verify
+
+&#45;&#45;&#45;
+
+## Output
+
+When complete, provide a summary that includes:
+
+- Entity name and properties scaffolded
+- Files created or modified (with links)
+- MCP tools added to \`fanhub-api-server.js\` (tool names listed)
+- Seed records added (with speaker and brief text)
+- Accuracy check results (pass / flagged items fixed)
+- Any errors encountered and how they were resolved`.replaceAll('&#45;&#45;&#45;', '---')
+</script>
+---
+
 <!-- SLIDE: ✅ Module Checklist -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
@@ -937,6 +1137,7 @@ Every prior module built a reusable piece. <strong class="text-white">This capst
 </div>
 
 ---
+
 <!-- SLIDE: Module 6 Is Locked In -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>

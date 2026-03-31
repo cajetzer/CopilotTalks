@@ -15,5 +15,7 @@
   },
   "[markdown]": {
     "editor.formatOnSave": false
-  }
+  },
+  "files.encoding": "utf8",
+  "files.autoGuessEncoding": false
 }

@@ -222,6 +222,7 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 | Mistake                     | Prevention                                                                     |
 | --------------------------- | ------------------------------------------------------------------------------ |
 | `---` on same line as content | Always `\n---\n` — blank line before and after every separator              |
+| Literal `---` in slide HTML | Always use `&#45;&#45;&#45;` — a literal `---` inside content splits the slide |
 | Per-slide frontmatter blocks | Never use `layout:`, `class:`, `transition:` — use CSS in the content div   |
 | `layout: two-cols`          | Use `<div class="grid grid-cols-2 gap-4">` inside the content wrapper          |
 | Counting `---` to find slides | **Nth `<!-- SLIDE: -->` = slide N**; with separator rule enforced, `\n---\n` count also works |
@@ -233,6 +234,7 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 | 4+ vertical stacked divs    | Use grid layout or split                                                       |
 | Hash anchors in TOC         | Use `@click="$nav.go(N)"` only                                                 |
 | Mermaid diagrams            | Always use styled HTML divs                                                    |
+| UTF-8 BOM in new files      | Write with `New-Object System.Text.UTF8Encoding $false` — BOM causes frontmatter to render as slide 1 |
 | README order = slide order  | Apply editorial ranking (§1a); newest/most differentiated content earns slides |
 | All use cases shown equally | 2-3 best use cases get slides; compress or skip table-stakes demos             |
 
