@@ -440,9 +440,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <span class="text-xs text-gray-500">Marcus &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Connect live lore data</div>
-<div class="text-gray-400 text-xs leading-snug mb-2">Configure an MCP server so Copilot can query live FanHub lore records directly in chat — no context-switching required.</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Configure an MCP server so Copilot can query live FanHub lore records directly in chat &mdash; no context-switching required.</div>
 <div class="text-[10px] text-gray-400 space-y-0.5 border-t border-blue-500/20 pt-2 mt-auto">
-<div class="text-blue-300/80 font-semibold mb-1">You'll configure:</div>
+<div class="text-blue-300/80 font-semibold mb-1">You&rsquo;ll configure:</div>
 <div>&#x2022; <span class="text-gray-300">.vscode/mcp.json</span> for the FanHub database</div>
 <div>&#x2022; Live lore record queries in Copilot Chat</div>
 <div>&#x2022; Validation that real data flows through</div>
@@ -454,9 +454,9 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <span class="text-xs text-gray-500">Elena &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Upgrade data-accuracy-check Skill</div>
-<div class="text-gray-400 text-xs leading-snug mb-2">Extend the <span class="text-gray-200">check-data-accuracy</span> skill to validate against the live database instead of the static universe file.</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Extend the <span class="text-gray-200">data-accuracy-check</span> skill to validate against the live database instead of the static universe file.</div>
 <div class="text-[10px] text-gray-400 space-y-0.5 border-t border-purple-500/20 pt-2 mt-auto">
-<div class="text-purple-300/80 font-semibold mb-1">You'll see:</div>
+<div class="text-purple-300/80 font-semibold mb-1">You&rsquo;ll see:</div>
 <div>&#x2022; Skills + MCP working in combination</div>
 <div>&#x2022; Errors the static skill would have missed</div>
 <div>&#x2022; Live DB records surfaced in skill output</div>
@@ -467,13 +467,13 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <div class="text-orange-300 font-bold text-base">5.3</div>
 <span class="text-xs text-gray-500">Sarah &#x2B50;</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Run a lore consistency audit</div>
-<div class="text-gray-400 text-xs leading-snug mb-2">Use both MCP servers together to catch DB-vs-universe mismatches and lore that exists in the database but never reaches the API.</div>
+<div class="text-white text-xs font-semibold mb-1">Find the quote truncation bug</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Use both MCP servers together to compare what the <span class="text-gray-200">quotes</span> table stores against what the API actually returns. There&rsquo;s a bug in the code &mdash; and it only shows up when you can read from both sources.</div>
 <div class="text-[10px] text-gray-400 space-y-0.5 border-t border-orange-500/20 pt-2 mt-auto">
-<div class="text-orange-300/80 font-semibold mb-1">You'll produce:</div>
-<div>&#x2022; A cross-source discrepancy report</div>
-<div>&#x2022; Orphaned lore records identified</div>
-<div>&#x2022; A prompt that runs this audit on demand</div>
+<div class="text-orange-300/80 font-semibold mb-1">You&rsquo;ll discover:</div>
+<div>&#x2022; A truncation pattern in the API layer</div>
+<div>&#x2022; Which quotes are affected &mdash; and which aren&rsquo;t</div>
+<div>&#x2022; The difference between a data bug and a code bug</div>
 </div>
 </div>
 </div>
@@ -481,7 +481,6 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 Each exercise rotates the lead persona &mdash; everyone contributes, everyone follows.
 </div>
 </div>
-
 ---
 
 <!-- SLIDE: Character schema and sample rows still live outsid -->
@@ -758,14 +757,14 @@ The <code class="text-emerald-300">data-accuracy-check</code> skill from M3/M4 v
 
 ---
 
-<!-- SLIDE: Run the upgraded skill — does it catch what the static check missed? -->
+<!-- SLIDE: The DB is fine. The API isn't. And you'd never know without both sources open. -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-2">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">5.3</div>
 <div>
 <div class="text-orange-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Run a Lore Consistency Audit</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Find the Quote Truncation Bug</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Sarah &#x2B50;</span>
@@ -773,31 +772,31 @@ The <code class="text-emerald-300">data-accuracy-check</code> skill from M3/M4 v
 </div>
 </div>
 <div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-xs text-gray-300">
-The skill now has DB access. But what about entries that <em>exist in the database but never reach the client</em>? <strong class="text-white">This exercise adds a second MCP server for the running FanHub API — so the audit can catch not just DB-vs-universe errors, but also DB-vs-API gaps.</strong>
+The quotes feature is live. The database looks fine. But when you run <code class="text-emerald-300">data-accuracy-check</code> with <em>both</em> MCP servers and compare what&rsquo;s stored against what the API returns &mdash; <strong class="text-white">something doesn&rsquo;t match. Long quotes come back shorter. There&rsquo;s a bug in the code truncating <code class="text-amber-300">quote_text</code> to 50 characters &mdash; but it&rsquo;s invisible until you can read from both sources.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-3">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x1F4CB; Steps</div>
 <div class="space-y-1.5 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Use <span class="font-mono text-cyan-300">#mcp-fanhub-db</span> to query existing lore entries from the database</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Run <span class="font-mono text-emerald-300">/data-accuracy-check</span> — the skill cross-checks both the universe file and live DB records</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Add <span class="font-mono text-orange-300">fanhub-api</span> to <span class="font-mono text-blue-300">.vscode/mcp.json</span> — a second MCP server wrapping the running FanHub API</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Use <span class="font-mono text-amber-300">#mcp-fanhub-api</span> to check whether DB lore records are actually returned by the API &mdash; find entries that exist in the database but are absent or incomplete in the API response</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Use <span class="font-mono text-cyan-300">#mcp-fanhub-db</span> to query the <span class="font-mono text-amber-200">quotes</span> table &mdash; inspect some records, look at the <span class="font-mono text-amber-200">quote_text</span> field</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Run <span class="font-mono text-emerald-300">/data-accuracy-check</span> on a few quotes &mdash; does anything look unexpectedly short?</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Add <span class="font-mono text-orange-300">fanhub-api</span> to <span class="font-mono text-blue-300">.vscode/mcp.json</span> if not already done</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Use <span class="font-mono text-amber-300">#mcp-fanhub-api</span> to fetch the same quotes &mdash; compare <span class="font-mono text-amber-200">quote_text</span> in the DB vs. the API response</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-red-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">5</span><span class="text-gray-300">Identify the pattern: which quotes are affected? Can you find the 50-char limit in the code?</span></div>
 </div>
 </div>
 <div class="space-y-1.5">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x2705; Success Criteria</div>
 <div class="space-y-1 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> The skill surfaces at least one DB record that contradicts the universe file</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Sarah can generate an actionable correction list without leaving the workflow</div>
-<div class="flex items-center gap-2 p-2 bg-amber-900/20 rounded-lg border border-amber-700/30"><span class="text-amber-400">&#x2610;</span> Elena finds at least one lore entry present in the DB but absent or incomplete in the API response</div>
-<div class="flex items-center gap-2 p-2 bg-amber-900/20 rounded-lg border border-amber-700/30"><span class="text-amber-400">&#x2610;</span> The audit pattern covers both failure modes: wrong data stored, and correct data not surfaced</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> At least one quote where <span class="font-mono text-amber-200">quote_text</span> in DB &ne; API response</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Truncation pattern documented &mdash; quotes over 50 chars are silently cut</div>
+<div class="flex items-center gap-2 p-2 bg-amber-900/20 rounded-lg border border-amber-700/30"><span class="text-amber-400">&#x2610;</span> Short quotes (&le; 50 chars) pass through correctly &mdash; the pattern is consistent</div>
+<div class="flex items-center gap-2 p-2 bg-amber-900/20 rounded-lg border border-amber-700/30"><span class="text-amber-400">&#x2610;</span> Sarah can say: &ldquo;The data is correct. The API is wrong. Those are two different fixes.&rdquo;</div>
 </div>
-<div class="mt-2 p-2 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-orange-300">Sarah:</strong> "Every lore entry added before we had the skill is potentially wrong. I want the DB check <em>and</em> the API check. If a bad record survives both, I want to know how."</div>
+<div class="mt-2 p-2 bg-orange-900/30 rounded-lg border border-orange-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-orange-300">Sarah:</strong> &ldquo;The DB is fine. The API is lying. The skill only caught it because it could read from both &mdash; without both servers open, this bug is invisible.&rdquo;</div>
 </div>
 </div>
 </div>
-
 ---
 
 <!-- SLIDE: 📋 Example: .vscode/mcp.json — Both Servers -->
@@ -925,7 +924,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 <div class="flex flex-col gap-3">
 <div class="bg-gray-950/80 rounded-xl border border-orange-500/30 font-mono text-xs p-4 text-gray-300 flex-1">
 <div class="text-purple-400/60 text-[10px] mb-2 uppercase tracking-wider">skill invocation — unchanged</div>
-<div class="text-purple-300">can you validate the lore facts in the system?</div>
+<div class="text-purple-300">can you validate the quotes in the system?</div>
 <div class="mt-4 space-y-1.5 text-[10.5px]">
 <div class="text-gray-500">// 1. checks universe file (writing errors)</div>
 <div class="text-cyan-400">// 2. queries #mcp-fanhub-db (DB-vs-universe errors)</div>
@@ -961,44 +960,42 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 
 ---
 
-<!-- SLIDE: 📋 Example: Audit Output — DB Discrepancy Found -->
+<!-- SLIDE: 📋 Example: Audit Output — Truncation Bug Found -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Audit Output — Two Failure Modes Found</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: Audit Output &mdash; Truncation Bug Found</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
-<div class="bg-gray-950 rounded-xl border border-orange-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
-<div class="text-orange-300 font-semibold mb-1">DB Check:</div>
-<div class="text-orange-300 font-semibold">Status: <span class="text-red-400">Inaccurate (DB discrepancy)</span></div>
-<div class="mt-2 text-orange-300 font-semibold">Issues:</div>
-<div class="text-gray-300 ml-3">• Universe file: Walter White taught at J.P. Wynne High School</div>
-<div class="text-red-400 ml-3">• DB record (char-002): institution_name = "University of New Mexico"</div>
-<div class="text-gray-400 ml-3 italic">↳ Not caught by static check — DB entry was wrong, universe file was correct</div>
-<div class="mt-2 text-orange-300 font-semibold">Verified claims:</div>
-<div class="text-green-400 ml-3">✓ Walter &amp; Jesse partnership — confirmed</div>
-<div class="text-green-400 ml-3">✓ Jesse was Walter&#39;s former student — confirmed</div>
-<div class="text-green-400 ml-3">✓ Cook location: Superlab — confirmed</div>
+<div class="bg-gray-950 rounded-xl border border-cyan-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
+<div class="text-cyan-300 font-semibold mb-1">DB Check (via #mcp-fanhub-db):</div>
+<div class="text-green-400 font-semibold">Status: <span class="text-green-300">Consistent with universe file</span></div>
+<div class="mt-2 text-cyan-300 font-semibold">Sample records (quotes table):</div>
+<div class="text-gray-400 ml-3">• quote-001: <span class="text-gray-200">&ldquo;Say my name.&rdquo;</span></div>
+<div class="text-gray-400 ml-3">• quote-007: <span class="text-gray-200">&ldquo;I am the one who knocks. I am the danger. A danger to your operation.&rdquo;</span></div>
+<div class="text-gray-400 ml-3">• quote-012: <span class="text-gray-200">&ldquo;Chemistry is the study of change. That&rsquo;s all of life.&rdquo;</span></div>
+<div class="mt-2 text-green-400 font-semibold">All DB records: full text intact &#x2713;</div>
 </div>
-<div class="bg-gray-950 rounded-xl border border-orange-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
-<div class="text-amber-300 font-semibold mb-1">API Check:</div>
-<div class="text-amber-300 font-semibold">Status: <span class="text-amber-400">API Gap Found</span></div>
+<div class="bg-gray-950 rounded-xl border border-amber-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
+<div class="text-amber-300 font-semibold mb-1">API Check (via #mcp-fanhub-api):</div>
+<div class="text-red-400 font-semibold">Status: <span class="text-red-300">Discrepancy Found</span></div>
 <div class="mt-2 text-amber-300 font-semibold">Issues:</div>
-<div class="text-gray-300 ml-3">• DB has 47 lore entries for Breaking Bad characters</div>
-<div class="text-amber-400 ml-3">• API returns 44 — entries for char-011, char-023, char-031 missing</div>
-<div class="text-gray-400 ml-3 italic">↳ Records exist and are correctly stored — API endpoint silently omits them</div>
-<div class="mt-2 text-amber-300 font-semibold">Highest priority:</div>
-<div class="text-red-400 ml-3">• char-002 DB error IS surfaced by the API — clients see wrong canon</div>
-<div class="text-gray-400 ml-3 italic">↳ Fix the DB record first; then investigate the 3 missing API entries</div>
+<div class="text-gray-400 ml-3">• quote-001: <span class="text-gray-200">&ldquo;Say my name.&rdquo;</span> &mdash; <span class="text-green-400">&#x2713; matches</span></div>
+<div class="text-red-400 ml-3">• quote-007: <span class="text-gray-200">&ldquo;I am the one who knocks. I am the dan&rdquo;</span></div>
+<div class="text-gray-500 ml-6 italic">&#x21B3; DB: 70 chars &nbsp;|&nbsp; API: 50 chars &mdash; truncated</div>
+<div class="text-red-400 ml-3">• quote-012: <span class="text-gray-200">&ldquo;Chemistry is the study of change. That&rsquo;s&rdquo;</span></div>
+<div class="text-gray-500 ml-6 italic">&#x21B3; DB: 55 chars &nbsp;|&nbsp; API: 50 chars &mdash; truncated</div>
+<div class="mt-2 text-amber-300 font-semibold">Pattern:</div>
+<div class="text-gray-300 ml-3">All quotes over 50 chars are silently cut.</div>
+<div class="text-gray-300 ml-3">Shorter quotes pass through unchanged.</div>
 </div>
 </div>
 <div class="bg-orange-900/20 rounded-lg p-3 border border-orange-500/20 text-xs text-gray-300 italic">
-&#x1F4AD; <strong class="text-orange-300">Sarah:</strong> "Found it. The DB had the university error Marcus&#39;s PR introduced — and the API is serving it. That&#39;s the one we fix now." &nbsp;&nbsp; <strong class="text-amber-300">Elena:</strong> "And three entries that are correct in the DB but never reach the client. That&#39;s a separate bug. I&#39;m logging both."
+&#x1F4AD; <strong class="text-orange-300">Sarah:</strong> &ldquo;The data is correct. The code is wrong. I can prove it &mdash; because I can read the table and the API response side by side.&rdquo; &nbsp;&nbsp; <strong class="text-amber-300">Elena:</strong> &ldquo;50-character hard limit. That&rsquo;s not an accident, that&rsquo;s a <code class="text-red-300">LEFT(quote_text, 50)</code> somewhere. Find it.&rdquo;
 </div>
 </div>
 </div>
-
 ---
 
 <!-- SLIDE: 📋 Example: mcp-servers/fanhub-api-server.js -->
