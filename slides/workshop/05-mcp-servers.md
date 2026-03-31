@@ -364,29 +364,47 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <div class="text-lg font-bold text-white">3 exercises &middot; ~45 minutes &middot; shared leadership</div>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
+<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40 flex flex-col">
 <div class="flex items-center justify-between mb-1">
 <div class="text-blue-300 font-bold text-base">5.1</div>
 <span class="text-xs text-gray-500">Marcus &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Connect live lore data</div>
-<div class="text-gray-400 text-xs leading-snug">Configure an MCP server so Copilot can query live FanHub lore records to support the accuracy-checking workflow</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Configure an MCP server so Copilot can query live FanHub lore records directly in chat — no context-switching required.</div>
+<div class="text-[10px] text-gray-400 space-y-0.5 border-t border-blue-500/20 pt-2 mt-auto">
+<div class="text-blue-300/80 font-semibold mb-1">You'll configure:</div>
+<div>&#x2022; <span class="text-gray-300">.vscode/mcp.json</span> for the FanHub database</div>
+<div>&#x2022; Live lore record queries in Copilot Chat</div>
+<div>&#x2022; Validation that real data flows through</div>
 </div>
-<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40">
+</div>
+<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40 flex flex-col">
 <div class="flex items-center justify-between mb-1">
 <div class="text-purple-300 font-bold text-base">5.2</div>
 <span class="text-xs text-gray-500">Elena &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Upgrade lore-accuracy skill</div>
-<div class="text-gray-400 text-xs leading-snug">Add live MCP data to the check-lore-accuracy skill so it validates against the actual database, not just the universe file</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Extend the <span class="text-gray-200">check-lore-accuracy</span> skill to validate against the live database instead of the static universe file.</div>
+<div class="text-[10px] text-gray-400 space-y-0.5 border-t border-purple-500/20 pt-2 mt-auto">
+<div class="text-purple-300/80 font-semibold mb-1">You'll see:</div>
+<div>&#x2022; Skills + MCP working in combination</div>
+<div>&#x2022; Errors the static skill would have missed</div>
+<div>&#x2022; Live DB records surfaced in skill output</div>
 </div>
-<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40">
+</div>
+<div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40 flex flex-col">
 <div class="flex items-center justify-between mb-1">
 <div class="text-orange-300 font-bold text-base">5.3</div>
 <span class="text-xs text-gray-500">Sarah &#x2B50;</span>
 </div>
 <div class="text-white text-xs font-semibold mb-1">Run a lore consistency audit</div>
-<div class="text-gray-400 text-xs leading-snug">Use both MCP servers to catch DB-vs-universe errors AND lore that exists in the database but never reaches the API client</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Use both MCP servers together to catch DB-vs-universe mismatches and lore that exists in the database but never reaches the API.</div>
+<div class="text-[10px] text-gray-400 space-y-0.5 border-t border-orange-500/20 pt-2 mt-auto">
+<div class="text-orange-300/80 font-semibold mb-1">You'll produce:</div>
+<div>&#x2022; A cross-source discrepancy report</div>
+<div>&#x2022; Orphaned lore records identified</div>
+<div>&#x2022; A prompt that runs this audit on demand</div>
+</div>
 </div>
 </div>
 <div class="relative z-10 mt-3 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
@@ -398,7 +416,7 @@ Each exercise rotates the lead persona &mdash; everyone contributes, everyone fo
 
 <!-- SLIDE: Character schema and sample rows still live outsid -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">5.1</div>
 <div>
@@ -410,7 +428,7 @@ Each exercise rotates the lead persona &mdash; everyone contributes, everyone fo
 <span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 15 min</span>
 </div>
 </div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
+<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
 The <code class="text-emerald-300">lore-accuracy-check</code> skill validates entries against the universe file — but it can&#39;t catch errors that are ALREADY in the database. <strong class="text-white">This exercise connects Copilot to live FanHub lore data so the skill can cross-check real records, not just the universe file.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
@@ -438,9 +456,9 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill validates en
 
 <!-- SLIDE: 📋 Example: .vscode/mcp.json — FanHub Database -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: .vscode/mcp.json — FanHub Database</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-blue-800/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: .vscode/mcp.json — FanHub Database</span><div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
@@ -485,10 +503,10 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill validates en
 
 <!-- SLIDE: 📋 Example: Copilot Chat — Lore Data Queries -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Copilot Chat — Lore Data Queries</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-blue-800/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Copilot Chat — Lore Data Queries</span><div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 mb-4 text-sm text-gray-300">
@@ -496,15 +514,15 @@ Once <code class="text-blue-300 font-mono">fanhub-db</code> is running in Agent 
 </div>
 
 <div class="relative z-10 space-y-3">
-<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 font-mono text-xs p-4 text-gray-300">
+<div class="bg-gray-950/80 rounded-xl border border-blue-500/30 font-mono text-xs p-4 text-gray-300">
 <div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">lore entry lookup</div>
 <div class="text-gray-200 ml-4 select-all cursor-text">#mcp-fanhub-db Show me lore entries for Walter White and flag any that look incomplete or inconsistent.</div>
 </div>
-<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 font-mono text-xs p-4 text-gray-300">
+<div class="bg-gray-950/80 rounded-xl border border-blue-500/30 font-mono text-xs p-4 text-gray-300">
 <div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">cross-reference check</div>
 <div class="text-gray-200 ml-4 select-all cursor-text">#mcp-fanhub-db Show me character records where the canon status field is empty or missing — these might be accuracy check gaps.</div>
 </div>
-<div class="bg-gray-950/80 rounded-xl border border-cyan-500/30 font-mono text-xs p-4 text-gray-300">
+<div class="bg-gray-950/80 rounded-xl border border-blue-500/30 font-mono text-xs p-4 text-gray-300">
 <div class="text-cyan-400/60 text-[10px] mb-2 uppercase tracking-wider">discrepancy hunting</div>
 <div class="text-gray-200 ml-4 select-all cursor-text">#mcp-fanhub-db Compare lore entries in the database against what I&#39;d expect from the universe file — flag anything suspicious.</div>
 </div>
@@ -520,7 +538,7 @@ Once <code class="text-blue-300 font-mono">fanhub-db</code> is running in Agent 
 
 <!-- SLIDE: The lore-accuracy skill catches writing errors. MCP catches data entry errors. -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">5.2</div>
 <div>
@@ -560,10 +578,10 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill from M3/M4 v
 
 <!-- SLIDE: 📋 Example: lore-accuracy-check — MCP upgrade -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: lore-accuracy-check &mdash; MCP upgrade</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: lore-accuracy-check &mdash; MCP upgrade</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
@@ -621,14 +639,14 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill from M3/M4 v
 
 <!-- SLIDE: 💬 Example: Invoking the Upgraded Skill -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-orange-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; Example: Invoking the Upgraded Skill</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4AC; Example: Invoking the Upgraded Skill</span><div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 mb-3 text-xs text-gray-400">Add an incorrect lore fact manually, or ask Copilot "please add the lore item from #bad-lore-fact.json to the database"</div>
 <div class="relative z-10 grid grid-cols-2 gap-4 flex-1">
 <div class="flex flex-col gap-3">
-<div class="font-mono text-sm bg-red-900/20 rounded-xl border border-red-500/30 p-5 text-gray-200 leading-relaxed select-all cursor-text flex-1">
+<div class="font-mono text-sm bg-red-900/20 rounded-xl border border-purple-500/30 p-5 text-gray-200 leading-relaxed select-all cursor-text flex-1">
 <div class="text-orange-400 mb-3">can you validate the lore facts in the system?</div>
 </div>
 </div>
@@ -672,7 +690,7 @@ The <code class="text-emerald-300">lore-accuracy-check</code> skill from M3/M4 v
 
 <!-- SLIDE: Run the upgraded skill — does it catch what the static check missed? -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/30 flex-shrink-0">5.3</div>
 <div>
@@ -714,7 +732,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 
 <!-- SLIDE: 📋 Example: .vscode/mcp.json — Both Servers -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-amber-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: .vscode/mcp.json &mdash; Both Servers</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
@@ -741,7 +759,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 <div class="text-gray-400">}</div>
 </div>
 <div class="flex flex-col gap-3">
-<div class="bg-gray-900/60 rounded-xl p-3 border border-cyan-500/30 text-xs">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-orange-500/30 text-xs">
 <div class="text-cyan-300 font-bold mb-2">&#x1F5C4;&#xFE0F; fanhub-db</div>
 <div class="text-gray-300 space-y-1">
 <div>SQLite MCP server via <code class="text-orange-300">mcp-sqlite</code></div>
@@ -749,7 +767,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 <div class="text-cyan-200 font-mono mt-1">#mcp-fanhub-db ...</div>
 </div>
 </div>
-<div class="bg-gray-900/60 rounded-xl p-3 border border-amber-500/30 text-xs">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-orange-500/30 text-xs">
 <div class="text-amber-300 font-bold mb-2">&#x1F310; fanhub-api</div>
 <div class="text-gray-300 space-y-1">
 <div>Custom stdio server wrapping the <em>running</em> FanHub API at <code class="text-orange-300">localhost:5265</code></div>
@@ -770,7 +788,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 
 <!-- SLIDE: 📋 Example: lore-accuracy-check — API upgrade -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: lore-accuracy-check &mdash; API upgrade</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
@@ -803,7 +821,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 <div class="text-amber-300">- <span class="text-amber-300">#mcp-fanhub-api</span> &mdash; running API</div>
 </div>
 <div class="flex flex-col gap-3">
-<div class="bg-gray-900/60 rounded-xl p-3 border border-amber-500/30 text-xs">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-orange-500/30 text-xs">
 <div class="text-amber-400 font-semibold text-sm mb-2">&#x1F4A1; What the API check adds</div>
 <div class="space-y-2 text-gray-300">
 <div class="flex items-start gap-2"><div class="text-cyan-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">DB check</strong> &mdash; catches data stored wrong (canon violation)</div></div>
@@ -829,13 +847,13 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 
 <!-- SLIDE: 📋 Example: The Skill Covers All Three -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: The Skill Covers All Three</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4 flex-1">
 <div class="flex flex-col gap-3">
-<div class="bg-gray-950/80 rounded-xl border border-purple-500/30 font-mono text-xs p-4 text-gray-300 flex-1">
+<div class="bg-gray-950/80 rounded-xl border border-orange-500/30 font-mono text-xs p-4 text-gray-300 flex-1">
 <div class="text-purple-400/60 text-[10px] mb-2 uppercase tracking-wider">skill invocation — unchanged</div>
 <div class="text-purple-300">can you validate the lore facts in the system?</div>
 <div class="mt-4 space-y-1.5 text-[10.5px]">
@@ -875,13 +893,13 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 
 <!-- SLIDE: 📋 Example: Audit Output — DB Discrepancy Found -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Audit Output — Two Failure Modes Found</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
-<div class="bg-gray-950 rounded-xl border border-red-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
+<div class="bg-gray-950 rounded-xl border border-orange-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
 <div class="text-orange-300 font-semibold mb-1">DB Check:</div>
 <div class="text-orange-300 font-semibold">Status: <span class="text-red-400">Inaccurate (DB discrepancy)</span></div>
 <div class="mt-2 text-orange-300 font-semibold">Issues:</div>
@@ -893,7 +911,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 <div class="text-green-400 ml-3">✓ Jesse was Walter&#39;s former student — confirmed</div>
 <div class="text-green-400 ml-3">✓ Cook location: Superlab — confirmed</div>
 </div>
-<div class="bg-gray-950 rounded-xl border border-amber-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
+<div class="bg-gray-950 rounded-xl border border-orange-500/30 p-4 font-mono text-xs overflow-auto text-gray-300 leading-relaxed">
 <div class="text-amber-300 font-semibold mb-1">API Check:</div>
 <div class="text-amber-300 font-semibold">Status: <span class="text-amber-400">API Gap Found</span></div>
 <div class="mt-2 text-amber-300 font-semibold">Issues:</div>
@@ -915,7 +933,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 
 <!-- SLIDE: 📋 Example: mcp-servers/fanhub-api-server.js -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: mcp-servers/fanhub-api-server.js</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
@@ -945,7 +963,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 <div class="text-amber-300">if (tool === <span class="text-orange-300">"create_lore"</span>) postJson(<span class="text-orange-300">"/api/lore"</span>, args);</div>
 </div>
 <div class="flex flex-col gap-3">
-<div class="bg-gray-900/60 rounded-xl p-3 border border-amber-500/30 text-xs">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-orange-500/30 text-xs">
 <div class="text-amber-300 font-bold mb-2">&#x1F6E0;&#xFE0F; How it works</div>
 <div class="space-y-2 text-gray-300">
 <div class="flex items-start gap-2"><div class="text-amber-400 flex-shrink-0">&#x203A;</div><div>Pure stdio &mdash; reads JSON-RPC from stdin, writes responses to stdout. No port, no daemon.</div></div>
@@ -953,7 +971,7 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 <div class="flex items-start gap-2"><div class="text-amber-400 flex-shrink-0">&#x203A;</div><div>VS Code starts it automatically when the workspace opens via <code class="text-blue-300">.vscode/mcp.json</code></div></div>
 </div>
 </div>
-<div class="bg-gray-900/60 rounded-xl p-3 border border-cyan-500/30 text-xs">
+<div class="bg-gray-900/60 rounded-xl p-3 border border-orange-500/30 text-xs">
 <div class="text-cyan-300 font-bold mb-2">&#x1F4CB; Three tools</div>
 <div class="space-y-2 text-gray-300">
 <div class="flex items-start gap-2"><div class="text-cyan-400 flex-shrink-0">&#x203A;</div><div><code class="text-cyan-300">get_lore</code> &mdash; list all entries; used to compare count vs. DB</div></div>
@@ -969,42 +987,6 @@ The skill now has DB access. But what about entries that <em>exist in the databa
 </div>
 <div class="relative z-10 mt-2 text-xs text-gray-500">&#x1F4C1; mcp-servers/fanhub-api-server.js &middot; Run with <code>node mcp-servers/fanhub-api-server.js</code> &middot; Launched automatically by VS Code via .vscode/mcp.json</div>
 </div>
-</div>
-
----
-
-<!-- SLIDE: 🔗 Compounding Value -->
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">What Module 5 adds</div>
-    <ul class="text-sm text-gray-300 space-y-2">
-      <li>Live FanHub database access for the character story arc</li>
-      <li>An upgraded Module 4 skill that can work from real records</li>
-      <li>Runtime API validation against what the frontend actually depends on</li>
-    </ul>
-  </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-    <div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
-    <ul class="text-sm text-gray-300 space-y-2">
-      <li><strong>Module 6:</strong> custom agents become stronger when they can orchestrate the skill, the live FanHub data, and the running API together</li>
-      <li>The team moves from local workflow logic toward end-to-end character-feature operations</li>
-    </ul>
-  </div>
-
-</div>
-
-<div class="mt-8 flex justify-center">
-  <div class="px-8 py-4 bg-gradient-to-r from-purple-900/40 via-orange-900/30 to-purple-900/40 rounded-2xl border border-purple-500/40 shadow-lg shadow-purple-900/20 text-center max-w-3xl">
-    <div class="text-xs text-purple-400 font-semibold uppercase tracking-widest mb-2">💭 Elena</div>
-    <span class="text-sm text-gray-200 italic">"The universe file told me what <em class="text-white">should</em> be true. The database told me what <em class="text-white">was</em> stored. The API told me what actually reaches the client. I have been trying to cover all three failure modes manually. I still have edge cases to run. I always have edge cases to run."</span>
-  </div>
 </div>
 
 ---

@@ -393,7 +393,7 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 
 <!-- SLIDE: Exercise 3.1 Creating a Docs Refresh Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">E1</div>
 <div>
@@ -405,7 +405,7 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 6 min</span>
 </div>
 </div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
+<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
 Rafael's already thinking about the next sprint. He's noticed that every time the team plans a feature, Copilot's suggestions drift slightly from what the codebase actually is — because nobody updated the docs after Module 2. <em>That drift compounds.</em> <strong class="text-white">He wants one prompt he can hand to the team: run it after any meaningful change, docs stay current, problem never comes back.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
@@ -433,14 +433,14 @@ Rafael's already thinking about the next sprint. He's noticed that every time th
 
 <!-- SLIDE: 💬 Example: The refresh-docs Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The refresh-docs Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-blue-800/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The refresh-docs Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-5">
 <div>
 <div class="text-xs text-gray-400 mb-2">Save this to <span class="font-mono text-orange-300">.github/prompts/refresh-docs.prompt.md</span>:</div>
-<div class="font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-4 text-gray-200 leading-relaxed select-text cursor-text">
+<div class="font-mono text-sm bg-gray-900/80 rounded-xl border border-blue-500/30 p-4 text-gray-200 leading-relaxed select-text cursor-text">
 <div class="text-gray-500 text-xs mb-2">&#45;&#45;&#45;</div>
 <div class="text-blue-300 text-xs mb-1">description: Refresh architecture and team instructions after code changes</div>
 <div class="text-gray-500 text-xs mb-3">&#45;&#45;&#45;</div>
@@ -470,7 +470,7 @@ The <span class="font-mono text-blue-200">/plan</span> inside the prompt is what
 
 <!-- SLIDE: Exercise 2 — Save One Strong Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-5">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">E2</div>
 <div><div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise 2</div>
@@ -506,14 +506,14 @@ Jessica has been quietly watching Rafael and Marcus work. She&rsquo;s convinced 
 
 <!-- SLIDE: 🧚 Example: Good Idea Fairy Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F9DA; Example: Good Idea Fairy</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F9DA; Example: Good Idea Fairy</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-5">
 <div><div class="text-xs text-gray-400 mb-2">Save to <span class="font-mono text-orange-300">.github/prompts/good-idea-fairy.prompt.md</span>:</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-xl border border-orange-500/30 p-4 text-gray-200 leading-relaxed overflow-y-auto max-h-72 select-all cursor-text">
+<div class="font-mono text-xs bg-gray-900/80 rounded-xl border border-purple-500/30 p-4 text-gray-200 leading-relaxed overflow-y-auto max-h-72 select-all cursor-text">
 <div class="text-gray-500 text-xs mb-1">&#45;&#45;&#45;</div>
 <div class="text-blue-300 text-xs mb-1">description: Generate bold creative feature ideas for the FanHub site</div>
 <div class="text-gray-500 text-xs mb-3">&#45;&#45;&#45;</div>
@@ -541,14 +541,14 @@ Jessica has been quietly watching Rafael and Marcus work. She&rsquo;s convinced 
 
 <!-- SLIDE: ⚠️ Example: Risk Prioritizer Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x26A0;&#xFE0F; Example: Risk Prioritizer</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x26A0;&#xFE0F; Example: Risk Prioritizer</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-5">
 <div><div class="text-xs text-gray-400 mb-2">Save to <span class="font-mono text-orange-300">.github/prompts/risk-prioritizer.prompt.md</span>:</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-xl border border-orange-500/30 p-4 text-gray-200 leading-relaxed overflow-y-auto max-h-72 select-all cursor-text">
+<div class="font-mono text-xs bg-gray-900/80 rounded-xl border border-purple-500/30 p-4 text-gray-200 leading-relaxed overflow-y-auto max-h-72 select-all cursor-text">
 <div class="text-gray-500 text-xs mb-1">&#45;&#45;&#45;</div>
 <div class="text-blue-300 text-xs mb-1">description: Review code and architecture to produce a prioritized risk fix list</div>
 <div class="text-gray-500 text-xs mb-3">&#45;&#45;&#45;</div>
@@ -578,14 +578,14 @@ Jessica has been quietly watching Rafael and Marcus work. She&rsquo;s convinced 
 
 <!-- SLIDE: 🔀 Example: Commit Helper Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F500; Example: Commit Helper</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F500; Example: Commit Helper</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-5">
 <div><div class="text-xs text-gray-400 mb-2">Save to <span class="font-mono text-orange-300">.github/prompts/commit-helper.prompt.md</span>:</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-xl border border-orange-500/30 p-4 text-gray-200 leading-relaxed overflow-y-auto max-h-72 select-all cursor-text">
+<div class="font-mono text-xs bg-gray-900/80 rounded-xl border border-purple-500/30 p-4 text-gray-200 leading-relaxed overflow-y-auto max-h-72 select-all cursor-text">
 <div class="text-gray-500 text-xs mb-1">&#45;&#45;&#45;</div>
 <div class="text-blue-300 text-xs mb-1">description: Branch, commit, and open a well-formed PR for the current changeset</div>
 <div class="text-blue-300 text-xs mb-1">mode: agent</div>
@@ -614,7 +614,7 @@ Jessica has been quietly watching Rafael and Marcus work. She&rsquo;s convinced 
 
 <!-- SLIDE: Exercise 3.3 Data Accuracy Check -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">E3</div>
 <div>
@@ -657,9 +657,9 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 <!-- SLIDE: 📋 Example: check-data-accuracy.prompt.md -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: check-data-accuracy.prompt.md</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: check-data-accuracy.prompt.md</span><div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex gap-4 flex-1 min-h-0">
 <div class="select-all font-mono text-[10.5px] bg-gray-900/80 rounded-xl border border-emerald-500/30 p-4 text-gray-300 leading-relaxed flex-1 overflow-auto whitespace-pre-wrap">
@@ -714,9 +714,9 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 <!-- SLIDE: 💬 Example: Step 3 — Test an Inaccurate Entry -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 3 — Test an Inaccurate Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 3 — Test an Inaccurate Entry</span><div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 mb-3 text-xs text-gray-400">Demo domain: Breaking Bad lore. Select this entry in your editor, then run <span class="font-mono text-emerald-300">/check-data-accuracy</span>:</div>
 <div class="relative z-10 font-mono text-base bg-red-900/20 rounded-xl border border-red-500/30 p-6 text-gray-200 leading-relaxed mb-5 select-all flex-1">
@@ -733,9 +733,9 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 <!-- SLIDE: 📋 Example: Step 3 — Output (Error Flagged) -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 3 — Output (Error Flagged)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 3 — Output (Error Flagged)</span><div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 font-mono text-xs bg-gray-900/80 rounded-xl border border-red-500/30 p-4 text-gray-200 leading-relaxed">
 <div class="text-red-400 font-bold mb-3 text-sm">Status: <span class="text-red-300">Inaccurate</span></div>
@@ -760,9 +760,9 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 <!-- SLIDE: 💬 Example: Step 4 — Test a Correct Entry -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 4 — Test a Correct Entry</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: Step 4 — Test a Correct Entry</span><div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 mb-3 text-xs text-gray-400">Same demo domain. Select this entry and run <span class="font-mono text-emerald-300">/check-data-accuracy</span> again — validate no false positives:</div>
 <div class="relative z-10 font-mono text-base bg-green-900/20 rounded-xl border border-green-500/30 p-6 text-gray-200 leading-relaxed mb-5 select-all flex-1">
@@ -779,9 +779,9 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 <!-- SLIDE: 📋 Example: Step 4 — Output (Partially Accurate / Unverifiable) -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 4 — Output (Partially Accurate / Unverifiable)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Step 4 — Output (Partially Accurate / Unverifiable)</span><div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 font-mono text-[10.5px] bg-gray-900/80 rounded-xl border border-yellow-500/30 p-4 text-gray-200 leading-relaxed mb-3 flex-1">
 <div class="text-yellow-400 font-bold mb-2 text-xs">Status: <span class="text-yellow-300">Partially Accurate / Partially Unverifiable</span></div>
@@ -1137,7 +1137,7 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 <!-- SLIDE: 🔧 Exercise 4 — Install make-skill-template -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">E4</div>
 <div>
@@ -1149,7 +1149,7 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 <span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 10 min</span>
 </div>
 </div>
-<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-cyan-400 text-sm text-gray-300">
+<div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
 The team is ready to build real skills, but blank-page setup still slows them down. <strong class="text-white">This exercise installs a proven starter from <code>awesome-copilot</code> so the next two skills begin from a better scaffold instead of improvised structure.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
@@ -1177,10 +1177,10 @@ The team is ready to build real skills, but blank-page setup still slows them do
 
 <!-- SLIDE: &#x1F4AC; make-skill-template in Action -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; make-skill-template in Action</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-blue-600/80 to-blue-800/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; make-skill-template in Action</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-2">
 <div class="grid grid-cols-2 gap-3 flex-1">
@@ -1250,7 +1250,7 @@ The team is ready to build real skills, but blank-page setup still slows them do
 
 <!-- SLIDE: Exercise 5 — Data Accuracy Check as a Skill -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-5">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/30 flex-shrink-0">E5</div>
 <div>
@@ -1292,10 +1292,10 @@ Elena has been invoking <code class="bg-gray-800 px-1 rounded text-orange-300">/
 
 <!-- SLIDE: &#x1F4CB; E5 &#x2014; Inside data-accuracy-check -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4CB; E5 &mdash; Inside data-accuracy-check</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4CB; E5 &mdash; Inside data-accuracy-check</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
@@ -1352,7 +1352,7 @@ Elena has been invoking <code class="bg-gray-800 px-1 rounded text-orange-300">/
 
 <!-- SLIDE: Exercise 6 — Create Card and Page Skill -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-5">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">E6</div>
 <div>
@@ -1395,9 +1395,9 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 
 <!-- SLIDE: 💬 Step 3 — Improve the Skill with Templates & Scripts -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-3 py-1 bg-gradient-to-r from-purple-600/80 to-blue-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">💬 Step 3 — Improve the Skill with Templates &amp; Scripts</span>
+<span class="px-3 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">💬 Step 3 — Improve the Skill with Templates &amp; Scripts</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-2">
@@ -1441,10 +1441,10 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 
 <!-- SLIDE: &#x1F3D7; E6 &#x2014; Inside create-card-and-page skill -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-3 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F3D7; E6 &mdash; Inside create-card-and-page skill</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F3D7; E6 &mdash; Inside create-card-and-page skill</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
