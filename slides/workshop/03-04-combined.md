@@ -232,13 +232,13 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 ---
 
 <!-- SLIDE: What Prompt Files Actually Are -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Prompt Files Actually Are</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 What Prompt Files Actually Are</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-2 gap-4 mt-2 text-left">
-
+<div class="relative z-10 grid grid-cols-2 gap-4 mt-2 text-left">
 <div class="p-3 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30 shadow-lg shadow-orange-500/10">
 <div class="text-orange-300 font-bold mb-2">Think of them like functions</div>
 <ul class="list-none pl-0 m-0 text-sm text-gray-300 space-y-1">
@@ -248,7 +248,6 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <li>Designed for specific repeatable tasks</li>
 </ul>
 </div>
-
 <div class="p-3 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30 shadow-lg shadow-purple-500/10">
 <div class="text-purple-300 font-bold mb-2">Each file has two layers</div>
 <ul class="list-none pl-0 m-0 text-sm text-gray-300 space-y-1">
@@ -258,7 +257,6 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <li>Optional built-in or input variables</li>
 </ul>
 </div>
-
 <div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30 shadow-lg shadow-blue-500/10">
 <div class="text-blue-300 font-bold mb-2">Workspace prompts</div>
 <ul class="text-sm text-gray-300 space-y-1">
@@ -267,7 +265,6 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <li>Work best for project-specific workflows</li>
 </ul>
 </div>
-
 <div class="p-3 rounded-xl bg-gradient-to-br from-red-900/30 to-gray-900/40 border border-red-500/30 shadow-lg shadow-red-500/10">
 <div class="text-red-300 font-bold mb-2">User prompts</div>
 <ul class="text-sm text-gray-300 space-y-1">
@@ -276,13 +273,12 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <li>Work best for personal, reusable habits</li>
 </ul>
 </div>
-
 </div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-red-900/20 rounded-xl border border-white/10 text-center">
-<div class="text-sm text-white font-semibold">Prompt files are not just shortcuts. They are reusable context orchestrators.</div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-amber-300 text-sm italic">&ldquo;Named, discoverable, parameterized, invoked on demand&hellip; that&rsquo;s a function. Why did nobody just say it was a function? I know how to write functions.&rdquo;</span>
+  <span class="text-amber-500 text-xs text-right">&mdash; Jessica</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: Why Prompt Files Matter Here -->
@@ -316,50 +312,50 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 ---
 
 <!-- SLIDE: What a Strong Prompt File Includes -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 What a Strong Prompt File Includes</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔎 What a Strong Prompt File Includes</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-2 gap-6 mt-4 text-left">
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-    <div class="text-purple-300 font-bold mb-3">Frontmatter</div>
-    <ul class="text-sm text-gray-300 space-y-2">
+<div class="relative z-10 grid grid-cols-2 gap-4 mt-3 text-left">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
+    <div class="text-purple-300 font-bold mb-2 text-sm">Frontmatter</div>
+    <ul class="text-xs text-gray-300 space-y-1">
       <li>A clear name and description</li>
       <li>The right agent for the task</li>
-      <li>Tool access that matches the prompt’s job</li>
+      <li>Tool access that matches the prompt&rsquo;s job</li>
       <li>Optional hints that improve invocation</li>
     </ul>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">Body</div>
-    <ul class="text-sm text-gray-300 space-y-2">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2 text-sm">Body</div>
+    <ul class="text-xs text-gray-300 space-y-1">
       <li>The exact task to perform</li>
       <li>Links to standards or examples when relevant</li>
       <li>The outputs you expect back</li>
       <li>Enough structure to keep results consistent</li>
     </ul>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
-    <div class="text-orange-300 font-bold mb-3">Variables</div>
-    <ul class="text-sm text-gray-300 space-y-2">
+  <div class="p-4 rounded-xl bg-gradient-to-br from-orange-900/40 to-gray-900/40 border border-orange-500/30">
+    <div class="text-orange-300 font-bold mb-2 text-sm">Variables</div>
+    <ul class="text-xs text-gray-300 space-y-1">
       <li><code>${file}</code> for current file context</li>
       <li><code>${selection}</code> for focused analysis</li>
       <li><code>${workspaceFolder}</code> for project-aware prompts</li>
       <li><code>${input:...}</code> for parameterized use</li>
     </ul>
   </div>
-
-  <div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
-    <div class="text-blue-300 font-bold mb-3">Good design rule</div>
-    <div class="text-sm text-gray-300">The best prompt file is specific enough to save time, but general enough that the team actually uses it more than once.</div>
+  <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/30 to-purple-900/20 border border-blue-500/30">
+    <div class="text-blue-300 font-bold mb-2 text-sm">Good design rule</div>
+    <div class="text-xs text-gray-300">The best prompt file is specific enough to save time, but general enough that the team actually uses it more than once.</div>
   </div>
-
 </div>
-
+<div class="relative z-10 mt-3 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-green-300 text-sm italic">&ldquo;Specific enough to save time, general enough to use more than once. I&rsquo;ve been saying that about functions since 2010. Glad the prompt file agrees.&rdquo;</span>
+  <span class="text-green-500 text-xs text-right">&mdash; Sarah</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: What to Validate in the Workshop -->
@@ -1021,10 +1017,10 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F50E; Skill Structure and Loading</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<p class="relative z-10 text-gray-400 text-xs mb-3">Skills are folders, not files &mdash; a structured package Copilot loads progressively as the task demands it.</p>
-<div class="relative z-10 grid grid-cols-2 gap-3 flex-1 min-h-0 mb-3">
-<div class="flex flex-col p-4 rounded-xl bg-gradient-to-br from-blue-900/50 to-gray-900/50 border border-blue-500/30">
-<div class="flex items-center gap-2 mb-3"><span class="text-2xl">&#x1F4C1;</span><div class="text-blue-300 font-bold text-sm">Typical structure</div></div>
+<p class="relative z-10 text-gray-400 text-xs mb-2">Skills are folders, not files &mdash; a structured package Copilot loads progressively as the task demands it.</p>
+<div class="relative z-10 grid grid-cols-2 gap-2 flex-1 min-h-0 mb-2">
+<div class="flex flex-col p-3 rounded-xl bg-gradient-to-br from-blue-900/50 to-gray-900/50 border border-blue-500/30">
+<div class="flex items-center gap-2 mb-2"><span class="text-2xl">&#x1F4C1;</span><div class="text-blue-300 font-bold text-sm">Typical structure</div></div>
 <div class="font-mono text-xs text-gray-300 space-y-1 flex-1">
 <div class="text-blue-300">.github/skills/data-accuracy-check/</div>
 <div class="pl-4 text-orange-300">&#x251C;&#x2500; SKILL.md</div>
@@ -1034,9 +1030,9 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 </div>
 <div class="mt-3 text-xs text-blue-400/70 italic">SKILL.md is the entry point &mdash; everything else loads on demand</div>
 </div>
-<div class="flex flex-col p-4 rounded-xl bg-gradient-to-br from-purple-900/50 to-gray-900/50 border border-purple-500/30">
-<div class="flex items-center gap-2 mb-3"><span class="text-2xl">&#x26A1;</span><div class="text-purple-300 font-bold text-sm">Loading model</div></div>
-<div class="space-y-2.5 flex-1">
+<div class="flex flex-col p-3 rounded-xl bg-gradient-to-br from-purple-900/50 to-gray-900/50 border border-purple-500/30">
+<div class="flex items-center gap-2 mb-2"><span class="text-2xl">&#x26A1;</span><div class="text-purple-300 font-bold text-sm">Loading model</div></div>
+<div class="space-y-2 flex-1">
 <div class="flex items-start gap-3">
 <span class="px-2 py-0.5 bg-purple-900/60 rounded text-purple-300 text-xs font-mono flex-shrink-0">1</span>
 <span class="text-xs text-gray-300">Copilot sees the <span class="text-purple-200 font-medium">skill name and description</span> up front</span>
@@ -1056,11 +1052,15 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 </div>
 </div>
 </div>
-<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/40 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
-<div class="text-sm font-bold text-white">Progressive loading is what makes <span class="text-orange-300">many skills practical</span> instead of expensive.</div>
-</div>
+<div class="relative z-10 p-2 bg-gradient-to-r from-orange-900/40 via-purple-900/30 to-blue-900/20 rounded-xl border border-white/10 text-center">
+<div class="text-xs font-bold text-white">Progressive loading is what makes <span class="text-orange-300">many skills practical</span> instead of expensive.</div>
 </div>
 
+<div class="relative z-10 mt-2 px-4 py-2 bg-orange-900/20 border border-orange-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-orange-300 text-sm italic">&ldquo;Lazy loading. For prompts. That&rsquo;s just lazy loading. I don&rsquo;t know why that makes me happy, but it does.&rdquo;</span>
+  <span class="text-orange-500 text-xs text-right">&mdash; Marcus</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: 🔄 Skills vs Instructions vs Prompts -->
@@ -1684,16 +1684,16 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <!-- SLIDE: ▶ Running new-card-skill for Locations -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
+<div class="relative z-10 flex items-center gap-3 mb-2">
 <span class="px-3 py-1 bg-gradient-to-r from-purple-600/80 to-blue-600/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">▶ Running new-card-skill for Locations</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 flex-1 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-4 flex-1">
-<div class="flex flex-col gap-2">
+<div class="relative z-10 flex-1 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-3 flex-1">
+<div class="flex flex-col gap-1.5">
 <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">💬 Invoke the skill</div>
-<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 text-xs flex-1">
-<div class="text-gray-400 mb-3 italic">Ask Copilot in any file — it picks up the skill automatically:</div>
+<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-3 text-xs flex-1">
+<div class="text-gray-400 mb-2 italic">Ask Copilot in any file — it picks up the skill automatically:</div>
 <div class="bg-gray-800/60 rounded-lg p-3 border border-purple-500/30 text-gray-200 font-mono leading-relaxed">
 <span class="text-purple-300">Add a new Locations entity to FanHub.</span><br/>
 <span class="text-gray-400">Entity: Location</span><br/>
@@ -1702,12 +1702,12 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <span class="text-gray-400">Icon: 📍</span><br/>
 <span class="text-gray-400">Seed: breaking-bad-universe.md</span>
 </div>
-<div class="mt-3 text-gray-500 text-xs italic">Or just say <span class="text-purple-300 font-mono not-italic">"add a Locations card to FanHub"</span> — the skill triggers and asks for what it needs.</div>
+<div class="mt-2 text-gray-500 text-xs italic">Or just say <span class="text-purple-300 font-mono not-italic">"add a Locations card to FanHub"</span> — the skill triggers and asks for what it needs.</div>
 </div>
 </div>
-<div class="flex flex-col gap-2">
+<div class="flex flex-col gap-1.5">
 <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">📋 Expected output</div>
-<div class="bg-gray-900/60 rounded-xl border border-gray-700/50 p-4 text-xs flex-1 space-y-2">
+<div class="bg-gray-900/60 rounded-xl border border-gray-700/50 p-3 text-xs flex-1 space-y-1.5">
 <div class="text-gray-400 font-semibold mb-1">Copilot generates a scoped plan covering:</div>
 <div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Backend/Models/Location.cs</span></div>
 <div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Backend/Controllers/LocationController.cs</span></div>
@@ -1716,13 +1716,16 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Components/LocationNavCard.razor</span></div>
 <div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300 font-mono">Pages/Locations.razor</span></div>
 <div class="flex items-center gap-2"><span class="text-green-400">✓</span><span class="text-gray-300">DbContext entry + EF migration + seed data</span></div>
-<div class="mt-2 pt-2 border-t border-gray-700/50 text-gray-400 italic">Same 9-step plan as Lore and Ratings — just with <span class="font-mono text-green-300 not-italic">Location</span> everywhere <span class="font-mono text-gray-400 not-italic">Lore</span> was.</div>
+<div class="pt-1.5 border-t border-gray-700/50 text-gray-400 italic">Same 9-step plan as Lore and Ratings &mdash; just with <span class="font-mono text-green-300 not-italic">Location</span> everywhere <span class="font-mono text-gray-400 not-italic">Lore</span> was.</div>
 </div>
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-2 px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg flex flex-col gap-1">
+  <span class="text-amber-300 text-sm italic">&ldquo;I said &lsquo;add a Locations card.&rsquo; It came back with six files, a migration, and seed data. I said four words.&rdquo;</span>
+  <span class="text-amber-500 text-xs text-right">&mdash; Jessica</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: Compounding Value -->
