@@ -314,6 +314,36 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
 </div>
 ---
 
+<!-- SLIDE: Before We Build -->
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-950/40 via-gray-950 to-orange-950/20"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-48 bg-orange-500/8 rounded-full blur-3xl"></div>
+<div class="relative z-10 text-center mb-8">
+<div class="text-xs font-semibold text-orange-400/70 uppercase tracking-widest mb-3">Before We Build Anything</div>
+<h1 class="text-4xl font-bold text-white mb-3">Three ideas worth carrying<br/>into everything else today</h1>
+<p class="text-gray-400 text-base max-w-xl mx-auto">The workshop will teach you <em>how</em> to use GitHub Copilot. These slides are about <em>why it works the way it does</em> &mdash; and who you&rsquo;re becoming in the process.</p>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-5 max-w-4xl mx-auto w-full">
+<div class="p-5 rounded-2xl bg-gradient-to-br from-purple-900/40 to-gray-900/50 border border-purple-500/25 flex flex-col gap-2">
+<div class="text-2xl mb-1">🌍</div>
+<div class="text-purple-300 font-bold text-sm">The Evolution Arc</div>
+<div class="text-gray-400 text-xs leading-relaxed">Where developers have been, where they&rsquo;re going, and where today fits in that arc.</div>
+</div>
+<div class="p-5 rounded-2xl bg-gradient-to-br from-orange-900/40 to-gray-900/50 border border-orange-500/25 flex flex-col gap-2">
+<div class="text-2xl mb-1">🧠</div>
+<div class="text-orange-300 font-bold text-sm">The Mindset Shift</div>
+<div class="text-gray-400 text-xs leading-relaxed">The single biggest change in how you think about your work &mdash; and why it unlocks everything else.</div>
+</div>
+<div class="p-5 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/25 flex flex-col gap-2">
+<div class="text-2xl mb-1">🔑</div>
+<div class="text-blue-300 font-bold text-sm">The 5 Principles</div>
+<div class="text-gray-400 text-xs leading-relaxed">Five patterns that show up in every module. Learn them once &mdash; they compound all day.</div>
+</div>
+</div>
+<div class="relative z-10 mt-8 w-32 h-px bg-gradient-to-r from-transparent via-orange-400/50 to-transparent mx-auto"></div>
+</div>
+---
+
 <!-- SLIDE: Our Evolution -->
 <div class="h-full flex flex-col justify-center px-14 py-2 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-950/40 via-gray-950 to-orange-950/30"></div>
@@ -409,56 +439,39 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
 ---
 
 <!-- SLIDE: Mindset Shift -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-red-950/30 via-gray-950 to-green-950/30"></div>
 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-gradient-to-b from-purple-500/8 to-transparent rounded-full blur-3xl"></div>
-
-<div class="relative z-10 flex items-center gap-3 mb-3">
+<div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 The Mindset Shift</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/30 to-transparent"></div>
 </div>
-
-<div class="relative z-10 py-2.5 px-5 bg-gradient-to-r from-gray-900/80 to-purple-900/30 rounded-xl border border-purple-500/20 text-center mb-4">
-<span class="text-white font-bold text-base">Experience doesn't become obsolete</span>
-<span class="text-purple-300 font-bold text-base"> — it becomes the quality filter</span>
+<div class="relative z-10 py-3 px-5 bg-gradient-to-r from-gray-900/80 to-orange-900/20 rounded-xl border border-orange-500/20 text-center mb-5">
+<span class="text-white font-bold text-lg">The Markdown Whisperer column wasn&rsquo;t aspirational.</span><br/>
+<span class="text-gray-300 text-sm">It&rsquo;s already who the best teams are becoming &mdash; and it reframes what your existing skills are <em>worth</em>.</span>
 </div>
-
-<div class="relative z-10 grid grid-cols-2 gap-5 flex-1">
-<div class="flex flex-col gap-3">
-<div class="flex items-center gap-2.5">
-<div class="w-9 h-9 rounded-full bg-red-500/20 border border-red-500/40 flex items-center justify-center text-lg flex-shrink-0">❌</div>
-<span class="text-red-300 font-bold text-base">The Old Way</span>
+<div class="relative z-10 grid grid-cols-3 gap-4 flex-1">
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-gradient-to-br from-purple-900/30 to-gray-900/50 border border-purple-500/20">
+<div class="text-purple-300 font-bold text-sm">Memory → Judgment</div>
+<div class="text-xs text-gray-400 leading-relaxed">Knowing the right API used to be your edge.</div>
+<div class="text-xs text-gray-200 leading-relaxed border-t border-purple-500/20 pt-2">Knowing when Copilot&rsquo;s answer is <em>wrong</em> is your edge now. That takes everything you&rsquo;ve built.</div>
 </div>
-<div class="flex-1 p-4 bg-gradient-to-br from-red-950/60 to-gray-900/80 rounded-xl border border-red-500/20 space-y-2.5">
-<div class="flex items-start gap-2 text-sm text-gray-400"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span>Syntax mastery as the goal</span></div>
-<div class="flex items-start gap-2 text-sm text-gray-400"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span>Clever, unreadable solutions</span></div>
-<div class="flex items-start gap-2 text-sm text-gray-400"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span>Knowledge hoarding</span></div>
-<div class="flex items-start gap-2 text-sm text-gray-400"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span>Fast typing above all</span></div>
-<div class="flex items-start gap-2 text-sm text-gray-400"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span> ...</span></div>
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-gradient-to-br from-orange-900/30 to-gray-900/50 border border-orange-500/20">
+<div class="text-orange-300 font-bold text-sm">Typing Speed → Thinking Speed</div>
+<div class="text-xs text-gray-400 leading-relaxed">The bottleneck used to be your hands.</div>
+<div class="text-xs text-gray-200 leading-relaxed border-t border-orange-500/20 pt-2">The bottleneck moved upstream. The constraint now is how fast you can think clearly &mdash; and how precisely you can say what you mean.</div>
 </div>
-<div class="p-3 bg-red-950/40 rounded-lg border-l-4 border-red-500 text-xs text-red-300 leading-relaxed">
-Onboarding takes months. Teams are fragile. Knowledge walks out the door.
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-gradient-to-br from-green-900/30 to-gray-900/50 border border-green-500/20">
+<div class="text-green-300 font-bold text-sm">Knowledge Hoarding → Knowledge Scaling</div>
+<div class="text-xs text-gray-400 leading-relaxed">Your expertise used to live in your head.</div>
+<div class="text-xs text-gray-200 leading-relaxed border-t border-green-500/20 pt-2">Now it lives in your docs &mdash; and Copilot runs on it. Writing things down stopped being overhead. It became leverage.</div>
 </div>
 </div>
-
-<div class="flex flex-col gap-3">
-<div class="flex items-center gap-2.5">
-<div class="w-9 h-9 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center text-lg flex-shrink-0">✅</div>
-<span class="text-green-300 font-bold text-base">The New Way</span>
-</div>
-<div class="flex-1 p-4 bg-gradient-to-br from-green-950/60 to-gray-900/80 rounded-xl border border-green-500/20 space-y-2.5">
-<div class="flex items-start gap-2 text-sm text-gray-300"><span class="text-green-400 mt-0.5 flex-shrink-0">✓</span><span><strong class="text-white">Clear intent</strong> over syntax mastery</span></div>
-<div class="flex items-start gap-2 text-sm text-gray-300"><span class="text-green-400 mt-0.5 flex-shrink-0">✓</span><span><strong class="text-white">Understandable code</strong> over clever code</span></div>
-<div class="flex items-start gap-2 text-sm text-gray-300"><span class="text-green-400 mt-0.5 flex-shrink-0">✓</span><span><strong class="text-white">Scaled knowledge</strong> via documentation</span></div>
-<div class="flex items-start gap-2 text-sm text-gray-300"><span class="text-green-400 mt-0.5 flex-shrink-0">✓</span><span><strong class="text-white">Fast thinking</strong> over fast typing</span></div>
-</div>
-<div class="p-3 bg-green-950/40 rounded-lg border-l-4 border-green-500 text-xs text-green-300 leading-relaxed">
-Copilot handles boilerplate. My expertise becomes the thing that ships<strong> better software, faster</strong>.
+<div class="relative z-10 mt-4 px-4 py-2 bg-blue-900/20 border border-blue-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-blue-300 text-sm italic">&ldquo;I thought being junior meant I had to prove I knew as much as David. Apparently I just have to think clearly and write things down. I can do that.&rdquo;</span>
+<span class="text-blue-500 text-xs text-right">&mdash; Jessica</span>
 </div>
 </div>
-</div>
-</div>
-
 ---
 
 <!-- SLIDE: Principle 1 — Clarity Over Cleverness -->
@@ -503,9 +516,9 @@ Clear thinking enables effective Copilot collaboration. If I  can't explain it p
 </div>
 </div>
 </div>
-<div class="relative z-10 mt-3 px-4 py-2 bg-blue-900/20 border border-blue-500/30 rounded-lg flex flex-col gap-1">
-<span class="text-blue-300 text-sm italic">&ldquo;I have written code that no one could read, including me, six months later. I called it elegant. I was wrong about that word.&rdquo;</span>
-<span class="text-blue-500 text-xs text-right">&mdash; David</span>
+<div class="relative z-10 mt-4 px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-amber-300 text-sm italic">&ldquo;I thought being junior meant I had to prove I knew as much as David. Apparently I just have to think clearly and write things down. I can do that.&rdquo;</span>
+<span class="text-amber-500 text-xs text-right">&mdash; Jessica</span>
 </div>
 </div>
 ---
