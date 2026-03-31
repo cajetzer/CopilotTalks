@@ -52,99 +52,7 @@ updated: 2026-03-25
   <!-- Decorative line -->
   <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
 </div>
----
 
-<!-- SLIDE: Story -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-10 py-3">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="text-orange-300 font-bold text-lg tracking-wide">⏰ : Monday, 9:00 AM</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm text-left">
-<div class="text-orange-300/60 text-2xl leading-none font-serif mb-1">"</div>
-<p class="text-gray-200 text-[15px] leading-snug -mt-1">
-A contractor bailed halfway through a generic fan site. Pick your favorite show and turn this into your fan hub — you have until end of day, and you're all using GitHub Copilot.
-</p>
-<div class="text-orange-300/60 text-2xl leading-none font-serif text-right">"</div>
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3 text-left">
-<div class="p-3 rounded-xl bg-gray-900/60 border border-orange-500/30 shadow-lg">
-<div class="text-xl mb-1">👩‍💼</div>
-<div class="text-[15px] font-bold text-orange-300 mb-1">Sarah needs proof</div>
-<div class="text-[15px] text-gray-300 leading-snug">
-Fifteen years of hype cycles. She'll commit when the output speaks for itself — not before.
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gray-900/60 border border-green-500/30 shadow-lg">
-<div class="text-xl mb-1">🔧</div>
-<div class="text-[15px] font-bold text-green-300 mb-1">Marcus wants to ship</div>
-<div class="text-[15px] text-gray-300 leading-snug">
-He builds infrastructure, not apps. Today he'll use Copilot to go further than he normally could alone.
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gray-900/60 border border-blue-500/30 shadow-lg">
-<div class="text-xl mb-1">👨‍💻</div>
-<div class="text-[15px] font-bold text-blue-300 mb-1">David fears generic output</div>
-<div class="text-[15px] text-gray-300 leading-snug">
-Senior engineer, high standards. His concern: AI that doesn't know their patterns will make things worse.
-</div>
-</div>
-</div>
-<div class="relative z-10 mt-3 p-2 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/30 text-center">
-<div class="text-white font-bold text-[15px] mb-1">The answer to all three concerns is the same: configuration.</div>
-<div class="text-[13px] text-gray-300 leading-snug">Modules 1–6 show exactly how to teach Copilot your team, your codebase, and your standards.</div>
-</div>
-</div>
----
-
-<!-- SLIDE: The Mission -->
-<div class="h-full flex flex-col justify-start px-14 py-6 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-gray-900/40 via-purple-900/15 to-blue-900/10"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 The Mission</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10">
-<div class="max-w-4xl mx-auto mt-4">
-<div class="p-5 bg-gradient-to-r from-gray-800 to-slate-700 rounded-xl shadow-lg shadow-black/30 border border-white/10 text-center mb-5">
-  <div class="text-2xl font-bold text-white mb-1">
-    Transform a generic mess into a production-ready fan hub
-  </div>
-  <div class="text-gray-300 text-base">
-    In 8 hours, using GitHub Copilot
-  </div>
-</div>
-<div class="grid grid-cols-2 gap-4 text-sm">
-  <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-green-500">
-    <div class="font-bold text-green-400 mb-2">✅ By End of Day</div>
-    <ul class="text-gray-300 space-y-1">
-      <li>✓ Authentication & authorization</li>
-      <li>✓ Advanced search</li>
-      <li>✓ Admin dashboard</li>
-      <li>✓ Comprehensive tests</li>
-      <li>✓ Deployment pipeline</li>
-      <li>✓ Show-specific branding</li>
-    </ul>
-  </div>
-  <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-blue-500">
-    <div class="font-bold text-blue-400 mb-2">🎨 Your Choice</div>
-    <div class="text-gray-300 space-y-1">
-      <div>Pick your favorite show (or 3):</div>
-      <div class="text-xs mt-2">
-        �� The Office • 🔦 Stranger Things<br/>
-        🧪 Breaking Bad • 🛡️ The Mandalorian<br/>
-        🐉 Game of Thrones • 🚀 The Expanse
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
 ---
 
 <!-- SLIDE: 🛠️ Before We Start -->
@@ -247,6 +155,163 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
 </div>
 </div>
 
+
+---
+
+<!-- SLIDE: Meet The Team -->
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">👥 Meet The Team</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<div class="grid grid-cols-3 gap-3 mt-2 text-xs">
+<div class="p-3 bg-gradient-to-br from-blue-900/60 to-blue-800/40 rounded-lg border-2 border-blue-400">
+  <div class="text-3xl mb-1 text-center">👩‍🦰</div>
+  <div class="font-bold text-blue-300 text-center text-base">Sarah</div>
+  <div class="text-gray-400 text-center text-[10px] mb-1">Senior Dev · 15 years</div>
+  <div class="text-blue-400/70 text-center text-[10px] italic mb-2">— drily skeptical —</div>
+  <div class="text-gray-300 italic text-center">"I've outlasted three 'revolutionary' tools this decade. I'll believe it when my PR review time drops."</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-green-900/60 to-green-800/40 rounded-lg border-2 border-green-400">
+  <div class="text-3xl mb-1 text-center">🔧</div>
+  <div class="font-bold text-green-300 text-center text-base">Marcus</div>
+  <div class="text-gray-400 text-center text-[10px] mb-1">DevOps Dev · 5 years</div>
+  <div class="text-green-400/70 text-center text-[10px] italic mb-2">— chronically distracted —</div>
+  <div class="text-gray-300 italic text-center">"Sorry — I was half-reading a Hacker News thread about this. What were you saying?"</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-lg border-2 border-purple-400">
+  <div class="text-3xl mb-1 text-center">👨‍💻</div>
+  <div class="font-bold text-purple-300 text-center text-base">David</div>
+  <div class="text-gray-400 text-center text-[10px] mb-1">Staff Engineer · 20 years</div>
+  <div class="text-purple-400/70 text-center text-[10px] italic mb-2">— pleasantly pedantic —</div>
+  <div class="text-gray-300 italic text-center">"I'm not afraid of being replaced. I'm afraid of being the last person in the room who can tell good code from code that merely passes the tests."</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-orange-900/60 to-orange-800/40 rounded-lg border-2 border-orange-400">
+  <div class="text-3xl mb-1 text-center">🧪</div>
+  <div class="font-bold text-orange-300 text-center text-base">Elena</div>
+  <div class="text-gray-400 text-center text-[10px] mb-1">QA Engineer · 8 years</div>
+  <div class="text-orange-400/70 text-center text-[10px] italic mb-2">— professionally suspicious —</div>
+  <div class="text-gray-300 italic text-center">"My job is finding what breaks. I'm going to need edge cases. Lots of them."</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-pink-900/60 to-pink-800/40 rounded-lg border-2 border-pink-400">
+  <div class="text-3xl mb-1 text-center">📱</div>
+  <div class="font-bold text-pink-300 text-center text-base">Rafael</div>
+  <div class="text-gray-400 text-center text-[10px] mb-1">Product Manager · 10 years</div>
+  <div class="text-pink-400/70 text-center text-[10px] italic mb-2">— smoothly disengaged —</div>
+  <div class="text-gray-300 italic text-center">"I'm already mapping this to an OKR. Can we circle back to the 'how' after?"</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-yellow-900/60 to-yellow-800/40 rounded-lg border-2 border-yellow-400">
+  <div class="text-3xl mb-1 text-center">🎓</div>
+  <div class="font-bold text-yellow-300 text-center text-base">Jessica</div>
+  <div class="text-gray-400 text-center text-[10px] mb-1">Junior Dev · 1 year</div>
+  <div class="text-yellow-400/70 text-center text-[10px] italic mb-2">— quietly terrified —</div>
+  <div class="text-gray-300 italic text-center">"I'm nodding along but internally I'm Googling half the words. Is that normal? Please say yes."</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Story -->
+<div class="h-full flex flex-col justify-center relative overflow-hidden px-10 py-3">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="text-orange-300 font-bold text-lg tracking-wide">⏰ : Monday, 9:00 AM</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 shadow-xl backdrop-blur-sm text-left">
+<div class="text-orange-300/60 text-2xl leading-none font-serif mb-1">"</div>
+<p class="text-gray-200 text-[15px] leading-snug -mt-1">
+A contractor bailed halfway through a generic fan site. Pick your favorite show and turn this into your fan hub — you have until end of day, and you're all using GitHub Copilot.
+</p>
+<div class="text-orange-300/60 text-2xl leading-none font-serif text-right">"</div>
+</div>
+<div class="relative z-10 grid grid-cols-3 gap-3 text-left">
+<div class="p-3 rounded-xl bg-gray-900/60 border border-orange-500/30 shadow-lg">
+<div class="text-xl mb-1">👩‍💼</div>
+<div class="text-[15px] font-bold text-orange-300 mb-1">Sarah needs proof</div>
+<div class="text-[15px] text-gray-300 leading-snug">
+Fifteen years of hype cycles. She'll commit when the output speaks for itself — not before.
+</div>
+</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-green-500/30 shadow-lg">
+<div class="text-xl mb-1">🔧</div>
+<div class="text-[15px] font-bold text-green-300 mb-1">Marcus wants to ship</div>
+<div class="text-[15px] text-gray-300 leading-snug">
+He builds infrastructure, not apps. Today he'll use Copilot to go further than he normally could alone.
+</div>
+</div>
+<div class="p-3 rounded-xl bg-gray-900/60 border border-blue-500/30 shadow-lg">
+<div class="text-xl mb-1">👨‍💻</div>
+<div class="text-[15px] font-bold text-blue-300 mb-1">David fears generic output</div>
+<div class="text-[15px] text-gray-300 leading-snug">
+Senior engineer, high standards. His concern: AI that doesn't know their patterns will make things worse.
+</div>
+</div>
+</div>
+<div class="relative z-10 mt-3 p-2 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/30 text-center">
+<div class="text-white font-bold text-[15px] mb-1">The answer to all three concerns is the same: configuration.</div>
+<div class="text-[13px] text-gray-300 leading-snug">Modules 1–6 show exactly how to teach Copilot your team, your codebase, and your standards.</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: The Mission -->
+<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-gray-900/40 via-purple-900/15 to-blue-900/10"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 The Mission</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<div class="max-w-4xl mx-auto mt-2">
+<div class="p-4 bg-gradient-to-r from-gray-800 to-slate-700 rounded-xl shadow-lg shadow-black/30 border border-white/10 text-center mb-4">
+  <div class="text-xl font-bold text-white mb-1">
+    Build every layer of a Copilot-native workflow — on a real, running app
+  </div>
+  <div class="text-gray-300 text-sm">
+    Eight hours. Six modules. Skills you'll use tomorrow.
+  </div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-sm">
+  <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-green-500">
+    <div class="font-bold text-green-400 mb-2">✅ By End of Day</div>
+    <ul class="text-gray-300 space-y-1 text-xs">
+      <li>✓ Copilot fully briefed on your codebase</li>
+      <li>✓ App converted to your team's chosen show</li>
+      <li>✓ Reusable prompt files for common tasks</li>
+      <li>✓ Agent skills that validate data &amp; build features</li>
+      <li>✓ Live context piped in via MCP servers</li>
+      <li>✓ Custom agents that plan and execute independently</li>
+    </ul>
+  </div>
+  <div class="p-4 bg-gray-800 rounded-lg border-l-4 border-blue-500">
+    <div class="font-bold text-blue-400 mb-2">🎨 Your Choice</div>
+    <div class="text-gray-300 space-y-1 text-xs">
+      <div>Pick your favorite show:</div>
+      <div class="mt-2">
+        • 📎 The Office <br/>• 🔦 Stranger Things<br/>
+        • 🧪 Breaking Bad <br/>• 🛡️ The Mandalorian<br/>
+        • 🐉 Game of Thrones <br/>• 🚀 The Expanse
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-orange-900/20 border border-orange-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-orange-300 text-sm italic">&ldquo;Wait &mdash; eight hours? I thought this was a lunch thing.&rdquo;</span>
+<span class="text-orange-500 text-xs text-right">&mdash; Marcus</span>
+</div>
+</div>
 ---
 
 <!-- SLIDE: Our Evolution -->
@@ -340,6 +405,7 @@ Senior engineer, high standards. His concern: AI that doesn't know their pattern
   💡 <strong class="text-orange-300">Markdown is the medium</strong> — the best teams will be those with the best prose, not the most elegant syntax
 </div>
 </div>
+
 ---
 
 <!-- SLIDE: Mindset Shift -->
@@ -392,8 +458,8 @@ Copilot handles boilerplate. My expertise becomes the thing that ships<strong> b
 </div>
 </div>
 </div>
----
 
+---
 
 <!-- SLIDE: Principle 1 — Clarity Over Cleverness -->
 <div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
@@ -437,8 +503,11 @@ Clear thinking enables effective Copilot collaboration. If I  can't explain it p
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-blue-900/20 border border-blue-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-blue-300 text-sm italic">&ldquo;I have written code that no one could read, including me, six months later. I called it elegant. I was wrong about that word.&rdquo;</span>
+<span class="text-blue-500 text-xs text-right">&mdash; David</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: Principle 2 — Intent Over Implementation -->
@@ -483,8 +552,11 @@ Describe WHAT outcome I need, not HOW to build it. My expertise is knowing what 
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-cyan-900/20 border border-cyan-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-cyan-300 text-sm italic">&ldquo;I&rsquo;ve been asking engineers to lead with outcomes for a decade. They kept giving me architecture diagrams. Now there&rsquo;s a principle about it. I feel vindicated and also tired.&rdquo;</span>
+<span class="text-cyan-500 text-xs text-right">&mdash; Rafael</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: Principle 3 — Documentation as Leverage -->
@@ -529,8 +601,11 @@ Write once, benefit infinitely. Good documentation sharpens Copilot's output and
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-orange-900/20 border border-orange-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-orange-300 text-sm italic">&ldquo;Every doc I don&rsquo;t write becomes a Slack thread I answer seventeen times. I just never did the math on that before.&rdquo;</span>
+<span class="text-orange-500 text-xs text-right">&mdash; Marcus</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: Principle 4 — Dialogue, Not Delegation -->
@@ -563,7 +638,7 @@ Copilot works best as a conversation partner, not a one-shot task runner. Start 
 <div class="text-xs text-gray-300 space-y-1.5">
 <div>• Start rough, refine in conversation</div>
 <div>• Build shared context across a session</div>
-<div>• Treat Copilot as a pair, not a tool</div>
+<div>• Talk to Copilot as a coworker, not a tool</div>
 </div>
 </div>
 <div class="p-3 rounded-xl bg-gradient-to-br from-amber-950/60 to-gray-900/80 border border-amber-500/20">
@@ -575,8 +650,11 @@ Copilot works best as a conversation partner, not a one-shot task runner. Start 
 </div>
 </div>
 </div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-amber-300 text-sm italic">&ldquo;I kept rewriting the prompt from scratch every time it was wrong. I thought asking again meant I didn&rsquo;t know what I was doing. Turns out that&rsquo;s just the method.&rdquo;</span>
+<span class="text-amber-500 text-xs text-right">&mdash; Jessica</span>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: Principle 5 — Validate, Don't Automate -->
@@ -620,6 +698,10 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
 <div>• Delegating architectural decisions to AI</div>
 </div>
 </div>
+</div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-purple-900/20 border border-purple-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-purple-300 text-sm italic">&ldquo;I don&rsquo;t accept output I haven&rsquo;t validated. I never have &mdash; for developers, for pipelines, or for AI. This isn&rsquo;t a special rule I invented for Copilot. It&rsquo;s just the rule.&rdquo;</span>
+<span class="text-purple-500 text-xs text-right">&mdash; Elena</span>
 </div>
 </div>
 ---
@@ -708,64 +790,6 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
 </div>
 
 </div>
-</div>
-</div>
----
-
-<!-- SLIDE: Meet The Team -->
-<div class="h-full flex flex-col justify-start px-14 py-4 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">👥 Meet The Team</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10">
-<div class="grid grid-cols-3 gap-3 mt-2 text-xs">
-<div class="p-3 bg-gradient-to-br from-blue-900/60 to-blue-800/40 rounded-lg border-2 border-blue-400">
-  <div class="text-3xl mb-1 text-center">👩‍🦰</div>
-  <div class="font-bold text-blue-300 text-center text-base">Sarah</div>
-  <div class="text-gray-400 text-center text-[10px] mb-1">Senior Dev · 15 years</div>
-  <div class="text-blue-400/70 text-center text-[10px] italic mb-2">— drily skeptical —</div>
-  <div class="text-gray-300 italic text-center">"I've outlasted three 'revolutionary' tools this decade. I'll believe it when my PR review time drops."</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/60 to-green-800/40 rounded-lg border-2 border-green-400">
-  <div class="text-3xl mb-1 text-center">🔧</div>
-  <div class="font-bold text-green-300 text-center text-base">Marcus</div>
-  <div class="text-gray-400 text-center text-[10px] mb-1">DevOps Dev · 5 years</div>
-  <div class="text-green-400/70 text-center text-[10px] italic mb-2">— chronically distracted —</div>
-  <div class="text-gray-300 italic text-center">"Sorry — I was half-reading a Hacker News thread about this. What were you saying?"</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/60 to-purple-800/40 rounded-lg border-2 border-purple-400">
-  <div class="text-3xl mb-1 text-center">👨‍💻</div>
-  <div class="font-bold text-purple-300 text-center text-base">David</div>
-  <div class="text-gray-400 text-center text-[10px] mb-1">Staff Engineer · 20 years</div>
-  <div class="text-purple-400/70 text-center text-[10px] italic mb-2">— pleasantly pedantic —</div>
-  <div class="text-gray-300 italic text-center">"Technically, the concern isn't replacement — it's whether the abstractions hold under real pressure."</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-orange-900/60 to-orange-800/40 rounded-lg border-2 border-orange-400">
-  <div class="text-3xl mb-1 text-center">🧪</div>
-  <div class="font-bold text-orange-300 text-center text-base">Elena</div>
-  <div class="text-gray-400 text-center text-[10px] mb-1">QA Engineer · 8 years</div>
-  <div class="text-orange-400/70 text-center text-[10px] italic mb-2">— professionally suspicious —</div>
-  <div class="text-gray-300 italic text-center">"My job is finding what breaks. I'm going to need edge cases. Lots of them."</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/60 to-pink-800/40 rounded-lg border-2 border-pink-400">
-  <div class="text-3xl mb-1 text-center">📱</div>
-  <div class="font-bold text-pink-300 text-center text-base">Rafael</div>
-  <div class="text-gray-400 text-center text-[10px] mb-1">Product Manager · 10 years</div>
-  <div class="text-pink-400/70 text-center text-[10px] italic mb-2">— smoothly disengaged —</div>
-  <div class="text-gray-300 italic text-center">"I'm already mapping this to an OKR. Can we circle back to the 'how' after?"</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-yellow-900/60 to-yellow-800/40 rounded-lg border-2 border-yellow-400">
-  <div class="text-3xl mb-1 text-center">🎓</div>
-  <div class="font-bold text-yellow-300 text-center text-base">Jessica</div>
-  <div class="text-gray-400 text-center text-[10px] mb-1">Junior Dev · 1 year</div>
-  <div class="text-yellow-400/70 text-center text-[10px] italic mb-2">— quietly terrified —</div>
-  <div class="text-gray-300 italic text-center">"I'm nodding along but internally I'm Googling half the words. Is that normal? Please say yes."</div>
-</div>
-</div>
-<div class="mt-3 text-center text-sm text-gray-400">Each persona has a transformation arc throughout this journey</div>
 </div>
 </div>
 
@@ -1038,39 +1062,53 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
 ---
 
 <!-- SLIDE: Exercises Hero -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-orange-900/25 via-red-900/15 to-purple-900/25"></div>
-  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/15 to-transparent rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
-
-  <div class="relative z-10 text-8xl mb-6">🔨</div>
-  <h1 class="!text-5xl !font-bold bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10 !mb-4">
-&#x1F528; Exercises &mdash; Orientation
-  </h1>
-  <div class="relative z-10 mb-8">
-    <span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-lg font-medium shadow-lg">
-      4 exercises · ~40 minutes · Everyone leads
-    </span>
-  </div>
-  <div class="relative z-10 grid grid-cols-4 gap-3 max-w-3xl w-full px-8">
-    <div class="p-3 bg-orange-900/30 rounded-lg border border-orange-500/40 text-center text-sm">
-      <div class="text-orange-300 font-bold">0.1</div>
-      <div class="text-gray-400 text-xs mt-1">Clone FanHub</div>
-    </div>
-    <div class="p-3 bg-red-900/30 rounded-lg border border-red-500/40 text-center text-sm">
-      <div class="text-red-300 font-bold">0.2</div>
-      <div class="text-gray-400 text-xs mt-1">The Struggle</div>
-    </div>
-    <div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/40 text-center text-sm">
-      <div class="text-purple-300 font-bold">0.3</div>
-      <div class="text-gray-400 text-xs mt-1">Context Fundamentals</div>
-    </div>
-    <div class="p-3 bg-yellow-900/30 rounded-lg border border-yellow-500/40 text-center text-sm">
-      <div class="text-yellow-300 font-bold">0.4</div>
-      <div class="text-gray-400 text-xs mt-1">Success Metrics</div>
-    </div>
-  </div>
-  <div class="relative z-10 mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercises &mdash; Orientation</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-3 shadow-lg shadow-orange-900/20">
+<div class="text-lg font-bold text-white">4 exercises &middot; ~40 minutes &middot; everyone leads</div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-3 flex-1">
+<div class="p-4 bg-blue-900/30 rounded-lg border border-blue-500/40 flex flex-col gap-1">
+<div class="flex items-center justify-between mb-1">
+<div class="text-blue-300 font-bold text-base">0.1 &mdash; Clone FanHub</div>
+<span class="text-xs text-blue-400/70">Sarah ⭐</span>
+</div>
+<div class="text-gray-300 text-xs leading-snug">Get the app running locally. Explore the codebase before Copilot knows anything about it.</div>
+<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-blue-500/20">Establish your baseline &rarr; know what you&rsquo;re working with</div>
+</div>
+<div class="p-4 bg-amber-900/30 rounded-lg border border-amber-500/40 flex flex-col gap-1">
+<div class="flex items-center justify-between mb-1">
+<div class="text-amber-300 font-bold text-base">0.2 &mdash; The Struggle</div>
+<span class="text-xs text-amber-400/70">Jessica ⭐</span>
+</div>
+<div class="text-gray-300 text-xs leading-snug">Use Copilot cold — no instructions, no context setup. Notice what it gets wrong and why.</div>
+<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-amber-500/20">Feel the problem before you solve it</div>
+</div>
+<div class="p-4 bg-purple-900/30 rounded-lg border border-purple-500/40 flex flex-col gap-1">
+<div class="flex items-center justify-between mb-1">
+<div class="text-purple-300 font-bold text-base">0.3 &mdash; Context Fundamentals</div>
+<span class="text-xs text-purple-400/70">Elena ⭐</span>
+</div>
+<div class="text-gray-300 text-xs leading-snug">Explore what Copilot actually sees. Learn the difference between what you think it knows and what it knows.</div>
+<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-purple-500/20">Context isn&rsquo;t assumed &mdash; it&rsquo;s constructed</div>
+</div>
+<div class="p-4 bg-cyan-900/30 rounded-lg border border-cyan-500/40 flex flex-col gap-1">
+<div class="flex items-center justify-between mb-1">
+<div class="text-cyan-300 font-bold text-base">0.4 &mdash; Success Metrics</div>
+<span class="text-xs text-cyan-400/70">Rafael ⭐</span>
+</div>
+<div class="text-gray-300 text-xs leading-snug">Define what &ldquo;better&rdquo; looks like for your team. Set a baseline you can measure against at the end of the day.</div>
+<div class="mt-auto pt-2 text-xs text-cyan-500/20 border-t border-cyan-500/20">If you can&rsquo;t measure it, you can&rsquo;t know it worked</div>
+</div>
+</div>
+<div class="relative z-10 mt-3 px-4 py-2 bg-amber-900/20 border border-amber-500/30 rounded-lg flex flex-col gap-1">
+<span class="text-amber-300 text-sm italic">&ldquo;I asked Copilot to explain the codebase. It gave me a confident answer about files that didn&rsquo;t exist. That was exercise 0.2. It was extremely educational.&rdquo;</span>
+<span class="text-amber-500 text-xs text-right">&mdash; Jessica</span>
+</div>
 </div>
 ---
 
@@ -1102,11 +1140,11 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
       <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
       <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
         <span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-        <div class="text-xs text-gray-300"><span class="font-mono text-orange-300">git clone https://github.com/MSBart2/FanHub.git</span></div>
+        <div class="text-xs text-gray-300"><span class="font-mono text-orange-300 select-all cursor-text">git clone https://github.com/MSBart2/FanHub.git</span></div>
       </div>
       <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
         <span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-        <div class="text-xs text-gray-300">Browse stack folders, pick the one that matches your background</div>
+        <div class="text-xs text-gray-300">Browse language folders, pick the one that matches your background</div>
       </div>
       <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
         <span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
@@ -1114,7 +1152,7 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
       </div>
       <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
         <span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
-        <div class="text-xs text-gray-300">Install deps, start the dev server, confirm the starter UI loads</div>
+        <div class="text-xs text-gray-300">Install deps, start frontend/backend (2 terminals), confirm the starter UI loads</div>
       </div>
       <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
         <span class="w-5 h-5 rounded-full bg-orange-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
@@ -1135,6 +1173,7 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
     </div>
   </div>
 </div>
+
 ---
 
 <!-- SLIDE: Exercise 0.2 -->
@@ -1156,7 +1195,7 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
 
   <!-- Warning banner -->
   <div class="relative z-10 mb-5 p-4 bg-red-950/60 rounded-xl border border-red-500/40 text-sm text-red-200">
-    ⚠️ <strong>This exercise is intentionally frustrating.</strong> You need to feel the "before" state to appreciate the transformation. Do not skip it.
+    ⚠️ <strong>This exercise is intentionally frustrating.</strong> It helps to feel the "before" state to appreciate the transformation. Do not skip it.
   </div>
 
   <div class="relative z-10 grid grid-cols-2 gap-4">
@@ -1169,15 +1208,11 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
         </div>
         <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
           <span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-          <span class="text-gray-300">Ask Copilot to add a character detail page — with <strong>no</strong> instructions or context files</span>
+        <div class="text-xs text-gray-300"><span class="font-mono text-orange-300 select-all cursor-text">Copilot, add a character detail page to FanHub</span></div>
         </div>
         <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
           <span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-          <span class="text-gray-300">Note every frustration: wrong patterns, generic names, inconsistent style, multiple failed attempts</span>
-        </div>
-        <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
-          <span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
-          <span class="text-gray-300">Document 3 specific frustrations in <span class="font-mono text-purple-300">docs/struggle.md</span></span>
+          <span class="text-gray-300">Note every frustration: wrong language, patterns, generic names, inconsistent style, multiple failed attempts</span>
         </div>
       </div>
     </div>
@@ -1185,7 +1220,7 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
       <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">❌ You'll Experience</div>
       <div class="space-y-2 text-xs text-gray-300">
         <div class="p-2 bg-red-900/20 rounded-lg border border-red-700/30">Generic suggestions that don't match your architecture</div>
-        <div class="p-2 bg-red-900/20 rounded-lg border border-red-700/30">Show-generic content ("John Doe" not your character)</div>
+        <div class="p-2 bg-red-900/20 rounded-lg border border-red-700/30">Confidently incorrect patterns/syntax </div>
         <div class="p-2 bg-red-900/20 rounded-lg border border-red-700/30">Inconsistent code styles (because the codebase is inconsistent)</div>
         <div class="p-2 bg-red-900/20 rounded-lg border border-red-700/30">Multiple failed attempts to get what you actually want</div>
       </div>
@@ -1195,6 +1230,7 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
     </div>
   </div>
 </div>
+
 ---
 
 <!-- SLIDE: Exercise 0.3 -->
@@ -1224,25 +1260,21 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
     <div>
       <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Try Each Mechanism</div>
       <div class="space-y-2 text-xs">
-        <div class="p-2.5 bg-gray-900/40 rounded-lg flex items-start gap-2">
-          <span class="font-mono text-red-300 flex-shrink-0">#file</span>
-          <span class="text-gray-400">Known files — <span class="font-mono text-gray-500">Explain how this project is structured. #file:README.md</span></span>
+        <div class="p-2.5 bg-gray-900/40 rounded-lg flex flex-col gap-1">
+          <span class="text-gray-400 text-[10px] uppercase tracking-wider">Known file context</span>
+          <span class="font-mono text-red-300 select-all cursor-text">Explain how this project is structured. #file:README.md</span>
         </div>
-        <div class="p-2.5 bg-gray-900/40 rounded-lg flex items-start gap-2">
-          <span class="font-mono text-red-300 flex-shrink-0">@workspace</span>
-          <span class="text-gray-400">Project overview — <span class="font-mono text-gray-500">How is this application organized?</span></span>
+        <div class="p-2.5 bg-gray-900/40 rounded-lg flex flex-col gap-1">
+          <span class="text-gray-400 text-[10px] uppercase tracking-wider">Project overview</span>
+          <span class="font-mono text-red-300 select-all cursor-text">@workspace how is this application organized?</span>
         </div>
-        <div class="p-2.5 bg-gray-900/40 rounded-lg flex items-start gap-2">
-          <span class="font-mono text-red-300 flex-shrink-0">#codebase</span>
-          <span class="text-gray-400">Semantic search — <span class="font-mono text-gray-500">Where does this project handle authentication?</span></span>
+        <div class="p-2.5 bg-gray-900/40 rounded-lg flex flex-col gap-1">
+          <span class="text-gray-400 text-[10px] uppercase tracking-wider">Semantic search</span>
+          <span class="font-mono text-red-300 select-all cursor-text">#codebase where does this project handle routing?</span>
         </div>
-        <div class="p-2.5 bg-gray-900/40 rounded-lg flex items-start gap-2">
-          <span class="font-mono text-red-300 flex-shrink-0">#fetch</span>
-          <span class="text-gray-400">Live external docs — pull in URLs on demand</span>
-        </div>
-        <div class="p-2.5 bg-gray-900/40 rounded-lg flex items-start gap-2">
-          <span class="text-red-300 flex-shrink-0">🖼️ Image</span>
-          <span class="text-gray-400">Drag screenshot or mockup into chat</span>
+        <div class="p-2.5 bg-gray-900/40 rounded-lg flex flex-col gap-1">
+          <span class="text-gray-400 text-[10px] uppercase tracking-wider">Visual context</span>
+          <span class="text-gray-400 italic">Copy/Paste/Drag a screenshot or mockup directly into chat</span>
         </div>
       </div>
     </div>
@@ -1254,11 +1286,12 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
         <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Ready to use context throughout the workshop</div>
       </div>
       <div class="mt-4 p-3 bg-red-900/30 rounded-lg border border-red-500/30 text-xs text-gray-300 italic">
-        💭 <strong class="text-red-300">Marcus:</strong> "This is like giving directions. 'Go there' is useless. 'Go to 123 Main St' gets results."
+        💭 <strong class="text-red-300">Marcus:</strong> "I asked without context, it answered without context, and I was annoyed. Then I added <span class="font-mono">@workspace</span>. Completely different answer. I was the problem. This time."
       </div>
     </div>
   </div>
 </div>
+
 ---
 
 <!-- SLIDE: Exercise 0.4 -->
