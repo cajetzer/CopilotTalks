@@ -458,9 +458,9 @@ The repo still has Breaking Bad placeholder data. The team's chosen show is in <
 
 <!-- SLIDE: 💬 Example: The Show Swap Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Show Swap Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Show Swap Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div class="flex flex-col gap-3">
@@ -494,7 +494,7 @@ Using <span class="text-amber-300">#file:docs/[show]-universe.md</span> as the s
 
 <!-- SLIDE: 🔨 Exercise 2.2: Plan the Lore Card & Page -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-3">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">2.2</div>
 <div>
@@ -536,15 +536,15 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 
 <!-- SLIDE: 💬 Example: The Lore Card Plan Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
 
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Lore Card Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Lore Card Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 mb-3 text-xs text-gray-400">Use <span class="text-orange-300 font-mono font-semibold">/plan</span> at the start of your prompt — this switches to plan mode automatically if you forgot to change the mode selector:</div>
 
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-all cursor-text">
+<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-amber-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-all cursor-text">
 <span class="text-orange-400 font-bold">/plan</span> Add a Lore card to the FanHub homepage that shows the count of lore facts for the show. Clicking the card should navigate to a new /lore page that lists all lore facts in a card layout.
 </div>
 
@@ -571,11 +571,11 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 
 <!-- SLIDE: 📋 Example: First Plan Output -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: First Plan Output (Lore Card & Page)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: First Plan Output (Lore Card & Page)</span><div class="flex-1 h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 overflow-auto max-h-96 text-gray-300">
+<div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-amber-500/30 p-4 overflow-auto max-h-96 text-gray-300">
 <div class="text-blue-300 mb-2">## Add Lore Card to Homepage + /lore Page</div>
 <div class="text-gray-400 mb-3"><span class="text-blue-100">**Scope:**</span> New Lore card on homepage showing lore count; new /lore route listing entries in card layout</div>
 <div class="text-blue-300 mb-1">### Step 1: Database</div>
@@ -601,7 +601,7 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 
 <!-- SLIDE: 🔨 Exercise 2.3: Plan the Lore Entry Form -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-3">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">2.3</div>
 <div>
@@ -644,15 +644,15 @@ Jessica shares her plan output with the group. David reads it line by line — a
 
 <!-- SLIDE: 💬 Example: The Lore Form Plan Prompt -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Lore Entry Form Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Lore Entry Form Plan Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 mb-3 text-xs text-gray-400">David enters this with Jessica's plan file open in VS Code:</div>
 
-<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-orange-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-all cursor-text">
+<div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-purple-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-all cursor-text">
 <span class="text-orange-400 font-bold">/plan</span> Add a form to the /lore page that lets me add a new lore entry. The form should have a title and description field. On submit, save the new entry and refresh the list so the new card appears immediately. The Lore count on the homepage card should also update.
 </div>
 
@@ -665,9 +665,9 @@ Jessica shares her plan output with the group. David reads it line by line — a
 
 <!-- SLIDE: 📋 Example: Second Plan Output -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Second Plan Output (Lore Entry Form)</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Example: Second Plan Output (Lore Entry Form)</span><div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 text-sm font-mono bg-gray-900/80 rounded-lg border border-purple-500/30 p-4 overflow-auto max-h-96 text-gray-300">
 <div class="text-purple-300 mb-2">## Add Entry Form to /lore Page</div>
@@ -691,7 +691,7 @@ Jessica shares her plan output with the group. David reads it line by line — a
 
 <!-- SLIDE: 🔨 Exercise 2.4: Execute the Plan -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-green-500/30 flex-shrink-0">2.4</div>
 <div>
@@ -733,16 +733,16 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 
 <!-- SLIDE: 📋 Example: Execution Handoff -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">
 📋 Example: Executing the Roadmap
-</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+</span><div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
 </div>
 
 <div class="relative z-10 grid grid-cols-2 gap-4">
-<div class="text-sm font-mono bg-gray-900/80 rounded-lg border border-green-500/30 p-4 text-gray-300 select-text cursor-text">
+<div class="text-sm font-mono bg-gray-900/80 rounded-lg border border-emerald-500/30 p-4 text-gray-300 select-text cursor-text">
 <div class="text-green-300 mb-2">The execution prompt</div>
 <div class="text-gray-400 mb-3 text-xs italic">[Switch mode selector to <span class="text-green-200">Agent</span>]</div>
 <div class="text-white text-sm font-bold mb-3">/plan-loreCardAndLorePageForm.prompt</div>
@@ -751,7 +751,7 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 <div class="text-gray-400 text-xs">- Agent adds pagination (not in plan) → decide: accept or revert</div>
 <div class="text-gray-400 text-xs">- Agent skips a step → point it back to the roadmap</div>
 </div>
-<div class="text-sm font-mono bg-gray-900/80 rounded-lg border border-blue-500/30 p-4 text-gray-300">
+<div class="text-sm font-mono bg-gray-900/80 rounded-lg border border-emerald-500/30 p-4 text-gray-300">
 <div class="text-blue-300 mb-2">The payoff — Lore card complete</div>
 <div class="text-gray-400 text-xs mb-2">Homepage before execution:</div>
 <div class="text-gray-400 text-xs">Characters ✓ · Episodes ✓ · Seasons ✓ · Network ✓</div>
@@ -765,41 +765,6 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 
 <div class="relative z-10 mt-4 p-3 bg-gradient-to-r from-green-900/30 to-blue-900/20 rounded-xl border border-green-500/30 text-center text-xs text-gray-300">
 <strong class="text-green-300">The plan → execute arc closes here.</strong> Plan mode made the implementation safe. Your show data makes it yours.
-</div>
-</div>
-
----
-
-<!-- SLIDE: 🔗 Compounding Value -->
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔗 Compounding Value</span><div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-8 text-left">
-<div class="p-5 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/40 border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-3">What Module 2 adds</div>
-<ul class="text-sm text-gray-300 space-y-2">
-<li>Research-first feature planning</li>
-<li>A repeatable review loop before coding</li>
-<li>Better sequencing across files and layers</li>
-<li>Clearer handoff from planning to implementation</li>
-</ul>
-</div>
-<div class="p-5 rounded-xl bg-gradient-to-br from-purple-900/40 to-gray-900/40 border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">How later modules benefit</div>
-<ul class="text-sm text-gray-300 space-y-2">
-<li><strong>Module 3:</strong> the prompts you craft during planning become reusable <code>.prompt.md</code> files for the whole team</li>
-<li><strong>Module 4:</strong> skills can encode repeatable review and execution workflows</li>
-<li><strong>Module 5:</strong> MCP servers give Copilot live access to the databases and APIs your plans reference</li>
-<li><strong>Module 6:</strong> custom agents become more useful when the team already plans well</li>
-</ul>
-</div>
-</div>
-
-<div class="mt-8 flex justify-center">
-<div class="px-6 py-3 bg-gradient-to-r from-yellow-900/40 to-orange-900/40 border border-yellow-500/40 rounded-full text-center text-sm text-yellow-300 font-semibold shadow-lg shadow-yellow-900/20">
-Better planning compounds — every later customization has a cleaner workflow to build on.
 </div>
 </div>
 
