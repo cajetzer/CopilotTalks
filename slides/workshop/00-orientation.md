@@ -1313,7 +1313,7 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
 
   <!-- Story -->
   <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-yellow-400 text-sm text-gray-300">
-    David wonders: "If Copilot writes code, what makes me valuable?" Then he realizes — juniors with Copilot write syntax. <strong class="text-white">He writes solutions.</strong>
+    David stops mid-conversation. <em>&ldquo;Hold on &mdash; we haven&rsquo;t defined what success looks like. I&rsquo;m not spending eight hours without a measurable outcome.&rdquo;</em> <strong class="text-white">He&rsquo;s not wrong.</strong>
   </div>
 
   <div class="relative z-10 grid grid-cols-2 gap-4">
@@ -1322,19 +1322,19 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
       <div class="space-y-2 text-xs">
         <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
           <span class="w-5 h-5 rounded-full bg-yellow-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-          <span class="text-gray-300">Identify which persona you resonate with — Sarah, Marcus, David, Elena, or Rafael</span>
+          <span class="text-gray-300">Scan the Old &rarr; New metrics. Pick 2&ndash;3 that feel true about how you measure yourself today.</span>
         </div>
         <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
           <span class="w-5 h-5 rounded-full bg-yellow-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-          <span class="text-gray-300">Reflect on your old metrics vs. new metrics (typing speed → design thinking)</span>
+          <span class="text-gray-300">For each one, ask honestly: <em>&ldquo;Is this still the right thing to measure?&rdquo;</em></span>
         </div>
         <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
           <span class="w-5 h-5 rounded-full bg-yellow-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-          <span class="text-gray-300">Create <span class="font-mono text-yellow-300">docs/my-success-metrics.md</span> with your personal goals</span>
+          <span class="text-gray-300">Pick one you want to be different by the end of module 6.</span>
         </div>
         <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg">
           <span class="w-5 h-5 rounded-full bg-yellow-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
-          <span class="text-gray-300">(Optional) Ask Copilot to suggest measurement strategies based on your goals</span>
+          <span class="text-gray-300">Hold it in mind &mdash; no need to write it down. You&rsquo;ll know if it shifted.</span>
         </div>
       </div>
     </div>
@@ -1367,30 +1367,52 @@ Copilot proposes; I decide. My expertise catches what Copilot misses. The goal i
 
 ---
 
-<!-- SLIDE: Reference Material -->
-<div class="h-full flex flex-col justify-center relative overflow-hidden px-10 py-6">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/15 via-gray-900/40 to-purple-900/15"></div>
-<div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-orange-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 text-center mb-6">
-<div class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">Further Reading</div>
-<h1 class="!text-3xl !font-bold bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent !mb-0">Reference Material</h1>
-<div class="text-sm text-gray-400 mt-1">Resources for Module 0 — Orientation</div>
+<!-- SLIDE: 💭 The Team, After Orientation -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Orientation</span>
+<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 grid grid-cols-2 gap-4 max-w-3xl mx-auto w-full">
-<a href="https://github.com/MSBart2/FanHub" target="_blank" class="block p-4 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-orange-500/40 transition-colors no-underline">
-<div class="font-semibold text-orange-300 text-sm mb-2">📺 FanHub Repository</div>
-<div class="text-xs text-gray-400 mb-3">The starter codebase you'll build on throughout this workshop — TV show fan site with characters, episodes, and ratings</div>
-<div class="font-mono text-xs text-gray-500">github.com/MSBart2/FanHub</div>
-</a>
-<a href="https://github.com/MSBart2/CopilotTraining" target="_blank" class="block p-4 rounded-xl bg-gray-900/50 border border-gray-700/50 hover:border-purple-500/40 transition-colors no-underline">
-<div class="font-semibold text-purple-300 text-sm mb-2">📚 CopilotTraining Repository</div>
-<div class="text-xs text-gray-400 mb-3">Deeper instructions, walkthroughs, exercise files, and persona reference material for the full workshop</div>
-<div class="font-mono text-xs text-gray-500">github.com/MSBart2/CopilotTraining</div>
-</a>
+<div class="relative z-10 grid grid-cols-3 gap-3">
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
+<div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I thought this was going to be different. It answered questions about a completely different codebase. I&rsquo;m nodding along but I&rsquo;m genuinely confused about what just happened.&rdquo;</div>
+<div class="text-xs text-gray-500">Still nodding. Not sure why.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
+<div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It produced three incorrect file paths with complete confidence. I have significant questions about the epistemology of this system.&rdquo;</div>
+<div class="text-xs text-gray-500">The questions are not rhetorical.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
+<div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I&rsquo;ve seen tools that don&rsquo;t work. This is a tool that doesn&rsquo;t work yet. I&rsquo;m not sure that&rsquo;s a better problem.&rdquo;</div>
+<div class="text-xs text-gray-500">Holding judgment. Barely.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
+<div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It invented an API endpoint. Confidently. Without hesitation. I&rsquo;m going to need a minute before I continue.&rdquo;</div>
+<div class="text-xs text-gray-500">The minute is not going well.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
+<div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It gave me completely wrong information and seemed fine about it. I don&rsquo;t know if that&rsquo;s a me problem or an it problem. I&rsquo;m not happy either way.&rdquo;</div>
+<div class="text-xs text-gray-500">Back to Slack. Temporarily.</div>
+</div>
+<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
+<div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
+<div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I asked a simple question. I got a confident answer about a product that doesn&rsquo;t exist. Someone is going to need to explain the ROI on &lsquo;confident but wrong.&rsquo;&rdquo;</div>
+<div class="text-xs text-gray-500">ROI calculation: pending.</div>
 </div>
 </div>
-
+</div>
 ---
 
 <!-- SLIDE: Next Up -->
