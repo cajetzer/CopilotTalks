@@ -602,44 +602,59 @@ We have prompts, skills, and MCP — and they're all working. Now imagine if swi
 <!-- SLIDE: 🔨 Exercises -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F528; Exercises &mdash; Agents</span>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔨 Exercises — Agents</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-4 shadow-lg shadow-orange-900/20">
-<div class="text-lg font-bold text-white">3 exercises · ~55 minutes · shared leadership</div>
+<div class="relative z-10 p-2.5 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-2 shadow-lg shadow-orange-900/20">
+<div class="text-base font-bold text-white">3 exercises · ~70 minutes · shared leadership</div>
+<div class="text-xs text-gray-400 mt-0.5">Study the pattern → explore what it becomes → build it yourself</div>
 </div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-blue-300 font-bold text-base">6.1</div>
-<span class="text-xs text-gray-500">All ⭐</span>
+<div class="relative z-10 grid grid-cols-3 gap-3" style="flex: 1; min-height: 0;">
+<div class="flex flex-col p-3 bg-blue-900/30 rounded-xl border border-blue-500/40">
+<div class="flex items-center justify-between mb-1.5">
+<div class="text-blue-300 font-bold text-xl">6.1</div>
+<span class="text-xs text-gray-500">15 min · All ⭐</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Study the pattern</div>
-<div class="text-gray-400 text-xs leading-snug">Explore subagent pattern, tool-list boundary, stopping rules, handoff chain</div>
-</div>
-<div class="p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-emerald-300 font-bold text-base">6.2</div>
-<span class="text-xs text-gray-500">Marcus ⭐</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Explore Squad</div>
-<div class="text-gray-400 text-xs leading-snug">See the Explore subagent pattern at scale — persistent multi-agent coordination</div>
-</div>
-<div class="p-3 bg-amber-900/30 rounded-lg border border-amber-500/40">
-<div class="flex items-center justify-between mb-1">
-<div class="text-amber-300 font-bold text-base">6.3</div>
-<span class="text-xs text-gray-500">All ⭐🤝 capstone</span>
-</div>
-<div class="text-white text-xs font-semibold mb-1">Build the capstone</div>
-<div class="text-gray-400 text-xs leading-snug">Create @content-author — one agent that activates M1–M5 from a single instruction</div>
+<div class="text-white text-sm font-semibold mb-1.5">Study the Default Plan Agent</div>
+<div class="text-gray-300 text-xs leading-snug mb-2">Open <code>.github/agents/plan.agent.md</code> and read it as architecture. Trace why every tool is listed, what's deliberately absent, and how the handoff chain passes context forward.</div>
+<div class="mt-auto space-y-1 text-xs text-gray-400">
+<div class="text-blue-300 font-semibold text-xs mb-0.5">You'll identify:</div>
+<div class="flex items-start gap-1.5"><span class="text-blue-400">▸</span>Explore subagent pattern</div>
+<div class="flex items-start gap-1.5"><span class="text-blue-400">▸</span>Tool list as role boundary</div>
+<div class="flex items-start gap-1.5"><span class="text-blue-400">▸</span>Stopping rules + handoff chain</div>
 </div>
 </div>
-<div class="relative z-10 mt-3 p-3 bg-gray-900/40 rounded-lg border border-white/10 text-center text-xs text-gray-400">
-Study the pattern → explore what it becomes → build it yourself.
+<div class="flex flex-col p-3 bg-emerald-900/30 rounded-xl border border-emerald-500/40">
+<div class="flex items-center justify-between mb-1.5">
+<div class="text-emerald-300 font-bold text-xl">6.2</div>
+<span class="text-xs text-gray-500">30 min · Marcus ⭐</span>
+</div>
+<div class="text-white text-sm font-semibold mb-1.5">Explore Agent Teams with Squad</div>
+<div class="text-gray-300 text-xs leading-snug mb-2">Install Squad CLI and run both prompts. Watch it cast a named team, hold a design review, and commit decisions to the repo — all from a single natural-language instruction.</div>
+<div class="mt-auto space-y-1 text-xs text-gray-400">
+<div class="text-emerald-300 font-semibold text-xs mb-0.5">You'll see:</div>
+<div class="flex items-start gap-1.5"><span class="text-emerald-400">▸</span>Subagent pattern at scale</div>
+<div class="flex items-start gap-1.5"><span class="text-emerald-400">▸</span>Ceremony-aware coordination</div>
+<div class="flex items-start gap-1.5"><span class="text-emerald-400">▸</span>Decisions committed to the repo</div>
 </div>
 </div>
-
+<div class="flex flex-col p-3 bg-amber-900/30 rounded-xl border border-amber-500/40">
+<div class="flex items-center justify-between mb-1.5">
+<div class="text-amber-300 font-bold text-xl">6.3</div>
+<span class="text-xs text-gray-500">25 min · All ⭐🤝 capstone</span>
+</div>
+<div class="text-white text-sm font-semibold mb-1.5">Build the &#64;content-author Agent</div>
+<div class="text-gray-300 text-xs leading-snug mb-2">Use the prompt on the next slide to generate <code>content-author.agent.md</code>, then invoke it to add a Locations entity end-to-end. One instruction activates five modules of investment.</div>
+<div class="mt-auto space-y-1 text-xs text-gray-400">
+<div class="text-amber-300 font-semibold text-xs mb-0.5">You'll produce:</div>
+<div class="flex items-start gap-1.5"><span class="text-amber-400">▸</span>A working agent config</div>
+<div class="flex items-start gap-1.5"><span class="text-amber-400">▸</span>Full-stack entity + MCP tools</div>
+<div class="flex items-start gap-1.5"><span class="text-amber-400">▸</span>Accuracy-verified seed data</div>
+</div>
+</div>
+</div>
+</div>
 ---
 
 <!-- SLIDE: 🔧 Exercise 6.1 — Study the Default Plan Agent -->
@@ -797,13 +812,25 @@ Single custom agents solve focused workflow problems, but it is still hard to pi
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div class="flex flex-col gap-3">
 <div class="bg-gray-950/80 rounded-lg border border-white/10 p-3 text-xs font-mono leading-relaxed">
-<div class="text-gray-400"># Install Squad CLI</div>
+<div class="text-gray-400 mb-1"># Install Squad CLI</div>
+<div class="flex items-center justify-between group">
 <div class="text-green-300">npm install -g &#64;bradygaster/squad-cli</div>
-<div class="mt-2 text-gray-400"># Initialize Squad in the repo</div>
+<button onclick="navigator.clipboard.writeText('npm install -g @bradygaster/squad-cli')" class="ml-2 px-1.5 py-0.5 text-[10px] bg-gray-700/60 hover:bg-gray-600 text-gray-400 hover:text-white rounded border border-white/10 cursor-pointer flex-shrink-0">copy</button>
+</div>
+<div class="text-gray-400 mt-2 mb-1"># Initialize Squad in the repo</div>
+<div class="flex items-center justify-between group">
 <div class="text-green-300">squad init</div>
-<div class="mt-2 text-gray-400"># Open Copilot Chat and type:</div>
-<div class="mt-1 text-cyan-300">&#64;squad Analyze the FanHub character-detail</div>
-<div class="text-cyan-300">feature and coordinate a review</div>
+<button onclick="navigator.clipboard.writeText('squad init')" class="ml-2 px-1.5 py-0.5 text-[10px] bg-gray-700/60 hover:bg-gray-600 text-gray-400 hover:text-white rounded border border-white/10 cursor-pointer flex-shrink-0">copy</button>
+</div>
+<div class="text-gray-400 mt-2 mb-1"># Open Copilot Chat and type:</div>
+<div class="flex items-start justify-between group mt-1">
+<div class="text-cyan-300">&#64;squad let's hire a team to work on the [language] version on FanHub</div>
+<button onclick="navigator.clipboard.writeText('@squad let\'s hire a team to work on [language] version of FanHub')" class="ml-2 mt-0.5 px-1.5 py-0.5 text-[10px] bg-gray-700/60 hover:bg-gray-600 text-gray-400 hover:text-white rounded border border-white/10 cursor-pointer flex-shrink-0">copy</button>
+</div>
+<div class="flex items-start justify-between group mt-2">
+<div class="text-cyan-300">&#64;squad let's have a meeting to figure out the best way to implement #file:FEATURE-CHARACTER-DETAIL.md</div>
+<button onclick="navigator.clipboard.writeText('@squad let\'s have a meeting to figure out the best way to implement #file:FEATURE-CHARACTER-DETAIL.md')" class="ml-2 mt-0.5 px-1.5 py-0.5 text-[10px] bg-gray-700/60 hover:bg-gray-600 text-gray-400 hover:text-white rounded border border-white/10 cursor-pointer flex-shrink-0">copy</button>
+</div>
 </div>
 <div class="p-3 rounded-xl bg-gray-900/60 border border-emerald-500/20 text-xs text-gray-300 leading-relaxed">
 <div class="text-emerald-300 font-semibold text-sm mb-1">&#x1F517; Connection to Exercise 6.1</div>
@@ -827,6 +854,267 @@ The plan agent uses <code>agents: &#x5B;'Explore'&#x5D;</code> to spawn one suba
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: 💬 Squad Output — "Hire a Team" -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Squad Output — "Hire a Team"</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">What Squad did</div>
+<div class="bg-gray-950/80 rounded-lg border border-white/10 p-3 text-[10px] font-mono leading-relaxed space-y-0.5 overflow-auto" style="max-height: 360px;">
+<div class="text-gray-500">Read .squad/</div>
+<div class="text-gray-500">Read .squad/casting</div>
+<div class="text-gray-500">Read .squad/agents</div>
+<div class="text-gray-400 mt-1">Good — Ralph and Scribe already exist.</div>
+<div class="text-gray-400">Creating Firefly team...</div>
+<div class="text-gray-500 mt-1">Created 4 todos</div>
+<div class="text-emerald-400 mt-1">✓ Updated .squad/team.md</div>
+<div class="text-emerald-400">✓ Created casting/policy.json</div>
+<div class="text-emerald-400">✓ Created casting/registry.json</div>
+<div class="text-emerald-400">✓ Created casting/history.json</div>
+<div class="text-gray-400 mt-1 italic">Creating agent charters & histories...</div>
+<div class="text-emerald-400 mt-1">✓ agents/mal/charter.md</div>
+<div class="text-emerald-400">✓ agents/mal/history.md</div>
+<div class="text-emerald-400">✓ agents/kaylee/charter.md</div>
+<div class="text-emerald-400">✓ agents/kaylee/history.md</div>
+<div class="text-emerald-400">✓ agents/wash/charter.md</div>
+<div class="text-emerald-400">✓ agents/wash/history.md</div>
+<div class="text-emerald-400">✓ agents/zoe/charter.md</div>
+<div class="text-emerald-400">✓ agents/zoe/history.md</div>
+<div class="text-emerald-400 mt-1">✓ Updated .squad/routing.md</div>
+<div class="text-emerald-400">✓ .gitattributes already set</div>
+</div>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">✅ Team hired</div>
+<div class="bg-gray-900/60 rounded-lg border border-emerald-500/20 overflow-hidden text-xs">
+<div class="grid grid-cols-3 gap-0 text-[10px]">
+<div class="px-2 py-1.5 border-b border-white/10 text-gray-500"></div>
+<div class="px-2 py-1.5 border-b border-white/10 text-gray-400 font-semibold">Agent</div>
+<div class="px-2 py-1.5 border-b border-white/10 text-gray-400 font-semibold">Role</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-base">🏗️</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-amber-300 font-bold">Mal</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-gray-300">Lead / Architect</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-base">🔧</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-emerald-300 font-bold">Kaylee</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-gray-300">Backend Dev</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-base">⚛️</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-blue-300 font-bold">Wash</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-gray-300">Frontend Dev</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-base">🧪</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-purple-300 font-bold">Zoe</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-gray-300">Tester</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-base">📋</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-gray-400 font-bold">Scribe</div>
+<div class="px-2 py-1.5 border-b border-white/5 text-gray-400">Silent logger</div>
+<div class="px-2 py-1.5 text-base">🔄</div>
+<div class="px-2 py-1.5 text-gray-400 font-bold">Ralph</div>
+<div class="px-2 py-1.5 text-gray-400">Work queue monitor</div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-gray-900/60 border border-white/10 text-[10px] text-gray-400">
+Each agent has their charter and history pre-seeded with codebase context — they can hit the ground running.
+</div>
+<div class="p-2.5 rounded-lg bg-emerald-900/20 border border-emerald-500/20">
+<div class="text-emerald-300 text-[10px] font-semibold mb-1">Try next:</div>
+<div class="text-[10px] text-gray-300 italic">"Mal, design the character detail API contract"</div>
+<div class="text-[10px] text-gray-300 italic mt-0.5">"Kaylee, fix GET /api/characters/{id}"</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: 💬 Squad Output — "Have a Meeting" -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Squad Output — "Have a Meeting"</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">What Squad did</div>
+<div class="bg-gray-950/80 rounded-lg border border-white/10 p-3 text-[10px] font-mono leading-relaxed space-y-0.5 overflow-auto" style="max-height: 200px;">
+<div class="text-gray-500">Read .squad/ceremonies.md</div>
+<div class="text-gray-400 mt-1">Maps to: <span class="text-emerald-300">Design Review</span></div>
+<div class="text-gray-400">Facilitator: <span class="text-amber-300">Mal</span> + Kaylee, Wash, Zoe</div>
+<div class="text-gray-500 mt-1">Read agents/mal/history.md</div>
+<div class="text-gray-500">Read docs/FEATURE-CHARACTER-DETAIL.md</div>
+<div class="text-gray-500">Read .squad/decisions.md</div>
+<div class="text-gray-500">Read Backend/Models/ (5 files)</div>
+<div class="text-gray-500">Read Frontend/Components/ (3 files)</div>
+<div class="text-emerald-400 mt-1">✓ Created decisions/inbox/</div>
+<div class="text-emerald-400">✓ Created mal-character-detail-design-review.md</div>
+<div class="text-gray-400 mt-1 italic">Scribe, log this session.</div>
+</div>
+<div class="p-2.5 rounded-lg bg-amber-900/20 border border-amber-500/20 text-[10px]">
+<div class="text-amber-300 font-semibold mb-1">🏗️ Mal's call on scope</div>
+<div class="text-gray-300">No episode↔character junction table exists. <span class="text-white font-semibold">Episodes deferred to Phase 2.</span> Quotes substituted — data already exists and avoids the intentional truncation bug.</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">📋 Design Review output</div>
+<div class="bg-gray-900/60 rounded-lg border border-white/10 p-2.5 text-[10px] overflow-auto" style="max-height: 140px;">
+<div class="grid grid-cols-2 gap-2">
+<div>
+<div class="text-emerald-300 font-semibold mb-1">✅ Phase 1 In</div>
+<div class="text-gray-300 space-y-0.5">
+<div>Character identity + bio</div>
+<div>Quotes (full text)</div>
+<div>Related characters</div>
+<div>Favorite toggle (localStorage)</div>
+<div>Loading + error states</div>
+</div>
+</div>
+<div>
+<div class="text-red-300 font-semibold mb-1">❌ Phase 2</div>
+<div class="text-gray-400 space-y-0.5">
+<div>Episode list</div>
+<div>Advanced filtering</div>
+<div>Server-side favorites</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-900/60 rounded-lg border border-white/10 p-2.5 text-[10px]">
+<div class="text-blue-300 font-semibold mb-1.5">Action items (work order: 1→2 ∥ 3→4 ∥ 5→6 ∥ 7)</div>
+<div class="space-y-0.5 text-gray-300">
+<div><span class="text-emerald-300">Kaylee:</span> Add Episode nav to Quote model → implement GET /api/characters/{id} DTO</div>
+<div><span class="text-blue-300">Wash:</span> CharacterDetailDto → CharacterDetail.razor → update Characters.razor</div>
+<div><span class="text-purple-300">Zoe:</span> Integration tests + regression test (confirm 50-char bug stays broken)</div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-emerald-900/20 border border-emerald-500/20 text-[10px]">
+<div class="text-emerald-300 font-semibold mb-1">Try next:</div>
+<div class="text-gray-300 italic">"Kaylee, start with task 1 and 2"</div>
+<div class="text-gray-300 italic mt-0.5">"let's go"</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: 📄 Squad Decision — Character Detail Design Review -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-transparent"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-green-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📄 Squad Decision — Character Detail Design Review</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
+<button onclick="navigator.clipboard.writeText(document.getElementById('s20dr').value)" class="px-3 py-1 bg-emerald-700/60 hover:bg-emerald-600/80 text-white text-xs rounded-lg border border-emerald-400/40 cursor-pointer flex-shrink-0">📋 Copy</button>
+</div>
+<div class="relative z-10 flex-1 overflow-hidden">
+<textarea id="s20dr" readonly :value="designReview" class="h-full w-full overflow-auto bg-gray-950/90 rounded-xl border border-emerald-500/30 p-3 text-[9.5px] font-mono text-gray-300 leading-relaxed resize-none focus:outline-none cursor-text"></textarea>
+</div>
+</div>
+
+<script setup>
+const designReview = `# Decision: Character Detail Page — Design Review
+
+**Decided by:** Mal (Lead/Architect)
+**Date:** 2026-03-31
+**Participants:** Kaylee (Backend), Wash (Frontend), Zoe (Testing)
+**Related feature:** \`docs/FEATURE-CHARACTER-DETAIL.md\`
+
+&#45;&#45;&#45;
+
+## 1. Episode List Phase Decision
+
+**DECISION: Episode list is DEFERRED to Phase 2.**
+
+The spec lists episodes as Phase 1 scope, but the codebase has no episode-character junction table. \`Episode.Characters\` is marked \`[NotMapped]\`. Phase 1 will deliver character identity + quotes + relationships + favorites toggle instead.
+
+The spec's out-of-scope quote section is swapped IN because the data model already supports it via \`Quote.CharacterId\`, and the character detail endpoint bypasses the \`GET /api/quotes\` truncation bug (intentional -- must NOT be touched).
+
+**Phase 1 scope (revised):**
+
+- OK Character identity (name, bio, image, actor, status, tagline, characterType)
+- OK Quotes (via character detail endpoint -- full text, no truncation bug)
+- OK Related characters (with relationship type and resolved names)
+- OK Favorite toggle (localStorage)
+- OK Loading and error states
+- NO Episode list (deferred to Phase 2 -- requires migration)
+
+&#45;&#45;&#45;
+
+## 2. API Contract
+
+Endpoint: \`GET /api/characters/{id}\`
+
+Shape: { id, name, bio, imageUrl, actorName, tagline, characterType, status,
+  isMainCharacter, show: { id, name },
+  quotes: [{ id, text, isFamous, episode: { id, title, seasonNumber, episodeNumber } }],
+  relatedCharacters: [{ id, name, imageUrl, relationship }] }
+
+Implementation rules:
+- Use a projection DTO -- do NOT return the Character entity directly
+- Quotes: WHERE CharacterId = id, Include Episode for season/episode number
+- Quote.QuoteText must NOT be truncated -- fetched independently of broken /api/quotes
+- RelatedCharacters: join CharacterRelationships where CharacterId OR RelatedCharacterId = id
+- GET /api/quotes truncation bug must remain untouched
+- Returns 404 NotFound for missing character IDs
+
+&#45;&#45;&#45;
+
+## 3. Component Architecture
+
+Route: /characters/{Id:int}
+File: CharacterDetail.razor
+Render mode: InteractiveServer (required for favorites / JS interop)
+Shared model: dotnet/Frontend/Models/CharacterDetailDto.cs (Wash owns)
+
+Structure:
+  CharacterDetail.razor
+    Loading spinner (conditional on isLoading)
+    Error message (conditional on errorMessage != null)
+    Character header: image, name, actor, status, tagline
+      FavoriteButton: heart icon, toggles via IJSRuntime localStorage
+    Quotes section: foreach on detail.Quotes
+    Related Characters: foreach, NavLink per card
+
+Favorites pattern:
+  Load: await JS.InvokeAsync<string>("localStorage.getItem", "fanhub_favorites")
+  Save: await JS.InvokeVoidAsync("localStorage.setItem", "fanhub_favorites", json)
+  IJSRuntime injected via @inject IJSRuntime JS
+
+Characters.razor: card @onclick replaced with NavigationManager.NavigateTo
+
+&#45;&#45;&#45;
+
+## 4. Task Order
+
+  Kaylee: Define DTO + implement GET /api/characters/{id}
+      |
+  Wash: Build CharacterDetail.razor consuming agreed API shape
+      |
+  Zoe: Integration tests + smoke tests for page
+
+Wash can scaffold against the agreed JSON shape before backend is live.
+
+&#45;&#45;&#45;
+
+## 5. Do Not Touch
+
+- GET /api/quotes truncation bug -- intentional, must remain broken
+- Episode.Characters [NotMapped] -- leave as-is for Phase 1
+- No EF migrations in Phase 1 scope
+
+&#45;&#45;&#45;
+
+## Status
+
+- [ ] Kaylee: implement GET /api/characters/{id} with DTO projection
+- [ ] Wash: scaffold CharacterDetailDto.cs and CharacterDetail.razor
+- [ ] Zoe: write integration test spec for Phase 1 endpoint and page`.replaceAll('&#45;&#45;&#45;', '---')
+</script>
 ---
 
 
