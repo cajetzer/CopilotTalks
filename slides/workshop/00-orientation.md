@@ -13,7 +13,7 @@ title: Module 0 - The Challenge
 module: workshop/00-orientation
 mdc: true
 status: active
-updated: 2026-03-31
+updated: 2026-04-01
 ---
 
 <!-- SLIDE: Title -->
@@ -77,14 +77,14 @@ updated: 2026-03-31
 <div class="flex items-start gap-2.5 p-2 rounded-lg bg-gray-900/50 border border-blue-500/20">
 <span class="text-base mt-0.5">💻</span>
 <div>
-<div class="text-xs font-semibold text-white">VS Code + GitHub Copilot extension</div>
+<div class="text-xs font-semibold text-white">Recent version of VS Code + GitHub Copilot extension</div>
 <div class="text-xs text-gray-400">Enable agent mode in settings if not already on</div>
 </div>
 </div>
 <div class="flex items-start gap-2.5 p-2 rounded-lg bg-gray-900/50 border border-green-500/20">
 <span class="text-base mt-0.5">📦</span>
 <div>
-<div class="text-xs font-semibold text-white">Git + local stack (node/dotnet/java/go)</div>
+<div class="text-xs font-semibold text-white">Git + local stack (node/dotnet/java/go), access to public packages</div>
 <div class="text-xs text-gray-400">For running the FanHub starter app locally</div>
 </div>
 </div>

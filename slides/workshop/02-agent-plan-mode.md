@@ -13,7 +13,7 @@ title: Module 2 - Agent Plan Mode
 module: workshop/02-agent-plan-mode
 mdc: true
 status: active
-updated: 2026-03-31
+updated: 2026-04-01
 ---
 
 <!-- SLIDE: Module 2: Agent Plan Mode -->
@@ -183,14 +183,9 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 </div>
 <div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-3 shadow-lg shadow-orange-900/20">
 <div class="text-xl font-bold text-white mb-1">From feature request to step-by-step execution roadmap.</div>
-<div class="text-sm text-orange-100">One feature, four exercises, one calmer path to implementation</div>
+<div class="text-sm text-orange-100">One feature, three exercises, one calmer path to implementation</div>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-3 text-xs text-left">
-<div class="p-3 rounded-lg border-l-4 border-orange-500 bg-gray-900/60">
-<div class="font-bold text-orange-300 mb-0.5 text-sm">2.1 — Swap the show</div>
-<div class="text-gray-400 font-mono text-xs mb-2">Agent mode + universe file</div>
-<div class="text-gray-300">Replace the Breaking Bad seed data with your chosen show before any feature work begins.</div>
-</div>
 <div class="p-3 rounded-lg border-l-4 border-blue-500 bg-gray-900/60">
 <div class="font-bold text-blue-300 mb-0.5 text-sm">2.2–2.3 — Research-backed plans</div>
 <div class="text-gray-400 font-mono text-xs mb-2">/plan mode</div>
@@ -418,17 +413,9 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 p-3 bg-gradient-to-r from-orange-900/50 to-red-900/40 rounded-xl border border-orange-500/30 text-center mb-3 shadow-lg shadow-orange-900/20">
-<div class="text-lg font-bold text-white">4 exercises &middot; ~45 minutes &middot; shared leadership</div>
+<div class="text-lg font-bold text-white">3 exercises &middot; ~35 minutes &middot; shared leadership</div>
 </div>
-<div class="relative z-10 grid grid-cols-2 gap-3 flex-1">
-<div class="p-4 bg-amber-900/30 rounded-lg border border-amber-500/40 flex flex-col gap-1">
-<div class="flex items-center justify-between mb-1">
-<div class="text-amber-300 font-bold text-base">2.1 &mdash; Swap the show</div>
-<span class="text-xs text-amber-400/70">Rafael ⭐</span>
-</div>
-<div class="text-gray-300 text-xs leading-snug">Replace the Breaking Bad seed data with your team&rsquo;s chosen show — all in Agent mode.</div>
-<div class="mt-auto pt-2 text-xs text-gray-500 border-t border-amber-500/20">Plan first &rarr; confirm the scope &rarr; execute without surprises</div>
-</div>
+<div class="relative z-10 grid grid-cols-3 gap-3 flex-1">
 <div class="p-4 bg-amber-900/30 rounded-lg border border-amber-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
 <div class="text-amber-300 font-bold text-base">2.2 &mdash; Plan Lore card</div>
@@ -459,85 +446,6 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 <span class="text-green-500 text-xs text-right">&mdash; Sarah</span>
 </div>
 </div>
----
-
-<!-- SLIDE: 🔨 Exercise 2.1: Swap the Show -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-4 mb-4">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">2.1</div>
-<div>
-<div class="text-amber-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Swap the Show</h2>
-</div>
-<div class="ml-auto flex gap-3 text-xs text-gray-400">
-<span class="px-3 py-1 bg-gray-800 rounded-full">Rafael ⭐</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">Sarah 🤝</span>
-<span class="px-3 py-1 bg-gray-800 rounded-full">⏱ 10 min</span>
-</div>
-</div>
-<div class="relative z-10 mb-4 p-3 bg-gray-900/60 rounded-xl border-l-4 border-amber-400 text-sm text-gray-300">
-The repo still has Breaking Bad placeholder data. The team's chosen show is in <span class="font-mono text-amber-200">docs/[show]-universe.md</span>. The product they're about to build features on? Still Walter White. <strong class="text-white">Before anyone opens a feature branch, the foundation needs to match what we're actually shipping.</strong>
-<div class="mt-2 text-xs italic text-amber-200">💭 Rafael: "The architecture is fine. The data is wrong. This is a 10-minute alignment — not a feature."</div>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">📋 Steps</div>
-<div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0">1</span><span class="text-gray-300">In Agent mode, ask Copilot to audit all files containing Breaking Bad-specific seed content</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0">2</span><span class="text-gray-300">Ask Copilot to generate replacement content for your show using <span class="font-mono text-amber-300">docs/[show]-universe.md</span> as the source</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0">3</span><span class="text-gray-300">Apply the changes — verify at least 3 characters from your show appear, no Walter White remains</span></div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">✅ Success Criteria</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Agent mode used (not manual find/replace)</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> <span class="font-mono">[show]-universe.md</span> used as content source</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> Characters, episodes, or locations reflect your show</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> No Breaking Bad names in seed data files</div>
-</div>
-<div class="mt-2 p-3 bg-amber-900/20 rounded-lg border border-amber-500/30 text-xs text-gray-300 italic">💭 <strong class="text-amber-300">Sarah:</strong> "This should have been the first thing we did." &nbsp; <strong class="text-amber-300">Rafael:</strong> "It is. I'm already on the next OKR."</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: 💬 Example: The Show Swap Prompt -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Example: The Show Swap Prompt</span><div class="flex-1 h-px bg-gradient-to-r from-amber-400/50 to-transparent"></div>
-</div>
-<div class="relative z-10 grid grid-cols-2 gap-4">
-<div class="flex flex-col gap-3">
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Step 1 — Audit</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-all cursor-text">
-<span class="text-amber-300">@workspace</span> Audit the FanHub seed data and list every file that contains Breaking Bad-specific content. Don't make any changes yet — just list the files and summarize what each one contains.
-</div>
-<div class="text-xs font-bold text-gray-400 uppercase tracking-widest mt-2 mb-1">Step 2 — Swap</div>
-<div class="font-mono text-xs bg-gray-900/80 rounded-lg border border-amber-500/30 p-3 text-gray-200 leading-relaxed select-all cursor-text">
-Using <span class="text-amber-300">#file:docs/[show]-universe.md</span> as the source of truth, generate replacement seed data for <span class="text-amber-300">[Your Show]</span>. Match the existing data structure exactly — same field names, same format. Apply the changes.
-</div>
-</div>
-<div class="flex flex-col gap-3 text-xs">
-<div class="p-3 bg-amber-900/20 rounded-lg border border-amber-500/30">
-<div class="text-amber-300 font-bold mb-1">🔑 Why Agent mode</div>
-<div class="text-gray-300">Agent mode can read the existing seed files, understand their structure, and write replacements that match exactly — without you listing every field manually</div>
-</div>
-<div class="p-3 bg-blue-900/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-1">🔗 Universe file as source</div>
-<div class="text-gray-300">The <span class="font-mono text-amber-300">[show]-universe.md</span> you built in M1 is now doing its first real job — seeding the database with accurate, canon-correct data</div>
-</div>
-<div class="p-3 bg-gray-900/60 rounded-lg border border-gray-700/40">
-<div class="text-gray-300 font-bold mb-1">📊 Expected outcome</div>
-<div class="text-gray-400">Copilot enumerates 3–6 files, generates character/episode/location entries for your show, replaces the Breaking Bad content in one pass</div>
-</div>
-</div>
-</div>
-</div>
-
 ---
 
 <!-- SLIDE: 🔨 Exercise 2.2: Plan the Lore Card & Page -->
@@ -599,7 +507,7 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 <div class="relative z-10 grid grid-cols-2 gap-3 text-xs mb-3">
 <div class="p-3 bg-gray-900/60 rounded-xl border border-amber-500/20">
 <div class="text-amber-300 font-bold mb-1">👀 Check the bottom of the plan</div>
-<div class="text-gray-300">Plan mode often auto-seeds lore data from the universe file you created in Exercise 2.1 — scroll down before moving on</div>
+<div class="text-gray-300">Plan mode often auto-seeds lore data from the universe file you created in M1 — scroll down before moving on</div>
 </div>
 <div class="p-3 bg-gray-900/60 rounded-xl border border-orange-500/20">
 <div class="text-orange-300 font-bold mb-1">⏱ What to expect</div>
@@ -828,21 +736,7 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 <div class="text-base text-white font-semibold mb-0.5">By the end of Module 2, the team has a planning rhythm.</div>
 <div class="text-xs text-gray-300">Read the plan before touching code. Improve and Iterate. Execute with confidence.</div>
 </div>
-<div class="relative z-10 grid grid-cols-4 gap-3 text-left text-sm">
-<div class="p-3 rounded-xl bg-gradient-to-br from-amber-900/40 to-gray-900/50 border border-amber-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-base">🔄</div>
-<div>
-<div class="text-amber-300 font-bold text-xs">Swap the show</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.1</div>
-</div>
-</div>
-<ul class="space-y-1 text-xs text-gray-300">
-<li>Agent mode swaps seed data</li>
-<li>Universe file drives the change</li>
-<li>No manual edits needed</li>
-</ul>
-</div>
+<div class="relative z-10 grid grid-cols-3 gap-3 text-left text-sm">
 <div class="p-3 rounded-xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
 <div class="flex items-center gap-2 mb-2">
 <div class="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-base">📝</div>
@@ -889,7 +783,7 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 <div class="relative z-10 mt-3 grid grid-cols-2 gap-3">
 <div class="p-3 rounded-xl bg-gray-900/60 border border-white/10 text-left">
 <div class="text-xs font-bold text-white mb-1">What good looks like</div>
-<div class="text-xs text-gray-300">Four exercises, one arc: swap → plan → gap-check → execute. The Lore card is live. Real entries from your show are in the database.</div>
+<div class="text-xs text-gray-300">Three exercises, one arc: plan → gap-check → execute. The Lore card is live. Real entries from your show are in the database.</div>
 </div>
 <div class="p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-left">
 <div class="text-xs font-bold text-white mb-1">Why this matters</div>
