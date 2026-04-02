@@ -1,0 +1,37 @@
+version: 1
+
+source: tech-talks/copilot-azure-mcp/README.md
+
+deck:
+  title: "GitHub Copilot CLI + Azure MCP"
+  subtitle: "Rapid Azure Prototyping and Deployment"
+  tagline: "Infrastructure becomes conversational — AI that knows what's running in your subscriptions"
+
+  intro:
+    mode: core-question
+
+  toc:
+    enabled: true
+
+  sectionOrder:
+    - Live Azure Context in Terminal Conversations
+    - The Prototype Loop
+    - Configuration and Setup
+    - Guardrails and Trust Boundaries
+
+  sectionModes:
+    Live Azure Context in Terminal Conversations: balanced
+    The Prototype Loop: deep-dive
+    Configuration and Setup: compact
+    Guardrails and Trust Boundaries: balanced
+
+  highlightMoments:
+    - "Prototype loop compression: 45 minutes → 8 minutes"
+
+  references:
+    enabled: true
+    mode: standard
+
+  thankYou:
+    enabled: true
+    variant: standard
