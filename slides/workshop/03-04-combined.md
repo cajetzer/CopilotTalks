@@ -13,7 +13,7 @@ title: From Prompts to Skills
 module: workshop/03-custom-prompts
 mdc: true
 status: active
-updated: 2026-03-31
+updated: 2026-04-01
 ---
 
 <!-- SLIDE: From Prompts to Skills -->
@@ -208,9 +208,9 @@ Custom prompts turn <span class="text-orange-300">personal prompt craft</span> i
 <div class="text-xs font-bold text-orange-400 uppercase tracking-widest mb-2">&#x26A1; Part 2 &mdash; Agent Skills</div>
 <div class="grid grid-cols-3 gap-3 text-xs text-left">
 <div class="p-3 rounded-lg border-l-4 border-blue-400 bg-gray-900/60">
-<div class="font-bold text-blue-300 mb-0.5">E4 &mdash; Install template</div>
+<div class="font-bold text-blue-300 mb-0.5">E4 &mdash; Review template</div>
 <div class="text-gray-400 font-mono text-xs mb-1">make-skill-template</div>
-<div class="text-gray-300 text-xs">Bootstrap future skills from a proven scaffold instead of a blank folder.</div>
+<div class="text-gray-300 text-xs">Study the template's structure so the next two skills start from a known scaffold.</div>
 </div>
 <div class="p-3 rounded-lg border-l-4 border-emerald-400 bg-gray-900/60">
 <div class="font-bold text-emerald-300 mb-0.5">E5 &mdash; Data accuracy skill</div>
@@ -1156,10 +1156,10 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 <div class="flex flex-col bg-blue-900/30 rounded-xl border border-blue-500/40 overflow-hidden">
 <div class="p-4 flex-1">
 <div class="flex items-center justify-between mb-3"><div class="text-blue-300 font-bold text-lg">E4</div><span class="text-xs text-gray-500">Sarah &#x2B50;</span></div>
-<div class="text-white text-sm font-semibold mb-2">Install the skill template</div>
-<div class="text-gray-400 text-xs leading-relaxed">Install make-skill-template from awesome-copilot, study its structure, and understand why the folder layout matters before building your own.</div>
+<div class="text-white text-sm font-semibold mb-2">Review the skill template</div>
+<div class="text-gray-400 text-xs leading-relaxed">Open make-skill-template, study its structure, and understand why the folder layout matters before building your own.</div>
 </div>
-<div class="px-4 pb-4 pt-3 border-t border-blue-500/20"><p class="text-blue-200 text-xs italic">"I&rsquo;m not inventing the folder structure from scratch. Someone on the internet already did that. We use it."</p></div>
+<div class="px-4 pb-4 pt-3 border-t border-blue-500/20"><p class="text-blue-200 text-xs italic">"I&rsquo;m not inventing the folder structure from scratch. Someone already did that. Let&rsquo;s read it and understand it."</p></div>
 </div>
 <div class="flex flex-col bg-emerald-900/30 rounded-xl border border-emerald-500/40 overflow-hidden">
 <div class="p-4 flex-1">
@@ -1183,14 +1183,14 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 
 ---
 
-<!-- SLIDE: 🔧 Exercise 4 — Install make-skill-template -->
+<!-- SLIDE: 🔧 Exercise 4 — Review make-skill-template -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 flex-shrink-0">E4</div>
 <div>
 <div class="text-blue-300 text-xs font-semibold tracking-widest uppercase">Exercise 4</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Install <code>make-skill-template</code></h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Review <code>make-skill-template</code></h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Sarah ⭐</span>
@@ -1198,25 +1198,26 @@ Marcus shipped the <span class="font-mono text-emerald-200">/lore</span> page la
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
-The team is ready to build real skills, but blank-page setup still slows them down. <strong class="text-white">This exercise installs a proven starter from <code>awesome-copilot</code> so the next two skills begin from a better scaffold instead of improvised structure.</strong>
+The <code>make-skill-template</code> is already in the repo. <strong class="text-white">This exercise walks through its structure so the team understands what the template standardizes — and can build the next two skills from a known scaffold instead of improvised structure.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">📋 Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Install or copy <span class="font-mono text-blue-300">make-skill-template</span> into <span class="font-mono text-blue-300">.github/skills/</span></span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Inspect the template's frontmatter, body structure, and optional resource folders</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Practice duplicating the scaffold so the next skill starts from a proven structure</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open <span class="font-mono text-blue-300">.github/skills/make-skill-template/SKILL.md</span> in your editor</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Identify the required frontmatter fields: <span class="font-mono text-blue-300">name</span>, <span class="font-mono text-blue-300">description</span>, and trigger phrases</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Trace the body structure — sections, instructions, and optional resource folders (<span class="font-mono text-blue-300">scripts/</span>, <span class="font-mono text-blue-300">references/</span>)</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-blue-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Decide what you'd change first when duplicating it for a new skill: folder name, frontmatter, trigger phrases</span></div>
 </div>
 </div>
 <div class="space-y-3">
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">✅ Success Criteria</div>
 <div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The template is available locally under <span class="font-mono text-blue-300">.github/skills/</span></div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The team can name the required frontmatter fields in a skill</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The team understands which parts of a skill the template standardizes</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The next exercises can start from a better scaffold instead of a blank folder</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">☐</span> The next exercises can start from this scaffold instead of a blank folder</div>
 </div>
-<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Sarah:</strong> "I spent thirty seconds checking whether this already existed. It did. Time-to-first-skill just dropped by ten minutes. You're welcome."</div>
+<div class="mt-4 p-3 bg-blue-900/30 rounded-lg border border-blue-500/30 text-xs text-gray-300 italic">💭 <strong class="text-blue-300">Sarah:</strong> "I spent thirty seconds reading this. Now I know exactly what to duplicate for the next skill. Blank-page friction: gone."</div>
 </div>
 </div>
 </div>
@@ -1230,46 +1231,15 @@ The team is ready to build real skills, but blank-page setup still slows them do
 <span class="px-3 py-1 bg-gradient-to-r from-blue-600/80 to-blue-800/80 rounded-full text-white text-sm font-medium tracking-wide shadow-lg">&#x1F4AC; make-skill-template in Action</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
 </div>
-<div class="relative z-10 flex-1 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-3 flex-1">
-<div class="flex flex-col gap-1">
-<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">📄 .github/prompts/make-skill-from-prompt.prompt.md</div>
-<div class="bg-gray-950 rounded-xl border border-gray-700/50 p-3 font-mono text-[10px] flex-1 overflow-auto select-all leading-relaxed">
-<div class="text-purple-300">&#45;&#45;&#45;</div>
-<div class="text-blue-300">agent<span class="text-white">:</span> <span class="text-green-300">agent</span></div>
-<div class="text-blue-300">description<span class="text-white">:</span> <span class="text-green-300">Convert an existing prompt file into a reusable,</span></div>
-<div class="text-green-300 ml-4">auto-discoverable Copilot skill</div>
-<div class="text-purple-300">&#45;&#45;&#45;</div>
-<div class="mt-2 text-gray-300">You are a Copilot skill architect for FanHub. Your job</div>
-<div class="text-gray-300">is to convert an existing <span class="text-orange-300">.prompt.md</span> file into a</div>
-<div class="text-gray-300">well-structured, auto-discoverable skill at</div>
-<div class="text-blue-300">.github/skills/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>/SKILL.md</div>
-<div class="mt-2 text-orange-400">## Source prompt</div>
-<div class="text-gray-400">Read and fully understand</div>
-<div class="text-blue-300">.github/prompts/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>.prompt.md</div>
-<div class="text-gray-400">before proceeding. Preserve every instruction exactly.</div>
-<div class="mt-2 text-orange-400">## What to produce</div>
-<div class="mt-1 text-gray-300">1. <span class="text-white">Preserve all logic</span> — copy every instruction, step,</div>
-<div class="text-gray-400 ml-3">rule, and output format from the source exactly</div>
-<div class="mt-1 text-gray-300">2. <span class="text-white">Keyword-rich description</span> — 2–4 sentences covering</div>
-<div class="text-gray-400 ml-3">synonyms, verb forms, domain terms (verify, validate,</div>
-<div class="text-gray-400 ml-3">fact-check, canon check) and entity types</div>
-<div class="mt-1 text-gray-300">3. <span class="text-white">Trigger phrases</span> — <span class="text-orange-400">## When to use this skill</span></div>
-<div class="text-gray-400 ml-3">with ≥5 phrases as a team member would type them</div>
-<div class="mt-1 text-gray-300">4. <span class="text-white">Output template</span> — if the prompt produces structured</div>
-<div class="text-gray-400 ml-3">output, add <span class="text-orange-400">## Output template</span> section</div>
-<div class="mt-1 text-gray-300">5. <span class="text-white">MCP tool guidance</span> — if the skill queries live data,</div>
-<div class="text-gray-400 ml-3">add <span class="text-orange-400">## MCP tools</span>: get_characters, get_lore,</div>
-<div class="text-gray-400 ml-3">get_episodes, get_quotes</div>
-<div class="mt-2 text-orange-400">## Output</div>
-<div class="text-gray-400">Write the complete skill to</div>
-<div class="text-blue-300">.github/skills/<span class="text-yellow-300 bg-yellow-900/30 px-0.5 rounded">&#36;{input:promptName}</span>/SKILL.md</div>
-<div class="text-gray-400">Confirm: what was preserved, what was added, and why.</div>
-</div>
+<div class="relative z-10 flex-1 flex flex-col gap-2 min-h-0">
+<div class="grid grid-cols-2 gap-3 flex-1 min-h-0">
+<div class="flex flex-col gap-1 min-h-0">
+<div class="text-xs font-bold text-gray-500 uppercase tracking-widest">📄 graduate prompt to skill</div>
+<div class="overflow-y-auto min-h-0 max-h-72"><pre class="bg-gray-950 rounded-xl border border-gray-700/50 p-3 font-mono text-[10px] select-all leading-relaxed whitespace-pre text-gray-300">{{ makeSkillPrompt }}</pre></div>
 </div>
 <div class="flex flex-col gap-2">
 <div class="bg-gray-900/60 rounded-xl p-2.5 border border-gray-700/50 text-xs">
-<div class="text-gray-500 uppercase tracking-widest text-xs mb-1.5">&#x25B6; Running /make-skill</div>
+<div class="text-gray-500 uppercase tracking-widest text-xs mb-1.5">&#x25B6; Running /prompt-to-skill</div>
 
 <div class="text-gray-400 text-xs">&#x2192; Copilot reads <span class="font-mono text-green-300">check-data-accuracy.prompt.md</span>, infers trigger phrases from its content, scaffolds <span class="font-mono text-green-300">SKILL.md</span></div>
 </div>
@@ -1293,6 +1263,44 @@ The team is ready to build real skills, but blank-page setup still slows them do
 </div>
 </div>
 </div>
+
+<script setup>
+const sep = '---'
+const makeSkillPrompt = `${sep}
+name: prompt-to-skill
+description: >
+  Convert an existing .prompt.md into a reusable,
+  auto-discoverable Agent Skill. Use when asked to
+  promote, upgrade, or convert a prompt to a skill.
+agent: agent
+${sep}
+
+Follow the make-template-skill skill for structure,
+frontmatter rules, and directory conventions.
+
+Step 1 — Read the source prompt
+  Read .github/prompts/\${input:promptName}.prompt.md
+  Classify as: Workflow prompt (preserve logic verbatim)
+            or Plan prompt (generalize into pattern)
+
+Step 2 — Craft the SKILL.md frontmatter
+  name: \${input:promptName}  ← must match folder name
+  description: 2–4 sentences, keyword-rich, ≥5 triggers
+
+Step 3 — Write the SKILL.md body
+  ## When to use this skill   (≥5 trigger phrases)
+  ## Prerequisites             (files, MCP, context)
+  ## Procedure                 (verbatim or generalized)
+  ## Output template           (structured output format)
+  ## MCP tools                 (live data tools if needed)
+
+Step 4 — Create the skill file
+  Write to .github/skills/\${input:promptName}/SKILL.md
+  Run make-template-skill Validation Checklist
+
+Step 5 — Confirm
+  Preserved / Added / Validation checklist summary`
+</script>
 
 ---
 
@@ -1318,10 +1326,10 @@ Elena has been invoking <code class="bg-gray-800 px-1 rounded text-orange-300">/
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x1F4CB; Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code class="text-emerald-300">.github/skills/data-accuracy-check/</code> using <code>/make-skill-from-prompt</code></span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Run <code class="text-emerald-300">/prompt-to-skill data-accuracy-check</code> </span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Review <code class="text-emerald-300">SKILL.md</code> — broad trigger phrases covering verify, validate, fact-check for any entity type</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Reference the canonical source — markdown file now, MCP DB tool when available in Module 5</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Test: ask Copilot to generate a data entry for any entity — does it cite the skill and reference automatically?</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Test: <code class="bg-gray-800 px-1 rounded text-orange-300">Copilot, can you generate a data entry for a Quote?</code> — does it cite the skill and reference automatically?</span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -1414,16 +1422,16 @@ Elena has been invoking <code class="bg-gray-800 px-1 rounded text-orange-300">/
 </div>
 </div>
 <div class="relative z-10 mb-4 p-4 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-In Module 2, plan mode produced the full roadmap for the Lore card and <code class="bg-gray-800 px-1 rounded text-purple-300">/lore</code> page. Marcus saved it. Now he needs a Ratings card. <em>The plan is almost identical.</em> <strong class="text-white">Generalize the M2 plan into a parameterized skill &mdash; one invocation creates the card + page plan for any FanHub entity.</strong>
+In Module 2, plan mode produced the full roadmap for the Lore card and <code class="bg-gray-800 px-1 rounded text-purple-300">/lore</code> page. Marcus saved it. Now he needs a Locations card. <em>The plan is almost identical.</em> <strong class="text-white">Generalize the M2 plan into a parameterized skill &mdash; one invocation creates the card + page plan for any FanHub entity.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x1F4CB; Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Create <code class="text-purple-300">.github/skills/create-card-and-page/</code> using the <code>make-skill-from-prompt</code></span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Use the Lore plan from Module 2 as the base <code class="text-purple-300">SKILL.md</code> body</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Ask copilot "Can we make this better?" and iterate to improve the skill & templates</span></div>
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Test: invoke for "Locations" &mdash; plan should match the same 4&ndash;5 files as the Lore plan</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Run <code class="text-emerald-300">/prompt-to-skill plan-LoreCardAndLorePage</code> </span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Rename the skill to <code class="text-purple-300">create-card-and-page</code> (folder and within <code class="text-purple-300">SKILL.md</code> body)</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">(next slide) Ask copilot "Can we make this better?" and iterate to improve the skill & templates</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Test: <code class="bg-gray-800 px-1 rounded text-purple-300">/create-card-and-page Locations</code></span></div>
 </div>
 </div>
 <div class="space-y-3">
@@ -1431,7 +1439,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="space-y-2 text-xs text-gray-300">
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> <code class="text-purple-300">create-card-and-page/</code> created with SKILL.md + templates/</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Skill accepts entity name and generates a scoped plan</div>
-<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Plan identifies the same 4&ndash;5 files as the M2 Lore plan</div>
+<div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Plan identifies the same  files as the M2 Lore plan</div>
 <div class="flex items-center gap-2 p-2 bg-green-900/20 rounded-lg border border-green-700/30"><span class="text-green-400">&#x2610;</span> Templates folder has at least one starter scaffold file</div>
 </div>
 <div class="mt-3 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30 text-xs text-gray-300 italic">&#x1F4AD; <strong class="text-purple-300">Marcus:</strong> "Wait &mdash; I wrote the same plan twice. That&rsquo;s a pattern." <span class="text-gray-500 not-italic">[tab-switches, tab-switches back]</span> "Okay I&rsquo;m back. Patterns should be skills. Let&rsquo;s build it."</div>
@@ -1472,7 +1480,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="flex flex-col gap-2">
 <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">🔁 Iterate until it's right</div>
 <div class="bg-gray-900/60 rounded-xl p-3 border border-purple-500/30 flex-1 text-xs text-gray-300 space-y-2">
-<div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">1</span><span>Run the skill for <span class="font-mono text-white">"Ratings"</span> — does the plan reference the same files as the Lore plan? If not, describe what's missing and ask Copilot to fix the template.</span></div>
+<div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">1</span><span>Run the skill for <span class="font-mono text-white">"Locations"</span> — does the plan reference the same files as the Lore plan? If not, describe what's missing and ask Copilot to fix the template.</span></div>
 <div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">2</span><span>Ask Copilot to run <span class="font-mono text-green-300">check-scaffold.ps1</span> after a test invocation. Let it read the errors and self-correct.</span></div>
 <div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">3</span><span>If a template generates wrong output, paste the diff and ask: <span class="italic text-gray-400">"This generated X but I expected Y — update the template."</span></span></div>
 <div class="flex items-start gap-2"><span class="text-purple-400 font-bold mt-0.5">4</span><span>Keep looping. The goal isn't a perfect first prompt — it's a skill that gets better with each round of feedback.</span></div>
@@ -1694,7 +1702,7 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">💬 Invoke the skill</div>
 <div class="bg-gray-950 rounded-xl border border-gray-700/50 p-3 text-xs flex-1">
 <div class="text-gray-400 mb-2 italic">Ask Copilot in any file — it picks up the skill automatically:</div>
-<div class="bg-gray-800/60 rounded-lg p-3 border border-purple-500/30 text-gray-200 font-mono leading-relaxed">
+<div class="bg-gray-800/60 rounded-lg p-3 border border-purple-500/30 text-gray-200 font-mono leading-relaxed select-all">
 <span class="text-purple-300">Add a new Locations entity to FanHub.</span><br/>
 <span class="text-gray-400">Entity: Location</span><br/>
 <span class="text-gray-400">Properties: Name, Description, Address</span><br/>
@@ -1832,10 +1840,10 @@ In Module 2, plan mode produced the full roadmap for the Lore card and <code cla
 <div class="p-3 rounded-2xl bg-gradient-to-br from-blue-900/40 to-gray-900/50 border border-blue-500/30">
 <div class="flex items-center gap-2 mb-1">
 <div class="w-6 h-6 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-xs font-bold text-blue-300">E4</div>
-<div class="text-blue-300 font-bold">Install skill template</div>
+<div class="text-blue-300 font-bold">Review skill template</div>
 </div>
 <div class="space-y-1 text-gray-400">
-<div>&#x2022; <code class="text-gray-300">make-skill-template</code> installed</div>
+<div>&#x2022; <code class="text-gray-300">make-skill-template</code> structure understood</div>
 <div>&#x2022; Future skills scaffold from proven template</div>
 </div>
 </div>
