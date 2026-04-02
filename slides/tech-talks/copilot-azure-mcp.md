@@ -12,7 +12,7 @@ transition: slide-left
 title: GitHub Copilot CLI + Azure MCP
 module: tech-talks/copilot-azure-mcp
 status: active
-updated: 2026-03-17
+updated: 2026-04-01
 mdc: true
 ---
 
