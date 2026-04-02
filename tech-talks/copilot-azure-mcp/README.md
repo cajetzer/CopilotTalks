@@ -1,6 +1,6 @@
 ---
 status: active
-updated: 2026-03-17
+updated: 2026-04-01
 section: "Copilot Tools"
 references:
   - url: https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices
@@ -218,17 +218,17 @@ Found 4 storage accounts:
    - SKU: Standard_GRS
    - Created: 2025-08-12
    - Public access: Disabled
-   
+
 2. **stagingdata001** (West US 2)
    - SKU: Standard_LRS
    - Created: 2025-11-03
    - Public access: Enabled (blob only)
-   
+
 3. **devlogs** (East US 2)
    - SKU: Standard_LRS
    - Created: 2026-01-15
    - Public access: Disabled
-   
+
 4. **backuparchive** (Central US)
    - SKU: Standard_RAGRS
    - Created: 2024-03-20
@@ -267,14 +267,14 @@ Found 2 Cosmos DB accounts:
 - **Virtual Network Rules:**
   - prod-vnet/app-subnet (East US)
   - prod-vnet/db-subnet (East US)
-  
+
 - **Firewall Rules:**
   - Allow: 203.0.113.0/24 (office IP range)
   - Allow: 198.51.100.50 (CI/CD agent)
-  
+
 - **Private Endpoints:**
   - prod-storage-pe01 → prod-vnet/private-subnet
-  
+
 - **Public Network Access:** Disabled
 - **Minimum TLS Version:** 1.2
 - **Shared Key Access:** Enabled
@@ -383,9 +383,9 @@ I'll help plan this deployment. A few questions to validate the approach:
 
 Validated against current subscription:
 
-✅ **East US capacity:** Available for Standard S2 App Service Plan  
-✅ **prod-vnet/payments-subnet exists:** 10.0.3.0/24, currently empty  
-✅ **Azure SQL quota:** 8 of 20 databases used, can create new  
+✅ **East US capacity:** Available for Standard S2 App Service Plan
+✅ **prod-vnet/payments-subnet exists:** 10.0.3.0/24, currently empty
+✅ **Azure SQL quota:** 8 of 20 databases used, can create new
 ⚠️ **Firewall rule:** payments-subnet (10.0.3.0/24) not currently in SQL firewall allowlist — will add
 
 **Proposed Architecture:**
@@ -394,7 +394,7 @@ Validated against current subscription:
 App Service Plan: payments-asp-001 (S2, East US, autoscale 2-5)
  └─ App Service: payments-api
      └─ VNet Integration: prod-vnet/payments-subnet
- 
+
 Azure SQL Server: prod-sqlserver-eastus (existing)
  └─ New Database: payments-db (Standard S1)
      └─ Firewall: Allow prod-vnet/payments-subnet
@@ -536,7 +536,7 @@ az deployment group create \
 3. **Proposed architecture was validated pre-deployment** — subnet firewall gap identified before it caused a deployment failure
 4. **Generated Bicep matched production conventions** — TLS 1.2, FTPS disabled, autoscale rules consistent with existing services
 
-**Traditional workflow:** 45 minutes (portal discovery + config guesswork + 2-3 failed deployments)  
+**Traditional workflow:** 45 minutes (portal discovery + config guesswork + 2-3 failed deployments)
 **With Plan Mode + Azure MCP:** 8 minutes (conversational planning + one successful deployment)
 ```
 
@@ -770,7 +770,7 @@ Update `~/.copilot/mcp-servers.json`:
 
 Expected error:
 ```
-Error: Insufficient permissions. The service principal 'copilot-mcp-readonly' 
+Error: Insufficient permissions. The service principal 'copilot-mcp-readonly'
 has 'Reader' role and cannot perform write operations.
 ```
 
@@ -948,8 +948,8 @@ copilot --mcp azure-mcp-production
 ```bash
 copilot --mcp azure-mcp-dev
 
-> I have a Bicep file for a new Azure Function (order-processor-func) that 
-  consumes from the existing orders-eventhub Event Hub. Can you validate 
+> I have a Bicep file for a new Azure Function (order-processor-func) that
+  consumes from the existing orders-eventhub Event Hub. Can you validate
   the configuration against current resources?
 
 # AI reads the Bicep file (via @filepath reference), extracts key config:
@@ -959,11 +959,11 @@ copilot --mcp azure-mcp-dev
 
 # AI queries live resources:
 
-✅ **VNet validation:** prod-vnet/functions-subnet exists (10.0.5.0/24), 
+✅ **VNet validation:** prod-vnet/functions-subnet exists (10.0.5.0/24),
    currently has 12 IPs allocated, 243 available
 
-⚠️ **Event Hub validation:** orders-eventhub has 8 partitions. 
-   Your Bicep specifies 4 consumer instances — this will leave 4 partitions 
+⚠️ **Event Hub validation:** orders-eventhub has 8 partitions.
+   Your Bicep specifies 4 consumer instances — this will leave 4 partitions
    idle unless you implement partition distribution logic.
 
 ❌ **Function Plan validation:** functions-plan-001 is consumption tier.
@@ -1042,7 +1042,7 @@ Would you like me to update the Bicep file with these fixes?
 5. **Scaffold infrastructure from live templates**
    ```bash
    copilot --mcp azure-mcp-dev
-   > Based on the production storage account config, create a Bicep file 
+   > Based on the production storage account config, create a Bicep file
      for a similar dev storage account with Standard_LRS SKU
    ```
 
@@ -1062,7 +1062,7 @@ Would you like me to update the Bicep file with these fixes?
    - Example:
      ```markdown
      ## Azure Infrastructure Conventions
-     
+
      - All resource names use kebab-case: `app-service-name`
      - All resources must have tags: `environment`, `cost-center`, `owner`
      - App Services require VNet integration with prod-vnet or dev-vnet
@@ -1112,26 +1112,26 @@ Would you like me to update the Bicep file with these fixes?
 
 ### Official Documentation
 
-[^1]: **[Get started with Azure MCP Server](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started)** — Installation, authentication, and first queries  
-[^2]: **[Azure MCP Server Documentation](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/)** — Service coverage, API reference, configuration options  
-[^3]: **[Introducing the Azure MCP Server](https://devblogs.microsoft.com/azure-sdk/introducing-the-azure-mcp-server/)** — Launch announcement, use cases, and design rationale  
-[^4]: **[Azure MCP Server GitHub Repository](https://github.com/Azure/azure-mcp)** — Source code, examples, community contributions  
-[^5]: **[Model Context Protocol Specification](https://spec.modelcontextprotocol.io/)** — MCP standard, tool discovery, and client-server architecture  
+[^1]: **[Get started with Azure MCP Server](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started)** — Installation, authentication, and first queries
+[^2]: **[Azure MCP Server Documentation](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/)** — Service coverage, API reference, configuration options
+[^3]: **[Introducing the Azure MCP Server](https://devblogs.microsoft.com/azure-sdk/introducing-the-azure-mcp-server/)** — Launch announcement, use cases, and design rationale
+[^4]: **[Azure MCP Server GitHub Repository](https://github.com/Azure/azure-mcp)** — Source code, examples, community contributions
+[^5]: **[Model Context Protocol Specification](https://spec.modelcontextprotocol.io/)** — MCP standard, tool discovery, and client-server architecture
 
 ### Copilot CLI Integration
 
-[^6]: **[Best practices for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices)** — Custom instructions, permissions, MCP integration  
-[^7]: **[Add an MCP server to Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server)** — Connection configuration and verification  
-[^8]: **[Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)** — Interactive mode, Plan Mode, cloud delegation  
+[^6]: **[Best practices for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices)** — Custom instructions, permissions, MCP integration
+[^7]: **[Add an MCP server to Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server)** — Connection configuration and verification
+[^8]: **[Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)** — Interactive mode, Plan Mode, cloud delegation
 
 ### Deployment and Security
 
-[^9]: **[Azure MCP Server - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server)** — VS Code extension setup and usage  
-[^10]: **[Azure MCP Server - MCP Registry](https://mcpservers.org/servers/github-com-microsoft-mcp)** — Complete service list and capability matrix  
+[^9]: **[Azure MCP Server - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server)** — VS Code extension setup and usage
+[^10]: **[Azure MCP Server - MCP Registry](https://mcpservers.org/servers/github-com-microsoft-mcp)** — Complete service list and capability matrix
 
 ### Community Resources
 
-[^11]: **[How to Use Azure DevOps MCP Server with GitHub Copilot](https://dev.to/devbyrayray/how-to-use-azure-devops-mcp-server-with-github-copilot-in-vs-code-complete-setup-guide-3ala)** — Step-by-step DevOps integration guide  
+[^11]: **[How to Use Azure DevOps MCP Server with GitHub Copilot](https://dev.to/devbyrayray/how-to-use-azure-devops-mcp-server-with-github-copilot-in-vs-code-complete-setup-guide-3ala)** — Step-by-step DevOps integration guide
 [^12]: **[Building an MCP Server with Azure Functions](https://ajtech.nl/blog/create-your-own-mcp-server/)** — Extending GitHub Copilot with custom Azure tools
 
 ---
