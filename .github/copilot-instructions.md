@@ -255,6 +255,25 @@ Before submitting content, verify:
 
 ---
 
+## MemPalace — Project Memory
+
+MemPalace is the project-level semantic memory store for CopilotTraining authoring decisions, patterns, and cross-references. It is **separate from Copilot Memory** (personal/cross-project).
+
+**Cardinal rule: MemPalace suggests; repo files confirm.**
+
+- **Query** after pre-flight gates complete, before content generation
+- **Write** at session END after content work is saved and verified
+- **Never** query during pre-flight — live repo files take precedence there
+- **Never** front-load sessions with palace dumps (search-on-demand only)
+
+For full usage patterns, timing gates, wing/hall reference, and the content-change → update protocol, use the `mempalace` skill:
+
+```
+@mempalace
+```
+
+---
+
 ## Agent Invocation Guidelines
 
 When calling subagents (via `runSubagent`), keep prompts minimal:

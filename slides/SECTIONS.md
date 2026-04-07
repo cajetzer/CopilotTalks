@@ -1,12 +1,16 @@
 # Slide Index Sections
 
-> **Single source of truth** for the section/sub-group taxonomy used in:
-> - `slides/index-custom.html` (rendered HTML structure)
+> **AUTHORITATIVE SOURCE:** `slides/index-custom.html` is the source of truth for what talks exist and their sections.
+> This file describes what's currently deployed in the HTML.
+>
+> Used by:
 > - `.github/agents/slide-generator.agent.md` (card placement logic)
 > - `.github/copilot-instructions.md` (valid `section:` frontmatter values)
 >
-> **To rename or add a section:** edit this file, then update `index-custom.html` to match.
-> Agents read this file at runtime — they will pick up changes automatically.
+> **To add/remove/deprecate a section:**
+> 1. Edit `slides/index-custom.html` (add/remove `<div class="sub-group">` or `<a class="card">` elements)
+> 2. Then update this file to match what's deployed
+> 3. Agents read this file at runtime — they pick up the reference
 
 ---
 
@@ -26,10 +30,10 @@ Top-level container class: `section tech-talks`
 
 | Section Name | Icon | Slug | Tagline | Contents |
 |---|---|---|---|---|
-| `Copilot Tools` | 💬 | `copilot-tools` | Where you interact with Copilot every day | Chat Internals, CLI, Code Review, Web, What's New in VS Code |
+| `Copilot Tools` | 💬 | `copilot-tools` | Where you interact with Copilot every day | Chat Internals, CLI, CLI + Azure MCP, Code Review, Web, What's New in VS Code |
 | `Customization & Context` | 🧩 | `customization-context` | Making it yours — instructions, skills, and integrations | Primitives, Hooks, Memory, SDK, MCP Apps |
-| `Agent Architecture` | 🤖 | `agent-architecture` | Patterns for composing and orchestrating multi-agent systems | Building Agent Systems (merged: Subagents + Agent Teams + Background Agents + AgentCouncil), ACP |
-| `Agentic SDLC` | 🚀 | `agentic-sdlc` | Transforming the full software delivery lifecycle with AI agents | Agentic Workflows, Journey, SDLC, Enterprise Patterns |
+| `Agent Architecture` | 🤖 | `agent-architecture` | Patterns for composing and orchestrating multi-agent systems | Agent Teams, ACP, ~~Multi-Step Tasks~~ (merged), ~~Parallel Execution~~ (merged) |
+| `Agentic SDLC` | 🚀 | `agentic-sdlc` | Transforming the full software delivery lifecycle with AI agents | Workflows, Journey, SDLC, Enterprise Patterns |
 
 ---
 
@@ -57,6 +61,19 @@ Top-level container class: `section workshop`
 
 ---
 
+## Card Lifecycle
+
+Cards in `index-custom.html` can have multiple states:
+
+| State | Badge | Meaning | Example |
+|---|---|---|---|
+| **Active** | none | Current, in production, recommended | Copilot CLI, Agent Teams |
+| **Deprecated** | `<span class="badge-deprecated">Merged</span>` | Superseded by another talk; content archived into that talk | Multi-Step Tasks (merged into Agent Teams) |
+
+Deprecated cards remain in the HTML for link preservation and historical records, but are visually muted (opacity 0.45, grayscale filter) and non-clickable.
+
+---
+
 ## index-custom.html Structure Reference
 
 ```
@@ -80,10 +97,11 @@ Top-level container class: `section workshop`
 
 ## Changing Sections
 
-When you rename, add, or remove a section:
+When you add, rename, or deprecate a section:
 
-1. **Edit this file** — update the table above
-2. **Edit `slides/index-custom.html`** — update the corresponding `sub-group-label` span text and icon; add/remove `<div class="sub-group">` blocks as needed
-3. **Agents pick up the change automatically** — they read this file before placing cards
+1. **Edit `slides/index-custom.html`** — add/remove `<div class="sub-group">` blocks or `<a class="card">` elements
+2. **Then update this file** — keep the table in sync with what's actually deployed
+3. **Agents pick up the change automatically** — they read this file at runtime
 
-> The `section:` field in README frontmatter must exactly match the **Section Name** column above (case-sensitive).
+> **Key rule:** The `section:` field in README frontmatter must exactly match a **Section Name** in the table above (case-sensitive).
+> If a README has `section: "Copilot Tools"`, it's placed in the `copilot-tools` sub-group.

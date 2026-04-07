@@ -53,18 +53,25 @@
 
 ## Palace Architecture
 
-### Wings — Aligned to SECTIONS.md Taxonomy (NOT directories)
+### Wings — Mapped to index-custom.html (Authoritative Source)
 
-| Wing | Aligns To | Contents |
-|------|-----------|----------|
-| `wing_copilot_tools` | SECTIONS.md: Copilot Tools | Chat, CLI, Code Review, Web, VS Code |
+**Content wings** map 1:1 to deployed sections in `index-custom.html`:
+
+| Wing | Section | Active Talks |
+|------|---------|-------------|
+| `wing_copilot_tools` | Copilot Tools | Chat Internals, CLI, CLI + Azure MCP, Code Review, Web, What's New in VS Code |
 | `wing_customization_context` | Customization & Context | Primitives, Hooks, Memory, SDK, MCP Apps |
-| `wing_agent_architecture` | Agent Architecture | Agent systems, ACP, multi-agent |
-| `wing_agentic_sdlc` | Agentic SDLC | Workflows, Journey, Enterprise Patterns |
-| `wing_exec_talks` | Executive Talks | Strategic framing, governance, industry parallels |
-| `wing_workshop` | Workshop | Module rationale, exercise lineage, persona arc decisions |
-| `wing_infra` | *(new)* | Agent/skill patterns, Slidev build patterns, deck.recipe.yml conventions |
-| `wing_rmathis` | *(personal)* | Author taste, framing philosophy, editorial voice rules |
+| `wing_agent_architecture` | Agent Architecture | Agent Teams, ACP *(+ deprecated: Multi-Step Tasks, Parallel Execution)* |
+| `wing_agentic_sdlc` | Agentic SDLC | Workflows, Journey, SDLC, Enterprise Patterns |
+| `wing_exec_talks` | Executive Talks | Agentic Delivery, Agentic Economics, Agentic Labor |
+| `wing_workshop` | Workshop | Orientation, Instructions, Agent Plan Mode, Prompts-to-Skills, MCP Servers, Custom Agents |
+
+**Authoring/infrastructure wings** (cross-cutting, not tied to sections):
+
+| Wing | Purpose |
+|-----|---------|
+| `wing_infra` | Slidev build patterns, frontmatter conventions, deck.recipe.yml, archived talk rationale |
+| `wing_rmathis` | Author editorial voice, framing philosophy, tone decisions |
 
 **No `wing_slides`** — slides are derivative artifacts; their patterns belong in `wing_infra`.
 
@@ -98,8 +105,9 @@
 
 | Phase | Source | Mode | Notes |
 |-------|--------|------|-------|
-| 1 | `/docs/agents/*-FULL.md` + `/docs/*-SKILL.md` | projects | **Mine full docs, NOT `.github/` stubs** |
+| 1 | `/docs/agents/*-FULL.md` + `/docs/*-SKILL.md` | projects | Mine full docs, NOT `.github/` stubs |
 | 1 | `.github/copilot-instructions.md` | projects | Voice rules, taxonomy, emoji vocab |
+| 1 | `workshop/00-orientation/PERSONAS.md` | projects | **VOICE AUTHORITY** — 6 persona archetypes, voice/tone per persona |
 | 1 | Workshop READMEs (7 active modules, archive excluded) | projects | Persona arcs, exercise designs |
 | 1 | Tech-talk READMEs (13 active talks only) | projects | Opportunity framings, talk structures |
 | 1 | `tech-talks/*/deck.recipe.yml` (6 files) | projects | Per-talk slide adaptation rationale |
@@ -159,18 +167,27 @@ Diary writes happen at session **END** only — never before pre-flight.
 ---
 
 ## Wild Ideas Worth Pursuing
-
-### 1. `copilot-instructions.md` as Build Artifact
-Generate `.github/copilot-instructions.md` FROM the palace (extract voice rules + Slidev build rules + persona taxonomy → compile). Instructions become living, evolving documents. The 30K limit becomes irrelevant because you're generating the *most relevant* 30K from a larger knowledge base.
-
+o
 ### 2. Companion `.aaak` Files
 Place `.aaak` files alongside key READMEs — same info, ~30x smaller, regenerated weekly. Agents check `.aaak` first for orientation, fall back to full README only when needed.
 
-### 3. Coherence Tracking via Knowledge Graph
-Nodes = content artifacts, edges = relationships. Monthly coherence score. Drift detection: "Module 05 says stdio transport; mcp-apps talk says SSE — which is current?"
+### 3. Cross-Reference Table (replaces Knowledge Graph)
 
-### 4. Cross-Wing Tunnels as Dependency Graph
-Auto-detect content covering the same ground across wings. "wing_workshop/05-mcp-servers ↔ wing_customization_context/mcp-apps — both cover MCP setup. Last sync check: never."
+A lightweight `hall_facts` entry in MemPalace listing topics that appear in multiple content artifacts:
+
+```
+hall_facts: "Topics covered in multiple places (check for drift when updating either):"
+  - MCP transport: 05-mcp-servers (2026-02-15), mcp-apps (2026-03-01)
+  - Instructions files: 01-instructions (2026-01-20), copilot-primitives (2026-03-23)
+  - Agent sessions: vscode-latest (2026-03-05), 06-custom-agents (2026-02-10)
+  - Memory layers: copilot-memory (2026-02-01), 05-mcp-servers (2026-02-15)
+```
+
+**How to use:** When you update one artifact, query the table — *"what else covers this topic?"* — then manually verify alignment. On-demand, not automated. Cross-wing entries (e.g., `wing_workshop` ↔ `wing_customization_context`) are especially valuable since those pairs are easiest to forget.
+
+**Why not the knowledge graph:** Edge declarations require manual maintenance nobody will sustain. False positives (intentional differences between local/prod configs) create noise. The cross-reference table gets 80% of the value at 5% of the complexity.
+
+**Populate:** 30 minutes once during Phase 1 mining. Update when new talks/modules are added.
 
 ---
 
