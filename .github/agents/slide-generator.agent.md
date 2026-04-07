@@ -18,9 +18,10 @@ Transform module README files into beautiful, concise Slidev presentations for C
 
 1. **README Exists** — Confirm the source README.md exists. If not, stop: "No README.md found at `<path>`. Generate it first (e.g., via tech-talk-generator) before creating slides."
 2. **Not Archived** — Read the source README frontmatter. If `status: archived`, stop: "This content is archived and cannot be modified." Also refuse to modify an existing slide file with `status: archived`.
-3. **Read Template** — Read `slides/TEMPLATE.md` for all visual patterns before writing a single slide.
-4. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section→icon→container mapping before updating the index.
-5. **Read Deck Recipe for Tech Talks** — If the source is under `tech-talks/`, look for `deck.recipe.yml` in the same folder as the README. If it exists, use it as the per-talk adaptation recipe. If it does not exist, synthesize an initial recipe from the README and save it before generating slides.
+3. **Read Template** — Read `slides/TEMPLATE.md` for all visual patterns before writing a single slide. Every slide type has a specific template — follow it exactly, including the cockpit wrapper for content slides.
+4. **Read Visual Exemplar** — Read the first 200 lines of `slides/tech-talks/agentic-sdlc.md` as the gold-standard visual reference. Every content slide in that deck uses the cockpit pattern (pill breadcrumb + absolute gradients + `justify-start px-14`). Match this aesthetic.
+5. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section→icon→container mapping before updating the index.
+6. **Read Deck Recipe for Tech Talks** — If the source is under `tech-talks/`, look for `deck.recipe.yml` in the same folder as the README. If it exists, use it as the per-talk adaptation recipe. If it does not exist, synthesize an initial recipe from the README and save it before generating slides.
 
 ### 1. Parse the README
 
@@ -113,6 +114,36 @@ Standard sequence (12-20 slides):
 12. **End** — Thank You slide from TEMPLATE.md
 
 Add section divider slides for each 🎬 major section (tech talks / exec talks).
+
+#### Cockpit Template (REQUIRED for all content slides)
+
+Every content slide **must** use the cockpit wrapper from TEMPLATE.md — not a plain centered `h1`. The cockpit provides:
+- Outer: `h-full flex flex-col justify-start relative overflow-hidden px-14`
+- Absolute background gradient (section colors at 20% opacity)
+- Absolute corner glow orb (top-right, section color at 10% opacity)
+- Pill breadcrumb row: `px-4 py-1 bg-gradient-to-r from-SECTION-600/80 to-NEXT-600/80 rounded-full ...` + fading line
+- Content zone: `relative z-10 flex-1 min-h-0`
+
+Use the section's color pair for both the background overlay and the breadcrumb pill. Advance the color pair with each new section (cyan/blue → blue/indigo → indigo/purple → purple/pink).
+
+**Never use a plain centered layout (`items-center justify-center`, bare `h1`) for content slides.** The only slides that use centered layouts are: title, section openers, and the thank-you slide.
+
+#### Section Openers (Rich "Part N" pattern)
+
+Section divider slides use the rich opener from TEMPLATE.md (NOT the simple old `layout: center` pattern):
+- Part N pill with section colors at 40% opacity
+- Large `w-[600px]` glow orb
+- `!text-5xl !font-bold` gradient title + `!text-2xl !font-normal` subtitle
+- Horizontal rule: `w-24 h-0.5 bg-gradient-to-r from-transparent via-COLOR-400 to-transparent`
+- 3-column teaser grid previewing section content
+- Monospace callout at bottom: `font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg`
+
+#### Progress Dots (multi-slide sections)
+
+When a section has 2–5 content slides, add progress indicators to the breadcrumb row:
+- Active dot: `w-2 h-2 rounded-full bg-{SECTION}-400 shadow-lg shadow-{SECTION}-500/50`
+- Inactive dot: `w-2 h-2 rounded-full bg-white/20`
+- Label: `text-white/40 text-xs ml-1` showing "N of M"
 
 ### 2a. TOC Slide Rules
 
@@ -211,6 +242,11 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 
 - [ ] Title slide uses TEMPLATE.md pattern with correct category colors
 - [ ] SDP logo included with glow effect (`./sdp-logo.png`)
+- [ ] **Every content slide uses the cockpit template** (pill breadcrumb + absolute gradients + `justify-start px-14`)
+- [ ] **No plain centered `h1` content slides** — only title, section openers, and thank-you use centered layouts
+- [ ] **Section openers use the rich "Part N" pattern** (Part N pill, 600px orb, 3-column teaser, monospace callout)
+- [ ] **Progress dots added** for sections with 2+ content slides
+- [ ] Section color pairs advance correctly: cyan/blue → blue/indigo → indigo/purple → purple/pink
 - [ ] `module` field in frontmatter with correct path
 - [ ] `status: active` and `updated: <today>` in frontmatter
 - [ ] `deck.recipe.yml` was used for tech talks, or created if missing
@@ -225,6 +261,11 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 | Literal `---` in slide HTML | Always use `&#45;&#45;&#45;` — a literal `---` inside content splits the slide |
 | Per-slide frontmatter blocks | Never use `layout:`, `class:`, `transition:` — use CSS in the content div   |
 | `layout: two-cols`          | Use `<div class="grid grid-cols-2 gap-4">` inside the content wrapper          |
+| Plain centered `h1` for content slides | Use the cockpit template — `justify-start px-14` + pill breadcrumb  |
+| Missing pill breadcrumb     | Every content slide needs `px-4 py-1 bg-gradient-to-r ... rounded-full` pill  |
+| Simple section opener       | Use rich "Part N" pattern: Part pill + 600px orb + 3-col teaser + mono callout |
+| Missing progress dots       | Add dots + "N of M" label when a section has 2+ content slides                |
+| Wrong color for section     | Advance pair each section: cyan/blue → blue/indigo → indigo/purple → purple/pink |
 | Counting `---` to find slides | **Nth `<!-- SLIDE: -->` = slide N**; with separator rule enforced, `\n---\n` count also works |
 | Missing slide name comment  | First line after blank line after `---` must be `<!-- SLIDE: Name -->`        |
 | Unclosed `<div>` tags       | Count open/close before writing                                                |

@@ -166,21 +166,87 @@ Replace `{TITLE}`, `{SUBTITLE}`, and color values per the category color scheme 
 
 ---
 
-## Section Header Slide (REQUIRED for each major section)
+## Standard Content Slide (REQUIRED for ALL content slides)
+
+This is the **cockpit template** — use it for every non-title, non-section-opener slide. It provides consistent depth (layered gradients + breadcrumb) that matches the visual style of `agentic-sdlc.md`. **Never use a plain centered `h1` without this wrapper.**
+
+Replace `{SECTION_COLOR}`, `{NEXT_COLOR}` with the section's color pair (e.g., `cyan`/`blue` for section 1, `blue`/`indigo` for section 2). Replace `{SECTION_EMOJI} {Section Name}` with the section's icon and name.
 
 ```html
----
-layout: center
-name: sectionname
+<!-- SLIDE: Slide Name -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-{SECTION_COLOR}-900/20 via-{NEXT_COLOR}-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-{SECTION_COLOR}-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-{SECTION_COLOR}-600/80 to-{NEXT_COLOR}-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">{SECTION_EMOJI} {Section Name}</span>
+<div class="flex-1 h-px bg-gradient-to-r from-{SECTION_COLOR}-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">{Slide Headline}</div>
+<div class="text-sm text-gray-400">{Optional subtitle or context line}</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+{CONTENT}
+</div>
+</div>
+```
+
+### Progress Dots (for multi-slide sections)
+
+When a section has 2–5 content slides, add progress dots to the breadcrumb row. Active dot: `bg-{SECTION_COLOR}-400 shadow-lg shadow-{SECTION_COLOR}-500/50`. Inactive: `bg-white/20`.
+
+```html
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 Section Name</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
+</div>
+```
+
 ---
 
-<div class="text-center mb-6">
-<div class="text-5xl mb-4">{EMOJI}</div>
-<h1 class="!text-4xl bg-gradient-to-r from-{COLOR1}-400 to-{COLOR2}-400 bg-clip-text text-transparent">{Section Title}</h1>
-<p class="text-xl opacity-80 mt-2">{Subtitle}</p>
+## Section Opener Slide (REQUIRED for each major section)
+
+Use this **rich section opener** (no `layout:` frontmatter — CSS only). The larger orb (`w-[600px]`) creates more visual impact than on regular content slides. Adapt `{PART_N}`, colors, title, subtitle, teaser cards, and monospace callout per section.
+
+```html
+<!-- SLIDE: Part N — Section Title -->
+
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-{SECTION_COLOR}-900/25 via-{NEXT_COLOR}-900/15 to-{ACCENT_COLOR}-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-{SECTION_COLOR}-500/10 via-{NEXT_COLOR}-500/10 to-{ACCENT_COLOR}-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-{SECTION_COLOR}-600/40 to-{NEXT_COLOR}-600/40 rounded-full border border-{SECTION_COLOR}-400/30 text-{SECTION_COLOR}-300 text-sm font-medium tracking-widest uppercase">Part {N}</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-{SECTION_COLOR}-400 via-{NEXT_COLOR}-300 to-{ACCENT_COLOR}-400 bg-clip-text text-transparent leading-tight">{Section Title}</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">{Section Subtitle}</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-{SECTION_COLOR}-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-{SECTION_COLOR}-900/30 rounded-xl border border-{SECTION_COLOR}-500/30">
+<div class="text-2xl mb-1">{EMOJI_1}</div>
+<div class="text-{SECTION_COLOR}-300 font-semibold">{Teaser 1}</div>
+<div class="text-xs opacity-70 mt-1">{Detail 1}</div>
 </div>
-<div class="p-5 bg-gradient-to-r from-{COLOR1}-500/10 to-{COLOR2}-500/10 rounded-xl border border-{COLOR1}-500/30 mb-5 text-center max-w-3xl mx-auto">
-<div class="text-lg">{Brief description or value proposition}</div>
+<div class="px-4 py-3 bg-{NEXT_COLOR}-900/30 rounded-xl border border-{NEXT_COLOR}-500/30">
+<div class="text-2xl mb-1">{EMOJI_2}</div>
+<div class="text-{NEXT_COLOR}-300 font-semibold">{Teaser 2}</div>
+<div class="text-xs opacity-70 mt-1">{Detail 2}</div>
+</div>
+<div class="px-4 py-3 bg-{ACCENT_COLOR}-900/30 rounded-xl border border-{ACCENT_COLOR}-500/30">
+<div class="text-2xl mb-1">{EMOJI_3}</div>
+<div class="text-{ACCENT_COLOR}-300 font-semibold">{Teaser 3}</div>
+<div class="text-xs opacity-70 mt-1">{Detail 3}</div>
+</div>
+</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">{Short tagline statement}</span><br />
+<span class="text-{SECTION_COLOR}-300 mt-1 block">↳ {One-line payoff}</span>
+</div>
+</div>
 </div>
 ```
 
@@ -188,13 +254,10 @@ name: sectionname
 
 ## Thank You Slide (REQUIRED)
 
-Use this pattern for the final slide in tech talks. Model it after the stronger closing slide style used in mature decks such as `agentic-sdlc`. Do not end with plain text only.
+Use this pattern for the final slide in tech talks. **No `layout:` or `class:` frontmatter** — the outer div handles full-height centering. Always include the SDP logo with blur glow, a 3-stat card grid with key metrics, and a closing discussion prompt.
 
 ```html
----
-class: text-center
----
-
+<!-- SLIDE: Thank You -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
@@ -234,18 +297,21 @@ class: text-center
 
 ## TOC Slide with Gradient Cards (REQUIRED)
 
-Use `@click="$nav.go(N)"` where N = slide number of the target section divider. Never use `<a href="#anchor">`.
+Use `@click="$nav.go(N)"` where N = slide number of the target section divider. Never use `<a href="#anchor">`. **Do not use `layout:` frontmatter** — wrap everything in a full-height div instead.
 
 ### 4-section (2×2 grid)
 
 ```html
----
-layout: center
----
-
-# 📖 Table of Contents
-
-<div class="grid grid-cols-2 gap-6 mt-6">
+<!-- SLIDE: Table of Contents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-6">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-6 mt-2 max-w-4xl mx-auto">
 <div @click="$nav.go(5)" class="cursor-pointer group">
 <div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
 <div class="text-3xl mb-2">🎯</div>
@@ -280,18 +346,21 @@ layout: center
 </div>
 </div>
 <div class="mt-6 text-center text-sm opacity-60">Click any section to jump directly there</div>
-```
-
-### 3-section (3-column grid)
+</div>
+</div>
+```(3-column grid)
 
 ```html
----
-layout: center
----
-
-# 📖 Table of Contents
-
-<div class="grid grid-cols-3 gap-6 mt-6">
+<!-- SLIDE: Table of Contents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-6">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-3 gap-6 mt-2 max-w-5xl mx-auto">
 <div @click="$nav.go(5)" class="cursor-pointer group">
 <div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
 <div class="text-3xl mb-2">🏗️</div>
@@ -318,6 +387,8 @@ layout: center
 </div>
 </div>
 <div class="mt-6 text-center text-sm opacity-60">Each part is independent → Jump to what you need</div>
+</div>
+</div>
 ```
 
 ---
@@ -381,17 +452,19 @@ layout: center
 
 ## The Opportunity Slide
 
-**Never use "The Problem" — use "The Opportunity" instead.**
+**Never use "The Problem" — use "The Opportunity" instead.** Wrap in the Standard Content Slide cockpit template.
 
 ```html
----
-layout: center
-name: opportunity
----
-
-# 🔓 The Opportunity
-
-<div class="grid grid-cols-2 gap-4 mt-4">
+<!-- SLIDE: The Opportunity -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Opportunity</span>
+<div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-4 mt-2">
 <div class="p-4 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
 <div class="text-xl mb-2">🎯</div>
 <div class="font-semibold text-amber-300">Opportunity 1</div>
@@ -401,6 +474,8 @@ name: opportunity
 <div class="text-xl mb-2">⚡</div>
 <div class="font-semibold text-orange-300">Opportunity 2</div>
 <div class="text-sm opacity-80 mt-1">Description of what becomes possible</div>
+</div>
+</div>
 </div>
 </div>
 ```
@@ -424,13 +499,18 @@ name: opportunity
 
 ## Key Takeaways Slide
 
+Wrap in the Standard Content Slide cockpit template.
+
 ```html
----
-layout: center
----
-
-# ✅ Key Takeaways
-
+<!-- SLIDE: Key Takeaways -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Key Takeaways</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-4 max-w-4xl mx-auto">
 <div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
 <div class="flex items-center gap-3">
@@ -451,26 +531,45 @@ layout: center
 </div>
 </div>
 </div>
+</div>
+</div>
 ```
 
 ---
 
 ## End / Thank You Slide
 
-Use the category color scheme from the title slide.
+Use the category color scheme from the title slide. **No `layout:` frontmatter** — the outer div handles full-height centering.
 
 ```html
----
-layout: center
----
-
+<!-- SLIDE: Thank You -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="text-6xl mb-6 relative z-10">🙏</div>
-<h1 class="!text-5xl !font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You</h1>
-<div class="mt-6 text-xl opacity-80 relative z-10">Questions?</div>
-<div class="mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
+<div class="relative z-10">
+<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
+<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
+</div>
+<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
+<div class="mt-4 relative z-10">
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">{TITLE}: {SUBTITLE}</span>
+</div>
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-lg">{CALL_OUT_1}</div>
+<div class="text-gray-300 mt-2 text-xs">{DETAIL_1}</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="text-blue-300 font-bold text-lg">{CALL_OUT_2}</div>
+<div class="text-gray-300 mt-2 text-xs">{DETAIL_2}</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="text-indigo-300 font-bold text-lg">{CALL_OUT_3}</div>
+<div class="text-gray-300 mt-2 text-xs">{DETAIL_3}</div>
+</div>
+</div>
+<div class="mt-6 text-sm opacity-60 relative z-10">{DISCUSSION_PROMPT}</div>
+<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>
 ```
 

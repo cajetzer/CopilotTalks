@@ -1,0 +1,39 @@
+version: 1
+
+source: tech-talks/copilot-web/README.md
+
+deck:
+  title: "From Issue to Pull Request"
+  subtitle: "GitHub Copilot's Coding Agent in Practice"
+  tagline: "What if filing an issue was the same as fixing it?"
+
+  intro:
+    mode: core-question
+
+  toc:
+    enabled: true
+
+  sectionOrder:
+    - Delegation Loop
+    - Writing Issues
+    - Trust and Configuration
+    - Review Workflow
+
+  sectionModes:
+    Delegation Loop: deep-dive
+    Writing Issues: deep-dive
+    Trust and Configuration: deep-dive
+    Review Workflow: balanced
+
+  highlightMoments:
+    - "The assigner cannot approve their own agent PR — separation of duties is enforced by GitHub"
+    - "Setup steps run before firewall enforcement — dependency installs are unrestricted"
+    - "12 minutes total human time: file issue, review draft PR, approve follow-up commit"
+
+  references:
+    enabled: true
+    mode: compact
+
+  thankYou:
+    enabled: true
+    variant: discussion
