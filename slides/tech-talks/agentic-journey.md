@@ -510,7 +510,7 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 
 ---
 
-<!-- SLIDE: Coding Metrics -->
+<!-- SLIDE: The Copilot Coding Agent -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
@@ -519,8 +519,143 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">1 of 1</span>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-0.5">The Copilot Coding Agent: You Already Have This</div>
+<div class="text-xs text-white/50">Phase 3 connects your approved plan directly to GitHub Copilot's SWE agent</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30 mb-3">
+<div class="text-sm font-bold text-indigo-300 mb-3">What the Copilot Coding Agent Does</div>
+<div class="grid grid-cols-3 gap-3 text-xs text-gray-300">
+<div class="p-3 bg-indigo-900/30 rounded-lg border border-indigo-500/20">
+<div class="text-indigo-300 font-semibold mb-1">📋 Reads the Plan</div>
+<div class="opacity-80">Takes the approved execution plan from Phase 2 as its implementation spec</div>
+</div>
+<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/20">
+<div class="text-purple-300 font-semibold mb-1">⚡ Writes the Code</div>
+<div class="opacity-80">Implements across multiple files, follows existing patterns, writes tests</div>
+</div>
+<div class="p-3 bg-pink-900/30 rounded-lg border border-pink-500/20">
+<div class="text-pink-300 font-semibold mb-1">🔄 Opens a PR</div>
+<div class="opacity-80">Commits, pushes, creates PR with evidence bundle — ready for review</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
+<div class="text-sm font-bold text-green-300 mb-2">✅ The Good News</div>
+<div class="text-xs text-gray-300 space-y-1.5">
+<div>• <strong>Already available</strong> in your GitHub org</div>
+<div>• No new model to train or configure</div>
+<div>• Works on any issue — just assign it</div>
+<div>• Phase 3 adds the <em>structure</em> you're missing</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/20 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-bold text-indigo-300 mb-2">🎯 What Phase 3 Adds</div>
+<div class="text-xs text-gray-300 space-y-1.5">
+<div>• Trigger only from <strong>approved plans</strong></div>
+<div>• Injects plan context into the agent prompt</div>
+<div>• Enforces quality guidelines automatically</div>
+<div>• Labels PR for downstream review workflow</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Assigning the Copilot Agent -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💻 Agentic Coding</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-0.5">Two Ways to Assign: Manual & Automated</div>
+<div class="text-xs text-white/50">Start with manual to build confidence, then automate the trigger</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-4 mb-3">
+<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-xl border border-blue-500/30">
+<div class="text-sm font-bold text-blue-300 mb-2">🖱️ Path 1: Manual Assignment</div>
+<div class="text-xs text-gray-300 space-y-2">
+<div class="p-2 bg-blue-900/30 rounded-lg">
+<div class="text-blue-400 font-semibold mb-1">On GitHub.com</div>
+<div class="space-y-0.5 opacity-90">
+<div>1. Open the issue</div>
+<div>2. Assignees → <span class="font-mono text-blue-300">copilot</span></div>
+<div>3. Agent starts immediately</div>
+</div>
+</div>
+<div class="p-2 bg-blue-900/20 rounded text-blue-300/70 italic text-xs">
+Best for: ad-hoc tasks, exploring capabilities, issues without formal plans
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-bold text-indigo-300 mb-2">⚡ Path 2: Automated Trigger</div>
+<div class="text-xs text-gray-300 space-y-2">
+<div class="p-2 bg-indigo-900/30 rounded-lg font-mono">
+<div class="text-indigo-400 mb-1"># Comment on the issue:</div>
+<div class="text-white">/approve-plan</div>
+<div class="text-gray-400 text-xs mt-1">↳ workflow assigns copilot, injects plan</div>
+</div>
+<div class="p-2 bg-indigo-900/20 rounded text-indigo-300/70 italic text-xs">
+Best for: structured workflow, plan-driven implementation, audit trail
+</div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-gray-900/60 to-gray-800/40 rounded-xl border border-gray-600/30">
+<div class="text-sm font-bold text-gray-300 mb-2">📋 What the Agent Receives (Phase 3 workflow injects this)</div>
+<div class="grid grid-cols-3 gap-2 text-xs text-gray-300">
+<div class="p-2 bg-gray-800/40 rounded">
+<div class="text-indigo-300 font-semibold mb-1">Issue Context</div>
+<div class="opacity-80">Original requirements, labels, linked issues</div>
+</div>
+<div class="p-2 bg-gray-800/40 rounded">
+<div class="text-purple-300 font-semibold mb-1">Approved Plan</div>
+<div class="opacity-80">Files to change, estimate, historical lessons</div>
+</div>
+<div class="p-2 bg-gray-800/40 rounded">
+<div class="text-pink-300 font-semibold mb-1">Quality Rules</div>
+<div class="opacity-80">Code style, test requirements, commit format</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Coding Metrics -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💻 Agentic Coding</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Implementation Quality & Speed</div>
