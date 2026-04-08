@@ -168,9 +168,13 @@ updated: 2026-02-01
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📥 Agentic Intake</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 2</span>
 </div>
 <div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">How It Works: Label-Based State Machine</div>
 <div class="text-xs text-white/50">Triggered automatically on every new issue — 4 steps in ~3 minutes</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
@@ -244,9 +248,13 @@ updated: 2026-02-01
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📥 Agentic Intake</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 2</span>
 </div>
 <div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Use Case: Duplicate Issue Elimination</div>
 <div class="text-xs text-white/50">Real-world team: 50 issues/month with 15% duplicate rate</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
@@ -269,18 +277,15 @@ updated: 2026-02-01
 </div>
 </div>
 
-<div class="mt-4 p-4 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
+<div class="mt-2 p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
 <div class="text-sm font-bold text-cyan-300 mb-2">Outcome</div>
 <div class="text-xs text-gray-300">
 Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class="text-green-400">&lt;3%</span>. Saved <span class="text-cyan-400 font-mono">7 × 40 minutes = 4.7 hours/month</span> on duplicates alone.
 </div>
 </div>
 
-<div class="mt-3 p-3 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Example Transformation</div>
-<div class="text-xs text-gray-300">
-<strong>Before:</strong> Issue #4821 "Login fails on mobile Safari" — developer spends 45 minutes researching, discovers it's a duplicate of #4203 fixed 2 weeks ago. <span class="text-cyan-400 font-semibold">After:</span> Triage agent identifies 88% similarity to #4203 in 3 minutes, auto-labels as duplicate, posts fix version.
-</div>
+<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50 text-xs text-gray-300">
+<span class="font-bold text-gray-400 uppercase tracking-wider text-[10px]">Example: </span>Issue #4821 matched #4203 at 88% similarity — auto-labeled in 3 min, saving 45 min of duplicate work.
 </div>
 </div>
 </div>
@@ -341,8 +346,8 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div class="text-xs text-white/50">Don't plan from scratch — research similar past implementations first</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 mb-4">
-<div class="text-sm font-bold text-blue-300 mb-3">Example: Adding Microsoft OAuth Support</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 mb-2">
+<div class="text-sm font-bold text-blue-300 mb-2">Example: Adding Microsoft OAuth Support</div>
 <div class="text-xs text-gray-300">
 <div class="p-3 bg-blue-900/30 rounded-lg mb-2">
 <div class="font-mono text-blue-400 mb-1">Agent searches for similar past issues and PRs:</div>
@@ -377,7 +382,7 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 </div>
 </div>
 
-<div class="mt-4 p-3 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-xl border border-blue-500/30 text-center">
+<div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-xl border border-blue-500/30 text-center">
 <div class="text-xs font-semibold text-blue-300">Result: Planning time 4 hours → 15 minutes — and more accurate plans · ROI: $7,000/month</div>
 </div>
 </div>
@@ -403,23 +408,23 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div class="text-xs text-white/50">Plan posts as issue comment and waits for `/approve-plan` command</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-3">
+<div class="grid grid-cols-2 gap-4 mb-1">
 <div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
 <div class="text-sm font-bold text-red-300 mb-2">Before Agents</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
+<div class="space-y-1 text-xs text-gray-300">
+<div class="flex justify-between p-1 bg-red-900/20 rounded">
 <span>Time to plan</span>
 <span class="text-red-400 font-mono">4 hours</span>
 </div>
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
+<div class="flex justify-between p-1 bg-red-900/20 rounded">
 <span>Estimate accuracy</span>
 <span class="text-red-400 font-mono">±50%</span>
 </div>
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
+<div class="flex justify-between p-1 bg-red-900/20 rounded">
 <span>Missing requirements</span>
 <span class="text-red-400 font-mono">25%</span>
 </div>
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
+<div class="flex justify-between p-1 bg-red-900/20 rounded">
 <span>Historical context</span>
 <span class="text-red-400 font-mono">0%</span>
 </div>
@@ -427,20 +432,20 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 </div>
 <div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
 <div class="text-sm font-bold text-green-300 mb-2">After Automation</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
+<div class="space-y-1 text-xs text-gray-300">
+<div class="flex justify-between p-1 bg-green-900/20 rounded">
 <span>Time to plan</span>
 <span class="text-green-400 font-mono">&lt;30 min</span>
 </div>
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
+<div class="flex justify-between p-1 bg-green-900/20 rounded">
 <span>Estimate accuracy</span>
 <span class="text-green-400 font-mono">±20%</span>
 </div>
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
+<div class="flex justify-between p-1 bg-green-900/20 rounded">
 <span>Missing requirements</span>
 <span class="text-green-400 font-mono">&lt;10%</span>
 </div>
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
+<div class="flex justify-between p-1 bg-green-900/20 rounded">
 <span>Historical context</span>
 <span class="text-green-400 font-mono">&gt;80%</span>
 </div>
@@ -448,20 +453,19 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 </div>
 </div>
 
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-2">Example Plan Output</div>
-<div class="text-xs font-mono text-gray-300 leading-relaxed space-y-1">
+<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-bold text-indigo-300 mb-1">Example Plan Output</div>
+<div class="text-xs font-mono text-gray-300 space-y-1">
 <div class="text-indigo-400">📋 EXECUTION PLAN: Add Microsoft OAuth Support</div>
 <div class="ml-3 space-y-0.5">
-<div class="text-cyan-400 mt-1">Historical Context:</div>
+<div class="text-cyan-400">Historical Context:</div>
 <div class="ml-3 opacity-80">Based on Issue #2847 "Add Google OAuth" and #3104 "Add GitHub OAuth"</div>
 <div class="ml-3">✓ Token refresh edge cases require explicit testing</div>
 <div class="ml-3">✓ Multi-tenant configuration needed for enterprise</div>
 <div class="text-cyan-400 mt-1">Affected Files:</div>
 <div class="ml-3">1. src/auth/providers/microsoft-oauth.ts (new)</div>
 <div class="ml-3">2. src/auth/oauth-handler.ts (modify)</div>
-<div class="ml-3">3. tests/integration/auth/microsoft-oauth.test.ts (new)</div>
-<div class="text-cyan-400 mt-1">Estimated Effort: 6-8 hours (historical average)</div>
+<div class="text-cyan-400">Estimated Effort: 6-8 hours (historical average)</div>
 </div>
 </div>
 </div>
@@ -523,10 +527,10 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div class="text-xs text-white/50">Phase 3 connects approved plans to GitHub Copilot SWE agent</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-4">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
-<div class="text-sm font-bold text-red-300 mb-3">Before Agents</div>
-<div class="space-y-2 text-xs text-gray-300">
+<div class="grid grid-cols-2 gap-4 mb-2">
+<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
+<div class="text-sm font-bold text-red-300 mb-1">Before Agents</div>
+<div class="space-y-1.5 text-xs text-gray-300">
 <div class="flex justify-between p-1.5 bg-red-900/20 rounded">
 <span>Implementation time</span>
 <span class="text-red-400 font-mono">8-12 hours</span>
@@ -545,9 +549,9 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 </div>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-3">After Automation</div>
-<div class="space-y-2 text-xs text-gray-300">
+<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
+<div class="text-sm font-bold text-green-300 mb-1">After Automation</div>
+<div class="space-y-1.5 text-xs text-gray-300">
 <div class="flex justify-between p-1.5 bg-green-900/20 rounded">
 <span>Implementation time</span>
 <span class="text-green-400 font-mono">1-2 hours</span>
@@ -568,19 +572,19 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 </div>
 </div>
 
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-3">Implementation Guidelines (from prompt template)</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-bold text-indigo-300 mb-2">Implementation Guidelines (from prompt template)</div>
 <div class="text-xs text-gray-300 grid grid-cols-2 gap-2">
-<div class="p-2 bg-indigo-900/30 rounded">✓ Follow existing code style and patterns</div>
-<div class="p-2 bg-indigo-900/30 rounded">✓ Write tests for all new functionality</div>
-<div class="p-2 bg-indigo-900/30 rounded">✓ Make small, atomic commits</div>
-<div class="p-2 bg-indigo-900/30 rounded">✓ Keep functions focused and single-purpose</div>
-<div class="p-2 bg-indigo-900/30 rounded">✓ Ensure proper error handling</div>
-<div class="p-2 bg-indigo-900/30 rounded">✓ Add descriptive commit messages</div>
+<div class="p-1.5 bg-indigo-900/30 rounded">✓ Follow existing code style and patterns</div>
+<div class="p-1.5 bg-indigo-900/30 rounded">✓ Write tests for all new functionality</div>
+<div class="p-1.5 bg-indigo-900/30 rounded">✓ Make small, atomic commits</div>
+<div class="p-1.5 bg-indigo-900/30 rounded">✓ Keep functions focused and single-purpose</div>
+<div class="p-1.5 bg-indigo-900/30 rounded">✓ Ensure proper error handling</div>
+<div class="p-1.5 bg-indigo-900/30 rounded">✓ Add descriptive commit messages</div>
 </div>
 </div>
 
-<div class="mt-3 p-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-500/30 text-center">
+<div class="mt-2 p-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-500/30 text-center">
 <div class="text-xs font-semibold text-purple-300">Result: 6-10x faster implementation with higher quality · ROI: $17,000/month</div>
 </div>
 </div>
@@ -643,9 +647,9 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div class="text-xs text-white/50">Complete automated analysis in ~6 minutes — structured output for human validation</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mb-4">
-<div class="p-3 bg-gradient-to-br from-red-900/40 to-red-800/40 rounded-lg border border-red-500/30">
-<div class="flex items-center justify-between mb-2">
+<div class="grid grid-cols-2 gap-3 mb-2">
+<div class="p-2 bg-gradient-to-br from-red-900/40 to-red-800/40 rounded-lg border border-red-500/30">
+<div class="flex items-center justify-between mb-1">
 <div class="font-bold text-red-300 text-sm">🔒 Security</div>
 <div class="text-xs text-red-400 font-mono">~2 min</div>
 </div>
@@ -657,8 +661,8 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div>• Unsafe dependencies</div>
 </div>
 </div>
-<div class="p-3 bg-gradient-to-br from-orange-900/40 to-orange-800/40 rounded-lg border border-orange-500/30">
-<div class="flex items-center justify-between mb-2">
+<div class="p-2 bg-gradient-to-br from-orange-900/40 to-orange-800/40 rounded-lg border border-orange-500/30">
+<div class="flex items-center justify-between mb-1">
 <div class="font-bold text-orange-300 text-sm">⚙️ Logic</div>
 <div class="text-xs text-orange-400 font-mono">~2 min</div>
 </div>
@@ -670,8 +674,8 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div>• State management bugs</div>
 </div>
 </div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30">
-<div class="flex items-center justify-between mb-2">
+<div class="p-2 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30">
+<div class="flex items-center justify-between mb-1">
 <div class="font-bold text-purple-300 text-sm">⚡ Performance</div>
 <div class="text-xs text-purple-400 font-mono">~1 min</div>
 </div>
@@ -683,8 +687,8 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 <div>• Memory inefficiencies</div>
 </div>
 </div>
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-pink-800/40 rounded-lg border border-pink-500/30">
-<div class="flex items-center justify-between mb-2">
+<div class="p-2 bg-gradient-to-br from-pink-900/40 to-pink-800/40 rounded-lg border border-pink-500/30">
+<div class="flex items-center justify-between mb-1">
 <div class="font-bold text-pink-300 text-sm">🧪 Tests</div>
 <div class="text-xs text-pink-400 font-mono">~1 min</div>
 </div>
@@ -698,8 +702,8 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 </div>
 </div>
 
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-2">The Paradigm Shift</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-bold text-indigo-300 mb-1">The Paradigm Shift</div>
 <div class="text-xs text-gray-300">
 Human review shifts from <span class="text-red-400">"read every line"</span> to <span class="text-green-400">"validate outcomes against intent"</span> — does the implementation match the approved plan? Agent catches 95% of technical issues; humans validate strategic alignment.
 </div>
@@ -795,10 +799,10 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 <div class="text-xs text-white/50">Watch for these signals that you've outgrown Phases 1-4</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mb-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-xs font-bold text-red-300 mb-2 uppercase tracking-wider">⚠️ Signals You've Outgrown Phase 1-4</div>
-<div class="text-xs text-gray-300 space-y-1.5">
+<div class="grid grid-cols-2 gap-3 mb-2">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="text-xs font-bold text-red-300 mb-1 uppercase tracking-wider">⚠️ Signals You've Outgrown Phase 1-4</div>
+<div class="text-xs text-gray-300 space-y-1">
 <div>• <strong>Repository Chaos:</strong> Agents touching 3-5 repos per feature</div>
 <div>• <strong>CI Bottleneck:</strong> Queue time &gt;60 minutes</div>
 <div>• <strong>Review Overwhelm:</strong> 50+ PRs open, 10+ days to review</div>
@@ -806,9 +810,9 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 <div>• <strong>Manual Governance:</strong> Compliance requires human review</div>
 </div>
 </div>
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg border border-green-500/30">
-<div class="text-xs font-bold text-green-300 mb-2 uppercase tracking-wider">✅ Solutions: Full SDLC Transformation</div>
-<div class="text-xs text-gray-300 space-y-1.5">
+<div class="p-2 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg border border-green-500/30">
+<div class="text-xs font-bold text-green-300 mb-1 uppercase tracking-wider">✅ Solutions: Full SDLC Transformation</div>
+<div class="text-xs text-gray-300 space-y-1">
 <div>→ <strong>Monorepo consolidation</strong> (eliminate coordination overhead)</div>
 <div>→ <strong>Trust factory CI</strong> (&lt;10 min PR checks)</div>
 <div>→ <strong>Outcome-based PRs</strong> (evidence bundles)</div>
@@ -818,10 +822,10 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 </div>
 </div>
 
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-sm font-bold text-cyan-300 mb-3">The Upgrade Path</div>
-<div class="text-xs font-mono text-gray-300 leading-relaxed">
-<div class="grid grid-cols-2 gap-4">
+<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
+<div class="text-sm font-bold text-cyan-300 mb-1">The Upgrade Path</div>
+<div class="text-xs font-mono text-gray-300">
+<div class="grid grid-cols-2 gap-3">
 <div>
 <div class="text-cyan-400 mb-1">PHASE 1-4 (Quick Wins)</div>
 <div class="space-y-0.5 ml-2">
@@ -848,7 +852,7 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 </div>
 </div>
 
-<div class="mt-3 p-3 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-xl border border-pink-500/30 text-center">
+<div class="mt-2 p-2 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-xl border border-pink-500/30 text-center">
 <div class="text-xs font-semibold text-pink-300">Phases 1-4 build proof of value and executive support for the full transformation</div>
 </div>
 </div>
@@ -864,16 +868,16 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 <span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💰 ROI Analysis</span>
 <div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
 </div>
-<div class="relative z-10 mb-3">
+<div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Expected ROI by Phase</div>
 <div class="text-xs text-white/50">Based on $100/hour developer cost, 50 issues/month</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="space-y-3 mb-4">
+<div class="space-y-1.5 mb-1">
 <div class="grid grid-cols-4 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30 text-center">
+<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30 text-center">
 <div class="text-xl font-bold text-cyan-300">Phase 1</div>
-<div class="text-xs opacity-70 mt-1">Intake</div>
+<div class="text-xs opacity-70">Intake</div>
 </div>
 <div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
 <div class="text-xs text-gray-400 mb-1">Setup</div>
@@ -889,9 +893,9 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 </div>
 </div>
 <div class="grid grid-cols-4 gap-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30 text-center">
+<div class="p-2 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30 text-center">
 <div class="text-xl font-bold text-blue-300">Phase 2</div>
-<div class="text-xs opacity-70 mt-1">Planning</div>
+<div class="text-xs opacity-70">Planning</div>
 </div>
 <div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
 <div class="text-xs text-gray-400 mb-1">Setup</div>
@@ -907,9 +911,9 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 </div>
 </div>
 <div class="grid grid-cols-4 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-lg border border-indigo-500/30 text-center">
+<div class="p-2 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-lg border border-indigo-500/30 text-center">
 <div class="text-xl font-bold text-indigo-300">Phase 3</div>
-<div class="text-xs opacity-70 mt-1">Coding</div>
+<div class="text-xs opacity-70">Coding</div>
 </div>
 <div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
 <div class="text-xs text-gray-400 mb-1">Setup</div>
@@ -925,9 +929,9 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 </div>
 </div>
 <div class="grid grid-cols-4 gap-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30 text-center">
+<div class="p-2 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30 text-center">
 <div class="text-xl font-bold text-purple-300">Phase 4</div>
-<div class="text-xs opacity-70 mt-1">Review</div>
+<div class="text-xs opacity-70">Review</div>
 </div>
 <div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
 <div class="text-xs text-gray-400 mb-1">Setup</div>
@@ -944,24 +948,24 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 </div>
 </div>
 
-<div class="p-5 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-xl border-2 border-emerald-400 shadow-lg">
-<div class="grid grid-cols-3 gap-6 text-center">
+<div class="p-3 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-xl border-2 border-emerald-400 shadow-lg">
+<div class="grid grid-cols-3 gap-4 text-center">
 <div>
 <div class="text-xs text-white/70 mb-1">Combined Setup</div>
-<div class="text-2xl font-bold text-white">~8 hours</div>
+<div class="text-xl font-bold text-white">~8 hours</div>
 </div>
 <div>
 <div class="text-xs text-white/70 mb-1">Monthly Savings</div>
-<div class="text-2xl font-bold text-white">$36,000</div>
+<div class="text-xl font-bold text-white">$36,000</div>
 </div>
 <div>
 <div class="text-xs text-white/70 mb-1">Annual Savings</div>
-<div class="text-2xl font-bold text-white">$432,000</div>
+<div class="text-xl font-bold text-white">$432,000</div>
 </div>
 </div>
 </div>
 
-<div class="mt-3 text-center text-xs text-gray-400 italic">Phase 5 (full SDLC) adds $1.8M/year but requires 3-6 month investment</div>
+<div class="mt-2 text-center text-xs text-gray-400 italic">Phase 5 (full SDLC) adds $1.8M/year but requires 3-6 month investment</div>
 </div>
 </div>
 

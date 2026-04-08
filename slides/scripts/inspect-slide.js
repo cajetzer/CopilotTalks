@@ -159,6 +159,21 @@ function parseSlideDeck(filePath) {
 }
 
 /**
+ * Returns true if slide N is in the "closing section" — slides at or after
+ * a known closing-section marker slide (e.g. "What You Can Do Today").
+ * These slides are standalone (own colors, no section dots) and should be exempt.
+ */
+function isClosingSection(slides, n) {
+  const CLOSING_MARKERS = ['What You Can Do Today', 'What Can You Do Today', 'Expected ROI'];
+  for (let i = 0; i < slides.length; i++) {
+    if (CLOSING_MARKERS.some(m => slides[i].name.includes(m))) {
+      return n >= i + 1; // 1-indexed: at or after this marker slide
+    }
+  }
+  return false;
+}
+
+/**
  * Determine the Part (1-4) a slide belongs to by scanning backwards through
  * the slide list for the most recent section opener.
  */
@@ -209,6 +224,11 @@ function analyzeColorConsistency(slides, n) {
     return { inconsistent: false, expected: null, actual: null, reason: 'exempt (title or section opener)' };
   }
 
+  // Closing section slides are standalone (own colors are intentional)
+  if (isClosingSection(slides, n)) {
+    return { inconsistent: false, expected: null, actual: null, reason: 'closing section slide (own color scheme)' };
+  }
+
   const part = getSlideSection(slides, n);
   if (!part) return { inconsistent: false, expected: null, actual: null, reason: 'no section detected' };
 
@@ -256,14 +276,17 @@ function analyzeSlideForDots(slides, n) {
   const slide = slides[n - 1];
   if (!slide) return { missingDots: false, sectionPart: null, exempt: true, reason: 'slide not found' };
 
-  // Title slide, ToC, section openers are exempt
+  // Title slide and section openers are exempt
   if (n === 1) return { missingDots: false, sectionPart: null, exempt: true, reason: 'title slide' };
   if (isSectionOpener(slide)) return { missingDots: false, sectionPart: null, exempt: true, reason: 'section opener' };
 
+  // Closing section slides (at or after "What You Can Do Today") are standalone
+  if (isClosingSection(slides, n)) return { missingDots: false, sectionPart: null, exempt: true, reason: 'closing section slide' };
+
   const part = getSlideSection(slides, n);
 
-  // Only Part 2+ require dots (Part 1 has fewer, and some don't use the full pattern)
-  if (!part || part < 2) return { missingDots: false, sectionPart: part, exempt: true, reason: 'Part 1 or no section' };
+  // Slides not belonging to any section are exempt (Core Question, ToC, closing slides)
+  if (!part) return { missingDots: false, sectionPart: null, exempt: true, reason: 'not in a numbered section' };
 
   const dots = hasProgressDots(slide);
   return {
@@ -290,40 +313,47 @@ async function inspectSlide(slideNumber, p) {
   await page.waitForTimeout(800);
 
   // Overflow detection via DOM
-  const overflow = await page.evaluate(() => {
-    // Try .slidev-layout first, fall back to .slide-content or body
+  // Section openers use justify-center + large bg blur circles that inflate scrollHeight.
+  // Skip overflow detection for them to avoid false positives.
+  const isOpener = isSectionOpener(slides[slideNumber - 1]);
+  const overflow = isOpener
+    ? { detected: false, reason: 'opener — overflow skipped (background blur elements)' }
+    : await page.evaluate(() => {
+    // Slidev keeps adjacent slides in the DOM — querySelectorAll and find the VISIBLE one
     const layout =
-      document.querySelector('.slidev-layout') ||
-      document.querySelector('[class*="slide-content"]') ||
-      document.querySelector('.slidev-slide');
+      [...document.querySelectorAll('.slidev-layout')].find(el => el.clientHeight > 0) ||
+      [...document.querySelectorAll('.slidev-slide-content')].find(el => el.clientHeight > 0) ||
+      document.querySelector('.slidev-slide-container');
 
-    if (!layout) return { detected: false, reason: 'no layout element found' };
+    if (!layout) return { detected: false, reason: 'no visible layout element found' };
 
-    const scrollOverflow = layout.scrollHeight > layout.clientHeight + 6;
-    if (scrollOverflow) {
+    // Check the h-full content wrapper's scroll overflow.
+    // scrollHeight reports true content height even when overflow:hidden clips visually.
+    const contentWrapper = layout.querySelector('[class*="h-full"]');
+    if (contentWrapper && contentWrapper.scrollHeight > contentWrapper.clientHeight + 6) {
       return {
         detected: true,
-        reason: `scrollHeight ${layout.scrollHeight} > clientHeight ${layout.clientHeight}`,
+        reason: `content scrollHeight ${contentWrapper.scrollHeight} > clientHeight ${contentWrapper.clientHeight} (+${contentWrapper.scrollHeight - contentWrapper.clientHeight}px clipped)`,
       };
     }
 
-    // Check if any visible child element bleeds below the viewport
-    const vh = window.innerHeight;
+    // Fallback: compare element bounding rects against the slide container's actual
+    // rendered bottom (handles CSS scale() transforms correctly)
+    const layoutRect = layout.getBoundingClientRect();
+    const clipBottom = layoutRect.bottom;
     const bleedingEl = [...layout.querySelectorAll('*')].find(el => {
-      if (el.children.length > 0) return false; // only leaf nodes
       const r = el.getBoundingClientRect();
-      return r.bottom > vh + 6 && r.width > 0 && r.height > 0;
+      return r.bottom > clipBottom + 8 && r.width > 10 && r.height > 4;
     });
-
     if (bleedingEl) {
       const r = bleedingEl.getBoundingClientRect();
       return {
         detected: true,
-        reason: `element bleeds to y=${Math.round(r.bottom)} (viewport bottom=${vh}): ${bleedingEl.className.slice(0, 60)}`,
+        reason: `element bleeds to y=${Math.round(r.bottom)} (clip bottom=${Math.round(clipBottom)}): ${bleedingEl.className.slice(0, 80)}`,
       };
     }
 
-    return { detected: false, reason: 'no overflow detected' };
+    return { detected: false, reason: 'ok' };
   });
 
   // Slide count shown in Slidev footer (e.g. "5 / 25") — lets us detect wrong-deck
@@ -380,12 +410,49 @@ async function inspectSlide(slideNumber, p) {
   if (isScanCmd) {
     const slides = parseSlideDeck(deckFile);
     const totalSlides = slides.length;
-    console.error(`[harness] Scanning ${totalSlides} slides in "${deckSlug}"...`);
+    console.error(`[harness] Scanning ${totalSlides} slides in "${deckSlug}"...\n`);
 
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ viewport: VIEWPORT });
     const page = await context.newPage();
     fs.mkdirSync(HARNESS_DIR, { recursive: true });
+
+    // Shared overflow evaluation — same logic as inspectSlide()
+    const evalOverflow = () => {
+      // Slidev keeps adjacent slides in the DOM — find the VISIBLE one
+      const layout =
+        [...document.querySelectorAll('.slidev-layout')].find(el => el.clientHeight > 0) ||
+        [...document.querySelectorAll('.slidev-slide-content')].find(el => el.clientHeight > 0) ||
+        document.querySelector('.slidev-slide-container');
+      if (!layout) return { detected: false, reason: 'no visible layout element found' };
+
+      // Check h-full content wrapper scroll overflow (works even with overflow:hidden
+      // because scrollHeight still reports true content height)
+      const contentWrapper = layout.querySelector('[class*="h-full"]');
+      if (contentWrapper && contentWrapper.scrollHeight > contentWrapper.clientHeight + 6) {
+        return {
+          detected: true,
+          reason: `content scrollHeight ${contentWrapper.scrollHeight} > clientHeight ${contentWrapper.clientHeight} (+${contentWrapper.scrollHeight - contentWrapper.clientHeight}px clipped)`,
+        };
+      }
+
+      // Fallback: compare all element positions against slide container bounding rect
+      // (handles CSS scale() transforms — window.innerHeight would be wrong here)
+      const layoutRect = layout.getBoundingClientRect();
+      const clipBottom = layoutRect.bottom;
+      const bleedingEl = [...layout.querySelectorAll('*')].find(el => {
+        const r = el.getBoundingClientRect();
+        return r.bottom > clipBottom + 8 && r.width > 10 && r.height > 4;
+      });
+      if (bleedingEl) {
+        const r = bleedingEl.getBoundingClientRect();
+        return {
+          detected: true,
+          reason: `element bleeds to y=${Math.round(r.bottom)} (clip=${Math.round(clipBottom)}): ${bleedingEl.className.slice(0, 80)}`,
+        };
+      }
+      return { detected: false, reason: 'ok' };
+    };
 
     const results = [];
     for (let n = 1; n <= totalSlides; n++) {
@@ -397,41 +464,43 @@ async function inspectSlide(slideNumber, p) {
       await page.goto(url, { waitUntil: 'networkidle', timeout: 15_000 });
       await page.waitForTimeout(600);
 
-      const overflow = await page.evaluate(() => {
-        const layout = document.querySelector('.slidev-layout') ||
-          document.querySelector('[class*="slide-content"]') ||
-          document.querySelector('.slidev-slide');
-        if (!layout) return { detected: false, reason: 'no layout element found' };
-        if (layout.scrollHeight > layout.clientHeight + 6)
-          return { detected: true, reason: `scrollHeight ${layout.scrollHeight} > clientHeight ${layout.clientHeight}` };
-        const vh = window.innerHeight;
-        const el = [...layout.querySelectorAll('*')].find(e => {
-          if (e.children.length > 0) return false;
-          const r = e.getBoundingClientRect();
-          return r.bottom > vh + 6 && r.width > 0 && r.height > 0;
-        });
-        if (el) { const r = el.getBoundingClientRect(); return { detected: true, reason: `element bleeds to y=${Math.round(r.bottom)}` }; }
-        return { detected: false, reason: 'ok' };
-      });
+      // Section openers use justify-center with large background blurs — their
+      // scrollHeight is inflated by decorative absolute elements, causing false
+      // positives. Skip overflow detection for opener slides.
+      let overflow;
+      if (isSectionOpener(slideInfo)) {
+        overflow = { detected: false, reason: 'opener — overflow skipped (background blur elements)' };
+      } else {
+        overflow = await page.evaluate(evalOverflow);
+      }
 
       const screenshotPath = path.join(HARNESS_DIR, `${deckSlug}-${n}.png`);
       await page.screenshot({ path: screenshotPath, fullPage: false });
 
       const hasIssues = overflow.detected || dotAnalysis.missingDots || colorAnalysis.inconsistent;
-      const flags = [
-        overflow.detected ? '⚠️ overflow' : '',
-        dotAnalysis.missingDots ? '⚠️ missing-dots' : '',
-        colorAnalysis.inconsistent ? `⚠️ color(got=${colorAnalysis.actual} want=${colorAnalysis.expected})` : '',
-      ].filter(Boolean).join('  ');
 
-      const label = hasIssues ? `🔴 s${n}` : `✅ s${n}`;
-      console.error(`  ${label.padEnd(6)} ${slideInfo.name.padEnd(45)} ${flags || '—'}`);
+      // Build per-slide output lines
+      const statusIcon = hasIssues ? '🔴' : '✅';
+      const openerTag = dotAnalysis.exempt && dotAnalysis.reason === 'section opener' ? '  [OPENER]' : '';
+      console.error(`  ${statusIcon} s${String(n).padStart(2)}  ${slideInfo.name.padEnd(45)}${openerTag}`);
+
+      if (overflow.detected) {
+        console.error(`       ⚠  OVERFLOW: ${overflow.reason}`);
+      }
+      if (dotAnalysis.missingDots) {
+        console.error(`       ⚠  MISSING DOTS: ${dotAnalysis.reason}`);
+      }
+      if (colorAnalysis.inconsistent) {
+        console.error(`       ⚠  COLOR: ${colorAnalysis.reason}`);
+      }
 
       results.push({
         slide: n, name: slideInfo.name,
         overflow: overflow.detected, overflowReason: overflow.reason,
-        missingDots: dotAnalysis.missingDots, dotsExempt: dotAnalysis.exempt, sectionPart: dotAnalysis.sectionPart,
-        colorInconsistent: colorAnalysis.inconsistent, colorExpected: colorAnalysis.expected, colorActual: colorAnalysis.actual,
+        missingDots: dotAnalysis.missingDots, dotsExempt: dotAnalysis.exempt,
+        sectionPart: dotAnalysis.sectionPart, dotsReason: dotAnalysis.reason,
+        colorInconsistent: colorAnalysis.inconsistent, colorExpected: colorAnalysis.expected,
+        colorActual: colorAnalysis.actual, colorReason: colorAnalysis.reason,
         screenshot: screenshotPath,
       });
     }
@@ -439,7 +508,23 @@ async function inspectSlide(slideNumber, p) {
     await browser.close();
 
     const issueSlides = results.filter(r => r.overflow || r.missingDots || r.colorInconsistent);
-    console.error(`\n[harness] Scan complete: ${issueSlides.length} slide(s) with issues out of ${totalSlides}`);
+
+    // Summary block
+    console.error(`\n${'━'.repeat(60)}`);
+    if (issueSlides.length === 0) {
+      console.error(`✅  All ${totalSlides} slides clean — no issues found`);
+    } else {
+      console.error(`🔴  ${issueSlides.length} slide(s) with issues out of ${totalSlides}:\n`);
+      for (const r of issueSlides) {
+        console.error(`  s${r.slide}  "${r.name}"`);
+        if (r.overflow)            console.error(`      • OVERFLOW: ${r.overflowReason}`);
+        if (r.missingDots)         console.error(`      • MISSING DOTS: ${r.dotsReason}`);
+        if (r.colorInconsistent)   console.error(`      • COLOR: ${r.colorReason}`);
+        console.error(`      📸 ${r.screenshot}`);
+      }
+    }
+    console.error(`${'━'.repeat(60)}\n`);
+
     console.log(JSON.stringify(results, null, 2));
     return;
   }
@@ -501,20 +586,24 @@ async function inspectSlide(slideNumber, p) {
   console.log(JSON.stringify(report, null, 2));
 
   // Human-readable summary to stderr
+  console.error(`\n${'━'.repeat(60)}`);
   if (wrongDeck) {
-    console.error(`\n🚨 WRONG DECK: ${wrongDeckWarning}`);
+    console.error(`🚨 WRONG DECK: ${wrongDeckWarning}`);
   } else {
     const issues = [];
-    if (report.overflow) issues.push(`⚠️  OVERFLOW: ${report.overflowReason}`);
-    if (report.missingDots) issues.push(`⚠️  MISSING DOTS: ${report.dotsReason}`);
-    if (report.colorInconsistent) issues.push(`⚠️  COLOR MISMATCH: ${report.colorReason}`);
+    if (report.overflow)          issues.push(`⚠  OVERFLOW:      ${report.overflowReason}`);
+    if (report.missingDots)       issues.push(`⚠  MISSING DOTS:  ${report.dotsReason}`);
+    if (report.colorInconsistent) issues.push(`⚠  COLOR MISMATCH: ${report.colorReason}`);
 
     if (issues.length === 0) {
-      console.error(`\n✅ s${slideNum} "${slideInfo.name}" — no issues detected`);
+      console.error(`✅  s${slideNum} "${slideInfo.name}" — clean`);
+      console.error(`    Part ${dotAnalysis.sectionPart ?? 'n/a'} · color: ${colorAnalysis.actual ?? 'n/a'} · overflow: ${report.overflowReason}`);
     } else {
-      console.error(`\n🔴 s${slideNum} "${slideInfo.name}" — ${issues.length} issue(s):`);
-      issues.forEach(i => console.error('   ' + i));
+      console.error(`🔴  s${slideNum} "${slideInfo.name}" — ${issues.length} issue(s):`);
+      issues.forEach(i => console.error(`    ${i}`));
     }
   }
-  console.error(`\n📸 Screenshot: ${screenshotPath}`);
+  console.error(`📸  Screenshot: ${screenshotPath}`);
+  console.error(`🌐  Live: ${report.url}`);
+  console.error(`${'━'.repeat(60)}\n`);
 })();
