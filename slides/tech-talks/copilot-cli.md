@@ -12,10 +12,11 @@ transition: slide-left
 title: GitHub Copilot CLI
 module: tech-talks/copilot-cli
 status: active
-updated: 2026-03-17
+updated: 2026-04-07
 mdc: true
 ---
 
+<!-- SLIDE: Title -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
@@ -33,1369 +34,1778 @@ mdc: true
 <div class="abs-br m-6 flex gap-2"><span class="text-sm opacity-50">Tech Talk · 45 minutes</span></div>
 
 ---
-layout: center
----
 
-# 🎯 The Question This Talk Answers
-
-<div class="p-8 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/30 mb-8 text-center max-w-4xl mx-auto">
-<div class="text-2xl font-medium mb-4">How do I bring AI into my terminal workflow?</div>
-<div class="text-lg opacity-90">Whether building something new, debugging my own code, or managing infrastructure</div>
+<!-- SLIDE: Core Question -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
 </div>
-
-<div class="grid grid-cols-3 gap-6 max-w-5xl mx-auto">
-<div class="p-5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-3xl mb-3">🔧</div>
-<div class="text-lg font-medium">Developers</div>
-<div class="text-sm opacity-80 mt-2">Building new software, scaffolding projects</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="p-6 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl border border-amber-500/30 max-w-4xl mx-auto mb-8">
+<div class="text-2xl font-bold text-amber-300 mb-3">
+"How do I bring AI into my terminal workflow?"
 </div>
-<div class="p-5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-3xl mb-3">🐛</div>
-<div class="text-lg font-medium">Debugging</div>
-<div class="text-sm opacity-80 mt-2">Troubleshooting your own failing code</div>
-</div>
-<div class="p-5 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-3xl mb-3">⚙️</div>
-<div class="text-lg font-medium">DevOps</div>
-<div class="text-sm opacity-80 mt-2">Managing infrastructure and deployments</div>
+<div class="text-lg opacity-90">
+Whether building something new, debugging my own code, or managing infrastructure
 </div>
 </div>
 
----
-layout: center
----
+<div class="grid grid-cols-3 gap-4 text-sm">
+<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
+<div class="text-2xl mb-2">🔧</div>
+<div class="font-semibold text-cyan-300">Developers Building New Software</div>
+<div class="text-xs opacity-80 mt-2">Scaffolding projects, exploring libraries, architecture decisions</div>
+</div>
+<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
+<div class="text-2xl mb-2">🐛</div>
+<div class="font-semibold text-blue-300">Debugging Your Own Code</div>
+<div class="text-xs opacity-80 mt-2">Container failures, async bugs, intermittent test flakes</div>
+</div>
+<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
+<div class="text-2xl mb-2">⚙️</div>
+<div class="font-semibold text-indigo-300">DevOps Managing Infrastructure</div>
+<div class="text-xs opacity-80 mt-2">Docker, deployments, CI/CD analysis, log triage</div>
+</div>
+</div>
 
-# 📖 Table of Contents
-
-<div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
-<div @click="$nav.go(6)" class="cursor-pointer p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">🎯</div>
-<div class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Plan Mode</div>
-<div class="text-sm opacity-80 mt-2">Collaborative planning before implementation</div>
+<div class="mt-6 grid grid-cols-3 gap-3 text-xs max-w-4xl mx-auto">
+<div class="p-3 bg-green-900/20 rounded-lg border border-green-500/20">
+<div class="font-semibold text-green-400">Terminal sees runtime context</div>
+<div class="opacity-80 mt-1">Logs, env vars, process state, network — not just source files</div>
 </div>
-<div @click="$nav.go(10)" class="cursor-pointer p-6 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">⚡</div>
-<div class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Operating Modes</div>
-<div class="text-sm opacity-80 mt-2">Interactive, programmatic, and cloud delegation</div>
+<div class="p-3 bg-blue-900/20 rounded-lg border border-blue-500/20">
+<div class="font-semibold text-blue-400">16% coding, 84% everything else</div>
+<div class="opacity-80 mt-1">Most AI tools optimize the 16% and leave 84% untouched</div>
 </div>
-<div @click="$nav.go(14)" class="cursor-pointer p-6 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">🧠</div>
-<div class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Built-in Agents</div>
-<div class="text-sm opacity-80 mt-2">Specialized agents and parallel execution</div>
+<div class="p-3 bg-purple-900/20 rounded-lg border border-purple-500/20">
+<div class="font-semibold text-purple-400">Catch ambiguity before code</div>
+<div class="opacity-80 mt-1">Plan Mode asks questions; prevents 6-8 rework iterations</div>
 </div>
-<div @click="$nav.go(17)" class="cursor-pointer p-6 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">🚀</div>
-<div class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Use Cases</div>
-<div class="text-sm opacity-80 mt-2">Real-world patterns with metrics</div>
+</div>
 </div>
 </div>
 
 ---
 
-# 🎯 Objectives
-
-<div class="mb-3 text-base font-medium opacity-80">By the end of this talk, you will:</div>
-
-<div class="grid grid-cols-2 auto-rows-fr gap-3" style="height: 430px">
-
-<div class="p-5 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 flex items-start gap-3">
-<span class="text-xl flex-shrink-0">✅</span><div><div class="font-semibold text-base">Understand when CLI beats IDE</div><div class="text-sm opacity-70 mt-1">Terminal sees runtime context; IDE only sees source files</div></div>
+<!-- SLIDE: Table of Contents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-6">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 </div>
-
-<div class="p-5 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20 flex items-start gap-3">
-<span class="text-xl flex-shrink-0">✅</span><div><div class="font-semibold text-base">Leverage /fleet for parallel orchestration</div><div class="text-sm opacity-70 mt-1">Explicitly decompose work across subagents</div></div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 flex items-start gap-3">
-<span class="text-xl flex-shrink-0">✅</span><div><div class="font-semibold text-base">Use Plan Mode to reduce debugging cycles</div><div class="text-sm opacity-70 mt-1">8 attempts → 2 with collaborative planning</div></div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20 flex items-start gap-3">
-<span class="text-xl flex-shrink-0">✅</span><div><div class="font-semibold text-base">Integrate GitHub.com workflows</div><div class="text-sm opacity-70 mt-1">Issues, PRs, and Actions from the terminal</div></div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 flex items-start gap-3">
-<span class="text-xl flex-shrink-0">✅</span><div><div class="font-semibold text-base">Know when to delegate to cloud agents</div><div class="text-sm opacity-70 mt-1">Free your IDE and terminal for other work</div></div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20 flex items-start gap-3">
-<span class="text-xl flex-shrink-0">✅</span><div><div class="font-semibold text-base">Automate CI/CD with programmatic mode</div><div class="text-sm opacity-70 mt-1">Build failure analysis in GitHub Actions</div></div>
-</div>
-
-</div>
-
----
-layout: center
----
-
-# 🧠 Mental Model Shift
-
-<div class="max-w-5xl mx-auto">
-
-<div class="text-center mb-8">
-<div class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">From Command Execution to AI Collaboration</div>
-<div class="text-lg opacity-80 mt-2">Terminal as a thought partner, not just a command processor</div>
-</div>
-
-<div class="grid grid-cols-2 gap-6">
-<div class="space-y-4">
-<div class="text-lg font-bold text-cyan-400 mb-3">✅ Move Toward</div>
-<div class="p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-<div class="font-medium mb-2">AI as thought partner for greenfield work</div>
-<div class="text-sm opacity-80">90 min library research → 15 min with scaffold</div>
-</div>
-<div class="p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-<div class="font-medium mb-2">Plan before you build (Shift+Tab)</div>
-<div class="text-sm opacity-80">8 debugging attempts → 2</div>
-</div>
-<div class="p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-<div class="font-medium mb-2">Delegate long-running tasks with `&`</div>
-<div class="text-sm opacity-80">IDE and terminal stay completely free</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-6 mt-2 max-w-4xl mx-auto">
+<div @click="$nav.go(6)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+<div class="text-3xl mb-2">🎯</div>
+<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Plan Mode & Steering</div>
+<div class="text-sm text-gray-300 mt-1">Collaborative planning before implementation</div>
+<div class="text-xs text-cyan-400/70 mt-2">45 min → 8 min debugging, 8 attempts → 2</div>
 </div>
 </div>
-<div class="space-y-4">
-<div class="text-lg font-bold text-red-400 mb-3">🛑 Move Against</div>
-<div class="p-4 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
-<div class="font-medium mb-2">Pasting secrets into prompts</div>
-<div class="text-sm opacity-80">Use env vars or secret managers</div>
+<div @click="$nav.go(10)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
+<div class="text-3xl mb-2">⚡</div>
+<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Operating Modes</div>
+<div class="text-sm text-gray-300 mt-1">Interactive, programmatic, and cloud delegation</div>
+<div class="text-xs text-blue-400/70 mt-2">IDE and terminal stay completely free</div>
 </div>
-<div class="p-4 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
-<div class="font-medium mb-2">`--yolo` outside sandboxed environments</div>
-<div class="text-sm opacity-80">Approve per-tool or per-session</div>
 </div>
-<div class="p-4 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
-<div class="font-medium mb-2">Skipping Plan Mode when in a hurry</div>
-<div class="text-sm opacity-80">Most valuable precisely when rushing</div>
+<div @click="$nav.go(13)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
+<div class="text-3xl mb-2">🤖</div>
+<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Built-in Agents</div>
+<div class="text-sm text-gray-300 mt-1">Specialized agents and /fleet fan-out</div>
+<div class="text-xs text-indigo-400/70 mt-2">Explicit parallel orchestration</div>
+</div>
+</div>
+<div @click="$nav.go(16)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
+<div class="text-3xl mb-2">🚀</div>
+<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Use Cases</div>
+<div class="text-sm text-gray-300 mt-1">Real-world patterns with metrics</div>
+<div class="text-xs text-purple-400/70 mt-2">90 min → 15 min scaffolding, GitHub.com from terminal</div>
 </div>
 </div>
 </div>
-
+<div class="mt-6 text-center text-sm opacity-60">Click any section to jump directly there</div>
 </div>
-
----
-layout: center
-name: planmode
----
-
-<div class="text-center mb-6">
-<div class="text-5xl mb-4">🎯</div>
-<h1 class="!text-4xl bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Plan Mode & Steering</h1>
-<p class="text-xl opacity-80 mt-2">Collaborative planning before implementation</p>
-</div>
-<div class="p-5 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/30 mb-5 text-center max-w-3xl mx-auto">
-<div class="text-lg">Transform debugging from trial-and-error to collaborative strategy</div>
 </div>
 
 ---
 
-# 🎯 Plan Mode: The Fundamental Shift
+<!-- SLIDE: Objectives -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Learning Objectives</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">What You'll Learn</div>
+<div class="text-sm text-gray-400">Six key capabilities for terminal-native AI workflows</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-3 text-sm">
+<div class="p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 flex items-start gap-3">
+<span class="text-xl flex-shrink-0">✅</span>
+<div>
+<div class="font-semibold">Understand when CLI beats IDE</div>
+<div class="text-xs opacity-70 mt-1">Terminal sees runtime context; IDE only sees source files</div>
+</div>
+</div>
+<div class="p-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20 flex items-start gap-3">
+<span class="text-xl flex-shrink-0">✅</span>
+<div>
+<div class="font-semibold">Use Plan Mode to reduce debugging cycles</div>
+<div class="text-xs opacity-70 mt-1">8 attempts → 2 with collaborative planning</div>
+</div>
+</div>
+<div class="p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 flex items-start gap-3">
+<span class="text-xl flex-shrink-0">✅</span>
+<div>
+<div class="font-semibold">Leverage /fleet for parallel orchestration</div>
+<div class="text-xs opacity-70 mt-1">Explicitly decompose work across subagents</div>
+</div>
+</div>
+<div class="p-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20 flex items-start gap-3">
+<span class="text-xl flex-shrink-0">✅</span>
+<div>
+<div class="font-semibold">Know when to delegate to cloud agents</div>
+<div class="text-xs opacity-70 mt-1">Free your IDE and terminal for other work</div>
+</div>
+</div>
+<div class="p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 flex items-start gap-3">
+<span class="text-xl flex-shrink-0">✅</span>
+<div>
+<div class="font-semibold">Integrate GitHub.com workflows</div>
+<div class="text-xs opacity-70 mt-1">Issues, PRs, and Actions from the terminal</div>
+</div>
+</div>
+<div class="p-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20 flex items-start gap-3">
+<span class="text-xl flex-shrink-0">✅</span>
+<div>
+<div class="font-semibold">Automate CI/CD with programmatic mode</div>
+<div class="text-xs opacity-70 mt-1">Build failure analysis in GitHub Actions</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-<div class="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
-<div class="p-6 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
-<div class="text-2xl font-bold text-red-400 mb-4">❌ Traditional Workflow</div>
+---
+
+<!-- SLIDE: Mental Model Shift -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 Mental Model Shift</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">From Command Execution to AI Collaboration</div>
+<div class="text-sm text-gray-400">Terminal as a thought partner, not just a command processor</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-4 text-xs">
 <div class="space-y-3">
-<div class="flex items-start gap-3">
-<div class="text-2xl">1️⃣</div>
-<div>
-<div class="font-medium">Make request</div>
-<div class="text-sm opacity-80">Describe what you want</div>
+<div class="text-base font-bold text-green-400 mb-2">✅ Move Toward</div>
+<div class="p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+<div class="font-medium mb-1">AI as thought partner for greenfield work</div>
+<div class="opacity-80">90 min library research → 15 min with scaffold</div>
+</div>
+<div class="p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+<div class="font-medium mb-1">Plan before you build (Shift+Tab)</div>
+<div class="opacity-80">8 debugging attempts → 2; catch ambiguity early</div>
+</div>
+<div class="p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+<div class="font-medium mb-1">Delegate long-running tasks with `&`</div>
+<div class="opacity-80">IDE and terminal stay completely free; PR arrives when done</div>
+</div>
+<div class="p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
+<div class="font-medium mb-1">Let /fleet execute the plan</div>
+<div class="opacity-80">Parallel orchestration, not step-by-step manual execution</div>
 </div>
 </div>
-<div class="flex items-start gap-3">
-<div class="text-2xl">2️⃣</div>
-<div>
-<div class="font-medium">AI generates solution</div>
-<div class="text-sm opacity-80">Guesses at ambiguities</div>
-</div>
-</div>
-<div class="flex items-start gap-3">
-<div class="text-2xl">3️⃣</div>
-<div>
-<div class="font-medium">You review and fix</div>
-<div class="text-sm opacity-80">Find where it guessed wrong</div>
-</div>
-</div>
-<div class="flex items-start gap-3">
-<div class="text-2xl">🔄</div>
-<div>
-<div class="font-medium text-red-400">Repeat (8 attempts average)</div>
-<div class="text-sm opacity-80">Most rework from ambiguous starts</div>
-</div>
-</div>
-</div>
-</div>
-<div class="p-6 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="text-2xl font-bold text-green-400 mb-4">✨ Plan Mode Workflow</div>
 <div class="space-y-3">
-<div class="flex items-start gap-3">
-<div class="text-2xl">1️⃣</div>
-<div>
-<div class="font-medium">Make request</div>
-<div class="text-sm opacity-80">Describe what you want</div>
+<div class="text-base font-bold text-red-400 mb-2">🛑 Move Against</div>
+<div class="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
+<div class="font-medium mb-1">Pasting secrets into prompts</div>
+<div class="opacity-80">Use env vars or secret managers — credentials are prompt content</div>
 </div>
+<div class="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
+<div class="font-medium mb-1">`&#45;&#45;yolo` outside sandboxed environments</div>
+<div class="opacity-80">Blanket permissions = prod access if authenticated to prod</div>
 </div>
-<div class="flex items-start gap-3">
-<div class="text-2xl">2️⃣</div>
-<div>
-<div class="font-medium">AI asks clarifying questions</div>
-<div class="text-sm opacity-80">Uses `ask_user` tool for ambiguities</div>
+<div class="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
+<div class="font-medium mb-1">Skipping Plan Mode when in a hurry</div>
+<div class="opacity-80">Most valuable precisely when rushing — prevents 30 min rework</div>
 </div>
-</div>
-<div class="flex items-start gap-3">
-<div class="text-2xl">3️⃣</div>
-<div>
-<div class="font-medium">Collaborate on plan</div>
-<div class="text-sm opacity-80">Review strategy before code</div>
-</div>
-</div>
-<div class="flex items-start gap-3">
-<div class="text-2xl">4️⃣</div>
-<div>
-<div class="font-medium text-green-400">Generate implementation (2 attempts)</div>
-<div class="text-sm opacity-80">Misunderstandings caught early</div>
+<div class="p-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
+<div class="font-medium mb-1">Starting new projects from the IDE</div>
+<div class="opacity-80">Terminal has the most context — design partner before opening editor</div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-lg font-medium">Press <kbd class="px-2 py-1 bg-gray-800 rounded border border-gray-600">Shift+Tab</kbd> to toggle Plan Mode on/off</div>
 </div>
 
 ---
 
-# 🎯 Real-Time Steering
+<!-- SLIDE: Part 1 — Plan Mode & Steering -->
 
-<div class="max-w-5xl mx-auto space-y-6">
-
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-xl font-bold mb-4 text-cyan-400">Enqueue Additional Messages</div>
-<div class="mb-3">Send follow-up instructions to adjust direction while Copilot is thinking:</div>
-<div class="p-4 bg-gray-800/50 rounded-lg font-mono text-sm">
-<div class="text-gray-400"># While Copilot analyzes Docker logs:</div>
-<div class="text-cyan-300">&gt; "Also check if Redis is running"</div>
-<div class="text-cyan-300">&gt; "Focus on authentication-related errors first"</div>
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Plan Mode & Steering</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Collaborative planning before implementation</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
+<div class="text-2xl mb-1">🎯</div>
+<div class="text-cyan-300 font-semibold">The Fundamental Shift</div>
+<div class="text-xs opacity-70 mt-1">Clarify intent before implementation</div>
 </div>
-<div class="text-sm opacity-80 mt-3">Messages queue up and influence the current response</div>
+<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
+<div class="text-2xl mb-1">❓</div>
+<div class="text-blue-300 font-semibold">ask_user Tool</div>
+<div class="text-xs opacity-70 mt-1">Model pauses, asks questions, waits for answers</div>
 </div>
-
-<div class="p-6 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-xl font-bold mb-4 text-blue-400">Inline Feedback on Rejection</div>
-<div class="mb-3">Reject tool permissions and explain why in one step:</div>
-<div class="p-4 bg-gray-800/50 rounded-lg font-mono text-sm">
-<div class="text-gray-400"># Copilot wants to run `rm -rf tmp/*`</div>
-<div class="text-yellow-300">&gt; [Press Esc] "Don't delete tmp/ — it has cached artifacts we need"</div>
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">📊</div>
+<div class="text-indigo-300 font-semibold">Real Impact</div>
+<div class="text-xs opacity-70 mt-1">8 debugging attempts → 2</div>
 </div>
-<div class="text-sm opacity-80 mt-3">Copilot adapts approach without stopping entirely</div>
 </div>
-
-<div class="p-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20 text-center">
-<div class="font-medium">✅ Steering enables mid-flight corrections without restarting the entire conversation</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Most rework comes from ambiguous starts</span><br />
+<span class="text-cyan-300 mt-1 block">↳ not bad code</span>
 </div>
-
+</div>
 </div>
 
 ---
 
-# 🎯 Example: Docker Debugging with Plan Mode
-
-<div class="max-w-5xl mx-auto">
-
-<div class="p-5 bg-gray-800/50 rounded-xl border border-cyan-500/30 font-mono text-sm space-y-3">
-<div><span class="text-blue-400">$</span> <span class="text-white">copilot</span></div>
-<div><span class="text-cyan-300">&gt;</span> <span class="text-white">"Debug why the backend container won't start"</span></div>
-<div class="h-px bg-gray-700 my-3"></div>
-<div class="text-yellow-300">🤔 Copilot (Plan Mode):</div>
-<div class="text-gray-300 ml-4">I can help with that. Before I start, a few questions:</div>
-<div class="text-gray-300 ml-4">1. Should I check docker-compose configuration, container logs, or both?</div>
-<div class="text-gray-300 ml-4">2. Do you want environment variable analysis?</div>
-<div class="text-gray-300 ml-4">3. Any recent changes to services or network configuration?</div>
-<div class="h-px bg-gray-700 my-3"></div>
-<div><span class="text-cyan-300">&gt;</span> <span class="text-white">"Start with logs, then check config if needed"</span></div>
-<div class="h-px bg-gray-700 my-3"></div>
-<div class="text-yellow-300">🤔 Copilot:</div>
-<div class="text-gray-300 ml-4">Understood. Here's my plan:</div>
-<div class="text-gray-300 ml-4">1. Retrieve container logs for backend service</div>
-<div class="text-gray-300 ml-4">2. Analyze error patterns and stack traces</div>
-<div class="text-gray-300 ml-4">3. If logs suggest config issue, inspect docker-compose.yml</div>
-<div class="text-gray-300 ml-4">4. Check environment variables if authentication/connection errors found</div>
-<div class="text-gray-300 ml-4 mt-3">Proceed with this plan? (y/n)</div>
-<div class="h-px bg-gray-700 my-3"></div>
-<div><span class="text-cyan-300">&gt;</span> <span class="text-white">y</span></div>
-<div class="h-px bg-gray-700 my-3"></div>
-<div class="text-green-300">✅ Copilot:</div>
-<div class="text-gray-300 ml-4">[Executes plan, finds misconfigured port binding in docker-compose.yml]</div>
-<div class="text-gray-300 ml-4">Found: Port 5000 mapped to 5001, but app expects 5000 internally.</div>
-<div class="text-gray-300 ml-4">Fix: Change service.ports from "5001:5000" to "5000:5000"</div>
-<div class="text-gray-300 ml-4 mt-3">Apply this fix? (y/n)</div>
+<!-- SLIDE: Plan Mode: The Fundamental Shift -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Plan Mode & Steering</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-
-<div class="mt-6 p-5 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl border border-green-500/20">
-<div class="grid grid-cols-2 gap-6">
-<div>
-<div class="text-sm opacity-70">Before Plan Mode</div>
-<div class="text-2xl font-bold text-red-400">45 minutes</div>
-<div class="text-sm opacity-80">8 trial-and-error attempts</div>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
 </div>
-<div>
-<div class="text-sm opacity-70">With Plan Mode</div>
-<div class="text-2xl font-bold text-green-400">8 minutes</div>
-<div class="text-sm opacity-80">2 targeted checks</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">Traditional vs Plan Mode Workflow</div>
+<div class="text-xs text-white/50">From trial-and-error to collaborative strategy</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-4 h-full text-xs">
+
+<div class="p-4 bg-gradient-to-br from-red-900/30 to-orange-900/20 rounded-xl border border-red-500/30 flex flex-col">
+<div class="flex items-center gap-2 mb-3 pb-2 border-b border-red-500/20">
+<span class="text-base">❌</span>
+<span class="font-bold text-red-300 text-sm">Traditional Workflow</span>
+</div>
+<div class="relative flex-1">
+<div class="absolute left-[11px] top-1 bottom-12 w-px bg-red-500/25"></div>
+<div class="space-y-3">
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-red-900/80 border border-red-500/60 flex items-center justify-center text-red-300 font-bold text-xs shrink-0 z-10">1</div>
+<div><div class="font-semibold text-white/90">Make request</div><div class="opacity-60 mt-0.5">Describe what you need</div></div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-red-900/80 border border-red-500/60 flex items-center justify-center text-red-300 font-bold text-xs shrink-0 z-10">2</div>
+<div><div class="font-semibold text-white/90">AI generates solution</div><div class="opacity-60 mt-0.5">Assumes intent, picks one interpretation</div></div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-red-900/80 border border-red-500/60 flex items-center justify-center text-red-300 font-bold text-xs shrink-0 z-10">3</div>
+<div><div class="font-semibold text-white/90">You review and fix</div><div class="opacity-60 mt-0.5">Discover wrong assumptions</div></div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-orange-900/80 border border-orange-500/60 flex items-center justify-center text-orange-300 font-bold text-xs shrink-0 z-10">↺</div>
+<div><div class="font-semibold text-orange-300">Repeat</div><div class="opacity-60 mt-0.5">Back to step 1</div></div>
 </div>
 </div>
 </div>
-
-</div>
-
----
-layout: center
-name: operatingmodes
----
-
-<div class="text-center mb-6">
-<div class="text-5xl mb-4">⚡</div>
-<h1 class="!text-4xl bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Operating Modes</h1>
-<p class="text-xl opacity-80 mt-2">Interactive, programmatic, and cloud delegation</p>
-</div>
-<div class="p-5 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-xl border border-blue-500/30 mb-5 text-center max-w-3xl mx-auto">
-<div class="text-lg">Choose the right mode for the task — collaborative debugging, headless automation, or background execution</div>
-</div>
-
----
-
-# The Solution: GitHub Copilot CLI
-
-<div class="text-sm space-y-4 mt-4">
-
-**Conversational AI directly in terminal workflows — interactive, autonomous, and IDE-independent**
-
-<div class="grid grid-cols-3 gap-4 mt-4">
-
-<div class="p-3 bg-emerald-900/40 rounded-lg border border-emerald-500/50">
-<div class="text-xl mb-1">🤝</div>
-<div class="font-semibold mb-1">Plan Mode</div>
-<div class="text-xs opacity-90">Collaborative planning with clarifying questions before code — reduces iterations from 8 to 2</div>
-</div>
-
-<div class="p-3 bg-teal-900/40 rounded-lg border border-teal-500/50">
-<div class="text-xl mb-1">💬</div>
-<div class="font-semibold mb-1">Interactive Mode</div>
-<div class="text-xs opacity-90">Terminal-native conversations with persistent context — perfect for "figure this out" scenarios</div>
-</div>
-
-<div class="p-3 bg-cyan-900/40 rounded-lg border border-cyan-500/50">
-<div class="text-xl mb-1">🔄</div>
-<div class="font-semibold mb-1">Programmatic Mode</div>
-<div class="text-xs opacity-90">Single-command headless execution for CI/CD pipelines — structured output for scripts</div>
-</div>
-
-<div class="p-3 bg-blue-900/40 rounded-lg border border-blue-500/50">
-<div class="text-xl mb-1">☁️</div>
-<div class="font-semibold mb-1">Cloud Delegation</div>
-<div class="text-xs opacity-90"><code>&</code> prefix offloads long tasks to GitHub's agent — IDE and terminal both stay completely free</div>
-</div>
-
-<div class="p-3 bg-violet-900/40 rounded-lg border border-violet-500/50">
-<div class="text-xl mb-1">🤖</div>
-<div class="font-semibold mb-1">Built-in Agents</div>
-<div class="text-xs opacity-90">Explore, Task, Plan, Code-review — routed automatically based on intent, run in parallel</div>
-</div>
-
-<div class="p-3 bg-indigo-900/40 rounded-lg border border-indigo-500/50">
-<div class="text-xl mb-1">🪟</div>
-<div class="font-semibold mb-1">IDE Bridge <code>/ide</code></div>
-<div class="text-xs opacity-90">Open any file in VS Code mid-session — CLI context and conversation stay fully alive</div>
-</div>
-
-<div class="p-3 bg-sky-900/40 rounded-lg border border-sky-500/50 col-span-2">
-<div class="text-xl mb-1">🧠</div>
-<div class="font-semibold mb-1">Repository Memory + Auto-Compaction</div>
-<div class="text-xs opacity-90">AI learns your conventions across sessions; auto-compaction at 95% token limit makes sessions virtually infinite</div>
-</div>
-
-<div class="p-3 bg-slate-900/40 rounded-lg border border-slate-500/50">
-<div class="text-xl mb-1">🧩</div>
-<div class="font-semibold mb-1">MCP Integration</div>
-<div class="text-xs opacity-90">Discover and connect external tools via GitHub MCP Registry with org-level governance</div>
-</div>
-
-</div>
-
-</div>
-
----
-
-# Latest CLI Updates
-
-<div class="grid grid-cols-2 gap-6 mt-6 text-xs">
-
-<div class="p-4 bg-emerald-900/40 rounded-lg border border-emerald-500/50">
-<div class="text-2xl mb-2">🧠</div>
-<div class="font-bold mb-2">Configurable Reasoning Models</div>
-<div class="opacity-90">GPT-5.2-Codex with effort tiers (low → extra high) and Ctrl+T reasoning visibility</div>
-</div>
-
-<div class="p-4 bg-teal-900/40 rounded-lg border border-teal-500/50">
-<div class="text-2xl mb-2">⚡</div>
-<div class="font-bold mb-2">Performance & UX Upgrades</div>
-<div class="opacity-90">~45% faster output, richer diffs/timelines, prefix-aware history filtering, Windows/PowerShell polish</div>
-</div>
-
-</div>
-
----
-layout: center
-name: plan-mode
----
-
-<!-- 🎬 MAJOR SECTION: Plan Mode & Steering -->
-
-<div class="text-center">
-  <div class="text-6xl mb-6">🎯</div>
-  <h1 class="text-5xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-    Plan Mode
-  </h1>
-  <div class="text-2xl mt-4 opacity-80">
-    Collaborative Planning Before Implementation
-  </div>
-</div>
-
----
-
-# Plan Mode: The Fundamental Shift
-
-<div class="mt-8 space-y-6 text-sm">
-
-<div class="p-5 bg-red-900/40 rounded-lg border-2 border-red-500/50">
-<div class="text-xl font-bold mb-3">❌ Traditional Workflow</div>
-<div class="flex items-center gap-3">
-<div>Request</div>
-<div class="text-2xl">→</div>
-<div>AI generates solution</div>
-<div class="text-2xl">→</div>
-<div>Review and fix</div>
-<div class="text-2xl">→</div>
-<div>Repeat (8 attempts average)</div>
+<div class="mt-3 px-3 py-2 bg-red-500/15 rounded-lg border border-red-500/25 text-center text-red-300 font-semibold">
+⚠️ 8 attempts average
 </div>
 </div>
 
-<div class="p-5 bg-emerald-900/40 rounded-lg border-2 border-emerald-500/50">
-<div class="text-xl font-bold mb-3">✅ Plan Mode Workflow</div>
-<div class="flex items-center gap-3">
-<div>Request</div>
-<div class="text-2xl">→</div>
-<div>AI asks questions</div>
-<div class="text-2xl">→</div>
-<div>Collaborate on plan</div>
-<div class="text-2xl">→</div>
-<div>Generate (2 attempts average)</div>
+<div class="p-4 bg-gradient-to-br from-emerald-900/30 to-green-900/20 rounded-xl border border-emerald-500/30 flex flex-col">
+<div class="flex items-center gap-2 mb-3 pb-2 border-b border-emerald-500/20">
+<span class="text-base">✨</span>
+<span class="font-bold text-emerald-300 text-sm">Plan Mode Workflow</span>
 </div>
-</div>
-
-<div class="p-5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl text-center">
-<div class="text-lg font-bold">Press Shift+Tab to toggle Plan Mode • Reduces debugging cycles by 75%</div>
-</div>
-
-</div>
-
----
-
-# Real-Time Steering
-
-<div class="grid grid-cols-2 gap-6 mt-6 text-sm">
-
-<div class="p-5 bg-blue-900/40 rounded-lg border border-blue-500/50">
-<div class="text-2xl mb-3">💬</div>
-<div class="font-bold mb-3">Enqueue Messages</div>
+<div class="relative flex-1">
+<div class="absolute left-[11px] top-1 bottom-12 w-px bg-emerald-500/25"></div>
 <div class="space-y-2">
-<div class="opacity-90">Send follow-up instructions mid-response:</div>
-<div class="font-mono text-xs bg-black/40 p-3 rounded">
-> "Also check if Redis is running"<br/>
-> "Focus on auth errors first"
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-emerald-900/80 border border-emerald-500/60 flex items-center justify-center text-emerald-300 font-bold text-xs shrink-0 z-10">1</div>
+<div><div class="font-semibold text-white/90">Make request</div><div class="opacity-60 mt-0.5">Describe what you need</div></div>
 </div>
-<div class="text-xs opacity-70 mt-2">Steer direction while Copilot is thinking</div>
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-emerald-900/80 border border-emerald-500/60 flex items-center justify-center text-emerald-300 font-bold text-xs shrink-0 z-10">2</div>
+<div><div class="font-semibold text-white/90">AI asks clarifying questions</div><div class="opacity-60 mt-0.5">Uses ask_user tool to pause and probe</div></div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-emerald-900/80 border border-emerald-500/60 flex items-center justify-center text-emerald-300 font-bold text-xs shrink-0 z-10">3</div>
+<div><div class="font-semibold text-white/90">Collaborate on plan</div><div class="opacity-60 mt-0.5">Align on approach before code</div></div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-emerald-900/80 border border-emerald-500/60 flex items-center justify-center text-emerald-300 font-bold text-xs shrink-0 z-10">4</div>
+<div><div class="font-semibold text-white/90">Review plan</div><div class="opacity-60 mt-0.5">Approve strategy</div></div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="w-[22px] h-[22px] rounded-full bg-cyan-900/80 border border-cyan-500/60 flex items-center justify-center text-cyan-300 font-bold text-xs shrink-0 z-10">✓</div>
+<div><div class="font-semibold text-cyan-300">Generate implementation</div><div class="opacity-60 mt-0.5">Right the first time</div></div>
+</div>
+</div>
+</div>
+<div class="mt-3 px-3 py-2 bg-emerald-500/15 rounded-lg border border-emerald-500/25 text-center text-emerald-300 font-semibold">
+✅ 2 attempts average
 </div>
 </div>
 
-<div class="p-5 bg-purple-900/40 rounded-lg border border-purple-500/50">
-<div class="text-2xl mb-3">⏹️</div>
-<div class="font-bold mb-3">Inline Feedback on Rejection</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: How Plan Mode Works -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Plan Mode & Steering</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">How Plan Mode Works</div>
+<div class="text-xs text-white/50">Press Shift+Tab to toggle; uses ask_user tool; steer in real-time</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-3 text-xs">
 <div class="space-y-2">
-<div class="opacity-90">Reject with explanation:</div>
-<div class="font-mono text-xs bg-black/40 p-3 rounded">
-[Esc] "Don't delete tmp/ — it has<br/>
-cached artifacts we need"
+<div class="p-2.5 bg-cyan-900/30 rounded-lg border border-cyan-500/30">
+<div class="font-semibold text-cyan-300 mb-1">🔑 Activation</div>
+<div class="opacity-90">Press <strong>Shift+Tab</strong> to toggle Plan Mode on/off</div>
+<div class="mt-1 font-mono text-xs bg-black/40 p-1.5 rounded leading-snug">
+<div>$ copilot</div>
+<div>&gt; [Shift+Tab]</div>
+<div>✅ Plan Mode enabled</div>
 </div>
-<div class="text-xs opacity-70 mt-2">Copilot adapts without stopping</div>
+</div>
+<div class="p-2.5 bg-blue-900/30 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-1">❓ ask_user Tool</div>
+<div class="opacity-90">Model pauses and asks for clarification</div>
+<div class="mt-1 space-y-0.5 text-xs">
+<div>• "Should I check config, logs, or both?"</div>
+<div>• "Include env variable analysis?"</div>
+<div>• "Start with network or dependencies?"</div>
 </div>
 </div>
-
+<div class="p-2.5 bg-indigo-900/30 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">⚙️ Advanced Reasoning</div>
+<div class="opacity-90">GPT-5.2-Codex with configurable reasoning effort</div>
+<div class="mt-1 space-y-0.5 text-xs">
+<div>• <strong>Low</strong>: Fast, straightforward queries</div>
+<div>• <strong>High/Extra High</strong>: Architectural decisions</div>
+<div>• Press <strong>Ctrl+T</strong> to reveal reasoning steps</div>
 </div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-blue-600/40 to-purple-600/40 rounded-lg">
-<div class="font-semibold">Advanced: Ctrl+T toggles reasoning visibility to see AI's thought process</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="p-2.5 bg-purple-900/30 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">🎯 Real-Time Steering</div>
+<div class="opacity-90">Adjust direction mid-response</div>
+<div class="mt-1">
+<div class="font-mono text-xs bg-black/40 p-1.5 rounded mb-1 leading-snug">
+# While Copilot analyzes logs:<br/>
+&gt; "Also check if Redis is running"<br/>
+&gt; "Focus on auth errors first"
+</div>
+<div class="opacity-80">Messages enqueued and incorporated immediately</div>
+</div>
+</div>
+<div class="p-2.5 bg-pink-900/30 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-1">🚫 Inline Rejection Feedback</div>
+<div class="opacity-90">Reject tool permissions and explain why</div>
+<div class="mt-1">
+<div class="font-mono text-xs bg-black/40 p-1.5 rounded mb-1 leading-snug">
+# AI wants to run `rm -rf tmp/*`<br/>
+&gt; [Press Esc] "Don't delete tmp/ &#45;&#45;<br/>
+&nbsp;&nbsp;cached artifacts needed"
+</div>
+<div class="opacity-80">Copilot adapts approach without stopping</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Example: Docker Debugging with Plan Mode
-
-<div class="text-xs space-y-3 mt-4">
-
-```bash
-$ copilot
-> "Debug why the backend container won't start"
-
-🤔 Copilot (Plan Mode):
-Before I start, a few questions:
-1. Should I check docker-compose config, container logs, or both?
-2. Do you want environment variable analysis?
-3. Any recent changes to services or network?
-
-> "Start with logs, then check config if needed"
-
-🤔 Copilot: Here's my plan:
-1. Retrieve container logs for backend service
-2. Analyze error patterns and stack traces
-3. If logs suggest config issue, inspect docker-compose.yml
-
-Proceed? (y/n)
-```
-
+<!-- SLIDE: Docker Debugging Example -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Plan Mode & Steering</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
 </div>
-
-<div class="mt-4 p-4 bg-emerald-900/40 rounded-lg border border-emerald-500/50">
-<div class="font-bold">✅ Outcome: 45 minutes → 8 minutes (83% reduction)</div>
-<div class="text-sm mt-2">Root cause: Misconfigured port binding found in 2 targeted checks vs 8 trial-and-error attempts</div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
 </div>
-
----
-layout: center
-name: operating-modes
----
-
-<!-- 🎬 MAJOR SECTION: Operating Modes -->
-
-<div class="text-center">
-  <div class="text-6xl mb-6">⚙️</div>
-  <h1 class="text-5xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
-    Operating Modes
-  </h1>
-  <div class="text-2xl mt-4 opacity-80">
-    Interactive • Programmatic • Cloud Delegation
-  </div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-1">Docker Debugging with Plan Mode</div>
+<div class="text-xs text-white/50">45 minutes → 8 minutes (83% reduction) | 8 attempts → 2 attempts</div>
 </div>
-
----
-
-# Three Operating Modes
-
-<div class="grid grid-cols-3 gap-4 mt-6 text-xs">
-
-<div class="p-4 bg-emerald-900/40 rounded-lg border border-emerald-500/50">
-<div class="text-3xl mb-2">💬</div>
-<div class="font-bold text-lg mb-2">Interactive</div>
-<div class="font-mono text-xs mb-2">$ copilot</div>
-<div class="space-y-2 opacity-90">
-<div>✓ Conversational sessions</div>
-<div>✓ Persistent context</div>
-<div>✓ Plan Mode support</div>
-<div>✓ Multi-turn debugging</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="font-mono text-xs bg-gray-950/90 p-3 rounded-lg border border-cyan-500/30 flex-1 min-h-0 overflow-y-auto">
+<div class="text-cyan-400">$ copilot</div>
+<div class="text-white mt-1">&gt; "Debug why the backend container won't start"</div>
+<div class="mt-2 text-blue-300">🤔 Copilot (Plan Mode):</div>
+<div class="text-gray-300 mt-1">I can help with that. Before I start, a few questions:</div>
+<div class="text-gray-300 mt-1">1. Should I check docker-compose configuration, container logs, or both?</div>
+<div class="text-gray-300">2. Do you want environment variable analysis?</div>
+<div class="text-gray-300">3. Any recent changes to services or network configuration?</div>
+<div class="mt-2 text-white">&gt; "Start with logs, then check config if needed"</div>
+<div class="mt-2 text-blue-300">🤔 Copilot:</div>
+<div class="text-gray-300 mt-1">Understood. Here's my plan:</div>
+<div class="text-gray-300">1. Retrieve container logs for backend service</div>
+<div class="text-gray-300">2. Analyze error patterns and stack traces</div>
+<div class="text-gray-300">3. If logs suggest config issue, inspect docker-compose.yml</div>
+<div class="text-gray-300">4. Check environment variables if authentication/connection errors found</div>
+<div class="mt-2 text-gray-300">Proceed with this plan? (y/n)</div>
+<div class="mt-1 text-white">&gt; y</div>
+<div class="mt-2 text-green-400">✅ Copilot:</div>
+<div class="text-gray-300 mt-1">[Executes plan, finds misconfigured port binding in docker-compose.yml]</div>
+<div class="text-gray-300">Found: Port 5000 mapped to 5001, but app expects 5000 internally.</div>
+<div class="text-gray-300">Fix: Change service.ports from "5001:5000" to "5000:5000"</div>
+<div class="mt-2 text-gray-300">Apply this fix? (y/n)</div>
 </div>
-<div class="mt-3 pt-3 border-t border-emerald-500/30 text-xs font-semibold">
-Best for: Complex debugging, unknown root causes
+<div class="grid grid-cols-3 gap-2 text-xs">
+<div class="p-2 bg-green-900/30 rounded border border-green-500/30 text-center">
+<div class="font-bold text-green-400">45 min → 8 min</div>
+<div class="opacity-80">83% time reduction</div>
+</div>
+<div class="p-2 bg-blue-900/30 rounded border border-blue-500/30 text-center">
+<div class="font-bold text-blue-400">8 attempts → 2</div>
+<div class="opacity-80">Clarified intent first</div>
+</div>
+<div class="p-2 bg-purple-900/30 rounded border border-purple-500/30 text-center">
+<div class="font-bold text-purple-400">Root cause + fix</div>
+<div class="opacity-80">Not just symptoms</div>
 </div>
 </div>
-
-<div class="p-4 bg-teal-900/40 rounded-lg border border-teal-500/50">
-<div class="text-3xl mb-2">🔄</div>
-<div class="font-bold text-lg mb-2">Programmatic</div>
-<div class="font-mono text-xs mb-2">$ copilot -p</div>
-<div class="space-y-2 opacity-90">
-<div>✓ Single-command</div>
-<div>✓ Structured output</div>
-<div>✓ Headless operation</div>
-<div>✓ CI/CD ready</div>
 </div>
-<div class="mt-3 pt-3 border-t border-teal-500/30 text-xs font-semibold">
-Best for: Automation, pipelines, scripts
-</div>
-</div>
-
-<div class="p-4 bg-cyan-900/40 rounded-lg border border-cyan-500/50">
-<div class="text-3xl mb-2">☁️</div>
-<div class="font-bold text-lg mb-2">Cloud Delegation</div>
-<div class="font-mono text-xs mb-2">$ copilot<br/>> "&task"</div>
-<div class="space-y-2 opacity-90">
-<div>✓ Background execution</div>
-<div>✓ Terminal stays free</div>
-<div>✓ GitHub cloud agents</div>
-<div>✓ PR created on completion</div>
-</div>
-<div class="mt-3 pt-3 border-t border-cyan-500/30 text-xs font-semibold">
-Best for: Large refactors, security audits
-</div>
-</div>
-
 </div>
 
 ---
 
-# CI/CD Build Failure Automation
+<!-- SLIDE: Part 2 — Operating Modes -->
 
-<div class="text-xs mt-4">
-
-```yaml
-# .github/workflows/build.yml
-name: Build and Analyze
-on: [push, pull_request]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build application
-        run: npm run build
-
-      - name: Analyze failure with Copilot CLI
-        if: failure()
-        env:
-          GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
-        run: |
-          npm install -g @github/copilot
-          copilot -p "Analyze build failure. Check commits, deps, error patterns." \
-            --allow-tool 'shell(gh)' --allow-tool 'shell(git)' > analysis.txt
-
-      - name: Post analysis as comment
-        if: failure()
-        run: gh pr comment ${{ github.event.pull_request.number }} --body-file analysis.txt
-```
-
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Operating Modes</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Interactive, programmatic, and cloud delegation</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
+<div class="text-2xl mb-1">💬</div>
+<div class="text-blue-300 font-semibold">Interactive</div>
+<div class="text-xs opacity-70 mt-1">Conversational debugging</div>
 </div>
-
-<div class="mt-4 p-4 bg-emerald-900/40 rounded-lg border border-emerald-500/50">
-<div class="font-bold">Impact: 25 minutes → 5 minutes investigation time</div>
-<div class="text-sm mt-1">Zero human intervention for known failure types • Pattern recognition across historical failures</div>
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">🤖</div>
+<div class="text-indigo-300 font-semibold">Programmatic</div>
+<div class="text-xs opacity-70 mt-1">Headless CI/CD automation</div>
 </div>
-
----
-layout: center
-name: context-management
----
-
-<!-- 🎬 MAJOR SECTION: Context Management -->
-
-<div class="text-center">
-  <div class="text-6xl mb-6">🧠</div>
-  <h1 class="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-    Context Management
-  </h1>
-  <div class="text-2xl mt-4 opacity-80">
-    Infinite Sessions • Repository Memory
-  </div>
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">☁️</div>
+<div class="text-purple-300 font-semibold">Cloud Delegation</div>
+<div class="text-xs opacity-70 mt-1">IDE and terminal stay free</div>
+</div>
+</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Choose the right mode for the task</span><br />
+<span class="text-blue-300 mt-1 block">↳ collaborative, automated, or independent</span>
+</div>
+</div>
 </div>
 
 ---
 
-# Automatic Context Management
-
-<div class="grid grid-cols-2 gap-6 mt-6 text-sm">
-
-<div>
-
-### ♾️ Infinite Sessions
-
-<div class="space-y-3 mt-4">
-
-**The problem:**
-- Traditional AI: 12-20 exchanges then loses context
-
-**The solution:**
-- Auto-compaction at 95% token limit
-- Important context persists
-- Redundant details pruned
-- No interruptions
-
-**Monitoring tools:**
-```bash
-/context   # Token usage breakdown
-/usage     # Session statistics
-/compact   # Manually compress anytime
-```
-
-**Model & cost:**
-- Default: `Claude Sonnet 4.5 (1x)`
-- `/model` — switch models; multiplier shown per option
-- 1x = 1 premium request per prompt; higher models cost more
-
+<!-- SLIDE: Three Operating Modes -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Operating Modes</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
 </div>
-
-<div>
-
-### 🧠 Repository Memory
-
-<div class="space-y-3 mt-4">
-
-**What gets remembered:**
-- Coding standards and conventions
-- Project architecture patterns
-- Preferred debugging approaches
-- Configuration patterns
-
-**Cross-session learning:**
-```bash
-Session 1 (Monday):
-> [Explain docker-compose networking]
-
-Session 2 (Wednesday):
-> "Service A can't reach Service B"
-✅ Copilot remembers network setup
-```
-
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">Three Ways to Work with Copilot CLI</div>
+<div class="text-xs text-white/50">Match the mode to the workflow: collaborate, automate, or delegate</div>
 </div>
-
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-3 gap-3 text-xs">
+<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
+<div class="text-2xl mb-2 text-center">💬</div>
+<div class="font-bold text-cyan-300 mb-2 text-center">Interactive Mode</div>
+<div class="font-mono text-xs bg-black/40 p-2 rounded mb-2">
+$ copilot<br/>
+&gt; "Analyze last 100 log lines"<br/>
+&gt; "What's causing memory spike?"
 </div>
-
+<div class="space-y-1 opacity-90">
+<div><strong>Purpose:</strong> Conversational debugging</div>
+<div><strong>Context:</strong> Maintained across commands</div>
+<div><strong>Best for:</strong> Unknown root causes, iterative investigation</div>
+<div><strong>/ide:</strong> Open files in VS Code mid-session — CLI conversation stays alive</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-lg border border-blue-500/30">
+<div class="text-2xl mb-2 text-center">🤖</div>
+<div class="font-bold text-blue-300 mb-2 text-center">Programmatic Mode</div>
+<div class="font-mono text-xs bg-black/40 p-2 rounded mb-2">
+copilot -p "Analyze failure" \<br/>
+&nbsp;&nbsp;&#45;&#45;allow-tool 'shell(gh)' \<br/>
+&nbsp;&nbsp;&gt; analysis.txt
+</div>
+<div class="space-y-1 opacity-90">
+<div><strong>Purpose:</strong> Headless automation</div>
+<div><strong>Context:</strong> Stateless, single execution</div>
+<div><strong>Best for:</strong> CI/CD pipelines, GitHub Actions, scripted operations</div>
+<div><strong>Output:</strong> Structured for parsing</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
+<div class="text-2xl mb-2 text-center">☁️</div>
+<div class="font-bold text-indigo-300 mb-2 text-center">Cloud Delegation</div>
+<div class="font-mono text-xs bg-black/40 p-2 rounded mb-2">
+$ copilot<br/>
+&gt; "&amp;Analyze codebase for<br/>
+&nbsp;&nbsp;security vulnerabilities"<br/>
+<br/>
+✅ Delegated to cloud agent
+</div>
+<div class="space-y-1 opacity-90">
+<div><strong>Purpose:</strong> Background execution</div>
+<div><strong>Freedom:</strong> IDE and terminal completely free</div>
+<div><strong>Best for:</strong> 20+ min tasks — security audits, refactors, test scaffolding</div>
+<div><strong>Result:</strong> PR created when done</div>
+</div>
+</div>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gray-900/50 rounded border border-yellow-500/30">
+<strong class="text-yellow-400">Permission management:</strong> "Approve for session" auto-approves pending parallel requests of same type
+</div>
+<div class="p-2 bg-gray-900/50 rounded border border-orange-500/30">
+<strong class="text-orange-400">Convenience flags:</strong> <code>&#45;&#45;allow-all-tools</code> or <code>&#45;&#45;yolo</code> (use carefully in trusted environments)
+</div>
+</div>
+</div>
 </div>
 
 ---
-layout: center
-name: built-in-agents
----
 
-<!-- 🎬 MAJOR SECTION: Built-in Agents -->
-
-<div class="text-center">
-  <div class="text-6xl mb-6">🤖</div>
-  <h1 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-    Built-in Agents
-  </h1>
-  <div class="text-2xl mt-4 opacity-80">
-    Automatic Expert Delegation
-  </div>
+<!-- SLIDE: Cloud Delegation Deep Dive -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Operating Modes</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">Cloud Delegation: The Differentiator</div>
+<div class="text-xs text-white/50">IDE and terminal stay completely free — agent runs independently, PR arrives when done</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-4 text-xs">
+<div class="p-3 bg-purple-900/40 rounded-lg border border-purple-500/30 flex flex-col">
+<div class="font-semibold text-purple-300 mb-2">How It Works</div>
+<div class="font-mono text-xs bg-black/40 p-2 rounded mb-2 leading-snug">
+$ copilot<br/>
+&gt; "&amp;Analyze entire codebase for<br/>
+&nbsp;&nbsp;security vulnerabilities"<br/>
+<br/>
+✅ Task delegated to cloud agent<br/>
+Agent session: github.com/...<br/>
+PR will be created when complete<br/>
+<br/>
+[Terminal is now free]
+</div>
+<div class="opacity-90">Prefix any request with <strong>&amp;</strong> to delegate to GitHub Copilot coding agent in the cloud</div>
+</div>
+<div class="p-3 bg-blue-900/40 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-2">Best For (20+ min tasks)</div>
+<div class="space-y-1.5 opacity-90">
+<div>• Security vulnerability scans across codebase</div>
+<div>• Large refactoring operations</div>
+<div>• Test suite scaffolding and generation</div>
+<div>• Documentation generation across modules</div>
+<div>• Dependency update analysis and migration</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Four Specialized Agents
-
-<div class="grid grid-cols-2 gap-4 mt-6 text-xs">
-
-<div class="p-4 bg-blue-900/40 rounded-lg border border-blue-500/50">
-<div class="text-2xl mb-2">🔍</div>
-<div class="font-bold mb-2">Explore Agent</div>
-<div class="opacity-90 mb-3">Fast codebase analysis</div>
-<div class="space-y-1 text-xs">
-<div>• Returns concise answers (&lt;300 words)</div>
-<div>• Safe parallel execution</div>
-<div>• Doesn't pollute main context</div>
+<!-- SLIDE: Cloud Delegation — What Happens -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Operating Modes</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
 </div>
-<div class="font-mono text-xs mt-3 bg-black/40 p-2 rounded">
-> "How does auth work?"
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">Cloud Delegation: Under the Hood</div>
+<div class="text-xs text-white/50">What happens after you prefix a request with &amp;</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-4 text-xs">
+<div class="p-3 bg-indigo-900/40 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-2">What Happens</div>
+<div class="space-y-1.5 opacity-90">
+<div class="flex gap-2"><span class="text-indigo-400 font-bold shrink-0">1.</span><span>Copilot commits unstaged changes</span></div>
+<div class="flex gap-2"><span class="text-indigo-400 font-bold shrink-0">2.</span><span>Creates a new branch</span></div>
+<div class="flex gap-2"><span class="text-indigo-400 font-bold shrink-0">3.</span><span>Delegates task to cloud coding agent</span></div>
+<div class="flex gap-2"><span class="text-indigo-400 font-bold shrink-0">4.</span><span>Agent works independently</span></div>
+<div class="flex gap-2"><span class="text-indigo-400 font-bold shrink-0">5.</span><span>PR created automatically when done</span></div>
+<div class="flex gap-2"><span class="text-indigo-400 font-bold shrink-0">6.</span><span>You get notified to review</span></div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="p-3 bg-cyan-900/40 rounded-lg border border-cyan-500/30 flex-1">
+<div class="font-semibold text-cyan-300 mb-2">Key Benefits</div>
+<div class="space-y-1.5 opacity-90">
+<div>✅ <strong>IDE completely free</strong> — no agent occupying your editor</div>
+<div>✅ <strong>Terminal completely free</strong> — continue other work immediately</div>
+<div>✅ <strong>No blocking</strong> — agent runs independently of your local session</div>
+<div>✅ <strong>Automatic PR</strong> — results delivered as a reviewable pull request</div>
+<div>✅ <strong>Session tracking</strong> — monitor progress via GitHub.com link</div>
+</div>
+</div>
+<div class="p-2 bg-green-900/20 rounded border border-green-500/20 text-center">
+<div class="font-bold text-green-400">The Unlock</div>
+<div class="opacity-90">Long-running tasks no longer block your tools</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
-<div class="p-4 bg-indigo-900/40 rounded-lg border border-indigo-500/50">
-<div class="text-2xl mb-2">⚡</div>
-<div class="font-bold mb-2">Task Agent</div>
-<div class="opacity-90 mb-3">Smart output filtering</div>
-<div class="space-y-1 text-xs">
+---
+
+<!-- SLIDE: Part 3 — Built-in Agents -->
+
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Built-in Agents</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Specialized agents and /fleet orchestration</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">🔍</div>
+<div class="text-indigo-300 font-semibold">Four Agent Types</div>
+<div class="text-xs opacity-70 mt-1">Explore, Task, Plan, Code-review</div>
+</div>
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">⚡</div>
+<div class="text-purple-300 font-semibold">Automatic Routing</div>
+<div class="text-xs opacity-70 mt-1">No explicit calls needed</div>
+</div>
+<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
+<div class="text-2xl mb-1">🌊</div>
+<div class="text-pink-300 font-semibold">/fleet Fan-Out</div>
+<div class="text-xs opacity-70 mt-1">Explicit parallel orchestration</div>
+</div>
+</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Copilot routes tasks to the right agent</span><br />
+<span class="text-indigo-300 mt-1 block">↳ or you explicitly decompose with /fleet</span>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Four Agent Types -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Built-in Agents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 2</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Four Specialized Agents + IDE Bridge</div>
+<div class="text-xs text-white/50">Copilot automatically routes tasks based on intent — no explicit calls needed</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-2 text-xs mb-2">
+<div class="p-2.5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
+<div class="text-xl mb-1">🔍</div>
+<div class="font-bold text-cyan-300 mb-1">Explore Agent</div>
+<div class="opacity-90 mb-1">Fast codebase analysis without cluttering main context</div>
+<div class="space-y-0.5">
+<div>• Focused answers under 300 words</div>
+<div>• Safe to run in parallel</div>
+<div>• Perfect for "how does X work?"</div>
+</div>
+</div>
+<div class="p-2.5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-lg border border-blue-500/30">
+<div class="text-xl mb-1">⚙️</div>
+<div class="font-bold text-blue-300 mb-1">Task Agent</div>
+<div class="opacity-90 mb-1">Execute commands with smart output filtering</div>
+<div class="space-y-0.5">
 <div>• Brief summary on success</div>
-<div>• Full output on failure</div>
+<div>• Full output only on failure</div>
 <div>• Reduces conversation clutter</div>
 </div>
-<div class="font-mono text-xs mt-3 bg-black/40 p-2 rounded">
-> "Run tests, tell me if failed"
 </div>
-</div>
-
-<div class="p-4 bg-purple-900/40 rounded-lg border border-purple-500/50">
-<div class="text-2xl mb-2">📋</div>
-<div class="font-bold mb-2">Plan Agent</div>
-<div class="opacity-90 mb-3">Multi-step strategies</div>
-<div class="space-y-1 text-xs">
-<div>• Analyzes dependencies</div>
-<div>• Creates structured plans</div>
+<div class="p-2.5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
+<div class="text-xl mb-1">📋</div>
+<div class="font-bold text-indigo-300 mb-1">Plan Agent</div>
+<div class="opacity-90 mb-1">Analyze dependencies and create multi-step strategies</div>
+<div class="space-y-0.5">
 <div>• Surfaces risks upfront</div>
-</div>
-<div class="font-mono text-xs mt-3 bg-black/40 p-2 rounded">
-> "Plan API versioning refactor"
-</div>
-</div>
-
-<div class="p-4 bg-pink-900/40 rounded-lg border border-pink-500/50">
-<div class="text-2xl mb-2">👀</div>
-<div class="font-bold mb-2">Code-Review Agent</div>
-<div class="opacity-90 mb-3">High signal-to-noise</div>
-<div class="space-y-1 text-xs">
-<div>• Only bugs and security issues</div>
-<div>• Never style/formatting</div>
-<div>• Focuses human attention</div>
-</div>
-<div class="font-mono text-xs mt-3 bg-black/40 p-2 rounded">
-/review
+<div>• You review plan before execution</div>
+<div>• Perfect for complex refactors</div>
 </div>
 </div>
-
+<div class="p-2.5 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-lg border border-purple-500/30">
+<div class="text-xl mb-1">👀</div>
+<div class="font-bold text-purple-300 mb-1">Code-Review Agent</div>
+<div class="opacity-90 mb-1">High signal-to-noise review — only bugs and security issues, never style</div>
+<div class="space-y-0.5">
+<div>• Focuses human attention where it matters</div>
+<div>• Invoke with <span class="font-mono bg-black/40 px-1 rounded">/review</span></div>
 </div>
-
-<div class="mt-4 text-center text-sm">
-<div class="font-semibold">✨ Copilot automatically routes tasks to the right agent — no explicit calls needed</div>
-<div class="text-xs opacity-70 mt-1">Use <code>/ide &lt;file&gt;</code> at any point to open a file in VS Code — CLI conversation stays alive, use both tools simultaneously</div>
+</div>
+</div>
+<div class="p-2.5 bg-gradient-to-br from-pink-900/40 to-rose-900/40 rounded-lg border border-pink-500/30 text-xs flex items-center gap-3">
+<div class="font-bold text-pink-300 shrink-0">💻 IDE Bridge</div>
+<div class="opacity-80">Open any file in VS Code from active CLI session — terminal context stays alive</div>
+<div class="font-mono bg-black/40 px-2 py-0.5 rounded ml-auto shrink-0">/ide src/users/api.py</div>
+</div>
+</div>
 </div>
 
 ---
 
-# ⚡ /fleet: Explicit Parallel Fan-Out
-
-<div class="grid grid-cols-2 gap-6 mt-4 text-sm">
-<div>
-<div class="p-4 bg-cyan-900/30 rounded-lg border border-cyan-500/30 mb-3">
-<div class="font-bold text-cyan-300 mb-2">What /fleet does</div>
-<div class="text-xs space-y-1">
-<div>1. Main agent <b>decomposes</b> your prompt into subtasks</div>
+<!-- SLIDE: /fleet: Explicit Parallel Fan-Out -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Built-in Agents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 2</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-1">/fleet: The Headline Differentiator</div>
+<div class="text-xs text-white/50">Explicitly decompose plans into parallel subtasks — orchestrator assigns work to subagents</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-3 text-xs">
+<div class="space-y-3">
+<div class="p-3 bg-purple-900/40 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-2">What /fleet Does</div>
+<div class="space-y-1 opacity-90">
+<div>1. Main agent <strong>decomposes</strong> your prompt into subtasks</div>
 <div>2. Assesses dependencies — what can parallelize</div>
-<div>3. Acts as <b>orchestrator</b>: assigns subtasks to subagents</div>
-<div>4. Subagents run in <b>parallel</b>, each in own context window</div>
+<div>3. Acts as <strong>orchestrator</strong>: assigns subtasks to subagents</div>
+<div>4. Subagents run in <strong>parallel</strong>, each in own context window</div>
 <div>5. Results merged back by orchestrator</div>
 </div>
 </div>
-<div class="font-mono bg-gray-900/60 p-3 rounded text-xs">/fleet create a test suite:
-  unit tests for auth,
-  integration tests for API,
-  e2e tests for login flow</div>
-<div class="mt-2 text-xs opacity-70">Pair with plan mode: <b>Shift+Tab → plan → "Accept plan and build on autopilot + /fleet"</b></div>
+<div class="font-mono bg-gray-950/90 p-2 rounded border border-purple-500/30">
+/fleet create a test suite:<br/>
+&nbsp;&nbsp;unit tests for auth,<br/>
+&nbsp;&nbsp;integration tests for API,<br/>
+&nbsp;&nbsp;e2e tests for login flow
 </div>
-<div>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-gray-900/50 rounded border border-green-500/30"><b class="text-green-400">Speed</b> — parallel subtasks complete in time of longest, not sum</div>
-<div class="p-2 bg-gray-900/50 rounded border border-blue-500/30"><b class="text-blue-400">Context isolation</b> — each subagent has own window, no pollution</div>
-<div class="p-2 bg-gray-900/50 rounded border border-purple-500/30"><b class="text-purple-400">Specialization</b> — custom agents (<code>@test-writer</code>, <code>@security-reviewer</code>) auto-matched to subtasks</div>
-<div class="p-2 bg-gray-900/50 rounded border border-yellow-500/30"><b class="text-yellow-400">Model selection</b> — subagents default to low-cost; specify per-subtask in prompt</div>
-</div>
-<div class="mt-3 p-2 bg-orange-900/20 rounded border border-orange-500/20 text-xs">
-<b class="text-orange-400">⚠️ Cost note:</b> Each subagent makes independent LLM calls — use <code>/model</code> to check multiplier before large /fleet runs
-</div>
-<div class="mt-2 p-2 bg-gray-900/40 rounded text-xs">
-<b>Best for:</b> test suites, multi-module refactors, documentation across modules<br/>
-<b>Not useful for:</b> inherently sequential tasks (step B needs step A's output)
+<div class="p-2 bg-blue-900/20 rounded border border-blue-500/20">
+<div class="font-semibold text-blue-400">Pair with Plan Mode</div>
+<div class="opacity-90 mt-1">Shift+Tab → plan → "Accept plan and build on autopilot + /fleet"</div>
 </div>
 </div>
+<div class="space-y-3">
+<div class="space-y-2">
+<div class="p-2 bg-gray-900/50 rounded border border-green-500/30">
+<strong class="text-green-400">Speed</strong> — parallel subtasks complete in time of longest, not sum
 </div>
-
-
----
-layout: center
-name: plugins
----
-
-<!-- 🎬 MAJOR SECTION: Plugins -->
-
-<div class="text-center">
-  <div class="text-6xl mb-6">🔌</div>
-  <h1 class="text-5xl font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
-    Plugins
-  </h1>
-  <div class="text-2xl mt-4 opacity-80">
-    Extend CLI with Community Packages
-  </div>
+<div class="p-2 bg-gray-900/50 rounded border border-blue-500/30">
+<strong class="text-blue-400">Context isolation</strong> — each subagent has own window, no pollution
 </div>
-
----
-
-# Plugins: Extending Copilot CLI
-
-<div class="grid grid-cols-2 gap-6 mt-6 text-xs">
-
-<div class="space-y-4">
-
-### What Plugins Are
-
-<div class="opacity-90">
-Packages that extend Copilot CLI's functionality beyond built-in capabilities — new tools, specialized workflows, domain-specific knowledge.
+<div class="p-2 bg-gray-900/50 rounded border border-purple-500/30">
+<strong class="text-purple-400">Specialization</strong> — custom agents (<code>@test-writer</code>) auto-matched to subtasks
 </div>
-
-### Default Marketplaces
-
-<div class="space-y-2 mt-3">
-<div class="p-3 bg-violet-900/40 rounded-lg border border-violet-500/50">
-<div class="font-bold">copilot-plugins</div>
-<div class="text-xs opacity-80">GitHub's official plugin collection</div>
-</div>
-<div class="p-3 bg-purple-900/40 rounded-lg border border-purple-500/50">
-<div class="font-bold">awesome-copilot</div>
-<div class="text-xs opacity-80">Community-curated plugins</div>
+<div class="p-2 bg-gray-900/50 rounded border border-yellow-500/30">
+<strong class="text-yellow-400">Model selection</strong> — subagents default to low-cost; specify per-subtask in prompt
 </div>
 </div>
-
+<div class="p-2 bg-orange-900/20 rounded border border-orange-500/20">
+<strong class="text-orange-400">⚠️ Cost note:</strong> Each subagent makes independent LLM calls — use <code>/model</code> to check multiplier
 </div>
-
-<div class="space-y-4">
-
-### Finding & Installing
-
-```bash
-# List registered marketplaces
-copilot plugin marketplace list
-
-# Browse a marketplace
-copilot plugin marketplace browse awesome-copilot
-
-# Install from marketplace
-copilot plugin install database-data-management@awesome-copilot
-
-# Install from GitHub repo
-copilot plugin install OWNER/REPO
-
-# Install from local path
-copilot plugin install ./path/to/plugin
-```
-
-### Managing Plugins
-
-```bash
-copilot plugin list       # View installed
-copilot plugin update X   # Update plugin
-copilot plugin uninstall X
-```
-
-</div>
-
-</div>
-
----
-
-# Real-World Use Cases (1 of 2)
-
-<div class="grid grid-cols-2 gap-4 mt-6 text-xs">
-<div class="p-4 bg-emerald-900/40 rounded-lg border border-emerald-500/50">
-<div class="font-bold text-sm mb-2">🌱 Greenfield Project Scaffolding</div>
-<div class="opacity-90 mb-2">AI as thought partner for new projects</div>
-<div class="space-y-1">
-<div>⏱️ <strong>90 min → 15 min</strong> library research &amp; setup</div>
-<div>🎯 <strong>Documented rationale</strong> for each decision</div>
-<div>✅ Plan Mode clarifies requirements before code</div>
+<div class="p-2 bg-gray-900/40 rounded">
+<div class="font-semibold mb-1">Best for</div>
+<div class="opacity-90">Test suites, multi-module refactors, documentation across modules</div>
+<div class="font-semibold mt-2 mb-1">Not useful for</div>
+<div class="opacity-90">Inherently sequential tasks (step B needs step A's output)</div>
 </div>
 </div>
-<div class="p-4 bg-teal-900/40 rounded-lg border border-teal-500/50">
-<div class="font-bold text-sm mb-2">🐛 Debugging Your Own Failing Code</div>
-<div class="opacity-90 mb-2">Async, CI vs local, intermittent failures</div>
-<div class="space-y-1">
-<div>⏱️ <strong>30 min → 5 min</strong> to root cause</div>
-<div>🎯 <strong>Reads your actual code</strong>, not a description</div>
-<div>✅ Fix + prevention, no re-explaining context</div>
-</div>
-</div>
-<div class="p-4 bg-cyan-900/40 rounded-lg border border-cyan-500/50">
-<div class="font-bold text-sm mb-2">🐳 Docker Debugging with Plan Mode</div>
-<div class="opacity-90 mb-2">Container won't start investigation</div>
-<div class="space-y-1">
-<div>⏱️ <strong>45 min → 8 min</strong> (83% reduction)</div>
-<div>🎯 <strong>8 attempts → 2 attempts</strong></div>
-<div>✅ Collaborative strategy before execution</div>
-</div>
-</div>
-<div class="p-4 bg-blue-900/40 rounded-lg border border-blue-500/50">
-<div class="font-bold text-sm mb-2">🔄 CI/CD Build Failure Analysis</div>
-<div class="opacity-90 mb-2">Programmatic automation in pipelines</div>
-<div class="space-y-1">
-<div>⏱️ <strong>25 min → 5 min</strong> investigation</div>
-<div>🎯 <strong>12 steps → 3 automated steps</strong></div>
-<div>✅ Pattern recognition across historical failures</div>
 </div>
 </div>
 </div>
 
 ---
 
-# Real-World Use Cases (2 of 2)
+<!-- SLIDE: Part 4 — Use Cases -->
 
-<div class="grid grid-cols-2 gap-4 mt-6 text-xs">
-<div class="p-4 bg-indigo-900/40 rounded-lg border border-indigo-500/50">
-<div class="font-bold text-sm mb-2">📚 Infrastructure Documentation</div>
-<div class="opacity-90 mb-2">Auto-generated from docker-compose &amp; IaC</div>
-<div class="space-y-1">
-<div>⏱️ <strong>3 days → 30 min</strong> documentation</div>
-<div>🎯 <strong>Automated diagram generation</strong> from config</div>
-<div>✅ Always-current architecture docs</div>
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
+<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Use Cases</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-4">Real-world patterns with quantified outcomes</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-4"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">🌱</div>
+<div class="text-purple-300 font-semibold">Greenfield Scaffolding</div>
+<div class="text-xs opacity-70 mt-1">90 min → 15 min</div>
+</div>
+<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
+<div class="text-2xl mb-1">🐳</div>
+<div class="text-pink-300 font-semibold">Docker Debugging</div>
+<div class="text-xs opacity-70 mt-1">45 min → 8 min</div>
+</div>
+<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
+<div class="text-2xl mb-1">🐙</div>
+<div class="text-rose-300 font-semibold">GitHub.com Integration</div>
+<div class="text-xs opacity-70 mt-1">Issues, PRs from terminal</div>
 </div>
 </div>
-<div class="p-4 bg-purple-900/40 rounded-lg border border-purple-500/50">
-<div class="font-bold text-sm mb-2">🧠 Team Onboarding via Repository Memory</div>
-<div class="opacity-90 mb-2">Institutional knowledge that compounds</div>
-<div class="space-y-1">
-<div>⏱️ <strong>2 weeks → 3 days</strong> to productivity</div>
-<div>🎯 <strong>5-6 explanations → 1 explanation</strong></div>
-<div>✅ AI retains conventions learned from senior engineers</div>
-</div>
-</div>
-<div class="p-4 bg-cyan-900/40 rounded-lg border border-cyan-500/50">
-<div class="font-bold text-sm mb-2">🐙 GitHub.com Integration</div>
-<div class="opacity-90 mb-2">Issues, PRs, Actions — without leaving the terminal</div>
-<div class="space-y-1">
-<div>🎯 <strong>Issue → branch → PR</strong> entirely in CLI</div>
-<div>🎯 Natural language → <strong>GitHub Actions workflow</strong></div>
-<div>✅ Copilot creates PRs on your behalf (you're the author)</div>
-<div class="font-mono bg-black/30 p-1 rounded mt-1 text-xs">&gt; "Work on issue #42 in a feature branch"<br/>&gt; "Create a PR that adds eslint to CI"</div>
-</div>
-</div>
-</div>
-<div class="mt-4 p-4 bg-gradient-to-r from-emerald-600/40 to-teal-600/40 rounded-xl">
-<div class="font-bold text-sm mb-2">Aggregate Impact</div>
-<div class="grid grid-cols-4 gap-2 text-xs text-center">
-<div class="p-2 bg-black/30 rounded">
-<div class="font-bold text-emerald-300">75 min saved</div>
-<div class="opacity-70">per greenfield project</div>
-</div>
-<div class="p-2 bg-black/30 rounded">
-<div class="font-bold text-teal-300">83% faster</div>
-<div class="opacity-70">Docker debugging</div>
-</div>
-<div class="p-2 bg-black/30 rounded">
-<div class="font-bold text-cyan-300">80% less</div>
-<div class="opacity-70">CI investigation time</div>
-</div>
-<div class="p-2 bg-black/30 rounded">
-<div class="font-bold text-blue-300">~11 days</div>
-<div class="opacity-70">faster onboarding</div>
+<div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-2.5 text-left max-w-xl">
+<span class="text-gray-400">Terminal-native AI for the 84% of dev time</span><br />
+<span class="text-purple-300 mt-1 block">↳ not spent writing code</span>
 </div>
 </div>
 </div>
 
 ---
 
-# 🐛 Use Case: Debugging a Running System
-
-<div class="text-sm opacity-80 mb-4">The terminal is where the runtime lives — Copilot CLI gathers evidence from it directly</div>
-
-<div class="grid grid-cols-2 gap-6 text-xs">
-<div>
-<div class="mb-3 p-3 bg-red-900/30 rounded-lg border border-red-500/30">
-<div class="font-bold text-red-300 mb-1">The Problem</div>
-<div class="opacity-90">Service fails in staging, works locally. The relevant information — container logs, env vars, network state — is not in your source files. It's in what's running. VS Code can't reach it.</div>
+<!-- SLIDE: Greenfield Scaffolding -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">🌱 Greenfield Scaffolding</div>
+<div class="text-xs text-white/50">AI as thought partner before writing any code — architecture decisions with documented rationale</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-3 h-full text-xs">
+<div class="font-mono bg-black/50 border border-emerald-500/20 p-3 rounded-lg overflow-hidden">
+<div class="text-emerald-400/60 text-xs mb-2">$ copilot</div>
+<div class="space-y-1 leading-snug">
+<div><span class="text-white/50">&gt;</span> <span class="text-white">"I need a REST API with async support in Python. Walk me through framework and ORM options"</span></div>
+<div class="text-emerald-300/80 mt-2">🤔 Copilot (Plan Mode):<br/>A few questions first:<br/>1. Async throughout, or mixed?<br/>2. Containers or serverless?<br/>3. Simple CRUD or complex joins?</div>
+<div class="mt-2"><span class="text-white/50">&gt;</span> <span class="text-white">"Fully async, containers, complex queries with joins"</span></div>
+<div class="text-emerald-300/80 mt-2">🤔 Recommendation: FastAPI + SQLAlchemy 2.0 async. Best ecosystem maturity for your needs.<br/><br/>Shall I scaffold the structure?</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
 <div class="p-3 bg-emerald-900/30 rounded-lg border border-emerald-500/30">
-<div class="font-bold text-emerald-300 mb-2">What makes this different from VS Code</div>
-<div class="space-y-1.5">
-<div class="flex gap-2"><span class="text-emerald-400">→</span><span>Copilot <strong>runs commands itself</strong> — no copy-pasting logs into chat</span></div>
-<div class="flex gap-2"><span class="text-emerald-400">→</span><span>Checks container, env, and network <strong>in one session</strong></span></div>
-<div class="flex gap-2"><span class="text-emerald-400">→</span><span>Finds <strong>root cause + side effects</strong>, not just symptoms</span></div>
+<div class="text-emerald-300 font-semibold mb-1">⏱ 90 min → 15 min</div>
+<div class="opacity-80">Library research + project setup + dependency decisions</div>
+</div>
+<div class="p-3 bg-blue-900/30 rounded-lg border border-blue-500/30">
+<div class="text-blue-300 font-semibold mb-1">📋 Documented rationale</div>
+<div class="opacity-80">Every architectural decision explained inline, not implied</div>
+</div>
+<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/30">
+<div class="text-purple-300 font-semibold mb-1">🏗️ Working scaffold immediately</div>
+<div class="opacity-80">Not a blank template — actual project structure generated</div>
+</div>
+<div class="p-3 bg-cyan-900/20 rounded-lg border border-cyan-500/20">
+<div class="text-cyan-300 font-semibold mb-1">🧠 Plan Mode advantage</div>
+<div class="opacity-80">Asks clarifying questions first, not after you've committed to an architecture</div>
 </div>
 </div>
 </div>
-
-<div class="font-mono text-xs bg-gray-900/80 rounded-xl p-4 border border-gray-600/40 leading-relaxed">
-<div class="text-gray-400 mb-2"># Auth service returning 503 in staging</div>
-<div class="text-cyan-300">&gt; "My auth service fails in staging. Debug it."</div>
-<div class="mt-2 text-gray-400">&#91;runs: docker logs auth-service --tail 50&#93;</div>
-<div class="text-gray-400">&#91;runs: docker exec auth-service env | grep JWT&#93;</div>
-<div class="text-gray-400">&#91;runs: curl -sv http://redis-staging:6379/ping&#93;</div>
-<div class="mt-2 text-yellow-300">Found: JWT_SECRET missing from staging container.</div>
-<div class="text-yellow-300">Redis is fine. Service fails silently on token</div>
-<div class="text-yellow-300">validation → returns 503 instead of 401.</div>
-<div class="mt-2 text-emerald-300">Fix: Add JWT_SECRET to staging secrets.</div>
-<div class="text-emerald-300">Note: 503 vs 401 mismatch is a separate bug →</div>
-<div class="text-emerald-300">flagging that too.</div>
 </div>
 </div>
 
 ---
 
-# Mental Model Shift
-
-<div class="text-xs mt-2 mb-4 px-4 py-2 bg-gradient-to-r from-slate-700/60 to-slate-600/40 rounded-lg border border-slate-500/40 italic opacity-90 text-center">
-From "execute commands manually and search docs when stuck" → "collaborate with AI in the terminal — whether building something new, debugging failing code, or running autonomous agents independently of your IDE"
+<!-- SLIDE: Docker Debugging -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">🐳 Docker Debugging: Runtime Context</div>
+<div class="text-xs text-white/50">Terminal sees the live environment — not just source files. Evidence gathered automatically.</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-3 text-xs" style="height:100%">
+<div class="font-mono bg-black/50 border border-cyan-500/20 p-3 rounded-lg overflow-y-auto min-h-0">
+<div class="text-cyan-400/60 text-xs mb-2">$ copilot</div>
+<div class="space-y-1 leading-snug">
+<div><span class="text-white/50">&gt;</span> <span class="text-white">"My auth service is returning 503 in staging but works locally"</span></div>
+<div class="text-cyan-300/80 mt-2">🤔 Copilot: Let me check the running environment.</div>
+<div class="text-white/50 mt-2">[runs: docker logs auth-service]<br/>[runs: docker exec ... env | grep]<br/>[runs: curl redis-staging:6379]</div>
+<div class="text-green-400 mt-2">✅ Found: JWT_SECRET missing from staging container. Redis is fine.<br/><br/>Service failing silently on token validation, returning 503 not 401.<br/><br/>Fix: Add JWT_SECRET to staging secrets and restart container.</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 min-h-0">
+<div class="p-2.5 bg-cyan-900/30 rounded-lg border border-cyan-500/30">
+<div class="text-cyan-300 font-semibold mb-0.5">⏱ 45 min → 8 min</div>
+<div class="opacity-80">Manual log hunting replaced by automated cross-system evidence gathering</div>
+</div>
+<div class="p-2.5 bg-blue-900/30 rounded-lg border border-blue-500/30">
+<div class="text-blue-300 font-semibold mb-0.5">🔍 Cross-system diagnosis</div>
+<div class="opacity-80">Container, env vars, network — all in one session, no context switching</div>
+</div>
+<div class="p-2.5 bg-indigo-900/30 rounded-lg border border-indigo-500/30">
+<div class="text-indigo-300 font-semibold mb-0.5">🎯 Root cause + side-effects</div>
+<div class="opacity-80">Missing secret <em>and</em> the misleading 503 status code identified together</div>
+</div>
+<div class="p-2.5 bg-purple-900/20 rounded-lg border border-purple-500/20">
+<div class="text-purple-300 font-semibold mb-0.5">💡 The key unlock</div>
+<div class="opacity-80">No copy-pasting logs into chat — Copilot runs the commands itself</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
+---
+
+<!-- SLIDE: GitHub.com Integration -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">GitHub.com Integration: The Surprise</div>
+<div class="text-xs text-white/50">Manage issues, PRs, and Actions directly from terminal — no browser context-switching</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs flex-1 min-h-0">
+<div class="flex flex-col gap-2 min-h-0">
+<div class="p-2.5 bg-purple-900/40 rounded-lg border border-purple-500/30 flex-1 min-h-0 overflow-hidden">
+<div class="font-semibold text-purple-300 mb-1">🐙 Working with Issues</div>
+<div class="font-mono bg-black/40 p-1.5 rounded text-xs leading-snug">
+&gt; "List all open issues assigned to me in my-org/my-repo"<br/>
+<br/>
+&gt; "I've been assigned .../issues/42 — start working on it in a feature branch"<br/>
+<br/>
+&gt; "Raise an issue: src/auth.py file handle is never closed"
+</div>
+</div>
+<div class="p-2.5 bg-pink-900/40 rounded-lg border border-pink-500/30 flex-1 min-h-0 overflow-hidden">
+<div class="font-semibold text-pink-300 mb-1">🔀 Working with Pull Requests</div>
+<div class="font-mono bg-black/40 p-1.5 rounded text-xs leading-snug">
+&gt; "List my open PRs"<br/>
+<br/>
+&gt; "Check changes in PR .../pull/123 — report any serious errors"<br/>
+<br/>
+&gt; "Merge all open PRs I've created in my-org/my-repo"
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 min-h-0">
+<div class="p-2.5 bg-indigo-900/40 rounded-lg border border-indigo-500/30 flex-1 min-h-0 overflow-hidden">
+<div class="font-semibold text-indigo-300 mb-1">⚙️ GitHub Actions Workflows</div>
+<div class="font-mono bg-black/40 p-1.5 rounded text-xs leading-snug mb-1">
+&gt; "Create a workflow that runs eslint on PRs and fails if errors found. Push and open a PR"
+</div>
+<div class="text-white/70 text-xs">Natural language → working YAML — no writing from scratch</div>
+</div>
+<div class="p-2.5 bg-blue-900/40 rounded-lg border border-blue-500/30 flex-1 min-h-0 overflow-hidden">
+<div class="font-semibold text-blue-300 mb-1">🔌 GitHub MCP Server</div>
+<div class="font-mono bg-black/40 p-1.5 rounded text-xs leading-snug mb-1">
+&gt; "Use the GitHub MCP server to find good first issues for a new team member"
+</div>
+<div class="text-white/70 text-xs">Connect to external tools via Model Context Protocol</div>
+</div>
+<div class="p-2 bg-green-900/20 rounded border border-green-500/20 text-xs">
+<strong class="text-green-400">Key Insight:</strong> Copilot CLI can create PRs on your behalf — you're marked as author. Describe change in English, get PR on GitHub.com.
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 text-xs shrink-0">
+<div class="p-2 bg-cyan-900/30 rounded border border-cyan-500/30 text-center">
+<div class="font-bold text-cyan-400">No browser switches</div>
+<div class="opacity-80">GitHub.com tasks in terminal flow</div>
+</div>
+<div class="p-2 bg-blue-900/30 rounded border border-blue-500/30 text-center">
+<div class="font-bold text-blue-400">Issue → branch → PR</div>
+<div class="opacity-80">Without switching tools</div>
+</div>
+<div class="p-2 bg-purple-900/30 rounded border border-purple-500/30 text-center">
+<div class="font-bold text-purple-400">Workflow from NL</div>
+<div class="opacity-80">Not YAML from scratch</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: References -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-gray-900/20 via-gray-800/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-gray-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-gray-600/80 to-gray-500/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
 <div class="grid grid-cols-2 gap-4 text-xs">
-
 <div class="space-y-2">
-<div class="text-sm font-bold text-emerald-300 flex items-center gap-2 mb-3">
-  <span class="px-2 py-0.5 bg-emerald-500/20 rounded-full border border-emerald-500/40">✅ Move Toward</span>
+<div class="font-semibold text-lg mb-2">Official Documentation</div>
+<div class="p-2 bg-gray-900/50 rounded border border-cyan-500/30">
+<a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli" target="_blank" class="text-cyan-400 hover:text-cyan-300">About GitHub Copilot CLI</a>
+<div class="opacity-70 mt-1">Core concepts and capabilities</div>
 </div>
-
-<div class="p-2.5 bg-emerald-900/30 rounded-lg border border-emerald-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">🌱</span>
-  <div><span class="font-semibold text-emerald-300">AI as Greenfield Thought Partner</span><br><span class="opacity-80">Explore library choices before committing → minutes vs hours of rework</span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-blue-500/30">
+<a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet" target="_blank" class="text-blue-400 hover:text-blue-300">Running tasks in parallel with /fleet</a>
+<div class="opacity-70 mt-1">Parallel orchestration documentation</div>
 </div>
-
-<div class="p-2.5 bg-emerald-900/30 rounded-lg border border-emerald-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">🤝</span>
-  <div><span class="font-semibold text-emerald-300">Collaborative Planning First</span><br><span class="opacity-80">Plan Mode before coding → reduces debugging cycles from 8 to 2</span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-indigo-500/30">
+<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli" target="_blank" class="text-indigo-400 hover:text-indigo-300">Use Copilot CLI</a>
+<div class="opacity-70 mt-1">Command syntax and workflows</div>
 </div>
-
-<div class="p-2.5 bg-emerald-900/30 rounded-lg border border-emerald-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">💻</span>
-  <div><span class="font-semibold text-emerald-300">Terminal as Collaboration Space</span><br><span class="opacity-80">Eliminate 5-10 min context-switching overhead per switch</span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-purple-500/30">
+<a href="https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli" target="_blank" class="text-purple-400 hover:text-purple-300">Install Copilot CLI</a>
+<div class="opacity-70 mt-1">Setup for all platforms</div>
 </div>
-
-<div class="p-2.5 bg-emerald-900/30 rounded-lg border border-emerald-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">☁️</span>
-  <div><span class="font-semibold text-emerald-300">Cloud Delegation for Long Tasks</span><br><span class="opacity-80"><code>&</code> prefix runs agents independently — IDE and terminal both stay free</span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-pink-500/30">
+<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions" target="_blank" class="text-pink-400 hover:text-pink-300">Custom instructions</a>
+<div class="opacity-70 mt-1">Repository-specific behavior configuration</div>
 </div>
-
 </div>
-
 <div class="space-y-2">
-<div class="text-sm font-bold text-red-300 flex items-center gap-2 mb-3">
-  <span class="px-2 py-0.5 bg-red-500/20 rounded-full border border-red-500/40">🛑 Move Against</span>
+<div class="font-semibold text-lg mb-2">Additional Resources</div>
+<div class="p-2 bg-gray-900/50 rounded border border-cyan-500/30">
+<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server" target="_blank" class="text-cyan-400 hover:text-cyan-300">Add an MCP server</a>
+<div class="opacity-70 mt-1">Extending with external tools</div>
 </div>
-
-<div class="p-2.5 bg-red-900/25 rounded-lg border border-red-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">⚡</span>
-  <div><span class="font-semibold text-red-300">Jumping to Implementation</span><br><span class="opacity-80">On greenfield work, explore options first — wrong library choice costs hours</span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-blue-500/30">
+<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing" target="_blank" class="text-blue-400 hover:text-blue-300">Finding and installing plugins</a>
+<div class="opacity-70 mt-1">Plugin ecosystem and marketplaces</div>
 </div>
-
-<div class="p-2.5 bg-red-900/25 rounded-lg border border-red-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">🔁</span>
-  <div><span class="font-semibold text-red-300">Interactive Mode in CI/CD</span><br><span class="opacity-80">Builds break when it prompts for input → use <code>copilot -p</code></span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-indigo-500/30">
+<a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins" target="_blank" class="text-indigo-400 hover:text-indigo-300">About plugins</a>
+<div class="opacity-70 mt-1">Plugin concepts and capabilities</div>
 </div>
-
-<div class="p-2.5 bg-red-900/25 rounded-lg border border-red-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">⚠️</span>
-  <div><span class="font-semibold text-red-300">Over-Approving Permissions</span><br><span class="opacity-80">Avoid <code>--yolo</code> in production — use targeted <code>--allow-tool</code></span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-purple-500/30">
+<a href="https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/" target="_blank" class="text-purple-400 hover:text-purple-300">Plan Mode announcement</a>
+<div class="opacity-70 mt-1">Latest features blog post</div>
 </div>
-
-<div class="p-2.5 bg-red-900/25 rounded-lg border border-red-500/30 flex gap-3 items-start">
-  <span class="text-lg flex-shrink-0">🔀</span>
-  <div><span class="font-semibold text-red-300">Context-Switching for AI Help</span><br><span class="opacity-80">Use <code>/ide</code> to bridge to VS Code mid-session instead</span></div>
+<div class="p-2 bg-gray-900/50 rounded border border-pink-500/30">
+<a href="https://github.com/github/copilot-cli" target="_blank" class="text-pink-400 hover:text-pink-300">Public repository</a>
+<div class="opacity-70 mt-1">Issue tracking and community discussions</div>
 </div>
-
 </div>
-
+</div>
+</div>
 </div>
 
 ---
 
-# When to Use Copilot CLI
-
-<div class="mt-6 text-sm">
-
-<div class="grid grid-cols-2 gap-6">
-
-<div class="space-y-3">
-
-### ✅ Use This Pattern When
-
-<div class="text-xs space-y-2">
-<div>✓ Building something new and want a thought partner for options</div>
-<div>✓ Debugging your own failing code, tests, or build environment</div>
-<div>✓ DevOps and infrastructure work happens in terminals</div>
-<div>✓ Automating CI/CD build failure analysis</div>
-<div>✓ Want AI to remember team conventions across sessions</div>
+<!-- SLIDE: Part 5 — Reference & Syntax -->
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 5</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Reference &amp; Syntax</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Commands, flags, config, and environment</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-4 gap-3 text-sm max-w-4xl">
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">⌨️</div>
+<div class="text-purple-300 font-semibold">Interactive Commands</div>
+<div class="text-xs opacity-70 mt-1">/ slash commands in sessions</div>
 </div>
-
+<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
+<div class="text-2xl mb-1">🔧</div>
+<div class="text-pink-300 font-semibold">CLI Flags</div>
+<div class="text-xs opacity-70 mt-1">Permissions, models, modes</div>
 </div>
-
-<div class="space-y-3">
-
-### ❌ Don't Use When
-
-<div class="text-xs space-y-2">
-<div>✗ Primary workflow is IDE code editing</div>
-<div>✗ Need cross-repository analysis</div>
-<div>✗ Want graphical debugging with breakpoints</div>
-<div>✗ Workflow doesn't involve terminals</div>
+<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
+<div class="text-2xl mb-1">⚙️</div>
+<div class="text-rose-300 font-semibold">Configuration</div>
+<div class="text-xs opacity-70 mt-1">~/.copilot/config.json settings</div>
 </div>
-
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-emerald-600/40 to-teal-600/40 rounded-lg border border-emerald-500/50">
-<div class="font-bold mb-2">Quick Comparison</div>
-<div class="grid grid-cols-3 gap-4 text-xs">
-<div><strong>Copilot CLI:</strong> Terminal workflows, infrastructure</div>
-<div><strong>VS Code Copilot:</strong> Code editing, rapid development</div>
-<div><strong>Copilot Web:</strong> Cross-repo analysis, PR review</div>
+<div class="px-4 py-3 bg-fuchsia-900/30 rounded-xl border border-fuchsia-500/30">
+<div class="text-2xl mb-1">🌐</div>
+<div class="text-fuchsia-300 font-semibold">Environment</div>
+<div class="text-xs opacity-70 mt-1">Env vars, BYOK, OTel</div>
 </div>
 </div>
-
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">All examples sourced from live CLI output</span><br />
+<span class="text-purple-300 mt-1 block">↳ run scripts/capture-cli-help.ps1 to refresh</span>
+</div>
+</div>
 </div>
 
 ---
 
-# ✅ What You Can Do Today
-
-<div class="grid grid-cols-3 gap-4 mt-6 text-xs">
-<div class="p-5 bg-blue-900/40 rounded-lg border border-blue-500/50">
-<div class="text-2xl mb-3">⚡</div>
-<div class="font-bold mb-3">Immediate (15 min)</div>
-<div class="space-y-2">
-<div>□ Install: <code class="text-xs">npm install -g @github/copilot</code></div>
-<div>□ Ask about your current project</div>
-<div>□ Test Plan Mode (Shift+Tab)</div>
-<div>□ Try <code>/ide</code> to open a file in VS Code</div>
+<!-- SLIDE: Interactive Mode Commands -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white">Interactive Mode &#8212; Type <code class="bg-zinc-800 px-2 py-0.5 rounded text-yellow-300">/</code> to explore</h2>
+<div class="grid grid-cols-2 gap-4">
+<TerminalFrame title="copilot - interactive session" prompt="/" size="lg">
+<div class="space-y-1 text-sm leading-relaxed">
+<div class="text-cyan-400 font-semibold mt-1">Agent environment</div>
+<div><span class="text-green-400 w-24 inline-block">/init</span><span class="text-zinc-400">Initialize AGENTS.md for this repo</span></div>
+<div><span class="text-green-400 w-24 inline-block">/agent</span><span class="text-zinc-400">Select a custom agent</span></div>
+<div><span class="text-green-400 w-24 inline-block">/skills</span><span class="text-zinc-400">Manage skills</span></div>
+<div><span class="text-green-400 w-24 inline-block">/mcp</span><span class="text-zinc-400">Manage MCP servers</span></div>
+<div><span class="text-green-400 w-24 inline-block">/plugin</span><span class="text-zinc-400">Manage plugins</span></div>
+<div class="text-cyan-400 font-semibold mt-3">Models &amp; subagents</div>
+<div><span class="text-green-400 w-24 inline-block">/model</span><span class="text-zinc-400">Select AI model</span></div>
+<div><span class="text-green-400 w-24 inline-block">/delegate</span><span class="text-zinc-400">Hand off &#8594; GitHub PR</span></div>
+<div><span class="text-green-400 w-24 inline-block">/fleet</span><span class="text-zinc-400">Parallel subagent execution</span></div>
+<div><span class="text-green-400 w-24 inline-block">/tasks</span><span class="text-zinc-400">View background tasks</span></div>
+<div class="text-cyan-400 font-semibold mt-3">Code</div>
+<div><span class="text-green-400 w-24 inline-block">/diff</span><span class="text-zinc-400">Review current changes</span></div>
+<div><span class="text-green-400 w-24 inline-block">/pr</span><span class="text-zinc-400">Operate on pull requests</span></div>
+<div><span class="text-green-400 w-24 inline-block">/review</span><span class="text-zinc-400">Code review agent</span></div>
+<div><span class="text-green-400 w-24 inline-block">/plan</span><span class="text-zinc-400">Implementation plan before coding</span></div>
+</div>
+</TerminalFrame>
+<TerminalFrame title="copilot - interactive session (cont.)" size="lg">
+<div class="space-y-1 text-sm leading-relaxed">
+<div class="text-cyan-400 font-semibold mt-1">Session</div>
+<div><span class="text-green-400 w-28 inline-block">/resume</span><span class="text-zinc-400">Switch sessions</span></div>
+<div><span class="text-green-400 w-28 inline-block">/compact</span><span class="text-zinc-400">Summarize context window</span></div>
+<div><span class="text-green-400 w-28 inline-block">/context</span><span class="text-zinc-400">Show token usage</span></div>
+<div><span class="text-green-400 w-28 inline-block">/share</span><span class="text-zinc-400">Export session to file / gist</span></div>
+<div><span class="text-green-400 w-28 inline-block">/rewind</span><span class="text-zinc-400">Undo last turn + revert files</span></div>
+<div class="text-cyan-400 font-semibold mt-3">Permissions</div>
+<div><span class="text-green-400 w-28 inline-block">/allow-all</span><span class="text-zinc-400">Enable all tools/paths/URLs</span></div>
+<div><span class="text-green-400 w-28 inline-block">/add-dir</span><span class="text-zinc-400">Whitelist a directory</span></div>
+<div><span class="text-green-400 w-28 inline-block">/cwd</span><span class="text-zinc-400">Change working directory</span></div>
+<div class="text-cyan-400 font-semibold mt-3">Research &amp; More</div>
+<div><span class="text-green-400 w-28 inline-block">/research</span><span class="text-zinc-400">Deep research via GitHub + web</span></div>
+<div><span class="text-green-400 w-28 inline-block">/changelog</span><span class="text-zinc-400">CLI version history (+ AI summary)</span></div>
+<div><span class="text-green-400 w-28 inline-block">/ide</span><span class="text-zinc-400">Connect to VS Code workspace</span></div>
+<div><span class="text-green-400 w-28 inline-block">/new</span><span class="text-zinc-400">Fresh conversation</span></div>
+</div>
+</TerminalFrame>
 </div>
 </div>
-<div class="p-5 bg-indigo-900/40 rounded-lg border border-indigo-500/50">
-<div class="text-2xl mb-3">🚀</div>
-<div class="font-bold mb-3">Short-term (1 hour)</div>
-<div class="space-y-2">
-<div>□ Scaffold next project interactively</div>
-<div>□ Debug next failing test with Copilot</div>
-<div>□ Create <code>.github/copilot-instructions.md</code></div>
-<div>□ Add to one CI/CD pipeline</div>
-</div>
-</div>
-<div class="p-5 bg-purple-900/40 rounded-lg border border-purple-500/50">
-<div class="text-2xl mb-3">🎓</div>
-<div class="font-bold mb-3">Advanced (2-4 hours)</div>
-<div class="space-y-2">
-<div>□ Create custom agents in <code>.github/agents/</code></div>
-<div>□ Configure all CI/CD workflows</div>
-<div>□ Browse plugins: <code>copilot plugin marketplace browse</code></div>
-<div>□ Measure ROI: track before/after metrics</div>
-</div>
-</div>
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl text-center">
-<div class="font-bold text-lg">Installation: 2 minutes • Immediate value for terminal workflows</div>
-</div>
-
----
-
-# Related Patterns
-
-<div class="grid grid-cols-2 gap-4 mt-6 text-xs">
-
-<div class="space-y-3">
-<div class="text-sm font-bold opacity-60 mb-3 uppercase tracking-wider">Complementary Features</div>
-
-<div class="p-3 bg-violet-900/35 rounded-lg border border-violet-500/40 flex gap-3 items-start">
-  <span class="text-xl flex-shrink-0">🪝</span>
-  <div><span class="font-semibold text-violet-300">Copilot Hooks</span><br><span class="opacity-80">Add validation, logging, and security scanning at key execution points in CLI workflows</span></div>
-</div>
-
-<div class="p-3 bg-blue-900/35 rounded-lg border border-blue-500/40 flex gap-3 items-start">
-  <span class="text-xl flex-shrink-0">🔌</span>
-  <div><span class="font-semibold text-blue-300">MCP Apps</span><br><span class="opacity-80">Extend Copilot CLI with external tools and data sources via Model Context Protocol</span></div>
-</div>
-
-<div class="p-3 bg-amber-900/35 rounded-lg border border-amber-500/40 flex gap-3 items-start">
-  <span class="text-xl flex-shrink-0">🔒</span>
-  <div><span class="font-semibold text-amber-300">Terminal Sandboxing</span><br><span class="opacity-80">Secure execution environments for untrusted Copilot CLI operations</span></div>
-</div>
-
-<div class="p-3 bg-teal-900/35 rounded-lg border border-teal-500/40 flex gap-3 items-start">
-  <span class="text-xl flex-shrink-0">📡</span>
-  <div><span class="font-semibold text-teal-300">Copilot CLI ACP</span><br><span class="opacity-80">Drive Copilot CLI programmatically via the Agent Client Protocol — embed it in your own tooling or automation</span></div>
-</div>
-
-</div>
-
-<div class="space-y-3">
-<div class="text-sm font-bold opacity-60 mb-3 uppercase tracking-wider">Decision Flow</div>
-
-<div class="font-mono bg-black/50 p-4 rounded-lg border border-slate-600/40 text-xs space-y-1 leading-relaxed">
-  <div class="opacity-70">Q: What's your actual goal?</div>
-  <div class="flex gap-2"><span class="opacity-40">├─</span><span>In-editor code assistance</span></div>
-  <div class="flex gap-2"><span class="opacity-40">│ </span><span class="text-emerald-400">→ VS Code Copilot</span></div>
-  <div class="flex gap-2"><span class="opacity-40">├─</span><span>Cross-repo analysis</span></div>
-  <div class="flex gap-2"><span class="opacity-40">│ </span><span class="text-emerald-400">→ Copilot Web</span></div>
-  <div class="flex gap-2"><span class="opacity-40">├─</span><span>Organization-wide governance</span></div>
-  <div class="flex gap-2"><span class="opacity-40">│ </span><span class="text-emerald-400">→ Copilot Hooks</span></div>
-  <div class="flex gap-2"><span class="opacity-40">├─</span><span>Extending with external tools</span></div>
-  <div class="flex gap-2"><span class="opacity-40">│ </span><span class="text-emerald-400">→ MCP Apps</span></div>
-  <div class="flex gap-2"><span class="opacity-40">└─</span><span>Embed CLI in your own tooling</span></div>
-  <div class="flex gap-2"><span class="opacity-40">  </span><span class="text-emerald-400">→ Copilot CLI ACP, Copilot SDK</span></div>
-</div>
-
-</div>
-
 </div>
 
 ---
 
-# � References
-
-<div class="grid grid-cols-2 gap-4 mt-4 text-xs">
-
-<div class="space-y-2">
-<div class="text-sm font-bold text-cyan-400 mb-3">Core Documentation</div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/40 transition-colors">
-<div class="font-semibold mb-1">📖 About GitHub Copilot CLI</div>
-<a href="https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli" class="text-cyan-400 opacity-80 hover:opacity-100 break-all">docs.github.com/en/copilot/concepts/agents/about-copilot-cli</a>
+<!-- SLIDE: Non-Interactive Mode (Scripting) -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">2 of 10</span>
 </div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/40 transition-colors">
-<div class="font-semibold mb-1">📖 Using GitHub Copilot CLI</div>
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli" class="text-cyan-400 opacity-80 hover:opacity-100 break-all">docs.github.com/en/.../use-copilot-cli</a>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white">Non-Interactive Mode &#8212; Scriptable AI</h2>
+<TerminalFrame title="shell" size="full">
+<div class="space-y-1 text-sm leading-relaxed font-mono">
+<div class="text-zinc-500"># One-shot prompt, exits after response</div>
+<div class="text-green-400">copilot -p "Fix the failing test in auth.test.ts" --allow-all</div>
+<div class="mt-2 text-zinc-500"># Quiet output &#8212; only agent response, no stats (great for piping)</div>
+<div class="text-green-400">copilot -p "Summarize this PR" --silent | pbcopy</div>
+<div class="mt-2 text-zinc-500"># Autopilot &#8212; continues autonomously until done</div>
+<div class="text-green-400">copilot -p "Migrate all API routes to use the new auth middleware" --allow-all --autopilot</div>
+<div class="mt-2 text-zinc-500"># Share session output as a GitHub gist</div>
+<div class="text-green-400">copilot -p "Audit this repo for security issues" --allow-all --share-gist</div>
+<div class="mt-2 text-zinc-500"># Structured JSON output for CI pipelines</div>
+<div class="text-green-400">copilot -p "Run tests and report failures" --allow-all --output-format json</div>
 </div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/40 transition-colors">
-<div class="font-semibold mb-1">📖 Installing GitHub Copilot CLI</div>
-<a href="https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli" class="text-cyan-400 opacity-80 hover:opacity-100 break-all">docs.github.com/en/.../install-copilot-cli</a>
+</TerminalFrame>
 </div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/40 transition-colors">
-<div class="font-semibold mb-1">🔧 CLI Command Reference</div>
-<a href="https://docs.github.com/en/copilot/reference/cli-command-reference" class="text-cyan-400 opacity-80 hover:opacity-100 break-all">docs.github.com/en/copilot/reference/cli-command-reference</a>
-</div>
-</div>
-
-<div class="space-y-2">
-<div class="text-sm font-bold text-blue-400 mb-3">Guides & Announcements</div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-<div class="font-semibold mb-1">🎓 CLI Best Practices</div>
-<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices" class="text-blue-400 opacity-80 hover:opacity-100 break-all">docs.github.com/en/.../cli-best-practices</a>
-</div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-<div class="font-semibold mb-1">🎓 Adding Custom Instructions</div>
-<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/add-custom-instructions" class="text-blue-400 opacity-80 hover:opacity-100 break-all">docs.github.com/en/.../add-custom-instructions</a>
-</div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-<div class="font-semibold mb-1">📋 Plan Mode Announcement</div>
-<a href="https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/" class="text-blue-400 opacity-80 hover:opacity-100 break-all">github.blog — Plan before you build, steer as you go</a>
-</div>
-
-<div class="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/40 transition-colors">
-<div class="font-semibold mb-1">🚀 /fleet Fan-Out Documentation</div>
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#using-fleet-to-run-multiple-agents" class="text-blue-400 opacity-80 hover:opacity-100 break-all">docs.github.com/en/.../use-copilot-cli#using-fleet</a>
-</div>
-</div>
-
 </div>
 
 ---
-class: text-center
+
+<!-- SLIDE: Permissions Model -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">3 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white">Permissions &#8212; Granular Control</h2>
+<div class="grid grid-cols-2 gap-4">
+<TerminalFrame title="fine-grained permissions" size="lg">
+<div class="space-y-1 text-sm leading-relaxed font-mono">
+<div class="text-zinc-500"># Allow specific tool categories</div>
+<div class="text-green-400">copilot --allow-tool=write --allow-tool=shell</div>
+<div class="mt-2 text-zinc-500"># Allow all git except push</div>
+<div class="text-green-400">copilot --allow-tool='shell(git:*)' \</div>
+<div class="text-green-400">        --deny-tool='shell(git push)'</div>
+<div class="mt-2 text-zinc-500"># Restrict to specific directories</div>
+<div class="text-green-400">copilot --add-dir ~/workspace --add-dir /tmp</div>
+<div class="mt-2 text-zinc-500"># Allow GitHub API access</div>
+<div class="text-green-400">copilot --allow-url=github.com</div>
+</div>
+</TerminalFrame>
+<TerminalFrame title="yolo mode (trust, but verify)" size="lg">
+<div class="space-y-1 text-sm leading-relaxed font-mono">
+<div class="text-zinc-500"># Enable everything &#8212; tools, paths, URLs</div>
+<div class="text-green-400">copilot --yolo</div>
+<div class="mt-2 text-zinc-500"># Same as:</div>
+<div class="text-green-400">copilot --allow-all-tools \</div>
+<div class="text-green-400">        --allow-all-paths \</div>
+<div class="text-green-400">        --allow-all-urls</div>
+<div class="mt-2"><span class="text-yellow-300">--allow-all</span><span class="text-zinc-400">   shorthand for all three</span></div>
+<div><span class="text-yellow-300">--yolo</span><span class="text-zinc-400">        alias for --allow-all</span></div>
+<div class="mt-2 text-zinc-500"># Required for non-interactive (-p) mode</div>
+<div class="text-green-400">copilot -p "..." --allow-all-tools</div>
+</div>
+</TerminalFrame>
+</div>
+</div>
+</div>
+
 ---
 
+<!-- SLIDE: copilot init -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">4 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white"><code class="bg-zinc-800 px-2 rounded text-yellow-300">copilot init</code> &#8212; Bootstrap Your Repo</h2>
+<div class="grid grid-cols-2 gap-4">
+<TerminalFrame title="shell" prompt="copilot init" size="lg">
+<div class="space-y-1 text-sm leading-relaxed font-mono">
+<div class="text-zinc-300 italic">Analyzing codebase structure...</div>
+<div class="text-zinc-300 italic">Detecting build system: npm</div>
+<div class="text-zinc-300 italic">Detecting test framework: jest</div>
+<div class="text-zinc-300 italic">Detecting language: TypeScript</div>
+<div class="mt-2 text-green-400">&#10003; Created .github/copilot-instructions.md</div>
+</div>
+</TerminalFrame>
+<div class="flex flex-col gap-4 text-sm">
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">What it generates</div>
+<div class="text-zinc-300">Analyzes your repo with read-only tools and writes <code class="text-yellow-300">.github/copilot-instructions.md</code> with:</div>
+<ul class="mt-2 space-y-1 text-zinc-400 list-disc list-inside">
+<li>Build &amp; test commands</li>
+<li>Coding conventions</li>
+<li>Project structure overview</li>
+<li>Technology stack details</li>
+</ul>
+</div>
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">Why it matters</div>
+<div class="text-zinc-400">Every future session in this repo automatically loads these instructions &#8212; no need to re-explain your project to Copilot.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: copilot login -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">5 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white"><code class="bg-zinc-800 px-2 rounded text-yellow-300">copilot login</code> &#8212; Authentication</h2>
+<div class="grid grid-cols-2 gap-4">
+<TerminalFrame title="shell" size="lg">
+<div class="space-y-1 text-sm leading-relaxed font-mono">
+<div class="text-zinc-500"># Interactive browser flow (default)</div>
+<div class="text-green-400">copilot login</div>
+<div class="mt-2 text-zinc-500"># GitHub Enterprise Cloud (data residency)</div>
+<div class="text-green-400">copilot login --host https://example.ghe.com</div>
+<div class="mt-2 text-zinc-500"># Headless / CI &#8212; use env var instead of login</div>
+<div class="text-green-400">COPILOT_GITHUB_TOKEN=github_pat_... copilot</div>
+<div class="mt-2 text-zinc-500"># Token precedence order:</div>
+<div class="text-zinc-400">  COPILOT_GITHUB_TOKEN</div>
+<div class="text-zinc-400">  GH_TOKEN</div>
+<div class="text-zinc-400">  GITHUB_TOKEN</div>
+</div>
+</TerminalFrame>
+<div class="flex flex-col gap-4 text-sm">
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">Supported token types</div>
+<ul class="space-y-1 text-zinc-400 list-disc list-inside">
+<li>Fine-grained PATs (v2) with <em>Copilot Requests</em> permission</li>
+<li>OAuth tokens from GitHub Copilot CLI app</li>
+<li>OAuth tokens from GitHub CLI (gh) app</li>
+</ul>
+<div class="mt-2 text-red-400 text-xs">&#10007; Classic PATs (ghp_...) are not supported</div>
+</div>
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">Token storage</div>
+<div class="text-zinc-400">Stored in system credential store. Falls back to plain text in <code class="text-yellow-300">~/.copilot/</code> if no credential store is available.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: copilot plugin -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">6 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white"><code class="bg-zinc-800 px-2 rounded text-yellow-300">copilot plugin</code> &#8212; Extend with Plugins</h2>
+<div class="grid grid-cols-2 gap-4">
+<TerminalFrame title="shell" size="lg">
+<div class="space-y-1 text-sm leading-relaxed font-mono">
+<div class="text-zinc-500"># Browse the default marketplace</div>
+<div class="text-green-400">copilot plugin marketplace browse copilot-plugins</div>
+<div class="mt-2 text-zinc-500"># Install from GitHub repository</div>
+<div class="text-green-400">copilot plugin install github/my-plugin</div>
+<div class="mt-2 text-zinc-500"># Install from local directory</div>
+<div class="text-green-400">copilot plugin install ./my-local-plugin</div>
+<div class="mt-2 text-zinc-500"># List installed plugins</div>
+<div class="text-green-400">copilot plugin list</div>
+<div class="mt-2 text-zinc-500"># Update / uninstall</div>
+<div class="text-green-400">copilot plugin update my-plugin</div>
+<div class="text-green-400">copilot plugin uninstall my-plugin</div>
+</div>
+</TerminalFrame>
+<div class="flex flex-col gap-4 text-sm">
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">What plugins can add</div>
+<ul class="space-y-1 text-zinc-400 list-disc list-inside">
+<li>Additional skills &amp; agents</li>
+<li>Git hooks</li>
+<li>MCP servers</li>
+<li>LSP servers</li>
+</ul>
+</div>
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">Built-in marketplaces</div>
+<div class="font-mono text-xs space-y-1">
+<div><span class="text-yellow-300">copilot-plugins</span><span class="text-zinc-400"> github/copilot-plugins</span></div>
+<div><span class="text-yellow-300">awesome-copilot</span><span class="text-zinc-400"> github/awesome-copilot</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Configuration Settings -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">7 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white"><code class="bg-zinc-800 px-2 rounded text-yellow-300">copilot help config</code> &#8212; Key Settings</h2>
+<TerminalFrame title="~/.copilot/config.json" size="full">
+<div class="grid grid-cols-2 gap-x-8 text-sm leading-relaxed">
+<div>
+<div class="text-cyan-400 font-semibold mb-2">Behavior</div>
+<div class="space-y-1 font-mono text-xs">
+<div><span class="text-yellow-300">model</span><span class="text-zinc-400"> &#8212; AI model (gpt-5.2, claude-sonnet-4.6, ...)</span></div>
+<div><span class="text-yellow-300">autoUpdate</span><span class="text-zinc-400"> &#8212; auto-download CLI updates (default: true)</span></div>
+<div><span class="text-yellow-300">experimental</span><span class="text-zinc-400"> &#8212; enable experimental features</span></div>
+<div><span class="text-yellow-300">renderMarkdown</span><span class="text-zinc-400"> &#8212; render markdown in terminal</span></div>
+<div><span class="text-yellow-300">respectGitignore</span><span class="text-zinc-400"> &#8212; hide gitignored files from @ picker</span></div>
+<div><span class="text-yellow-300">includeCoAuthoredBy</span><span class="text-zinc-400"> &#8212; add Co-authored-by to commits</span></div>
+<div><span class="text-yellow-300">compactPaste</span><span class="text-zinc-400"> &#8212; collapse large pastes (&gt;10 lines)</span></div>
+</div>
+<div class="text-cyan-400 font-semibold mt-4 mb-2">Terminal</div>
+<div class="space-y-1 font-mono text-xs">
+<div><span class="text-yellow-300">mouse</span><span class="text-zinc-400"> &#8212; enable mouse support in alt screen</span></div>
+<div><span class="text-yellow-300">beep</span><span class="text-zinc-400"> &#8212; beep when attention required</span></div>
+<div><span class="text-yellow-300">banner</span><span class="text-zinc-400"> &#8212; always / once / never</span></div>
+<div><span class="text-yellow-300">bashEnv</span><span class="text-zinc-400"> &#8212; BASH_ENV support for bash shells</span></div>
+<div><span class="text-yellow-300">powershellFlags</span><span class="text-zinc-400"> &#8212; startup flags for pwsh (Windows)</span></div>
+</div>
+</div>
+<div>
+<div class="text-cyan-400 font-semibold mb-2">Security</div>
+<div class="space-y-1 font-mono text-xs">
+<div><span class="text-yellow-300">allowed_urls</span><span class="text-zinc-400"> &#8212; pre-approved URL/domain list</span></div>
+<div><span class="text-yellow-300">denied_urls</span><span class="text-zinc-400"> &#8212; blocked domains (takes precedence)</span></div>
+</div>
+<div class="text-cyan-400 font-semibold mt-4 mb-2">Available models</div>
+<div class="font-mono text-xs space-y-0.5 text-zinc-400">
+<div>claude-sonnet-4.6 &nbsp; claude-opus-4.6</div>
+<div>claude-haiku-4.5 &nbsp; claude-sonnet-4.5</div>
+<div>gpt-5.4 &nbsp; gpt-5.3-codex &nbsp; gpt-5.2</div>
+<div>gpt-5.2-codex &nbsp; gpt-5.1 &nbsp; gpt-4.1</div>
+<div>gpt-5.4-mini &nbsp; gpt-5-mini</div>
+</div>
+<div class="text-cyan-400 font-semibold mt-4 mb-2">Teams</div>
+<div class="font-mono text-xs">
+<div><span class="text-yellow-300">companyAnnouncements</span><span class="text-zinc-400"> &#8212; messages shown in banner on startup</span></div>
+</div>
+</div>
+</div>
+</TerminalFrame>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Environment Variables -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">8 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white"><code class="bg-zinc-800 px-2 rounded text-yellow-300">copilot help environment</code> &#8212; Key Env Vars</h2>
+<TerminalFrame title="environment" size="full">
+<div class="grid grid-cols-2 gap-x-8 text-xs leading-relaxed font-mono">
+<div>
+<div class="text-cyan-400 font-semibold text-sm mb-2">Authentication</div>
+<div class="space-y-1">
+<div><span class="text-yellow-300">COPILOT_GITHUB_TOKEN</span><span class="text-zinc-400"> &#8212; PAT / OAuth token (highest precedence)</span></div>
+<div><span class="text-yellow-300">GH_TOKEN</span><span class="text-zinc-400"> &#8212; GitHub CLI token (second)</span></div>
+<div><span class="text-yellow-300">GITHUB_TOKEN</span><span class="text-zinc-400"> &#8212; CI token (third)</span></div>
+<div><span class="text-yellow-300">GH_HOST</span><span class="text-zinc-400"> &#8212; GitHub Enterprise hostname</span></div>
+</div>
+<div class="text-cyan-400 font-semibold text-sm mt-4 mb-2">Behavior</div>
+<div class="space-y-1">
+<div><span class="text-yellow-300">COPILOT_ALLOW_ALL</span><span class="text-zinc-400">=true &#8212; skip all confirmations</span></div>
+<div><span class="text-yellow-300">COPILOT_MODEL</span><span class="text-zinc-400"> &#8212; override AI model</span></div>
+<div><span class="text-yellow-300">COPILOT_AUTO_UPDATE</span><span class="text-zinc-400">=false &#8212; disable auto-update</span></div>
+<div><span class="text-yellow-300">COPILOT_HOME</span><span class="text-zinc-400"> &#8212; override ~/.copilot directory</span></div>
+<div><span class="text-yellow-300">COPILOT_OFFLINE</span><span class="text-zinc-400">=true &#8212; no network (needs BYOK)</span></div>
+<div><span class="text-yellow-300">COPILOT_CUSTOM_INSTRUCTIONS_DIRS</span><span class="text-zinc-400"> &#8212; extra AGENTS.md dirs</span></div>
+</div>
+</div>
+<div>
+<div class="text-cyan-400 font-semibold text-sm mb-2">BYOK &#8212; Bring Your Own Key</div>
+<div class="space-y-1">
+<div><span class="text-yellow-300">COPILOT_PROVIDER_BASE_URL</span><span class="text-zinc-400"> &#8212; custom API endpoint</span></div>
+<div><span class="text-yellow-300">COPILOT_PROVIDER_TYPE</span><span class="text-zinc-400"> &#8212; openai / azure / anthropic</span></div>
+<div><span class="text-yellow-300">COPILOT_PROVIDER_API_KEY</span><span class="text-zinc-400"> &#8212; API key</span></div>
+<div><span class="text-yellow-300">COPILOT_PROVIDER_WIRE_API</span><span class="text-zinc-400"> &#8212; completions / responses</span></div>
+</div>
+<div class="text-cyan-400 font-semibold text-sm mt-4 mb-2">Proxy &amp; Output</div>
+<div class="space-y-1">
+<div><span class="text-yellow-300">HTTP_PROXY / HTTPS_PROXY</span><span class="text-zinc-400"> &#8212; outbound proxy URL</span></div>
+<div><span class="text-yellow-300">NO_PROXY</span><span class="text-zinc-400"> &#8212; bypass list (comma-separated)</span></div>
+<div><span class="text-yellow-300">NO_COLOR</span><span class="text-zinc-400"> &#8212; disable color output</span></div>
+<div><span class="text-yellow-300">PLAIN_DIFF</span><span class="text-zinc-400">=true &#8212; disable rich diff</span></div>
+</div>
+<div class="text-cyan-400 font-semibold text-sm mt-4 mb-2">OpenTelemetry</div>
+<div class="space-y-1">
+<div><span class="text-yellow-300">OTEL_EXPORTER_OTLP_ENDPOINT</span><span class="text-zinc-400"> &#8212; enables OTel automatically</span></div>
+<div><span class="text-yellow-300">COPILOT_OTEL_FILE_EXPORTER_PATH</span><span class="text-zinc-400"> &#8212; JSON-lines output file</span></div>
+</div>
+</div>
+</div>
+</TerminalFrame>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: BYOK - Custom Model Providers -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">9 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white">BYOK &#8212; Bring Your Own Key</h2>
+<div class="grid grid-cols-2 gap-4">
+<TerminalFrame title="shell" size="lg">
+<div class="space-y-1 text-xs leading-relaxed font-mono">
+<div class="text-zinc-500"># Ollama (local, no auth required)</div>
+<div class="text-green-400">COPILOT_PROVIDER_BASE_URL=http://localhost:11434/v1 \</div>
+<div class="text-green-400">COPILOT_MODEL=deepseek-coder-v2:16b \</div>
+<div class="text-green-400">copilot</div>
+<div class="mt-2 text-zinc-500"># Custom OpenAI-compatible endpoint</div>
+<div class="text-green-400">COPILOT_PROVIDER_BASE_URL=https://my-api.example.com/v1 \</div>
+<div class="text-green-400">COPILOT_PROVIDER_API_KEY=sk-... \</div>
+<div class="text-green-400">COPILOT_MODEL=gpt-4 \</div>
+<div class="text-green-400">copilot</div>
+<div class="mt-2 text-zinc-500"># Azure OpenAI with deployment name</div>
+<div class="text-green-400">COPILOT_PROVIDER_TYPE=azure \</div>
+<div class="text-green-400">COPILOT_PROVIDER_BASE_URL=https://my.openai.azure.com \</div>
+<div class="text-green-400">COPILOT_PROVIDER_MODEL_ID=gpt-4 \</div>
+<div class="text-green-400">COPILOT_PROVIDER_WIRE_MODEL=my-gpt4-deployment \</div>
+<div class="text-green-400">copilot</div>
+</div>
+</TerminalFrame>
+<div class="flex flex-col gap-4 text-sm">
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">Provider types</div>
+<div class="font-mono text-xs space-y-1">
+<div><span class="text-yellow-300">openai</span><span class="text-zinc-400"> &#8212; default; covers Ollama, vLLM, Foundry Local</span></div>
+<div><span class="text-yellow-300">azure</span><span class="text-zinc-400"> &#8212; Azure OpenAI (host URL only)</span></div>
+<div><span class="text-yellow-300">anthropic</span><span class="text-zinc-400"> &#8212; Anthropic API</span></div>
+</div>
+</div>
+<div class="bg-zinc-900 rounded-lg p-4 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">When to use</div>
+<ul class="text-zinc-400 text-xs list-disc list-inside space-y-1">
+<li>Air-gapped or offline environments</li>
+<li>Enterprise contracts with specific model providers</li>
+<li>Local development with Ollama / Foundry Local</li>
+<li>Cost control with self-hosted models</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: /fleet - Parallel Subagent Execution -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⌨️ Reference &amp; Syntax</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">10 of 10</span>
+</div>
+<div class="relative z-10 mt-2">
+<h2 class="!text-xl !font-bold !m-0 mb-4 text-white"><code class="bg-zinc-800 px-2 rounded text-yellow-300">/fleet</code> &#8212; Parallel Subagent Execution</h2>
+<div class="grid grid-cols-2 gap-4">
+<TerminalFrame title="copilot - interactive session" prompt="/fleet" size="lg">
+<div class="space-y-1 text-xs leading-relaxed font-mono">
+<div class="text-zinc-400 italic">Refactor the auth module, add unit tests for all edge cases,</div>
+<div class="text-zinc-400 italic">update the API docs, and run the linter across the repo.</div>
+<div class="mt-2 text-zinc-500">/fleet</div>
+<div class="mt-1 text-zinc-300">&#10003; Plan created &#8212; 4 subtasks identified</div>
+<div class="mt-2 text-zinc-500">Subtask 1 &nbsp;[subagent-1] &nbsp;Refactor auth module</div>
+<div class="text-zinc-500">Subtask 2 &nbsp;[subagent-2] &nbsp;Write unit tests for auth</div>
+<div class="text-zinc-500">Subtask 3 &nbsp;[subagent-3] &nbsp;Update API documentation</div>
+<div class="text-zinc-500">Subtask 4 &nbsp;[subagent-4] &nbsp;Run linter across repo</div>
+<div class="mt-2 text-zinc-400 italic">Running in parallel...</div>
+<div class="mt-1 text-green-400">&#10003; [subagent-4] Linter: 3 warnings fixed</div>
+<div class="text-green-400">&#10003; [subagent-1] Auth module refactored (auth.ts, session.ts)</div>
+<div class="text-green-400">&#10003; [subagent-3] API docs updated (12 endpoints)</div>
+<div class="text-green-400">&#10003; [subagent-2] 24 unit tests added, all passing</div>
+<div class="mt-2 text-green-400 font-semibold">&#10003; All subtasks complete</div>
+</div>
+</TerminalFrame>
+<div class="flex flex-col gap-3 text-sm">
+<div class="bg-zinc-900 rounded-lg p-3 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">How it works</div>
+<ul class="text-zinc-400 text-xs list-disc list-inside space-y-1">
+<li>Main agent acts as orchestrator</li>
+<li>Decomposes prompt into independent subtasks</li>
+<li>Runs subtasks in parallel, each with its own context window</li>
+<li>Manages dependencies; merges results</li>
+</ul>
+</div>
+<div class="bg-zinc-900 rounded-lg p-3 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">Best used for</div>
+<ul class="text-zinc-400 text-xs list-disc list-inside space-y-1">
+<li>Multi-file refactors + test generation</li>
+<li>Audits + fixes across modules</li>
+<li>Large dependency updates in monorepos</li>
+</ul>
+</div>
+<div class="bg-zinc-900 rounded-lg p-3 border border-zinc-700">
+<div class="text-cyan-400 font-semibold mb-2">Power combos</div>
+<div class="font-mono text-xs space-y-1">
+<div class="text-zinc-400">Shift+Tab &#8594; plan &#8594; <span class="text-yellow-300">Accept + autopilot + /fleet</span></div>
+<div class="text-zinc-300 italic mt-1">"Use GPT-5.3-Codex to refactor..."</div>
+<div class="text-zinc-300 italic">"Use @test-writer to create tests..."</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Thank You -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
+
 <div class="relative z-10">
 <div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
 <img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
 </div>
+
 <h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
+
 <div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">Terminal-Native AI for Developers and DevOps</span>
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">GitHub Copilot CLI: Terminal-Native AI</span>
 </div>
+
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
 <div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-400 font-mono font-bold">npm install -g @github/copilot</div>
-<div class="opacity-80 text-xs mt-1">Get started in 2 minutes</div>
+<div class="text-cyan-300 font-bold text-lg">Plan First</div>
+<div class="text-gray-300 mt-2 text-xs">Shift+Tab before building — 8 attempts → 2</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-400 font-bold text-lg">Shift+Tab</div>
-<div class="opacity-80 text-xs">Activate Plan Mode</div>
+<div class="text-blue-300 font-bold text-lg">Delegate Long Tasks</div>
+<div class="text-gray-300 mt-2 text-xs">& prefix keeps IDE and terminal free</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-400 font-mono font-bold">& &lt;task&gt;</div>
-<div class="opacity-80 text-xs">Delegate to cloud agents</div>
+<div class="text-indigo-300 font-bold text-lg">Orchestrate with /fleet</div>
+<div class="text-gray-300 mt-2 text-xs">Explicit parallel fan-out for complex plans</div>
 </div>
 </div>
-<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss terminal workflows and AI collaboration</div>
+
+<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss GitHub.com from your terminal next</div>
 <div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>

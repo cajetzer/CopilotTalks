@@ -1,0 +1,53 @@
+Interactive Mode — /fleet
+
+Usage: /fleet [prompt]
+
+  Breaks a complex prompt into smaller independent subtasks and executes them
+  in parallel using subagents. The main agent acts as orchestrator, managing
+  dependencies and merging results.
+
+Example session:
+
+  $ copilot
+  > Refactor the auth module, add unit tests for all edge cases, update the
+    API documentation, and run the linter across the repo.
+
+  /fleet
+
+  ✔ Plan created — 4 subtasks identified
+
+  Subtask 1  [subagent-1]  Refactor auth module
+  Subtask 2  [subagent-2]  Write unit tests for auth edge cases
+  Subtask 3  [subagent-3]  Update API documentation
+  Subtask 4  [subagent-4]  Run linter across repo
+
+  Running in parallel...
+
+  [subagent-4] ✔ Linter: 3 warnings fixed
+  [subagent-1] ✔ Auth module refactored (auth.ts, session.ts)
+  [subagent-3] ✔ API docs updated (12 endpoints)
+  [subagent-2] ✔ 24 unit tests added, all passing
+
+  ✔ All subtasks complete
+
+Typical use cases:
+
+  - Refactor multiple files simultaneously
+  - Create a test suite while updating docs
+  - Run audits + apply fixes across modules
+  - Large dependency update across a monorepo
+
+Works best with:
+
+  - Tasks decomposable into independent subtasks
+  - Combine with autopilot for fully autonomous execution:
+    Shift+Tab → plan mode → "Accept plan and build on autopilot + /fleet"
+
+Notes:
+
+  - Each subagent has its own context window
+  - Subagents default to a low-cost model (overridable per-subtask)
+  - Can specify custom agents: "Use @test-writer to create tests for..."
+  - Can specify models per subtask: "Use GPT-5.3-Codex to refactor..."
+  - Uses more premium requests than single-agent execution
+  - Sequential tasks do NOT benefit from /fleet

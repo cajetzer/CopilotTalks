@@ -1,0 +1,63 @@
+Interactive Mode Commands:
+
+  Agent environment:
+    /init    Initialize Copilot instructions for this repository, or suppress the init suggestion
+    /agent   Browse and select from available agents (if any)
+    /skills  Manage skills for enhanced capabilities
+    /mcp     Manage MCP server configuration
+    /plugin  Manage plugins and plugin marketplaces
+
+  Models and subagents:
+    /model     Select AI model to use
+    /delegate  Send this session to GitHub and Copilot will create a PR
+    /fleet     Enable fleet mode for parallel subagent execution
+    /tasks     View and manage background tasks (subagents and shell sessions)
+
+  Code:
+    /ide             Connect to an IDE workspace
+    /diff            Review the changes made in the current directory
+    /pr              Operate on pull requests for the current branch
+    /review          Run code review agent to analyze changes
+    /lsp             Manage language server configuration
+    /terminal-setup  Configure terminal for multiline input support (shift+enter)
+
+  Permissions:
+    /allow-all            Enable all permissions (tools, paths, and URLs)
+    /add-dir              Add a directory to the allowed list for file access
+    /list-dirs            Display all allowed directories for file access
+    /cwd                  Change working directory or show current directory
+    /reset-allowed-tools  Reset the list of allowed tools
+
+  Session:
+    /resume   Switch to a different session (optionally specify session ID or task ID)
+    /rename   Rename the current session, or auto-generate a name from conversation
+    /context  Show context window token usage and visualization
+    /usage    Display session usage metrics and statistics
+    /session  View and manage sessions. Use subcommands for details.
+    /compact  Summarize conversation history to reduce context window usage
+    /share    Share session or research report to markdown file, HTML file, or GitHub gist
+    /copy     Copy the last response to the clipboard
+    /rewind   Rewind the last turn and revert file changes
+
+  Help and feedback:
+    /help           Show help for interactive commands
+    /changelog      Display changelog for CLI versions. Add 'summarize' to get an AI summary.
+    /feedback       Provide feedback about the CLI
+    /theme          View or set color mode
+    /update         Update the CLI to the latest version
+    /version        Display version information and check for updates
+    /experimental   Show available experimental features, or enable/disable experimental mode
+    /clear          Abandon this session and start fresh
+    /instructions   View and toggle custom instruction files
+    /streamer-mode  Toggle streamer mode (hides preview model names and quota details for streaming)
+
+  Other commands:
+    /exit, /quit    Exit the CLI
+    /login          Log in to Copilot
+    /logout         Log out of Copilot
+    /new            Start a new conversation
+    /plan           Create an implementation plan before coding
+    /research       Run deep research investigation using GitHub search and web sources
+    /restart        Restart the CLI, preserving the current session
+    /undo, /rewind  Rewind the last turn and revert file changes
+    /user           Manage GitHub user list
