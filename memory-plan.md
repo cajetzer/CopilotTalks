@@ -37,8 +37,8 @@
 │  MemPalace              (MCP server, local)      │
 │  Repo-level authoring rationale & exemplars      │
 ├─────────────────────────────────────────────────┤
-│  SQL Session Store      (structured audit trail) │
-│  What happened turn-by-turn                      │
+│  Agent Diary            (JSONL, git-tracked)     │
+│  Post-session structured entries; hall_proposals │
 ├─────────────────────────────────────────────────┤
 │  Repo Files             (authoritative source)   │
 │  Current truth — READMEs, slides, instructions   │
@@ -46,6 +46,8 @@
 ```
 
 **Cardinal rule: MemPalace suggests; repo files confirm.**
+
+> **Note:** The SQL Session Store was removed. For a solo author with a git-tracked repo, the Agent Diary (append-only JSONL, written at session END) is the session store. Git diff is the audit trail. No ORM, no schema migration, no separate dependency.
 
 **Critical distinction:** MemPalace ≠ Copilot Memory. Copilot Memory = personal cross-project preferences (synced to GitHub, applies everywhere). MemPalace = project-level semantic memory for *this repo's* authoring decisions. The `copilot-memory` tech talk teaches a 3-layer model; MemPalace is a 4th layer that must be clearly documented.
 
@@ -164,10 +166,64 @@ hall_discoveries: "cockpit wrapper pattern: one outer div class='min-h-screen' h
 
 Diary writes happen at session **END** only — never before pre-flight.
 
+### Agent Diary Quality Gate
+
+Bad diary entries (overly specific, stale, ambiguous) are worse than no entries. Copilot writes entries as `hall_pending` and presents them for a single yes/no review at session end — no 48-hour wait, no separate workflow. You see a list: "These entries are proposed — approve all, edit, or drop." One interaction, then done. Speculation doesn't get promoted; validated facts do.
+
+### Write Authority Model
+
+| Who writes | Surface | How |
+|------------|---------|-----|
+| Copilot | `/memories/repo/` JSON entries | Post-session, after one-shot review |
+| You (direct decision) | Tell Copilot: "Add to KNOWLEDGE.md: ..." | Copilot writes it |
+| Palace aggregation (Track B) | Copilot seeds KNOWLEDGE.md → `hall_facts` | One command when server is running |
+
+**KNOWLEDGE.md** (Track A): Copilot creates and maintains this file. You don't edit it directly — you tell Copilot what to add and it handles the format, `grep_search` indexing, and cross-referencing.
+
+### Staleness Mechanism
+
+Add a `date` field to every `/memories/repo/` JSON entry at write time. A weekly CI check flags entries where `date` is older than 90 days for human review. The CI script only flags — it does not delete. The author decides whether to update or retire each entry.
+
+### Persona Voice Drift Guard
+
+PERSONAS.md is the voice authority for all six personas — but persona drift across 7 modules is incremental and silent. The PERSONAS.md `.aaak` entry must include a **voice fingerprint per persona**: ~200 tokens each, covering characteristic phrases, sentence patterns, and forbidden phrases. When module-creator generates new exercises, it queries this fingerprint as part of pre-flight. This guard is higher-priority than any infrastructure work because persona drift is the failure mode nobody notices until it's widespread.
+
+### Cold-Start UX
+
+Session 1 with an empty palace adds MCP call latency for zero return. The cross-reference table (populated on Day 0 by humans) is the cold-start bootstrap: it ensures the palace has at least one immediately useful resource from the first session. Any agent querying the palace in a cold session will find the cross-reference table and can answer "does this topic appear in multiple places?" immediately.
+
+---
+
+## Two-Track Architecture
+
+The roadmap runs as two parallel tracks. Track A delivers value immediately; Track B extends it. If Phase 0 fails, Track A is the complete and final architecture.
+
+| | Track A (Zero Infrastructure) | Track B (Server-Backed) |
+|-|-------------------------------|------------------------|
+| **When** | This week — Day 0 forward | After Phase 0 validates |
+| **Storage** | `/memories/repo/` JSON + `KNOWLEDGE.md` | ChromaDB + MemPalace MCP server |
+| **Retrieval** | `grep_search` (exact match) | Semantic vector search |
+| **Value** | ~60% of total plan value | Remaining ~40% |
+| **If Track B fails** | Track A is final answer | — |
+
+**Track A wins that don't need Track B:**
+- Cross-reference table (drift governance)
+- Inverse mining entries (session amnesia)
+- Persona voice fingerprints (.aaak files)
+- `hall_proposals` write path in agents (governance as pull)
+- Staleness CI check
+- Write authority model for human sessions
+
 ---
 
 ## Wild Ideas Worth Pursuing
-o
+
+### 1. Replace `copilot-instructions.md` with a 2KB MCP-First Bootstrap
+
+The current instructions file is 207K characters of load-bearing prose, compressed and re-expanded every session. The architectural end-state: replace it with a minimal stub that says *"query MemPalace for what you need."* Every rule becomes a `hall_facts` entry — searchable, composable, retrievable on demand. Context budget drops from 30K burned at startup to ~2K, with the remainder available for actual content.
+
+**Pre-flight gates remain inviolable** — agents still read `TEMPLATE.md`, `SECTIONS.md`, and live frontmatter from repo files. MemPalace handles institutional rules, not current state. This is a Phase 4 target after palace recall is proven reliable — but naming it now means every intermediate decision points in the right direction.
+
 ### 2. Companion `.aaak` Files
 Place `.aaak` files alongside key READMEs — same info, ~30x smaller, regenerated weekly. Agents check `.aaak` first for orientation, fall back to full README only when needed.
 
@@ -193,13 +249,27 @@ hall_facts: "Topics covered in multiple places (check for drift when updating ei
 
 ## Implementation Roadmap
 
+### Day 0 — Immediate Wins (No Infrastructure Required, ≤2 hours)
+
+Do this *before* Phase 0. These actions deliver value regardless of whether Track B (server) ever ships.
+
+- [ ] **Run inverse mining**: pick 2–3 recent sessions with regressions or repeated mistakes; ask an agent to retrodict *"what `/memories/repo/` entries would have prevented these failures?"* Write results as JSON entries. Target: 10–15 new entries.
+- [ ] **Build the cross-reference table** as a single `/memories/repo/` entry (template in Wild Ideas §3). Populate manually: MCP transport, instructions files, agent sessions, memory layers. 30 minutes. This is your cold-start bootstrap AND drift detector.
+- [ ] **Add `schema_version: 1`** to all existing `/memories/repo/` JSON entries to guard against hall/wing name evolution.
+- [ ] Run 2 sessions with the new memories active; measure whether session amnesia is reduced.
+
+**Gate for Track B:** Only start Phase 0 after Day 0 entries are in place. If Day 0 entries alone solve 60%+ of session amnesia, validate whether ChromaDB is needed before investing further.
+
 ### Phase 0 — Environment Validation (1 day)
-- [ ] Verify MemPalace Python server + ChromaDB + MCP stdio work on Windows natively
+
+> **Binary decision point — define before starting:** if ChromaDB + MCP do not run natively on Windows (no WSL), Track A (zero-infrastructure, see Two-Track Architecture section) is the **final answer**, not a fallback. Write this down before investing in mining.
+
 - [ ] Confirm Copilot CLI MCP config syntax (`.vscode/mcp.json` or equivalent)
-- [ ] Write SQL session_store → MemPalace convos converter script
+- [ ] Verify MemPalace Python server + ChromaDB + MCP stdio work on Windows natively (not WSL)
+- [ ] Test ChromaDB close/reopen persistence: verify previously written memories survive a session restart
 - [ ] Test archive filter: verify `status: archived` YAML detection works on the 8 archived talks
 
-**Gate:** If ChromaDB/MCP don't work on Windows, identify WSL fallback before proceeding.
+**Gate:** If ChromaDB/MCP don't work natively on Windows, Track A is the final architecture. Do not invest in mining until Track B (server) is confirmed working.
 
 ### Phase 1 — Curated Mining (6 hours)
 - [ ] Mine curated sources per table above (34-43 drawers expected)
@@ -215,24 +285,26 @@ hall_facts: "Topics covered in multiple places (check for drift when updating ei
 
 **Success metric:** Retrieval precision >60% across 20 governance queries.
 
-### Phase 2b — Agent Diary for Slide Generator (3 days)
+### Phase 2b — Agent Diary: Slide Generator + Tech Talk Generator (3 days each)
+
+> **Sequencing change:** Tech Talk Generator moves here, not Phase 3. It has *more* repeated-session friction than Slide Generator (voice drift, research redundancy, rearguing framing every session). Start Slide Generator diary first as proof of concept, then Tech Talk Generator research phase integration.
+
+**Slide Generator (first):**
 - [ ] Implement post-session write hook
 - [ ] Implement search-on-demand query (after pre-flight, before content generation)
+- [ ] Add `hall_proposals` write path: when mid-session drift or improvement is noticed, write a structured proposal entry instead of a comment that disappears — governance as pull, not push
 - [ ] Run 3 slide generation sessions with diary active
 - [ ] Measure time-to-first-working-slide vs baseline
 
-### Phase 3 — Tech Talk Generator Integration (1 week)
-- Research phase only initially (not structure selection)
-- Research Brief gate remains inviolable
-- After 5+ successful generations, expand to content generation phase
+**Tech Talk Generator (second):**
+- [ ] Research phase integration only initially (Research Brief gate remains inviolable)
+- [ ] After 3+ successful generations with diary active, expand to content generation phase
 
-### Phase 4 — Expand and Institutionalize (ongoing)
-- Mine session history (50-100 sessions)
+### Phase 3 — Expand and Institutionalize (ongoing)
 - Mine git history (archival commits, major refactors)
-- Extend diary to module-creator, tech-talk-generator
-- First attempt: generate `copilot-instructions.md` from palace
-- Create `.aaak` companion files for 5 key READMEs
-- Coherence tracking / knowledge graph
+- Extend diary to module-creator
+- Create `.aaak` companion files for remaining key READMEs
+- Assess whether `copilot-instructions.md` → palace bootstrap is ready (Wild Ideas §1)
 
 ---
 
@@ -243,10 +315,15 @@ hall_facts: "Topics covered in multiple places (check for drift when updating ei
 | Mining archived content → contradicted memories | Exclude `**/archive/**` + `status: archived` at indexing time |
 | Mining slides → noisy recall | Never mine slide decks; mine `deck.recipe.yml` for authoring rationale |
 | Mining stubs not full docs | Mine `/docs/agents/*-FULL.md`, not `.github/` stubs |
-| Palace staleness | Tie writes to concrete events; freshness decay metric; re-mine after major changes |
-| Agents over-trusting memory | Cardinal rule: MemPalace suggests; repo files confirm |
+| Palace staleness | `date` field on every entry; CI script flags entries >90 days; re-mine after major changes |
+| Agents over-trusting memory | Cardinal rule: MemPalace suggests; repo files confirm; wrong recall flagged stale when it contradicts pre-flight |
 | Bypassing pre-flight gates | Search-on-demand only for Tech Talk Generator + Slide Generator |
-| Windows compatibility | Validate in Phase 0 before investing in mining |
+| ChromaDB on Windows | Validate natively (not WSL) in Phase 0; binary decision point before mining investment; WSL filesystem namespace is a known hazard |
+| MCP server unavailable / crashed | Agents fall back to KNOWLEDGE.md + grep; log the miss; queue re-query at session end |
+| Wing/hall taxonomy evolves | `schema_version` field on all entries; old memories marked stale not deleted |
+| Wrong memory ships in content | Agent Diary quality gate: entries start in `hall_pending`; author promotes before becoming `hall_facts` |
+| Persona voice drift | PERSONAS.md `.aaak` entry with per-persona voice fingerprint; queried by module-creator during pre-flight |
+| Cold-start latency with no value | Cross-reference table (Day 0) is pre-populated by humans; first session has utility immediately |
 | MemPalace ↔ Copilot Memory confusion | Usage guide + callout in copilot-memory tech talk |
 
 ---
@@ -268,7 +345,7 @@ hall_facts: "Topics covered in multiple places (check for drift when updating ei
 ## Install Reference
 
 ```bash
-pip install mempalace
+pip install mempalace  # pin a version: pip install mempalace==X.Y.Z
 mempalace init C:\Users\rmathis\source\CopilotTraining
 claude mcp add mempalace -- python -m mempalace.mcp_server
 ```
