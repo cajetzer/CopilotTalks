@@ -1,6 +1,5 @@
 ---
 theme: default
-background: https://source.unsplash.com/collection/94734566/1920x1080
 class: text-center
 highlighter: shiki
 lineNumbers: false
@@ -17,6 +16,7 @@ status: active
 updated: 2026-02-01
 ---
 
+<!-- SLIDE: Title -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
@@ -46,8 +46,15 @@ Run multiple agents on different branches without conflicts
 
 ---
 
-# 🤔 When to Use This Pattern
-
+<!-- SLIDE: When to Use This Pattern -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 When to Use This Pattern</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-6 mt-8">
 <div class="p-4 bg-green-900/30 rounded-lg border-l-4 border-green-500">
 <div class="text-lg font-bold text-green-300 mb-3">✅ Use parallel execution when:</div>
@@ -73,11 +80,20 @@ Run multiple agents on different branches without conflicts
 <div class="mt-6 p-4 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
 <span class="text-white font-bold">Best for: Independent feature development, experiments, parallel refactoring</span>
 </div>
+</div>
+</div>
 
 ---
 
-# 🚧 The Problem: Supervision Bottleneck
-
+<!-- SLIDE: The Supervision Bottleneck -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚧 The Supervision Bottleneck</span>
+<div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-6 mt-6">
 <div class="space-y-4">
 <div class="p-4 bg-red-900/40 rounded-lg border-l-4 border-red-500">
@@ -107,11 +123,20 @@ Run multiple agents on different branches without conflicts
 <div class="mt-6 p-4 bg-gradient-to-r from-red-900/40 to-gray-800 rounded-lg text-center">
 <span class="text-white font-bold">⚠️ Human attention becomes the limiting factor in AI-accelerated workflows</span>
 </div>
+</div>
+</div>
 
 ---
 
-# ✨ The Solution: Background Agents
-
+<!-- SLIDE: Background Agents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ Background Agents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-3 gap-4 mt-8">
 <div class="p-4 bg-blue-900/60 rounded-lg border-2 border-blue-400">
 <div class="text-3xl mb-2">🎯</div>
@@ -141,11 +166,20 @@ Background agents fundamentally change the supervision equation. Define intent a
 <div class="mt-4 p-4 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
 <span class="text-white font-bold">Continue implementing the next feature while agents work independently</span>
 </div>
+</div>
+</div>
 
 ---
 
-# 🌳 Git Worktree Isolation: Architecture
-
+<!-- SLIDE: Git Worktree Isolation -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🌳 Git Worktree Isolation</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-6 mt-6">
 <div class="p-4 bg-gray-800 rounded-lg">
 <div class="text-sm font-bold text-red-300 mb-3">❌ Traditional single workspace:</div>
@@ -187,11 +221,20 @@ Background agents fundamentally change the supervision equation. Define intent a
 <span class="text-xs text-gray-400">Multiple agents modify same files without conflicts</span>
 </div>
 </div>
+</div>
+</div>
 
 ---
 
-# 🤝 Hand-Off Workflow Pattern
-
+<!-- SLIDE: Hand-Off Workflow -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-green-900/20 via-emerald-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-green-600/80 to-emerald-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤝 Hand-Off Workflow</span>
+<div class="flex-1 h-px bg-gradient-to-r from-green-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-4 gap-3 mt-6">
 <div class="p-3 bg-blue-900/60 rounded-lg border-2 border-blue-400">
 <div class="text-xl mb-2">💬</div>
@@ -239,11 +282,20 @@ Background agents fundamentally change the supervision equation. Define intent a
 <div class="mt-4 p-3 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
 <span class="text-white font-bold text-sm">68% reduction in active time per task</span>
 </div>
+</div>
+</div>
 
 ---
 
-# 🔀 Multi-Agent Parallel Patterns (1/2)
-
+<!-- SLIDE: Parallel Patterns 1/2 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔀 Parallel Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="space-y-4 mt-6">
 <div class="p-4 bg-blue-900/40 rounded-lg border-l-4 border-blue-400">
 <div class="text-base font-bold text-blue-300 mb-2">🚀 Parallel Execution (Independent Tasks)</div>
@@ -272,11 +324,20 @@ Requirement → Agent 1 (GraphQL approach) → Branch A<br/>
 <div class="mt-4 p-3 bg-gradient-to-r from-green-600/80 to-blue-600/80 rounded-lg text-center">
 <span class="text-white font-bold text-sm">All agents work simultaneously without conflicts</span>
 </div>
+</div>
+</div>
 
 ---
 
-# 🔀 Multi-Agent Parallel Patterns (2/2)
-
+<!-- SLIDE: Parallel Patterns 2/2 -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔀 Parallel Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="mt-8 p-4 bg-purple-900/40 rounded-lg border-l-4 border-purple-400">
 <div class="text-base font-bold text-purple-300 mb-3">⚙️ Specialized Parallel Work</div>
 <div class="text-sm text-gray-300 mb-3">
@@ -306,11 +367,20 @@ Different agents tackle different concerns <span class="text-cyan-400 font-bold"
 <div class="mt-4 p-3 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
 <span class="text-white font-bold text-sm">Transforms architecture debates into empirical comparisons</span>
 </div>
+</div>
+</div>
 
 ---
 
-# 🎛️ Session Management (VS Code 1.109)
-
+<!-- SLIDE: Session Management -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎛️ Session Management</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-6">
 <div class="space-y-3">
 <div class="p-3 bg-blue-900/40 rounded-lg">
@@ -354,11 +424,20 @@ Bind <code class="text-cyan-400">workbench.action.chat.newLocalChat</code> to ke
 <div class="mt-4 p-3 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
 <span class="text-white font-bold text-sm">Run 5-10 parallel agent sessions without losing track of progress</span>
 </div>
+</div>
+</div>
 
 ---
 
-# 🛠️ Custom Agents in Background Mode
-
+<!-- SLIDE: Custom Agents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛠️ Custom Agents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="mt-6 space-y-4">
 <div class="p-4 bg-blue-900/40 rounded-lg border-l-4 border-blue-400">
 <div class="text-base font-bold text-blue-300 mb-2">📁 Repository-Defined Agents (.github/agents/)</div>
@@ -395,11 +474,20 @@ Custom agents become <span class="text-cyan-400 font-bold">exponentially more va
 <div class="mt-3 p-3 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
 <span class="text-white font-bold text-sm">Same configurations work across local, background, and cloud</span>
 </div>
+</div>
+</div>
 
 ---
 
-# ☁️ Cloud Agents: Large-Scale Operations
-
+<!-- SLIDE: Cloud Agents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">☁️ Cloud Agents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="mt-8 grid grid-cols-2 gap-6">
 <div class="space-y-3">
 <div class="p-3 bg-blue-900/40 rounded-lg border-l-4 border-blue-400">
@@ -433,11 +521,20 @@ GitHub infrastructure handles compute for large operations that would strain loc
 </div>
 </div>
 </div>
+</div>
+</div>
 
 ---
 
-# 💼 Use Case: Isolated Worktree Experiments
-
+<!-- SLIDE: Use Case: Isolated Worktree Experiments -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💼 Use Case</span>
+<div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-6">
 <div class="p-4 bg-red-900/30 rounded-lg border-l-4 border-red-500">
 <div class="text-base font-bold text-red-300 mb-2">❌ The Problem</div>
@@ -474,11 +571,20 @@ GitHub infrastructure handles compute for large operations that would strain loc
 <div class="text-xs text-gray-300 mt-1">Negligible cost enables exploration</div>
 </div>
 </div>
+</div>
+</div>
 
 ---
 
-# 🔍 Use Case: Autonomous Architecture Review
-
+<!-- SLIDE: Use Case: Autonomous Architecture Review -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-green-900/20 via-emerald-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-green-600/80 to-emerald-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔍 Use Case</span>
+<div class="flex-1 h-px bg-gradient-to-r from-green-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-6">
 <div class="p-4 bg-red-900/30 rounded-lg border-l-4 border-red-500">
 <div class="text-base font-bold text-red-300 mb-2">❌ The Problem</div>
@@ -515,11 +621,20 @@ GitHub infrastructure handles compute for large operations that would strain loc
 <div class="text-xs text-gray-300 mt-1">Without scaling review team</div>
 </div>
 </div>
+</div>
+</div>
 
 ---
 
-# ✅ Best Practices
-
+<!-- SLIDE: Best Practices -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-green-900/20 via-emerald-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-green-600/80 to-emerald-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Best Practices</span>
+<div class="flex-1 h-px bg-gradient-to-r from-green-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-6">
 <div class="p-4 bg-green-900/30 rounded-lg border-l-4 border-green-500">
 <div class="text-base font-bold text-green-300 mb-3">✅ Ideal Scenarios</div>
@@ -548,11 +663,20 @@ GitHub infrastructure handles compute for large operations that would strain loc
 Spend 15 minutes on interactive planning to ensure autonomous execution succeeds
 </div>
 </div>
+</div>
+</div>
 
 ---
 
-# 📊 Metrics and ROI
-
+<!-- SLIDE: Metrics & ROI -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Metrics & ROI</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="mt-6 space-y-4">
 <div class="p-4 bg-gradient-to-br from-green-900/60 to-blue-900/40 rounded-lg border-2 border-green-400">
 <div class="text-base font-bold text-green-300 mb-3">⏱️ Time Savings Per Feature</div>
@@ -586,11 +710,20 @@ Spend 15 minutes on interactive planning to ensure autonomous execution succeeds
 </div>
 </div>
 </div>
+</div>
+</div>
 
 ---
 
-# 🚀 Key Takeaways
-
+<!-- SLIDE: Key Takeaways -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Key Takeaways</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="space-y-3 mt-8">
 <div class="p-4 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg">
 <div class="text-xl font-bold text-white mb-2">🤝 Hand-Off Pattern Transforms Productivity</div>
@@ -612,13 +745,20 @@ Spend 15 minutes on interactive planning to ensure autonomous execution succeeds
 <div class="text-sm text-gray-200">Failed experiments discard with one command, no merge conflicts</div>
 </div>
 </div>
+</div>
+</div>
 
 ---
-layout: end
----
 
-# 🔗 Related Patterns & Resources
-
+<!-- SLIDE: References -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-6 mt-8">
 <div class="space-y-3">
 <div class="text-lg font-bold text-cyan-300 mb-3">📚 Related Patterns</div>
@@ -653,7 +793,48 @@ layout: end
 </div>
 </div>
 </div>
+</div>
+</div>
 
-<div class="mt-6 text-center text-sm text-gray-400 italic">
-Questions? Let's discuss!
+---
+
+<!-- SLIDE: Thank You -->
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/15 via-blue-500/15 to-indigo-500/15 rounded-full blur-3xl"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-full blur-2xl"></div>
+<div class="relative z-10 text-center">
+<div class="relative mb-6 inline-block">
+<div class="absolute inset-0 blur-2xl opacity-40">
+<img src="./sdp-logo.png" class="w-20" alt="" />
+</div>
+<img src="./sdp-logo.png" class="w-20 relative" alt="SDP Logo" />
+</div>
+<div class="mb-6">
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-sm font-medium shadow-lg">
+Parallel Execution: When Agents Work Simultaneously
+</span>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+<div class="p-4 bg-gray-800/80 rounded-xl border border-cyan-500/30 backdrop-blur">
+<div class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">68%</div>
+<div class="text-xs text-cyan-300 font-semibold mt-1">reduction</div>
+<div class="text-xs text-gray-400 mt-1">active time per task</div>
+</div>
+<div class="p-4 bg-gray-800/80 rounded-xl border border-blue-500/30 backdrop-blur">
+<div class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">27 min</div>
+<div class="text-xs text-blue-300 font-semibold mt-1">active time</div>
+<div class="text-xs text-gray-400 mt-1">vs 85 min supervised</div>
+</div>
+<div class="p-4 bg-gray-800/80 rounded-xl border border-indigo-500/30 backdrop-blur">
+<div class="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Zero</div>
+<div class="text-xs text-indigo-300 font-semibold mt-1">conflicts</div>
+<div class="text-xs text-gray-400 mt-1">git worktree isolation</div>
+</div>
+</div>
+<div class="text-base opacity-60">
+Questions? Let's discuss running your first parallel agent experiment
+</div>
+<div class="mt-4 w-32 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent mx-auto"></div>
+</div>
 </div>
