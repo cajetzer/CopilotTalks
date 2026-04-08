@@ -168,6 +168,13 @@ updated: 2026-03-17
 <div class="relative z-10 flex items-center gap-3 mb-2">
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧱 Subagents: Core Mechanism</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">1 of 4</span>
+</div>
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Isolated Context Windows</div>
@@ -221,9 +228,11 @@ updated: 2026-03-17
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧱 Two Invocation Patterns</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">2 of 4</span>
 </div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
@@ -274,7 +283,7 @@ updated: 2026-03-17
 ---
 
 <!-- SLIDE: Parallel Subagents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-10 pt-1">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
@@ -282,21 +291,23 @@ updated: 2026-03-17
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">3 of 4</span>
 </div>
 </div>
-<div class="relative z-10 mb-4">
+<div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Independent Tasks Run Simultaneously</div>
 <div class="text-xs text-white/50">2.75x faster with isolated, independent analysis from each agent</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 mb-4">
-<div class="font-mono text-sm text-cyan-300 mb-3">Example Prompt:</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 mb-3">
+<div class="font-mono text-sm text-cyan-300 mb-2">Example Prompt:</div>
 <div class="text-sm opacity-90">
 Analyze this authentication module using three parallel subagents:
 </div>
-<div class="grid grid-cols-3 gap-3 mt-3 text-xs">
+<div class="grid grid-cols-3 gap-3 mt-2 text-xs">
 <div class="p-2 bg-red-900/30 rounded border border-red-500/30">
 <div class="font-semibold text-red-300">1. Security</div>
 <div class="opacity-80">Vulnerabilities, auth bypass, token handling</div>
@@ -310,24 +321,23 @@ Analyze this authentication module using three parallel subagents:
 <div class="opacity-80">Coverage gaps, edge cases, test utilities</div>
 </div>
 </div>
-<div class="text-sm opacity-90 mt-3">
+<div class="text-sm opacity-90 mt-2">
 Synthesize findings into prioritized action items with severity levels.
 </div>
 </div>
-
 <div class="grid grid-cols-2 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
 <div class="font-semibold text-blue-300 mb-2">⏱️ Timing Comparison</div>
-<div class="text-xs opacity-90 space-y-2">
+<div class="text-xs opacity-90 space-y-1.5">
 <div class="flex justify-between"><span>Serial time:</span><span class="text-amber-300">~22 minutes</span></div>
 <div class="flex justify-between"><span>Parallel time:</span><span class="text-green-300">~8 minutes</span></div>
 <div class="flex justify-between font-bold"><span>Speedup:</span><span class="text-cyan-300">2.75x faster</span></div>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
 <div class="font-semibold text-indigo-300 mb-2">🎯 Custom Agents as Subagents</div>
 <div class="text-xs opacity-90">
-<div class="mb-2">Use specialized agents with restricted tools:</div>
+<div class="mb-1">Use specialized agents with restricted tools:</div>
 <div class="font-mono bg-gray-950/60 p-2 rounded">
 <div class="text-gray-400">user-invokable: false</div>
 <div class="text-gray-300">↳ hidden, internal only</div>
@@ -342,11 +352,18 @@ Synthesize findings into prioritized action items with severity levels.
 
 <!-- SLIDE: Mental Model Shift -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Mental Model Shift</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Mental Model Shift</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<span class="text-white/40 text-xs ml-1">4 of 4</span>
+</div>
 </div>
 <div class="relative z-10 mb-4">
 <div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/40 max-w-3xl mx-auto">
@@ -518,7 +535,7 @@ Synthesize findings into prioritized action items with severity levels.
 ---
 
 <!-- SLIDE: Squad: The Production Implementation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-10 pt-1">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
@@ -532,16 +549,16 @@ Synthesize findings into prioritized action items with severity levels.
 <span class="text-white/40 text-xs ml-1">2 of 4</span>
 </div>
 </div>
-<div class="relative z-10 mb-3">
+<div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Persistent AI Development Team via GitHub Copilot</div>
 <div class="text-xs text-white/50">Install in one command: npx github:bradygaster/squad</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-4">
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2">📋 Form Your Team</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-blue-500/20 rounded p-3">
-<div class="text-cyan-400 mb-2">Squad proposes:</div>
+<div class="grid grid-cols-2 gap-3 mb-3">
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
+<div class="font-bold text-blue-300 mb-1">📋 Form Your Team</div>
+<div class="font-mono text-xs bg-gray-950/60 border border-blue-500/20 rounded p-2">
+<div class="text-cyan-400 mb-1">Squad proposes:</div>
 <div class="text-gray-300">🏗️ Ripley   — Lead</div>
 <div class="text-gray-300">⚛️ Dallas   — Frontend Dev</div>
 <div class="text-gray-300">🔧 Kane     — Backend Dev</div>
@@ -549,12 +566,12 @@ Synthesize findings into prioritized action items with severity levels.
 <div class="text-gray-300">📋 Scribe   — Memory (silent)</div>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-2">💬 Routing in Action</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-indigo-500/20 rounded p-3 space-y-2">
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
+<div class="font-bold text-indigo-300 mb-1">💬 Routing in Action</div>
+<div class="font-mono text-xs bg-gray-950/60 border border-indigo-500/20 rounded p-2 space-y-1.5">
 <div class="text-green-400">&gt; Ripley, fix error handling</div>
 <div class="text-gray-400">↳ direct to lead</div>
-<div class="text-green-400 mt-2">&gt; Team, build the login page</div>
+<div class="text-green-400 mt-1">&gt; Team, build the login page</div>
 <div class="text-gray-400">↳ fans out to all in parallel</div>
 </div>
 </div>
@@ -644,7 +661,7 @@ Synthesize findings into prioritized action items with severity levels.
 ---
 
 <!-- SLIDE: When to Use Agent Teams -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-10 pt-1">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
@@ -659,10 +676,10 @@ Synthesize findings into prioritized action items with severity levels.
 </div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-2 gap-3">
 <div>
-<div class="text-sm font-bold text-white mb-2">The Unified Decision Tree</div>
-<div class="font-mono text-xs bg-gray-950/80 border border-blue-500/30 rounded-lg p-3">
+<div class="text-sm font-bold text-white mb-1.5">The Unified Decision Tree</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-blue-500/30 rounded-lg p-2.5">
 <div class="text-blue-400 font-bold mb-1">Q: What's the nature of your task?</div>
 <div class="text-gray-300 ml-2 space-y-0.5">
 <div>├─ Simple, single-phase (&lt;200 LOC)</div>
@@ -681,7 +698,7 @@ Synthesize findings into prioritized action items with severity levels.
 </div>
 </div>
 <div>
-<div class="text-sm font-bold text-white mb-2">Comparison Matrix</div>
+<div class="text-sm font-bold text-white mb-1.5">Comparison Matrix</div>
 <table class="w-full text-xs border-collapse">
 <thead class="border-b border-blue-500/30">
 <tr class="text-left">
@@ -693,31 +710,31 @@ Synthesize findings into prioritized action items with severity levels.
 </thead>
 <tbody class="text-gray-300">
 <tr class="border-b border-blue-500/10">
-<td class="py-1 text-gray-400">Best For</td>
+<td class="py-0.5 text-gray-400">Best For</td>
 <td>Simple</td>
 <td>Multi-phase</td>
 <td class="text-blue-300 font-semibold">Role specialization</td>
 </tr>
 <tr class="border-b border-blue-500/10">
-<td class="py-1 text-gray-400">Setup</td>
+<td class="py-0.5 text-gray-400">Setup</td>
 <td>0</td>
 <td>0</td>
 <td class="text-blue-300 font-semibold">10 min (Squad)</td>
 </tr>
 <tr class="border-b border-blue-500/10">
-<td class="py-1 text-gray-400">Supervision</td>
+<td class="py-0.5 text-gray-400">Supervision</td>
 <td>Interactive</td>
 <td>Summary</td>
 <td class="text-blue-300 font-semibold">Checkpoint gates</td>
 </tr>
 <tr class="border-b border-blue-500/10">
-<td class="py-1 text-gray-400">Throughput</td>
+<td class="py-0.5 text-gray-400">Throughput</td>
 <td>1x</td>
 <td>2–3x</td>
 <td class="text-blue-300 font-semibold">3–5x</td>
 </tr>
 <tr>
-<td class="py-1 text-gray-400">Memory</td>
+<td class="py-0.5 text-gray-400">Memory</td>
 <td>Session</td>
 <td>Session</td>
 <td class="text-blue-300 font-semibold">Persistent</td>
@@ -1263,7 +1280,7 @@ Team, implement SSE + message queue<br/>per the validated design
 <div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-cols-3 gap-3">
 <div class="flex flex-col">
 <div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30 flex-1">
 <div class="font-bold text-green-300 mb-3 flex items-center gap-2">
@@ -1339,9 +1356,9 @@ Team, implement SSE + message queue<br/>per the validated design
 </div>
 </div>
 
-<div class="mt-6 p-5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-2 text-lg">🔑 Key Takeaway</div>
-<div class="text-base opacity-90">
+<div class="mt-3 p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
+<div class="font-bold text-cyan-300 mb-1 text-base">🔑 Key Takeaway</div>
+<div class="text-sm opacity-90">
 The right agent for the right task, with the right isolation, at the right time — subagents are the building block, teams organize them, background agents make them autonomous, and multi-model deliberation validates decisions before execution.
 </div>
 </div>
