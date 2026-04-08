@@ -164,7 +164,7 @@ function parseSlideDeck(filePath) {
  * These slides are standalone (own colors, no section dots) and should be exempt.
  */
 function isClosingSection(slides, n) {
-  const CLOSING_MARKERS = ['What You Can Do Today', 'What Can You Do Today', 'Expected ROI'];
+  const CLOSING_MARKERS = ['What You Can Do Today', 'What Can You Do Today', 'Expected ROI', 'Thank You', 'References'];
   for (let i = 0; i < slides.length; i++) {
     if (CLOSING_MARKERS.some(m => slides[i].name.includes(m))) {
       return n >= i + 1; // 1-indexed: at or after this marker slide
@@ -343,7 +343,15 @@ async function inspectSlide(slideNumber, p) {
     const clipBottom = layoutRect.bottom;
     const bleedingEl = [...layout.querySelectorAll('*')].find(el => {
       const r = el.getBoundingClientRect();
-      return r.bottom > clipBottom + 8 && r.width > 10 && r.height > 4;
+      if (r.bottom <= clipBottom + 8 || r.width <= 10 || r.height <= 4) return false;
+      // Skip elements inside overflow-y-auto/scroll containers (scrollable code blocks are intentional)
+      let ancestor = el.parentElement;
+      while (ancestor && ancestor !== layout) {
+        const style = window.getComputedStyle(ancestor);
+        if (style.overflowY === 'auto' || style.overflowY === 'scroll') return false;
+        ancestor = ancestor.parentElement;
+      }
+      return true;
     });
     if (bleedingEl) {
       const r = bleedingEl.getBoundingClientRect();
@@ -442,7 +450,15 @@ async function inspectSlide(slideNumber, p) {
       const clipBottom = layoutRect.bottom;
       const bleedingEl = [...layout.querySelectorAll('*')].find(el => {
         const r = el.getBoundingClientRect();
-        return r.bottom > clipBottom + 8 && r.width > 10 && r.height > 4;
+        if (r.bottom <= clipBottom + 8 || r.width <= 10 || r.height <= 4) return false;
+        // Skip elements inside overflow-y-auto/scroll containers (intentional scrollable code blocks)
+        let ancestor = el.parentElement;
+        while (ancestor && ancestor !== layout) {
+          const style = window.getComputedStyle(ancestor);
+          if (style.overflowY === 'auto' || style.overflowY === 'scroll') return false;
+          ancestor = ancestor.parentElement;
+        }
+        return true;
       });
       if (bleedingEl) {
         const r = bleedingEl.getBoundingClientRect();

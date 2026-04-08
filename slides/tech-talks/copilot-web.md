@@ -266,7 +266,7 @@ mdc: true
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
+<div class="relative z-10 flex items-center gap-3 mb-2">
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Delegation Loop</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
@@ -277,35 +277,35 @@ mdc: true
 </div>
 <span class="text-white/40 text-xs ml-1">3 of 4</span>
 </div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">The Evidence Bundle</div>
-<div class="text-sm text-gray-400">Included in every draft PR — read this before opening the diff</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">The Evidence Bundle</div>
+<div class="text-xs text-gray-400">Included in every draft PR — read this before opening the diff</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-5 max-w-4xl w-full">
-<div class="p-5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-2">📝</div>
-<div class="text-base font-bold text-cyan-300 mb-2">Summary of Changes</div>
-<div class="text-sm opacity-80">What was changed and why, in plain language — the agent's stated rationale for every decision</div>
+<div class="grid grid-cols-2 gap-3 max-w-4xl w-full">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
+<div class="text-xl mb-1">📝</div>
+<div class="text-sm font-bold text-cyan-300 mb-1">Summary of Changes</div>
+<div class="text-xs opacity-80">What was changed and why, in plain language — the agent's stated rationale for every decision</div>
 </div>
-<div class="p-5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-2">✅</div>
-<div class="text-base font-bold text-blue-300 mb-2">Test Results</div>
-<div class="text-sm opacity-80">Pass/fail status from the CI run inside the sandbox — you know if the change works before reading the code</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-xl mb-1">✅</div>
+<div class="text-sm font-bold text-blue-300 mb-1">Test Results</div>
+<div class="text-xs opacity-80">Pass/fail status from the CI run inside the sandbox — know if the change works before reading the code</div>
 </div>
-<div class="p-5 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-2">📁</div>
-<div class="text-base font-bold text-indigo-300 mb-2">Files Modified</div>
-<div class="text-sm opacity-80">List of changed files with the agent's rationale for each — scoped review before opening the full diff</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-xl mb-1">📁</div>
+<div class="text-sm font-bold text-indigo-300 mb-1">Files Modified</div>
+<div class="text-xs opacity-80">List of changed files with the agent's rationale for each — scoped review before opening the full diff</div>
 </div>
-<div class="p-5 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-2">🔥</div>
-<div class="text-base font-bold text-purple-300 mb-2">Firewall Alerts</div>
-<div class="text-sm opacity-80">Any blocked outbound connections — investigate before merging if unexpected calls appear</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-xl mb-1">🔥</div>
+<div class="text-sm font-bold text-purple-300 mb-1">Firewall Alerts</div>
+<div class="text-xs opacity-80">Any blocked outbound connections — investigate before merging if unexpected calls appear</div>
 </div>
 </div>
-<div class="mt-6 p-4 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20 text-center max-w-3xl">
-<div class="text-sm">Reading the evidence bundle takes <span class="text-cyan-300 font-semibold">2–3 minutes</span> and gives a complete picture of what the agent did — <span class="text-blue-300">before opening the diff</span></div>
+<div class="mt-2 p-2 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20 text-center max-w-3xl">
+<div class="text-xs">Reading the evidence bundle takes <span class="text-cyan-300 font-semibold">2–3 minutes</span> and gives a complete picture of what the agent did — <span class="text-blue-300">before opening the diff</span></div>
 </div>
 </div>
 </div>
