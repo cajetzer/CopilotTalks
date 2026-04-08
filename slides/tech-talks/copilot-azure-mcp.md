@@ -5,17 +5,18 @@ highlighter: shiki
 lineNumbers: false
 info: |
   ## GitHub Copilot CLI + Azure MCP: Rapid Azure Prototyping and Deployment
-  CopilotTraining
+  CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
 title: GitHub Copilot CLI + Azure MCP
 module: tech-talks/copilot-azure-mcp
-status: active
-updated: 2026-04-01
 mdc: true
+status: active
+updated: 2026-04-10
 ---
 
+<!-- SLIDE: Title -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
@@ -30,31 +31,43 @@ mdc: true
 <div class="mt-8 text-lg opacity-70 relative z-10">Infrastructure becomes conversational — AI that knows what's running in your subscriptions</div>
 <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>
-<div class="abs-br m-6 flex gap-2"><span class="text-sm opacity-50">Tech Talk · 45 minutes</span></div>
+
+<div class="abs-br m-6 flex gap-2">
+<span class="text-sm opacity-50">Tech Talk · 45 minutes</span>
+</div>
 
 ---
 
 <!-- SLIDE: The Core Question -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
+<div class="text-xl font-bold text-cyan-300 mb-2">
+"How do I prototype and deploy Azure solutions conversationally from my terminal — with AI that actually knows what's already running in my subscriptions?"
+</div>
+</div>
 
-<div class="h-full flex flex-col items-center justify-center">
-<div class="text-center">
-<h1 class="!text-4xl mb-6">🎯 The Core Question</h1>
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/50 max-w-4xl mx-auto">
-<div class="text-2xl font-semibold text-cyan-300 mb-4">"How do I prototype and deploy Azure solutions conversationally from my terminal?"</div>
-<div class="text-lg opacity-90">...with AI that actually knows what's already running in my subscriptions?</div>
+<div class="mt-4 grid grid-cols-3 gap-3 text-sm">
+<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
+<div class="text-xl mb-1">🔄</div>
+<div class="font-semibold text-amber-300 mb-1">Portal Context-Switching</div>
+<div class="text-xs opacity-80">Open portal, navigate resources, copy values, switch back — each cycle burns 20-45 minutes</div>
 </div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-4xl mx-auto">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 rounded-lg border border-cyan-500/20">
-<div class="text-cyan-400 font-semibold mb-1">No Portal Switching</div>
-<div class="opacity-80">Query live state conversationally</div>
+<div class="p-3 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
+<div class="text-xl mb-1">🎯</div>
+<div class="font-semibold text-orange-300 mb-1">Assumption-Based Prototyping</div>
+<div class="text-xs opacity-80">Generate configs from docs examples, not live state — guesswork produces 3-4 failed deployments</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/20 rounded-lg border border-blue-500/20">
-<div class="text-blue-400 font-semibold mb-1">Real Context</div>
-<div class="opacity-80">AI validates against actual resources</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/20 rounded-lg border border-indigo-500/20">
-<div class="text-indigo-400 font-semibold mb-1">45 min → 8 min</div>
-<div class="opacity-80">Prototype loop compression</div>
+<div class="p-3 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
+<div class="text-xl mb-1">⚙️</div>
+<div class="font-semibold text-red-300 mb-1">No Live Validation</div>
+<div class="text-xs opacity-80">Deploy to discover mismatches (wrong region, SKU, VNet) — expensive trial-and-error loop</div>
 </div>
 </div>
 </div>
@@ -63,36 +76,56 @@ mdc: true
 ---
 
 <!-- SLIDE: Table of Contents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-4 mt-4 max-w-4xl mx-auto">
+<div @click="$nav.go(4)" class="cursor-pointer group">
+<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+<div class="text-3xl mb-1">💬</div>
+<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Live Azure Context</div>
+<div class="text-sm text-gray-300 mt-1">Conversational resource discovery and config extraction</div>
+<div class="text-xs text-cyan-400/70 mt-1">Query live state without portal tab-switching</div>
+</div>
+</div>
+<div @click="$nav.go(8)" class="cursor-pointer group">
+<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
+<div class="text-3xl mb-1">🔄</div>
+<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">The Prototype Loop</div>
+<div class="text-sm text-gray-300 mt-1">Plan Mode validation before deployment</div>
+<div class="text-xs text-blue-400/70 mt-1">45 minutes → 8 minutes with live context</div>
+</div>
+</div>
+<div @click="$nav.go(12)" class="cursor-pointer group">
+<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
+<div class="text-3xl mb-1">⚙️</div>
+<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Configuration & Setup</div>
+<div class="text-sm text-gray-300 mt-1">10-minute installation and connection</div>
+<div class="text-xs text-indigo-400/70 mt-1">VS Code, npm, or Docker — your choice</div>
+</div>
+</div>
+<div @click="$nav.go(15)" class="cursor-pointer group">
+<div class="p-4 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
+<div class="text-3xl mb-1">🛡️</div>
+<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Guardrails & Trust Boundaries</div>
+<div class="text-sm text-gray-300 mt-1">RBAC-scoped access and read-only mode</div>
+<div class="text-xs text-purple-400/70 mt-1">Safe exploration without elevation</div>
+</div>
+</div>
+</div>
 
-<div class="h-full flex flex-col items-center justify-center">
-<h1 class="!text-4xl mb-8">📖 Table of Contents</h1>
-<div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
-<div @click="$nav.go(4)" class="cursor-pointer p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">💬</div>
-<div class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Live Azure Context</div>
-<div class="text-sm opacity-80 mt-2">Terminal conversations with live resource awareness</div>
-</div>
-<div @click="$nav.go(8)" class="cursor-pointer p-6 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">🔄</div>
-<div class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">The Prototype Loop</div>
-<div class="text-sm opacity-80 mt-2">Plan Mode + validation = 45 min → 8 min</div>
-</div>
-<div @click="$nav.go(11)" class="cursor-pointer p-6 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">⚙️</div>
-<div class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Configuration & Setup</div>
-<div class="text-sm opacity-80 mt-2">10 minutes to live Azure queries</div>
-</div>
-<div @click="$nav.go(13)" class="cursor-pointer p-6 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 hover:scale-105 transition-all">
-<div class="text-3xl mb-3">🛡️</div>
-<div class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Guardrails & Trust</div>
-<div class="text-sm opacity-80 mt-2">RBAC scoping and read-only modes</div>
-</div>
+<div class="mt-4 text-center text-sm opacity-60">Click any section to jump directly there</div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: Live Azure Context in Terminal Conversations -->
+<!-- SLIDE: Part 1 — Live Azure Context -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
@@ -100,457 +133,675 @@ mdc: true
 <div class="relative z-10 flex flex-col items-center text-center">
 <div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
 <h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Live Azure Context</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">in Terminal Conversations</h2>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Conversational resource discovery and config extraction</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
 <div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
 <div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-cyan-300 font-semibold">Query</div>
-<div class="text-xs opacity-70 mt-1">Ask what's running live</div>
+<div class="text-2xl mb-1">💬</div>
+<div class="text-cyan-300 font-semibold">Ask, Don't Browse</div>
+<div class="text-xs opacity-70 mt-1">Query what exists without portal</div>
 </div>
 <div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">📐</div>
-<div class="text-blue-300 font-semibold">Scaffold</div>
-<div class="text-xs opacity-70 mt-1">Generate IaC from real configs</div>
+<div class="text-2xl mb-1">📋</div>
+<div class="text-blue-300 font-semibold">Extract Configs</div>
+<div class="text-xs opacity-70 mt-1">Live resources become templates</div>
 </div>
 <div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">✅</div>
-<div class="text-indigo-300 font-semibold">Validate</div>
-<div class="text-xs opacity-70 mt-1">Check before you deploy</div>
+<div class="text-2xl mb-1">🔍</div>
+<div class="text-indigo-300 font-semibold">Session Context</div>
+<div class="text-xs opacity-70 mt-1">Previous queries stay in memory</div>
 </div>
 </div>
 <div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-500">copilot &gt; </span><span class="text-cyan-300">What storage accounts exist in my subscription?</span><br />
-<span class="text-gray-400 mt-1 block">↳ Found 4 accounts in East US — GRS replication, TLS 1.2...</span>
+<span class="text-gray-400">No more portal tab-switching</span><br />
+<span class="text-cyan-300 mt-1 block">↳ infrastructure state in conversation</span>
 </div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: What's Now Possible -->
-
-<div class="h-full flex flex-col justify-center">
-<h1 class="!text-3xl mb-6">✨ What's Now Possible</h1>
-<div class="grid grid-cols-2 gap-4">
-<div class="p-4 bg-gradient-to-br from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20">
-<div class="font-bold text-cyan-300 mb-2">Query Live State Conversationally</div>
-<div class="text-sm opacity-90">Ask "What storage accounts exist in my subscription?" directly in terminal — no portal tab-switching</div>
-<div class="mt-2 text-xs text-cyan-400">Example: "Show me Cosmos DB databases with their throughput settings"</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-lg border border-blue-500/20">
-<div class="font-bold text-blue-300 mb-2">Scaffold From Existing Resources</div>
-<div class="text-sm opacity-90">Generate ARM/Bicep/Terraform by describing running resources: "Create a similar App Service for staging"</div>
-<div class="mt-2 text-xs text-blue-400">AI extracts live configs as templates, not generic docs examples</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/20 to-purple-900/20 rounded-lg border border-indigo-500/20">
-<div class="font-bold text-indigo-300 mb-2">Validate Before Deployment</div>
-<div class="text-sm opacity-90">AI checks proposed changes against actual subscription state: "Will this break production?"</div>
-<div class="mt-2 text-xs text-indigo-400">Catches config mismatches pre-deployment</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/20">
-<div class="font-bold text-purple-300 mb-2">Plan With Real Context</div>
-<div class="text-sm opacity-90">Plan Mode + Azure MCP = AI knows what exists, their configs, and valid parameter ranges</div>
-<div class="mt-2 text-xs text-purple-400">Guesswork drops to near-zero</div>
-</div>
-</div>
-<div class="mt-4 p-3 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl border border-green-500/30 text-center">
-<div class="text-green-300 font-semibold">Infrastructure-as-conversation: complex Azure operations become natural language interactions with full environmental awareness</div>
 </div>
 </div>
 
 ---
 
 <!-- SLIDE: Interactive Resource Discovery -->
-
-<h1 class="!text-3xl mb-4">🔍 Interactive Resource Discovery</h1>
-
-<div class="grid grid-cols-2 gap-4 text-sm">
-<div>
-<div class="font-bold text-cyan-300 mb-2">Example: Query Storage Accounts</div>
-<div class="font-mono bg-gray-900/60 p-3 rounded text-xs mb-2">
-<div class="text-green-400">> List all storage accounts with locations and SKUs</div>
-<div class="mt-2 text-gray-300">
-Found 4 storage accounts:<br /><br />
-1. <b>proddata001</b> (East US)<br />
-   - SKU: Standard_GRS<br />
-   - Public access: Disabled<br /><br />
-2. <b>stagingdata001</b> (West US 2)<br />
-   - SKU: Standard_LRS<br />
-   - Public access: Enabled (blob only)<br /><br />
-3. <b>devlogs</b> (East US 2)<br />
-   - SKU: Standard_LRS<br /><br />
-4. <b>backuparchive</b> (Central US)<br />
-   - SKU: Standard_RAGRS
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Live Azure Context</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
+</div>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Interactive Resource Discovery</div>
+<div class="text-xs text-white/50">Ask what's running — AI queries live Azure APIs</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
+<div class="text-sm font-semibold text-cyan-300 mb-1">Query Storage Accounts</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1 mb-2">
+<span class="text-gray-400">You:</span> List all storage accounts with their locations and SKUs
+</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">•</span>
+<span><strong>proddata001</strong> (East US) — Standard_GRS</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">•</span>
+<span><strong>stagingdata001</strong> (West US 2) — Standard_LRS</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">•</span>
+<span><strong>devlogs</strong> (East US 2) — Standard_LRS</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">•</span>
+<span><strong>backuparchive</strong> (Central US) — Standard_RAGRS</span>
 </div>
 </div>
 </div>
-<div>
-<div class="font-bold text-blue-300 mb-2">Extract Network Configuration</div>
-<div class="font-mono bg-gray-900/60 p-3 rounded text-xs mb-2">
-<div class="text-green-400">> Show network config for proddata001</div>
-<div class="mt-2 text-gray-300">
-<b>Network Configuration:</b><br /><br />
-Virtual Network Rules:<br />
-- prod-vnet/app-subnet<br />
-- prod-vnet/db-subnet<br /><br />
-Firewall Rules:<br />
-- Allow: 203.0.113.0/24<br />
-- Allow: 198.51.100.50<br /><br />
-Private Endpoints:<br />
-- prod-storage-pe01<br /><br />
-Public Access: Disabled<br />
-Min TLS: 1.2
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-sm font-semibold text-blue-300 mb-1">Query Cosmos DB Throughput</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1 mb-2">
+<span class="text-gray-400">You:</span> What Cosmos DB databases exist and what are their throughput settings?
+</div>
+<div class="text-xs">
+<div class="font-semibold text-blue-300 mb-1">cosmos-prod-eastus</div>
+<div class="space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-blue-400">→</span>
+<span>user-profiles: 10,000 RU/s (autoscale: 40,000)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-blue-400">→</span>
+<span>transaction-logs: 5,000 RU/s</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-blue-400">→</span>
+<span>analytics-cache: Serverless</span>
 </div>
 </div>
 </div>
 </div>
-
-<div class="mt-3 p-3 bg-cyan-900/20 rounded border border-cyan-500/20 text-xs">
-<b class="text-cyan-300">Key Point:</b> <span class="text-gray-300">AI returns structured data from live Azure APIs — not cached, not docs. Context persists across session for follow-up questions.</span>
 </div>
 
 ---
 
 <!-- SLIDE: Configuration Extraction for Templating -->
-
-<h1 class="!text-3xl mb-4">📋 Configuration Extraction for Templating</h1>
-
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div>
-<div class="font-bold text-cyan-300 mb-2">Prompt: Create Similar Resource</div>
-<div class="font-mono bg-gray-900/60 p-3 rounded text-xs">
-<div class="text-green-400">> Create a similar storage account config for staging</div>
-</div>
-<div class="mt-3 font-bold text-blue-300 mb-2">AI Response: Staging-Appropriate Config</div>
-<div class="font-mono bg-gray-900/60 p-3 rounded text-xs leading-relaxed">
-Based on proddata001:<br /><br />
-{<br />
-&nbsp;&nbsp;"name": "stagingdata002",<br />
-&nbsp;&nbsp;"location": "West US 2",<br />
-&nbsp;&nbsp;"sku": "Standard_LRS",  <span class="text-yellow-400">// Changed from GRS</span><br />
-&nbsp;&nbsp;"networkRules": {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;"virtualNetworkRules": [<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"staging-vnet/app-subnet"<br />
-&nbsp;&nbsp;&nbsp;&nbsp;],<br />
-&nbsp;&nbsp;&nbsp;&nbsp;"ipRules": ["203.0.113.0/24"],<br />
-&nbsp;&nbsp;&nbsp;&nbsp;"defaultAction": "Deny"<br />
-&nbsp;&nbsp;},<br />
-&nbsp;&nbsp;"minimumTlsVersion": "TLS1_2",<br />
-&nbsp;&nbsp;"allowBlobPublicAccess": false<br />
-}
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Live Azure Context</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
 </div>
 </div>
-<div>
-<div class="font-bold text-indigo-300 mb-2">What Changed From Production</div>
-<div class="space-y-2">
-<div class="p-2 bg-indigo-900/20 rounded border border-indigo-500/20">
-<div class="font-bold text-indigo-400">SKU Downgraded</div>
-<div class="text-gray-300">Standard_LRS instead of GRS — staging doesn't need geo-redundancy</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Configuration Extraction for Templating</div>
+<div class="text-xs text-white/50">Live resources become scaffolds for new configs</div>
 </div>
-<div class="p-2 bg-purple-900/20 rounded border border-purple-500/20">
-<div class="font-bold text-purple-400">VNet Updated</div>
-<div class="text-gray-300">Points to staging-vnet instead of prod-vnet</div>
+<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
+<div class="text-sm font-semibold text-cyan-300 mb-1">Extract Network Config</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1 mb-2">
+<span class="text-gray-400">You:</span> Show me network configuration for proddata001 storage account
 </div>
-<div class="p-2 bg-pink-900/20 rounded border border-pink-500/20">
-<div class="font-bold text-pink-400">CI/CD IP Removed</div>
-<div class="text-gray-300">Staging uses different pipeline agent</div>
+<div class="text-xs">
+<div class="mb-1"><strong>VNet Rules:</strong></div>
+<div class="ml-2 mb-1 opacity-80 text-xs">
+prod-vnet/app-subnet (East US)<br />
+prod-vnet/db-subnet (East US)
+</div>
+<div class="mb-1"><strong>Firewall:</strong></div>
+<div class="ml-2 opacity-80 text-xs">
+Allow: 203.0.113.0/24 (office)<br />
+Allow: 198.51.100.50 (CI/CD)
 </div>
 </div>
-<div class="mt-3 p-3 bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded border border-green-500/20">
-<b class="text-green-300">Next Step:</b> <span class="text-gray-300">"Convert this to Bicep" → production-validated IaC template in seconds</span>
+</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
+<div class="text-sm font-semibold text-blue-300 mb-1">Scaffold Staging Variant</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1 mb-2">
+<span class="text-gray-400">You:</span> Create similar storage account config for staging environment
+</div>
+<div class="text-xs">
+<div class="font-semibold text-blue-300 mb-1">AI generates:</div>
+<div class="space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-green-400">✓</span>
+<span class="text-xs">SKU downgraded: GRS → LRS (cost savings)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-green-400">✓</span>
+<span class="text-xs">VNet updated: prod-vnet → staging-vnet</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-green-400">✓</span>
+<span class="text-xs">CI/CD IP removed (different pipeline)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-semibold text-indigo-300 mb-2">What Just Happened</div>
+<div class="space-y-1 text-xs">
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-white mb-1">1. Live Query</div>
+<div class="opacity-80">AI fetched actual production storage account config</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-white mb-1">2. Intelligent Adaptation</div>
+<div class="opacity-80">Generated staging config with environment-appropriate changes</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-white mb-1">3. One More Prompt</div>
+<div class="opacity-80">"Generate Bicep from this config" → validated infrastructure code</div>
+</div>
+</div>
+<div class="mt-2 p-2 bg-amber-900/30 border border-amber-500/30 rounded text-xs">
+<div class="font-semibold text-amber-300">Time Saved</div>
+<div class="opacity-80 mt-1">Portal navigation + manual parameter lookup: <span class="line-through">30 min</span> → Conversational extraction: 2 min</div>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: The Prototype Loop -->
+<!-- SLIDE: The Mental Model Shift -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Live Azure Context</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
+</div>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">The Mental Model Shift</div>
+<div class="text-xs text-white/50">Infrastructure prototyping becomes conversational</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="text-sm font-semibold text-red-400 mb-1">🔄 Move Away From</div>
+<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30 text-xs">
+<div class="font-semibold text-red-300 mb-1">Portal-First Discovery</div>
+<div class="opacity-80">Open Azure Portal, navigate resource groups, check configs, copy values, switch back to terminal</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-orange-900/30 to-amber-900/30 rounded-lg border border-orange-500/30 text-xs">
+<div class="font-semibold text-orange-300 mb-1">Documentation Copy-Paste</div>
+<div class="opacity-80">Copy ARM/Bicep examples from docs, manually adjust parameters — produces generic configs</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-amber-900/30 to-yellow-900/30 rounded-lg border border-amber-500/30 text-xs">
+<div class="font-semibold text-amber-300 mb-1">Deploy-Then-Debug</div>
+<div class="opacity-80">Deploy infrastructure to discover config mismatches (wrong region, SKU, missing dependency)</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="text-sm font-semibold text-cyan-400 mb-1">✅ Move Toward</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30 text-xs">
+<div class="font-semibold text-cyan-300 mb-1">Terminal-First Conversation</div>
+<div class="opacity-80">Start with conversational queries — AI retrieves current state faster and keeps it in session context</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30 text-xs">
+<div class="font-semibold text-blue-300 mb-1">Live Resource Templating</div>
+<div class="opacity-80">Extract configs from actual running resources — production-validated starting points with correct networking, SKUs, conventions</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30 text-xs">
+<div class="font-semibold text-indigo-300 mb-1">Validate-Then-Deploy</div>
+<div class="opacity-80">Use Plan Mode with Azure MCP to validate before deployment — AI checks proposed configs against live resources and subscription limits</div>
+</div>
+</div>
+</div>
+<div class="mt-1 p-2 bg-gradient-to-r from-emerald-900/30 to-teal-900/30 rounded-xl border border-emerald-500/30">
+<div class="text-xs font-bold text-emerald-300 mb-0.5">Core Insight</div>
+<div class="text-xs text-white/80">Infrastructure prototyping becomes conversational — AI queries live Azure state, validates assumptions in real-time, and generates configs from actual running resources</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Part 2 — The Prototype Loop -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
 <div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">The Prototype Loop</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Plan → Generate → Deploy</h2>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">The Prototype Loop</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Plan Mode validation before deployment</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-2 gap-4 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-red-900/20 rounded-xl border border-red-500/30">
-<div class="text-red-300 font-bold mb-1">❌ Traditional</div>
-<div class="text-xs opacity-70">Guess → deploy → fail → fix</div>
-<div class="text-red-400 font-semibold mt-2">~45 min · 4–6 iterations</div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
+<div class="text-2xl mb-1">💭</div>
+<div class="text-blue-300 font-semibold">Plan With AI</div>
+<div class="text-xs opacity-70 mt-1">Clarifying questions before code</div>
 </div>
-<div class="px-4 py-3 bg-green-900/20 rounded-xl border border-green-500/30">
-<div class="text-green-300 font-bold mb-1">✅ Plan Mode + Azure MCP</div>
-<div class="text-xs opacity-70">Query → validate → deploy once</div>
-<div class="text-green-400 font-semibold mt-2">~8 min · 1–2 iterations</div>
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">✅</div>
+<div class="text-indigo-300 font-semibold">Validate Against Live State</div>
+<div class="text-xs opacity-70 mt-1">Catch mismatches pre-deployment</div>
 </div>
-</div>
-<div class="mt-5 px-6 py-2 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-full border border-blue-400/20 text-blue-200 text-sm">
-Validate assumptions <em>before</em> deployment — not after
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Plan Mode Workflow Example -->
-
-<h1 class="!text-3xl mb-3">🎯 Plan Mode: Clarify Before Code</h1>
-
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div>
-<div class="font-bold text-cyan-300 mb-2">Step 1: State the Goal (Shift+Tab)</div>
-<div class="font-mono bg-gray-900/60 p-2 rounded mb-3">
-<div class="text-green-400">> I need to deploy a new App Service for the payments API, similar to the orders API but with its own database</div>
-</div>
-<div class="font-bold text-blue-300 mb-2">Step 2: AI Asks Questions</div>
-<div class="bg-blue-900/20 p-2 rounded border border-blue-500/20 mb-1">
-<b class="text-blue-400">Region preference?</b> Orders API runs in East US. Co-locate or different region?
-</div>
-<div class="bg-blue-900/20 p-2 rounded border border-blue-500/20 mb-1">
-<b class="text-blue-400">App Service Plan?</b> Share existing or dedicated?
-</div>
-<div class="bg-blue-900/20 p-2 rounded border border-blue-500/20 mb-1">
-<b class="text-blue-400">Database type?</b> Azure SQL, Cosmos, or existing?
-</div>
-<div class="bg-blue-900/20 p-2 rounded border border-blue-500/20 mb-1">
-<b class="text-blue-400">Networking?</b> Orders uses prod-vnet/app-subnet. Same or separate?
-</div>
-<div class="font-bold text-indigo-300 mb-2 mt-2">Step 3: Developer Answers</div>
-<div class="font-mono bg-gray-900/60 p-2 rounded text-xs">
-1. Same region (East US)<br />
-2. Dedicated plan for isolation<br />
-3. New Azure SQL with firewall rules<br />
-4. Same VNet, separate subnet (payments-subnet)<br />
-5. Autoscale 2-5 instances
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">⚡</div>
+<div class="text-purple-300 font-semibold">Generate Infrastructure Code</div>
+<div class="text-xs opacity-70 mt-1">Production-validated Bicep output</div>
 </div>
 </div>
-<div>
-<div class="font-bold text-purple-300 mb-2">Step 4: AI Validates Against Live Resources</div>
-<div class="bg-purple-900/20 p-2 rounded border border-purple-500/20 mb-2 text-xs">
-✅ East US capacity available<br />
-✅ prod-vnet/payments-subnet exists (10.0.3.0/24, empty)<br />
-✅ Azure SQL quota: 8/20 databases<br />
-⚠️ Firewall: payments-subnet not in SQL allowlist — will add
-</div>
-<div class="font-bold text-pink-300 mb-2">Proposed Architecture</div>
-<div class="font-mono bg-gray-900/60 p-2 rounded text-xs mb-2">
-App Service Plan: payments-asp-001<br />
-&nbsp;&nbsp;└─ App Service: payments-api<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ VNet: prod-vnet/payments-subnet<br /><br />
-Azure SQL Server: prod-sqlserver-eastus<br />
-&nbsp;&nbsp;└─ Database: payments-db (S1)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ Firewall: Allow payments-subnet
-</div>
-<div class="p-2 bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded border border-green-500/20 text-center">
-<b class="text-green-300">Estimated cost:</b> <span class="text-gray-300">~$150/month</span><br />
-<div class="text-xs text-green-400 mt-1">Approve plan to generate Bicep? (y/n)</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-cyan-900/20 rounded border border-cyan-500/20 text-xs">
-<b class="text-cyan-300">What Just Happened:</b> Plan Mode asked domain-specific questions, AI queried live state, validated subscription limits, proposed architecture pre-deployment, caught firewall gap before it caused failure. Developer reviews & deploys. <b class="text-green-400">Traditional: 45 min. With Plan Mode: 8 min.</b>
-</div>
-
----
-
-<!-- SLIDE: Real Use Case - Environment Cloning -->
-
-<h1 class="!text-3xl mb-3">🚀 Use Case: Rapid Environment Cloning</h1>
-
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div>
-<div class="font-bold text-cyan-300 mb-2">The Scenario</div>
-<div class="p-3 bg-cyan-900/20 rounded border border-cyan-500/20 mb-2">
-Create a complete staging environment mirroring production App Service, Storage, and Cosmos DB — normally a 2-hour task with portal navigation
-</div>
-<div class="font-bold text-blue-300 mb-2">The Workflow</div>
-<div class="font-mono bg-gray-900/60 p-3 rounded leading-relaxed">
-<div class="text-green-400">> copilot &#45;&#45;mcp azure-mcp-production</div>
-<div class="text-gray-300 mt-1">> List all resources in prod-rg with configs</div>
-<div class="text-blue-400 mt-2"># AI returns inventory: SKUs, networking, scaling</div>
-<div class="text-gray-300 mt-2">> Generate Bicep for staging with:</div>
-<div class="text-gray-300">&nbsp;&nbsp;- Standard_LRS vs Premium_GRS</div>
-<div class="text-gray-300">&nbsp;&nbsp;- S1 vs P2 for App Service</div>
-<div class="text-gray-300">&nbsp;&nbsp;- 1000 RU/s vs 10000 for Cosmos</div>
-<div class="text-gray-300">&nbsp;&nbsp;- VNet: staging-vnet</div>
-<div class="text-yellow-400 mt-2"># Plan Mode validates staging subscription</div>
-<div class="text-green-400 mt-2">Deploy preview: $1200/mo → $180/mo</div>
-</div>
-</div>
-<div>
-<div class="font-bold text-indigo-300 mb-2">What You Get</div>
-<div class="space-y-2">
-<div class="p-2 bg-indigo-900/20 rounded border border-indigo-500/20">
-<div class="font-bold text-indigo-400">Complete staging environment in 15 minutes</div>
-<div class="text-gray-300">Production-validated configurations with cost optimizations</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded border border-purple-500/20">
-<div class="font-bold text-purple-400">No portal tab-switching</div>
-<div class="text-gray-300">All discovery and generation in terminal conversation</div>
-</div>
-<div class="p-2 bg-pink-900/20 rounded border border-pink-500/20">
-<div class="font-bold text-pink-400">No manual SKU lookups</div>
-<div class="text-gray-300">AI extracts from live templates, proposes cost-optimized variants</div>
-</div>
-</div>
-<div class="mt-3 p-3 bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded border border-green-500/30 text-center">
-<div class="font-bold text-green-300 text-base">2 hours → 15 minutes</div>
-<div class="text-gray-300">87% time savings on environment cloning</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Traditional: 4-6 deploy-fail-adjust cycles</span><br />
+<span class="text-blue-300 mt-1 block">↳ With Plan Mode: 1-2 cycles, validated first</span>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: Configuration and Setup -->
+<!-- SLIDE: Plan Mode: Clarify Before Code -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 The Prototype Loop</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
+</div>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Plan Mode: Clarify Before Code</div>
+<div class="text-xs text-white/50">AI asks domain-specific questions and validates against live resources</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-sm font-semibold text-blue-300 mb-1">Step 1: State the Goal</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1 text-white/90">
+<span class="text-blue-400">[Shift+Tab for Plan Mode]</span><br />
+<span class="text-gray-400">You:</span> I need to deploy a new App Service for the payments API. Similar to orders API but with its own database connection.
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-semibold text-indigo-300 mb-1">Step 2: AI Asks Questions</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">1.</span>
+<span><strong>Region?</strong> Orders API in East US. Co-locate or separate for redundancy?</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">2.</span>
+<span><strong>App Service Plan?</strong> Share existing or dedicated for isolation?</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">3.</span>
+<span><strong>Database type?</strong> Azure SQL, Cosmos DB, or existing DB?</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">4.</span>
+<span><strong>Networking?</strong> Orders API uses prod-vnet/app-subnet. Same or separate?</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-1">Step 3: Your Answers</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-purple-400">✓</span>
+<span>Same region (East US) for latency</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-purple-400">✓</span>
+<span>Dedicated App Service Plan for isolation</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-purple-400">✓</span>
+<span>New Azure SQL with firewall rules</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-purple-400">✓</span>
+<span>Same VNet, separate subnet (payments-subnet)</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-xl border border-pink-500/30">
+<div class="text-sm font-semibold text-pink-300 mb-1">Step 4: AI Validates</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-green-400">✅</span>
+<span><strong>East US capacity:</strong> Available for S2 plan</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-green-400">✅</span>
+<span><strong>payments-subnet exists:</strong> 10.0.3.0/24, empty</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-green-400">✅</span>
+<span><strong>Azure SQL quota:</strong> 8 of 20 DBs used</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-amber-400">⚠️</span>
+<span><strong>Firewall gap:</strong> Will add payments-subnet to SQL allowlist</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: The Compression Effect -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 The Prototype Loop</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
+</div>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">The Compression Effect</div>
+<div class="text-xs text-white/50">Traditional workflow vs Plan Mode + Azure MCP</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col">
+<div class="text-sm font-semibold text-red-400 mb-1">Traditional Prototype Loop</div>
+<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
+<div class="space-y-1 text-xs">
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-red-500">
+<div class="font-semibold text-red-300">1. Portal Discovery (10-15 min)</div>
+<div class="opacity-80 text-xs">Open Azure Portal, navigate resource groups, check existing App Service configs, copy networking settings</div>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-orange-500">
+<div class="font-semibold text-orange-300">2. Documentation Lookup (5-10 min)</div>
+<div class="opacity-80 text-xs">Search for ARM template examples, valid SKU options, autoscale configuration syntax</div>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-amber-500">
+<div class="font-semibold text-amber-300">3. Write Infrastructure Code (10-15 min)</div>
+<div class="opacity-80 text-xs">Manually create Bicep/ARM template with guessed parameters</div>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-yellow-500">
+<div class="font-semibold text-yellow-300">4. Deployment Fails (3× cycles, 15 min)</div>
+<div class="opacity-80 text-xs">Missing VNet integration, wrong subnet, firewall gaps — manually discovered and fixed</div>
+</div>
+</div>
+<div class="mt-2 p-2 bg-red-900/50 border border-red-500/50 rounded text-center">
+<div class="font-bold text-red-300 text-base">45 minutes</div>
+<div class="text-xs opacity-80">3-4 failed deployments typical</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="text-sm font-semibold text-blue-400 mb-1">Plan Mode + Azure MCP</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="space-y-1 text-xs">
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-blue-500">
+<div class="font-semibold text-blue-300">1. Conversational Planning (2 min)</div>
+<div class="opacity-80 text-xs">State goal in Copilot CLI Plan Mode, answer AI's clarifying questions</div>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-indigo-500">
+<div class="font-semibold text-indigo-300">2. Live Validation (1 min)</div>
+<div class="opacity-80 text-xs">AI queries existing App Service, VNet, SQL server, validates proposed config against live state</div>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-purple-500">
+<div class="font-semibold text-purple-300">3. Generate Bicep (1 min)</div>
+<div class="opacity-80 text-xs">AI produces infrastructure code with correct networking, firewall rules, autoscale settings</div>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border-l-2 border-pink-500">
+<div class="font-semibold text-pink-300">4. Review and Deploy (4 min)</div>
+<div class="opacity-80 text-xs">Developer reviews generated Bicep; all parameters pre-validated; first deployment succeeds</div>
+</div>
+</div>
+<div class="mt-2 p-2 bg-blue-900/50 border border-blue-500/50 rounded text-center">
+<div class="font-bold text-blue-300 text-base">8 min <span class="text-xs text-emerald-300">· 5.6× faster</span></div>
+<div class="text-xs opacity-80">Zero portal visits, 1 deployment cycle</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Real Use Case: Environment Cloning -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 The Prototype Loop</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
+</div>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Real Use Case: Rapid Environment Cloning</div>
+<div class="text-xs text-white/50">Production → staging in 15 minutes with cost optimizations</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-sm font-semibold text-blue-300 mb-1">The Scenario</div>
+<div class="text-xs opacity-90">
+Developer needs complete staging environment that mirrors production App Service, Storage, and Cosmos DB configurations. Normally a 2-hour task with portal navigation, manual config extraction, and parameter translation.
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-semibold text-indigo-300 mb-1">The Workflow</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">1.</span>
+<span>Connect to prod (read-only): List all resources in prod-rg</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">2.</span>
+<span>AI returns full inventory with SKUs, networking, scaling rules</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">3.</span>
+<span>Prompt: "Generate Bicep for staging with cost-optimized SKUs"</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">4.</span>
+<span>Plan Mode validates staging subscription capacity</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-1">Cost Optimizations Applied</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-purple-400">→</span>
+<span><strong>Storage:</strong> Premium_GRS → Standard_LRS (geo-redundancy not needed)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-purple-400">→</span>
+<span><strong>App Service:</strong> P2 → S1 (lower traffic volume)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-purple-400">→</span>
+<span><strong>Cosmos DB:</strong> 10,000 RU/s → 1,000 RU/s (testing workloads)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-purple-400">→</span>
+<span><strong>VNet:</strong> prod-vnet → staging-vnet (correct integration)</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-teal-900/30 rounded-xl border border-emerald-500/30">
+<div class="text-sm font-semibold text-emerald-300 mb-1">What You Get</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">✓</span>
+<span>Complete staging environment in <strong>15 minutes</strong></span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">✓</span>
+<span>Production-validated configs with environment-appropriate SKUs</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">✓</span>
+<span>Cost optimizations applied automatically (85% reduction)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">✓</span>
+<span>Zero portal tab-switching, no manual SKU lookups</span>
+</div>
+</div>
+<div class="mt-2 p-2 bg-emerald-900/50 border border-emerald-500/50 rounded text-center">
+<div class="font-bold text-emerald-300">8× faster than manual process</div>
+<div class="text-xs opacity-80">From 2 hours → 15 minutes</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Part 3 — Configuration & Setup -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-violet-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-violet-500/10 rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
 <div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-violet-400 bg-clip-text text-transparent">Configuration and Setup</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">10 minutes to live Azure queries</h2>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Configuration & Setup</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">10-minute installation and connection</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
 <div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
 <div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
 <div class="text-2xl mb-1">📦</div>
-<div class="text-indigo-300 font-semibold">Install</div>
-<div class="text-xs opacity-70 mt-1">VS Code · npm · Docker</div>
+<div class="text-indigo-300 font-semibold">Install MCP Server</div>
+<div class="text-xs opacity-70 mt-1">VS Code, npm, or Docker</div>
 </div>
 <div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
 <div class="text-2xl mb-1">🔐</div>
 <div class="text-purple-300 font-semibold">Authenticate</div>
-<div class="text-xs opacity-70 mt-1">az login — no elevation</div>
+<div class="text-xs opacity-70 mt-1">Uses existing az login credentials</div>
 </div>
-<div class="px-4 py-3 bg-violet-900/30 rounded-xl border border-violet-500/30">
-<div class="text-2xl mb-1">🔗</div>
-<div class="text-violet-300 font-semibold">Connect</div>
-<div class="text-xs opacity-70 mt-1">copilot /tools to verify</div>
+<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
+<div class="text-2xl mb-1">🔌</div>
+<div class="text-pink-300 font-semibold">Connect to CLI</div>
+<div class="text-xs opacity-70 mt-1">Single JSON config file</div>
 </div>
 </div>
 <div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-500">$ </span><span class="text-indigo-300">npm install -g @azure/mcp</span><br />
-<span class="text-gray-400 block mt-1">↳ azure-mcp ready · copilot /tools → azure-mcp ✓</span>
+<span class="text-gray-400">10 minutes from install to first query</span><br />
+<span class="text-indigo-300 mt-1 block">↳ no new auth required — inherits Azure CLI session</span>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: Three Steps to Live Azure Queries -->
-
-<div class="h-full flex flex-col overflow-hidden px-2">
-<h1 class="!text-2xl !mb-4">⚙️ Three Steps to Live Azure Queries</h1>
-<div class="grid grid-cols-3 gap-4 flex-1 min-h-0 text-xs">
-<div class="flex flex-col bg-indigo-900/20 rounded-xl border border-indigo-500/30 overflow-hidden">
-<div class="px-4 py-3 bg-indigo-900/40 border-b border-indigo-500/20">
-<div class="text-indigo-300 font-bold text-sm">1 · Install</div>
-<div class="text-gray-400 text-xs mt-0.5">Pick your preferred method</div>
-</div>
-<div class="p-3 flex-1 space-y-2">
-<div class="font-mono bg-gray-950/60 p-2 rounded leading-snug">
-<div class="text-gray-500 text-[10px] mb-1"># VS Code (recommended)</div>
-<div class="text-indigo-300">Install from Marketplace</div>
-</div>
-<div class="font-mono bg-gray-950/60 p-2 rounded leading-snug">
-<div class="text-gray-500 text-[10px] mb-1"># npm</div>
-<div class="text-indigo-300">npm install -g @azure/mcp</div>
-</div>
-<div class="font-mono bg-gray-950/60 p-2 rounded leading-snug">
-<div class="text-gray-500 text-[10px] mb-1"># Docker</div>
-<div class="text-indigo-300 text-[10px] leading-relaxed">docker pull mcr.microsoft.com/<br/>azure-mcp-server:latest</div>
+<!-- SLIDE: Installation and Connection -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Configuration & Setup</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">1 of 2</span>
 </div>
 </div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Installation and Connection</div>
+<div class="text-xs text-white/50">Three install options, single config file, 10 minutes total</div>
 </div>
-<div class="flex flex-col bg-purple-900/20 rounded-xl border border-purple-500/30 overflow-hidden">
-<div class="px-4 py-3 bg-purple-900/40 border-b border-purple-500/20">
-<div class="text-purple-300 font-bold text-sm">2 · Authenticate</div>
-<div class="text-gray-400 text-xs mt-0.5">MCP inherits your session</div>
+<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="p-2 bg-gray-900/50 rounded text-xs">
+<div class="font-semibold text-indigo-300 mb-1">Option 1: VS Code Extension (Recommended)</div>
+<div class="opacity-80">Install from VS Code Marketplace, auto-configures MCP server</div>
 </div>
-<div class="p-3 flex-1 space-y-2">
-<div class="font-mono bg-gray-950/60 p-2 rounded leading-snug">
-<div class="text-gray-500 text-[10px] mb-1"># Sign in</div>
-<div class="text-purple-300">az login</div>
-</div>
-<div class="font-mono bg-gray-950/60 p-2 rounded leading-snug">
-<div class="text-gray-500 text-[10px] mb-1"># Set subscription</div>
-<div class="text-purple-300">az account set \<br/>&nbsp;&nbsp;--subscription \<br/>&nbsp;&nbsp;"Your-Subscription"</div>
-</div>
-<div class="mt-2 p-2 bg-purple-900/30 rounded border border-purple-500/20 text-gray-300">
-No credential storage. No elevation. MCP reads your existing <code class="text-green-400">az login</code> token.
-</div>
+<div class="p-2 bg-gray-900/50 rounded text-xs">
+<div class="font-semibold text-purple-300 mb-1">Option 2: Package Manager</div>
+<div class="font-mono text-xs opacity-80 mt-1">
+npm install -g @azure/mcp<br />
+pip install msmcp-azure<br />
+dotnet add package Azure.Mcp
 </div>
 </div>
-<div class="flex flex-col bg-violet-900/20 rounded-xl border border-violet-500/30 overflow-hidden">
-<div class="px-4 py-3 bg-violet-900/40 border-b border-violet-500/20">
-<div class="text-violet-300 font-bold text-sm">3 · Connect &amp; Verify</div>
-<div class="text-gray-400 text-xs mt-0.5">Confirm the tool is live</div>
-</div>
-<div class="p-3 flex-1 space-y-2">
-<div class="font-mono bg-gray-950/60 p-2 rounded leading-snug">
-<div class="text-gray-500 text-[10px] mb-1"># List connected tools</div>
-<div class="text-violet-300">copilot /tools</div>
-<div class="text-gray-400 mt-1">↳ azure-mcp ✓</div>
-</div>
-<div class="font-mono bg-gray-950/60 p-2 rounded leading-snug">
-<div class="text-gray-500 text-[10px] mb-1"># First live query</div>
-<div class="text-violet-300">copilot<br/>&gt; List all resource groups</div>
-</div>
-<div class="mt-2 p-2 bg-green-900/20 rounded border border-green-500/20 text-green-300 font-semibold text-center">
-✅ Setup complete
+<div class="p-2 bg-gray-900/50 rounded text-xs">
+<div class="font-semibold text-pink-300 mb-1">Option 3: Docker</div>
+<div class="font-mono text-xs opacity-80 mt-1">
+docker pull mcr.microsoft.com/azure-mcp-server:latest
 </div>
 </div>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-0.5">Authentication</div>
+<div class="text-xs mb-1 opacity-90">Uses your existing Azure credentials</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1">
+az login<br />
+az account set --subscription "Your-Subscription"
 </div>
+<div class="mt-1 p-2 bg-purple-900/50 border border-purple-500/50 rounded text-xs">
+<div class="font-semibold text-purple-300">MCP server inherits these credentials</div>
+<div class="opacity-80">Operates within your RBAC permissions</div>
 </div>
-</div>
-
----
-
-<!-- SLIDE: MCP Configuration JSON -->
-
-<div class="h-full flex flex-col overflow-hidden px-2">
-<h1 class="!text-2xl !mb-3">📝 Azure MCP Configuration</h1>
-<div class="grid grid-cols-2 gap-4 text-xs flex-1 min-h-0">
-<div class="flex flex-col min-h-0">
-<div class="font-bold text-cyan-300 mb-1.5">~/.copilot/mcp-servers.json</div>
-<div class="font-mono bg-gray-900/60 p-2.5 rounded leading-snug overflow-auto flex-1 text-[11px]">
-{<br />
-&nbsp;&nbsp;"mcpServers": [<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "azure-mcp",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "npx",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["@azure/mcp"],<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"env": {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_SUBSCRIPTION_ID": "your-sub-id",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_MCP_ENABLED_SERVICES":<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"storage,cosmosdb,monitor,appconfig"<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;]<br />
-}
 </div>
 </div>
 <div class="flex flex-col gap-1.5">
-<div class="font-bold text-blue-300 mb-0.5">Available Services (40+ total)</div>
-<div class="p-2 bg-blue-900/20 rounded border border-blue-500/20">
-<b class="text-blue-400">Core:</b> <span class="text-gray-300">storage, cosmosdb, sql, keyvault, resources</span>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-xl border border-pink-500/30">
+<div class="text-sm font-semibold text-pink-300 mb-1">Connect to Copilot CLI</div>
+<div class="text-xs mb-1 opacity-90">Create or update <code class="bg-gray-950/80 px-1 py-0.5 rounded">~/.copilot/mcp-servers.json</code></div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1">
+{<br />
+&nbsp;&nbsp;"mcpServers": [{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "azure-mcp",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"command": "npx",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"args": ["@azure/mcp"],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"env": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_SUBSCRIPTION_ID": "your-sub-id"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;}]<br />
+}
 </div>
-<div class="p-2 bg-indigo-900/20 rounded border border-indigo-500/20">
-<b class="text-indigo-400">Compute:</b> <span class="text-gray-300">appservice, functions, aks</span>
 </div>
-<div class="p-2 bg-purple-900/20 rounded border border-purple-500/20">
-<b class="text-purple-400">Monitoring:</b> <span class="text-gray-300">monitor (KQL queries), appconfig</span>
+<div class="p-2 bg-gradient-to-br from-rose-900/30 to-red-900/30 rounded-xl border border-rose-500/30">
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1 mb-1">
+copilot /tools
 </div>
-<div class="p-2 bg-pink-900/20 rounded border border-pink-500/20">
-<b class="text-pink-400">DevOps:</b> <span class="text-gray-300">repos, pipelines, work items</span>
-</div>
-<div class="p-2 bg-cyan-900/20 rounded border border-cyan-500/20 mt-auto">
-<b class="text-cyan-300">Tip:</b> <span class="text-gray-300">Limit services to reduce token usage. After changes: <code class="text-green-400">copilot /reset</code></span>
+<div class="text-xs opacity-90">Look for <span class="text-rose-400">azure-mcp</span> listing 40+ tools including azure.storage, azure.cosmosdb, azure.monitor, and more.</div>
 </div>
 </div>
 </div>
@@ -558,136 +809,393 @@ No credential storage. No elevation. MCP reads your existing <code class="text-g
 
 ---
 
-<!-- SLIDE: Guardrails and Trust Boundaries -->
+<!-- SLIDE: Service Selection and Verification -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Configuration & Setup</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<span class="text-white/40 text-xs ml-1">2 of 2</span>
+</div>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Service Selection and Verification</div>
+<div class="text-xs text-white/50">Limit enabled services for focused workflows</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-semibold text-indigo-300 mb-1">Service Selection (Optional)</div>
+<div class="text-xs mb-1 opacity-90">Add <code class="bg-gray-950/80 px-1 py-0.5 rounded">AZURE_MCP_ENABLED_SERVICES</code> to limit the 40+ exposed tools:</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1">
+"AZURE_MCP_ENABLED_SERVICES":<br />
+&nbsp;&nbsp;"storage,cosmosdb,monitor,appconfig"
+</div>
+<div class="mt-1 text-xs opacity-80">
+<strong>Options:</strong> storage, cosmosdb, monitor, appconfig, resources, sql, keyvault, aks, functions, appservice
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-1">Restart After Config Changes</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1 mb-1">
+copilot /reset
+</div>
+<div class="text-xs opacity-90">Configuration changes take effect after Copilot CLI restart</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-xl border border-pink-500/30">
+<div class="text-sm font-semibold text-pink-300 mb-1">Verification Test</div>
+<div class="space-y-1 text-xs">
+<div class="font-mono bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1">
+<span class="text-gray-400">You:</span> List all resource groups in my subscription
+</div>
+<div class="p-2 bg-pink-900/50 border border-pink-500/50 rounded">
+<div class="font-semibold text-pink-300 mb-0.5">Expected</div>
+<div class="opacity-80">AI invokes <code class="bg-gray-950/80 px-1 py-0.5 rounded">azure.resources.list-groups</code> and returns live results</div>
+</div>
+<div class="p-2 bg-green-900/30 border border-green-500/30 rounded">
+<div class="font-semibold text-green-300 mb-0.5">✅ Success</div>
+<div class="opacity-80">Live resource group names appear — Azure MCP is connected</div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-teal-900/30 rounded-xl border border-emerald-500/30">
+<div class="text-sm font-semibold text-emerald-300 mb-1">Key Points</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">•</span>
+<span>No separate Azure authentication — uses existing <code class="bg-gray-950/80 px-1 py-0.5 rounded">az login</code> session</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">•</span>
+<span>Configuration is a single JSON file</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">•</span>
+<span>Service selection is optional but recommended for focused workflows</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Part 4 — Guardrails & Trust Boundaries -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
 <div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent">Guardrails and</h1>
-<h1 class="!text-5xl !font-bold !mt-0 !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent">Trust Boundaries</h1>
-<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-6">RBAC scoping · read-only modes · subscription separation</h2>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Guardrails & Trust Boundaries</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">RBAC-scoped access and read-only mode</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
 <div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
 <div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-purple-300 font-semibold">No Elevation</div>
-<div class="text-xs opacity-70 mt-1">Inherits your az login scope</div>
+<div class="text-2xl mb-1">🔐</div>
+<div class="text-purple-300 font-semibold">RBAC Inheritance</div>
+<div class="text-xs opacity-70 mt-1">No privilege elevation</div>
 </div>
 <div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">👁️</div>
-<div class="text-pink-300 font-semibold">Read-Only First</div>
-<div class="text-xs opacity-70 mt-1">Safe prod exploration</div>
+<div class="text-2xl mb-1">👀</div>
+<div class="text-pink-300 font-semibold">Read-Only Mode</div>
+<div class="text-xs opacity-70 mt-1">Safe production exploration</div>
 </div>
 <div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🗂️</div>
-<div class="text-rose-300 font-semibold">Scope per Env</div>
-<div class="text-xs opacity-70 mt-1">Prod RO · Dev write</div>
+<div class="text-2xl mb-1">🔒</div>
+<div class="text-rose-300 font-semibold">Subscription Boundaries</div>
+<div class="text-xs opacity-70 mt-1">Separate dev/prod access</div>
 </div>
 </div>
-<div class="mt-5 px-6 py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full border border-purple-400/20 text-purple-200 text-sm">
-MCP is a translation layer, not a privilege escalation vector
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Start with Reader role on production</span><br />
+<span class="text-purple-300 mt-1 block">↳ upgrade to Contributor only on dedicated dev subscriptions</span>
 </div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: RBAC and Read-Only Modes -->
-
-<div class="h-full flex flex-col overflow-hidden px-2">
-<h1 class="!text-2xl !mb-4">🔒 RBAC and Read-Only Modes</h1>
-<div class="grid grid-cols-3 gap-3 text-xs flex-1 min-h-0">
-<div class="p-3 bg-purple-900/20 rounded border border-purple-500/20">
-<div class="font-bold text-purple-300 mb-2">RBAC Inheritance</div>
-<div class="text-gray-300 mb-2">MCP Server uses your <code class="text-green-400">az login</code> session — no credential storage, no elevation</div>
-<div class="space-y-1">
-<div class="p-1 bg-blue-900/20 rounded"><b class="text-blue-400">Reader:</b> Query only</div>
-<div class="p-1 bg-yellow-900/20 rounded"><b class="text-yellow-400">Contributor:</b> Create/modify</div>
-<div class="p-1 bg-red-900/20 rounded"><b class="text-red-400">Owner:</b> Manage RBAC (risky)</div>
+<!-- SLIDE: Understanding RBAC Inheritance -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Guardrails & Trust Boundaries</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
 </div>
 </div>
-<div class="p-3 bg-pink-900/20 rounded border border-pink-500/20">
-<div class="font-bold text-pink-300 mb-2">Read-Only Mode</div>
-<div class="font-mono bg-gray-900/60 p-2 rounded text-xs mb-2">
-az ad sp create-for-rbac \<br />
-&nbsp;&nbsp;--name "copilot-mcp-ro" \<br />
-&nbsp;&nbsp;--role "Reader" \<br />
-&nbsp;&nbsp;--scopes /subscriptions/ID
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Understanding RBAC Inheritance</div>
+<div class="text-xs text-white/50">MCP server operates within your authenticated permissions — no elevation</div>
 </div>
-<div class="text-gray-300">Safe for production exploration — no modification risk</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-1">How RBAC Scoping Works</div>
+<div class="space-y-1 text-xs">
+<div class="p-2 bg-gray-900/50 rounded border-l-2 border-purple-500">
+<div class="font-semibold text-purple-300 mb-1">Reader Role</div>
+<div class="opacity-80">MCP can query resources but not modify</div>
 </div>
-<div class="p-3 bg-blue-900/20 rounded border border-blue-500/20">
-<div class="font-bold text-blue-300 mb-2">Multi-Subscription Setup</div>
-<div class="text-gray-300 mb-2">Separate MCP connections per environment:</div>
-<div class="space-y-1">
-<div class="p-1 bg-green-900/20 rounded"><b class="text-green-400">azure-mcp-prod:</b> Read-only</div>
-<div class="p-1 bg-blue-900/20 rounded"><b class="text-blue-400">azure-mcp-dev:</b> Contributor</div>
+<div class="p-2 bg-gray-900/50 rounded border-l-2 border-pink-500">
+<div class="font-semibold text-pink-300 mb-1">Contributor Role</div>
+<div class="opacity-80">MCP can create, update, delete resources</div>
 </div>
-<div class="font-mono bg-gray-900/60 p-1 rounded text-xs mt-2">
-copilot &#45;&#45;mcp azure-mcp-prod
+<div class="p-2 bg-gray-900/50 rounded border-l-2 border-red-500">
+<div class="font-semibold text-red-300 mb-1">Owner Role</div>
+<div class="opacity-80">MCP can manage RBAC itself (dangerous for conversational workflows)</div>
 </div>
 </div>
+<div class="mt-2 p-2 bg-amber-900/30 border border-amber-500/30 rounded text-xs">
+<div class="font-semibold text-amber-300 mb-1">⚠️ Recommendation</div>
+<div class="opacity-80">Create a dedicated service principal with scoped permissions for MCP workflows rather than using your personal Owner-level account</div>
 </div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-amber-900/20 to-red-900/20 rounded border border-red-500/30 text-xs text-center">
-<b class="text-red-300">⚠️ Don't:</b> <span class="text-gray-300">Give MCP full Owner access to production without review workflows. Even AI-validated configs require human review before prod deployment.</span>
+</div>
+<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-xl border border-pink-500/30">
+<div class="text-sm font-semibold text-pink-300 mb-1">Security Boundary</div>
+<div class="text-xs space-y-1">
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-white mb-0.5">Authentication Binding</div>
+<div class="opacity-80">MCP uses <code class="bg-gray-950/80 px-1 py-0.5 rounded">DefaultAzureCredential</code> chain — checks environment variables, managed identity, then Azure CLI session</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-white mb-0.5">No Credential Storage</div>
+<div class="opacity-80">MCP doesn't store passwords or tokens — requests fresh tokens from Azure Identity on each SDK call</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-white mb-0.5">Server-Side RBAC Enforcement</div>
+<div class="opacity-80">Every Azure SDK call includes current principal's token; Azure Resource Manager evaluates permissions server-side</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-rose-900/30 to-red-900/30 rounded-xl border border-rose-500/30">
+<div class="text-sm font-semibold text-rose-300 mb-1">What MCP Can See</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-green-400">✅</span>
+<span>Resource configurations (networking, SKUs, settings)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-green-400">✅</span>
+<span>Resource metadata (tags, creation dates, locations)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-green-400">✅</span>
+<span>Logs and metrics (if you have Log Analytics Reader role)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-green-400">✅</span>
+<span>DevOps artifacts (if enabled and authenticated)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-red-400">❌</span>
+<span>Secrets in Key Vault (requires separate access policy)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-red-400">❌</span>
+<span>Data inside resources (DB contents, blobs) — only metadata</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-teal-900/30 rounded-xl border border-emerald-500/30">
+<div class="text-sm font-semibold text-emerald-300 mb-1">Security Implication</div>
+<div class="text-xs opacity-90 mb-1">
+Azure MCP can see <strong>how</strong> resources are configured but not sensitive data within them, unless you explicitly grant Key Vault or data-plane permissions.
+</div>
+<div class="p-2 bg-emerald-900/50 border border-emerald-500/50 rounded text-xs">
+<div class="font-semibold text-emerald-300 mb-1">Key Principle</div>
+<div class="opacity-80">Even if AI generates a "delete all storage accounts" command, execution fails unless your principal has Delete permissions. MCP is a translation layer, not a privilege escalation vector.</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 ---
 
-<!-- SLIDE: Subscription Scoping Patterns -->
+<!-- SLIDE: Read-Only Mode for Safe Exploration -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Guardrails & Trust Boundaries</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
+</div>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Read-Only Mode for Safe Exploration</div>
+<div class="text-xs text-white/50">Create service principal with Reader role for production subscriptions</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-1">Create Read-Only Service Principal</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1">
+az ad sp create-for-rbac --name "copilot-mcp-readonly" --role "Reader" --scopes /subscriptions/YOUR_SUB_ID
+</div>
+<div class="mt-1 text-xs opacity-80">
+Output: appId, password, tenant (save these)
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-xl border border-pink-500/30">
+<div class="text-sm font-semibold text-pink-300 mb-1">Configure MCP with Service Principal</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1">
+"env": {<br />
+&nbsp;&nbsp;"AZURE_TENANT_ID": "your-tenant-id",<br />
+&nbsp;&nbsp;"AZURE_CLIENT_ID": "appId-from-sp",<br />
+&nbsp;&nbsp;"AZURE_CLIENT_SECRET": "password-from-sp",<br />
+&nbsp;&nbsp;"AZURE_SUBSCRIPTION_ID": "your-sub-id"<br />
+}
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="p-3 bg-gradient-to-br from-rose-900/30 to-red-900/30 rounded-xl border border-rose-500/30">
+<div class="text-sm font-semibold text-rose-300 mb-1">Verify Read-Only Behavior</div>
+<div class="space-y-1 text-xs">
+<div class="p-1.5 bg-gray-900/50 rounded">
+<div class="text-green-300 font-semibold mb-0.5">✅ Read query (succeeds)</div>
+<div class="font-mono opacity-80">You: List all storage accounts</div>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded">
+<div class="text-red-300 font-semibold mb-0.5">❌ Write query (fails)</div>
+<div class="font-mono opacity-80 mb-0.5">You: Create storage account "test"</div>
+<div class="text-red-400">Error: Service principal has 'Reader' role — write denied</div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-teal-900/30 rounded-xl border border-emerald-500/30">
+<div class="text-sm font-semibold text-emerald-300 mb-1">Benefits of Read-Only Mode</div>
+<div class="text-xs space-y-0.5">
+<div class="flex items-start gap-2"><span class="text-emerald-400">✓</span><span>Safe for production subscription exploration</span></div>
+<div class="flex items-start gap-2"><span class="text-emerald-400">✓</span><span>No risk of accidental resource deletion</span></div>
+<div class="flex items-start gap-2"><span class="text-emerald-400">✓</span><span>Ideal for learning Azure MCP capabilities</span></div>
+<div class="flex items-start gap-2"><span class="text-emerald-400">✓</span><span>Team-wide enablement without governance concerns</span></div>
+</div>
+<div class="mt-1.5 p-1.5 bg-emerald-900/50 border border-emerald-500/50 rounded text-xs">
+<div class="font-semibold text-emerald-300 mb-0.5">Upgrade to Write</div>
+<div class="opacity-80">Grant Contributor only on dev/staging subscriptions with cost guardrails</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-<div class="h-full flex flex-col overflow-hidden px-2">
-<h1 class="!text-2xl !mb-4">🗂️ Subscription Scoping Patterns</h1>
-<div class="grid grid-cols-2 gap-4 flex-1 min-h-0 text-xs">
-<div class="flex flex-col gap-3">
-<div class="p-3 bg-gray-900/60 rounded-xl border border-gray-700/40">
-<div class="text-sm font-bold text-white mb-2">Recommended Multi-Env Setup</div>
-<div class="space-y-2">
-<div class="flex items-center gap-3 p-2 bg-green-900/20 rounded border border-green-500/20">
-<div class="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></div>
-<div><span class="text-green-300 font-mono font-bold">azure-mcp-prod</span> <span class="text-gray-400">— Reader role, query only</span></div>
-</div>
-<div class="flex items-center gap-3 p-2 bg-blue-900/20 rounded border border-blue-500/20">
-<div class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></div>
-<div><span class="text-blue-300 font-mono font-bold">azure-mcp-staging</span> <span class="text-gray-400">— Contributor, limited scope</span></div>
-</div>
-<div class="flex items-center gap-3 p-2 bg-purple-900/20 rounded border border-purple-500/20">
-<div class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></div>
-<div><span class="text-purple-300 font-mono font-bold">azure-mcp-dev</span> <span class="text-gray-400">— Contributor, full sandbox</span></div>
+---
+
+<!-- SLIDE: Subscription Boundaries -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Guardrails & Trust Boundaries</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
 </div>
 </div>
+<div class="relative z-10 mb-2">
+<div class="text-base font-bold text-white mb-0.5">Subscription Boundaries</div>
+<div class="text-xs text-white/50">Configure separate MCP connections per environment</div>
 </div>
-<div class="p-3 bg-gray-900/60 rounded-xl border border-gray-700/40">
-<div class="text-sm font-bold text-white mb-2">Create a Read-Only Service Principal</div>
-<div class="font-mono bg-gray-950/80 p-2 rounded leading-snug text-[10px]">
-<span class="text-gray-500"># Safe for production exploration</span><br/>
-<span class="text-purple-300">az ad sp create-for-rbac</span> \<br/>
-&nbsp;&nbsp;<span class="text-blue-300">--name</span> <span class="text-green-300">"copilot-mcp-ro"</span> \<br/>
-&nbsp;&nbsp;<span class="text-blue-300">--role</span> <span class="text-green-300">"Reader"</span> \<br/>
-&nbsp;&nbsp;<span class="text-blue-300">--scopes</span> /subscriptions/<span class="text-yellow-300">PROD_ID</span>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-1">Multi-Subscription Configuration</div>
+<div class="font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded px-2 py-1">
+{<br />
+&nbsp;&nbsp;"mcpServers": [<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "azure-mcp-production",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "npx",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["@azure/mcp"],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"env": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_SUBSCRIPTION_ID": "prod-sub-id",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_CLIENT_ID": "readonly-sp-id",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_CLIENT_SECRET": "readonly-secret"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "azure-mcp-dev",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "npx",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["@azure/mcp"],<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"env": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_SUBSCRIPTION_ID": "dev-sub-id",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_CLIENT_ID": "contributor-sp-id",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AZURE_CLIENT_SECRET": "contributor-secret"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;]<br />
+}
+</div>
+<div class="mt-2 p-2 bg-purple-900/50 border border-purple-500/50 rounded text-xs">
+<div class="font-semibold text-purple-300 mb-1">Usage in Copilot CLI</div>
+<div class="opacity-80">
+Production (Read-Only):<br />
+<span class="font-mono">copilot --mcp azure-mcp-production</span><br />
+Dev (Write-Enabled):<br />
+<span class="font-mono">copilot --mcp azure-mcp-dev</span>
 </div>
 </div>
 </div>
-<div class="flex flex-col gap-3">
-<div class="p-3 bg-gray-900/60 rounded-xl border border-gray-700/40">
-<div class="text-sm font-bold text-white mb-2">Team Governance via Custom Instructions</div>
-<div class="font-mono bg-gray-950/80 p-2 rounded leading-snug text-[10px] mb-2">
-<span class="text-gray-500"># .github/copilot-instructions.md</span><br/>
-<span class="text-blue-300">## Azure Conventions</span><br/>
-<span class="text-gray-300">- All resources: kebab-case naming</span><br/>
-<span class="text-gray-300">- Production queries: use azure-mcp-prod</span><br/>
-<span class="text-gray-300">- Never suggest Owner role assignments</span><br/>
-<span class="text-gray-300">- Tag all new resources: env + team + cost-center</span>
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-rose-900/30 to-red-900/30 rounded-xl border border-rose-500/30">
+<div class="text-sm font-semibold text-rose-300 mb-1">Trust Building Path</div>
+<div class="space-y-1 text-xs">
+<div class="p-2 bg-gray-900/50 rounded border-l-2 border-blue-500">
+<div class="font-semibold text-blue-300 mb-1">Stage 1: Read-Only Exploration</div>
+<div class="opacity-80">Reader role on production — query resources, extract configs, no modification risk</div>
 </div>
-<div class="text-gray-400">Org-wide rules travel with the repo — every dev gets consistent guardrails automatically</div>
+<div class="p-2 bg-gray-900/50 rounded border-l-2 border-indigo-500">
+<div class="font-semibold text-indigo-300 mb-1">Stage 2: Dev Subscription Prototyping</div>
+<div class="opacity-80">Contributor role on isolated dev subscription — full prototype-to-deployment workflows</div>
 </div>
-<div class="p-3 bg-amber-900/20 rounded-xl border border-amber-500/30">
-<div class="text-amber-300 font-bold text-sm mb-2">⚠️ Prod Deployment Rule</div>
-<div class="text-gray-300">AI-generated configs still need human review before production. Use MCP for <em class="text-white">exploration and staging validation</em> — keep a PR gate on prod deploys.</div>
+<div class="p-2 bg-gray-900/50 rounded border-l-2 border-purple-500">
+<div class="font-semibold text-purple-300 mb-1">Stage 3: Staging with Review</div>
+<div class="opacity-80">Contributor role on staging with peer review — validate team workflows and conventions</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded border-l-2 border-pink-500">
+<div class="font-semibold text-pink-300 mb-1">Stage 4: Production with Governance</div>
+<div class="opacity-80">Contributor role on production after team establishes custom instructions and review processes</div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl border border-amber-500/30">
+<div class="text-sm font-semibold text-amber-300 mb-1">⚠️ Move Against (Active Resistance)</div>
+<div class="text-xs space-y-1">
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-red-300 mb-1">🛑 Unrestricted MCP Access on Production</div>
+<div class="opacity-80">Giving Azure MCP full read/write access to production without RBAC scoping is dangerous. Start with read-only mode or dedicated dev subscriptions</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded">
+<div class="font-semibold text-red-300 mb-1">🛑 Trusting Generated Configs Without Review</div>
+<div class="opacity-80">AI-generated infrastructure code validated against live resources is more accurate, but not infallible. Always review before deployment — treat AI as a skilled junior engineer</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -696,69 +1204,98 @@ copilot &#45;&#45;mcp azure-mcp-prod
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-
-<h1 class="!text-3xl mb-4">✅ What You Can Do Today</h1>
-
-<div class="grid grid-cols-3 gap-3 text-xs">
-<div class="p-3 bg-green-900/20 rounded border border-green-500/20">
-<div class="font-bold text-green-300 mb-2 text-base">⏱️ 15-Minute Quick Start</div>
-<div class="space-y-2">
-<div class="p-2 bg-green-900/30 rounded">
-<div class="font-bold text-green-400">1. Install Azure MCP</div>
-<div class="text-gray-300">VS Code extension or <code class="text-cyan-400">npm install -g @azure/mcp</code></div>
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-teal-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-teal-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
 </div>
-<div class="p-2 bg-green-900/30 rounded">
-<div class="font-bold text-green-400">2. Authenticate</div>
-<div class="text-gray-300"><code class="text-cyan-400">az login</code> and set subscription</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-3 gap-3">
+<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-teal-900/30 rounded-xl border border-emerald-500/30">
+<div class="text-sm font-semibold text-emerald-300 mb-1">15-Minute Quick Start</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">1.</span>
+<span>Install Azure MCP Server (VS Code extension or <code class="bg-gray-950/80 px-1 py-0.5 rounded">npm install -g @azure/mcp</code>)</span>
 </div>
-<div class="p-2 bg-green-900/30 rounded">
-<div class="font-bold text-green-400">3. Verify</div>
-<div class="text-gray-300"><code class="text-cyan-400">copilot /tools</code> → confirm azure-mcp listed</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">2.</span>
+<span>Authenticate: <code class="bg-gray-950/80 px-1 py-0.5 rounded">az login</code></span>
 </div>
-<div class="p-2 bg-green-900/30 rounded">
-<div class="font-bold text-green-400">4. First query</div>
-<div class="text-gray-300">"List all resource groups"</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">3.</span>
+<span>Verify MCP: <code class="bg-gray-950/80 px-1 py-0.5 rounded">copilot /tools</code></span>
 </div>
-</div>
-</div>
-<div class="p-3 bg-blue-900/20 rounded border border-blue-500/20">
-<div class="font-bold text-blue-300 mb-2 text-base">🔧 1-Hour Deep Dive</div>
-<div class="space-y-2">
-<div class="p-2 bg-blue-900/30 rounded">
-<div class="font-bold text-blue-400">Complete quick start</div>
-</div>
-<div class="p-2 bg-blue-900/30 rounded">
-<div class="font-bold text-blue-400">Create read-only SP for prod</div>
-<div class="text-gray-300">Safe production exploration</div>
-</div>
-<div class="p-2 bg-blue-900/30 rounded">
-<div class="font-bold text-blue-400">Multi-subscription config</div>
-<div class="text-gray-300">Prod (RO) + Dev (write)</div>
-</div>
-<div class="p-2 bg-blue-900/30 rounded">
-<div class="font-bold text-blue-400">Explore + scaffold</div>
-<div class="text-gray-300">"Show App Services" → "Generate Bicep for dev"</div>
+<div class="flex items-start gap-2">
+<span class="text-emerald-400">4.</span>
+<span>Run first query: "List all resource groups"</span>
 </div>
 </div>
+<div class="mt-2 p-2 bg-emerald-900/50 border border-emerald-500/50 rounded text-xs">
+<div class="font-semibold text-emerald-300">Success Criteria</div>
+<div class="opacity-80">AI returns live resource group list from your Azure subscription</div>
 </div>
-<div class="p-3 bg-purple-900/20 rounded border border-purple-500/20">
-<div class="font-bold text-purple-300 mb-2 text-base">🚀 2-4 Hour Mastery</div>
-<div class="space-y-2">
-<div class="p-2 bg-purple-900/30 rounded">
-<div class="font-bold text-purple-400">Complete deep dive</div>
 </div>
-<div class="p-2 bg-purple-900/30 rounded">
-<div class="font-bold text-purple-400">Custom instructions</div>
-<div class="text-gray-300">Team Azure conventions in <code class="text-cyan-400">.github/copilot-instructions.md</code></div>
+<div class="p-3 bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-xl border border-teal-500/30">
+<div class="text-sm font-semibold text-teal-300 mb-1">1-Hour Deep Dive</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-teal-400">1.</span>
+<span>Complete 15-minute quick start</span>
 </div>
-<div class="p-2 bg-purple-900/30 rounded">
-<div class="font-bold text-purple-400">End-to-end deployment</div>
-<div class="text-gray-300">Plan Mode → validate → generate → deploy real workload</div>
+<div class="flex items-start gap-2">
+<span class="text-teal-400">2.</span>
+<span>Create read-only service principal for production</span>
 </div>
-<div class="p-2 bg-purple-900/30 rounded">
-<div class="font-bold text-purple-400">Org governance</div>
-<div class="text-gray-300">MCP Registry for team tool discovery</div>
+<div class="flex items-start gap-2">
+<span class="text-teal-400">3.</span>
+<span>Configure multi-subscription MCP access (prod read-only, dev contributor)</span>
 </div>
+<div class="flex items-start gap-2">
+<span class="text-teal-400">4.</span>
+<span>Explore production resources conversationally</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-teal-400">5.</span>
+<span>Scaffold infrastructure from live templates</span>
+</div>
+</div>
+<div class="mt-2 p-2 bg-teal-900/50 border border-teal-500/50 rounded text-xs">
+<div class="font-semibold text-teal-300">Success Criteria</div>
+<div class="opacity-80">Query production safely (read-only) and generate infrastructure code for dev environments</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
+<div class="text-sm font-semibold text-cyan-300 mb-1">2-4 Hour Mastery Path</div>
+<div class="text-xs space-y-1">
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">1.</span>
+<span>Complete 1-hour deep dive</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">2.</span>
+<span>Configure custom instructions for team conventions</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">3.</span>
+<span>Run end-to-end deployment with Plan Mode (e.g., deploy containerized API with Azure Container Apps)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-cyan-400">4.</span>
+<span>Set up organization-level MCP governance (if applicable)</span>
+</div>
+</div>
+<div class="mt-2 p-2 bg-cyan-900/50 border border-cyan-500/50 rounded text-xs">
+<div class="font-semibold text-cyan-300">Success Criteria</div>
+<div class="opacity-80">Complete real deployment using conversational workflows, validated against live state, with team conventions integrated</div>
+</div>
+</div>
+</div>
+<div class="mt-2 p-2 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-sm font-semibold text-blue-300 mb-1">Key Takeaway</div>
+<div class="text-xs text-white/90">Start with read-only mode on production subscriptions to explore Azure MCP safely. Upgrade to write access only on dedicated dev/staging subscriptions with peer-reviewed workflows. The 45-minute → 8-minute compression happens when AI has live context, not assumptions.</div>
 </div>
 </div>
 </div>
@@ -766,49 +1303,95 @@ copilot &#45;&#45;mcp azure-mcp-prod
 ---
 
 <!-- SLIDE: References -->
-
-<h1 class="!text-3xl mb-4">🔗 References</h1>
-
-<div class="grid grid-cols-2 gap-4 text-xs">
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
+<div class="text-sm font-semibold text-cyan-300 mb-1">Official Documentation</div>
+<div class="space-y-1 text-xs">
 <div>
-<div class="font-bold text-cyan-300 mb-2 text-sm">📖 Official Documentation</div>
-<div class="space-y-1">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started" class="text-cyan-400 hover:text-cyan-300 font-medium">Get started with Azure MCP Server</a>
-<div class="text-gray-400 mt-0.5">Installation, authentication, and first queries</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/" class="text-cyan-400 hover:text-cyan-300 font-medium">Azure MCP Server Documentation</a>
-<div class="text-gray-400 mt-0.5">Service coverage, API reference, configuration options</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://github.com/Azure/azure-mcp" class="text-cyan-400 hover:text-cyan-300 font-medium">Azure MCP Server GitHub Repository</a>
-<div class="text-gray-400 mt-0.5">Source code, examples, community contributions</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://spec.modelcontextprotocol.io/" class="text-cyan-400 hover:text-cyan-300 font-medium">Model Context Protocol Specification</a>
-<div class="text-gray-400 mt-0.5">MCP standard, tool discovery, client-server architecture</div>
-</div>
-</div>
+<a href="https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started" class="text-cyan-400 hover:text-cyan-300 underline">Get started with Azure MCP Server</a>
+<div class="opacity-70 text-xs">Installation, authentication, and first queries</div>
 </div>
 <div>
-<div class="font-bold text-purple-300 mb-2 text-sm">🛠️ Copilot CLI Integration</div>
-<div class="space-y-1">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices" class="text-purple-400 hover:text-purple-300 font-medium">Best practices for GitHub Copilot CLI</a>
-<div class="text-gray-400 mt-0.5">Custom instructions, permissions, MCP integration</div>
+<a href="https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/" class="text-cyan-400 hover:text-cyan-300 underline">Azure MCP Server Documentation</a>
+<div class="opacity-70 text-xs">Service coverage, API reference, configuration options</div>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server" class="text-purple-400 hover:text-purple-300 font-medium">Add an MCP server to Copilot CLI</a>
-<div class="text-gray-400 mt-0.5">Connection configuration and verification</div>
+<div>
+<a href="https://github.com/Azure/azure-mcp" class="text-cyan-400 hover:text-cyan-300 underline">Azure MCP Server GitHub Repository</a>
+<div class="opacity-70 text-xs">Source code, examples, community contributions</div>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli" class="text-purple-400 hover:text-purple-300 font-medium">Using GitHub Copilot CLI</a>
-<div class="text-gray-400 mt-0.5">Interactive mode, Plan Mode, cloud delegation</div>
+<div>
+<a href="https://spec.modelcontextprotocol.io/" class="text-cyan-400 hover:text-cyan-300 underline">Model Context Protocol Specification</a>
+<div class="opacity-70 text-xs">MCP standard, tool discovery, client-server architecture</div>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server" class="text-purple-400 hover:text-purple-300 font-medium">Azure MCP Server - VS Code Extension</a>
-<div class="text-gray-400 mt-0.5">Extension setup and usage</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-sm font-semibold text-blue-300 mb-1">Copilot CLI Integration</div>
+<div class="space-y-1 text-xs">
+<div>
+<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices" class="text-blue-400 hover:text-blue-300 underline">Best practices for GitHub Copilot CLI</a>
+<div class="opacity-70 text-xs">Custom instructions, permissions, MCP integration</div>
+</div>
+<div>
+<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server" class="text-blue-400 hover:text-blue-300 underline">Add an MCP server to Copilot CLI</a>
+<div class="opacity-70 text-xs">Connection configuration and verification</div>
+</div>
+<div>
+<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli" class="text-blue-400 hover:text-blue-300 underline">Using GitHub Copilot CLI</a>
+<div class="opacity-70 text-xs">Interactive mode, Plan Mode, cloud delegation</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-sm font-semibold text-indigo-300 mb-1">Related CopilotTraining Talks</div>
+<div class="space-y-1 text-xs">
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">→</span>
+<div>
+<div class="font-semibold text-white">GitHub Copilot CLI</div>
+<div class="opacity-70">Foundational understanding of terminal-native AI workflows, Plan Mode, cloud delegation</div>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">→</span>
+<div>
+<div class="font-semibold text-white">MCP Apps</div>
+<div class="opacity-70">Building custom MCP servers for internal tools and proprietary systems</div>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-indigo-400">→</span>
+<div>
+<div class="font-semibold text-white">Agentic Workflows</div>
+<div class="opacity-70">Delegating complex multi-step tasks to background agents with /fleet parallelization</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-sm font-semibold text-purple-300 mb-1">Community Resources</div>
+<div class="space-y-1 text-xs">
+<div>
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server" class="text-purple-400 hover:text-purple-300 underline">Azure MCP Server - VS Code Extension</a>
+<div class="opacity-70 text-xs">VS Code extension setup and usage</div>
+</div>
+<div>
+<a href="https://mcpservers.org/servers/github-com-microsoft-mcp" class="text-purple-400 hover:text-purple-300 underline">Azure MCP Server - MCP Registry</a>
+<div class="opacity-70 text-xs">Complete service list and capability matrix</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -817,7 +1400,6 @@ copilot &#45;&#45;mcp azure-mcp-prod
 ---
 
 <!-- SLIDE: Thank You -->
-
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
@@ -827,22 +1409,22 @@ copilot &#45;&#45;mcp azure-mcp-prod
 </div>
 <h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
 <div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">GitHub Copilot CLI + Azure MCP</span>
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">Azure MCP Server: Live Infrastructure Context</span>
 </div>
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
 <div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-400 font-bold text-lg">45 min → 8 min</div>
-<div class="opacity-80 text-xs">Prototype loop compression</div>
+<div class="text-cyan-400 font-bold text-lg">45 → 8 min</div>
+<div class="opacity-80 text-xs">infrastructure workflow compression</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
 <div class="text-blue-400 font-bold text-lg">40+ services</div>
-<div class="opacity-80 text-xs">Conversational Azure access</div>
+<div class="opacity-80 text-xs">Azure covered by MCP tools</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-400 font-bold text-lg">10 minutes</div>
-<div class="opacity-80 text-xs">Setup to first live query</div>
+<div class="text-indigo-400 font-bold text-lg">15 min</div>
+<div class="opacity-80 text-xs">to your first live query</div>
 </div>
 </div>
-<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss infrastructure-as-conversation and Azure MCP patterns</div>
+<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss your Azure setup and where conversational infrastructure fits first.</div>
 <div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>
