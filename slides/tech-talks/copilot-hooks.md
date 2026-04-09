@@ -16,586 +16,242 @@ status: active
 updated: 2026-02-11
 ---
 
+<!-- SLIDE: Title -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-  <!-- Gradient background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-
-  <!-- Glowing orb -->
-  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-
-  <!-- Logo with glow -->
-  <div class="relative z-10">
-    <div class="absolute inset-0 blur-2xl opacity-50">
-      <img src="./sdp-logo.png" class="w-64" alt="" />
-    </div>
-    <img src="./sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
-  </div>
-
-  <!-- Gradient text title -->
-  <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">
-    GitHub Copilot Hooks
-  </h1>
-
-  <!-- Pill subtitle -->
-  <div class="mt-4 relative z-10">
-    <span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">
-      Programmable Governance for Agent Workflows
-    </span>
-  </div>
-
-  <!-- Decorative line -->
-  <div class="mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-64" alt="" /></div>
+<img src="./sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
+</div>
+<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">GitHub Copilot Hooks</h1>
+<div class="mt-4 relative z-10">
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-cyan-500/25">Programmable Governance for Agent Workflows</span>
+</div>
+<div class="mt-8 text-lg opacity-70 relative z-10">Real-time control and compliance at every lifecycle moment</div>
+<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>
 
 <div class="abs-br m-6 flex gap-2">
-  <span class="text-sm opacity-50">Tech Talk · 45 minutes</span>
+<span class="text-sm opacity-50">Tech Talk · 45 minutes</span>
 </div>
 
 ---
 
-# The Question This Talk Answers
-
-<div class="h-full flex items-center justify-center">
-  <div class="text-center space-y-8">
-    <div class="text-4xl font-bold text-cyan-400">
-      "How do I govern AI agent workflows<br/>without blocking their velocity?"
-    </div>
-    <div class="text-xl text-gray-300 max-w-3xl mx-auto">
-      Manual approval gates destroy speed.<br/>
-      Post-incident review catches violations too late.<br/>
-      We need programmable governance at the moment of action.
-    </div>
-  </div>
+<!-- SLIDE: The Core Question -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
+<div class="text-2xl font-bold text-cyan-300 mb-2">
+"How do I govern AI agent workflows without blocking their velocity?"
+</div>
+<div class="text-sm opacity-80">Security teams need prevention. Compliance needs audit trails. Quality teams need enforcement. Manual gates destroy velocity.</div>
 </div>
 
----
-layout: center
----
-
-# Table of Contents
-
-<div class="grid grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
-  <div>
-    <h3 class="text-cyan-400 font-bold mb-4">Fundamentals</h3>
-    <ul class="space-y-2 text-sm">
-      <li>✅ The Problem & Solution</li>
-      <li>✅ Lifecycle Control (8 Events)</li>
-      <li>✅ When to Use Hooks</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-cyan-400 font-bold mb-4">Implementation</h3>
-    <ul class="space-y-2 text-sm">
-      <li>✅ Preventive Enforcement</li>
-      <li>✅ Observability & Audit</li>
-      <li>✅ Real-World Patterns</li>
-      <li>✅ Advanced Integration</li>
-    </ul>
-  </div>
+<div class="mt-6 grid grid-cols-3 gap-3 text-sm">
+<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
+<div class="text-xl mb-1">⚡</div>
+<div class="font-semibold text-amber-300">Autonomous Operations</div>
+<div class="text-xs opacity-80 mt-1">Agents create files, run commands, access APIs without pre-approval</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
+<div class="text-xl mb-1">🚧</div>
+<div class="font-semibold text-orange-300">Compliance Requirements</div>
+<div class="text-xs opacity-80 mt-1">Regulated environments need complete evidence trails — SOC 2, HIPAA, finance</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
+<div class="text-xl mb-1">🔒</div>
+<div class="font-semibold text-red-300">Real-Time Enforcement</div>
+<div class="text-xs opacity-80 mt-1">Can't rely on post-incident review — violations must be prevented</div>
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# The Problem (1/2)
-
-<div class="space-y-4 text-sm mt-6">
-
-<div class="p-4 bg-red-900/30 rounded-lg border-l-4 border-red-500">
-  <div class="font-bold text-red-400">AI agents operate autonomously</div>
-  <div class="text-gray-300 mt-2">Copilot creates files, runs commands, accesses APIs — all without pre-approval gates or manual review</div>
+<!-- SLIDE: Table of Contents -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-6 mt-2 max-w-4xl mx-auto">
+<div @click="$nav.go(4)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+<div class="text-3xl mb-2">🔄</div>
+<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Lifecycle Control</div>
+<div class="text-sm text-gray-300 mt-1">8 hook events for governance</div>
+<div class="text-xs text-cyan-400/70 mt-2">SessionStart, PreToolUse, PostToolUse, SubagentStart, Stop, and more</div>
+</div>
+</div>
+<div @click="$nav.go(8)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
+<div class="text-3xl mb-2">🛡️</div>
+<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Preventive Enforcement</div>
+<div class="text-sm text-gray-300 mt-1">PreToolUse power</div>
+<div class="text-xs text-blue-400/70 mt-2">Deny operations before execution, modify inputs, require approval</div>
+</div>
+</div>
+<div @click="$nav.go(12)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
+<div class="text-3xl mb-2">📋</div>
+<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Observability & Audit</div>
+<div class="text-sm text-gray-300 mt-1">Complete lifecycle logging</div>
+<div class="text-xs text-indigo-400/70 mt-2">JSON Lines format, structured queries, compliance evidence</div>
+</div>
+</div>
+<div @click="$nav.go(16)" class="cursor-pointer group">
+<div class="p-5 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
+<div class="text-3xl mb-2">🏢</div>
+<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Real-World Patterns</div>
+<div class="text-sm text-gray-300 mt-1">HIPAA, SOC 2, quality gates</div>
+<div class="text-xs text-purple-400/70 mt-2">Multi-layer security, context injection, compliance trails</div>
+</div>
+</div>
 </div>
 
-<div class="p-4 bg-yellow-900/30 rounded-lg border-l-4 border-yellow-500">
-  <div class="font-bold text-yellow-400">Compliance requires audit trails</div>
-  <div class="text-gray-300 mt-2">Regulated environments (finance, healthcare, government) need complete evidence of what happened, when, and who authorized it</div>
+<div class="mt-6 text-center text-sm opacity-60">Click any section to jump directly there</div>
 </div>
-
-<div class="p-4 bg-orange-900/30 rounded-lg border-l-4 border-orange-500">
-  <div class="font-bold text-orange-400">Security policies must be enforced in real-time</div>
-  <div class="text-gray-300 mt-2">Can't rely on post-incident review to catch <code>rm -rf /</code> or <code>DROP TABLE</code> — violations must be prevented</div>
-</div>
-
-</div>
-
----
-
-# The Problem (2/2)
-
-<div class="space-y-4 text-sm mt-6">
-
-<div class="p-4 bg-blue-900/30 rounded-lg border-l-4 border-blue-500">
-  <div class="font-bold text-blue-400">Quality standards need validation at creation</div>
-  <div class="text-gray-300 mt-2">Style violations, test failures, and policy breaches should block commits before they're created, not in CI review</div>
-</div>
-
-<div class="p-4 bg-purple-900/30 rounded-lg border-l-4 border-purple-500">
-  <div class="font-bold text-purple-400">Agents need context injection</div>
-  <div class="text-gray-300 mt-2">Project-specific information, environment details, and guidelines should be available without manual setup</div>
-</div>
-
-<div class="mt-8 p-6 bg-gradient-to-r from-red-900/40 to-orange-900/40 rounded-lg border-2 border-red-500">
-  <div class="text-lg font-bold text-red-300">The Core Issue</div>
-  <div class="text-gray-200 mt-2">Manual approval gates destroy velocity. Static policies in CI catch violations too late. We need <span class="text-cyan-400 font-bold">programmable governance at the moment of action</span>.</div>
-</div>
-
-</div>
-
----
-
-# The Solution: GitHub Copilot Hooks
-
-<div class="mt-6">
-
-### What It Does
-
-<div class="text-sm text-gray-300 mb-6">
-Hooks execute custom shell commands at key lifecycle points during agent sessions — before tool execution, after completion, on session start/stop, when subagents spawn, and before context compaction.
-</div>
-
-### Key Capabilities
-
-<div class="grid grid-cols-2 gap-4 text-sm">
-  <div class="p-3 bg-green-900/30 rounded border-l-2 border-green-500">
-    <div class="font-bold text-green-400">✅ Preventive Control</div>
-    <div class="text-gray-300 mt-1"><code>PreToolUse</code> can deny execution with <code>permissionDecision: "deny"</code></div>
-  </div>
-
-  <div class="p-3 bg-blue-900/30 rounded border-l-2 border-blue-500">
-    <div class="font-bold text-blue-400">✅ Context Injection</div>
-    <div class="text-gray-300 mt-1"><code>SessionStart</code> can inject project info via <code>additionalContext</code></div>
-  </div>
-
-  <div class="p-3 bg-purple-900/30 rounded border-l-2 border-purple-500">
-    <div class="font-bold text-purple-400">✅ Complete Audit Trail</div>
-    <div class="text-gray-300 mt-1">All 8 lifecycle events provide full observability</div>
-  </div>
-
-  <div class="p-3 bg-cyan-900/30 rounded border-l-2 border-cyan-500">
-    <div class="font-bold text-cyan-400">✅ Agent Flow Control</div>
-    <div class="text-gray-300 mt-1"><code>Stop</code> hooks can prevent agents from finishing</div>
-  </div>
-</div>
-
 </div>
 
 ---
 
-# Solution Architecture
+<!-- SLIDE: Part 1 — Lifecycle Control -->
 
-<div class="text-sm mt-4">
-
-### Configuration Locations
-
-Hooks are configured in JSON files (workspace hooks take precedence):
-
-<div class="grid grid-cols-2 gap-4 mt-4">
-  <div class="p-3 bg-blue-900/30 rounded">
-    <div class="font-bold text-blue-400">Workspace (Team-Shared)</div>
-    <code class="text-xs text-gray-300">.github/hooks/*.json</code>
-  </div>
-
-  <div class="p-3 bg-purple-900/30 rounded">
-    <div class="font-bold text-purple-400">Workspace (Local)</div>
-    <code class="text-xs text-gray-300">.claude/settings.local.json</code>
-  </div>
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Lifecycle Control</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">8 hook events for governance</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
+<div class="text-2xl mb-1">🔄</div>
+<div class="text-cyan-300 font-semibold">8 Lifecycle Events</div>
+<div class="text-xs opacity-70 mt-1">Session, prompt, tool, subagent, compaction, stop</div>
 </div>
-
-### Execution Flow
-
-<div class="mt-4 space-y-2 text-xs">
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 rounded-full bg-cyan-600 flex items-center justify-center font-bold">1</div>
-    <div>Event Detection → Agent detects lifecycle event</div>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 rounded-full bg-cyan-600 flex items-center justify-center font-bold">2</div>
-    <div>Hook Discovery → Reads hook configurations</div>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 rounded-full bg-cyan-600 flex items-center justify-center font-bold">3</div>
-    <div>Script Invocation → Spawns shell process with JSON context via stdin</div>
-  </div>
-  <div class="flex items-center gap-2">
-    <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center font-bold">4</div>
-    <div>Output Parsing → For PreToolUse, reads <code>permissionDecision</code> (allow/deny/ask)</div>
-  </div>
+<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
+<div class="text-2xl mb-1">⚡</div>
+<div class="text-blue-300 font-semibold">Synchronous Execution</div>
+<div class="text-xs opacity-70 mt-1">Agents wait for hook completion — fast is critical</div>
 </div>
-
-<div class="mt-4 p-3 bg-yellow-900/30 rounded border-l-2 border-yellow-500 text-xs">
-  <span class="font-bold text-yellow-400">⚡ Critical:</span> <code>PreToolUse</code> is the only hook that can prevent actions before they happen
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">📝</div>
+<div class="text-indigo-300 font-semibold">JSON I/O</div>
+<div class="text-xs opacity-70 mt-1">Structured context in, decisions out via stdin/stdout</div>
 </div>
-
+</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Control points at every lifecycle moment</span><br />
+<span class="text-cyan-300 mt-1 block">↳ governance without velocity loss</span>
+</div>
+</div>
 </div>
 
 ---
 
-# Mental Model Shift
-
-<div class="text-center my-8">
-  <div class="text-2xl font-bold text-cyan-400">
-    From "agents work and we review their output"
-  </div>
-  <div class="text-4xl my-4">↓</div>
-  <div class="text-2xl font-bold text-green-400">
-    To "agents propose actions and governance approves them in real-time"
-  </div>
+<!-- SLIDE: The 8 Lifecycle Events -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Lifecycle Control</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">8 Hook Events — When Each Fires</div>
+<div class="text-xs text-white/50">Hooks execute at specific moments in the agent lifecycle</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="font-semibold text-cyan-300 mb-1">SessionStart</div>
+<div class="opacity-80">First prompt of new session — initialize resources, inject context</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-1">UserPromptSubmit</div>
+<div class="opacity-80">User submits prompt — audit requests, track patterns</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">PreToolUse ⚡</div>
+<div class="opacity-80">Before tool execution — deny, modify, or approve operations</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">PostToolUse</div>
+<div class="opacity-80">After tool completes — log results, run formatters, inject context</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-1">PreCompact</div>
+<div class="opacity-80">Before context compaction — export important state before truncation</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-rose-900/30 to-rose-800/20 rounded-lg border border-rose-500/30">
+<div class="font-semibold text-rose-300 mb-1">SubagentStart</div>
+<div class="opacity-80">Subagent spawns — track nested usage, inject guidelines</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="font-semibold text-red-300 mb-1">SubagentStop</div>
+<div class="opacity-80">Subagent completes — aggregate results, cleanup resources</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-orange-900/30 to-orange-800/20 rounded-lg border border-orange-500/30">
+<div class="font-semibold text-orange-300 mb-1">Stop</div>
+<div class="opacity-80">Session ends — generate reports, enforce completion requirements</div>
+</div>
 </div>
 
-<div class="grid grid-cols-2 gap-6 text-sm mt-8">
-  <div>
-    <h3 class="text-green-400 font-bold mb-3">✅ Move Toward</h3>
-    <ul class="space-y-2 text-xs">
-      <li>Preventive governance (<code>PreToolUse</code> denies before execution)</li>
-      <li>Context injection (<code>SessionStart</code> adds project info)</li>
-      <li>Structured logging (JSON Lines for direct querying)</li>
-      <li>Fast synchronous validation (keep hooks under 5 seconds)</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-red-400 font-bold mb-3">🛑 Move Against</h3>
-    <ul class="space-y-2 text-xs">
-      <li>Post-incident review (too late to prevent damage)</li>
-      <li>Manual approval gates (destroys velocity)</li>
-      <li>CI-only validation (catches violations after creation)</li>
-      <li>Slow hooks (>30s degrades agent responsiveness)</li>
-    </ul>
-  </div>
+<div class="mt-2 p-2 bg-gradient-to-r from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30 text-xs">
+<span class="text-cyan-300 font-semibold">Key insight:</span> PreToolUse is the only hook that can deny operations. Others observe, log, or inject context.
 </div>
-
----
-
-# When to Use This Pattern
-
-<div class="text-sm mt-4">
-
-### Decision Tree
-
-```
-Q: What's your governance requirement?
-├─ "Prevent dangerous operations before execution"
-│  → Use: PreToolUse hook with security policies
-│  └─ Best for: Security enforcement, regulated environments
-│
-├─ "Complete audit trail for compliance"
-│  → Use: All 8 lifecycle hooks with JSON Lines logging
-│  └─ Best for: Finance, healthcare, government compliance
-│
-├─ "Enforce code quality before commits"
-│  → Use: PostToolUse hook with linter validation
-│  └─ Best for: Quality gates, shift-left enforcement
-│
-└─ "Inject project context into agent sessions"
-   → Use: SessionStart hook with additionalContext
-   └─ Best for: Environment-aware agents, project metadata
-```
-
 </div>
-
----
-
-# Lifecycle Control: The 8 Hook Events
-
-<div class="text-xs mt-4">
-
-| Hook Event | When It Fires | Key Use Cases |
-|------------|---------------|---------------|
-| **SessionStart** | First prompt of new session | Initialize resources, inject context, validate state |
-| **UserPromptSubmit** | User submits a prompt | Audit user requests, inject system context |
-| **PreToolUse** ⚡ | Before agent invokes tool | **Block dangerous operations, require approval** |
-| **PostToolUse** | After tool completes | Run formatters, log results, inject context about results |
-| **PreCompact** | Before context compaction | Export important context, save state before truncation |
-| **SubagentStart** | Subagent spawns | Track nested agent usage, inject subagent guidelines |
-| **SubagentStop** | Subagent completes | Aggregate results, verify output, block stopping if incomplete |
-| **Stop** | Agent session ends | Generate reports, cleanup resources, block stopping if tests not run |
-
 </div>
 
 ---
 
-# What's New in the 2026-02-11 Update
-
-<div class="h-full flex items-center justify-center">
-  <div class="max-w-3xl space-y-6">
-    <div class="grid grid-cols-2 gap-6 text-sm">
-      <div class="p-4 bg-cyan-900/30 rounded border border-cyan-500/50">
-        <h3 class="text-cyan-400 font-bold mb-3">✨ 4 New Events</h3>
-        <ul class="space-y-2">
-          <li><code>PreCompact</code> — Save state before truncation</li>
-          <li><code>SubagentStart</code> — Track nested agents</li>
-          <li><code>SubagentStop</code> — Verify subagent output</li>
-          <li><code>Stop</code> — Cleanup & final reports</li>
-        </ul>
-      </div>
-      <div class="p-4 bg-blue-900/30 rounded border border-blue-500/50">
-        <h3 class="text-blue-400 font-bold mb-3">🔄 Breaking Changes</h3>
-        <ul class="space-y-2">
-          <li>Removed <code>errorOccurred</code> (deprecated)</li>
-          <li>PascalCase naming: <code>PreToolUse</code> not <code>preToolUse</code></li>
-          <li>New output fields: <code>updatedInput</code>, <code>additionalContext</code></li>
-          <li>Permission priority & ask decision support</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<!-- SLIDE: Hook Configuration Format -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Lifecycle Control</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-
----
-
-# SessionStart: Session Initialization
-
-<div class="text-sm mt-4">
-
-### When It Fires
-When a new agent session begins (first user prompt)
-
-### Input JSON
-```json
-{
-  "timestamp": "2026-02-11T10:30:00.000Z",
-  "cwd": "/path/to/workspace",
-  "sessionId": "session-abc123",
-  "hookEventName": "SessionStart",
-  "source": "new"
-}
-```
-
-### Output: Inject Context
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "SessionStart",
-    "additionalContext": "Project: myapp v2.1.0 | Branch: main | Node: v20.0.0"
-  }
-}
-```
-
-<div class="mt-4 p-3 bg-blue-900/30 rounded">
-  <span class="font-bold text-blue-400">Use Case:</span> Inject project-specific context (version, branch, environment) so agents make better decisions without manual setup
+<span class="text-white/40 text-xs ml-1">2 of 4</span>
 </div>
-
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Hook Configuration</div>
+<div class="text-xs text-white/50">JSON files in .github/hooks/*.json — workspace hooks take precedence</div>
 </div>
-
----
-
-# PreToolUse: Pre-Execution Validation ⚡
-
-<div class="text-xs mt-2">
-
-### Why It's Most Powerful
-The **only hook that can deny tool execution** before it happens. Can also modify input and inject context.
-
-### Input JSON
-```json
-{
-  "timestamp": "2026-02-11T10:30:00.000Z",
-  "cwd": "/workspace/project",
-  "sessionId": "abc123",
-  "hookEventName": "PreToolUse",
-  "tool_name": "runTerminalCommand",
-  "tool_input": { "command": "rm -rf dist" },
-  "tool_use_id": "tool-123"
-}
-```
-
-### Output: Deny Execution
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "PreToolUse",
-    "permissionDecision": "deny",
-    "permissionDecisionReason": "Destructive operations outside approved directories"
-  }
-}
-```
-
-<div class="mt-2 grid grid-cols-3 gap-2">
-  <div class="p-2 bg-green-900/30 rounded text-center">
-    <code class="text-green-400">allow</code><br/>Auto-approve
-  </div>
-  <div class="p-2 bg-yellow-900/30 rounded text-center">
-    <code class="text-yellow-400">ask</code><br/>Require user confirmation
-  </div>
-  <div class="p-2 bg-red-900/30 rounded text-center">
-    <code class="text-red-400">deny</code><br/>Block execution
-  </div>
-</div>
-
-</div>
-
----
-
-# PreToolUse: Modify Input & Inject Context
-
-<div class="text-sm mt-4">
-
-### Output: Modify Tool Input
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "PreToolUse",
-    "permissionDecision": "allow",
-    "updatedInput": { "command": "rm -rf dist --dry-run" },
-    "additionalContext": "Modified to dry-run mode per security policy"
-  }
-}
-```
-
-### Permission Decision Priority
-When multiple hooks run for the same tool:
-1. **`deny`** (most restrictive): blocks tool execution immediately
-2. **`ask`**: requires user confirmation
-3. **`allow`** (least restrictive): auto-approves execution
-
-<div class="mt-4 p-3 bg-cyan-900/30 rounded border-l-2 border-cyan-500">
-  <span class="font-bold text-cyan-400">NEW Capability:</span> <code>updatedInput</code> lets you enforce safe defaults (add flags, sanitize paths) while allowing execution
-</div>
-
-</div>
-
----
-
-# PostToolUse: Post-Execution Tracking
-
-<div class="text-sm mt-4">
-
-### When It Fires
-After tool completes successfully
-
-### Input JSON (includes response)
-```json
-{
-  "timestamp": "2026-02-11T10:30:25.000Z",
-  "hookEventName": "PostToolUse",
-  "tool_name": "editFiles",
-  "tool_input": { "path": "src/auth.js" },
-  "tool_response": "File edited successfully"
-}
-```
-
-### Output: Inject Context About Results
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "PostToolUse",
-    "additionalContext": "The edited file has lint errors: missing semicolon line 42"
-  }
-}
-```
-
-<div class="mt-4 p-3 bg-purple-900/30 rounded">
-  <span class="font-bold text-purple-400">Use Case:</span> Run formatters, validate output, inject context back to agent (e.g., lint errors to fix)
-</div>
-
-</div>
-
----
-
-# SubagentStart: Subagent Initialization
-
-<div class="text-sm mt-4">
-
-### When It Fires
-When a subagent is spawned by the main agent
-
-### Input JSON
-```json
-{
-  "hookEventName": "SubagentStart",
-  "agent_id": "sub-456",
-  "agent_type": "Plan"
-}
-```
-
-### Output
-Can inject `additionalContext` into the subagent's conversation
-
-<div class="mt-4 p-3 bg-cyan-900/30 rounded">
-  <span class="font-bold text-cyan-400">Use Case:</span> Track nested agent usage, initialize subagent resources, inject guidelines
-</div>
-
-</div>
-
----
-
-# SubagentStop: Subagent Completion
-
-<div class="text-sm mt-4">
-
-### When It Fires
-When a subagent completes its task
-
-### Input JSON
-```json
-{
-  "hookEventName": "SubagentStop",
-  "agent_id": "sub-456",
-  "agent_type": "Plan",
-  "stop_hook_active": false
-}
-```
-
-### Output
-Can block stopping with `decision: "block"` and `reason`
-
-<div class="mt-4 p-3 bg-yellow-900/30 rounded">
-  <span class="font-bold text-yellow-400">Use Case:</span> Verify subagent completed all required work, aggregate results
-</div>
-
-</div>
-
----
-
-# Stop: Agent Session End
-
-<div class="text-sm mt-4">
-
-### When It Fires
-When the agent session ends (or attempts to end)
-
-### Input JSON
-```json
-{
-  "hookEventName": "Stop",
-  "stop_hook_active": false
-}
-```
-
-### Output: Block Stopping
-```json
-{
-  "hookSpecificOutput": {
-    "hookEventName": "Stop",
-    "decision": "block",
-    "reason": "Run the test suite before finishing"
-  }
-}
-```
-
-<div class="mt-4 p-3 bg-red-900/30 rounded border-l-2 border-red-500 text-xs">
-  <span class="font-bold text-red-400">NEW Capability:</span> <code>Stop</code> hook can prevent agents from finishing (e.g., run tests first). Set <code>stop_hook_active: true</code> on retry to prevent infinite loops.
-</div>
-
-</div>
-
----
-
-# Hook Configuration Format
-
-<div class="text-xs mt-4">
-
-### JSON Configuration (.github/hooks/security-hooks.json)
-
-```json
-{
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-json">{
   "hooks": {
     "PreToolUse": [
       {
         "type": "command",
         "command": "./scripts/validate-tool.sh",
-        "timeout": 15,
-        "cwd": ".github/hooks"
+        "timeout": 15
       }
     ],
     "PostToolUse": [
@@ -605,753 +261,946 @@ When the agent session ends (or attempts to end)
       }
     ]
   }
-}
-```
+}</code></pre>
 
-<div class="mt-4 p-3 bg-yellow-900/30 rounded border-l-2 border-yellow-500">
-  <span class="font-bold text-yellow-400">BREAKING CHANGE:</span> New config format uses <code>command</code> property (not <code>bash</code>/<code>powershell</code>), <code>timeout</code> (not <code>timeoutSec</code>), and no <code>version</code> field
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="font-semibold text-cyan-300 mb-1">Configuration Locations</div>
+<div class="space-y-1 opacity-80">
+<div>• <code class="text-xs">.github/hooks/*.json</code> — Project-specific</div>
+<div>• <code class="text-xs">~/.claude/settings.json</code> — Personal</div>
 </div>
-
 </div>
-
----
-
-# Configuration Fields Reference
-
-<div class="text-xs mt-4">
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | string | Must be `"command"` |
-| `command` | string | Default command (cross-platform) |
-| `windows` / `linux` / `osx` | string | OS-specific command overrides |
-| `cwd` | string | Working directory (relative to repo root) |
-| `timeout` | number | Max execution time in seconds (default: 30) |
-| `env` | object | Additional environment variables |
-
-<div class="grid grid-cols-3 gap-3 mt-6">
-  <div class="p-3 bg-cyan-900/30 rounded text-center">
-    <code class="text-cyan-400">GITHUB_TOKEN</code>
-    <div class="text-gray-400 text-xs mt-1">API calls (read-only)</div>
-  </div>
-  <div class="p-3 bg-cyan-900/30 rounded text-center">
-    <code class="text-cyan-400">GITHUB_REPOSITORY</code>
-    <div class="text-gray-400 text-xs mt-1">owner/repo</div>
-  </div>
-  <div class="p-3 bg-cyan-900/30 rounded text-center">
-    <code class="text-cyan-400">GITHUB_ACTOR</code>
-    <div class="text-gray-400 text-xs mt-1">Triggering user</div>
-  </div>
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-1">Platform Overrides</div>
+<div class="space-y-1 opacity-80">
+<div>• <code class="text-xs">windows</code> — PowerShell scripts</div>
+<div>• <code class="text-xs">linux</code> / <code class="text-xs">osx</code> — Bash scripts</div>
 </div>
-
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Preventive Enforcement: Security Check
+<!-- SLIDE: Execution Flow -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Lifecycle Control</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Hook Execution Flow</div>
+<div class="text-xs text-white/50">Synchronous, JSON-based control loop</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="flex items-center justify-center gap-2 flex-wrap">
+<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30 text-center min-w-[100px]">
+<div class="text-xl mb-1">🎯</div>
+<div class="text-xs font-semibold text-cyan-300">Event Fires</div>
+<div class="text-xs opacity-70">Tool request</div>
+</div>
+<div class="text-xl text-gray-500">→</div>
+<div class="p-2 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30 text-center min-w-[100px]">
+<div class="text-xl mb-1">🔍</div>
+<div class="text-xs font-semibold text-blue-300">Discover</div>
+<div class="text-xs opacity-70">Read configs</div>
+</div>
+<div class="text-xl text-gray-500">→</div>
+<div class="p-2 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-lg border border-indigo-500/30 text-center min-w-[100px]">
+<div class="text-xl mb-1">📤</div>
+<div class="text-xs font-semibold text-indigo-300">Invoke</div>
+<div class="text-xs opacity-70">Spawn shell</div>
+</div>
+<div class="text-xl text-gray-500">→</div>
+<div class="p-2 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30 text-center min-w-[100px]">
+<div class="text-xl mb-1">📥</div>
+<div class="text-xs font-semibold text-purple-300">Context</div>
+<div class="text-xs opacity-70">Write JSON</div>
+</div>
+<div class="text-xl text-gray-500">→</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/40 to-pink-800/40 rounded-lg border border-pink-500/30 text-center min-w-[100px]">
+<div class="text-xl mb-1">⏳</div>
+<div class="text-xs font-semibold text-pink-300">Wait</div>
+<div class="text-xs opacity-70">Up to timeout</div>
+</div>
+<div class="text-xl text-gray-500">→</div>
+<div class="p-2 bg-gradient-to-br from-rose-900/40 to-rose-800/40 rounded-lg border border-rose-500/30 text-center min-w-[100px]">
+<div class="text-xl mb-1">✅</div>
+<div class="text-xs font-semibold text-rose-300">Decision</div>
+<div class="text-xs opacity-70">Parse output</div>
+</div>
+</div>
 
-<div class="text-xs mt-2">
+<div class="mt-3 grid grid-cols-3 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
+<div class="font-semibold text-emerald-300 mb-1">Exit 0</div>
+<div class="opacity-80">Success — parse stdout as JSON</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="font-semibold text-red-300 mb-1">Exit 2</div>
+<div class="opacity-80">Blocking error — stop processing</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-yellow-900/30 to-yellow-800/20 rounded-lg border border-yellow-500/30">
+<div class="font-semibold text-yellow-300 mb-1">Other</div>
+<div class="opacity-80">Warning — show to user, continue</div>
+</div>
+</div>
+</div>
+</div>
 
-### Block Dangerous Operations (.github/hooks/scripts/security-check.sh)
+---
 
-```bash
-#!/bin/bash
+<!-- SLIDE: Performance & Timing -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Lifecycle Control</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">4 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Performance Considerations</div>
+<div class="text-xs text-white/50">Hooks run synchronously — keep them fast to avoid degrading responsiveness</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="font-semibold text-cyan-300 mb-1">Target Execution Times</div>
+<div class="space-y-1 opacity-80">
+<div>• Security checks / logging: <span class="text-cyan-400">&lt;2s</span></div>
+<div>• Linting / validation: <span class="text-cyan-400">&lt;5s</span></div>
+<div>• External API calls: <span class="text-cyan-400">&lt;30s</span> (use timeout override)</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-1">Performance Patterns</div>
+<div class="space-y-1 opacity-80">
+<div>• Cache expensive computations (regex, policy lookups)</div>
+<div>• Use asynchronous logging (append to file)</div>
+<div>• Offload slow work to background jobs</div>
+</div>
+</div>
+</div>
+
+<div class="p-2 bg-gradient-to-r from-amber-900/40 to-orange-900/40 rounded-lg border border-amber-500/30 text-xs">
+<div class="font-semibold text-amber-300 mb-1">⚡ Why Speed Matters</div>
+<div class="opacity-80">Agent waits for hook completion. A 10-second hook on every tool use = 50 seconds of waiting across 5 tools. Keep it under 2 seconds per hook for seamless experience.</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Part 2 — Preventive Enforcement -->
+
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Preventive Enforcement</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">PreToolUse is the only hook that can deny operations</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
+<div class="text-2xl mb-1">🛡️</div>
+<div class="text-blue-300 font-semibold">Block Before Execution</div>
+<div class="text-xs opacity-70 mt-1">Deny dangerous operations with permissionDecision: deny</div>
+</div>
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">✏️</div>
+<div class="text-indigo-300 font-semibold">Modify Inputs</div>
+<div class="text-xs opacity-70 mt-1">Enforce safe defaults via updatedInput</div>
+</div>
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">🤝</div>
+<div class="text-purple-300 font-semibold">Require Approval</div>
+<div class="text-xs opacity-70 mt-1">Use permissionDecision: ask for human judgment</div>
+</div>
+</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Other hooks observe — PreToolUse controls</span><br />
+<span class="text-blue-300 mt-1 block">↳ the only gate for real-time prevention</span>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Security Check Implementation -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Preventive Enforcement</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Security Check Script</div>
+<div class="text-xs text-white/50">Block dangerous operations before execution</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-bash">#!/bin/bash
 INPUT=$(cat)
 TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
 
-# Only validate terminal commands
-if [ "$TOOL_NAME" != "runTerminalCommand" ]; then
-  echo '{"continue":true}'
-  exit 0
-fi
-
 # Block dangerous delete operations
 if echo "$COMMAND" | grep -qE 'rm -rf /|del /s /q|format'; then
-  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Destructive file operation blocked by security policy"}}'
+  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Destructive operation blocked"}}'
   exit 0
 fi
 
 # Block privilege escalation
-if echo "$COMMAND" | grep -qE '^sudo |^runas |^su '; then
+if echo "$COMMAND" | grep -qE '^sudo |^runas '; then
   echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Privilege escalation not allowed"}}'
   exit 0
 fi
 
-# Block database destruction
-if echo "$COMMAND" | grep -qiE 'DROP TABLE|DROP DATABASE|TRUNCATE TABLE'; then
-  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Database destructive operations require manual approval"}}'
-  exit 0
-fi
-
-# Default: allow
 echo '{"continue":true}'
-exit 0
-```
+exit 0</code></pre>
 
+<div class="p-2 bg-gradient-to-r from-blue-900/40 to-indigo-900/40 rounded-lg border border-blue-500/30 text-xs">
+<span class="text-blue-300 font-semibold">Key principle:</span> Deny by default. Hooks should block operations unless explicitly approved. This reduces attack surface for policy bypass.
+</div>
+</div>
 </div>
 
 ---
 
-# Preventive Enforcement: File Path Restrictions
+<!-- SLIDE: Permission Decisions -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Preventive Enforcement</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Permission Decisions</div>
+<div class="text-xs text-white/50">Three control modes for PreToolUse</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-3 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
+<div class="text-xl mb-1">✅</div>
+<div class="font-semibold text-emerald-300 mb-1">allow</div>
+<div class="opacity-80">Auto-approve execution — operation proceeds immediately</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-amber-900/30 to-amber-800/20 rounded-lg border border-amber-500/30">
+<div class="text-xl mb-1">🤔</div>
+<div class="font-semibold text-amber-300 mb-1">ask</div>
+<div class="opacity-80">Require user confirmation — safer than auto-allow for sensitive operations</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="text-xl mb-1">🛑</div>
+<div class="font-semibold text-red-300 mb-1">deny</div>
+<div class="opacity-80">Block execution — operation is rejected immediately</div>
+</div>
+</div>
 
-<div class="text-sm mt-4">
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30 text-xs">
+<div class="font-semibold text-blue-300 mb-1">Priority When Multiple Hooks Run</div>
+<div class="opacity-80">1. <span class="text-red-300">deny</span> (most restrictive) → 2. <span class="text-amber-300">ask</span> → 3. <span class="text-emerald-300">allow</span> (least restrictive)</div>
+</div>
 
-### Restrict Agent to Approved Directories
-
-```bash
-#!/bin/bash
-INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-
-# Only validate file editing tools
-if [ "$TOOL_NAME" != "editFiles" ] && [ "$TOOL_NAME" != "createFile" ]; then
-  echo '{"continue":true}'
-  exit 0
-fi
-
-# Extract file path
-PATH_ARG=$(echo "$INPUT" | jq -r '.tool_input.path // .tool_input.files[0] // empty')
-
-# Check if path is in approved directories
-if [[ ! "$PATH_ARG" =~ ^(src/|test/|docs/) ]]; then
-  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Can only edit files in src/, test/, or docs/ directories"}}'
-  exit 0
-fi
-
-# Allow approved paths
-echo '{"continue":true}'
-exit 0
-```
-
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">updatedInput</div>
+<div class="opacity-80">Modify tool parameters to enforce safe defaults (e.g., add --dry-run flag)</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-1">additionalContext</div>
+<div class="opacity-80">Inject context into conversation (e.g., "Modified to dry-run mode per policy")</div>
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Preventive Enforcement: Environment-Aware Policies
-
-<div class="text-sm mt-4">
-
-### Stricter Rules in Production
-
-```bash
-#!/bin/bash
-INPUT=$(cat)
-CWD=$(echo "$INPUT" | jq -r '.cwd')
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-
-# Stricter policies in production
-if [[ "$CWD" =~ /production/ ]]; then
-  # Require approval for all file writes
-  if [[ "$TOOL_NAME" == "editFiles" || "$TOOL_NAME" == "createFile" ]]; then
-    echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"ask","permissionDecisionReason":"Production changes require manual approval"}}'
-    exit 0
-  fi
-fi
-
-# Permissive in development
-echo '{"continue":true}'
-exit 0
-```
-
-<div class="mt-4 p-3 bg-purple-900/30 rounded text-xs">
-  <span class="font-bold text-purple-400">Use Case:</span> Apply environment-specific policies — strict in prod, permissive in dev, <code>"ask"</code> in staging
+<!-- SLIDE: File Path & Environment Restrictions -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Preventive Enforcement</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Path & Environment Policies</div>
+<div class="text-xs text-white/50">Restrict operations by directory and environment</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-1">File Path Restrictions</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>if [[ ! "$PATH_ARG" =~ ^(src/|test/|docs/) ]]; then
+  deny "Only edit src/, test/, docs/"
+fi</code></pre>
+</div>
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">Environment-Aware Policies</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>if [[ "$CWD" =~ /production/ ]]; then
+  deny "Production requires deployment"
+fi</code></pre>
+</div>
 </div>
 
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30 text-xs">
+<div class="font-semibold text-purple-300 mb-1">Multi-Environment Example</div>
+<div class="space-y-1 opacity-80">
+<div>• <span class="text-red-300">Production:</span> Block all writes — require manual deployment process</div>
+<div>• <span class="text-amber-300">Staging:</span> Ask for approval on destructive operations (rm, delete, drop)</div>
+<div>• <span class="text-emerald-300">Development:</span> Permissive — allow all operations</div>
 </div>
-
----
-
-# Observability: Structured Logging
-
-<div class="text-sm mt-4">
-
-### JSON Lines Format (.jsonl)
-
-One JSON object per line — provides:
-- ✅ Direct querying with `jq` (SQL-like filtering without parsing)
-- ✅ Append safety (concurrent writes don't corrupt file)
-- ✅ Tool compatibility (import to SQLite, Elasticsearch, Datadog)
-- ✅ Incremental streaming (process logs as they're written)
-
-### Session Lifecycle Logging
-
-```bash
-#!/bin/bash
-# .github/hooks/scripts/log-session-start.sh
-INPUT=$(cat)
-LOG_FILE="logs/audit.jsonl"
-mkdir -p logs
-
-# Append structured log entry
-echo "$INPUT" | jq -c '. + {
-  event: "SessionStart",
-  loggedAt: (now | todate)
-}' >> "$LOG_FILE"
-```
-
+</div>
+</div>
 </div>
 
 ---
 
-# Observability: Tool Usage Logging
-
-<div class="text-sm mt-4">
-
-### Track Every Tool Execution
-
-```bash
-#!/bin/bash
-# .github/hooks/scripts/log-tool-use.sh
-INPUT=$(cat)
-LOG_FILE="logs/audit.jsonl"
-mkdir -p logs
-
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-TOOL_RESPONSE=$(echo "$INPUT" | jq -r '.tool_response // "N/A"')
-
-# Log tool execution
-jq -n \
-  --arg tool "$TOOL_NAME" \
-  --arg response "$TOOL_RESPONSE" \
-  --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  '{
-    timestamp: $ts,
-    event: "PostToolUse",
-    tool_name: $tool,
-    response: $response
-  }' >> "$LOG_FILE"
-```
-
+<!-- SLIDE: Context Injection -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Preventive Enforcement</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
 </div>
-
----
-
-# Observability: Example Audit Log
-
-<div class="text-xs mt-4">
-
-### logs/audit.jsonl
-
-```jsonl
-{"timestamp":"2026-02-11T17:30:00Z","event":"SessionStart","sessionId":"abc123","source":"new"}
-{"timestamp":"2026-02-11T17:30:15Z","event":"UserPromptSubmit","prompt":"Refactor authentication module"}
-{"timestamp":"2026-02-11T17:30:20Z","event":"PreToolUse","tool_name":"editFiles","permissionDecision":"allow"}
-{"timestamp":"2026-02-11T17:30:25Z","event":"PostToolUse","tool_name":"editFiles","response":"File edited"}
-{"timestamp":"2026-02-11T17:30:28Z","event":"SubagentStart","agent_id":"sub-456"}
-{"timestamp":"2026-02-11T17:30:35Z","event":"SubagentStop","agent_id":"sub-456"}
-{"timestamp":"2026-02-11T17:30:30Z","event":"Stop","toolsUsed":3,"violations":0}
-```
-
+<span class="text-white/40 text-xs ml-1">4 of 4</span>
 </div>
-
----
-
-# Querying Audit Logs
-
-<div class="text-sm mt-4">
-
-### Filter & Analyze with `jq`
-
-```bash
-# Count tool usage by type
-cat logs/audit.jsonl | jq -r '.tool_name // empty' | sort | uniq -c
-
-# Find all denied operations
-cat logs/audit.jsonl | jq 'select(.permissionDecision == "deny")'
-
-# Track subagent usage
-cat logs/audit.jsonl | jq 'select(.event == "SubagentStart" or .event == "SubagentStop")'
-```
-
-<div class="mt-4 p-3 bg-cyan-900/30 rounded">
-  <span class="font-bold text-cyan-400">Tip:</span> JSONL format enables direct <code>jq</code> queries without parsing — import into SQLite, Elasticsearch, or Datadog for dashboards
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Context Injection</div>
+<div class="text-xs text-white/50">SessionStart and SubagentStart can inject project-specific information</div>
 </div>
-
-</div>
-
----
-
-# Observability: Context Injection
-
-<div class="text-sm mt-4">
-
-### Inject Project Context on Session Start
-
-```bash
-#!/bin/bash
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-bash">#!/bin/bash
 # .github/hooks/scripts/inject-context.sh
 
-PROJECT_INFO=$(cat package.json 2>/dev/null | jq -r '.name + " v" + .version' || echo "Unknown")
+PROJECT=$(cat package.json 2>/dev/null | jq -r '.name + " v" + .version')
 BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
 
-cat <<EOF
+cat &lt;&lt;EOF
 {
   "hookSpecificOutput": {
     "hookEventName": "SessionStart",
-    "additionalContext": "Project: $PROJECT_INFO | Branch: $BRANCH | Node: $(node -v 2>/dev/null || echo 'not installed')"
+    "additionalContext": "Project: $PROJECT | Branch: $BRANCH | Node: $(node -v)"
   }
 }
-EOF
-```
+EOF</code></pre>
 
-<div class="mt-4 p-3 bg-cyan-900/30 rounded">
-  <span class="font-bold text-cyan-400">Use Case:</span> Add project-specific information to the agent's conversation without manual setup — environment variables, project versions, branch info, team guidelines
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-1">Use Cases</div>
+<div class="space-y-1 opacity-80">
+<div>• Project version & branch information</div>
+<div>• Environment variables & API keys</div>
+<div>• Team-specific guidelines</div>
 </div>
-
 </div>
-
----
-
-# Real-World Pattern: Multi-Layer Security
-
-<div class="text-sm mt-4">
-
-### Combine Multiple Security Checks
-
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "type": "command",
-        "command": "./scripts/security-dangerous-commands.sh",
-        "timeout": 3
-      },
-      {
-        "type": "command",
-        "command": "./scripts/security-file-permissions.sh",
-        "timeout": 3
-      },
-      {
-        "type": "command",
-        "command": "./scripts/security-secret-scanning.sh",
-        "timeout": 5
-      }
-    ]
-  }
-}
-```
-
-<div class="mt-4 p-3 bg-green-900/30 rounded text-xs">
-  <span class="font-bold text-green-400">Execution:</span> Hooks run in order. The most restrictive permission decision wins — first <code>deny</code> blocks execution immediately.
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">Hooks That Support It</div>
+<div class="space-y-1 opacity-80">
+<div>• <span class="text-cyan-300">SessionStart</span> — Session initialization</div>
+<div>• <span class="text-blue-300">SubagentStart</span> — Subagent guidelines</div>
+<div>• <span class="text-indigo-300">PreToolUse</span> — Tool context</div>
 </div>
-
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Real-World Pattern: Code Quality Gates
+<!-- SLIDE: Part 3 — Observability & Audit -->
 
-<div class="text-sm mt-4">
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Observability & Audit</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Complete lifecycle logging for compliance and debugging</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">📋</div>
+<div class="text-indigo-300 font-semibold">JSON Lines Format</div>
+<div class="text-xs opacity-70 mt-1">One JSON object per line — direct querying with jq</div>
+</div>
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">🔍</div>
+<div class="text-purple-300 font-semibold">Complete Trails</div>
+<div class="text-xs opacity-70 mt-1">Log all 8 lifecycle events for 100% coverage</div>
+</div>
+<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
+<div class="text-2xl mb-1">📊</div>
+<div class="text-pink-300 font-semibold">SQL-Like Queries</div>
+<div class="text-xs opacity-70 mt-1">Filter, aggregate, export to CSV or databases</div>
+</div>
+</div>
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Audit from 60-70% manual → 100% automated</span><br />
+<span class="text-indigo-300 mt-1 block">↳ 2-3 hours → 5 minutes per audit request</span>
+</div>
+</div>
+</div>
 
-### Enforce Formatting After Code Changes
+---
 
-```bash
-#!/bin/bash
-# .github/hooks/scripts/format-changed-files.sh
+<!-- SLIDE: JSON Lines Logging -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Observability & Audit</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Structured Logging with JSON Lines</div>
+<div class="text-xs text-white/50">One JSON object per line — append-safe, query-friendly format</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-bash">#!/bin/bash
+# Log tool usage
 INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-
-if [ "$TOOL_NAME" = "editFiles" ] || [ "$TOOL_NAME" = "createFile" ]; then
-  FILES=$(echo "$INPUT" | jq -r '.tool_input.files[]? // .tool_input.path // empty')
-
-  for FILE in $FILES; do
-    if [ -f "$FILE" ]; then
-      npx prettier --write "$FILE" 2>/dev/null
-    fi
-  done
-fi
-
-echo '{"continue":true}'
-```
-
-<div class="mt-4 p-3 bg-blue-900/30 rounded text-xs">
-  <span class="font-bold text-blue-400">Use Case:</span> Automatically format agent-created files with Prettier/Black/Go fmt after edit
-</div>
-
-</div>
-
----
-
-# Real-World Pattern: Lint Validation with Context
-
-<div class="text-sm mt-4">
-
-### Inject Lint Errors Back to Agent
-
-```bash
-#!/bin/bash
-INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-
-if [ "$TOOL_NAME" = "editFiles" ]; then
-  FILE=$(echo "$INPUT" | jq -r '.tool_input.files[0] // empty')
-  if [ -f "$FILE" ]; then
-    LINT_OUTPUT=$(npx eslint "$FILE" --quiet 2>&1)
-    if [ $? -ne 0 ]; then
-      echo "{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"The edited file has lint errors that need to be fixed: $LINT_OUTPUT\"}}"
-      exit 0
-    fi
-  fi
-fi
-
-echo '{"continue":true}'
-```
-
-<div class="mt-4 p-3 bg-purple-900/30 rounded text-xs">
-  <span class="font-bold text-purple-400">NEW Capability:</span> <code>PostToolUse</code> can inject context about results, allowing agents to self-correct lint errors
-</div>
-
-</div>
-
----
-
-# Real-World Pattern: Cost Tracking
-
-<div class="text-xs mt-2">
-
-### Track Tool Usage for Cost Allocation
-
-```bash
-#!/bin/bash
-# .github/hooks/scripts/metrics-tracker.sh
-INPUT=$(cat)
-LOG_FILE="logs/metrics.jsonl"
+LOG_FILE="logs/audit.jsonl"
 mkdir -p logs
 
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-TIMESTAMP=$(echo "$INPUT" | jq -r '.timestamp')
-SESSION_ID=$(echo "$INPUT" | jq -r '.sessionId')
-USER=${GITHUB_ACTOR:-unknown}
+echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> "$LOG_FILE"</code></pre>
 
-# Calculate cost estimate (example: $0.01 per tool use)
-COST=0.01
-
-# Log usage metrics
-jq -n \
-  --arg ts "$TIMESTAMP" \
-  --arg user "$USER" \
-  --arg tool "$TOOL_NAME" \
-  --arg cost "$COST" \
-  '{
-    timestamp: $ts,
-    user: $user,
-    toolName: $tool,
-    estimatedCost: ($cost | tonumber)
-  }' >> "$LOG_FILE"
-```
-
-### Query Monthly Costs
-
-```bash
-# Sum costs by user for current month
-cat logs/metrics.jsonl | jq -s 'group_by(.user) | map({user: .[0].user, totalCost: (map(.estimatedCost) | add)})'
-```
-
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">Why JSON Lines?</div>
+<div class="space-y-1 opacity-80">
+<div>• <span class="text-cyan-300">Direct querying:</span> Use jq for SQL-like filtering</div>
+<div>• <span class="text-blue-300">Append safety:</span> Concurrent writes don't corrupt</div>
+<div>• <span class="text-indigo-300">Tool compatibility:</span> Import to Elasticsearch, Datadog, SQLite</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">Example Queries</div>
+<div class="space-y-1 opacity-80 font-mono">
+<div>jq -r '.tool_name' audit.jsonl | sort | uniq -c</div>
+<div>jq 'select(.permissionDecision == "deny")' audit.jsonl</div>
+<div>jq -r '[.timestamp, .tool_name] | @csv' audit.jsonl</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Advanced Integration: External Systems
-
-<div class="text-sm mt-4">
-
-### Slack Alerts on Security Violations
-
-```bash
-#!/bin/bash
-INPUT=$(cat)
-COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
-
-if echo "$COMMAND" | grep -qE "rm -rf|sudo|DROP TABLE"; then
-  curl -X POST "$SLACK_WEBHOOK_URL" \
-    -H 'Content-Type: application/json' \
-    -d "{\"text\": \"🚨 Blocked: $COMMAND\"}"
-
-  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse",
-    "permissionDecision":"deny",
-    "permissionDecisionReason":"Security violation - team alerted"}}'
-fi
-```
-
-### Jira Incident Creation
-
-Same pattern — call `$JIRA_BASE_URL/rest/api/3/issue` with violation details, then deny.
-
-<div class="mt-4 grid grid-cols-3 gap-3 text-xs">
-  <div class="p-2 bg-purple-900/30 rounded text-center">
-    <div class="font-bold text-purple-400">Slack</div>
-    <div class="text-gray-400">Real-time alerts</div>
-  </div>
-  <div class="p-2 bg-blue-900/30 rounded text-center">
-    <div class="font-bold text-blue-400">Jira / ServiceNow</div>
-    <div class="text-gray-400">Incident creation</div>
-  </div>
-  <div class="p-2 bg-green-900/30 rounded text-center">
-    <div class="font-bold text-green-400">PagerDuty</div>
-    <div class="text-gray-400">On-call escalation</div>
-  </div>
+<!-- SLIDE: Complete Audit Configuration -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Observability & Audit</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
+<span class="text-white/40 text-xs ml-1">2 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Complete Audit Trail</div>
+<div class="text-xs text-white/50">Wire up all 8 lifecycle hooks for 100% observability</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-json">{
+  "hooks": {
+    "SessionStart": [{"type": "command", "command": "./scripts/log-session-start.sh"}],
+    "UserPromptSubmit": [{"type": "command", "command": "./scripts/log-prompt.sh"}],
+    "PreToolUse": [{"type": "command", "command": "./scripts/log-tool-pre.sh"}],
+    "PostToolUse": [{"type": "command", "command": "./scripts/log-tool-post.sh"}],
+    "PreCompact": [{"type": "command", "command": "./scripts/log-pre-compact.sh"}],
+    "SubagentStart": [{"type": "command", "command": "./scripts/log-subagent-start.sh"}],
+    "SubagentStop": [{"type": "command", "command": "./scripts/log-subagent-stop.sh"}],
+    "Stop": [{"type": "command", "command": "./scripts/log-session-end.sh"}]
+  }
+}</code></pre>
 
+<div class="p-2 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30 text-xs">
+<span class="text-indigo-300 font-semibold">Example log output:</span> Each line is a complete JSON object — session start, prompt submission, tool executions, subagent spawns, session end. Query with jq: <code class="text-xs">cat logs/audit.jsonl | jq 'select(.event == "PreToolUse" and .permissionDecision == "deny")'</code>
+</div>
+</div>
 </div>
 
 ---
 
-# Use Case: HIPAA Compliance Audit Trail
-
-<div class="text-sm mt-4">
-
-<div class="grid grid-cols-2 gap-6">
-  <div>
-    <h3 class="text-red-400 font-bold">The Problem</h3>
-    <p class="text-gray-300 text-xs mt-2">Manual log collection takes 2-3 hours per audit with 60-70% completeness. Healthcare requires complete evidence.</p>
-    <h3 class="text-green-400 font-bold mt-4">The Solution</h3>
-    <p class="text-gray-300 text-xs mt-2">All 8 lifecycle hooks log to JSONL. <code>Stop</code> hook archives to S3 with 7-year retention.</p>
-  </div>
-  <div>
-    <h3 class="text-cyan-400 font-bold">Outcome</h3>
-    <div class="mt-2 space-y-2 text-xs">
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Audit time</span><span class="text-green-400">2-3 hrs → 5 min</span>
-      </div>
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Coverage</span><span class="text-green-400">60-70% → 100%</span>
-      </div>
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Retention</span><span class="text-green-400">Manual → Automated S3</span>
-      </div>
-    </div>
-  </div>
+<!-- SLIDE: Querying Audit Logs -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Observability & Audit</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-
+<span class="text-white/40 text-xs ml-1">3 of 4</span>
 </div>
-
----
-
-# Use Case: SOC 2 Security Enforcement
-
-<div class="text-sm mt-4">
-
-<div class="grid grid-cols-2 gap-6">
-  <div>
-    <h3 class="text-red-400 font-bold">The Problem</h3>
-    <p class="text-gray-300 text-xs mt-2">SaaS company needs SOC 2 proof that dangerous operations are prevented before execution.</p>
-    <h3 class="text-green-400 font-bold mt-4">The Solution</h3>
-    <p class="text-gray-300 text-xs mt-2"><code>PreToolUse</code> blocks destructive commands (<code>rm -rf</code>, <code>DROP</code>, <code>sudo</code>) and logs violations to JSONL.</p>
-  </div>
-  <div>
-    <h3 class="text-cyan-400 font-bold">Outcome</h3>
-    <div class="mt-2 space-y-2 text-xs">
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Violations</span><span class="text-green-400">Post-incident → Real-time</span>
-      </div>
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Audit evidence</span><span class="text-green-400">Manual → Automated</span>
-      </div>
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Security incidents</span><span class="text-green-400">3/year → 0</span>
-      </div>
-    </div>
-  </div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Querying Audit Logs</div>
+<div class="text-xs text-white/50">SQL-like filtering with jq — no database required</div>
 </div>
-
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">Count tool usage by type</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq -r '.tool_name // empty' | sort | uniq -c</code></pre>
+</div>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">Find all denied operations</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq 'select(.permissionDecision == "deny")'</code></pre>
+</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-1">Export to CSV for reporting</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq -r '[.timestamp, .tool_name, .response] | @csv' > report.csv</code></pre>
+</div>
+<div class="p-2 bg-gradient-to-br from-rose-900/30 to-rose-800/20 rounded-lg border border-rose-500/30">
+<div class="font-semibold text-rose-300 mb-1">Track subagent usage</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq 'select(.event == "SubagentStart" or .event == "SubagentStop")'</code></pre>
+</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Use Case: Code Quality Gates
-
-<div class="text-sm mt-4">
-
-<div class="grid grid-cols-2 gap-6">
-  <div>
-    <h3 class="text-red-400 font-bold">The Problem</h3>
-    <p class="text-gray-300 text-xs mt-2">Agent-generated code averaging 15 linting violations per PR. Rework costs 7.5 hours per sprint.</p>
-    <h3 class="text-green-400 font-bold mt-4">The Solution</h3>
-    <p class="text-gray-300 text-xs mt-2"><code>PreToolUse</code> runs ESLint on proposed changes and denies non-compliant code before it's written.</p>
-  </div>
-  <div>
-    <h3 class="text-cyan-400 font-bold">Outcome</h3>
-    <div class="mt-2 space-y-2 text-xs">
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Rework time</span><span class="text-green-400">7.5 hrs/sprint → 0</span>
-      </div>
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>CI failures</span><span class="text-green-400">15/sprint → 0</span>
-      </div>
-    </div>
-  </div>
+<!-- SLIDE: Integration Patterns -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Observability & Audit</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">4 of 4</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">External System Integration</div>
+<div class="text-xs text-white/50">Connect hooks to Slack, PagerDuty, Datadog, Jira, databases</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="text-xl mb-1">💬</div>
+<div class="font-semibold text-indigo-300 mb-1">Slack Notifications</div>
+<div class="opacity-80">Send alerts on security violations with violation details and session context</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="text-xl mb-1">📟</div>
+<div class="font-semibold text-purple-300 mb-1">PagerDuty Alerts</div>
+<div class="opacity-80">Trigger on-call alerts for production security violations</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="text-xl mb-1">📊</div>
+<div class="font-semibold text-pink-300 mb-1">Datadog / New Relic</div>
+<div class="opacity-80">Send performance metrics via StatsD protocol for real-time dashboards</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-rose-900/30 to-rose-800/20 rounded-lg border border-rose-500/30">
+<div class="text-xl mb-1">🎫</div>
+<div class="font-semibold text-rose-300 mb-1">Jira / ServiceNow</div>
+<div class="opacity-80">Create incidents for blocked dangerous operations via REST API</div>
+</div>
 </div>
 
+<div class="p-2 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30 text-xs">
+<span class="text-indigo-300 font-semibold">Pattern:</span> Hooks execute curl commands with JSON payloads. Keep them fast (<5s) by offloading slow API calls to background jobs triggered by the hook.
 </div>
-
----
-
-# Use Case: Financial Services Role-Based Access
-
-<div class="text-sm mt-4">
-
-<div class="grid grid-cols-2 gap-6">
-  <div>
-    <h3 class="text-red-400 font-bold">The Problem</h3>
-    <p class="text-gray-300 text-xs mt-2">Bank requires separation of duties — juniors can't modify production config. Manual PR review catches violations post-implementation.</p>
-    <h3 class="text-green-400 font-bold mt-4">The Solution</h3>
-    <p class="text-gray-300 text-xs mt-2"><code>PreToolUse</code> checks <code>$COPILOT_USER_ROLE</code> env var and denies access to <code>production/</code> paths for junior engineers.</p>
-  </div>
-  <div>
-    <h3 class="text-cyan-400 font-bold">Outcome</h3>
-    <div class="mt-2 space-y-2 text-xs">
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Enforcement</span><span class="text-green-400">Post-review → Real-time</span>
-      </div>
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Wasted effort</span><span class="text-green-400">2-3 hrs/week → 0</span>
-      </div>
-      <div class="p-2 bg-green-900/30 rounded flex justify-between">
-        <span>Regulatory risk</span><span class="text-green-400">Medium → Low</span>
-      </div>
-    </div>
-  </div>
 </div>
-
 </div>
 
 ---
 
-# What You Can Do Today
+<!-- SLIDE: Part 4 — Real-World Patterns -->
 
-<div class="text-sm mt-4">
-
-<div class="grid grid-cols-3 gap-4">
-  <div class="p-4 bg-green-900/20 rounded border border-green-500/30">
-    <h3 class="text-green-400 font-bold mb-3">⏱️ 15 Minutes</h3>
-    <ul class="space-y-2 text-xs">
-      <li>✅ Review <a href="https://code.visualstudio.com/docs/copilot/customization/hooks">official docs</a></li>
-      <li>✅ Create <code>.github/hooks/</code></li>
-      <li>✅ Copy security-check script</li>
-      <li>✅ Try <code>/hooks</code> slash command</li>
-    </ul>
-  </div>
-  <div class="p-4 bg-blue-900/20 rounded border border-blue-500/30">
-    <h3 class="text-blue-400 font-bold mb-3">🔧 1-2 Hours</h3>
-    <ul class="space-y-2 text-xs">
-      <li>✅ Deploy security enforcement</li>
-      <li>✅ Set up context injection</li>
-      <li>✅ Test hooks locally</li>
-      <li>✅ Verify deny decisions</li>
-    </ul>
-  </div>
-  <div class="p-4 bg-purple-900/20 rounded border border-purple-500/30">
-    <h3 class="text-purple-400 font-bold mb-3">🚀 2-4 Hours</h3>
-    <ul class="space-y-2 text-xs">
-      <li>✅ Full audit trail (8 hooks)</li>
-      <li>✅ Subagent tracking</li>
-      <li>✅ Stop hook enforcement</li>
-      <li>✅ Slack/Datadog alerts</li>
-    </ul>
-  </div>
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Real-World Patterns</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Proven implementations for security, compliance, and quality</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">🏥</div>
+<div class="text-purple-300 font-semibold">HIPAA Compliance</div>
+<div class="text-xs opacity-70 mt-1">Complete audit trail: 2-3 hours → 5 minutes per audit</div>
 </div>
-
+<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
+<div class="text-2xl mb-1">🔒</div>
+<div class="text-pink-300 font-semibold">SOC 2 Enforcement</div>
+<div class="text-xs opacity-70 mt-1">Preventive controls: 3 incidents/year → 0</div>
 </div>
-
----
-
-# Related Patterns & Documentation
-
-<div class="mt-6">
-
-### Complementary Features
-
-<div class="grid grid-cols-2 gap-4 text-sm">
-  <div class="p-3 bg-blue-900/30 rounded">
-    <div class="font-bold text-blue-400">Terminal Sandboxing</div>
-    <div class="text-gray-300 text-xs mt-1">OS-level restrictions (network/filesystem) that complement hooks</div>
-  </div>
-
-  <div class="p-3 bg-purple-900/30 rounded">
-    <div class="font-bold text-purple-400">Custom Instructions</div>
-    <div class="text-gray-300 text-xs mt-1">Define agent behavior that hooks enforce through validation</div>
-  </div>
+<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
+<div class="text-2xl mb-1">✨</div>
+<div class="text-rose-300 font-semibold">Quality Gates</div>
+<div class="text-xs opacity-70 mt-1">Rework time: 7.5 hours/sprint → 0</div>
 </div>
-
-### Official Documentation
-
-<div class="mt-4 text-xs space-y-1">
-  <div>📖 <a href="https://code.visualstudio.com/docs/copilot/customization/hooks">Agent Hooks in VS Code</a> — Complete configuration reference</div>
-  <div>📖 <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-hooks">About Hooks</a> — Core concepts and hook types</div>
-  <div>📖 <a href="https://docs.github.com/en/copilot/reference/hooks-configuration">Hooks Configuration Reference</a> — Complete JSON schema</div>
-  <div>📖 <a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks">Using Hooks</a> — Step-by-step setup guide</div>
 </div>
-
+<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+<span class="text-gray-400">Multi-layer security + context injection + compliance trails</span><br />
+<span class="text-purple-300 mt-1 block">↳ governance that scales</span>
+</div>
+</div>
 </div>
 
 ---
 
-# Performance & Exit Codes
-
-<div class="text-sm mt-4">
-
-### Performance Targets
-- **<2 seconds** for security checks and logging
-- **<5 seconds** for linting and validation
-- **<30 seconds** only for external API calls (use `timeout` override)
-
-### Exit Code Behavior
-
-| Exit Code | Behavior |
-|-----------|----------|
-| `0` | Success: VS Code parses stdout as JSON |
-| `2` | Blocking error: stops processing, shows error to model |
-| Other | Non-blocking warning: shows warning to user, continues |
-
-<div class="mt-4 p-3 bg-yellow-900/30 rounded">
-  <span class="font-bold text-yellow-400">Tip:</span> Keep hooks fast — slow hooks (>30s) degrade agent responsiveness and user experience
+<!-- SLIDE: HIPAA Compliance Audit Trail -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Real-World Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Use Case: HIPAA Compliance Audit Trail</div>
+<div class="text-xs text-white/50">Healthcare application development — complete audit for compliance</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="text-center mb-1">
+<div class="text-xl">❌</div>
+<div class="font-bold text-red-300">Before</div>
+</div>
+<div class="space-y-1 opacity-80">
+<div>• Manual log collection: 2-3 hours</div>
+<div>• Coverage: 60-70% completeness</div>
+<div>• Query method: Manual grep/awk</div>
+<div>• Retention: Manual archival</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
+<div class="text-center mb-1">
+<div class="text-xl">✨</div>
+<div class="font-bold text-emerald-300">After</div>
+</div>
+<div class="space-y-1 opacity-80">
+<div>• Audit time: 5 minutes (automated)</div>
+<div>• Coverage: 100% (all lifecycle events)</div>
+<div>• Query method: SQL-like jq filtering</div>
+<div>• Retention: Automated S3 archival</div>
+</div>
+</div>
 </div>
 
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30 text-xs">
+<div class="font-semibold text-purple-300 mb-1">Implementation</div>
+<div class="opacity-80">All 8 hooks log to JSON Lines with Stop hook archiving to S3 for 7-year retention. Query with jq for compliance reports.</div>
+</div>
+</div>
 </div>
 
 ---
 
-# Troubleshooting
-
-<div class="text-sm mt-4">
-
-### Debugging Hooks
-
-<div class="space-y-4">
-  <div class="p-3 bg-blue-900/30 rounded border-l-2 border-blue-500">
-    <div class="font-bold text-blue-400">View diagnostics</div>
-    <div class="text-gray-300 text-xs mt-1">Right-click in Chat view → Diagnostics → hooks section</div>
-  </div>
-  <div class="p-3 bg-purple-900/30 rounded border-l-2 border-purple-500">
-    <div class="font-bold text-purple-400">View hook output</div>
-    <div class="text-gray-300 text-xs mt-1">Output panel → "GitHub Copilot Chat Hooks" channel</div>
-  </div>
-  <div class="p-3 bg-green-900/30 rounded border-l-2 border-green-500">
-    <div class="font-bold text-green-400">Hook not executing?</div>
-    <div class="text-gray-300 text-xs mt-1">Verify file is in <code>.github/hooks/*.json</code> with <code>type: "command"</code></div>
-  </div>
-  <div class="p-3 bg-orange-900/30 rounded border-l-2 border-orange-500">
-    <div class="font-bold text-orange-400">Permission denied?</div>
-    <div class="text-gray-300 text-xs mt-1">Ensure scripts have execute permissions (<code>chmod +x</code>)</div>
-  </div>
+<!-- SLIDE: SOC 2 Security Enforcement -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Real-World Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Use Case: SOC 2 Security Enforcement</div>
+<div class="text-xs text-white/50">SaaS company — prove dangerous operations are prevented before execution</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="text-center mb-1">
+<div class="text-xl">❌</div>
+<div class="font-bold text-red-300">Before</div>
+</div>
+<div class="space-y-1 opacity-80">
+<div>• Detection: Post-incident review</div>
+<div>• Audit evidence: Manual logs</div>
+<div>• Compliance cost: 40 hours/year</div>
+<div>• Incidents: 3/year</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
+<div class="text-center mb-1">
+<div class="text-xl">✨</div>
+<div class="font-bold text-emerald-300">After</div>
+</div>
+<div class="space-y-1 opacity-80">
+<div>• Detection: Real-time prevention</div>
+<div>• Audit evidence: Automated violation log</div>
+<div>• Compliance cost: 5 hours (reports)</div>
+<div>• Incidents: 0 (preventive enforcement)</div>
+</div>
+</div>
 </div>
 
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30 text-xs">
+<div class="font-semibold text-purple-300 mb-1">Implementation</div>
+<div class="opacity-80">PreToolUse hook blocks dangerous operations (rm -rf, DROP, TRUNCATE, sudo). Violations logged to violations.jsonl for audit trail. Manual review impossible — technical enforcement.</div>
+</div>
+</div>
 </div>
 
 ---
-layout: center
-class: text-center
----
 
-# Thank You!
-
-<div class="mt-8 text-xl text-gray-300">
-  Questions?
+<!-- SLIDE: Multi-Tenant Quality Gates -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Real-World Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
+</div>
+<div class="relative z-10 mb-2">
+<div class="text-lg font-bold text-white mb-0.5">Use Case: Multi-Tenant SaaS Quality Gates</div>
+<div class="text-xs text-white/50">Agent-generated code — enforce linting before commits</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="text-center mb-1">
+<div class="text-xl">❌</div>
+<div class="font-bold text-red-300">Before</div>
+</div>
+<div class="space-y-1 opacity-80">
+<div>• Violations: 15 per PR average</div>
+<div>• Rework time: 7.5 hours/sprint</div>
+<div>• Rework rounds: 3 average</div>
+<div>• CI failures: 15/sprint</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
+<div class="text-center mb-1">
+<div class="text-xl">✨</div>
+<div class="font-bold text-emerald-300">After</div>
+</div>
+<div class="space-y-1 opacity-80">
+<div>• Violations: 0 (blocked at creation)</div>
+<div>• Rework time: 0</div>
+<div>• Rework rounds: 1 (immediate feedback)</div>
+<div>• CI failures: 0 (shift-left validation)</div>
+</div>
+</div>
 </div>
 
-<div class="mt-8 text-sm text-gray-400">
-  📧 Contact: <span class="text-cyan-400">sdp@github.com</span><br/>
-  📚 Slides: <span class="text-cyan-400">github.com/microsoft/CopilotTraining</span>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30 text-xs">
+<div class="font-semibold text-purple-300 mb-1">Implementation</div>
+<div class="opacity-80">PreToolUse hook runs ESLint on proposed file changes. Non-compliant code is denied with permissionDecision: deny before it's written. Standards enforced at creation, not in CI review.</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: What You Can Do Today -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
+<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3 text-xs">
+<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="font-semibold text-cyan-300 mb-1">Immediate Actions (15 minutes)</div>
+<div class="space-y-1 opacity-80">
+<div>• Review <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">hooks documentation</a></div>
+<div>• Create <code>.github/hooks/</code> in test repo</div>
+<div>• Try <code>/hooks</code> slash command in VS Code</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="font-semibold text-blue-300 mb-1">Short-Term Implementation (1-2 hours)</div>
+<div class="space-y-1 opacity-80">
+<div>• Deploy security enforcement hooks</div>
+<div>• Set up SessionStart context injection</div>
+<div>• Test PreToolUse with dangerous commands</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">Advanced Exploration (2-4 hours)</div>
+<div class="space-y-1 opacity-80">
+<div>• Implement all 8 lifecycle hooks for audit trail</div>
+<div>• Use Stop hook to enforce test suite execution</div>
+<div>• Integrate with Slack/Datadog/PagerDuty</div>
+<div>• Add environment-aware policies</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">Next Steps</div>
+<div class="space-y-1 opacity-80">
+<div>• Review <a href="../terminal-sandboxing/" class="text-purple-400 underline">Terminal Sandboxing</a> for OS-level controls</div>
+<div>• Share results with security/compliance team</div>
+<div>• Expand to org-wide hook policies</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: References -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-sm font-semibold text-blue-300 mb-2">Official Documentation</div>
+<div class="space-y-2 text-xs opacity-90">
+<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">Agent Hooks in VS Code</a> — Complete configuration reference</div>
+<div>• <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-hooks" class="text-blue-400 underline">About Copilot Hooks</a> — Core concepts and hook types</div>
+<div>• <a href="https://docs.github.com/en/copilot/reference/hooks-configuration" class="text-indigo-400 underline">Hooks Configuration Reference</a> — JSON schema and I/O formats</div>
+<div>• <a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks" class="text-purple-400 underline">Using Hooks with GitHub Copilot Agents</a> — Step-by-step implementation</div>
+</div>
+</div>
+
+<div class="mt-3 grid grid-cols-2 gap-3 text-xs">
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-1">Related Talks</div>
+<div class="space-y-1 opacity-80">
+<div>• Terminal Sandboxing — OS-level controls</div>
+<div>• Custom Instructions — Behavior guidance</div>
+<div>• Enterprise Patterns — Org-wide governance</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">Example Configurations</div>
+<div class="space-y-1 opacity-80">
+<div>• Hook scripts in examples/completed-config/hooks/</div>
+<div>• Security, audit, quality gate patterns</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Thank You -->
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
+
+<div class="relative z-10">
+<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
+<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
+</div>
+
+<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
+
+<div class="mt-4 relative z-10">
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">GitHub Copilot Hooks: Programmable Governance</span>
+</div>
+
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="text-cyan-300 font-bold text-lg">8 Lifecycle Events</div>
+<div class="text-gray-300 mt-2 text-xs">Complete control at every moment — session, tool, subagent, stop</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="text-blue-300 font-bold text-lg">PreToolUse Power</div>
+<div class="text-gray-300 mt-2 text-xs">The only hook that can deny operations before execution</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="text-indigo-300 font-bold text-lg">100% Audit Trails</div>
+<div class="text-gray-300 mt-2 text-xs">JSON Lines logging: 2-3 hours → 5 minutes per compliance report</div>
+</div>
+</div>
+
+<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss governance patterns for your environment</div>
+<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>
