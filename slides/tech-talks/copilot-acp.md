@@ -17,25 +17,17 @@ updated: 2026-02-11
 section: Agent Architecture
 ---
 
-<!-- SLIDE: Title Slide -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-purple-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-violet-500/20 via-purple-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-64" alt="" /></div>
-<img src="./sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent relative z-10">GitHub Copilot ACP</h1>
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-violet-600/80 to-purple-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-violet-500/25">The Agent Client Protocol</span>
-</div>
-<div class="mt-8 text-lg opacity-70 relative z-10">Universal AI integration for any editor, tool, or workflow</div>
-<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-violet-400 to-transparent rounded-full relative z-10"></div>
-</div>
+<script setup>
+import TitleSlide from '../components/TitleSlide.vue'
+</script>
 
-<div class="abs-br m-6 flex gap-2">
-<span class="text-sm opacity-50">Tech Talk · 45 minutes</span>
-</div>
+<!-- SLIDE: Title Slide -->
+<TitleSlide
+title="GitHub Copilot ACP"
+subtitle="The Agent Client Protocol"
+tagline="Universal AI integration for any editor, tool, or workflow"
+meta="Tech Talk · 45 minutes"
+/>
 
 ---
 
