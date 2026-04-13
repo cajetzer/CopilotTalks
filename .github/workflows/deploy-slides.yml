@@ -82,6 +82,16 @@ jobs:
           FAILED=0
           SKIPPED=0
 
+          # Shared slide infrastructure changes must rebuild every deck, even if
+          # individual frontmatter dates did not change.
+          SHARED_FINGERPRINT=$({
+            printf '%s\0' style.css vite.config.ts package.json package-lock.json global-top.vue global-bottom.vue
+            find components layouts setup -type f -print0
+            find tech-talks -maxdepth 1 -type f \( -name 'global-*.vue' -o -name 'sdp-logo.png' \) -print0
+            find exec-talks -maxdepth 1 -type f \( -name 'global-*.vue' -o -name 'sdp-logo.png' \) -print0
+          } | xargs -0 sha256sum | sha256sum | cut -d' ' -f1)
+          echo "🧩 Shared fingerprint: ${SHARED_FINGERPRINT}"
+
           # Extract 'updated' date from frontmatter (first 20 lines)
           get_updated() {
             head -20 "$1" | sed -n 's/^updated: *//p'
@@ -89,9 +99,14 @@ jobs:
 
           # Load previous build manifest
           declare -A PREV_UPDATED
+          PREV_SHARED_FINGERPRINT=""
           if [ -f "dist/.build-manifest.json" ]; then
             while IFS='=' read -r key val; do
-              PREV_UPDATED["$key"]="$val"
+              if [ "$key" = "__shared_fingerprint" ]; then
+                PREV_SHARED_FINGERPRINT="$val"
+              else
+                PREV_UPDATED["$key"]="$val"
+              fi
             done < <(python3 -c "
           import json
           with open('dist/.build-manifest.json') as f:
@@ -100,6 +115,9 @@ jobs:
               print(f'{k}={v}')
           " 2>/dev/null || true)
             echo "📋 Loaded manifest with ${#PREV_UPDATED[@]} entries"
+            if [ "$SHARED_FINGERPRINT" != "$PREV_SHARED_FINGERPRINT" ]; then
+              echo "🔁 Shared slide infrastructure changed — forcing rebuild of all decks"
+            fi
           else
             echo "📋 No manifest — building all slides"
           fi
@@ -108,6 +126,7 @@ jobs:
           needs_build() {
             local KEY="$1"
             local CURRENT_DATE="$2"
+            [ "$SHARED_FINGERPRINT" != "$PREV_SHARED_FINGERPRINT" ] && return 0  # shared dependency changed
             [ ! -d "dist/${KEY}" ] && return 0                    # No dist output
             [ -z "${PREV_UPDATED[$KEY]+x}" ] && return 0          # Not in manifest
             [ -z "$CURRENT_DATE" ] && return 0                    # No updated field
@@ -155,6 +174,7 @@ jobs:
 
           # Iterate all slides — build only what's needed
           declare -A NEW_MANIFEST
+          NEW_MANIFEST["__shared_fingerprint"]="$SHARED_FINGERPRINT"
           for SLIDE_FILE in workshop/*.md tech-talks/*.md exec-talks/*.md; do
             [ -f "$SLIDE_FILE" ] || continue
             CATEGORY=$(dirname "$SLIDE_FILE")
