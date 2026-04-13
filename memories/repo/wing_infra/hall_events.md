@@ -4,6 +4,26 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## vscode-latest tech-talk updated to v1.115 (2026-04-13)
+
+`schema_version: 1` | `date: 2026-04-13`
+
+The `vscode-latest` tech-talk README and slides were expanded to cover VS Code releases **v1.108 – v1.115** (8 releases total, up from 3).
+
+**Key changes:**
+- VS Code moved to **weekly stable releases** starting v1.111 (March 9, 2026)
+- Major new features added: **Autopilot mode** (v1.111), **VS Code Agents companion app** (v1.115), **Chat Customizations editor** (v1.113), **nested subagents** (v1.113), **MCP server sandboxing** (v1.112)
+- Duration changed from 30-45 minutes to 45-60 minutes
+- Slides regenerated: 24 slides covering all 8 releases
+
+**Cross-reference note:** Workshop module `06-custom-agents` covers agent sessions — verify alignment if updating either artifact.
+
+**Files changed:**
+- `tech-talks/vscode-latest/README.md` — expanded with v1.111-v1.115 content
+- `slides/tech-talks/vscode-latest.md` — regenerated (24 slides)
+
+---
+
 ## copilot-code-review tech-talk: Complete rewrite to remove hallucinations (2026-04-10)
 
 `schema_version: 1` | `date: 2026-04-10`

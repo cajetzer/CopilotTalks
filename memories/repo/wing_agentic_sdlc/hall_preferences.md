@@ -4,6 +4,38 @@ Author taste, framing choices, and editorial decisions for agentic SDLC talks.
 
 ---
 
+## enterprise-patterns content slide beautification pattern (2026-04-12)
+
+`schema_version: 1` | `date: 2026-04-12`
+
+Applied across all content slides (9, 10, 12-14, 16-17, 19-20) of enterprise-patterns.md. Consistent pattern worth reusing for other amber-themed decks:
+
+**Header icons:** `<div class="flex items-center gap-2">` wrapping an emoji + section label. Two-column slides get one emoji per column header.
+
+**Chip tags for identifiers:** `<code class="px-1.5 py-0.5 bg-amber-900/60 border border-amber-700/50 rounded text-amber-300">identifier</code>` inline within prose. Use for file names, config keys, API names.
+
+**Expanded footer (replaces single callout bar):**
+```html
+<div class="mt-3 space-y-2">
+  <!-- Row 1: 3-column stat tiles -->
+  <div class="grid grid-cols-3 gap-2">
+    <div class="p-2 bg-amber-900/20 rounded border border-amber-700/30 text-center">
+      <div class="text-amber-300 font-bold text-sm">STAT</div>
+      <div class="text-gray-400 text-xs">label</div>
+    </div>
+    <!-- repeat × 3 -->
+  </div>
+  <!-- Row 2: single callout bar -->
+  <div class="p-2 bg-slate-800/60 rounded border border-slate-600/40 text-xs text-slate-300">
+    💡 <span class="text-amber-300 font-semibold">Key insight label:</span> supporting sentence.
+  </div>
+</div>
+```
+
+**Source:** User-directed beautification pass, session 2026-04-11–12.
+
+---
+
 ## agentic-journey Part 3: expanded to 3 slides, Copilot coding agent explicitly included
 
 `schema_version: 1` | `date: 2026-04-10`

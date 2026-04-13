@@ -4,6 +4,58 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Slidev: `---` in code blocks must be escaped as HTML entities (2026-04-13)
+
+`schema_version: 1` | `date: 2026-04-13`
+
+Literal `---` appearing on its own line inside a `<code>` or `<pre>` block is parsed by Slidev as a slide separator, even when enclosed in HTML tags. This breaks the slide structure and causes Vue template parse errors ("Element is missing end tag").
+
+**Affected pattern:** YAML frontmatter examples with `---` delimiters:
+```html
+<!-- WRONG: causes slide split -->
+<pre><code class="language-yaml">---
+name: my-agent
+---</code></pre>
+
+<!-- CORRECT: renders as "---" but doesn't split -->
+<pre><code class="language-yaml">&#45;&#45;&#45;
+name: my-agent
+&#45;&#45;&#45;</code></pre>
+```
+
+**Entity:** `&#45;` = hyphen. Three hyphens = `&#45;&#45;&#45;`.
+
+**Source:** vscode-latest.md slide 13 (Org-Level Instructions) — YAML agent frontmatter example with `---` caused build failure. Fixed by escaping.
+
+---
+
+## GitHub Docs URL restructuring (2026-04-12)
+
+`schema_version: 1` | `date: 2026-04-12`
+
+GitHub Docs has restructured Copilot URLs. Many old paths are 404. Future reference slides must use new paths.
+
+**Dead paths (404):**
+- `customizing-copilot/customizing-the-behavior-of-github-copilot`
+- `building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension`
+- `managing-copilot/.../managing-access-for-copilot-in-your-enterprise`
+- `enterprise-cloud@latest/copilot/copilot-chat/...`
+- `rest/copilot/copilot-metrics` (legacy API closed April 2, 2026)
+
+**New structure — verified working:**
+- Custom instructions: `how-tos/configure-custom-instructions/add-organization-instructions`
+- Agent skills: `concepts/agents/about-agent-skills`
+- Knowledge Bases / Copilot Spaces: `how-tos/provide-context/use-copilot-spaces`
+- Enterprise access management: `how-tos/administer-copilot/manage-for-enterprise/manage-access`
+- Usage & adoption metrics: `how-tos/administer-copilot/view-usage-and-adoption`
+- Managing Copilot for enterprise: `managing-copilot/managing-copilot-for-your-enterprise` (still works)
+
+**Rule:** All base URLs are `https://docs.github.com/en/copilot/`. Verify any reference link older than 2026-03 against live docs before publishing.
+
+**Source:** enterprise-patterns.md References slide link audit, session 2026-04-12.
+
+---
+
 ## Slidev: Title slide must have <!-- SLIDE: --> comment
 
 `schema_version: 1` | `date: 2026-04-08`
@@ -220,7 +272,7 @@ Topics covered in multiple artifacts — check for drift when updating either:
 |-------|-----------|---------------|
 | MCP transport & server setup | `workshop/05-mcp-servers/` (2026-02-15), `tech-talks/mcp-apps/` (2026-03-01) | 2026-04-08 |
 | Instructions files & `.instructions.md` | `workshop/01-instructions/` (2026-01-20), `tech-talks/copilot-primitives/` (2026-03-23) | 2026-04-08 |
-| Agent sessions & custom agents | `tech-talks/vscode-latest/` (2026-03-05), `workshop/06-custom-agents/` (2026-02-10) | 2026-04-08 |
+| Agent sessions & custom agents | `tech-talks/vscode-latest/` (2026-04-13), `workshop/06-custom-agents/` (2026-02-10) | 2026-04-13 |
 | Memory layers (3-layer model) | `tech-talks/copilot-memory/` (2026-02-01), `workshop/05-mcp-servers/` (2026-02-15) | 2026-04-08 |
 | Prompt files & `.prompt.md` | `workshop/03-custom-prompts/` (2026-01-25), `tech-talks/copilot-primitives/` (2026-03-23) | 2026-04-08 |
 | Agent orchestration patterns | `tech-talks/agent-teams/` (2026-04-07), `tech-talks/agent-orchestration/` (2026-03-10) | 2026-04-08 |
@@ -235,7 +287,7 @@ Topics covered in multiple artifacts — check for drift when updating either:
 
 `schema_version: 2` | `date: 2026-04-10`
 
-inspect-slide tests overflow at 3 breakpoints: 1920px (desktop), 1366px (laptop), 768px (tablet). Content that fits at 1920px can overflow at smaller responsive sizes. This was the root cause of false negatives on copilot-azure-mcp slides 16-18 — both showed 340px+ overflow at 1366px but earlier test runs reported "ok" when only testing 1920px. 
+inspect-slide tests overflow at 3 breakpoints: 1920px (desktop), 1366px (laptop), 768px (tablet). Content that fits at 1920px can overflow at smaller responsive sizes. This was the root cause of false negatives on copilot-azure-mcp slides 16-18 — both showed 340px+ overflow at 1366px but earlier test runs reported "ok" when only testing 1920px.
 
 **Critical:** Always validate slides at all 3 breakpoints. Grid-based layouts are especially prone to responsive overflow.
 
@@ -295,4 +347,3 @@ A `<code>` block containing YAML with pipe syntax (`|`) or multi-line strings ca
 **Fix:** Flatten YAML examples to single-line keys without inline comments or pipe strings. If pipe is necessary, convert to a simple multi-line YAML block outside of `<code>` tags or remove the YAML entirely.
 
 **Source:** copilot-code-review slide review session 2026-04-09 — both slides fixed by removing multi-line YAML from code blocks.
-

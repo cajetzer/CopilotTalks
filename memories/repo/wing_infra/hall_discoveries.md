@@ -4,6 +4,35 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## Slide Generator agent produces HTML balance errors requiring manual fixes (2026-04-13)
+
+`schema_version: 1` | `date: 2026-04-13`
+
+The Slide Generator agent (even with MemPalace pre-flight queries) produces decks with HTML balance errors that require manual correction before building. In the vscode-latest.md generation (24 slides), 7 slides had div balance issues:
+
+**Common error patterns:**
+1. **Missing wrapper div** — First column of a 2-col grid missing its `<div class="p-3 bg-gradient-to-br ...">` wrapper
+2. **Extra closing `</div>`** — Blank line followed by duplicate `</div></div></div>` at slide end
+3. **Duplicated content blocks** — Same grid section repeated twice with slight variations
+
+**Post-generation checklist:**
+```powershell
+# Check all slides for div balance
+$content = Get-Content "slides/tech-talks/<deck>.md" -Raw
+$slides = $content -split '\r\n---\r\n'
+for ($i = 0; $i -lt $slides.Count; $i++) {
+    $opens = ([regex]::Matches($slides[$i], '<div[^>]*>')).Count
+    $closes = ([regex]::Matches($slides[$i], '</div>')).Count
+    if ($opens -ne $closes) { Write-Host "Slide $i: $opens opens, $closes closes" }
+}
+```
+
+**Root cause hypothesis:** The agent's context window or chunked generation causes it to lose track of nesting depth, especially on slides with 3+ levels of nested divs.
+
+**Source:** vscode-latest.md generation session 2026-04-13 — 7 of 24 slides required manual div balance fixes before build would pass.
+
+---
+
 ## Core Question slide standardization pattern (2026-04-10)
 
 `schema_version: 1` | `date: 2026-04-10`

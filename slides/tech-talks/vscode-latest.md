@@ -4,19 +4,19 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## What's New in Copilot for VS Code: v1.108 – v1.110
+  ## What's New in Copilot for VS Code: v1.108 – v1.115
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: What's New in Copilot for VS Code
+title: What's New in Copilot for VS Code - v1.108 to v1.115
 module: tech-talks/vscode-latest
 mdc: true
 status: active
-updated: 2026-03-05
+updated: 2026-04-13
 ---
 
-<!-- SLIDE: Title Slide -->
+<!-- SLIDE: Title -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
@@ -26,12 +26,15 @@ updated: 2026-03-05
 </div>
 <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">What's New in Copilot for VS Code</h1>
 <div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-cyan-500/25">v1.108 – v1.110 Release Summary</span>
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-cyan-500/25">v1.108 – v1.115: Eight Releases of AI Innovation</span>
 </div>
-<div class="mt-8 text-lg opacity-70 relative z-10">From one assistant to a multi-agent orchestration platform</div>
+<div class="mt-8 text-lg opacity-70 relative z-10">From assistant to autonomous agent team</div>
 <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>
-<div class="abs-br m-6 flex gap-2"><span class="text-sm opacity-50">Tech Talk · 30-45 minutes</span></div>
+
+<div class="abs-br m-6 flex gap-2">
+<span class="text-sm opacity-50">Tech Talk · 45-60 minutes</span>
+</div>
 
 ---
 
@@ -40,31 +43,26 @@ updated: 2026-03-05
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-cyan-300 mb-4">
-"What are the most impactful new Copilot features in VS Code's last three releases, and how do I start using them today?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"What are the most impactful new Copilot features in VS Code's recent releases, and how do I start using them today?"</div>
+<div class="text-xl opacity-90 mt-6">Eight releases in four months brought <span class="text-cyan-300 font-semibold">Autopilot autonomy, agent orchestration, and a companion app for parallel agent sessions</span>. The shift: from one assistant to a team you orchestrate.</div>
 </div>
-</div>
-
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/30 rounded-lg border border-cyan-500/30">
-<div class="text-xl mb-2">🤖</div>
-<div class="font-semibold text-cyan-300">Multi-Agent Platform</div>
-<div class="text-xs opacity-80 mt-1">Local, Background, Cloud, and Claude sessions</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Weekly Releases</div>
+<div class="opacity-70 mt-1">Starting v1.111, weekly stable updates</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-lg border border-blue-500/30">
-<div class="text-xl mb-2">🧩</div>
-<div class="font-semibold text-blue-300">Agent Customization</div>
-<div class="text-xs opacity-80 mt-1">Skills, Plugins, org-level instructions</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">4 Agent Types</div>
+<div class="opacity-70 mt-1">Local, Background, Cloud, Claude</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/30 rounded-lg border border-indigo-500/30">
-<div class="text-xl mb-2">🔒</div>
-<div class="font-semibold text-indigo-300">Security & Automation</div>
-<div class="text-xs opacity-80 mt-1">Terminal sandboxing, auto-approval, browser tools</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">Autopilot</div>
+<div class="opacity-70 mt-1">Fully autonomous operation</div>
 </div>
 </div>
 </div>
@@ -253,6 +251,7 @@ updated: 2026-03-05
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
 <div class="text-center mb-2">
 <div class="text-xl">✅</div>
 <div class="font-bold text-green-300 text-sm">How It Works</div>
@@ -715,13 +714,13 @@ github.copilot.chat.organizationInstructions.enabled: true
 
 <div class="mt-3 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
 <div class="text-xs font-mono text-gray-400 mb-1">Custom agent .agent.md frontmatter example</div>
-<pre class="overflow-y-auto max-h-32 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-markdown">---
+<pre class="overflow-y-auto max-h-32 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-yaml">&#45;&#45;&#45;
 name: architect
 model: ['Claude Sonnet 4.5 (copilot)', 'GPT-5 (copilot)']
 tools: ['readFiles', 'codeSearch', 'agent']
 agents: ['Modify', 'Search']
 user-invokable: true
----</code></pre>
+&#45;&#45;&#45;</code></pre>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
@@ -788,6 +787,10 @@ user-invokable: true
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
+<div class="text-center mb-2">
+<div class="text-xl">💭</div>
+<div class="font-bold text-indigo-300 text-sm">Visible Reasoning</div>
 </div>
 <div class="space-y-1 text-xs">
 <div class="p-1.5 bg-indigo-900/30 rounded">Hypothesis formation in real-time</div>
@@ -809,7 +812,6 @@ user-invokable: true
 </div>
 </div>
 </div>
-
 <div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
 <div class="text-xs font-mono text-gray-400 mb-1">Thinking token settings</div>
 <pre class="overflow-y-auto max-h-20 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
@@ -878,8 +880,6 @@ user-invokable: true
   }
 }</code></pre>
 </div>
-
-</div>
 </div>
 </div>
 
@@ -935,8 +935,6 @@ user-invokable: true
 <pre class="overflow-y-auto max-h-24 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
   "github.copilot.chat.copilotMemory.enabled": true
 }</code></pre>
-</div>
-
 </div>
 </div>
 </div>
@@ -1100,9 +1098,6 @@ user-invokable: true
 </div>
 </div>
 </div>
-
-</div>
-</div>
 </div>
 </div>
 
@@ -1161,8 +1156,6 @@ user-invokable: true
 <div class="p-1.5 bg-blue-900/30 rounded">Same experience as GitHub repos</div>
 </div>
 </div>
-</div>
-
 </div>
 </div>
 </div>
@@ -1257,47 +1250,86 @@ user-invokable: true
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
+<div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 </div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 text-xs">
+<div class="relative z-10 flex-1 min-h-0 overflow-y-auto">
+<div class="grid grid-cols-2 gap-3 text-xs">
 <div>
-<div class="font-bold text-cyan-300 mb-2 text-sm">📦 Release Notes</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_110" class="text-cyan-400 hover:text-cyan-300 font-medium">VS Code v1.110 (February 2026)</a>
-<div class="text-gray-400 mt-0.5">Agent Plugins, agentic browser tools, context compaction, /create-* commands</div>
+<div class="font-bold text-cyan-300 mb-2 text-sm">📦 Release Notes (v1.111–v1.115)</div>
+<div class="space-y-1">
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_115" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.115 (Apr 8)</a>
+<span class="text-gray-400"> — VS Code Agents app, terminal tools</span>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_109" class="text-cyan-400 hover:text-cyan-300 font-medium">VS Code v1.109 (January 2026)</a>
-<div class="text-gray-400 mt-0.5">Agent Skills GA, Claude Agent, terminal sandboxing, Copilot Memory, MCP Apps</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_114" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.114 (Apr 1)</a>
+<span class="text-gray-400"> — Video in chat, simplified #codebase</span>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_108" class="text-cyan-400 hover:text-cyan-300 font-medium">VS Code v1.108 (December 2025)</a>
-<div class="text-gray-400 mt-0.5">Agent Skills experimental, Agent Sessions view, background agents, worktree isolation</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_113" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.113 (Mar 25)</a>
+<span class="text-gray-400"> — Customizations editor, nested subagents</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_112" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.112 (Mar 18)</a>
+<span class="text-gray-400"> — Browser debugging, MCP sandboxing</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_111" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.111 (Mar 9)</a>
+<span class="text-gray-400"> — Autopilot mode, weekly releases begin</span>
+</div>
+</div>
+<div class="font-bold text-cyan-300 mb-2 mt-3 text-sm">📦 Release Notes (v1.108–v1.110)</div>
+<div class="space-y-1">
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_110" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.110 (Feb)</a>
+<span class="text-gray-400"> — Agent Plugins, browser tools, /create-*</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_109" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.109 (Jan)</a>
+<span class="text-gray-400"> — Skills GA, Claude Agent, Memory</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/updates/v1_108" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.108 (Dec)</a>
+<span class="text-gray-400"> — Skills experimental, Agent Sessions</span>
 </div>
 </div>
 </div>
 <div>
 <div class="font-bold text-purple-300 mb-2 text-sm">📘 Documentation</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<div class="space-y-1">
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
 <a href="https://code.visualstudio.com/docs/copilot/overview" class="text-purple-400 hover:text-purple-300 font-medium">GitHub Copilot in VS Code</a>
-<div class="text-gray-400 mt-0.5">Comprehensive guide to Copilot features, agent types, customization</div>
+<span class="text-gray-400"> — Features, agents, customization</span>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/customization/agent-plugins" class="text-purple-400 hover:text-purple-300 font-medium">Agent Plugins Documentation</a>
-<div class="text-gray-400 mt-0.5">Installing and creating agent plugin bundles</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/docs/copilot/customization/agent-plugins" class="text-purple-400 hover:text-purple-300 font-medium">Agent Plugins</a>
+<span class="text-gray-400"> — Installing and creating bundles</span>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/customization/agent-skills" class="text-purple-400 hover:text-purple-300 font-medium">Agent Skills Documentation</a>
-<div class="text-gray-400 mt-0.5">Creating and using Agent Skills in VS Code</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/docs/copilot/customization/agent-skills" class="text-purple-400 hover:text-purple-300 font-medium">Agent Skills</a>
+<span class="text-gray-400"> — Creating SKILL.md files</span>
 </div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/agents/background-agents" class="text-purple-400 hover:text-purple-300 font-medium">Background Agents Documentation</a>
-<div class="text-gray-400 mt-0.5">Using background agents with Git worktree isolation</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents" class="text-purple-400 hover:text-purple-300 font-medium">Custom Agents</a>
+<span class="text-gray-400"> — .agent.md definitions</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/docs/copilot/agents/background-agents" class="text-purple-400 hover:text-purple-300 font-medium">Background Agents</a>
+<span class="text-gray-400"> — Git worktree isolation</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/docs/copilot/chat/mcp-servers" class="text-purple-400 hover:text-purple-300 font-medium">MCP Servers</a>
+<span class="text-gray-400"> — Model Context Protocol setup</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/docs/copilot/chat/copilot-memory" class="text-purple-400 hover:text-purple-300 font-medium">Copilot Memory</a>
+<span class="text-gray-400"> — Persistent context across sessions</span>
+</div>
+<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://code.visualstudio.com/docs/copilot/chat/chat-customizations" class="text-purple-400 hover:text-purple-300 font-medium">Chat Customizations</a>
+<span class="text-gray-400"> — Unified customization editor</span>
 </div>
 </div>
 </div>
@@ -1317,22 +1349,36 @@ user-invokable: true
 </div>
 <h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
 <div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">What's New in Copilot for VS Code: v1.108 – v1.110</span>
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">What's New in Copilot for VS Code: v1.108 – v1.115</span>
 </div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
+<div class="mt-6 grid grid-cols-4 gap-3 text-sm max-w-4xl mx-auto relative z-10">
 <div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-400 font-bold text-lg">4 Agent Types</div>
-<div class="opacity-80 text-xs">Local, Background, Cloud, Claude</div>
+<div class="text-cyan-400 font-bold text-lg">8 Releases</div>
+<div class="opacity-80 text-xs">Weekly cadence from v1.111</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-400 font-bold text-lg">Skills GA</div>
-<div class="opacity-80 text-xs">Domain expertise, enabled by default</div>
+<div class="text-blue-400 font-bold text-lg">Autopilot</div>
+<div class="opacity-80 text-xs">Full agent autonomy (v1.111)</div>
 </div>
 <div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-400 font-bold text-lg">Sandboxed Autonomy</div>
-<div class="opacity-80 text-xs">Terminal sandboxing + auto-approval</div>
+<div class="text-indigo-400 font-bold text-lg">Agents App</div>
+<div class="opacity-80 text-xs">Parallel sessions (v1.115)</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="text-purple-400 font-bold text-lg">Customizations</div>
+<div class="opacity-80 text-xs">Unified editor (v1.113)</div>
 </div>
 </div>
-<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss which features to adopt first for your workflow</div>
+<div class="mt-4 flex gap-2 text-xs opacity-70 relative z-10">
+<span class="px-2 py-1 bg-gray-800/50 rounded">v1.108</span>
+<span class="px-2 py-1 bg-gray-800/50 rounded">v1.109</span>
+<span class="px-2 py-1 bg-gray-800/50 rounded">v1.110</span>
+<span class="px-2 py-1 bg-cyan-800/50 rounded border border-cyan-500/30">v1.111</span>
+<span class="px-2 py-1 bg-cyan-800/50 rounded border border-cyan-500/30">v1.112</span>
+<span class="px-2 py-1 bg-cyan-800/50 rounded border border-cyan-500/30">v1.113</span>
+<span class="px-2 py-1 bg-cyan-800/50 rounded border border-cyan-500/30">v1.114</span>
+<span class="px-2 py-1 bg-cyan-800/50 rounded border border-cyan-500/30">v1.115</span>
+</div>
+<div class="mt-4 text-sm opacity-60 relative z-10">Questions? Let's discuss which features to adopt first for your workflow</div>
 <div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>
