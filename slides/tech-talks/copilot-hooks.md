@@ -43,32 +43,26 @@ updated: 2026-02-11
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-cyan-300 mb-2">
-"How do I govern AI agent workflows without blocking their velocity?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"How do I govern AI agent workflows without blocking their velocity?"</div>
+<div class="text-xl opacity-90 mt-6">Security needs prevention. Compliance needs audit trails. Quality needs enforcement. <span class="text-cyan-300 font-semibold">Hooks intercept agent actions in real-time without adding manual gates.</span></div>
 </div>
-<div class="text-sm opacity-80">Security teams need prevention. Compliance needs audit trails. Quality teams need enforcement. Manual gates destroy velocity.</div>
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Autonomous Ops</div>
+<div class="opacity-70 mt-1">Files, commands, APIs</div>
 </div>
-
-<div class="mt-6 grid grid-cols-3 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-1">⚡</div>
-<div class="font-semibold text-amber-300">Autonomous Operations</div>
-<div class="text-xs opacity-80 mt-1">Agents create files, run commands, access APIs without pre-approval</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">Compliance Needs</div>
+<div class="opacity-70 mt-1">SOC 2, HIPAA, PCI-DSS</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
-<div class="text-xl mb-1">🚧</div>
-<div class="font-semibold text-orange-300">Compliance Requirements</div>
-<div class="text-xs opacity-80 mt-1">Regulated environments need complete evidence trails — SOC 2, HIPAA, finance</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
-<div class="text-xl mb-1">🔒</div>
-<div class="font-semibold text-red-300">Real-Time Enforcement</div>
-<div class="text-xs opacity-80 mt-1">Can't rely on post-incident review — violations must be prevented</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">Real-Time Enforcement</div>
+<div class="opacity-70 mt-1">Prevent, don't detect</div>
 </div>
 </div>
 </div>
@@ -404,6 +398,24 @@ updated: 2026-02-11
 <div class="font-semibold text-amber-300 mb-1">⚡ Why Speed Matters</div>
 <div class="opacity-80">Agent waits for hook completion. A 10-second hook on every tool use = 50 seconds of waiting across 5 tools. Keep it under 2 seconds per hook for seamless experience.</div>
 </div>
+<div class="grid grid-cols-2 gap-2 text-xs mt-2">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="font-semibold text-red-300 mb-1">❌ Common Pitfalls</div>
+<div class="space-y-1 opacity-80">
+<div>• Network calls without timeout (blocks indefinitely)</div>
+<div>• Unoptimized regexes on large files</div>
+<div>• Synchronous file I/O without batching</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg border border-green-500/30">
+<div class="font-semibold text-green-300 mb-1">✅ Quick Wins</div>
+<div class="space-y-1 opacity-80">
+<div>• Add hook execution timing logs</div>
+<div>• Use hook <span class="text-green-400 font-mono">timeout</span> field (default 30s)</div>
+<div>• Profile with <span class="text-green-400 font-mono">--debug-hooks</span> flag</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -465,25 +477,27 @@ updated: 2026-02-11
 <div class="text-xs text-white/50">Block dangerous operations before execution</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-bash">#!/bin/bash
-INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')
-COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
-
-# Block dangerous delete operations
-if echo "$COMMAND" | grep -qE 'rm -rf /|del /s /q|format'; then
-  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Destructive operation blocked"}}'
-  exit 0
-fi
-
-# Block privilege escalation
-if echo "$COMMAND" | grep -qE '^sudo |^runas '; then
-  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Privilege escalation not allowed"}}'
-  exit 0
-fi
-
-echo '{"continue":true}'
-exit 0</code></pre>
+<div v-pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2 font-mono">
+<span class="text-blue-300">#!/bin/bash</span><br />
+<span class="text-gray-400">INPUT=$(cat)</span><br />
+<span class="text-gray-400">TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name')</span><br />
+<span class="text-gray-400">COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')</span><br />
+<br />
+<span class="text-gray-600"># Block dangerous delete operations</span><br />
+<span class="text-gray-400">if echo "$COMMAND" | grep -qE 'rm -rf /|del /s /q|format'; then</span><br />
+<span class="text-yellow-400">  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Destructive operation blocked"}}'</span><br />
+<span class="text-gray-400">  exit 0</span><br />
+<span class="text-gray-400">fi</span><br />
+<br />
+<span class="text-gray-600"># Block privilege escalation</span><br />
+<span class="text-gray-400">if echo "$COMMAND" | grep -qE '^sudo |^runas '; then</span><br />
+<span class="text-yellow-400">  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Privilege escalation not allowed"}}'</span><br />
+<span class="text-gray-400">  exit 0</span><br />
+<span class="text-gray-400">fi</span><br />
+<br />
+<span class="text-yellow-400">echo '{"continue":true}'</span><br />
+<span class="text-gray-400">exit 0</span>
+</div>
 
 <div class="p-2 bg-gradient-to-r from-blue-900/40 to-indigo-900/40 rounded-lg border border-blue-500/30 text-xs">
 <span class="text-blue-300 font-semibold">Key principle:</span> Deny by default. Hooks should block operations unless explicitly approved. This reduces attack surface for policy bypass.
@@ -619,20 +633,22 @@ fi</code></pre>
 <div class="text-xs text-white/50">SessionStart and SubagentStart can inject project-specific information</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-bash">#!/bin/bash
-# .github/hooks/scripts/inject-context.sh
-
-PROJECT=$(cat package.json 2>/dev/null | jq -r '.name + " v" + .version')
-BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
-
-cat &lt;&lt;EOF
-{
-  "hookSpecificOutput": {
-    "hookEventName": "SessionStart",
-    "additionalContext": "Project: $PROJECT | Branch: $BRANCH | Node: $(node -v)"
-  }
-}
-EOF</code></pre>
+<div v-pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2 font-mono">
+<span class="text-blue-300">#!/bin/bash</span><br />
+<span class="text-gray-600"># .github/hooks/scripts/inject-context.sh</span><br />
+<br />
+<span class="text-gray-400">PROJECT=$(cat package.json 2>/dev/null | jq -r '.name + " v" + .version')</span><br />
+<span class="text-gray-400">BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")</span><br />
+<br />
+<span class="text-gray-400">cat &lt;&lt;EOF</span><br />
+<span class="text-yellow-400">&#123;</span><br />
+<span class="text-yellow-400">  "hookSpecificOutput": &#123;</span><br />
+<span class="text-yellow-400">    "hookEventName": "SessionStart",</span><br />
+<span class="text-yellow-400">    "additionalContext": "Project: $PROJECT | Branch: $BRANCH | Node: $(node -v)"</span><br />
+<span class="text-yellow-400">  &#125;</span><br />
+<span class="text-yellow-400">&#125;</span><br />
+<span class="text-gray-400">EOF</span>
+</div>
 
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
@@ -713,13 +729,15 @@ EOF</code></pre>
 <div class="text-xs text-white/50">One JSON object per line — append-safe, query-friendly format</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-bash">#!/bin/bash
-# Log tool usage
-INPUT=$(cat)
-LOG_FILE="logs/audit.jsonl"
-mkdir -p logs
-
-echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> "$LOG_FILE"</code></pre>
+<div v-pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2 font-mono">
+<span class="text-blue-300">#!/bin/bash</span><br />
+<span class="text-gray-600"># Log tool usage</span><br />
+<span class="text-gray-400">INPUT=$(cat)</span><br />
+<span class="text-gray-400">LOG_FILE="logs/audit.jsonl"</span><br />
+<span class="text-gray-400">mkdir -p logs</span><br />
+<br />
+<span class="text-yellow-400">echo "$INPUT" | jq -c '. + &#123;event: "PostToolUse", loggedAt: (now | todate)&#125;' >> "$LOG_FILE"</span>
+</div>
 
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
@@ -802,26 +820,34 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Querying Audit Logs</div>
-<div class="text-xs text-white/50">SQL-like filtering with jq — no database required</div>
+<div class="text-xs text-white/50">SQL-like filtering with jq — no database required, 100% queryable</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Count tool usage by type</div>
-<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq -r '.tool_name // empty' | sort | uniq -c</code></pre>
+<div class="font-semibold text-indigo-300 mb-1">📊 Count tool usage</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq -r '.tool_name // empty' | sort | uniq -c | sort -rn</code></pre>
+<div class="text-xs opacity-60 mt-1">Top tools per session/user/time period</div>
 </div>
 <div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">Find all denied operations</div>
-<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq 'select(.permissionDecision == "deny")'</code></pre>
+<div class="font-semibold text-purple-300 mb-1">🚫 All denied operations</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq 'select(.permissionDecision == "deny")' | jq -r '.reason'</code></pre>
+<div class="text-xs opacity-60 mt-1">Why operations were blocked; investigate patterns</div>
 </div>
 <div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-1">Export to CSV for reporting</div>
+<div class="font-semibold text-pink-300 mb-1">📈 Export for reports</div>
 <pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq -r '[.timestamp, .tool_name, .response] | @csv' > report.csv</code></pre>
+<div class="text-xs opacity-60 mt-1">Compliance reports, dashboards, trend analysis</div>
 </div>
 <div class="p-2 bg-gradient-to-br from-rose-900/30 to-rose-800/20 rounded-lg border border-rose-500/30">
-<div class="font-semibold text-rose-300 mb-1">Track subagent usage</div>
-<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>cat logs/audit.jsonl | jq 'select(.event == "SubagentStart" or .event == "SubagentStop")'</code></pre>
+<div class="font-semibold text-rose-300 mb-1">🤖 Subagent lifecycle</div>
+<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>jq 'select(.event | IN("SubagentStart","SubagentStop"))' audit.jsonl</code></pre>
+<div class="text-xs opacity-60 mt-1">Subagent execution time, spawn count, tool usage per agent</div>
 </div>
+</div>
+
+<div class="mt-2 p-2 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30 text-xs">
+<span class="text-indigo-300 font-semibold">Zero Infrastructure:</span> jq runs on your laptop. No log aggregation service, no vendor lock-in. Grep that file from 2022 and answer compliance questions.
 </div>
 </div>
 </div>
@@ -920,7 +946,7 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Real-World Patterns</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">� Real-World Patterns</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
@@ -931,39 +957,47 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Use Case: HIPAA Compliance Audit Trail</div>
-<div class="text-xs text-white/50">Healthcare application development — complete audit for compliance</div>
+<div class="text-xs text-white/50">Healthcare — agent-generated code changes must be 100% auditable for 7-year retention</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
 <div class="text-center mb-1">
 <div class="text-xl">❌</div>
-<div class="font-bold text-red-300">Before</div>
+<div class="font-bold text-red-300">Before Hooks</div>
 </div>
 <div class="space-y-1 opacity-80">
-<div>• Manual log collection: 2-3 hours</div>
-<div>• Coverage: 60-70% completeness</div>
-<div>• Query method: Manual grep/awk</div>
-<div>• Retention: Manual archival</div>
+<div>⏱️ <strong>Audit time:</strong> 2-3 hours manual</div>
+<div>📊 <strong>Coverage:</strong> 60-70% of changes</div>
+<div>🔍 <strong>Query:</strong> Manual grep/awk</div>
+<div>💾 <strong>Retention:</strong> Manual archival</div>
+<div>❓ <strong>Auditor Q:</strong> "Who changed what, when?" → Manual investigation</div>
 </div>
 </div>
 <div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
 <div class="text-center mb-1">
-<div class="text-xl">✨</div>
-<div class="font-bold text-emerald-300">After</div>
+<div class="text-xl">✅</div>
+<div class="font-bold text-emerald-300">With Hooks</div>
 </div>
 <div class="space-y-1 opacity-80">
-<div>• Audit time: 5 minutes (automated)</div>
-<div>• Coverage: 100% (all lifecycle events)</div>
-<div>• Query method: SQL-like jq filtering</div>
-<div>• Retention: Automated S3 archival</div>
+<div>⚡ <strong>Audit time:</strong> 5 minutes automated</div>
+<div>📊 <strong>Coverage:</strong> 100% (all 8 events)</div>
+<div>🔍 <strong>Query:</strong> SQL-like jq filtering</div>
+<div>💾 <strong>Retention:</strong> Automatic S3 archival</div>
+<div>✓ <strong>Auditor Q:</strong> Single jq query → instant answer</div>
 </div>
 </div>
 </div>
 
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30 text-xs">
-<div class="font-semibold text-purple-300 mb-1">Implementation</div>
-<div class="opacity-80">All 8 hooks log to JSON Lines with Stop hook archiving to S3 for 7-year retention. Query with jq for compliance reports.</div>
+<div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">🔗 Hook Setup</div>
+<div class="opacity-80">All 8 hooks append to <code>logs/audit.jsonl</code>. SessionStart logs user+branch, Stop hook pushes to S3.</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-1">📋 Sample Query</div>
+<div class="opacity-80 font-mono">jq -r '[.timestamp, .user, .event] | @csv' audit.jsonl | sort > audit-report.csv</div>
+</div>
 </div>
 </div>
 </div>
@@ -975,7 +1009,7 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Real-World Patterns</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Real-World Patterns</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
@@ -986,39 +1020,47 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Use Case: SOC 2 Security Enforcement</div>
-<div class="text-xs text-white/50">SaaS company — prove dangerous operations are prevented before execution</div>
+<div class="text-xs text-white/50">SaaS company — prevent dangerous operations before agent can execute them</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
 <div class="text-center mb-1">
 <div class="text-xl">❌</div>
-<div class="font-bold text-red-300">Before</div>
+<div class="font-bold text-red-300">Before Hooks</div>
 </div>
 <div class="space-y-1 opacity-80">
-<div>• Detection: Post-incident review</div>
-<div>• Audit evidence: Manual logs</div>
-<div>• Compliance cost: 40 hours/year</div>
-<div>• Incidents: 3/year</div>
+<div>🔍 <strong>Detection:</strong> Post-incident review</div>
+<div>📋 <strong>Evidence:</strong> Manual log piecing</div>
+<div>💼 <strong>Audit cost:</strong> 40 hours/year</div>
+<div>🚨 <strong>Incidents:</strong> 3/year (rm -rf, DROP)</div>
+<div>⏱️ <strong>Remediation:</strong> Days after discovery</div>
 </div>
 </div>
 <div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
 <div class="text-center mb-1">
-<div class="text-xl">✨</div>
-<div class="font-bold text-emerald-300">After</div>
+<div class="text-xl">✅</div>
+<div class="font-bold text-emerald-300">With Hooks</div>
 </div>
 <div class="space-y-1 opacity-80">
-<div>• Detection: Real-time prevention</div>
-<div>• Audit evidence: Automated violation log</div>
-<div>• Compliance cost: 5 hours (reports)</div>
-<div>• Incidents: 0 (preventive enforcement)</div>
+<div>⚡ <strong>Detection:</strong> Real-time prevention</div>
+<div>📋 <strong>Evidence:</strong> Automated denial log</div>
+<div>💼 <strong>Audit cost:</strong> 5 hours (report only)</div>
+<div>🚨 <strong>Incidents:</strong> 0 (blocked at gate)</div>
+<div>✓ <strong>Remediation:</strong> Instant feedback to agent</div>
 </div>
 </div>
 </div>
 
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30 text-xs">
-<div class="font-semibold text-purple-300 mb-1">Implementation</div>
-<div class="opacity-80">PreToolUse hook blocks dangerous operations (rm -rf, DROP, TRUNCATE, sudo). Violations logged to violations.jsonl for audit trail. Manual review impossible — technical enforcement.</div>
+<div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">🚫 Blocked Operations</div>
+<div class="opacity-80">PreToolUse regex: <code>rm -rf / | DROP | TRUNCATE | sudo | curl.*admin</code>. Violations to <code>violations.jsonl</code> with reason.</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-1">🔔 Alert Integration</div>
+<div class="opacity-80">PostToolUse hook sends denial events to Slack + PagerDuty. Immediate ops visibility.</div>
+</div>
 </div>
 </div>
 </div>
@@ -1030,7 +1072,7 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Real-World Patterns</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✨ Real-World Patterns</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
@@ -1041,39 +1083,47 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Use Case: Multi-Tenant SaaS Quality Gates</div>
-<div class="text-xs text-white/50">Agent-generated code — enforce linting before commits</div>
+<div class="text-xs text-white/50">Agent-generated code must pass lint/format/type checks before file write</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
 <div class="text-center mb-1">
 <div class="text-xl">❌</div>
-<div class="font-bold text-red-300">Before</div>
+<div class="font-bold text-red-300">Without Shift-Left</div>
 </div>
 <div class="space-y-1 opacity-80">
-<div>• Violations: 15 per PR average</div>
-<div>• Rework time: 7.5 hours/sprint</div>
-<div>• Rework rounds: 3 average</div>
-<div>• CI failures: 15/sprint</div>
+<div>🔴 <strong>Violations/PR:</strong> 15 average</div>
+<div>⏱️ <strong>Rework time:</strong> 7.5 hrs/sprint</div>
+<div>🔄 <strong>Rework loops:</strong> 3/PR typical</div>
+<div>🚫 <strong>CI failures:</strong> 15+/sprint</div>
+<div>💸 <strong>Wasted:</strong> 120 hrs/quarter</div>
 </div>
 </div>
 <div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
 <div class="text-center mb-1">
-<div class="text-xl">✨</div>
-<div class="font-bold text-emerald-300">After</div>
+<div class="text-xl">✅</div>
+<div class="font-bold text-emerald-300">With Hooks</div>
 </div>
 <div class="space-y-1 opacity-80">
-<div>• Violations: 0 (blocked at creation)</div>
-<div>• Rework time: 0</div>
-<div>• Rework rounds: 1 (immediate feedback)</div>
-<div>• CI failures: 0 (shift-left validation)</div>
+<div>✓ <strong>Violations:</strong> 0 (blocked)</div>
+<div>⚡ <strong>Rework time:</strong> 0</div>
+<div>🎯 <strong>Rework loops:</strong> 1 (immediate)</div>
+<div>✓ <strong>CI failures:</strong> 0</div>
+<div>💰 <strong>Saved:</strong> 120 hrs/quarter</div>
 </div>
 </div>
 </div>
 
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30 text-xs">
-<div class="font-semibold text-purple-300 mb-1">Implementation</div>
-<div class="opacity-80">PreToolUse hook runs ESLint on proposed file changes. Non-compliant code is denied with permissionDecision: deny before it's written. Standards enforced at creation, not in CI review.</div>
+<div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="font-semibold text-purple-300 mb-1">🔍 PreToolUse Validation</div>
+<div class="opacity-80">ESLint + Prettier + TypeScript on proposed changes. Non-compliant code denied before write, agent gets error feedback immediately.</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-1">📊 Quality Metrics</div>
+<div class="opacity-80">PostToolUse logs rule violations. Dashboard shows which standards agents violate most → training signal.</div>
+</div>
 </div>
 </div>
 </div>
@@ -1085,42 +1135,45 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ What You Can Do Today</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Immediate Actions (15 minutes)</div>
-<div class="space-y-1 opacity-80">
-<div>• Review <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">hooks documentation</a></div>
-<div>• Create <code>.github/hooks/</code> in test repo</div>
-<div>• Try <code>/hooks</code> slash command in VS Code</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="text-lg font-bold text-cyan-300 mb-2">🚀 <strong>15 Minutes</strong></div>
+<div class="space-y-1 opacity-80 text-xs">
+<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">Read hooks documentation</a></div>
+<div>• Create <code>.github/hooks/</code> directory</div>
+<div>• Test <code>/hooks</code> slash command</div>
+<div>• Understand 8 lifecycle events</div>
 </div>
 </div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">Short-Term Implementation (1-2 hours)</div>
-<div class="space-y-1 opacity-80">
-<div>• Deploy security enforcement hooks</div>
-<div>• Set up SessionStart context injection</div>
-<div>• Test PreToolUse with dangerous commands</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="text-lg font-bold text-blue-300 mb-2">⚡ <strong>1-2 Hours</strong></div>
+<div class="space-y-1 opacity-80 text-xs">
+<div>• Copy security-check.sh template</div>
+<div>• Deploy PreToolUse hook to test repo</div>
+<div>• Add context injection (SessionStart)</div>
+<div>• Test with dangerous operations</div>
 </div>
 </div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Advanced Exploration (2-4 hours)</div>
-<div class="space-y-1 opacity-80">
-<div>• Implement all 8 lifecycle hooks for audit trail</div>
-<div>• Use Stop hook to enforce test suite execution</div>
-<div>• Integrate with Slack/Datadog/PagerDuty</div>
-<div>• Add environment-aware policies</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="text-lg font-bold text-indigo-300 mb-2">🔄 <strong>2-4 Hours</strong></div>
+<div class="space-y-1 opacity-80 text-xs">
+<div>• Implement all 8 hooks (audit trail)</div>
+<div>• Add PostToolUse logging to JSON</div>
+<div>• Integrate Slack alert on denials</div>
+<div>• Query logs with jq</div>
 </div>
 </div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">Next Steps</div>
-<div class="space-y-1 opacity-80">
-<div>• Review <a href="../terminal-sandboxing/" class="text-purple-400 underline">Terminal Sandboxing</a> for OS-level controls</div>
-<div>• Share results with security/compliance team</div>
-<div>• Expand to org-wide hook policies</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="text-lg font-bold text-purple-300 mb-2">📈 <strong>Scale to Org</strong></div>
+<div class="space-y-1 opacity-80 text-xs">
+<div>• Generalize hook library</div>
+<div>• Deploy org-wide policies</div>
+<div>• Connect to compliance system</div>
+<div>• Monitor via compliance dashboard</div>
 </div>
 </div>
 </div>
@@ -1138,30 +1191,41 @@ echo "$INPUT" | jq -c '. + {event: "PostToolUse", loggedAt: (now | todate)}' >> 
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-sm font-semibold text-blue-300 mb-2">Official Documentation</div>
-<div class="space-y-2 text-xs opacity-90">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">Agent Hooks in VS Code</a> — Complete configuration reference</div>
-<div>• <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-hooks" class="text-blue-400 underline">About Copilot Hooks</a> — Core concepts and hook types</div>
-<div>• <a href="https://docs.github.com/en/copilot/reference/hooks-configuration" class="text-indigo-400 underline">Hooks Configuration Reference</a> — JSON schema and I/O formats</div>
-<div>• <a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks" class="text-purple-400 underline">Using Hooks with GitHub Copilot Agents</a> — Step-by-step implementation</div>
+<div class="grid grid-cols-2 gap-3 text-xs">
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="text-lg font-bold text-blue-300 mb-2">📖 Official Docs</div>
+<div class="space-y-1 opacity-90">
+<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">Agent Hooks in VS Code</a></div>
+<div>• <a href="https://docs.github.com/en/copilot/concepts/agents" class="text-blue-400 underline">Copilot Agents Concepts</a></div>
+<div>• <a href="https://docs.github.com/en/copilot/reference/hooks-configuration" class="text-indigo-400 underline">Hooks Config Reference</a></div>
+<div>• <a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents" class="text-purple-400 underline">Hooks How-Tos</a></div>
 </div>
 </div>
-
-<div class="mt-3 grid grid-cols-2 gap-3 text-xs">
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Related Talks</div>
-<div class="space-y-1 opacity-80">
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="text-lg font-bold text-indigo-300 mb-2">🔗 Related Topics</div>
+<div class="space-y-1 opacity-90">
 <div>• Terminal Sandboxing — OS-level controls</div>
-<div>• Custom Instructions — Behavior guidance</div>
-<div>• Enterprise Patterns — Org-wide governance</div>
+<div>• Custom Instructions — Agent behavior</div>
+<div>• Enterprise Patterns — Org governance</div>
+<div>• Custom Agents — Building your own</div>
 </div>
 </div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">Example Configurations</div>
-<div class="space-y-1 opacity-80">
-<div>• Hook scripts in examples/completed-config/hooks/</div>
-<div>• Security, audit, quality gate patterns</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
+<div class="text-lg font-bold text-purple-300 mb-2">📝 Key Concepts</div>
+<div class="space-y-1 opacity-90">
+<div>• 8 Lifecycle Events</div>
+<div>• Permission Decision Patterns</div>
+<div>• JSON Lines Audit Trail</div>
+<div>• Real-time Compliance Checking</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
+<div class="text-lg font-bold text-pink-300 mb-2">🛠️ Tools & Examples</div>
+<div class="space-y-1 opacity-90">
+<div>• <code>jq</code> — Query audit logs</div>
+<div>• <code>curl</code> — API integrations</div>
+<div>• Hook templates in repo</div>
+<div>• Compliance dashboards</div>
 </div>
 </div>
 </div>

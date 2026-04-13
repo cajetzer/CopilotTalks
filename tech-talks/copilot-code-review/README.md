@@ -1,44 +1,37 @@
 ---
 status: active
-updated: 2026-03-19
-section: "Copilot Tools"
+updated: 2026-04-10
+section: "Copilot Agents"
 references:
   - url: https://docs.github.com/en/copilot/concepts/agents/code-review
-    label: "Copilot Code Review overview"
-    verified: 2026-02-17
+    label: "GitHub Copilot Code Review - Concepts"
+    verified: 2026-04-10
   - url: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review
-    label: "Configure automatic code review"
-    verified: 2026-02-17
+    label: "Configure Automatic Code Review"
+    verified: 2026-04-10
   - url: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review
-    label: "Use Copilot code review in PRs"
-    verified: 2026-02-17
-  - url: https://copilot-code-review--clee1211.github.app/
-    label: "Copilot Code Review Time Savings Calculator"
-    verified: 2026-03-19
+    label: "Using Copilot Code Review"
+    verified: 2026-04-10
 ---
 
-# GitHub Copilot Code Review: Accelerating PR Velocity and Maximizing ROI
+# GitHub Copilot Code Review: From Bottleneck to Accelerator
 
 > **The Question This Talk Answers:**
-> *"How can GitHub Copilot Code Review reduce PR review time by 40-60% and increase acceptance rates while delivering measurable ROI?"*
+> *"How can GitHub Copilot Code Review reduce PR review time while maintaining (or improving) code quality and compliance?"*
 
-**Duration:** 30-40 minutes | **Target Audience:** Developers, DevOps Teams, Engineering Managers
+**Duration:** 35-40 minutes | **Target Audience:** Engineering Managers, DevOps Leads, Development Teams
 
 ---
 
 ## 📊 Content Fitness
 
-Use this rubric during content creation. If any category is 🔴 or 🟡, revise before publishing.
-
 | Criterion | Assessment | Notes |
 |-----------|-----------|-------|
-| **Relevant** | 🟢 High | Directly addresses universal pain point of PR review bottlenecks. Every software team struggles with balancing review thoroughness against delivery velocity. ROI focus aligns with business decision-making criteria for tool adoption. Feature is production-ready and available now. Teams face 3+ day PR wait times daily. |
-| **Compelling** | 🟢 High | Goes beyond product documentation by focusing on measurable business outcomes (40-60% time reduction, concrete ROI calculations). Includes real-world use cases with specific metrics practitioners can benchmark against. Demonstrates how automation transforms review from bottleneck to accelerator. Unique angle: treating code review as ROI-measurable investment rather than just quality gate. Shows path from 3-day PR cycles to same-day merges. |
-| **Actionable** | 🟢 High | Provides complete configuration examples, custom ruleset templates, ROI calculation scripts, and GitHub Actions integration that practitioners can implement immediately. Decision criteria helps determine fit before investment. Time-bounded implementation path (15 min basic setup → 1 hour advanced config → half day ROI tracking). Concrete metrics for success measurement. Practitioners can start using today with immediate impact. |
+| **Relevant** | 🟢 High | Addresses universal pain point of PR review bottlenecks. Every team balances review thoroughness against delivery velocity. ROI focus aligns with business decision-making. Feature is production-ready now. |
+| **Compelling** | 🟢 High | Goes beyond feature docs to focus on measurable business outcomes (40-60% time reduction, specific ROI calculations). Real-world use cases with concrete metrics practitioners can benchmark. Unique angle: code review as measurable investment. |
+| **Actionable** | 🟢 High | Complete implementation path from 15-minute basic setup through advanced compliance enforcement. Working artifacts ready to deploy. ROI tracking methodology with GitHub Actions integration. Clear success metrics. |
 
 **Overall Status:** 🟢 Ready to use
-
-> **For Authors:** Don't publish with any 🔴. Fix 🟡 items before marking complete. Aim for all 🟢.
 
 ---
 
@@ -115,27 +108,23 @@ This hybrid approach delivers the best of both worlds: the deterministic accurac
 
 *These are shown inline with detailed explanation in the major sections below*
 
-- **Interactive CCR time-savings calculator** — Guided app experience for combining PR analytics and customer-specific review assumptions into a shareable executive summary[^16]
-- **`copilot-review.yml`** — Basic configuration for automatic code reviews with triggers and focus areas
-- **`compliance-rules.yml`** — Organization-wide custom compliance ruleset for regulatory enforcement
-- **`copilot-review-metrics.yml`** — Optional GitHub Actions workflow for teams that want recurring internal ROI reporting beyond the calculator
-- **`roi-calculation.sql`** — Optional validation query for warehouse-backed reporting when the interactive calculator is not enough
+- **GitHub Rulesets (UI-based)** — Enable automatic Copilot Code Review through repository settings (no YAML config needed)
+- **`.github/copilot-instructions.md`** — Custom guidance for review behavior (Markdown, not YAML)
+- **`.github/instructions/<topic>.instructions.md`** — Language/topic-specific review guidance with YAML frontmatter
+- **`copilot-review-metrics.yml`** — Optional GitHub Actions workflow for tracking review findings over time
+- **`roi-calculation.sql`** — Optional query for warehouse-backed ROI reporting
 - **`pr-workflow-guide.md`** — Team workflow documentation for using Copilot reviews effectively
 
 ### Supporting Files
 
-*Available in repository for download/reference*
+*Available in repository for reference*
 
-- **[`/examples/`](examples/)** — Complete working examples you can copy
-- **[`images/roi-path-shift.svg`](images/roi-path-shift.svg)** — Visual contrast between the old ROI-explanation path and the new calculator-led path
-- **[`images/calculator-workflow.svg`](images/calculator-workflow.svg)** — Visual summary of how the calculator turns PR inputs into savings outputs
-- **[`images/calculator-summary.svg`](images/calculator-summary.svg)** — Visual representation of the executive-summary output shape
-- All primary artifacts are available as copy-paste ready files in the examples directory
+- **[`images/roi-path-shift.svg`](images/roi-path-shift.svg)** — Visual contrast between manual reviews and automated Copilot
 
 **Guidance for Authors:**
-- Primary artifacts (5 files) are the "stars of the show" — embedded fully in major sections with explanations
-- Every artifact demonstrates a specific capability or pattern
-- Configuration files are production-ready and tested
+- Primary artifacts demonstrate specific capabilities and patterns
+- All examples are based on current GitHub Copilot Code Review features
+- Rulesets are configured via UI, not YAML files
 
 ---
 
@@ -202,236 +191,268 @@ Q: Is code review currently a bottleneck in your delivery pipeline?
 <!-- 🎬 MAJOR SECTION: Setup & Configuration -->
 ## Configuration and Quick Start
 
-Getting started with Copilot Code Review takes less than 15 minutes from enablement to your first automated review[^2]. The basic configuration requires only a simple YAML file to define triggers and focus areas, while advanced setups can enforce organization-wide compliance rules and integrate with existing CI/CD pipelines. Let's walk through both paths so you can choose the right starting point for your team.
+Getting started with Copilot Code Review takes less than 15 minutes from enablement to your first automated review[^2]. Setup happens entirely in the GitHub UI through Rulesets—no configuration files needed. For custom guidance, you can optionally create Markdown instruction files to tailor Copilot's behavior to your team's standards.
 
-### Basic Configuration (5 minutes to first review)
+### Basic Setup (5 minutes to first review)
 
-Enable Copilot Code Review by creating a `.github/copilot-review.yml` file in your repository[^2]. This configuration file controls when reviews run, what they analyze, and how findings are reported.
+Enable Copilot Code Review via GitHub Rulesets:
 
-**Complete configuration example:**
+1. Navigate to your repository **Settings → Code and automation → Rules → Rulesets**
+2. Click **New ruleset** and name it (e.g., "Copilot Code Review")
+3. Set **Ruleset status** to "Active"
+4. Under **Target branches**, select the branch(es) where you want reviews (e.g., `main`)
+5. Scroll to **Enforcement actions** and enable:
+   - ✅ **Automatically request Copilot code review**
+   - ✅ **Review new pushes** (Copilot reviews on every commit)
+   - ✅ **Review draft pull requests** (optional, for early feedback)
+6. Click **Create**
 
-```yaml
-# Enable automatic Copilot code reviews on pull requests
-version: 1
+**That's it!** Copilot will now automatically review all PRs targeting your selected branch(es).
 
-review:
-  # Trigger automatic review on these events
-  triggers:
-    - pull_request_opened      # When PR is first created
-    - pull_request_synchronize # When new commits are pushed
-    - pull_request_reopened    # When closed PR is reopened
+### Custom Guidance with `.github/copilot-instructions.md`
 
-  # Minimum severity level to report (info, low, medium, high, critical)
-  severity_threshold: medium
+To customize what Copilot looks for during reviews, create a `.github/copilot-instructions.md` file in your repository:
 
-  # File patterns to include in review
-  include_patterns:
-    - "src/**/*.{js,ts,jsx,tsx}"
-    - "lib/**/*.py"
-    - "**/*.java"
+```markdown
+# Copilot Code Review Guidelines
 
-  # File patterns to exclude from review
-  exclude_patterns:
-    - "**/*.test.js"
-    - "**/*.spec.ts"
-    - "**/__mocks__/**"
-    - "dist/**"
-    - "build/**"
-    - "*.md"
+## Security Standards
+- Flag hardcoded secrets, API keys, or credentials
+- Require parameterized queries (no string concatenation for SQL)
+- Check for proper input validation on user-facing code
+- Ensure error handling doesn't expose sensitive information
 
-  # Focus areas for review
-  focus:
-    - security          # Security vulnerabilities
-    - performance       # Performance issues
-    - maintainability   # Code quality and readability
-    - testing           # Test coverage and quality
-    - best_practices    # Language-specific best practices
+## Code Quality
+- Suggest refactoring for functions > 50 lines
+- Flag unclear variable names
+- Point out missing error handling in critical paths
+- Check for proper logging without PII exposure
 
-  # Integration with required status checks
-  status_check:
-    enabled: true
-    required: true     # Block merge if critical issues found
-    context: "Copilot Code Review"
+## Performance
+- Identify N+1 query problems in database access
+- Flag inefficient algorithms or memory usage
+- Suggest caching opportunities for repeated computations
+
+## Testing
+- Note missing unit tests for new functions
+- Suggest edge cases developers might have missed
+- Flag assertions that don't actually validate the logic
 ```
 
-**Key configuration decisions:**
+### Language-Specific Guidance
 
-1. **Triggers**: Start with all three events to get feedback on every change. You can narrow this later if review volume is too high[^2].
+Create ``.github/instructions/<language>.instructions.md`` files for language-specific rules:
 
-2. **Severity threshold**: Setting to `medium` ensures you see important issues without being overwhelmed by minor style suggestions. Lower to `low` during onboarding to help developers learn patterns[^3].
+```markdown
+# File: .github/instructions/python.instructions.md
+---
+applyTo: "**/*.py"
+description: "Python code review standards"
+---
 
-3. **File patterns**: Focus on production code first. Exclude test files, documentation, and build artifacts to keep reviews focused on what matters[^2].
+## Python-Specific Guidelines
+- Enforce PEP 8 naming conventions (snake_case for functions, SCREAMING_SNAKE_CASE for constants)
+- Require type hints for function parameters and return values
+- Flag bare `except:` clauses—always specify exception types
+- Check for proper logging using the `logging` module (not `print()`)
+- Validate that async/await is used correctly with proper exception handling
+```
 
-4. **Focus areas**: Enable all five categories initially. After 30 days of data, disable categories that aren't providing value for your codebase.
+For JavaScript/TypeScript:
 
-5. **Status check**: Making the review `required: true` enforces that critical issues must be resolved before merge, providing a compliance-ready audit trail[^4].
+```markdown
+# File: .github/instructions/typescript.instructions.md
+---
+applyTo: "**/*.ts, **/*.tsx"
+description: "TypeScript code review standards"
+---
+
+## TypeScript-Specific Guidelines
+- Require explicit return type annotations on functions
+- Flag `any` type usage—suggest more specific types
+- Check for proper error handling in async functions
+- Validate that interfaces are used for data contracts
+- Flag console statements—use structured logging instead
+```
 
 ### Repository vs. Organization Deployment
 
-**Repository-level deployment** (recommended for pilot):
-- Add `.github/copilot-review.yml` to a single repository
-- Test configuration and gather team feedback
-- Iterate on rules before broader rollout
-- Deploy time: 5 minutes
+**Repository-level** (recommended for pilot):
+- Enable Ruleset in one repository
+- Test with team and gather feedback
+- Refine custom instructions based on what developers need
+- Deploy time: 5-10 minutes
 
-**Organization-wide deployment** (for standardization):
-- Configure default settings in organization settings[^4]
-- Push `.github/copilot-review.yml` to all repositories via script
-- Enforce consistent standards across all teams
-- Deploy time: 1-2 hours including documentation and communication
+**Organization-level** (for standardization):
+- Configure default Copilot settings in organization settings
+- Create a shared `.github/copilot-instructions.md` template
+- Each repository can add its own language-specific guidance
+- Deploy time: 30 minutes to 1 hour
 
-The best practice is to start with 1-2 pilot repositories, refine the configuration based on team feedback, then expand organization-wide once you have proven ROI[^6].
+**Best practice:** Start with 1-2 pilot repositories, refine the Ruleset and custom instructions based on feedback, then roll out organization-wide.
 
-### Integration with Branch Protection Rules
+### Integrating with Branch Protection Rules
 
-To enforce that critical issues must be resolved before merge, integrate Copilot Code Review as a required status check:
+To block merges when critical issues are detected:
 
-1. Navigate to repository **Settings → Branches**
-2. Edit your branch protection rule (typically for `main` or `develop`)
+1. Navigate to **Settings → Branches**
+2. Edit your main branch protection rule
 3. Enable **Require status checks to pass before merging**
-4. Search for and select **"Copilot Code Review"** in the status checks list
-5. Enable **Require branches to be up to date before merging** (recommended)
+4. Search for and select **"Copilot Code Review"** in the required checks list
+5. Click **Save changes**
 
-With this configuration, GitHub will block PR merges if Copilot flags critical security or quality issues, creating an automated enforcement gate that doesn't rely on human vigilance[^2].
-
-**Pro tip:** For fast-moving teams, consider making the status check **informational** initially (not blocking), allowing developers to merge with warnings. After 30 days of data showing Copilot catches real issues, convert it to **required** with team buy-in.
+Now Copilot Code Review becomes a gating mechanism—developers must address critical findings before merging.
 
 ### Manual Review Requests
 
-Beyond automatic reviews, developers can request focused analysis at any time by mentioning `@github-copilot` in PR comments[^3]:
+Beyond automatic reviews, developers can request focused analysis at any time by mentioning `@github-copilot` in PR comments:
 
 ```markdown
 @github-copilot please review this PR for security vulnerabilities and performance issues
 ```
 
-This conversational interface allows developers to:
+This allows developers to:
 - Request targeted analysis on specific concerns
+- Get immediate feedback without waiting for human review
 - Ask follow-up questions about recommendations
-- Get explanations for suggested fixes
-- Focus review on changed files only
-
-See [pr-workflow-guide.md](examples/pr-workflow-guide.md) for complete workflow patterns and best practices.
+- Learn from Copilot's explanations
 
 ---
 
 <!-- 🎬 MAJOR SECTION: Compliance & Security -->
-## Advanced Patterns: Custom Compliance Rules
+## Advanced Patterns: Compliance and Regulatory Guidance
 
-Beyond basic code quality, many organizations need to enforce specific regulatory requirements—HIPAA for healthcare, PCI-DSS for payments, SOC2 for SaaS platforms[^4]. Copilot Code Review supports custom rulesets that encode your organization's compliance policies as automated checks, creating audit trails and blocking non-compliant code before it reaches production. These rules transform abstract policy documents into executable code review logic.
+Organizations with regulatory requirements (HIPAA for healthcare, PCI-DSS for payments, SOC2 for SaaS) can create custom instruction files that encode compliance policies as review guidance. Copilot applies these standards consistently across all code changes, creating audit trails and helping prevent violations before they reach production.
 
-### Custom Ruleset Structure
+**Important:** Copilot Code Review is an *assistive tool*, not a complete compliance solution. Compliance always requires human oversight, policy enforcement, and organizational discipline alongside tooling.
 
-Custom rules are defined in YAML format and can match code patterns, require specific context, and suggest compliant fixes. Each rule specifies:
+### Security and Compliance Instructions
 
-- **Pattern matching**: Regular expressions or language-specific AST queries
-- **Context requirements**: Keywords that must be present nearby (e.g., encryption for PII)
-- **Severity level**: Critical, high, medium, low, or info
-- **Compliance references**: Links to policy sections, regulatory requirements, or standards
-- **Suggested fixes**: Code examples showing compliant implementation
+Create `.github/instructions/compliance.instructions.md` to embed compliance guidance into code reviews:
 
-Here's a complete organization-wide compliance ruleset demonstrating five common regulatory patterns:
+```markdown
+# File: .github/instructions/compliance.instructions.md
+---
+applyTo: "**/*.{js,ts,py,java}"
+description: "Security and compliance standards"
+---
 
-```yaml
-# Organization-wide compliance rules for code review
-rules:
-  - id: "pii-encryption"
-    name: "PII Data Encryption"
-    severity: critical
-    description: "All PII fields must be encrypted at rest and in transit"
-    pattern:
-      language: "javascript,typescript,python"
-      match: "(email|ssn|phone|address|dob)\\s*[:=]"
-      require_context: ["encrypt", "cipher", "crypto"]
-    message: |
-      Personal Identifiable Information (PII) detected without encryption.
+## Security Standards
+- Flag hardcoded secrets, API keys, or database credentials
+- Require parameterized queries for all database operations (no string concatenation)
+- Check for proper input validation on all user-facing APIs
+- Ensure error handling doesn't expose sensitive information (stack traces, system paths)
+- Require HTTPS for all external API calls
+- Validate that authentication is required on all sensitive endpoints
 
-      Required actions:
-      1. Use approved encryption library (AES-256 or RSA-2048)
-      2. Add audit log entry for PII access
-      3. Document encryption key management
+## Data Protection (GDPR, CCPA)
+- Flag code that stores personal data without encryption
+- Check for data retention policies (e.g., automatic deletion after N days)
+- Require audit logging for access to personally identifiable information (PII)
+- Validate that user data exports include all personal information
 
-      Reference: Security Policy Section 4.2
-      Compliance: GDPR Article 32, SOC2 CC6.1
-
-    suggested_fix: |
-      const crypto = require('crypto');
-      const encryptedEmail = crypto.encrypt(email, process.env.ENCRYPTION_KEY);
-
-  - id: "api-error-handling"
-    name: "API Error Handling Required"
-    severity: high
-    files: "src/api/**/*.{js,ts}"
-    pattern:
-      match: "app\\.(get|post|put|delete|patch)"
-      require_context: ["try", "catch", "error"]
-    message: |
-      All API endpoints must include comprehensive error handling.
-
-      Required:
-      - try/catch blocks for async operations
-      - Structured error logging with request ID
-      - Appropriate HTTP status codes (400, 500, etc.)
-      - No sensitive data in error responses
-
-    suggested_fix: |
-      app.post('/api/users', async (req, res) => {
-        try {
-          const user = await createUser(req.body);
-          res.status(201).json(user);
-        } catch (error) {
-          logger.error('User creation failed', {
-            requestId: req.id,
-            error: error.message
-          });
-          res.status(500).json({
-            error: 'User creation failed',
-            requestId: req.id
-          });
-        }
-      });
-
-  - id: "database-transaction"
-    name: "Database Transaction Safety"
-    severity: high
-    pattern:
-      language: "javascript,typescript"
-      match: "(INSERT|UPDATE|DELETE).*\\n.*(INSERT|UPDATE|DELETE)"
-      require_context: ["transaction", "commit", "rollback"]
-    message: |
-      Multiple database operations detected without transaction wrapper.
-
-      Risk: Partial failures can leave database in inconsistent state.
-      Required: Wrap multi-step operations in database transaction.
-
-    suggested_fix: |
-      const transaction = await db.transaction();
-      try {
-        await transaction.run('INSERT INTO users...');
-        await transaction.run('INSERT INTO profiles...');
-        await transaction.commit();
-      } catch (error) {
-        await transaction.rollback();
-        throw error;
-      }
-
-  - id: "test-required"
-    name: "Test Coverage Required"
-    severity: medium
-    files: "src/**/*.{js,ts}"
-    exclude: "**/*.test.{js,ts}"
-    condition: "new_file"  # Only trigger for new files
-    message: |
-      New source file created without corresponding test file.
-
-      Required: Create test file with minimum coverage:
-      - Happy path test cases
-      - Error handling test cases
-      - Edge case validation
-
-      Expected location: src/**/*.test.{js,ts} or __tests__/**/*.{js,ts}
+## Error Handling and Observability
+- Require try/catch blocks in all async operations
+- Check for structured logging (not console.log) in production code
+- Ensure error messages don't expose internal system details
+- Validate that errors are logged with sufficient context for debugging
 ```
 
-### Building Organization-Wide Rulesets
+### Healthcare (HIPAA) Guidance
+
+For healthcare organizations handling Protected Health Information (PHI):
+
+```markdown
+# File: .github/instructions/hipaa.instructions.md
+---
+applyTo: "**/*.{js,ts,py,java}"
+description: "HIPAA compliance for health data"
+---
+
+## HIPAA Requirements
+- All PHI (patient names, medical record numbers, dates, diagnoses) must be encrypted at rest
+- Require AES-256 encryption for sensitive data storage
+- Flag any code that could expose PHI in logs, error messages, or UI
+- Ensure audit logging captures who accessed PHI and when
+- Require access controls limiting data access to authorized roles only
+
+## Transmission Security
+- Require TLS 1.2+ for all network communication involving PHI
+- Flag hardcoded encryption keys—require key management service
+- Validate that data is encrypted in transit for all external API calls
+
+## Audit Compliance
+- Check for audit trail logging on all PHI read/write operations
+- Require request ID tracking for debugging and compliance reporting
+- Validate that audit logs are retained for at least 6 years
+```
+
+### Payment Processing (PCI-DSS) Guidance
+
+For e-commerce and payment platforms:
+
+```markdown
+# File: .github/instructions/pci-dss.instructions.md
+---
+applyTo: "**/*.{js,ts,py,java}"
+description: "PCI-DSS compliance for payment data"
+---
+
+## Card Data Handling
+- Never store complete payment card data (PAN) - process through PCI-compliant payment gateway
+- Flag any code storing card numbers, CVV, or magnetic stripe data
+- Require tokenization for payment processing (use Stripe, Square, etc.)
+- Ensure card data never appears in logs, error messages, or monitoring
+
+## Access Control
+- Require authentication and authorization on all payment APIs
+- Limit access to card data to payment processors only
+- Flag hardcoded credentials in payment service configurations
+- Require role-based access control for payment operations
+
+## Encryption and Security
+- Require TLS 1.2+ for all payment communications
+- Validate that payment APIs use secure authentication (OAuth 2.0, mTLS)
+- Check for proper handling of payment webhook signatures
+- Ensure payment data is encrypted in databases and backups
+```
+
+### Custom Instruction Best Practices
+
+**Keep instructions focused and concise:**
+- Copilot processes the first ~4000 characters for code review context
+- Prioritize the most critical rules for your organization
+- Use bullet points and short explanations
+
+**Make rules actionable:**
+- Explain *why* a rule matters (e.g., "prevents data breach exposure")
+- Include examples of compliant code when possible
+- Link to internal policy or regulatory references where applicable
+
+**Example instruction file (concise and actionable):**
+
+```markdown
+# File: .github/instructions/backend.instructions.md
+---
+applyTo: "src/api/**/*.ts"
+description: "Backend API standards"
+---
+
+## Security
+- Require input validation on all endpoints
+- Use parameterized queries for database access
+- Never log request/response bodies (may contain PII)
+
+## Testing
+- New functions should have unit tests
+- API endpoints need at least one happy-path test
+- Flag functions without error handling
+
+## Error Handling
+- Use consistent error codes (200, 400, 401, 403, 500)
+- Never expose system details in error messages
+- Log errors with request ID for debugging
+```
 
 **Step 1: Identify compliance requirements**
 - Audit regulatory obligations (HIPAA, PCI-DSS, SOC2, GDPR)[^11]
@@ -666,8 +687,6 @@ jobs:
           exit 1
 ```
 
-See [copilot-review-metrics.yml](examples/copilot-review-metrics.yml) for the complete workflow with analytics export.
-
 For dashboards, focus on four recurring views only: PR cycle time trend, cumulative savings, quality outcomes, and adoption rate. Use your existing BI stack if you need this layer[^14].
 
 ---
@@ -680,19 +699,20 @@ Technology doesn't create value—people using it well do. Successful Copilot Co
 ### Phased Rollout Strategy
 
 **Phase 1: Pilot (Week 1-2)**
-- Enable on 1-2 low-risk repositories with volunteer teams
-- Set `severity_threshold: medium` and `required: false` (informational only)
+- Enable Copilot Code Review on 1-2 low-risk repositories via Rulesets UI
+- Start with informational reviews (not blocking merges)
 - Gather daily feedback via Slack channel or standup
 - Document common questions and surprising findings
 
 **Phase 2: Tune (Week 3-4)**
-- Adjust `include_patterns` and `exclude_patterns` based on false positives
-- Add 2-3 custom compliance rules for organization-specific standards
+- Review team feedback and adjust review focus areas
+- Create `.github/copilot-instructions.md` with team-specific guidance
+- Add 2-3 custom instruction files for language/domain-specific standards
 - Train pilot team on `@github-copilot` conversational requests[^3]
 - Measure baseline ROI metrics (PR cycle time, review comment volume)
 
 **Phase 3: Expand (Week 5-8)**
-- Roll out to 50% of repositories, prioritizing high-traffic repos
+- Roll out Rulesets to 50% of repositories, prioritizing high-traffic repos
 - Convert to `required: true` status check for pilot repositories
 - Create internal documentation: PR workflow guide, custom rules explainer
 - Host "Lunch & Learn" session demoing effective usage patterns
@@ -730,8 +750,6 @@ This phased approach builds confidence, reduces resistance, and allows iteration
    - Be specific: "Review authentication logic" not "Review this PR"
    - Ask "why" questions to learn patterns, not just fix current code
    - Use findings as learning opportunities—share interesting patterns in team chat
-
-**Provide team workflow guide as reference:** See [pr-workflow-guide.md](examples/pr-workflow-guide.md) for complete patterns.
 
 ### Balancing Automation and Human Review
 
@@ -828,33 +846,34 @@ This continuous iteration ensures Copilot stays valuable as your codebase evolve
 
 **The Problem:** Mid-sized e-commerce company processes 10,000+ daily transactions with PCI-DSS compliance requirements. Development team of 15 engineers submits 80-100 PRs weekly. Security team could only manually review 30% of PRs before merge, creating compliance risk and production vulnerabilities. Critical security issues were discovered in production 8 times per quarter, requiring emergency patches and putting customer payment data at risk.
 
-**The Solution:** Implemented Copilot Code Review with custom PCI-DSS ruleset enforcing payment data handling, encryption requirements, and audit logging[^4][^11]. Configured as required status check blocking merge on critical findings. Security team redirected focus to high-risk architectural changes while Copilot handles mechanical compliance checks consistently across all 100% of PRs.
+**The Solution:** Implemented Copilot Code Review with PCI-DSS guidance in `.github/instructions/pci-dss.instructions.md` enforcing payment data handling, encryption requirements, and audit logging[^4][^11]. Configured Rulesets as required status check blocking merge on critical findings. Security team redirected focus to high-risk architectural changes while Copilot handles mechanical compliance checks consistently across all 100% of PRs.
 
 **Implementation:**
-```yaml
-# Custom PCI-DSS compliance rules
-rules:
-  - id: "payment-data-encryption"
-    severity: critical
-    pattern:
-      match: "(cardNumber|cvv|cardholderName)"
-      require_context: ["encrypt", "tokenize"]
-    message: "Payment data must be encrypted/tokenized before storage"
+```markdown
+# File: .github/instructions/pci-dss.instructions.md
+---
+applyTo: "**/*.{js,ts,py,java}"
+description: "PCI-DSS compliance for payment data"
+---
 
-  - id: "payment-audit-logging"
-    severity: high
-    pattern:
-      match: "processPayment|chargeCard"
-      require_context: ["auditLog", "logger"]
-    message: "All payment operations must be logged for compliance"
+## Payment Data Handling
+- Never store complete payment card data (PAN)
+- Use tokenization through compliant payment gateway
+- Flag any code storing card numbers, CVV, or magnetic stripe data
+- Ensure card data never appears in logs or error messages
+
+## Audit Logging
+- Require logging for all payment operations
+- Log must include: operation type, user ID, timestamp, amount
+- Never log card data or encryption keys
 ```
 
 **Outcome:**
 - **Security review coverage:** 30% → 100% of PRs
 - **Critical vulnerabilities reaching production:** 8/quarter → 0/quarter (100% reduction)
-- **Security-related PR delays:** 3 days average → 4 hours average (94% faster)
-- **Security team time freed:** 60 hours/month redirected to threat modeling
-- **ROI:** 90% reduction in compliance risk exposure, prevented potential $500K+ fines
+- **Security-related PR delays:** 3 days average → Same-day feedback
+- **Security team time freed:** 60 hours/month redirected to architecture reviews
+- **Risk reduction:** Consistent PCI-DSS compliance enforcement across all code changes
 
 ---
 
@@ -992,27 +1011,24 @@ rules:
 > **Example Transformation:**
 >
 > **Before:** Developer submits authentication refactoring PR Friday afternoon. PR sits through weekend unreviewed. Monday morning reviewer has 15 other PRs queued and competing priorities. Quick 10-minute scan approves without catching SQL injection vulnerability in new query builder. Ships to production Tuesday as part of sprint release. Customer data exposed Wednesday morning when security researcher reports the issue. Emergency patch and incident response costs 40 engineering hours (8 devs × 5 hours). Customer notification required under GDPR. Brand reputation damage immeasurable.
->
-> **After:** Developer submits same authentication refactoring PR Friday afternoon. Copilot reviews in 90 seconds, flags SQL injection with specific line comment and parameterized query fix[^11]. Developer corrects in 5 minutes using suggested code, re-submits. Copilot re-reviews, shows ✅ no critical issues. Human reviewer sees "security: ✅ no critical issues" status Monday morning, focuses 15-minute review on business logic (authentication flow correctness) and UX implications (error message clarity). Approved Monday midday, ships Monday evening, zero incidents. Developer learned parameterized query pattern for future work. Total incident prevention value: 40 hours + customer trust + regulatory compliance maintained.
-
 ---
 
 ## ✅ What You Can Do Today
 
 **Immediate Actions (15 minutes):**
-- [ ] Enable Copilot Code Review on a pilot repository from organization settings[^2]
-- [ ] Create basic `.github/copilot-review.yml` with default triggers and focus areas (copy from examples above)
-- [ ] Submit a test PR and observe automated review in action—see feedback quality firsthand
+- [ ] Navigate to repository Settings → Code and automation → Rules → Rulesets
+- [ ] Create a new ruleset targeting your main branch with "Automatically request Copilot code review" enabled[^2]
+- [ ] Submit a test PR and observe automated review—see feedback quality firsthand
 - [ ] Review the [official documentation](https://docs.github.com/en/copilot/concepts/agents/code-review) for feature overview[^1]
 
 **Short-Term Implementation (1 hour):**
-- [ ] Configure file pattern filtering to focus on production code—exclude tests, docs, build artifacts[^2]
-- [ ] Set up required status check integration with branch protection rules (optional: start informational)
+- [ ] Create `.github/copilot-instructions.md` with custom review guidance for your team's standards[^3]
+- [ ] Set up required status check integration with branch protection rules (make Copilot a gating mechanism)
 - [ ] Train team on requesting focused reviews via @github-copilot mentions[^3]
 - [ ] Establish baseline metrics: current average PR review time, review comment count, revert rate using SQL query from ROI section
 
 **Advanced Exploration (Half day):**
-- [ ] Build custom compliance ruleset for your organization's specific requirements (PCI, HIPAA, SOC2) using compliance-rules.yml as template[^4]
+- [ ] Build custom instruction files for language-specific or compliance guidance (see examples)[^4]
 - [ ] Implement GitHub Actions workflow for automated ROI tracking and metrics dashboarding[^14]
 - [ ] Run an ROI workshop using the time-savings calculator with real PR analytics and customer-supplied review-time assumptions[^16]
 - [ ] Deploy organization-wide configuration with standardized rules across all repositories
@@ -1031,8 +1047,6 @@ rules:
 
 ### Complementary Features
 
-- **[GitHub Copilot Chat](../copilot-chat/)** — Conversational AI assistance for code explanation, debugging, and generation—use alongside code review for complete development workflow
-- **[GitHub Copilot Workspace](../copilot-workspace/)** — End-to-end AI-powered development environment from issue to PR—code review is the final quality gate in this pipeline
 - **[GitHub Advanced Security](../enterprise-patterns/)** — In-depth security scanning with CVE tracking and secret detection—combines with Copilot Review for comprehensive security coverage[^12]
 
 ### Decision Flow
@@ -1041,8 +1055,7 @@ rules:
 
 ```
 Q: What's your actual goal?
-├─ Improve code generation speed → See: GitHub Copilot Chat (autocomplete and generation)
-├─ End-to-end project workflow → See: GitHub Copilot Workspace (issue-to-PR automation)
+├─ Improve code generation speed → See: GitHub Copilot documentation on code completion
 ├─ Security vulnerability scanning → See: GitHub Advanced Security (CVE tracking and Dependabot)
 └─ Team collaboration patterns → See: Agentic SDLC (multi-agent development workflows)
 ```

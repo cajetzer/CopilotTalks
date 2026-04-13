@@ -43,31 +43,26 @@ updated: 2026-03-17
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-cyan-300 mb-4">
-"What are the mechanisms that make multi-agent AI work—and how do I compose them into systems that handle complex tasks, run autonomously, and improve over time?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"What mechanisms make multi-agent AI work — and how do I compose them into systems?"</div>
+<div class="text-xl opacity-90 mt-6">Systems that handle complex tasks, run autonomously, and improve over time. <span class="text-cyan-300 font-semibold">Beyond single-agent limits to coordinated AI teams.</span></div>
 </div>
-</div>
-
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-2">🚧</div>
-<div class="font-semibold text-amber-300">Single Agent Ceiling</div>
-<div class="text-xs opacity-80 mt-1">300-500 LOC limit: context pollutes, quality degrades by 30-40%</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Single Agent Ceiling</div>
+<div class="opacity-70 mt-1">300-500 LOC limit</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
-<div class="text-xl mb-2">👁️</div>
-<div class="font-semibold text-orange-300">Supervision Bottleneck</div>
-<div class="text-xs opacity-80 mt-1">Can't parallelize when you can't look away—continuous guidance required</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">Supervision Bottleneck</div>
+<div class="opacity-70 mt-1">Can't look away</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
-<div class="text-xl mb-2">💥</div>
-<div class="font-semibold text-red-300">Workspace Collisions</div>
-<div class="text-xs opacity-80 mt-1">Multiple agents, one workspace = merge conflicts and file collisions</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">Workspace Collisions</div>
+<div class="opacity-70 mt-1">Merge conflicts at scale</div>
 </div>
 </div>
 </div>

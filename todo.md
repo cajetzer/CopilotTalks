@@ -1,5 +1,5 @@
 
-agentic-issues.  by having agents combs/compile/research/plan issues, it gets us closer to just "assign this to copilot". That seems to be the closest "easy button" for teams to adopt, and also the most direct way to get value out of agents without needing to rewire your entire SDLC.  need to add a section on this to the agentic-sdlc talk, and then add a link to it in the decision guide for teams who want to dip their toes in the water before doing a full SDLC transformation.
+New tech-talk : PM using Copilot for market research.
 
 ---
 
@@ -28,21 +28,6 @@ https://github.com/congiuluc/premium-request-csv-viewer/
 
 ---
 
-AGENT COUNCIL:
-
-https://github.com/Sentry01/AgentCouncil
-
-
----
-
-AGENTRC: https://github.com/microsoft/agentrc
-
----
-
-https://code.visualstudio.com/updates/v1_111
-
----
-
 Modernize .NET Anywhere with GitHub Copilot - .NET Blog https://share.google/wVwPSslJEQwVTFrSm
 
 ---
@@ -53,5 +38,3 @@ https://code.visualstudio.com/blogs/2026/03/05/making-agents-practical-for-real-
 ---
 
 https://github.blog/changelog/2026-03-06-figma-mcp-server-can-now-generate-design-layers-from-vs-code/
-
----

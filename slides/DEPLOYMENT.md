@@ -177,7 +177,7 @@ To customize:
 - Test locally first with `npm run dev <file>.md`
 - Check the Actions tab to monitor deployment progress
 - Use meaningful commit messages for slide changes
-- Keep presentations concise (15-20 slides recommended)
+- Keep presentations focused (under 25 slides; 2–5 per topic section)
 
 ---
 

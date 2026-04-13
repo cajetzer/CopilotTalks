@@ -126,7 +126,8 @@ After the user responds:
 
 1. Incorporate the user's selected outline, toggle choices, or structural edits
 2. Read `tech-talks/TEMPLATE.md` for complete structure (can be done in parallel with research)
-3. Frame ONE clear question this talk answers
+3. **Query Memory** — Read `memories/repo/wing_infra/hall_facts.md` and `hall_advice.md` for confirmed voice and framing patterns. If the topic maps to a content wing (e.g., `wing_agent_architecture`), read that hall too. Apply before drafting any section.
+4. Frame ONE clear question this talk answers
 4. Verify content fitness rubric (all must be 🟢 before proceeding)
 5. Download images if found: `python3 scripts/download-images.py <source_url> <output_dir> --limit 7`
    — copies into `images/` subdirectory and generates a markdown snippet for the Visual Assets section

@@ -1,38 +1,53 @@
+# deck.recipe.yml — per-talk slide-generation recipe
+#
+# This recipe captures the slide-adaptation choices for the copilot-code-review tech talk.
+# The README stays the source of content; this recipe controls how that content is
+# adapted into slides for this one talk.
+
 version: 1
+
+# Path to the source README that drives the deck
 source: tech-talks/copilot-code-review/README.md
 
 deck:
-  title: Copilot Code Review
-  subtitle: Accelerating PR Velocity & Maximizing ROI
-  tagline: Turn PR analytics and review-time assumptions into an executive-ready savings story
+  # Title slide text
+  title: GitHub Copilot Code Review
+  subtitle: From Bottleneck to Accelerator
+  tagline: Reduce PR review time while maintaining code quality and compliance
 
+  # How the opening slides should frame the talk
   intro:
-    mode: core-question
+    mode: core-question # Start with the question "How can we reduce PR time while maintaining quality?"
 
+  # TOC behavior
   toc:
     enabled: true
 
+  # Ordered major sections from README `<!-- 🎬 MAJOR SECTION: ... -->` markers
   sectionOrder:
     - Setup & Configuration
-    - Compliance & Security
-    - ROI Metrics
-    - Team Adoption
+    - Understanding Review Feedback
+    - Measuring ROI
+    - Enterprise Compliance
 
+  # Optional per-section emphasis hints for the slide generator
   sectionModes:
-    Setup & Configuration: balanced
-    Compliance & Security: balanced
-    ROI Metrics: deep-dive
-    Team Adoption: compact
+    Setup & Configuration: balanced # Basic + advanced patterns
+    Understanding Review Feedback: deep-dive # Six capability categories with examples
+    Measuring ROI: balanced # Calculator + optional automation
+    Enterprise Compliance: compact # Focus on instruction files
 
+  # Optional named moments to feature prominently
   highlightMoments:
-    - Interactive calculator turns PR analytics into an executive-ready summary
-    - Live example shows 15.0 days faster PR cycle time and 78.9% improvement
-    - Incremental upside becomes visible even at low CCR adoption
+    - 40-60% reduction in PR review cycle time
+    - 90%+ reduction in security violations reaching production
+    - Complete ROI calculation with interactive calculator
 
+  # Closing / supporting slides
   references:
     enabled: true
-    mode: standard
+    mode: standard # Full reference list with 16 citations
 
   thankYou:
     enabled: true
-    variant: standard
+    variant: standard # Standard closing slide

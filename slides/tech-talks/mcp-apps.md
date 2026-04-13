@@ -43,31 +43,26 @@ updated: 2026-02-01
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-cyan-300 mb-4">
-"How do I create interactive visualizations and UI components within chat instead of exporting data to external tools?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"How do I create interactive visualizations within chat instead of exporting to external tools?"</div>
+<div class="text-xl opacity-90 mt-6">Charts, data explorers, and UI components that live inside the conversation — <span class="text-cyan-300 font-semibold">MCP Apps turn static responses into interactive experiences.</span></div>
 </div>
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Beyond Text</div>
+<div class="opacity-70 mt-1">Real charts, not ASCII</div>
 </div>
-
-<div class="mt-8 grid grid-cols-3 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-1">📊</div>
-<div class="font-semibold text-amber-300 mb-1">Data Visualization Trapped in Text</div>
-<div class="text-xs opacity-80">Charts and tables as ASCII or markdown—hard to read, impossible to interact with</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">No Context Switch</div>
+<div class="opacity-70 mt-1">Explore in-place</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
-<div class="text-xl mb-1">🔄</div>
-<div class="font-semibold text-orange-300 mb-1">Context Switching for Visuals</div>
-<div class="text-xs opacity-80">Copy to Excel, export to visualization tools, rebuild charts manually—5-10 min per query</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
-<div class="text-xl mb-1">⏱️</div>
-<div class="font-semibold text-red-300 mb-1">Static Responses</div>
-<div class="text-xs opacity-80">Can't explore data differently without crafting new prompts and starting over</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">Interactive</div>
+<div class="opacity-70 mt-1">Click, filter, drill down</div>
 </div>
 </div>
 </div>
@@ -195,26 +190,24 @@ updated: 2026-02-01
 <div class="flex-1 flex flex-col overflow-hidden">
 <div class="text-xs font-semibold text-gray-400 mb-1">Component Spec (TypeScript)</div>
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50">
-<pre class="text-xs p-2 leading-relaxed"><code class="language-typescript">return {
-  content: [{
-    type: "component",
-    component: {
-      type: "chart",
-      chartType: "bar",
-      title: "Monthly Revenue",
-      data: [
-        { label: "Jan", value: 45000 },
-        { label: "Feb", value: 52000 },
-        { label: "Mar", value: 61000 }
-      ],
-      options: {
-        interactive: true,
-        colors: ["#4CAF50"],
-        showLegend: true
-      }
-    }
-  }]
-};</code></pre>
+<div class="text-xs p-2 leading-relaxed font-mono">
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chartType: <span class="text-amber-300">"bar"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Monthly Revenue"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"Jan"</span>, value: <span class="text-cyan-300">45000</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"Feb"</span>, value: <span class="text-cyan-300">52000</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"Mar"</span>, value: <span class="text-cyan-300">61000</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; interactive: <span class="text-purple-400">true</span>, colors: [<span class="text-amber-300">"#4CAF50"</span>] &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&#125;]<br/>
+&#125;;
+</div>
 </div>
 </div>
 </div>
@@ -261,27 +254,24 @@ updated: 2026-02-01
 <div class="flex-1 flex flex-col overflow-hidden">
 <div class="text-xs font-semibold text-gray-400 mb-1">Component Spec (TypeScript)</div>
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50">
-<pre class="text-xs p-2 leading-relaxed"><code class="language-typescript">return {
-  content: [{
-    type: "component",
-    component: {
-      type: "table",
-      title: "Active Users",
-      columns: [
-        { key: "name", label: "Name", sortable: true },
-        { key: "role", label: "Role", filterable: true },
-        { key: "lastActive", label: "Last Active", 
-          sortable: true, type: "date" }
-      ],
-      data: [
-        { name: "Alice", role: "Admin", lastActive: "..." },
-        { name: "Bob", role: "User", lastActive: "..." }
-      ],
-      options: { pagination: true, searchable: true, 
-        exportable: true }
-    }
-  }]
-};</code></pre>
+<div class="text-xs p-2 leading-relaxed font-mono">
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Active Users"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"name"</span>, label: <span class="text-amber-300">"Name"</span>, sortable: <span class="text-purple-400">true</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"role"</span>, label: <span class="text-amber-300">"Role"</span>, filterable: <span class="text-purple-400">true</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"lastActive"</span>, label: <span class="text-amber-300">"Last Active"</span>, sortable: <span class="text-purple-400">true</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: [&#123; name: <span class="text-amber-300">"Alice"</span>, role: <span class="text-amber-300">"Admin"</span> &#125;, ...],<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; pagination: <span class="text-purple-400">true</span>, searchable: <span class="text-purple-400">true</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&#125;]<br/>
+&#125;;
+</div>
 </div>
 </div>
 </div>
@@ -334,30 +324,26 @@ updated: 2026-02-01
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Form example
-{ type: "form", title: "Create User",
-  fields: [
-    { name: "username", type: "text", required: true, 
-      pattern: "^[a-zA-Z0-9_]{3,20}$" },
-    { name: "role", type: "select", 
-      options: ["Admin", "Editor", "Viewer"] }
-  ],
-  submitLabel: "Create",
-  onSubmit: "process-user-creation" // Callback tool
-}
-
-// Tree example
-{ type: "tree", title: "Project Files",
-  data: [
-    { label: "src/", icon: "folder", expandable: true,
-      children: [
-        { label: "index.ts", icon: "typescript", 
-          data: { path: "src/index.ts" } }
-      ]
-    }
-  ],
-  options: { selectable: true, onSelect: "open-file" }
-}</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Form example</span><br/>
+&#123; type: <span class="text-amber-300">"form"</span>, title: <span class="text-amber-300">"Create User"</span>,<br/>
+&nbsp;&nbsp;fields: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"username"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"role"</span>, type: <span class="text-amber-300">"select"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: [<span class="text-amber-300">"Admin"</span>, <span class="text-amber-300">"Editor"</span>, <span class="text-amber-300">"Viewer"</span>] &#125;<br/>
+&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"process-user-creation"</span> <span class="text-green-400">// Callback tool</span><br/>
+&#125;<br/>
+<br/>
+<span class="text-green-400">// Tree example</span><br/>
+&#123; type: <span class="text-amber-300">"tree"</span>, title: <span class="text-amber-300">"Project Files"</span>,<br/>
+&nbsp;&nbsp;data: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"src/"</span>, icon: <span class="text-amber-300">"folder"</span>, expandable: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children: [&#123; label: <span class="text-amber-300">"index.ts"</span> &#125;] &#125;<br/>
+&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;options: &#123; selectable: <span class="text-purple-400">true</span>, onSelect: <span class="text-amber-300">"open-file"</span> &#125;<br/>
+&#125;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs text-gray-300">
@@ -410,35 +396,20 @@ updated: 2026-02-01
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">return {
-  content: [{
-    type: "component",
-    component: {
-      type: "custom",
-      html: `
-        &lt;div class="flame-graph"&gt;
-          &lt;h3&gt;Performance Flame Graph&lt;/h3&gt;
-          &lt;canvas id="flame-canvas" width="800" height="400"&gt;&lt;/canvas&gt;
-        &lt;/div&gt;
-      `,
-      css: `
-        .flame-graph {
-          padding: 16px;
-          background: var(--vscode-editor-background);
-        }
-        .flame-graph h3 {
-          color: var(--vscode-foreground);
-        }
-      `,
-      script: `
-        const canvas = document.getElementById('flame-canvas');
-        const ctx = canvas.getContext('2d');
-        drawFlameGraph(ctx, data);
-      `,
-      sandbox: true
-    }
-  }]
-};</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"custom"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html: <span class="text-amber-300">`&lt;div class="flame-graph"&gt;...&lt;/div&gt;`</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css: <span class="text-amber-300">`.flame-graph &#123; padding: 16px; &#125;`</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script: <span class="text-amber-300">`drawFlameGraph(ctx, data);`</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sandbox: <span class="text-purple-400">true</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&#125;]<br/>
+&#125;;
+</div>
 </div>
 </div>
 </div>
@@ -569,52 +540,37 @@ updated: 2026-02-01
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// src/index.ts
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-
-const server = new Server({
-  name: "my-mcp-app",
-  version: "1.0.0"
-}, { capabilities: { tools: {} } });
-
-// Define tools
-server.setRequestHandler("tools/list", async () => ({
-  tools: [{
-    name: "show-metrics",
-    description: "Display project metrics as interactive charts",
-    inputSchema: {
-      type: "object",
-      properties: {
-        timeRange: { type: "string", enum: ["day", "week", "month"] }
-      }
-    }
-  }]
-}));
-
-// Handle tool calls
-server.setRequestHandler("tools/call", async (request) => {
-  if (request.params.name === "show-metrics") {
-    const { timeRange } = request.params.arguments;
-    const data = await fetchMetrics(timeRange);
-
-    return {
-      content: [{
-        type: "component",  // Return component, not text
-        component: {
-          type: "chart",
-          chartType: "line",
-          title: `Metrics (${timeRange})`,
-          data: data,
-          options: { interactive: true }
-        }
-      }]
-    };
-  }
-});
-
-const transport = new StdioServerTransport();
-await server.connect(transport);</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// src/index.ts</span><br/>
+<span class="text-purple-400">import</span> &#123; Server &#125; <span class="text-purple-400">from</span> <span class="text-amber-300">"@modelcontextprotocol/sdk/server/index.js"</span>;<br/>
+<span class="text-purple-400">import</span> &#123; StdioServerTransport &#125; <span class="text-purple-400">from</span> <span class="text-amber-300">"@modelcontextprotocol/sdk/server/stdio.js"</span>;<br/>
+<br/>
+<span class="text-purple-400">const</span> server = <span class="text-purple-400">new</span> <span class="text-cyan-400">Server</span>(&#123;<br/>
+&nbsp;&nbsp;name: <span class="text-amber-300">"my-mcp-app"</span>,<br/>
+&nbsp;&nbsp;version: <span class="text-amber-300">"1.0.0"</span><br/>
+&#125;, &#123; capabilities: &#123; tools: &#123;&#125; &#125; &#125;);<br/>
+<br/>
+<span class="text-green-400">// Define tools</span><br/>
+server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-amber-300">"tools/list"</span>, <span class="text-purple-400">async</span> () => (&#123;<br/>
+&nbsp;&nbsp;tools: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;name: <span class="text-amber-300">"show-metrics"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;description: <span class="text-amber-300">"Display project metrics as interactive charts"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;inputSchema: &#123; type: <span class="text-amber-300">"object"</span>, properties: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timeRange: &#123; type: <span class="text-amber-300">"string"</span>, enum: [<span class="text-amber-300">"day"</span>, <span class="text-amber-300">"week"</span>, <span class="text-amber-300">"month"</span>] &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125; &#125;<br/>
+&nbsp;&nbsp;&#125;]<br/>
+&#125;));<br/>
+<br/>
+<span class="text-green-400">// Handle tool calls - return component</span><br/>
+server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-amber-300">"tools/call"</span>, <span class="text-purple-400">async</span> (request) => &#123;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> data = <span class="text-purple-400">await</span> <span class="text-cyan-400">fetchMetrics</span>(request.params.arguments.timeRange);<br/>
+&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123; content: [&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>, chartType: <span class="text-amber-300">"line"</span>, data, options: &#123; interactive: <span class="text-purple-400">true</span> &#125;<br/>
+&nbsp;&nbsp;&#125; &#125;] &#125;;<br/>
+&#125;);<br/>
+<br/>
+<span class="text-purple-400">await</span> server.<span class="text-cyan-400">connect</span>(<span class="text-purple-400">new</span> <span class="text-cyan-400">StdioServerTransport</span>());
+</div>
 </div>
 </div>
 </div>
@@ -648,37 +604,34 @@ Tool returns form component with <code>onSubmit</code> callback → User fills f
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Form tool response
-return {
-  content: [{
-    type: "component",
-    component: {
-      type: "form",
-      title: "Create New User",
-      fields: [
-        { name: "username", type: "text", required: true },
-        { name: "email", type: "email", required: true }
-      ],
-      submitLabel: "Create",
-      onSubmit: "process-user-creation"  // Callback tool name
-    }
-  }]
-};
-
-// Callback handler (different tool)
-server.setRequestHandler("tools/call", async (request) => {
-  if (request.params.name === "process-user-creation") {
-    const { username, email } = request.params.arguments;
-    await createUser(username, email);
-
-    return {
-      content: [{
-        type: "text",
-        text: `✅ User ${username} created successfully!`
-      }]
-    };
-  }
-});</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Form tool response</span><br/>
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"form"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Create New User"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"username"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"email"</span>, type: <span class="text-amber-300">"email"</span>, required: <span class="text-purple-400">true</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;submitLabel: <span class="text-amber-300">"Create"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"process-user-creation"</span>  <span class="text-green-400">// Callback tool</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&#125;]<br/>
+&#125;;<br/>
+<br/>
+<span class="text-green-400">// Callback handler (different tool)</span><br/>
+server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-amber-300">"tools/call"</span>, <span class="text-purple-400">async</span> (request) => &#123;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"process-user-creation"</span>) &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; username, email &#125; = request.params.arguments;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">await</span> <span class="text-cyan-400">createUser</span>(username, email);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123; content: [&#123; type: <span class="text-amber-300">"text"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: <span class="text-amber-300">`✅ User $&#123;username&#125; created!`</span> &#125;] &#125;;<br/>
+&nbsp;&nbsp;&#125;<br/>
+&#125;);
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
@@ -721,17 +674,17 @@ server.setRequestHandler("tools/call", async (request) => {
 <div class="flex-1 flex flex-col overflow-hidden">
 <div class="text-xs font-semibold text-gray-400 mb-1">mcp.json Configuration</div>
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50">
-<pre class="text-xs p-2 leading-relaxed"><code class="language-json">{
-  "servers": {
-    "my-metrics-app": {
-      "type": "stdio",
-      "command": "node",
-      "args": [
-        "${workspaceFolder}/mcp-apps/dist/index.js"
-      ]
-    }
-  }
-}</code></pre>
+<div class="text-xs p-2 leading-relaxed font-mono">
+&#123;<br/>
+&nbsp;&nbsp;<span class="text-cyan-400">"servers"</span>: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"my-metrics-app"</span>: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"type"</span>: <span class="text-amber-300">"stdio"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"command"</span>: <span class="text-amber-300">"node"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"args"</span>: [<span class="text-amber-300">"$&#123;workspaceFolder&#125;/mcp-apps/dist/index.js"</span>]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&#125;<br/>
+&#125;
+</div>
 </div>
 </div>
 </div>
@@ -808,33 +761,35 @@ server.setRequestHandler("tools/call", async (request) => {
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Tool returns multiple components
-return {
-  content: [
-    {
-      type: "component",
-      component: {
-        type: "chart",
-        chartType: "bar",
-        title: "Commits by Author",
-        data: authorStats
-      }
-    },
-    {
-      type: "component",
-      component: {
-        type: "table",
-        title: "Recent Pull Requests",
-        columns: [
-          { key: "title", label: "Title", sortable: true },
-          { key: "status", label: "Status", filterable: true }
-        ],
-        data: recentPRs,
-        options: { pagination: true, pageSize: 10 }
-      }
-    }
-  ]
-};</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Tool returns multiple components</span><br/>
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chartType: <span class="text-amber-300">"bar"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Commits by Author"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: authorStats<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Recent Pull Requests"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"title"</span>, label: <span class="text-amber-300">"Title"</span>, sortable: <span class="text-purple-400">true</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"status"</span>, label: <span class="text-amber-300">"Status"</span>, filterable: <span class="text-purple-400">true</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: recentPRs,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; pagination: <span class="text-purple-400">true</span>, pageSize: <span class="text-cyan-300">10</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;]<br/>
+&#125;;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
@@ -873,39 +828,41 @@ return {
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Initial chart with callback
-{
-  type: "chart",
-  chartType: "bar",
-  title: "Sales by Region",
-  data: regionSales,
-  options: {
-    interactive: true,
-    onClick: "show-region-details"  // Callback tool
-  }
-}
-
-// Callback returns detailed table
-if (request.params.name === "show-region-details") {
-  const { region } = request.params.arguments;
-  const details = await fetchRegionDetails(region);
-
-  return {
-    content: [{
-      type: "component",
-      component: {
-        type: "table",
-        title: `${region} Sales Details`,
-        columns: [
-          { key: "product", label: "Product", sortable: true },
-          { key: "revenue", label: "Revenue", sortable: true, type: "currency" }
-        ],
-        data: details,
-        options: { sortable: true, exportable: true }
-      }
-    }]
-  };
-}</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Initial chart with callback</span><br/>
+&#123;<br/>
+&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>,<br/>
+&nbsp;&nbsp;chartType: <span class="text-amber-300">"bar"</span>,<br/>
+&nbsp;&nbsp;title: <span class="text-amber-300">"Sales by Region"</span>,<br/>
+&nbsp;&nbsp;data: regionSales,<br/>
+&nbsp;&nbsp;options: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;interactive: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;onClick: <span class="text-amber-300">"show-region-details"</span>  <span class="text-green-400">// Callback tool</span><br/>
+&nbsp;&nbsp;&#125;<br/>
+&#125;<br/>
+<br/>
+<span class="text-green-400">// Callback returns detailed table</span><br/>
+<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"show-region-details"</span>) &#123;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; region &#125; = request.params.arguments;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> details = <span class="text-purple-400">await</span> <span class="text-cyan-400">fetchRegionDetails</span>(region);<br/>
+<br/>
+&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">`$&#123;region&#125; Sales Details`</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"product"</span>, label: <span class="text-amber-300">"Product"</span>, sortable: <span class="text-purple-400">true</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"revenue"</span>, label: <span class="text-amber-300">"Revenue"</span>, type: <span class="text-amber-300">"currency"</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: details,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; sortable: <span class="text-purple-400">true</span>, exportable: <span class="text-purple-400">true</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;]<br/>
+&nbsp;&nbsp;&#125;;<br/>
+&#125;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
@@ -944,30 +901,32 @@ if (request.params.name === "show-region-details") {
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Step 1: Collect configuration
-{
-  type: "form",
-  title: "Configure New API Endpoint",
-  fields: [
-    { name: "path", type: "text", required: true },
-    { name: "method", type: "select", options: ["GET", "POST", "PUT"] },
-    { name: "auth", type: "checkbox", label: "Require authentication" }
-  ],
-  onSubmit: "generate-endpoint-code"
-}
-
-// Step 2: Generate and show code
-if (request.params.name === "generate-endpoint-code") {
-  const { path, method, auth } = request.params.arguments;
-  const code = generateEndpointCode(path, method, auth);
-
-  return {
-    content: [{
-      type: "text",
-      text: `\`\`\`typescript\n${code}\n\`\`\``
-    }]
-  };
-}</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Step 1: Collect configuration</span><br/>
+&#123;<br/>
+&nbsp;&nbsp;type: <span class="text-amber-300">"form"</span>,<br/>
+&nbsp;&nbsp;title: <span class="text-amber-300">"Configure New API Endpoint"</span>,<br/>
+&nbsp;&nbsp;fields: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"path"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"method"</span>, type: <span class="text-amber-300">"select"</span>, options: [<span class="text-amber-300">"GET"</span>, <span class="text-amber-300">"POST"</span>, <span class="text-amber-300">"PUT"</span>] &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"auth"</span>, type: <span class="text-amber-300">"checkbox"</span>, label: <span class="text-amber-300">"Require authentication"</span> &#125;<br/>
+&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"generate-endpoint-code"</span><br/>
+&#125;<br/>
+<br/>
+<span class="text-green-400">// Step 2: Generate and show code</span><br/>
+<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"generate-endpoint-code"</span>) &#123;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; path, method, auth &#125; = request.params.arguments;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> code = <span class="text-cyan-400">generateEndpointCode</span>(path, method, auth);<br/>
+<br/>
+&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"text"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: <span class="text-amber-300">`\`\`\`typescript\n$&#123;code&#125;\n\`\`\``</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;]<br/>
+&nbsp;&nbsp;&#125;;<br/>
+&#125;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
@@ -1014,30 +973,32 @@ if (request.params.name === "generate-endpoint-code") {
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">{
-  type: "tree",
-  title: "Project Files",
-  data: buildFileTree(workspace),
-  options: {
-    expandable: true,
-    selectable: true,
-    onSelect: "open-file-details"
-  }
-}
-
-// Callback shows file metadata
-if (request.params.name === "open-file-details") {
-  const { path } = request.params.arguments;
-  const stats = await fs.stat(path);
-  const preview = await fs.readFile(path, 'utf8');
-
-  return {
-    content: [
-      { type: "text", text: `**File:** ${path}\n**Size:** ${stats.size} bytes` },
-      { type: "text", text: `\`\`\`\n${preview.slice(0, 500)}\n\`\`\`` }
-    ]
-  };
-}</code></pre>
+<div class="font-mono leading-relaxed">
+&#123;<br/>
+&nbsp;&nbsp;type: <span class="text-amber-300">"tree"</span>,<br/>
+&nbsp;&nbsp;title: <span class="text-amber-300">"Project Files"</span>,<br/>
+&nbsp;&nbsp;data: <span class="text-cyan-400">buildFileTree</span>(workspace),<br/>
+&nbsp;&nbsp;options: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;expandable: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;selectable: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;onSelect: <span class="text-amber-300">"open-file-details"</span><br/>
+&nbsp;&nbsp;&#125;<br/>
+&#125;<br/>
+<br/>
+<span class="text-green-400">// Callback shows file metadata</span><br/>
+<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"open-file-details"</span>) &#123;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; path &#125; = request.params.arguments;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> stats = <span class="text-purple-400">await</span> fs.<span class="text-cyan-400">stat</span>(path);<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> preview = <span class="text-purple-400">await</span> fs.<span class="text-cyan-400">readFile</span>(path, <span class="text-amber-300">'utf8'</span>);<br/>
+<br/>
+&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;content: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"text"</span>, text: <span class="text-amber-300">`**File:** $&#123;path&#125;\n**Size:** $&#123;stats.size&#125; bytes`</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"text"</span>, text: <span class="text-amber-300">`\`\`\`\n$&#123;preview.slice(0, 500)&#125;\n\`\`\``</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br/>
+&nbsp;&nbsp;&#125;;<br/>
+&#125;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
@@ -1125,23 +1086,25 @@ if (request.params.name === "open-file-details") {
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Multi-component dashboard
-return {
-  content: [
-    { type: "component", component: { 
-      type: "chart", chartType: "line", 
-      title: "CPU Usage", data: cpuData 
-    }},
-    { type: "component", component: { 
-      type: "chart", chartType: "area", 
-      title: "Memory Usage", data: memData 
-    }},
-    { type: "component", component: { 
-      type: "table", title: "Error Logs", 
-      columns: [...], data: errors 
-    }}
-  ]
-};</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Multi-component dashboard</span><br/>
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>, chartType: <span class="text-amber-300">"line"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"CPU Usage"</span>, data: cpuData<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;&#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>, chartType: <span class="text-amber-300">"area"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Memory Usage"</span>, data: memData<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;&#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>, title: <span class="text-amber-300">"Error Logs"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [...], data: errors<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;&#125;<br/>
+&nbsp;&nbsp;]<br/>
+&#125;;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg border border-blue-500/30 text-xs">
@@ -1193,25 +1156,27 @@ return {
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Interactive table with all features
-return {
-  content: [{
-    type: "component",
-    component: {
-      type: "table",
-      title: "Query Results",
-      columns: resultColumns,
-      data: resultRows,
-      options: {
-        sortable: true,
-        searchable: true,
-        exportable: true,
-        pagination: true,
-        pageSize: 50
-      }
-    }
-  }]
-};</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Interactive table with all features</span><br/>
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Query Results"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: resultColumns,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: resultRows,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searchable: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exportable: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pageSize: <span class="text-cyan-300">50</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&#125;]<br/>
+&#125;;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg border border-blue-500/30 text-xs">
@@ -1262,35 +1227,37 @@ return {
 </div>
 
 <div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<pre><code class="language-typescript">// Scaffolding form
-return {
-  content: [{
-    type: "component",
-    component: {
-      type: "form",
-      title: "New Microservice Configuration",
-      fields: [
-        { name: "serviceName", type: "text", required: true, 
-          pattern: "^[a-z-]+$" },
-        { name: "language", type: "select", 
-          options: ["TypeScript", "Python", "Go"] },
-        { name: "database", type: "select", 
-          options: ["PostgreSQL", "MongoDB", "None"] },
-        { name: "auth", type: "checkbox", 
-          label: "Requires authentication" }
-      ],
-      onSubmit: "generate-scaffold"
-    }
-  }]
-};
-
-// Callback generates repo
-if (request.params.name === "generate-scaffold") {
-  const config = request.params.arguments;
-  await generateScaffold(config);
-  return { content: [{ type: "text", 
-    text: `✅ Service ${config.serviceName} created!` }] };
-}</code></pre>
+<div class="font-mono leading-relaxed">
+<span class="text-green-400">// Scaffolding form</span><br/>
+<span class="text-purple-400">return</span> &#123;<br/>
+&nbsp;&nbsp;content: [&#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"form"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"New Microservice Configuration"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"serviceName"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern: <span class="text-amber-300">"^[a-z-]+$"</span> &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"language"</span>, type: <span class="text-amber-300">"select"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: [<span class="text-amber-300">"TypeScript"</span>, <span class="text-amber-300">"Python"</span>, <span class="text-amber-300">"Go"</span>] &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"database"</span>, type: <span class="text-amber-300">"select"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: [<span class="text-amber-300">"PostgreSQL"</span>, <span class="text-amber-300">"MongoDB"</span>, <span class="text-amber-300">"None"</span>] &#125;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"auth"</span>, type: <span class="text-amber-300">"checkbox"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label: <span class="text-amber-300">"Requires authentication"</span> &#125;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"generate-scaffold"</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
+&nbsp;&nbsp;&#125;]<br/>
+&#125;;<br/>
+<br/>
+<span class="text-green-400">// Callback generates repo</span><br/>
+<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"generate-scaffold"</span>) &#123;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">const</span> config = request.params.arguments;<br/>
+&nbsp;&nbsp;<span class="text-purple-400">await</span> <span class="text-cyan-400">generateScaffold</span>(config);<br/>
+&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123; content: [&#123; type: <span class="text-amber-300">"text"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;text: <span class="text-amber-300">`✅ Service $&#123;config.serviceName&#125; created!`</span> &#125;] &#125;;<br/>
+&#125;
+</div>
 </div>
 
 <div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg border border-blue-500/30 text-xs">

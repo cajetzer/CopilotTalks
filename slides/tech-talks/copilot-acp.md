@@ -14,6 +14,7 @@ module: tech-talks/copilot-acp
 mdc: true
 status: active
 updated: 2026-02-11
+section: Agent Architecture
 ---
 
 <!-- SLIDE: Title Slide -->
@@ -43,31 +44,26 @@ updated: 2026-02-11
 <div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-6 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl border border-amber-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-amber-300 mb-4">
-"How do I integrate GitHub Copilot's agentic capabilities into any editor, tool, or workflow — not just VS Code?"
+<div class="p-8 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl border-2 border-amber-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"How do I integrate Copilot's agentic capabilities into any editor, tool, or workflow?"</div>
+<div class="text-xl opacity-90 mt-6">Not just VS Code — teams using Zed, JetBrains, Neovim, or Emacs deserve the same agent experience. <span class="text-amber-300 font-semibold">ACP is the LSP for AI agents — a standard protocol for editor ↔ agent communication.</span></div>
 </div>
-</div>
-
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-violet-900/30 to-purple-900/30 rounded-lg border border-violet-500/30">
-<div class="text-xl mb-2">🔒</div>
-<div class="font-semibold text-violet-300">Editor Lock-In</div>
-<div class="text-xs opacity-80 mt-1">Teams using Zed, JetBrains, Neovim, or Emacs can't access Copilot's agent experience</div>
+<div class="p-3 bg-gradient-to-br from-amber-900/20 to-amber-800/10 rounded-lg border border-amber-500/20 text-center">
+<div class="text-amber-300 font-bold">Editor Lock-In</div>
+<div class="opacity-70 mt-1">Beyond VS Code</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-lg border border-purple-500/30">
-<div class="text-xl mb-2">🔌</div>
-<div class="font-semibold text-purple-300">N×M Integration Matrix</div>
-<div class="text-xs opacity-80 mt-1">Every IDE needs a custom plugin for each AI agent — fragmented ecosystem</div>
+<div class="p-3 bg-gradient-to-br from-orange-900/20 to-orange-800/10 rounded-lg border border-orange-500/20 text-center">
+<div class="text-orange-300 font-bold">N×M Problem</div>
+<div class="opacity-70 mt-1">Standard protocol</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-blue-900/30 rounded-lg border border-indigo-500/30">
-<div class="text-xl mb-2">🚧</div>
-<div class="font-semibold text-indigo-300">No Standard Protocol</div>
-<div class="text-xs opacity-80 mt-1">Unlike LSP for language servers, there's no protocol for editor ↔ agent communication</div>
+<div class="p-3 bg-gradient-to-br from-red-900/20 to-red-800/10 rounded-lg border border-red-500/20 text-center">
+<div class="text-red-300 font-bold">Custom Tools</div>
+<div class="opacity-70 mt-1">Embed agent runtime</div>
 </div>
 </div>
 </div>
@@ -263,7 +259,6 @@ updated: 2026-02-11
 <div class="text-xs opacity-70 font-mono bg-black/30 p-2 rounded">Enterprise-ready security model built into protocol</div>
 </div>
 </div>
-
 <div class="mt-3 p-3 bg-gradient-to-r from-violet-900/20 to-purple-900/20 rounded-xl border border-violet-500/20">
 <div class="font-semibold text-violet-300 mb-1">🔧 Multi-Language SDK Ecosystem</div>
 <div class="text-xs opacity-90">Official SDKs in TypeScript, Python, Rust, and Kotlin for building custom integrations in your team's preferred language</div>
@@ -457,7 +452,6 @@ updated: 2026-02-11
 </div>
 </div>
 </div>
-
 <div class="space-y-3 text-xs">
 <div class="p-3 bg-gradient-to-br from-violet-900/20 to-purple-900/20 rounded-lg border border-violet-500/20">
 <div class="font-semibold text-violet-300 mb-2">🔑 Key Properties</div>
@@ -468,7 +462,6 @@ updated: 2026-02-11
 <div>• Agents never act without approval — architecturally enforced</div>
 </div>
 </div>
-
 <div class="p-3 bg-gradient-to-br from-purple-900/20 to-indigo-900/20 rounded-lg border border-purple-500/20">
 <div class="font-semibold text-purple-300 mb-2">🎯 Why This Matters</div>
 <div class="space-y-1 opacity-90">
@@ -477,7 +470,6 @@ updated: 2026-02-11
 <div>• <span class="text-yellow-400">Permission-mediated</span> — Enterprise-ready security built into protocol</div>
 </div>
 </div>
-
 <div class="p-3 bg-gradient-to-br from-indigo-900/20 to-blue-900/20 rounded-lg border border-indigo-500/20">
 <div class="font-semibold text-indigo-300 mb-2">📚 Session Context</div>
 <div class="opacity-90">Sessions maintain conversation history — subsequent prompts build on prior context without re-explaining</div>
@@ -550,7 +542,6 @@ updated: 2026-02-11
 </tr>
 </tbody>
 </table>
-
 <div class="mt-3 p-3 bg-gradient-to-r from-violet-900/20 to-purple-900/20 rounded-xl border border-violet-500/30">
 <div class="font-semibold text-violet-300 mb-1">🔗 How They Work Together</div>
 <div class="text-xs opacity-90 space-y-1">
@@ -629,7 +620,6 @@ updated: 2026-02-11
 <div class="text-green-400">copilot --acp --port 3000</div>
 </div>
 </div>
-
 <div class="p-3 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30">
 <div class="font-bold text-blue-300 mb-2">Step 2: Install TypeScript SDK</div>
 <div class="text-xs opacity-90 mb-2">Official SDK with full typing and examples</div>
@@ -641,21 +631,20 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 </div>
 </div>
-
 <div class="space-y-2">
 <div class="p-3 bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-xl border border-cyan-500/30">
 <div class="font-bold text-cyan-300 mb-2">Step 3: Basic Client Code</div>
 <div class="font-mono text-xs bg-black/40 p-3 rounded space-y-0.5">
 <div><span class="text-purple-400">import</span> <span class="text-white">* as acp from <span class="text-green-400">"@agentclientprotocol/sdk"</span>;</span></div>
-<div><span class="text-purple-400">import</span> <span class="text-white">{'{'} spawn {'}'} from <span class="text-green-400">"node:child_process"</span>;</span></div>
+<div><span class="text-purple-400">import</span> <span class="text-white">&#123; spawn &#125; from <span class="text-green-400">"node:child_process"</span>;</span></div>
 <div class="text-gray-400 mt-1">// Spawn server, create stream + client</div>
 <div><span class="text-purple-400">const</span> <span class="text-white">process = spawn(<span class="text-green-400">"copilot"</span>, [<span class="text-green-400">"--acp"</span>, <span class="text-green-400">"--stdio"</span>]);</span></div>
 <div><span class="text-purple-400">const</span> <span class="text-white">stream = acp.ndJsonStream(output, input);</span></div>
 <div class="text-gray-400 mt-1">// Connect, create session, send prompt</div>
 <div><span class="text-purple-400">const</span> <span class="text-white">conn = <span class="text-purple-400">new</span> acp.ClientSideConnection();</span></div>
-<div><span class="text-purple-400">await</span> <span class="text-white">conn.initialize({'{'} protocolVersion {'}'});</span></div>
-<div><span class="text-purple-400">const</span> <span class="text-white">session = <span class="text-purple-400">await</span> conn.newSession({'{'}cwd{'}'});</span></div>
-<div><span class="text-purple-400">await</span> <span class="text-white">conn.prompt({'{'} sessionId, prompt {'}'});</span></div>
+<div><span class="text-purple-400">await</span> <span class="text-white">conn.initialize(&#123; protocolVersion &#125;);</span></div>
+<div><span class="text-purple-400">const</span> <span class="text-white">session = <span class="text-purple-400">await</span> conn.newSession(&#123;cwd&#125;);</span></div>
+<div><span class="text-purple-400">await</span> <span class="text-white">conn.prompt(&#123; sessionId, prompt &#125;);</span></div>
 </div>
 </div>
 </div>
@@ -691,7 +680,7 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 <div class="ml-9 text-xs opacity-90 mb-2">Agent capabilities and protocol version returned immediately</div>
 <div class="ml-9 font-mono text-xs bg-black/40 p-2 rounded">
-<div class="text-gray-400">{'{'} protocolVersion: "1.0", capabilities: {'{'} streaming: true, ... {'}'} {'}'}</div>
+<div class="text-gray-400">&#123; protocolVersion: "1.0", capabilities: &#123; streaming: true, ... &#125; &#125;</div>
 </div>
 </div>
 <div class="p-4 bg-gradient-to-br from-green-900/20 to-emerald-900/20 rounded-xl border border-green-500/30">
@@ -701,7 +690,7 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 <div class="ml-9 text-xs opacity-90 mb-2">Unique sessionId for all subsequent prompts in this conversation</div>
 <div class="ml-9 font-mono text-xs bg-black/40 p-2 rounded">
-<div class="text-gray-400">{'{'} sessionId: "abc123-xyz789", status: "ready" {'}'}</div>
+<div class="text-gray-400">&#123; sessionId: "abc123-xyz789", status: "ready" &#125;</div>
 </div>
 </div>
 </div>
@@ -736,7 +725,7 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 <div class="ml-9 text-xs opacity-90 mb-2">Agent processes your prompt — response chunks arrive in real-time</div>
 <div class="ml-9 font-mono text-xs bg-black/40 p-2 rounded">
-<div class="text-blue-400">sessionUpdate: {'{'} type: "agent_message_chunk", text: "The purpose..." {'}'}</div>
+<div class="text-blue-400">sessionUpdate: &#123; type: "agent_message_chunk", text: "The purpose..." &#125;</div>
 </div>
 </div>
 <div class="p-4 bg-gradient-to-br from-green-900/20 to-emerald-900/20 rounded-xl border border-green-500/30">
@@ -746,7 +735,7 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 <div class="ml-9 text-xs opacity-90 mb-2">Response complete with stop reason</div>
 <div class="ml-9 font-mono text-xs bg-black/40 p-2 rounded">
-<div class="text-gray-400">{'{'} stopReason: "end_turn", sessionId: "abc123-xyz789" {'}'}</div>
+<div class="text-gray-400">&#123; stopReason: "end_turn", sessionId: "abc123-xyz789" &#125;</div>
 </div>
 </div>
 <div class="p-3 bg-gradient-to-r from-indigo-900/20 to-blue-900/20 rounded-xl border border-indigo-500/20">
@@ -755,6 +744,7 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 </div>
 </div>
+
 
 ---
 
@@ -806,83 +796,69 @@ Also available: Python, Rust, Kotlin SDKs
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">1 of 6</span>
 </div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-2 text-sm">
-<div class="space-y-1.5">
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-1.5 text-xs">How Permission Mediation Works</div>
-<div class="text-xs opacity-90 space-y-1">
-<div class="bg-black/30 p-1.5 rounded">
-<div class="text-green-400 font-mono text-xs">Agent: "I need to run `npm test`"</div>
-</div>
-<div class="text-center opacity-70 text-xs">↓</div>
-<div class="bg-black/30 p-1.5 rounded">
-<div class="text-blue-400 font-mono text-xs">Client: Shows permission dialog to user</div>
-</div>
-<div class="text-center opacity-70 text-xs">↓</div>
-<div class="bg-black/30 p-1.5 rounded">
-<div class="text-yellow-400 font-mono text-xs">User: Approves or denies with explanation</div>
-</div>
-<div class="text-center opacity-70 text-xs">↓</div>
-<div class="bg-black/30 p-1.5 rounded">
-<div class="text-green-400 font-mono text-xs">Agent: Executes or adapts approach</div>
+<div class="grid grid-cols-2 gap-1.5 text-xs">
+<div class="space-y-1">
+<div class="p-1.5 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/30">
+<div class="font-bold text-blue-300 mb-1 text-xs">How Permission Mediation Works</div>
+<div class="opacity-90 space-y-0.5 text-xs">
+<div class="bg-black/30 px-1.5 py-0.5 rounded text-green-400 font-mono">Agent: "I need to run `npm test`"</div>
+<div class="text-center opacity-70 text-xs leading-none">↓</div>
+<div class="bg-black/30 px-1.5 py-0.5 rounded text-blue-400 font-mono">Client: Shows permission dialog</div>
+<div class="text-center opacity-70 text-xs leading-none">↓</div>
+<div class="bg-black/30 px-1.5 py-0.5 rounded text-yellow-400 font-mono">User: Approves or denies</div>
+<div class="text-center opacity-70 text-xs leading-none">↓</div>
+<div class="bg-black/30 px-1.5 py-0.5 rounded text-green-400 font-mono">Agent: Executes</div>
 </div>
 </div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-1.5 text-xs">Policy-Based Approval</div>
-<div class="font-mono text-xs bg-black/40 p-2 rounded space-y-0.5">
-<div class="text-gray-400">// Automated rules for known-safe ops</div>
-<div><span class="text-purple-400">const</span> <span class="text-white">SAFE = [<span class="text-green-400">"read_file"</span>, <span class="text-green-400">"list_directory"</span>];</span></div>
-<div><span class="text-purple-400">const</span> <span class="text-white">BLOCKED = [<span class="text-red-400">"delete_file"</span>];</span></div>
-<div class="mt-1"><span class="text-purple-400">if</span> <span class="text-white">(SAFE.includes(tool))</span></div>
-<div class="text-green-400 ml-4">return {'{'} approved {'}'};</div>
-<div><span class="text-purple-400">if</span> <span class="text-white">(BLOCKED.includes(tool))</span></div>
-<div class="text-red-400 ml-4">return {'{'} cancelled {'}'};</div>
-<div><span class="text-yellow-400">return</span> <span class="text-white">await promptUser();</span></div>
+<div class="p-1.5 bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-lg border border-cyan-500/30">
+<div class="font-bold text-cyan-300 mb-1 text-xs">Policy-Based Approval</div>
+<div class="font-mono text-xs bg-black/40 px-1.5 py-1 rounded space-y-0">
+<div class="text-gray-400">// Automated rules</div>
+<div><span class="text-purple-400">const</span> SAFE = [<span class="text-green-400">"read"</span>, <span class="text-green-400">"list"</span>];</div>
+<div><span class="text-purple-400">const</span> BLOCKED = [<span class="text-red-400">"delete"</span>];</div>
+<div class="text-xs">if (SAFE) → approve</div>
 </div>
 </div>
 </div>
-
-<div class="space-y-1.5">
+<div class="space-y-1">
 <table class="w-full text-xs">
 <thead>
 <tr class="border-b border-teal-500/30">
-<th class="text-left py-0.5 text-teal-300">Concern</th>
-<th class="text-left py-0.5 text-emerald-300">ACP Solution</th>
+<th class="text-left py-0 text-teal-300 text-xs">Concern</th>
+<th class="text-left py-0 text-emerald-300 text-xs">Solution</th>
 </tr>
 </thead>
 <tbody class="opacity-90">
 <tr class="border-b border-teal-500/10">
-<td class="py-0.5">Unauthorized file access</td>
-<td class="py-0.5">Permission callback gates every operation</td>
+<td class="py-0">Unauthorized access</td>
+<td class="py-0 text-xs">Permission gates every op</td>
 </tr>
 <tr class="border-b border-teal-500/10">
-<td class="py-0.5">Arbitrary command execution</td>
-<td class="py-0.5">Shell commands require explicit approval</td>
+<td class="py-0">Command execution</td>
+<td class="py-0 text-xs">Requires approval</td>
 </tr>
 <tr class="border-b border-teal-500/10">
-<td class="py-0.5">Data exfiltration</td>
-<td class="py-0.5">Network operations mediated through client</td>
+<td class="py-0">Data exfiltration</td>
+<td class="py-0 text-xs">Network mediated</td>
 </tr>
 <tr class="border-b border-teal-500/10">
-<td class="py-0.5">Scope creep</td>
-<td class="py-0.5">Session-scoped permissions; new session resets</td>
+<td class="py-0">Scope creep</td>
+<td class="py-0 text-xs">Session-scoped</td>
 </tr>
 <tr>
-<td class="py-0.5">Audit trail</td>
-<td class="py-0.5">Client logs all permission requests and outcomes</td>
+<td class="py-0">Audit trail</td>
+<td class="py-0 text-xs">All logged</td>
 </tr>
 </tbody>
 </table>
-</div>
-
-<div class="p-2 bg-gradient-to-r from-blue-900/20 to-cyan-900/20 rounded-xl border border-blue-500/20">
-<div class="text-xs opacity-90"><span class="text-blue-300 font-semibold">Architecturally Enforced:</span> Agents never bypass the permission layer — it's built into the protocol, not optional. Organizations can implement custom policies for auto-approval, audit logging, and scope isolation.</div>
+<div class="p-1 bg-gradient-to-r from-blue-900/20 to-cyan-900/20 rounded text-xs border border-blue-500/20">
+<span class="text-blue-300 font-semibold">Built-in:</span> Permission layer is part of the protocol, not optional.
 </div>
 </div>
 </div>
@@ -895,7 +871,7 @@ Also available: Python, Rust, Kotlin SDKs
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
+<div class="relative z-10 flex items-center gap-3 mb-2">
 <span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Use Case: Zed Editor Integration</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
@@ -903,54 +879,170 @@ Also available: Python, Rust, Kotlin SDKs
 <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">2 of 6</span>
 </div>
 </div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
-<div class="text-xl mb-2">🚧</div>
-<div class="font-bold text-red-300 mb-2">The Problem</div>
-<div class="text-xs opacity-90">Zed users wanted Copilot's full agent experience but had no integration path. Building VS Code extension-compatible layer would take months and break with each update.</div>
+<div class="relative z-10 mb-3">
+<h2 class="text-xl font-bold text-white">Any Editor. Zero Custom Code.</h2>
+<p class="text-sm text-blue-300/80 mt-1">How Zed got full Copilot agent support in 2 weeks instead of 3 months — by implementing a protocol, not a plugin.</p>
 </div>
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30">
-<div class="text-xl mb-2">✅</div>
-<div class="font-bold text-blue-300 mb-2">The Solution</div>
-<div class="text-xs opacity-90 mb-2">Zed implemented ACP client support, connecting directly to <code class="bg-black/40 px-1 rounded">copilot --acp --stdio</code></div>
-<div class="font-mono text-xs bg-black/40 p-2 rounded">
-<div class="text-gray-400"># Zed's agent config</div>
-<div class="text-green-400">copilot --acp --stdio</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-3 gap-2 text-xs flex-1">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30 flex flex-col">
+<div class="text-lg mb-1">🚧</div>
+<div class="font-bold text-red-300 mb-1">Problem</div>
+<div class="text-xs opacity-90 flex-1">Zed users wanted Copilot agent support. VS Code extension layer would take months, break with updates. Permanent burden for each editor.</div>
+<div class="mt-2 pt-2 border-t border-red-500/20 text-xs text-red-300/70">Custom per-editor</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/30 flex flex-col">
+<div class="text-lg mb-1">✅</div>
+<div class="font-bold text-blue-300 mb-1">Solution</div>
+<div class="text-xs opacity-90 mb-1 flex-1">Zed implemented ACP client — connect directly to Copilot CLI over stdio. One config line.</div>
+<div class="font-mono text-xs bg-black/40 p-1 rounded space-y-0">
+<div class="text-gray-400"># zed settings.json</div>
+<div class="text-cyan-300">"assistant": {</div>
+<div class="text-green-400">  "provider": {</div>
+<div class="text-green-400">    "name": "copilot_cli",</div>
+<div class="text-green-400">    "cmd": ["copilot", "--acp", "--stdio"]</div>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="text-xl mb-2">🎉</div>
-<div class="font-bold text-green-300 mb-2">The Outcome</div>
-<div class="text-xs opacity-90 space-y-2">
-<div>✅ Full Copilot agent experience in Zed</div>
-<div>✅ <span class="text-green-400 font-semibold">2 weeks</span> integration work vs <span class="text-red-400">3+ months</span> custom build</div>
-<div>✅ No maintenance burden when Copilot updates</div>
-<div>✅ Protocol versioning ensures compatibility</div>
+<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30 flex flex-col">
+<div class="text-lg mb-1">🎉</div>
+<div class="font-bold text-green-300 mb-1">Outcome</div>
+<div class="text-xs opacity-90 space-y-1 flex-1">
+<div>✅ 2 weeks vs 3+ months</div>
+<div>✅ Zero maintenance</div>
+<div>✅ Protocol versioned</div>
+<div>✅ Works in any editor</div>
+</div>
+<div class="mt-2 pt-2 border-t border-green-500/20 text-xs text-green-300/70">In production today</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/20 flex items-center gap-2">
+<div class="text-cyan-400 text-lg shrink-0">💡</div>
+<div class="text-xs text-cyan-200/90"><span class="font-semibold text-cyan-300">ACP insight:</span> Protocol neutrality means any tool gets full Copilot experience — no custom code, no maintenance.</div>
 </div>
 </div>
 </div>
 
-<div class="mt-4 grid grid-cols-2 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-violet-900/20 to-purple-900/20 rounded-xl border border-violet-500/30">
-<div class="font-bold text-violet-300 mb-2">Use Case: CI/CD Code Review Dashboard</div>
-<div class="text-xs opacity-90 space-y-1">
-<div><span class="text-violet-300 font-semibold">Problem:</span> Custom dashboard needs multi-turn review conversations, not simple commands</div>
-<div><span class="text-purple-300 font-semibold">Solution:</span> ACP client creates session per PR, sends diff context, streams review feedback</div>
-<div><span class="text-indigo-300 font-semibold">Outcome:</span> Review coverage increased from 60% to 100% of PRs with contextual, iterative feedback</div>
+---
+
+<!-- SLIDE: Use Case — CI/CD Code Review Dashboard -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Use Case: CI/CD Code Review Dashboard</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">3 of 6</span>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/20 to-blue-900/20 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-2">Use Case: Polyrepo Development</div>
-<div class="text-xs opacity-90 space-y-1">
-<div><span class="text-indigo-300 font-semibold">Problem:</span> Teams working across multiple repos need cross-repo context</div>
-<div><span class="text-blue-300 font-semibold">Solution:</span> ACP session with parent folder cwd + MCP filesystem servers for each repo</div>
-<div><span class="text-cyan-300 font-semibold">Outcome:</span> Onboarding time drops from 2 weeks to 3 days with AI-guided cross-repo exploration</div>
+<div class="relative z-10 mb-3">
+<h2 class="text-xl font-bold text-white">Reviews That Remember. Feedback That Compounds.</h2>
+<p class="text-sm text-blue-300/80 mt-1">Using ACP sessions to give CI/CD dashboards the multi-turn review conversations that REST APIs can't provide.</p>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-3 gap-2 text-xs flex-1">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30 flex flex-col">
+<div class="text-lg mb-1">🚧</div>
+<div class="font-bold text-red-300 mb-1">Problem</div>
+<div class="text-xs opacity-90 flex-1">Custom dashboard needed multi-turn reviews. REST calls lost context — every call started fresh. Reviewers re-explained context for each follow-up.</div>
+<div class="mt-2 pt-2 border-t border-red-500/20 text-xs text-red-300/70">60% of PRs reviewed, follow-ups abandoned</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/30 flex flex-col">
+<div class="text-lg mb-1">✅</div>
+<div class="font-bold text-blue-300 mb-1">Solution</div>
+<div class="text-xs opacity-90 mb-1 flex-1">ACP session per PR. Diff, context, and history persist across rounds. Authors ask follow-ups without losing thread.</div>
+<div class="font-mono text-xs bg-black/40 p-1 rounded space-y-0">
+<div class="text-gray-400">session = acp.create(cwd=repo)</div>
+<div class="text-green-400">session.send(pr_diff)</div>
+<div class="text-cyan-300">session.stream()  # in context</div>
 </div>
 </div>
+<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30 flex flex-col">
+<div class="text-lg mb-1">🎉</div>
+<div class="font-bold text-green-300 mb-1">Outcome</div>
+<div class="text-xs opacity-90 space-y-1 flex-1">
+<div>✅ Coverage: 60% → 100% of PRs</div>
+<div>✅ Iterative feedback from context</div>
+<div>✅ Follow-up questions in same session</div>
+<div>✅ Quality improves across rounds</div>
+</div>
+<div class="mt-2 pt-2 border-t border-green-500/20 text-xs text-green-300/70">40% gained review coverage</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/20 flex items-center gap-2">
+<div class="text-blue-400 text-lg shrink-0">💡</div>
+<div class="text-xs text-blue-200/90"><span class="font-semibold text-blue-300">ACP insight:</span> Stateful sessions turn one-shot commands into iterative conversations — like a good human reviewer vs. a linter.</div>
+</div>
+</div>
+</div>
+
+---
+
+<!-- SLIDE: Use Case — Polyrepo Development -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-2">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Use Case: Polyrepo Development</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-white/40 text-xs ml-1">4 of 6</span>
+</div>
+</div>
+<div class="relative z-10 mb-3">
+<h2 class="text-xl font-bold text-white">Cross-Repo Intelligence. Zero Context Switching.</h2>
+<p class="text-sm text-blue-300/80 mt-1">ACP sessions scoped to a parent workspace with per-repo MCP servers — context spans repository boundaries as naturally as reading the same codebase.</p>
+</div>
+<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
+<div class="grid grid-cols-3 gap-2 text-xs flex-1">
+<div class="p-2 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30 flex flex-col">
+<div class="text-lg mb-1">🚧</div>
+<div class="font-bold text-red-300 mb-1">Problem</div>
+<div class="text-xs opacity-90 flex-1">Teams across 5-10 repos lose context with each switch. Each repo is separate session — references across boundaries require manual copy-paste. Onboarding: 2 weeks of repo archaeology.</div>
+<div class="mt-2 pt-2 border-t border-red-500/20 text-xs text-red-300/70">Every boundary resets context</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/30 flex flex-col">
+<div class="text-lg mb-1">✅</div>
+<div class="font-bold text-blue-300 mb-1">Solution</div>
+<div class="text-xs opacity-90 mb-1 flex-1">One ACP session at workspace root. MCP servers give targeted access to each repo. AI navigates repos in single conversation.</div>
+<div class="font-mono text-xs bg-black/40 p-1 rounded space-y-0">
+<div class="text-gray-400"># Workspace session</div>
+<div class="text-green-400">copilot --acp --stdio --cwd /workspace</div>
+<div class="text-cyan-300">"filesystem-api": ./api</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30 flex flex-col">
+<div class="text-lg mb-1">🎉</div>
+<div class="font-bold text-green-300 mb-1">Outcome</div>
+<div class="text-xs opacity-90 space-y-1 flex-1">
+<div>✅ Onboarding: 2 weeks → 3 days</div>
+<div>✅ Traces calls API → web → infra</div>
+<div>✅ "How does X work?" answered</div>
+<div>✅ MCP scoping keeps focused</div>
+</div>
+<div class="mt-2 pt-2 border-t border-green-500/20 text-xs text-green-300/70">Persists across boundaries</div>
+</div>
+</div>
+<div class="p-2 bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/20 flex items-center gap-2">
+<div class="text-blue-400 text-lg shrink-0">💡</div>
+<div class="text-xs text-blue-200/90"><span class="font-semibold text-blue-300">ACP insight:</span> Session-scoped context + MCP servers turns polyrepo into navigable codebase — without merging repos.</div>
 </div>
 </div>
 </div>
@@ -967,73 +1059,69 @@ Also available: Python, Rust, Kotlin SDKs
 <div class="flex items-center gap-2">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
+<span class="text-white/40 text-xs ml-1">5 of 6</span>
 </div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm">
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-2">What It Does</div>
-<div class="text-xs opacity-90 space-y-1">
-<div>• Launches one <code class="bg-black/40 px-1 rounded">copilot --acp --stdio</code> process per repository</div>
-<div>• Orchestrator agent coordinates work across worker agents</div>
-<div>• Broadcast prompts to all workers simultaneously</div>
-<div>• Coalesced results panel synthesizes cross-repo findings</div>
-<div>• Interactive card UI with streaming and real-time permissions</div>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="space-y-1">
+<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-lg border border-cyan-500/30">
+<div class="font-bold text-cyan-300 mb-1">What It Does</div>
+<div class="opacity-90 space-y-0.5 text-xs">
+<div>• One `copilot --acp --stdio` per repo</div>
+<div>• Orchestrator coordinates workers</div>
+<div>• Broadcast prompts to all simultaneously</div>
+<div>• Coalesce results and synthesize</div>
+<div>• Interactive card UI</div>
 </div>
 </div>
-
-<div class="p-3 bg-gradient-to-br from-teal-900/30 to-emerald-900/30 rounded-xl border border-teal-500/30">
-<div class="font-bold text-teal-300 mb-2">Architecture Stack</div>
+<div class="p-2 bg-gradient-to-br from-teal-900/30 to-emerald-900/30 rounded-lg border border-teal-500/30">
+<div class="font-bold text-teal-300 mb-1">Stack</div>
 <table class="w-full text-xs">
 <thead>
 <tr class="border-b border-teal-500/30">
-<th class="text-left py-1 text-teal-300">Layer</th>
-<th class="text-left py-1 text-emerald-300">Technology</th>
+<th class="text-left py-0.5 text-teal-300 text-xs">Layer</th>
+<th class="text-left py-0.5 text-emerald-300 text-xs">Tech</th>
 </tr>
 </thead>
 <tbody class="opacity-90">
 <tr class="border-b border-teal-500/10">
-<td class="py-1">Backend</td>
-<td class="py-1">Node.js + Express + Socket.IO</td>
+<td class="py-0.5 text-xs">Backend</td>
+<td class="py-0.5 text-xs">Node + Socket.IO</td>
 </tr>
 <tr class="border-b border-teal-500/10">
-<td class="py-1">Frontend</td>
-<td class="py-1">React + Vite + Tailwind CSS</td>
+<td class="py-0.5 text-xs">Frontend</td>
+<td class="py-0.5 text-xs">React + Vite</td>
 </tr>
 <tr>
-<td class="py-1">ACP Integration</td>
-<td class="py-1">@agentclientprotocol/sdk</td>
+<td class="py-0.5 text-xs">ACP</td>
+<td class="py-0.5 text-xs">@agentclientprotocol/sdk</td>
 </tr>
 </tbody>
 </table>
-</div>
-
-<img src="./copilot-acp/images/acp-orchestrator-agents.png" class="rounded-lg border border-cyan-500/30 w-full h-24 object-cover object-top" alt="Multiple agents working across repositories" />
-</div>
-
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2">Flagship Scenario: Cross-Repo Documentation Audit</div>
-<div class="text-xs opacity-90 space-y-1">
-<div class="bg-black/30 p-2 rounded"><span class="text-green-400">1.</span> Broadcast audit prompts to all worker agents simultaneously</div>
-<div class="bg-black/30 p-2 rounded"><span class="text-blue-400">2.</span> Coalesce worker outputs and synthesize cross-repo findings</div>
-<div class="bg-black/30 p-2 rounded"><span class="text-purple-400">3.</span> Create coordinated issues and PRs in each repo</div>
-<div class="bg-black/30 p-2 rounded"><span class="text-cyan-400">4.</span> Merge coordination through orchestrator's issue map</div>
+<img src="./copilot-acp/images/acp-orchestrator-agents.png" class="rounded border border-cyan-500/30 w-full h-16 object-cover object-top mt-1" alt="Multiple agents" />
 </div>
 </div>
-
-<img src="./copilot-acp/images/acp-orchestrator-results.png" class="rounded-lg border border-blue-500/30 w-full h-24 object-cover object-top" alt="Coalesced broadcast results showing cross-repo synthesis" />
-
-<div class="p-3 bg-gradient-to-r from-indigo-900/20 to-blue-900/20 rounded-xl border border-indigo-500/20">
-<div class="font-mono text-xs opacity-90 space-y-1">
-<div class="text-indigo-300"># Try it yourself</div>
-<div>git clone https://github.com/MSBart2/cli-acp.git</div>
-<div>cd cli-acp/webapp && npm run install:all</div>
-<div>npm run dev <span class="text-gray-400"># Open http://localhost:5173</span></div>
+<div class="space-y-1">
+<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
+<div class="font-bold text-blue-300 mb-1">Scenario: Cross-Repo Audit</div>
+<div class="text-xs opacity-90 space-y-0.5">
+<div class="bg-black/30 px-1.5 py-0.5 rounded"><span class="text-green-400">1.</span> Broadcast audit prompts</div>
+<div class="bg-black/30 px-1.5 py-0.5 rounded"><span class="text-blue-400">2.</span> Coalesce & synthesize findings</div>
+<div class="bg-black/30 px-1.5 py-0.5 rounded"><span class="text-cyan-400">3.</span> Create coordinated PRs</div>
+</div>
+</div>
+<img src="./copilot-acp/images/acp-orchestrator-results.png" class="rounded border border-blue-500/30 w-full h-16 object-cover object-top" alt="Results" />
+<div class="p-1.5 bg-gradient-to-r from-indigo-900/20 to-blue-900/20 rounded border border-indigo-500/20">
+<div class="font-mono text-xs opacity-90 space-y-0">
+<div class="text-indigo-300">git clone https://github.com/MSBart2/cli-acp.git</div>
+<div class="text-gray-400">cd cli-acp/webapp && npm run install:all && npm run dev</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1052,8 +1140,10 @@ Also available: Python, Rust, Kotlin SDKs
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
+<span class="text-white/40 text-xs ml-1">6 of 6</span>
 </div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
@@ -1088,7 +1178,6 @@ Also available: Python, Rust, Kotlin SDKs
 </tbody>
 </table>
 </div>
-
 <div class="p-2 bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-xl border border-cyan-500/30">
 <div class="font-bold text-cyan-300 mb-1.5 text-xs">Python TCP Client Example</div>
 <div class="font-mono text-xs bg-black/40 p-2 rounded space-y-0.5">
@@ -1101,23 +1190,21 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 </div>
 </div>
-
 <div class="space-y-2">
 <div class="p-2 bg-gradient-to-br from-teal-900/30 to-emerald-900/30 rounded-xl border border-teal-500/30">
 <div class="font-bold text-teal-300 mb-1.5 text-xs">MCP Integration Through ACP Sessions</div>
 <div class="text-xs opacity-80 mb-1.5">ACP sessions configure MCP servers, giving the agent access to external tools</div>
 <div class="font-mono text-xs bg-black/40 p-2 rounded space-y-0.5">
 <div class="text-gray-400">// Create session with MCP servers</div>
-<div><span class="text-purple-400">const</span> <span class="text-white">session = await conn.newSession({'{'}</span></div>
+<div><span class="text-purple-400">const</span> <span class="text-white">session = await conn.newSession(&#123;</span></div>
 <div class="ml-2"><span class="text-white">cwd: process.cwd(),</span></div>
 <div class="ml-2"><span class="text-white">mcpServers: [</span></div>
-<div class="ml-4"><span class="text-white">{'{'} name: <span class="text-green-400">"github"</span>, transport: {'{'} type: <span class="text-green-400">"stdio"</span>,</span></div>
-<div class="ml-6"><span class="text-white">command: <span class="text-green-400">"npx"</span>, args: [<span class="text-green-400">"-y"</span>, <span class="text-green-400">"@mcp/server-github"</span>] {'}'} {'}'}</span></div>
+<div class="ml-4"><span class="text-white">&#123; name: <span class="text-green-400">"github"</span>, transport: &#123; type: <span class="text-green-400">"stdio"</span>,</span></div>
+<div class="ml-6"><span class="text-white">command: <span class="text-green-400">"npx"</span>, args: [<span class="text-green-400">"-y"</span>, <span class="text-green-400">"@mcp/server-github"</span>] &#125; &#125;</span></div>
 <div class="ml-2"><span class="text-white">]</span></div>
-<div><span class="text-white">{'}'});</span></div>
+<div><span class="text-white">&#125;);</span></div>
 </div>
 </div>
-
 <div class="p-2 bg-gradient-to-r from-indigo-900/20 to-blue-900/20 rounded-xl border border-indigo-500/20">
 <div class="text-xs opacity-90"><span class="text-indigo-300 font-semibold">Key Relationship:</span> ACP defines how editors talk to agents; MCP defines how agents access tools. They're complementary — ACP sessions configure which MCP servers the agent can use.</div>
 </div>
@@ -1132,96 +1219,51 @@ Also available: Python, Rust, Kotlin SDKs
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-teal-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-teal-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1.5 bg-gradient-to-r from-cyan-600/80 to-teal-600/80 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="font-bold text-green-300 mb-2 flex items-center gap-2">
+<div class="relative z-10 flex-1 min-h-0 flex flex-col">
+<div class="grid grid-cols-3 gap-4 flex-1">
+<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30 flex flex-col">
+<div class="font-bold text-green-300 mb-3 flex items-center gap-2 text-base">
 <div class="text-xl">⚡</div>
-<div>Immediate Actions (15 min)</div>
+<div>Now (15 min)</div>
 </div>
-<div class="space-y-2 text-xs opacity-90">
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">□</div>
-<div>Verify Copilot CLI installed: <code class="bg-black/40 px-1 rounded">copilot --version</code></div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">□</div>
-<div>Start ACP server: <code class="bg-black/40 px-1 rounded">copilot --acp --stdio</code></div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">□</div>
-<div>Read official ACP server docs</div>
+<div class="space-y-2.5 opacity-90 text-sm flex-1">
+<div>✓ Check CLI: <code class="bg-black/40 px-1.5 py-0.5 rounded">copilot --version</code></div>
+<div>✓ Start ACP daemon: <code class="bg-black/40 px-1.5 py-0.5 rounded">copilot --acp --stdio</code></div>
+<div>✓ Verify stdio connection works</div>
+<div>✓ Browse <a href="https://agentclientprotocol.com" class="text-green-300 underline">spec</a> + <a href="https://github.com/agentclientprotocol" class="text-green-300 underline">GitHub</a></div>
 </div>
 </div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2 flex items-center gap-2">
+<div class="p-4 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30 flex flex-col">
+<div class="font-bold text-blue-300 mb-3 flex items-center gap-2 text-base">
 <div class="text-xl">🔧</div>
-<div>Short-Term Implementation (1 hour)</div>
+<div>This Hour</div>
 </div>
-<div class="space-y-2 text-xs opacity-90">
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Install SDK: <code class="bg-black/40 px-1 rounded">npm install @agentclientprotocol/sdk</code></div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Run basic client example against Copilot ACP</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Modify <code class="bg-black/40 px-1 rounded">requestPermission</code> to implement a simple approval policy</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Try multi-turn conversation to see session context in action</div>
+<div class="space-y-2.5 opacity-90 text-sm flex-1">
+<div>✓ Install SDK: <code class="bg-black/40 px-1.5 py-0.5 rounded">npm install @acp/sdk</code></div>
+<div>✓ Run basic client example</div>
+<div>✓ Implement permission policy</div>
+<div>✓ Try multi-turn conversation</div>
 </div>
 </div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-2 flex items-center gap-2">
+<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30 flex flex-col">
+<div class="font-bold text-indigo-300 mb-3 flex items-center gap-2 text-base">
 <div class="text-xl">🚀</div>
-<div>Advanced Exploration (2-4 hours)</div>
+<div>Today (2-4h)</div>
 </div>
-<div class="space-y-2 text-xs opacity-90">
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Clone and run the <a href="https://github.com/MSBart2/cli-acp" class="text-indigo-300 underline">ACP Agent Orchestrator</a></div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Build custom ACP client for your team's preferred editor or tool</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Implement policy-based permissions for your org's security requirements</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Integrate MCP servers through ACP sessions for extended tool access</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Explore Python or Rust SDKs for non-TypeScript workflows</div>
+<div class="space-y-2.5 opacity-90 text-sm flex-1">
+<div>✓ Clone <a href="https://github.com/MSBart2/cli-acp" class="text-indigo-300 underline">ACP Orchestrator</a> repo</div>
+<div>✓ Connect to multiple polyrepos</div>
+<div>✓ Run ACP agents across repos</div>
+<div>✓ Experiment with permission layers</div>
 </div>
 </div>
 </div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-violet-900/20 to-purple-900/20 rounded-xl border border-violet-500/30">
-<div class="font-bold text-violet-300 mb-1">🔗 Next Steps After Completion</div>
-<div class="text-xs opacity-90 space-y-1">
-<div>1. ✅ Complete immediate actions above</div>
-<div>2. 📖 Review related talk: <span class="text-violet-300 font-semibold">Copilot CLI</span> for terminal-native AI workflows</div>
-<div>3. 📖 Review related talk: <span class="text-purple-300 font-semibold">MCP Apps</span> for extending agent capabilities with tools</div>
-<div>4. 🚀 Explore the <a href="https://agentclientprotocol.com/protocol/overview" class="text-indigo-300 underline">ACP protocol specification</a> for advanced integration patterns</div>
-</div>
+<div class="mt-4 p-4 bg-gradient-to-r from-cyan-900/20 to-teal-900/20 rounded-xl border border-cyan-500/20">
+<div class="text-sm opacity-90"><span class="text-cyan-300 font-semibold">Next steps:</span> Review <span class="text-cyan-300">Copilot CLI</span> + <span class="text-cyan-300">MCP Apps</span> talks. Explore <a href="https://agentclientprotocol.com" class="text-cyan-300 underline">agentclientprotocol.com</a> spec.</div>
 </div>
 </div>
 </div>
@@ -1230,110 +1272,53 @@ Also available: Python, Rust, Kotlin SDKs
 
 <!-- SLIDE: References & Resources -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-violet-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-violet-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 References & Resources</span>
-<div class="flex-1 h-px bg-gradient-to-r from-violet-400/60 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References & Resources</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 </div>
-<div class="relative z-10 flex-1 min-h-0 overflow-auto">
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="space-y-2">
-<div class="p-2 bg-gradient-to-br from-violet-900/30 to-purple-900/30 rounded-xl border border-violet-500/30">
-<div class="font-bold text-violet-300 mb-1">📚 Official Documentation</div>
-<div class="space-y-2 opacity-90">
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-4 text-xs">
 <div>
-<a href="https://docs.github.com/en/copilot/reference/acp-server" class="text-violet-300 hover:text-violet-200 underline block">Copilot CLI ACP Server Reference</a>
-<div class="text-gray-400 text-xs">Server modes, integration examples, TypeScript client code</div>
+<div class="font-bold text-cyan-300 mb-2 text-sm">🤖 Official Docs &amp; Protocol</div>
+<div class="space-y-1.5">
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://agentclientprotocol.com" class="text-cyan-400 hover:text-cyan-300 font-medium">Agent Client Protocol (ACP)</a>
+<div class="text-gray-400 mt-0.5">Official spec, architecture overview, and quick start</div>
 </div>
-<div>
-<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-getting-started" class="text-violet-300 hover:text-violet-200 underline block">Getting Started with Copilot CLI</a>
-<div class="text-gray-400 text-xs">Installation, authentication, and first steps</div>
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://docs.github.com/en/copilot/reference/acp-server" class="text-cyan-400 hover:text-cyan-300 font-medium">Copilot CLI ACP Server Reference</a>
+<div class="text-gray-400 mt-0.5">Server modes, integration examples, TypeScript client</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://github.com/agentclientprotocol/agent-client-protocol" class="text-cyan-400 hover:text-cyan-300 font-medium">ACP GitHub Repository</a>
+<div class="text-gray-400 mt-0.5">Open source protocol spec and community libraries</div>
+</div>
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://zed.dev/acp" class="text-cyan-400 hover:text-cyan-300 font-medium">Zed ACP Integration</a>
+<div class="text-gray-400 mt-0.5">How Zed implemented ACP client support</div>
 </div>
 </div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-1">🔧 Protocol Specification</div>
-<div class="space-y-1 opacity-90">
-<div>
-<a href="https://agentclientprotocol.com/protocol/overview" class="text-purple-300 hover:text-purple-200 underline block">ACP Protocol Overview</a>
-<div class="text-gray-400 text-xs">Full specification with message types and session lifecycle</div>
-</div>
-<div>
-<a href="https://github.com/agentclientprotocol/agent-client-protocol" class="text-purple-300 hover:text-purple-200 underline block">ACP Spec Repository (2K+ stars)</a>
-<div class="text-gray-400 text-xs">Protocol schema, SDKs, and community libraries</div>
 </div>
 <div>
-<a href="https://agentclientprotocol.com/get-started/architecture" class="text-purple-300 hover:text-purple-200 underline block">ACP Architecture Guide</a>
-<div class="text-gray-400 text-xs">Four-layer architecture design and principles</div>
+<div class="font-bold text-indigo-300 mb-2 text-sm">🛠️ SDKs &amp; Implementation</div>
+<div class="space-y-1.5">
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://www.npmjs.com/package/@agentclientprotocol/sdk" class="text-indigo-400 hover:text-indigo-300 font-medium">TypeScript SDK (npm)</a>
+<div class="text-gray-400 mt-0.5">Reference implementation with full type safety</div>
 </div>
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://pypi.org/project/agent-client-protocol/" class="text-indigo-400 hover:text-indigo-300 font-medium">Python SDK (PyPI)</a>
+<div class="text-gray-400 mt-0.5">Python client and agent implementation</div>
 </div>
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<a href="https://crates.io/crates/agent-client-protocol" class="text-indigo-400 hover:text-indigo-300 font-medium">Rust SDK (crates.io)</a>
+<div class="text-gray-400 mt-0.5">Rust library for building ACP clients and agents</div>
 </div>
-
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-blue-900/30 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-1">🔌 SDKs & Integration</div>
-<div class="space-y-1 opacity-90">
-<div>
-<a href="https://www.npmjs.com/package/@agentclientprotocol/sdk" class="text-indigo-300 hover:text-indigo-200 underline block">TypeScript SDK (npm)</a>
-<div class="text-gray-400 text-xs">Reference implementation with full typing</div>
-</div>
-<div>
-<a href="https://pypi.org/project/agent-client-protocol/" class="text-indigo-300 hover:text-indigo-200 underline block">Python SDK (PyPI)</a>
-<div class="text-gray-400 text-xs">Python client/agent library</div>
-</div>
-<div>
-<a href="https://crates.io/crates/agent-client-protocol" class="text-indigo-300 hover:text-indigo-200 underline block">Rust SDK (crates.io)</a>
-<div class="text-gray-400 text-xs">Rust client/agent library</div>
-</div>
-<div>
-<a href="https://zed.dev/acp/agent/github-copilot" class="text-indigo-300 hover:text-indigo-200 underline block">Zed ACP Agent: GitHub Copilot</a>
-<div class="text-gray-400 text-xs">Zed's native Copilot integration via ACP</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="space-y-2">
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-1">🚀 Featured Project</div>
-<div class="space-y-1 opacity-90">
-<div>
-<a href="https://github.com/MSBart2/cli-acp" class="text-blue-300 hover:text-blue-200 underline block">ACP Agent Orchestrator</a>
-<div class="text-gray-400 text-xs">Multi-agent orchestration with broadcast prompts and cross-repo synthesis</div>
-</div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-teal-900/30 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-1">📰 Blog Posts & Announcements</div>
-<div class="space-y-1 opacity-90">
-<div>
-<a href="https://github.blog/changelog/2026-01-28-acp-support-in-copilot-cli-is-now-in-public-preview/" class="text-cyan-300 hover:text-cyan-200 underline block">ACP Support in Copilot CLI — Public Preview</a>
-<div class="text-gray-400 text-xs">Launch announcement and motivation</div>
-</div>
-<div>
-<a href="https://github.blog/ai-and-ml/github-copilot/power-agentic-workflows-in-your-terminal-with-github-copilot-cli/" class="text-cyan-300 hover:text-cyan-200 underline block">Power Agentic Workflows in Your Terminal</a>
-<div class="text-gray-400 text-xs">Copilot CLI agentic workflow patterns</div>
-</div>
-<div>
-<a href="https://codestandup.com/posts/2025/agent-client-protocol-acp-explained/" class="text-cyan-300 hover:text-cyan-200 underline block">Agent Client Protocol (ACP) Explained</a>
-<div class="text-gray-400 text-xs">Comprehensive explainer comparing ACP to LSP</div>
-</div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-teal-900/30 to-emerald-900/30 rounded-xl border border-teal-500/30">
-<div class="font-bold text-teal-300 mb-1">🎯 Community & Analysis</div>
-<div class="space-y-1 opacity-90">
-<div>
-<a href="https://blog.promptlayer.com/agent-client-protocol-the-lsp-for-ai-coding-agents/" class="text-teal-300 hover:text-teal-200 underline block">ACP: The LSP for AI Agents — PromptLayer</a>
-<div class="text-gray-400 text-xs">Industry analysis of ACP's significance</div>
-</div>
-<div>
-<a href="https://deepwiki.com/zed-industries/agent-client-protocol/2-protocol-specification" class="text-teal-300 hover:text-teal-200 underline block">ACP Protocol Specification — DeepWiki</a>
-<div class="text-gray-400 text-xs">Community deep-dive on protocol internals</div>
-</div>
+<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
+<span class="text-indigo-400 font-medium">Related Tech Talks</span>
+<div class="text-gray-400 mt-0.5">Copilot CLI · MCP Apps · Agent Teams · Customization</div>
 </div>
 </div>
 </div>
@@ -1345,34 +1330,30 @@ Also available: Python, Rust, Kotlin SDKs
 
 <!-- SLIDE: Thank You -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-purple-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-violet-500/20 via-purple-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center">
-<div class="relative">
+<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
 <div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
 <img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
 </div>
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">Thank You</h1>
-<div class="mt-6 text-xl opacity-80">Questions?</div>
-
-<div class="mt-8 grid grid-cols-3 gap-6 w-full max-w-3xl">
-<div class="text-center p-4 bg-gradient-to-br from-violet-900/30 to-purple-900/30 rounded-xl border border-violet-500/30">
-<div class="text-3xl font-bold text-violet-300">N+M</div>
-<div class="text-sm mt-1 opacity-70">Integrations</div>
-<div class="text-xs mt-2 opacity-60">vs N×M without ACP</div>
+<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
+<div class="mt-4 relative z-10">
+<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">GitHub Copilot ACP: Universal AI Integration</span>
 </div>
-<div class="text-center p-4 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl border border-purple-500/30">
-<div class="text-3xl font-bold text-purple-300">4</div>
-<div class="text-sm mt-1 opacity-70">Protocol Layers</div>
-<div class="text-xs mt-2 opacity-60">Transport → Protocol → Session → Application</div>
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
+<div class="text-cyan-400 font-bold text-lg">N+M</div>
+<div class="opacity-80 text-xs">Integrations with ACP</div>
 </div>
-<div class="text-center p-4 bg-gradient-to-br from-indigo-900/30 to-blue-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-3xl font-bold text-indigo-300">4</div>
-<div class="text-sm mt-1 opacity-70">Language SDKs</div>
-<div class="text-xs mt-2 opacity-60">TypeScript, Python, Rust, Kotlin</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
+<div class="text-blue-400 font-bold text-lg">4</div>
+<div class="opacity-80 text-xs">Protocol Layers</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
+<div class="text-indigo-400 font-bold text-lg">Any</div>
+<div class="opacity-80 text-xs">Editor or Tool</div>
 </div>
 </div>
-
-<div class="mt-8 w-32 h-0.5 bg-gradient-to-r from-transparent via-violet-400 to-transparent"></div>
-</div>
+<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss how to bring agent capabilities to your tools</div>
+<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
 </div>

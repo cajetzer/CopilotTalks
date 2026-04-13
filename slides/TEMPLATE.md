@@ -4,6 +4,27 @@ This file is the authoritative reference for all visual patterns used in Copilot
 
 ---
 
+## Deck Structure (REQUIRED — use as skeleton for every deck)
+
+Every deck follows this 5-section skeleton. Total slide budget: **under 25 slides**.
+
+| Section | Slides | Color | Purpose |
+|---------|--------|-------|---------|
+| **Opener** | Title + TOC | deck category colors | Hook and navigation |
+| **Part 1** | 1 opener + 2–5 content | `cyan → blue` | First topic |
+| **Part 2** | 1 opener + 2–5 content | `blue → indigo` | Second topic |
+| **Part 3** | 1 opener + 2–5 content | `indigo → purple` | Third topic |
+| **Close** | What You Can Do Today + References + Thank You | `purple → pink` | Action and wrap-up |
+
+**Rules:**
+- Each topic section = 1 Section Opener + 2–5 content slides (progress dots required on all)
+- Add a Part 4 (`purple → pink`) only when content genuinely warrants it; shift Close to `pink → rose`
+- Close is always exactly 3 slides: What You Can Do Today → References → Thank You
+- TOC must link to each Part opener by slide number using `@click="$nav.go(N)"`
+- Target total: **under 25 slides**. Each part earns more slides based on topic depth — don't pad, don't cram.
+
+---
+
 ## Color Schemes by Category
 
 | Category | Primary Gradient | Background | Accent |
@@ -193,7 +214,7 @@ Replace `{SECTION_COLOR}`, `{NEXT_COLOR}` with the section's color pair (e.g., `
 
 ### Progress Dots (for multi-slide sections)
 
-When a section has 2–5 content slides, add progress dots to the breadcrumb row. Active dot: `bg-{SECTION_COLOR}-400 shadow-lg shadow-{SECTION_COLOR}-500/50`. Inactive: `bg-white/20`.
+Progress dots are **required on all topic section content slides**. Active dot: `bg-{SECTION_COLOR}-400 shadow-lg shadow-{SECTION_COLOR}-500/50`. Inactive: `bg-white/20`.
 
 ```html
 <div class="relative z-10 flex items-center gap-3 mb-4">
@@ -529,6 +550,85 @@ Wrap in the Standard Content Slide cockpit template.
 <div class="text-sm opacity-80">Brief explanation</div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+```
+
+---
+
+## What You Can Do Today Slide (REQUIRED — first slide of Close section)
+
+Use the Standard Content Slide cockpit wrapper. Present 3–5 concrete, immediately actionable steps — not abstract recommendations. Each step should be something a practitioner can start within a week without waiting for approvals or infrastructure.
+
+```html
+<!-- SLIDE: What You Can Do Today -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 What You Can Do Today</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">Start here. This week.</div>
+<div class="text-sm text-gray-400">No approvals required. No infrastructure needed.</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-1 gap-3 max-w-3xl">
+<div class="flex items-start gap-4 p-3 bg-gradient-to-r from-purple-900/30 to-pink-900/20 rounded-xl border border-purple-500/30">
+<div class="text-2xl font-bold text-purple-400 mt-0.5 w-8 shrink-0">1</div>
+<div>
+<div class="font-semibold text-purple-300">{Action Title}</div>
+<div class="text-sm text-gray-300 mt-0.5">{One-sentence description of what to do and what to look for}</div>
+</div>
+</div>
+<div class="flex items-start gap-4 p-3 bg-gradient-to-r from-pink-900/30 to-rose-900/20 rounded-xl border border-pink-500/30">
+<div class="text-2xl font-bold text-pink-400 mt-0.5 w-8 shrink-0">2</div>
+<div>
+<div class="font-semibold text-pink-300">{Action Title}</div>
+<div class="text-sm text-gray-300 mt-0.5">{One-sentence description}</div>
+</div>
+</div>
+<div class="flex items-start gap-4 p-3 bg-gradient-to-r from-rose-900/30 to-purple-900/20 rounded-xl border border-rose-500/30">
+<div class="text-2xl font-bold text-rose-400 mt-0.5 w-8 shrink-0">3</div>
+<div>
+<div class="font-semibold text-rose-300">{Action Title}</div>
+<div class="text-sm text-gray-300 mt-0.5">{One-sentence description}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+```
+
+---
+
+## References Slide (REQUIRED — second slide of Close section)
+
+Use the Standard Content Slide cockpit wrapper. List only authoritative sources used in the talk — official docs, GitHub announcements, research. No blog posts or secondary sources unless there is no primary alternative.
+
+```html
+<!-- SLIDE: References -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-rose-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-pink-600/80 to-rose-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
+<div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
+</div>
+<div class="relative z-10 flex-1 min-h-0">
+<div class="grid grid-cols-2 gap-3 mt-2">
+<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/20 rounded-lg border border-pink-500/20">
+<div class="text-xs text-pink-300 font-semibold mb-0.5">{Category}</div>
+<div class="text-sm text-white">{Title}</div>
+<div class="text-xs text-gray-400 mt-0.5 font-mono">{URL or short path}</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-rose-900/30 to-pink-900/20 rounded-lg border border-rose-500/20">
+<div class="text-xs text-rose-300 font-semibold mb-0.5">{Category}</div>
+<div class="text-sm text-white">{Title}</div>
+<div class="text-xs text-gray-400 mt-0.5 font-mono">{URL or short path}</div>
 </div>
 </div>
 </div>

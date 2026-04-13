@@ -42,31 +42,26 @@ updated: 2026-04-02
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-cyan-300 mb-4">
-"How do I rewire repositories, PR workflows, and CI/CD to scale from 2-3 features/week to 10-15 features/day with AI agents?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"How do I rewire repositories and workflows to scale from 2-3 features/week to 10-15/day?"</div>
+<div class="text-xl opacity-90 mt-6">AI agents produce code 10-15x faster than humans can review it. <span class="text-cyan-300 font-semibold">The bottleneck shifts from writing to reviewing — and your infrastructure must shift with it.</span></div>
 </div>
-</div>
-
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-2">📦</div>
-<div class="font-semibold text-amber-300">Code Volume Explosion</div>
-<div class="text-xs opacity-80 mt-1">500-2000 lines per feature in 15 minutes, 10-15x human output</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Code Volume</div>
+<div class="opacity-70 mt-1">500-2000 LOC in 15 min</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
-<div class="text-xl mb-2">🚧</div>
-<div class="font-semibold text-orange-300">Review Capacity Bottleneck</div>
-<div class="text-xs opacity-80 mt-1">Humans can't review 15,000 lines/day at 300 lines/day detail level</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">Review Capacity</div>
+<div class="opacity-70 mt-1">Can't scale linearly</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
-<div class="text-xl mb-2">⏱️</div>
-<div class="font-semibold text-red-300">CI Becomes Critical Path</div>
-<div class="text-xs opacity-80 mt-1">60-minute CI means agents idle 80% of time; test flake blocks 15 PRs/day</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">CI Critical Path</div>
+<div class="opacity-70 mt-1">Agents idle on flake</div>
 </div>
 </div>
 </div>

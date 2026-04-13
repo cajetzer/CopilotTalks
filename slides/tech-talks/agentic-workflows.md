@@ -43,31 +43,26 @@ updated: 2026-03-05
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-cyan-300 mb-4">
-"How can I automate repository tasks that require judgment and context—like triaging issues, reviewing code quality, or synthesizing progress reports—without writing complex YAML workflows?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"How can I automate repository tasks that require judgment and context?"</div>
+<div class="text-xl opacity-90 mt-6">Triaging issues, reviewing code quality, synthesizing progress reports — tasks that need understanding, not just triggers. <span class="text-cyan-300 font-semibold">Agentic workflows replace brittle YAML with AI that adapts to context.</span></div>
 </div>
-</div>
-
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-2">📝</div>
-<div class="font-semibold text-amber-300">YAML Complexity</div>
-<div class="text-xs opacity-80 mt-1">Traditional workflows require explicit steps, brittle conditionals, and constant maintenance</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Beyond YAML</div>
+<div class="opacity-70 mt-1">No brittle conditionals</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
-<div class="text-xl mb-2">🤖</div>
-<div class="font-semibold text-orange-300">No Context Awareness</div>
-<div class="text-xs opacity-80 mt-1">Deterministic logic can't adapt to repository state or make judgment calls</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">Context-Aware</div>
+<div class="opacity-70 mt-1">Adapts to repo state</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
-<div class="text-xl mb-2">🔐</div>
-<div class="font-semibold text-red-300">Security vs. Automation</div>
-<div class="text-xs opacity-80 mt-1">AI agents with write access = prompt injection risk; read-only = limited value</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">Secure by Design</div>
+<div class="opacity-70 mt-1">Managed permissions</div>
 </div>
 </div>
 </div>

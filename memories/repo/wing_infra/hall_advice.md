@@ -95,3 +95,38 @@ Progress dot rows have three parts that must all update together when section si
 Partial updates produce visually inconsistent slides that are subtle to spot when scrolling.
 
 **Source:** agent-teams.md — s19/s20 dot total update from "of 3" to "of 4" required all three components.
+
+---
+
+## Tailwind spacing for overflow mitigation
+
+`schema_version: 1` | `date: 2026-04-10`
+
+When reducing overflow on grid-based slides, this spacing reduction pattern is reliable:
+- `gap-3→gap-1.5` saves ~6px per gap
+- `p-1.5→p-1` saves ~6px per element
+- `space-y-1→space-y-0.5` saves ~2px per item
+- `mb-1→mb-0.5` saves ~2px per header
+
+**Balance target:** `p-1.5 + gap-1.5` provides good balance between readability and compactness on content cards. More aggressive cuts (`p-1`, `gap-1`) are possible but start compromising visual hierarchy.
+
+**Example:** copilot-azure-mcp slides 16-18 both had 340px+ overflow; applying this pattern (starting at gap-1.5 + p-1.5) eliminated overflow while maintaining readability.
+
+**Source:** copilot-azure-mcp review session 2026-04-10 — systematic spacing reduction across responsive-layout slides.
+
+---
+
+## When authoring Copilot-related tech-talks: verify against official GitHub docs
+
+`schema_version: 1` | `date: 2026-04-09`
+
+GitHub Copilot features evolve rapidly and agents frequently hallucinate configuration schemas, file formats, and APIs. **Always cross-reference claimed features** against:
+- GitHub official docs: https://docs.github.com/en/copilot/
+- GitHub blog announcements: https://github.blog/ search for "Copilot"
+
+**Pattern to avoid:** Inventing file formats (e.g., `copilot-review.yml` for Code Review), YAML config schemas with unsupported fields, or trigger-based automation that doesn't exist in the API.
+
+**Best practice for content:** Use web search to verify any configuration claim before writing it into the talk. One hallucinated example spreads across all future regenerations.
+
+**Source:** copilot-code-review hallucination audit 2026-04-09 — fictional `copilot-review.yml` and YAML schemas had to be completely rewritten.
+

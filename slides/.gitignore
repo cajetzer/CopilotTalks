@@ -17,6 +17,12 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
 # Verification artifacts
 verification-reports/
 screenshots/
+
+# Slide inspection harness output (screenshots, pid file)
+.harness/*.png
+.harness/*.pid
+.harness/slidev.pid

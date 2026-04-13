@@ -50,7 +50,26 @@ Section opener slides (Part 1, Part 2, Part 3, Part 4) use a large section numbe
 
 ---
 
-## agent-teams.md: Slide count history
+## copilot-acp.md: Part 4 use-case slides structure (post 2026-04-09 session)
+
+`schema_version: 1` | `date: 2026-04-09`
+
+Part 4 of copilot-acp.md contains 4 slides (1 security + 3 use cases). Slide count is now **24** (was 22).
+
+| Slide | Name | Dots | Accent |
+|-------|------|------|--------|
+| s16 | Permission Model | 1 of 4, cyan | blue/cyan |
+| s17 | Use Case — Zed Editor Integration | 2 of 4, cyan | blue/cyan |
+| s18 | Use Case — CI/CD Code Review Dashboard | 3 of 4, violet | violet/purple |
+| s19 | Use Case — Polyrepo Development | 4 of 4, indigo | indigo/blue |
+
+All three use-case slides share the same layout: pill + dots header → headline h2 → subheading p → 3-col Problem/Solution/Outcome grid (flex-col full-height cards with footer annotations) → bottom insight strip.
+
+**Source:** copilot-acp.md — s17 split and slides s18/s19 added 2026-04-09.
+
+---
+
+
 
 `schema_version: 1` | `date: 2026-04-08`
 

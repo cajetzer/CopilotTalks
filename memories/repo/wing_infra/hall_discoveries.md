@@ -4,7 +4,87 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
-## ASCII art causes severe overflow; CSS cards are the fix
+## Core Question slide standardization pattern (2026-04-10)
+
+`schema_version: 1` | `date: 2026-04-10`
+
+The "Core Question" slide (slide 2 in all tech-talk decks) has a canonical format derived from `copilot-web.md`. Applied across 16 decks for visual consistency.
+
+**Canonical structure:**
+```html
+<div class="p-8 bg-gradient-to-br from-{color}-900/30 to-{color2}-900/30 rounded-xl border-2 border-{color}-500/40 text-center">
+  <div class="text-3xl font-semibold mb-4">"The core question text"</div>
+  <div class="text-xl opacity-90 mt-6">Supporting explanation with <span class="text-{color}-300 font-semibold">highlighted key insight.</span></div>
+</div>
+```
+
+**Key differences from old format:**
+| Element | Old | New |
+|---------|-----|-----|
+| Emoji | 🔓 | 🤔 |
+| Quote padding | `p-3`–`p-6` | `p-8` |
+| Border | `border` | `border-2` |
+| Quote text | `text-xl`–`text-2xl font-bold` | `text-3xl font-semibold` |
+| Alignment | left | `text-center` |
+| Supporting text | none or separate card | inline with highlighted span |
+| Bottom cards | colored amber/orange/red | monochrome cyan/blue/indigo (or amber for amber-themed decks) |
+
+**Color preservation:** Decks with amber/orange theme (copilot-acp, copilot-code-review, enterprise-patterns) keep their color scheme but adopt the structural pattern.
+
+**Source:** User request to standardize Core Question slides across all tech-talks to match copilot-web.md format. Session 2026-04-10.
+
+---
+
+## research.md is the hallucination antidote for tech-talks (2026-04-10)
+
+`schema_version: 1` | `date: 2026-04-10`
+
+When a tech-talk README contains hallucinated content (fabricated APIs, non-existent config schemas, made-up metrics), the correct fix is to **regenerate from research.md**, not to patch the README.
+
+**Why this works:**
+- `research.md` is created from verified URLs and contains facts extracted directly from official docs
+- The Tech Talk Generator agent can be instructed to use research.md as the primary source
+- research.md contains the "Source URL Analysis" section with explicit key facts per URL
+
+**Anti-pattern:** Trying to fix hallucinations by editing the README directly often misses embedded hallucinations (fake cross-references, invented statistics, fabricated file paths). Complete regeneration is faster and more reliable.
+
+**Process:**
+1. Check if `tech-talks/<slug>/research.md` exists
+2. If yes: Instruct Tech Talk Generator to regenerate README from research.md
+3. After generation: Manually remove any remaining broken links (cross-ref to non-existent tech-talks)
+4. Delete slides and regenerate fresh
+
+**Source:** copilot-code-review rewrite session 2026-04-10 — README had 5+ categories of hallucination, all traced back to generation without research.md grounding.
+
+---
+
+## Persona architecture decision: hub+leaf + Persona-as-Prompt (2026-04-09)
+
+`schema_version: 1` | `date: 2026-04-09`
+
+Agent Council session produced a persona architecture plan (saved as `persona-update-plan.md` in repo root). Key decisions:
+
+**File structure:**
+- `workshop/00-orientation/PERSONAS.md` → hub/index (keeps team table, story arc, self-assessment)
+- `workshop/00-orientation/personas/sarah.md` etc. → leaf files with YAML frontmatter:
+  ```yaml
+  lens: ROI, proof, measurable value
+  voice: Drily skeptical
+  content-types: [workshop, tech-talk]
+  ```
+- Each leaf also gets `## Arc Notes (by module)` table — prevents agents writing wrong-arc-stage dialogue
+
+**Persona-as-Prompt insight:** Individual persona files can double as `.prompt.md` files — docs AND invokable Copilot prompts (`@sarah` pressure-tests content through her lens). Dogfoods Module 3/6 curriculum.
+
+**Tech-talks:** Use personas as archetypes, not characters. Pattern: "Sarah *types*" not "Sarah *says*". Three lightweight patterns: "Who This Hits" box (top), Reaction Line (max 3/talk), Impact Table (before/after). Never scripted dialogue arcs.
+
+**Graduated adoption:** Phase 1 = author-side only (no visible changes to published talks). Phase 2 = speaker notes. Phase 3 = visible callouts after validation.
+
+**Source:** Agent Council session 2026-04-09; `persona-update-plan.md`.
+
+---
+
+
 
 `schema_version: 1` | `date: 2026-04-08`
 
@@ -69,3 +149,34 @@ When a slide has a large fenced code block that overflows the bottom of the slid
 **User preference (confirmed):** This is the explicitly preferred approach for code-heavy slides. Do not try to compress code content — scrollable is always better than illegibly small.
 
 **Source:** agentic-workflows.md s9 "Core Message Flow" — code block overflow resolved this way; approach confirmed by user.
+
+---
+
+## Scrollable code blocks preserve content detail without overflow
+
+`schema_version: 1` | `date: 2026-04-10`
+
+Pattern: `overflow-y-auto max-h-32` on code containers allows vertical scrolling while keeping slide height fixed. Used successfully on copilot-azure-mcp slide 18 to restore full 23-line JSON config (user preferred full detail over condensed 4-line summary). The `max-h-*` is critical — `min-h-0` alone does not prevent harness overflow detection (see hall_facts entry on flex-1 overflow-y-auto).
+
+**Key insight:** Preserves both content richness and layout integrity — no height penalty to slide render time. Users consistently prefer scrollable detail over condensed/summarized code.
+
+**Source:** copilot-azure-mcp review session 2026-04-10 — user requested restoration of full config block with scroll.
+
+---
+
+## Multi-line YAML in Slidev code blocks causes hidden Vue parse errors
+
+`schema_version: 1` | `date: 2026-04-09`
+
+When a `<code>` block contains YAML with pipe syntax (`|`) or inline multi-line strings, Slidev's Vue parser silently fails at runtime. The slide shows "An error occurred on this slide" in the browser, but `inspect-slide.js` reports the slide as syntactically clean (because the HTML tag balance is correct — the error is Vue template rendering, not structural).
+
+**Affected slides:** copilot-code-review s5 and s10 (both had YAML with multi-line pipes).
+
+**Root cause:** The parser can't distinguish between YAML content and Vue template syntax boundaries inside the code block.
+
+**Fix:** Flatten YAML examples to single-line keys without inline comments or pipe strings. If multi-line is needed, move the YAML outside the `<code>` block or simplify to a shorter example.
+
+**Prevention:** After editing slides with YAML examples, check the browser view manually — inspect-slide alone won't catch this error.
+
+**Source:** copilot-code-review slide review 2026-04-09 — both problematic slides identified and fixed.
+

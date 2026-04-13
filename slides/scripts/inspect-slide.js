@@ -38,7 +38,14 @@ const SLIDES_DIR = path.resolve(__dirname, '..');
 const HARNESS_DIR = path.join(SLIDES_DIR, '.harness');
 const SLIDEV_READY_TIMEOUT_MS = 60_000;
 const SLIDEV_POLL_INTERVAL_MS = 500;
-const VIEWPORT = { width: 1920, height: 1080 };
+// Test at multiple viewport sizes to catch responsive breakpoint overflows
+const VIEWPORTS = [
+  { width: 1920, height: 1080, name: 'desktop' },
+  { width: 1366, height: 768, name: 'laptop' },
+  { width: 768, height: 1024, name: 'tablet' },
+];
+// Use first viewport as primary for screenshot
+const VIEWPORT = VIEWPORTS[0];
 
 // ── Arg parsing ───────────────────────────────────────────────────────────────
 
@@ -202,6 +209,46 @@ function hasProgressDots(slide) {
 }
 
 /**
+ * Validate HTML syntax for a slide:
+ * - Checks that <div> opens are balanced with </div> closes
+ * - Detects invalid end tags (extra closes without matching opens)
+ * Returns { syntaxError: bool, opens: number, closes: number, balance: number, reason: string }
+ */
+function validateHTMLSyntax(slide) {
+  // Count self-closing <div ... /> and paired <div>...</div>
+  const opens = (slide.content.match(/<div[^>]*>/g) || []).length;
+  const closes = (slide.content.match(/<\/div>/g) || []).length;
+  const balance = opens - closes;
+
+  if (balance > 0) {
+    return {
+      syntaxError: true,
+      opens,
+      closes,
+      balance,
+      reason: `${balance} unclosed div tag(s) — ${opens} opens, ${closes} closes`,
+    };
+  }
+  if (balance < 0) {
+    return {
+      syntaxError: true,
+      opens,
+      closes,
+      balance,
+      reason: `${Math.abs(balance)} extra closing tag(s) — ${opens} opens, ${closes} closes`,
+    };
+  }
+
+  return {
+    syntaxError: false,
+    opens,
+    closes,
+    balance: 0,
+    reason: 'balanced',
+  };
+}
+
+/**
  * Extract the primary Tailwind color family from a slide's pill breadcrumb.
  * Looks for the first `from-{color}-` class in the slide content.
  * Returns e.g. "blue", "indigo", "purple", "cyan", "pink", or null.
@@ -299,7 +346,7 @@ function analyzeSlideForDots(slides, n) {
 
 // ── Playwright screenshot + overflow detection ────────────────────────────────
 
-async function inspectSlide(slideNumber, p) {
+async function inspectSlide(slideNumber, p, slides) {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: VIEWPORT });
   const page = await context.newPage();
@@ -316,53 +363,85 @@ async function inspectSlide(slideNumber, p) {
   // Section openers use justify-center + large bg blur circles that inflate scrollHeight.
   // Skip overflow detection for them to avoid false positives.
   const isOpener = isSectionOpener(slides[slideNumber - 1]);
-  const overflow = isOpener
+  
+  let overflow = isOpener
     ? { detected: false, reason: 'opener — overflow skipped (background blur elements)' }
-    : await page.evaluate(() => {
-    // Slidev keeps adjacent slides in the DOM — querySelectorAll and find the VISIBLE one
-    const layout =
-      [...document.querySelectorAll('.slidev-layout')].find(el => el.clientHeight > 0) ||
-      [...document.querySelectorAll('.slidev-slide-content')].find(el => el.clientHeight > 0) ||
-      document.querySelector('.slidev-slide-container');
+    : null;
 
-    if (!layout) return { detected: false, reason: 'no visible layout element found' };
+  // Test at multiple viewports to catch responsive breakpoint overflows
+  if (!isOpener) {
+    for (const viewport of VIEWPORTS) {
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      // Wait for layout reflow after viewport change
+      await page.waitForTimeout(500);
 
-    // Check the h-full content wrapper's scroll overflow.
-    // scrollHeight reports true content height even when overflow:hidden clips visually.
-    const contentWrapper = layout.querySelector('[class*="h-full"]');
-    if (contentWrapper && contentWrapper.scrollHeight > contentWrapper.clientHeight + 6) {
-      return {
-        detected: true,
-        reason: `content scrollHeight ${contentWrapper.scrollHeight} > clientHeight ${contentWrapper.clientHeight} (+${contentWrapper.scrollHeight - contentWrapper.clientHeight}px clipped)`,
-      };
-    }
+      const overflowAtViewport = await page.evaluate((vp) => {
+        // Slidev keeps adjacent slides in the DOM — querySelectorAll and find the VISIBLE one
+        const layout =
+          [...document.querySelectorAll('.slidev-layout')].find(el => el.clientHeight > 0) ||
+          [...document.querySelectorAll('.slidev-slide-content')].find(el => el.clientHeight > 0) ||
+          document.querySelector('.slidev-slide-container');
 
-    // Fallback: compare element bounding rects against the slide container's actual
-    // rendered bottom (handles CSS scale() transforms correctly)
-    const layoutRect = layout.getBoundingClientRect();
-    const clipBottom = layoutRect.bottom;
-    const bleedingEl = [...layout.querySelectorAll('*')].find(el => {
-      const r = el.getBoundingClientRect();
-      if (r.bottom <= clipBottom + 8 || r.width <= 10 || r.height <= 4) return false;
-      // Skip elements inside overflow-y-auto/scroll containers (scrollable code blocks are intentional)
-      let ancestor = el.parentElement;
-      while (ancestor && ancestor !== layout) {
-        const style = window.getComputedStyle(ancestor);
-        if (style.overflowY === 'auto' || style.overflowY === 'scroll') return false;
-        ancestor = ancestor.parentElement;
+        if (!layout) return { detected: false, reason: 'no visible layout element found' };
+
+        // Strategy 1: Check scrollHeight (but skip if overflow:hidden is masking it)
+        const contentWrapper = layout.querySelector('[class*="h-full"]');
+        if (contentWrapper) {
+          // Measure using bounding rect instead of scrollHeight to avoid overflow-hidden masking
+          const wrapperRect = contentWrapper.getBoundingClientRect();
+          const layoutRect = layout.getBoundingClientRect();
+          
+          // If wrapper's bottom exceeds layout's bottom, content is overflowing
+          if (wrapperRect.bottom > layoutRect.bottom) {
+            return {
+              detected: true,
+              reason: `content overflow at ${vp.name}: wrapper extends ${Math.round(wrapperRect.bottom - layoutRect.bottom)}px beyond slide boundary`,
+            };
+          }
+        }
+
+        // Strategy 2: Bounding rect check for any element bleeding past slide boundary
+        const layoutRect = layout.getBoundingClientRect();
+        const clipBottom = layoutRect.bottom;
+        
+        // Check all elements more comprehensively (no height filter to catch small but real overflow)
+        const bleedingEl = [...layout.querySelectorAll('*')].find(el => {
+          const r = el.getBoundingClientRect();
+          // Only skip very small elements (< 2px height — rendering artifacts)
+          if (r.bottom <= clipBottom || r.height < 2) return false;
+          
+          // Skip elements inside overflow-y-auto/scroll containers (scrollable code blocks are intentional)
+          let ancestor = el.parentElement;
+          while (ancestor && ancestor !== layout) {
+            const style = window.getComputedStyle(ancestor);
+            if (style.overflowY === 'auto' || style.overflowY === 'scroll') return false;
+            ancestor = ancestor.parentElement;
+          }
+          return true;
+        });
+        
+        if (bleedingEl) {
+          const r = bleedingEl.getBoundingClientRect();
+          return {
+            detected: true,
+            reason: `element bleeds at ${vp.name}: y=${Math.round(r.bottom)} beyond clip=${Math.round(clipBottom)} (${Math.round(r.bottom - clipBottom)}px overflow)`,
+          };
+        }
+
+        return { detected: false, reason: 'ok' };
+      }, viewport);
+
+      if (overflowAtViewport.detected) {
+        overflow = overflowAtViewport;
+        break; // Found overflow, no need to test remaining viewports
       }
-      return true;
-    });
-    if (bleedingEl) {
-      const r = bleedingEl.getBoundingClientRect();
-      return {
-        detected: true,
-        reason: `element bleeds to y=${Math.round(r.bottom)} (clip bottom=${Math.round(clipBottom)}): ${bleedingEl.className.slice(0, 80)}`,
-      };
     }
-
-    return { detected: false, reason: 'ok' };
-  });
+    
+    // If no overflow found at any viewport, report ok
+    if (!overflow) {
+      overflow = { detected: false, reason: 'ok (tested at 1920, 1366, 768px)' };
+    }
+  }
 
   // Slide count shown in Slidev footer (e.g. "5 / 25") — lets us detect wrong-deck
   const renderedTotal = await page.evaluate(() => {
@@ -475,6 +554,7 @@ async function inspectSlide(slideNumber, p) {
       const slideInfo = slides[n - 1];
       const dotAnalysis = analyzeSlideForDots(slides, n);
       const colorAnalysis = analyzeColorConsistency(slides, n);
+      const syntaxAnalysis = validateHTMLSyntax(slideInfo);
 
       const url = `http://localhost:${port}/${n}`;
       await page.goto(url, { waitUntil: 'networkidle', timeout: 15_000 });
@@ -493,13 +573,16 @@ async function inspectSlide(slideNumber, p) {
       const screenshotPath = path.join(HARNESS_DIR, `${deckSlug}-${n}.png`);
       await page.screenshot({ path: screenshotPath, fullPage: false });
 
-      const hasIssues = overflow.detected || dotAnalysis.missingDots || colorAnalysis.inconsistent;
+      const hasIssues = overflow.detected || dotAnalysis.missingDots || colorAnalysis.inconsistent || syntaxAnalysis.syntaxError;
 
       // Build per-slide output lines
       const statusIcon = hasIssues ? '🔴' : '✅';
       const openerTag = dotAnalysis.exempt && dotAnalysis.reason === 'section opener' ? '  [OPENER]' : '';
       console.error(`  ${statusIcon} s${String(n).padStart(2)}  ${slideInfo.name.padEnd(45)}${openerTag}`);
 
+      if (syntaxAnalysis.syntaxError) {
+        console.error(`       🚨 HTML SYNTAX: ${syntaxAnalysis.reason}`);
+      }
       if (overflow.detected) {
         console.error(`       ⚠  OVERFLOW: ${overflow.reason}`);
       }
@@ -512,6 +595,8 @@ async function inspectSlide(slideNumber, p) {
 
       results.push({
         slide: n, name: slideInfo.name,
+        syntaxError: syntaxAnalysis.syntaxError, syntaxOpens: syntaxAnalysis.opens, syntaxCloses: syntaxAnalysis.closes,
+        syntaxBalance: syntaxAnalysis.balance, syntaxReason: syntaxAnalysis.reason,
         overflow: overflow.detected, overflowReason: overflow.reason,
         missingDots: dotAnalysis.missingDots, dotsExempt: dotAnalysis.exempt,
         sectionPart: dotAnalysis.sectionPart, dotsReason: dotAnalysis.reason,
@@ -523,7 +608,7 @@ async function inspectSlide(slideNumber, p) {
 
     await browser.close();
 
-    const issueSlides = results.filter(r => r.overflow || r.missingDots || r.colorInconsistent);
+    const issueSlides = results.filter(r => r.syntaxError || r.overflow || r.missingDots || r.colorInconsistent);
 
     // Summary block
     console.error(`\n${'━'.repeat(60)}`);
@@ -557,9 +642,10 @@ async function inspectSlide(slideNumber, p) {
   const slideInfo = slides[slideNum - 1];
   const dotAnalysis = analyzeSlideForDots(slides, slideNum);
   const colorAnalysis = analyzeColorConsistency(slides, slideNum);
+  const syntaxAnalysis = validateHTMLSyntax(slideInfo);
 
   // 3. Screenshot + overflow detection
-  const { overflow, screenshotPath, renderedTotal } = await inspectSlide(slideNum, port);
+  const { overflow, screenshotPath, renderedTotal } = await inspectSlide(slideNum, port, slides);
 
   // Detect wrong-deck: if the server is serving a different file, the total slide
   // count in the footer won't match the parsed MD total.
@@ -584,6 +670,11 @@ async function inspectSlide(slideNumber, p) {
     name: slideInfo.name,
     wrongDeck,
     wrongDeckWarning,
+    syntaxError: syntaxAnalysis.syntaxError,
+    syntaxOpens: syntaxAnalysis.opens,
+    syntaxCloses: syntaxAnalysis.closes,
+    syntaxBalance: syntaxAnalysis.balance,
+    syntaxReason: syntaxAnalysis.reason,
     overflow: wrongDeck ? null : overflow.detected,
     overflowReason: wrongDeck ? null : overflow.reason,
     missingDots: wrongDeck ? null : dotAnalysis.missingDots,
@@ -607,6 +698,7 @@ async function inspectSlide(slideNumber, p) {
     console.error(`🚨 WRONG DECK: ${wrongDeckWarning}`);
   } else {
     const issues = [];
+    if (report.syntaxError)        issues.push(`🚨 HTML SYNTAX:  ${report.syntaxReason}`);
     if (report.overflow)          issues.push(`⚠  OVERFLOW:      ${report.overflowReason}`);
     if (report.missingDots)       issues.push(`⚠  MISSING DOTS:  ${report.dotsReason}`);
     if (report.colorInconsistent) issues.push(`⚠  COLOR MISMATCH: ${report.colorReason}`);

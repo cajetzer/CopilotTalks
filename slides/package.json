@@ -11,7 +11,10 @@
     "export-pdf": "slidev export --format pdf",
     "export-pptx": "slidev export --format pptx",
     "generate": "node scripts/generate-slides.js",
-    "test:404": "node scripts/test-404-redirect.mjs"
+    "test:404": "node scripts/test-404-redirect.mjs",
+    "inspect": "node scripts/inspect-slide.js",
+    "inspect:start": "node scripts/inspect-slide.js start",
+    "inspect:scan": "node scripts/inspect-slide.js"
   },
   "dependencies": {
     "@slidev/cli": "^52.11.5",

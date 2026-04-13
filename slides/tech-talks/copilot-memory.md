@@ -43,31 +43,26 @@ updated: 2026-02-01
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-6 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto">
-<div class="text-2xl font-bold text-cyan-300 mb-4">
-"How do I stop re-explaining my coding style, workflow preferences, and project context to Copilot every session?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"How do I stop re-explaining my coding style, workflow preferences, and project context every session?"</div>
+<div class="text-xl opacity-90 mt-6">The AI forgets everything between sessions — same explanations, same corrections, same context setup. <span class="text-cyan-300 font-semibold">Memory breaks this cycle by making preferences persist.</span></div>
 </div>
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Context Resets</div>
+<div class="opacity-70 mt-1">Every session starts fresh</div>
 </div>
-
-<div class="mt-6 grid grid-cols-3 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-1">🔁</div>
-<div class="font-semibold text-amber-300">Context Resets Every Session</div>
-<div class="text-xs opacity-80 mt-1">AI forgets preferences, conventions, and project decisions from previous conversations</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">Wasted Time</div>
+<div class="opacity-70 mt-1">Same instructions repeated</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
-<div class="text-xl mb-1">⏱️</div>
-<div class="font-semibold text-orange-300">Repeated Explanations Waste Time</div>
-<div class="text-xs opacity-80 mt-1">"Use PEP 8 formatting" — same instructions every session, breaking flow and wasting cognitive effort</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
-<div class="text-xl mb-1">📉</div>
-<div class="font-semibold text-red-300">Preferences Never Stick</div>
-<div class="text-xs opacity-80 mt-1">Even after months, AI asks basic questions about your preferences you've answered dozens of times</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">Preferences Lost</div>
+<div class="opacity-70 mt-1">Months of training forgotten</div>
 </div>
 </div>
 </div>
@@ -160,6 +155,12 @@ updated: 2026-02-01
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 How Memory Works</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Store and Retrieve Operations</div>
@@ -173,9 +174,7 @@ updated: 2026-02-01
 <pre class="text-xs bg-black/30 p-2 rounded overflow-y-auto max-h-48"><code>User: "From now on, always ask
 clarifying questions when
 requirements seem ambiguous."
-
 Agent: "I'll remember this."
-
 [Memory Tool: Save]
 Content: "Ask clarifying
 questions when requirements
@@ -188,10 +187,8 @@ Scope: All future sessions</code></pre>
 <span>🔍</span> Retrieve Operation
 </div>
 <pre class="text-xs bg-black/30 p-2 rounded overflow-y-auto max-h-48"><code>[New chat session starts]
-
 User: "Help me implement
 user authentication"
-
 [Memory Tool: Retrieve]
 Found: "Always include
 rollback strategy"
@@ -199,16 +196,11 @@ Found: "Prefer TypeScript
 strict mode"
 Found: "Format: bullet
 points + code examples"
-
 Agent: [Applies automatically]</code></pre>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-cyan-500"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-500/30"></div>
 </div>
-</div>
+
 
 ---
 
@@ -219,6 +211,12 @@ Agent: [Applies automatically]</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 How Memory Works</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">What the Agent Stores vs. Ignores</div>
@@ -263,11 +261,6 @@ Agent: [Applies automatically]</code></pre>
 <div class="relative z-10 mt-2 p-2 bg-blue-900/20 rounded-lg border border-blue-500/20">
 <div class="text-xs text-blue-300">💡 <span class="font-semibold">Agent asks permission when ambiguous:</span> "Should I remember this for future sessions?"</div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-cyan-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-500"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-500/30"></div>
-</div>
 </div>
 
 ---
@@ -279,6 +272,12 @@ Agent: [Applies automatically]</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 How Memory Works</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Contextual Retrieval and Environment Sync</div>
@@ -317,15 +316,9 @@ Available in:
   • VS Code (all machines)
   • GitHub.com Copilot Chat
   • GitHub CLI (gh copilot)
-  
 Encrypted at rest & in transit
 Auto-sync (no manual action)</code></pre>
 </div>
-</div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-cyan-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-500"></div>
 </div>
 </div>
 
@@ -370,6 +363,11 @@ Auto-sync (no manual action)</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Enabling & Managing</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 2</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Enable Memory in 5 Minutes</div>
@@ -409,10 +407,6 @@ Auto-sync (no manual action)</code></pre>
 </div>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-blue-500"></div>
-<div class="w-2 h-2 rounded-full bg-blue-500/30"></div>
-</div>
 </div>
 
 ---
@@ -424,6 +418,11 @@ Auto-sync (no manual action)</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Enabling & Managing</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 2</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Full Visibility and Control</div>
@@ -436,16 +435,12 @@ Auto-sync (no manual action)</code></pre>
 <pre class="text-xs bg-black/30 p-2 rounded overflow-y-auto max-h-48"><code>Memory: "Prefer early returns
 over nested conditionals.
 Check failure cases first."
-
 Stored: 2026-01-15
 Source: VS Code Chat
-
 &#45;&#45;&#45;
-
 Memory: "Technical explanations
 format: summary, why, code
 example, gotchas."
-
 Stored: 2026-01-20
 Source: GitHub.com Chat</code></pre>
 </div>
@@ -469,10 +464,6 @@ Source: GitHub.com Chat</code></pre>
 </div>
 <div class="relative z-10 mt-2 p-2 bg-indigo-900/20 rounded-lg border border-indigo-500/20">
 <div class="text-xs text-indigo-300">⏱️ <span class="font-semibold">28-Day Auto-Expiration:</span> Memories expire automatically to prevent stale preferences. Review monthly, delete obsolete, refresh important ones.</div>
-</div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-blue-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-blue-500"></div>
 </div>
 </div>
 
@@ -517,6 +508,13 @@ Source: GitHub.com Chat</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💾 What to Store</span>
 <div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 4</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Persistence-Worthy Preferences</div>
@@ -563,12 +561,6 @@ Source: GitHub.com Chat</code></pre>
 </div>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-indigo-500"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-</div>
 </div>
 
 ---
@@ -580,6 +572,13 @@ Source: GitHub.com Chat</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💾 What to Store</span>
 <div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 4</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">What Should NOT Be Stored</div>
@@ -627,12 +626,6 @@ Source: GitHub.com Chat</code></pre>
 </div>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-</div>
 </div>
 
 ---
@@ -644,6 +637,13 @@ Source: GitHub.com Chat</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💾 What to Store</span>
 <div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 4</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Memory vs. Custom Instructions</div>
@@ -689,12 +689,6 @@ Source: GitHub.com Chat</code></pre>
 </div>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-</div>
 </div>
 
 ---
@@ -706,6 +700,13 @@ Source: GitHub.com Chat</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💾 What to Store</span>
 <div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">4 of 4</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">The Persistence Test</div>
@@ -737,12 +738,6 @@ Source: GitHub.com Chat</code></pre>
 <div class="mt-3 p-2 bg-purple-900/20 rounded-lg border border-purple-500/20">
 <div class="text-xs text-purple-300">💡 <span class="font-semibold">Best Practice:</span> Start conservative — it's easier to add memories later than fix conflicting/stale ones. Curate to 10-20 most impactful preferences.</div>
 </div>
-</div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-500"></div>
 </div>
 </div>
 
@@ -787,6 +782,13 @@ Source: GitHub.com Chat</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔐 Privacy & Best Practices</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">1 of 4</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Privacy-First Architecture</div>
@@ -829,11 +831,6 @@ Source: GitHub.com Chat</code></pre>
 </div>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-purple-500"></div>
-<div class="w-2 h-2 rounded-full bg-purple-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-purple-500/30"></div>
-</div>
 </div>
 
 ---
@@ -845,6 +842,13 @@ Source: GitHub.com Chat</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔐 Privacy & Best Practices</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">2 of 4</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Effective Memory Usage</div>
@@ -881,12 +885,8 @@ Source: GitHub.com Chat</code></pre>
 <div class="p-2 bg-pink-900/30 rounded">4. <span class="font-semibold">Reconfirm</span> critical ones</div>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-purple-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-purple-500"></div>
-<div class="w-2 h-2 rounded-full bg-purple-500/30"></div>
 </div>
-</div>
+
 
 ---
 
@@ -897,6 +897,13 @@ Source: GitHub.com Chat</code></pre>
 <div class="relative z-10 flex items-center gap-3 mb-3">
 <span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔐 Privacy & Best Practices</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+<span class="text-white/40 text-xs ml-1">3 of 4</span>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-0.5">Build Your Memory Profile Over 4 Weeks</div>
@@ -949,12 +956,8 @@ Source: GitHub.com Chat</code></pre>
 <div class="text-xs text-pink-300">🎯 <span class="font-semibold">Outcome:</span> After 4 weeks, a curated 10-15 memory collection provides consistent, personalized assistance without overwhelming retrieval.</div>
 </div>
 </div>
-<div class="relative z-10 flex justify-center gap-1 mt-2">
-<div class="w-2 h-2 rounded-full bg-purple-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-purple-500/30"></div>
-<div class="w-2 h-2 rounded-full bg-purple-500"></div>
 </div>
-</div>
+
 
 ---
 
@@ -1023,6 +1026,7 @@ Source: GitHub.com Chat</code></pre>
 </div>
 </div>
 </div>
+
 
 ---
 

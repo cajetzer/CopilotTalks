@@ -42,37 +42,28 @@ updated: 2026-02-18
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
+<div class="relative z-10 flex items-center gap-3 mb-4">
+<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 max-w-4xl mx-auto mb-4">
-<div class="text-xl font-bold text-cyan-300 mb-2">
-"How do I embed Copilot's agentic capabilities directly into my own applications and workflows?"
+<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
+<div class="text-3xl font-semibold mb-4">"How do I embed Copilot's agentic capabilities directly into my own applications and workflows?"</div>
+<div class="text-xl opacity-90 mt-6">When automation needs go beyond IDE and CLI patterns — release notes, test analysis, custom integrations — <span class="text-cyan-300 font-semibold">the SDK provides production-tested agent runtime as a programmable library.</span></div>
 </div>
+<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
+<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
+<div class="text-cyan-300 font-bold">Automation Gap</div>
+<div class="opacity-70 mt-1">AI needs beyond IDE/CLI</div>
 </div>
-
-<div class="grid grid-cols-3 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-1">🤖</div>
-<div class="font-semibold text-amber-300 text-sm">Automation Gap</div>
-<div class="text-xs opacity-80 mt-1">Release notes, test analysis need AI but don't fit IDE/CLI patterns</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
+<div class="text-blue-300 font-bold">Production Runtime</div>
+<div class="opacity-70 mt-1">No DIY agent loops</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
-<div class="text-xl mb-1">⏱️</div>
-<div class="font-semibold text-orange-300 text-sm">Build Time Cost</div>
-<div class="text-xs opacity-80 mt-1">Months building planning loops, tool orchestration before solving real problems</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
+<div class="text-indigo-300 font-bold">Integrations Ready</div>
+<div class="opacity-70 mt-1">Jira, Slack, CI/CD</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-purple-900/30 rounded-lg border border-red-500/30">
-<div class="text-xl mb-1">🔗</div>
-<div class="font-semibold text-red-300 text-sm">Integration Required</div>
-<div class="text-xs opacity-80 mt-1">Custom tools need to integrate with Jira, Slack, CI/CD — not run standalone</div>
-</div>
-</div>
-
-<div class="mt-3 p-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-lg border border-cyan-400/30 text-center">
-<div class="text-sm text-cyan-200">The SDK provides production-tested agent runtime as a programmable library</div>
 </div>
 </div>
 </div>
@@ -346,8 +337,8 @@ updated: 2026-02-18
 <div class="text-lg font-bold text-white mb-0.5">Installation & Basic Usage</div>
 <div class="text-xs text-white/50">Prerequisites: Copilot CLI installed and authenticated</div>
 </div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm mb-2">
+<div class="relative z-10 flex-1 min-h-0 flex flex-col">
+<div class="grid grid-cols-2 gap-3 text-sm mb-3">
 <div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
 <div class="font-semibold text-blue-300 mb-1 text-xs">Install SDK</div>
 <div class="space-y-1 text-xs font-mono">
@@ -365,21 +356,19 @@ updated: 2026-02-18
 </div>
 </div>
 </div>
-
-<div class="p-2 bg-gray-950/60 rounded-lg border border-gray-700/50">
-<div class="text-xs text-gray-400 mb-1">Python: Basic Chat Example</div>
-<pre class="overflow-y-auto max-h-48 text-xs"><code class="language-python">from github_copilot_sdk import CopilotClient
-
-# Initialize client (spawns CLI in server mode)
-client = CopilotClient()
-
-# Simple chat interaction
-response = client.chat("Explain OAuth vs JWT")
-print(response.text)
-
-# Streaming for better UX
-for chunk in client.chat_stream("Analyze this repository"):
-    print(chunk.text, end='', flush=True)</code></pre>
+<div class="p-3 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0 flex flex-col">
+<div class="text-xs text-gray-400 mb-2">Python: Basic Chat Example</div>
+<div class="overflow-y-auto flex-1 bg-gray-900/50 rounded p-3 font-mono text-xs text-gray-300 leading-relaxed">
+<div><span class="text-purple-400">from</span> github_copilot_sdk <span class="text-purple-400">import</span> CopilotClient</div>
+<div class="mt-2 text-green-400"># Initialize client (spawns CLI in server mode)</div>
+<div>client = CopilotClient()</div>
+<div class="mt-2 text-green-400"># Simple chat interaction</div>
+<div>response = client.chat(<span class="text-amber-300">"Explain OAuth vs JWT"</span>)</div>
+<div><span class="text-cyan-400">print</span>(response.text)</div>
+<div class="mt-2 text-green-400"># Streaming for better UX</div>
+<div><span class="text-purple-400">for</span> chunk <span class="text-purple-400">in</span> client.chat_stream(<span class="text-amber-300">"Analyze this repository"</span>):</div>
+<div class="ml-4"><span class="text-cyan-400">print</span>(chunk.text, end=<span class="text-amber-300">''</span>, flush=<span class="text-cyan-400">True</span>)</div>
+</div>
 </div>
 </div>
 </div>
@@ -406,33 +395,29 @@ for chunk in client.chat_stream("Analyze this repository"):
 <div class="text-xs text-white/50">Example: Release notes generator</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="p-2 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0">
-<div class="text-xs text-gray-400 mb-1">release-notes.py — Generate customer-facing notes from git commits</div>
-<pre class="overflow-y-auto max-h-48 text-xs"><code class="language-python">#!/usr/bin/env python3
-import argparse
-from github_copilot_sdk import CopilotClient
-
-def main():
-    parser = argparse.ArgumentParser(description='Release notes generator')
-    parser.add_argument('--from-tag', required=True)
-    parser.add_argument('--to-tag', default='HEAD')
-    args = parser.parse_args()
-
-    client = CopilotClient()
-    
-    prompt = f"""
-    Generate release notes from {args.from_tag} to {args.to_tag}.
-    Categorize as Features, Fixes, Breaking Changes, Security.
-    Explain customer value, not technical implementation.
-    """
-    
-    response = client.chat(prompt)
-    print(response.text)
-
-if __name__ == '__main__':
-    main()</code></pre>
+<div class="p-3 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0 flex flex-col">
+<div class="text-xs text-gray-400 mb-2">release-notes.py — Generate customer-facing notes from git commits</div>
+<div class="overflow-y-auto flex-1 bg-gray-900/50 rounded p-3 font-mono text-xs text-gray-300 leading-relaxed">
+<div class="text-gray-500">#!/usr/bin/env python3</div>
+<div><span class="text-purple-400">import</span> argparse</div>
+<div><span class="text-purple-400">from</span> github_copilot_sdk <span class="text-purple-400">import</span> CopilotClient</div>
+<div class="mt-2"><span class="text-purple-400">def</span> <span class="text-cyan-400">main</span>():</div>
+<div class="ml-4">parser = argparse.ArgumentParser(description=<span class="text-amber-300">'Release notes generator'</span>)</div>
+<div class="ml-4">parser.add_argument(<span class="text-amber-300">'--from-tag'</span>, required=<span class="text-cyan-400">True</span>)</div>
+<div class="ml-4">parser.add_argument(<span class="text-amber-300">'--to-tag'</span>, default=<span class="text-amber-300">'HEAD'</span>)</div>
+<div class="ml-4">args = parser.parse_args()</div>
+<div class="ml-4 mt-2">client = CopilotClient()</div>
+<div class="ml-4">prompt = <span class="text-amber-300">f"""</span></div>
+<div class="ml-4"><span class="text-amber-300">Generate release notes from &#123;args.from_tag&#125; to &#123;args.to_tag&#125;.</span></div>
+<div class="ml-4"><span class="text-amber-300">Categorize as Features, Fixes, Breaking Changes, Security.</span></div>
+<div class="ml-4"><span class="text-amber-300">Explain customer value, not technical implementation.</span></div>
+<div class="ml-4"><span class="text-amber-300">"""</span></div>
+<div class="ml-4 mt-2">response = client.chat(prompt)</div>
+<div class="ml-4"><span class="text-cyan-400">print</span>(response.text)</div>
+<div class="mt-2"><span class="text-purple-400">if</span> __name__ == <span class="text-amber-300">'__main__'</span>:</div>
+<div class="ml-4">main()</div>
 </div>
-
+</div>
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-400/30 text-center text-xs">
 <span class="text-green-200">Outcome: 2 hours → 10 minutes per release (92% time reduction)</span>
 </div>
@@ -461,36 +446,33 @@ if __name__ == '__main__':
 <div class="text-xs text-white/50">Expose SDK capabilities via REST endpoints</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="p-2 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0">
-<div class="text-xs text-gray-400 mb-1">Flask API: PR analysis endpoint with security-restricted SDK client</div>
-<pre class="overflow-y-auto max-h-48 text-xs"><code class="language-python">from flask import Flask, request, jsonify
-from github_copilot_sdk import CopilotClient
-
-app = Flask(__name__)
-client = CopilotClient(
-    allowed_tools=['file_read'],  # Read-only for security
-    working_directory='/tmp/pr-diffs'
-)
-
-@app.route('/api/analyze-pr', methods=['POST'])
-def analyze_pr():
-    pr_diff = request.json.get('diff')
-    if not pr_diff:
-        return jsonify({'error': 'Missing diff'}), 400
-
-    prompt = f"""
-    Review this PR for security, logic errors, performance issues.
-    Provide actionable feedback with line numbers:
-    {pr_diff}
-    """
-    
-    try:
-        response = client.chat(prompt)
-        return jsonify({'analysis': response.text})
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500</code></pre>
+<div class="p-3 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0 flex flex-col">
+<div class="text-xs text-gray-400 mb-2">Flask API: PR analysis endpoint with security-restricted SDK client</div>
+<div class="overflow-y-auto flex-1 bg-gray-900/50 rounded p-3 font-mono text-xs text-gray-300 leading-relaxed">
+<div><span class="text-purple-400">from</span> flask <span class="text-purple-400">import</span> Flask, request, jsonify</div>
+<div><span class="text-purple-400">from</span> github_copilot_sdk <span class="text-purple-400">import</span> CopilotClient</div>
+<div class="mt-2">app = Flask(__name__)</div>
+<div>client = CopilotClient(</div>
+<div class="ml-4">allowed_tools=[<span class="text-amber-300">'file_read'</span>],  <span class="text-green-400"># Read-only for security</span></div>
+<div class="ml-4">working_directory=<span class="text-amber-300">'/tmp/pr-diffs'</span></div>
+<div>)</div>
+<div class="mt-2"><span class="text-cyan-400">@app.route</span>(<span class="text-amber-300">'/api/analyze-pr'</span>, methods=[<span class="text-amber-300">'POST'</span>])</div>
+<div><span class="text-purple-400">def</span> <span class="text-cyan-400">analyze_pr</span>():</div>
+<div class="ml-4">pr_diff = request.json.get(<span class="text-amber-300">'diff'</span>)</div>
+<div class="ml-4"><span class="text-purple-400">if not</span> pr_diff:</div>
+<div class="ml-8"><span class="text-purple-400">return</span> jsonify(&#123;<span class="text-amber-300">'error'</span>: <span class="text-amber-300">'Missing diff'</span>&#125;), 400</div>
+<div class="ml-4 mt-2">prompt = <span class="text-amber-300">f"""</span></div>
+<div class="ml-4"><span class="text-amber-300">Review this PR for security, logic errors, performance issues.</span></div>
+<div class="ml-4"><span class="text-amber-300">Provide actionable feedback with line numbers:</span></div>
+<div class="ml-4"><span class="text-amber-300">&#123;pr_diff&#125;</span></div>
+<div class="ml-4"><span class="text-amber-300">"""</span></div>
+<div class="ml-4 mt-2"><span class="text-purple-400">try</span>:</div>
+<div class="ml-8">response = client.chat(prompt)</div>
+<div class="ml-8"><span class="text-purple-400">return</span> jsonify(&#123;<span class="text-amber-300">'analysis'</span>: response.text&#125;)</div>
+<div class="ml-4"><span class="text-purple-400">except</span> Exception <span class="text-purple-400">as</span> e:</div>
+<div class="ml-8"><span class="text-purple-400">return</span> jsonify(&#123;<span class="text-amber-300">'error'</span>: <span class="text-cyan-400">str</span>(e)&#125;), 500</div>
 </div>
-
+</div>
 <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
 <div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded border border-blue-500/30">
 <span class="font-semibold text-blue-300">Security:</span> Restricted tools, sandboxed directory
@@ -524,35 +506,31 @@ def analyze_pr():
 <div class="text-xs text-white/50">Run SDK-powered analysis on a schedule</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="p-2 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0">
-<div class="text-xs text-gray-400 mb-1">Daily test failure analysis — identifies root causes, flaky tests, suggested fixes</div>
-<pre class="overflow-y-auto max-h-48 text-xs"><code class="language-python">import schedule, time, json
-from github_copilot_sdk import CopilotClient
-
-def analyze_test_failures():
-    """Runs every morning to analyze overnight test failures"""
-    client = CopilotClient()
-    report = fetch_latest_test_report()  # External function
-    
-    prompt = f"""
-    Analyze test failures from last 24 hours:
-    1. Root causes with confidence scores (high/medium/low)
-    2. Flaky tests based on failure patterns
-    3. Specific code locations to investigate
-    4. Suggested fixes for each failure
-    
-    Test Report (JSON):
-    {json.dumps(report, indent=2)}
-    """
-    
-    analysis = client.chat(prompt)
-    notify_team(analysis.text)  # Slack, Jira, email
-    create_jira_tickets(parse_issues(analysis.text))
-
-# Schedule daily at 9:00 AM
-schedule.every().day.at("09:00").do(analyze_test_failures)</code></pre>
+<div class="p-3 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0 flex flex-col">
+<div class="text-xs text-gray-400 mb-2">Daily test failure analysis — identifies root causes, flaky tests, suggested fixes</div>
+<div class="overflow-y-auto flex-1 bg-gray-900/50 rounded p-3 font-mono text-xs text-gray-300 leading-relaxed">
+<div><span class="text-purple-400">import</span> schedule, time, json</div>
+<div><span class="text-purple-400">from</span> github_copilot_sdk <span class="text-purple-400">import</span> CopilotClient</div>
+<div class="mt-2"><span class="text-purple-400">def</span> <span class="text-cyan-400">analyze_test_failures</span>():</div>
+<div class="ml-4"><span class="text-green-400">"""Runs every morning to analyze overnight test failures"""</span></div>
+<div class="ml-4">client = CopilotClient()</div>
+<div class="ml-4">report = fetch_latest_test_report()  <span class="text-green-400"># External function</span></div>
+<div class="ml-4 mt-2">prompt = <span class="text-amber-300">f"""</span></div>
+<div class="ml-4"><span class="text-amber-300">Analyze test failures from last 24 hours:</span></div>
+<div class="ml-4"><span class="text-amber-300">1. Root causes with confidence scores (high/medium/low)</span></div>
+<div class="ml-4"><span class="text-amber-300">2. Flaky tests based on failure patterns</span></div>
+<div class="ml-4"><span class="text-amber-300">3. Specific code locations to investigate</span></div>
+<div class="ml-4"><span class="text-amber-300">4. Suggested fixes for each failure</span></div>
+<div class="ml-4 mt-1"><span class="text-amber-300">Test Report (JSON):</span></div>
+<div class="ml-4"><span class="text-amber-300">&#123;json.dumps(report, indent=2)&#125;</span></div>
+<div class="ml-4"><span class="text-amber-300">"""</span></div>
+<div class="ml-4 mt-2">analysis = client.chat(prompt)</div>
+<div class="ml-4">notify_team(analysis.text)  <span class="text-green-400"># Slack, Jira, email</span></div>
+<div class="ml-4">create_jira_tickets(parse_issues(analysis.text))</div>
+<div class="mt-2"><span class="text-green-400"># Schedule daily at 9:00 AM</span></div>
+<div>schedule.every().day.at(<span class="text-amber-300">"09:00"</span>).do(analyze_test_failures)</div>
 </div>
-
+</div>
 <div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-400/30 text-center text-xs">
 <span class="text-green-200">45 min → 5 min per failed build | Flaky tests caught on first failure</span>
 </div>

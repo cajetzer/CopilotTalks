@@ -22,10 +22,11 @@ Transform module README files into beautiful, concise Slidev presentations for C
 4. **Read Visual Exemplar** — Read the first 200 lines of `slides/tech-talks/agentic-sdlc.md` as the gold-standard visual reference. Every content slide in that deck uses the cockpit pattern (pill breadcrumb + absolute gradients + `justify-start px-14`). Match this aesthetic.
 5. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section→icon→container mapping before updating the index.
 6. **Read Deck Recipe for Tech Talks** — If the source is under `tech-talks/`, look for `deck.recipe.yml` in the same folder as the README. If it exists, use it as the per-talk adaptation recipe. If it does not exist, synthesize an initial recipe from the README and save it before generating slides.
+7. **Query Memory** — Read `memories/repo/wing_infra/hall_facts.md`, `hall_discoveries.md`, and `hall_advice.md` for confirmed Slidev build rules and structural patterns. If the target deck has a wing entry (e.g., `memories/repo/wing_agent_architecture/hall_facts.md`), read that too. Apply these before writing any HTML.
 
 ### 1. Parse the README
 
-**Be selective — target 15-20 slides, not exhaustive coverage.**
+**Be selective — target under 25 slides, 2–5 per topic section based on depth.**
 
 Tech-talk READMEs are reader-first documents, not slide outlines. Do **not** expect a `## 📽️ Slide Generation Mapping` section in new talks. If an older README still has one, treat it as legacy material and derive the deck from the semantic content instead. For tech talks, prefer `deck.recipe.yml` as the per-talk editorial recipe for how the README should become slides.
 
@@ -60,20 +61,13 @@ For each use case, feature, or major section, score it on three axes:
 | **Differentiation** | Does this show something _only this tool_ can do?                  | Avoid demos that could apply to any AI assistant             |
 | **Audience impact** | Would a developer/DevOps engineer immediately think "I need that"? | Real time savings, workflow unblocking, capability unlocking |
 
-**Apply these heuristics:**
+**Apply these heuristics** (full rules in `memories/repo/wing_infra/hall_advice.md`):
 
-- **Prefer recent additions over established patterns.** If the README `updated:` date is recent and a section was clearly added late (appears after earlier sections, references newer docs), that content probably deserves a slide more than the foundational content that's been there since launch.
-- **Deprioritize demos that have become table-stakes.** Basic Docker log debugging, CI/CD failure triage — audiences have seen these in many AI tool demos. They don't need a full slide unless the _mechanism_ (Plan Mode, programmatic flags) is genuinely distinct.
-- **Elevate surprising integrations.** GitHub.com from the terminal, `/fleet` fan-out, model multipliers — these challenge assumptions and create "I didn't know it could do that" moments. Give these prominent placement.
-- **Combine or compress the expected.** Well-known patterns (install, auth, basic commands) can be one compact reference slide or skipped entirely. Use the saved slide budget for compelling content.
-- **Preserve the best metric.** If a use case has a striking time-savings figure (45 min → 8 min, 90 min → 15 min), include it — but you don't need all use cases; keep the 2-3 with the most dramatic numbers.
+- Prefer recent/novel content over established patterns
+- Elevate surprising integrations; compress or skip table-stakes demos
+- Keep the 2-3 use cases with the most dramatic metrics
 
-**Output a mental ranking before writing slides** (you don't need to write this out — just use it to decide):
-
-1. Which 2-3 use cases are the most novel/compelling? → Each gets a slide
-2. Which capabilities are most differentiated? → Feature in section slides
-3. Which content is well-known or expected? → Compress or skip
-4. What's the single "I didn't know it could do that" moment in this README? → Make it the centerpiece
+**Before writing slides, identify:** the single "I didn't know it could do that" moment → make it the centerpiece.
 
 ### 1b. Deck Recipe (tech talks)
 
@@ -117,33 +111,15 @@ Add section divider slides for each 🎬 major section (tech talks / exec talks)
 
 #### Cockpit Template (REQUIRED for all content slides)
 
-Every content slide **must** use the cockpit wrapper from TEMPLATE.md — not a plain centered `h1`. The cockpit provides:
-- Outer: `h-full flex flex-col justify-start relative overflow-hidden px-14`
-- Absolute background gradient (section colors at 20% opacity)
-- Absolute corner glow orb (top-right, section color at 10% opacity)
-- Pill breadcrumb row: `px-4 py-1 bg-gradient-to-r from-SECTION-600/80 to-NEXT-600/80 rounded-full ...` + fading line
-- Content zone: `relative z-10 flex-1 min-h-0`
-
-Use the section's color pair for both the background overlay and the breadcrumb pill. Advance the color pair with each new section (cyan/blue → blue/indigo → indigo/purple → purple/pink).
-
-**Never use a plain centered layout (`items-center justify-center`, bare `h1`) for content slides.** The only slides that use centered layouts are: title, section openers, and the thank-you slide.
+Every content slide **must** use the cockpit wrapper from `slides/TEMPLATE.md` — exact HTML is there. Never use a plain centered `h1`; only title, section openers, and thank-you use centered layouts. Color pair advances each section: cyan/blue → blue/indigo → indigo/purple → purple/pink.
 
 #### Section Openers (Rich "Part N" pattern)
 
-Section divider slides use the rich opener from TEMPLATE.md (NOT the simple old `layout: center` pattern):
-- Part N pill with section colors at 40% opacity
-- Large `w-[600px]` glow orb
-- `!text-5xl !font-bold` gradient title + `!text-2xl !font-normal` subtitle
-- Horizontal rule: `w-24 h-0.5 bg-gradient-to-r from-transparent via-COLOR-400 to-transparent`
-- 3-column teaser grid previewing section content
-- Monospace callout at bottom: `font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg`
+Use the rich opener from `slides/TEMPLATE.md` — Part N pill + 600px orb + 3-col teaser + mono callout. Not the old `layout: center` pattern.
 
-#### Progress Dots (multi-slide sections)
+#### Progress Dots (REQUIRED on all topic section content slides)
 
-When a section has 2–5 content slides, add progress indicators to the breadcrumb row:
-- Active dot: `w-2 h-2 rounded-full bg-{SECTION}-400 shadow-lg shadow-{SECTION}-500/50`
-- Inactive dot: `w-2 h-2 rounded-full bg-white/20`
-- Label: `text-white/40 text-xs ml-1` showing "N of M"
+Every content slide inside a topic section must have progress dots — even single-slide sections. Section openers do NOT get dots. Full HTML in `slides/TEMPLATE.md`. When splitting slides, update ALL sibling dot totals (see `memories/repo/wing_infra/hall_advice.md`).
 
 ### 2a. TOC Slide Rules
 
@@ -155,34 +131,11 @@ When a section has 2–5 content slides, add progress indicators to the breadcru
 - Color progression: cyan → blue → indigo → purple → pink
 - Skip TOC only if < 10 total slides or single-topic deep dive with no clear sections
 
-### 3. Content Limits (HARD LIMITS — count before writing)
+### 3. Content Limits
 
-| Element                 | Maximum   | If Exceeded                       |
-| ----------------------- | --------- | --------------------------------- |
-| Bullets per column      | 5         | Split into (1/2) / (2/2) slides   |
-| Paragraph length        | 200 chars | Break into bullets or split slide |
-| Use cases per slide     | 2         | "Part 1" / "Part 2"               |
-| Code examples per slide | 1         | Dedicated "Implementation" slide  |
-| Comparison pairs        | 3         | Split slides                      |
-| Grid items              | 6 (2×3)   | Continuation slide                |
-| Vertical div stacks     | 3         | Grid layout or split              |
+Hard limits are in `memories/repo/wing_infra/hall_advice.md`. Key: max 5 bullets/column, 200 chars/paragraph, 3 vertical stacks, 1 code block per slide. Prefer splitting over condensing.
 
-**Prefer splitting over condensing.** More slides with clear content beats fewer cramped slides.
-
-### 4. HTML Safety Rules
-
-Before writing any slide with HTML:
-
-- **Separator rule** — Every slide separator must be `\n---\n` — `---` on its own line with a blank line before and after. Never write `---<!-- SLIDE: ...` on the same line.
-- **No per-slide frontmatter** — Never use `layout:`, `class:`, or `transition:` blocks between `---` separators. Use CSS instead: `grid grid-cols-2` replaces `layout: two-cols`; `class="... text-center"` on the outer div replaces `class: text-center`.
-- **Slide name comment** — The first line of every content slide (after the blank line following `---`) must be `<!-- SLIDE: Name -->` using the pill label or heading as the name. Never omit this.
-- **Tag balance** — count every `<div>` and `</div>`; they must match exactly
-- **Consistent quotes** — use `"` throughout; never mix `"` and `'`
-- **Backtick balance** — count opening and closing backticks in code blocks
-- **Flush-left HTML** — never 4+ spaces of indentation (triggers markdown code block)
-- **Self-closing tags** — use `<br />` not `<br>`
-
-### 5. Update the Index
+### 4. Update the Index
 
 After generating slides, update `slides/index-custom.html`:
 
@@ -191,11 +144,11 @@ After generating slides, update `slides/index-custom.html`:
 - Maintain alphabetical order within sub-groups (workshop modules by number)
 - Card template: `<a href="/CopilotTraining/{section}/{slug}/" class="card"><h2>{Title}</h2><p>{Description}</p></a>`
 
-### 6. Sync Dates
+### 5. Sync Dates
 
 Run `node slides/scripts/sync-index-dates.mjs` after creating or updating any slide to keep the "NEW" badge current.
 
-### 7. Set Metadata
+### 6. Set Metadata
 
 - New slides: `status: active`, `updated: <today YYYY-MM-DD>`
 - Updated slides: update `updated:` to today
@@ -220,7 +173,7 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 
 ### Content
 
-- [ ] 15-20 slides (split, don't cram)
+- [ ] Under 25 slides total (split, don't cram)
 - [ ] Editorial ranking applied: newest/most novel content gets slides, expected patterns compressed
 - [ ] At least one "I didn't know it could do that" capability featured prominently
 - [ ] Use cases chosen for novelty + impact, not just README order
@@ -245,7 +198,7 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 - [ ] **Every content slide uses the cockpit template** (pill breadcrumb + absolute gradients + `justify-start px-14`)
 - [ ] **No plain centered `h1` content slides** — only title, section openers, and thank-you use centered layouts
 - [ ] **Section openers use the rich "Part N" pattern** (Part N pill, 600px orb, 3-column teaser, monospace callout)
-- [ ] **Progress dots added** for sections with 2+ content slides
+- [ ] **Progress dots on every topic section content slide** (not just sections with 2+; section openers excluded)
 - [ ] Section color pairs advance correctly: cyan/blue → blue/indigo → indigo/purple → purple/pink
 - [ ] `module` field in frontmatter with correct path
 - [ ] `status: active` and `updated: <today>` in frontmatter
@@ -255,29 +208,15 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 
 ## Common Mistakes
 
-| Mistake                     | Prevention                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------ |
-| `---` on same line as content | Always `\n---\n` — blank line before and after every separator              |
-| Literal `---` in slide HTML | Always use `&#45;&#45;&#45;` — a literal `---` inside content splits the slide |
-| Per-slide frontmatter blocks | Never use `layout:`, `class:`, `transition:` — use CSS in the content div   |
-| `layout: two-cols`          | Use `<div class="grid grid-cols-2 gap-4">` inside the content wrapper          |
-| Plain centered `h1` for content slides | Use the cockpit template — `justify-start px-14` + pill breadcrumb  |
-| Missing pill breadcrumb     | Every content slide needs `px-4 py-1 bg-gradient-to-r ... rounded-full` pill  |
-| Simple section opener       | Use rich "Part N" pattern: Part pill + 600px orb + 3-col teaser + mono callout |
-| Missing progress dots       | Add dots + "N of M" label when a section has 2+ content slides                |
-| Wrong color for section     | Advance pair each section: cyan/blue → blue/indigo → indigo/purple → purple/pink |
-| Counting `---` to find slides | **Nth `<!-- SLIDE: -->` = slide N**; with separator rule enforced, `\n---\n` count also works |
-| Missing slide name comment  | First line after blank line after `---` must be `<!-- SLIDE: Name -->`        |
-| Unclosed `<div>` tags       | Count open/close before writing                                                |
-| 7+ bullets on one slide     | Split at 5; create (1/2)/(2/2)                                                 |
-| Mixed `"` and `'` quotes    | Use `"` everywhere                                                             |
-| 4+ space HTML indentation   | Keep all tags flush-left                                                       |
-| 4+ vertical stacked divs    | Use grid layout or split                                                       |
-| Hash anchors in TOC         | Use `@click="$nav.go(N)"` only                                                 |
-| Mermaid diagrams            | Always use styled HTML divs                                                    |
-| UTF-8 BOM in new files      | Write with `New-Object System.Text.UTF8Encoding $false` — BOM causes frontmatter to render as slide 1 |
-| README order = slide order  | Apply editorial ranking (§1a); newest/most differentiated content earns slides |
-| All use cases shown equally | 2-3 best use cases get slides; compress or skip table-stakes demos             |
+Full rules, gotchas, and structural fixes are in `memories/repo/wing_infra/hall_facts.md` and `hall_advice.md` — read them during pre-flight (step 7). Key reminders:
+
+- `<!-- SLIDE: Name -->` required on **every** slide including slide 1 — missing it shifts all counts off by one
+- UTF-8 BOM breaks frontmatter — write with `UTF8Encoding($false)`
+- `---` separator always on its own line — never `---<!-- SLIDE:` on same line
+- No per-slide frontmatter (`layout:`, `class:`, `transition:`) — use CSS
+- TOC: `@click="$nav.go(N)"` only — no hash anchors
+- No Mermaid — use styled HTML divs
+- Count `<div>`/`</div>` before writing any HTML block
 
 ## Error Handling
 

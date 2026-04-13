@@ -228,3 +228,71 @@ Topics covered in multiple artifacts — check for drift when updating either:
 **How to use:** When updating one artifact, query — *"what else covers this topic?"* — then verify alignment manually. Update `Last verified` date when confirmed still consistent.
 
 **Source:** memory-plan.md Wild Ideas §3; built from `slides/SECTIONS.md` and README scan.
+
+---
+
+## inspect-slide: Multi-viewport testing catches responsive overflow
+
+`schema_version: 2` | `date: 2026-04-10`
+
+inspect-slide tests overflow at 3 breakpoints: 1920px (desktop), 1366px (laptop), 768px (tablet). Content that fits at 1920px can overflow at smaller responsive sizes. This was the root cause of false negatives on copilot-azure-mcp slides 16-18 — both showed 340px+ overflow at 1366px but earlier test runs reported "ok" when only testing 1920px. 
+
+**Critical:** Always validate slides at all 3 breakpoints. Grid-based layouts are especially prone to responsive overflow.
+
+**Source:** copilot-azure-mcp review session 2026-04-10 — identified via Adversarial Council debug process and confirmed by re-running tests at each breakpoint.
+
+---
+
+## inspect-slide: HTML tag balance validation
+
+`schema_version: 1` | `date: 2026-04-10`
+
+inspect-slide reports div tag balance within each slide (e.g., "31 opens, 30 closes"). Unmatched opens/closes prevent proper Slidev rendering — the slide may not display at all or render with invisible content. Always check inspect-slide JSON output for `"syntaxError": true` before concluding a slide is clean.
+
+**Pattern:** Unclosed wrapper div on copilot-chat-internals s18 had outer `<div class="relative z-10 flex-1 min-h-0">` that was never closed, causing the slide not to render.
+
+**Source:** copilot-chat-internals review session 2026-04-10 — inspect-slide caught the error (31 opens, 30 closes), guided fix.
+
+---
+
+## inspect-slide: Trigger phrases for natural language invocation
+
+`schema_version: 1` | `date: 2026-04-10`
+
+Configured skill responds to: "inspect slide", "review slide", "check slide", "slide overflow", "slide review", "inspect deck", "review deck". Users can invoke using natural language instead of explicit command syntax. Improves usability and discoverability of the tool.
+
+**Source:** skill config session 2026-04-10 — .github/skills/inspect-slide/SKILL.md triggers field.
+
+---
+
+## GitHub Copilot Code Review: Rulesets (UI) + instruction files, not YAML config
+
+`schema_version: 1` | `date: 2026-04-09`
+
+GitHub Copilot Code Review is configured via **Rulesets in the GitHub UI** (Settings → Code and automation → Rules), not via YAML config files. Custom behavior is defined in **`.github/copilot-instructions.md`** (Markdown format) and **`.github/instructions/<topic>.instructions.md`** (Markdown with YAML frontmatter containing only `applyTo` glob patterns).
+
+**No official support for:**
+- `copilot-review.yml` or `compliance-rules.yml` files
+- YAML schemas with fields like `triggers`, `severity_threshold`, `focus`, `pattern`, `require_context`, `condition`, `rule` IDs
+- File-based trigger or configuration logic
+
+This was a **critical hallucination in copilot-code-review tech-talk** content — completely rewritten to reflect accurate API.
+
+**Source:** Verified against GitHub official docs (https://docs.github.com/en/copilot/using-github-copilot/code-review and https://docs.github.com/en/copilot/tutorials/use-custom-instructions). Hallucination audit completed 2026-04-09.
+
+---
+
+## Slidev: Multi-line YAML in code blocks breaks Vue parser
+
+`schema_version: 1` | `date: 2026-04-09`
+
+A `<code>` block containing YAML with pipe syntax (`|`) or multi-line strings causes Slidev's Vue template parser to fail silently. The slide shows "An error occurred on this slide" in the browser, but inspect-slide.js reports `"syntaxError": false` (because the HTML tag balance is correct — the Vue error is runtime, not structural).
+
+**Affected slides in this session:**
+- copilot-code-review s5: YAML with `version: 1 review:\n  triggers:\n  ...` inline with opening tag
+- copilot-code-review s10: YAML with `rules:\n  - id: "pii-encryption"\n    message: |\n      ...` (pipe multi-line)
+
+**Fix:** Flatten YAML examples to single-line keys without inline comments or pipe strings. If pipe is necessary, convert to a simple multi-line YAML block outside of `<code>` tags or remove the YAML entirely.
+
+**Source:** copilot-code-review slide review session 2026-04-09 — both slides fixed by removing multi-line YAML from code blocks.
+

@@ -4,7 +4,40 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
-## Slide style refresh: ALL tech-talk decks verified clean (2026-04-09 session)
+## copilot-code-review tech-talk: Complete rewrite to remove hallucinations (2026-04-10)
+
+`schema_version: 1` | `date: 2026-04-10`
+
+The `copilot-code-review` tech-talk README and slides were completely rewritten to remove pervasive hallucinated content. The original version (dated 2026-03-19) contained fabricated configuration patterns that don't exist in the actual GitHub Copilot Code Review product.
+
+**Hallucinations removed:**
+- Fictional `copilot-review.yml` YAML config files with invented `triggers`, `severity_threshold`, `focus`, `pattern`, `require_context` schema
+- Non-existent `examples/` directory with `copilot-review-metrics.yml` and `pr-workflow-guide.md`
+- References to non-existent tech-talks: `../copilot-chat/` and `../copilot-workspace/`
+- Fabricated compliance ruleset YAML schemas
+
+**Rewritten to reflect actual product:**
+- Configuration via **GitHub Rulesets UI** (Settings → Code and automation → Rules)
+- Custom behavior via **`.github/copilot-instructions.md`** (Markdown)
+- Language-specific rules via **`.github/instructions/<topic>.instructions.md`** (Markdown with YAML frontmatter containing only `applyTo` globs)
+
+**Authoritative source:** `tech-talks/copilot-code-review/research.md` — contains verified URLs and facts from official GitHub docs. **Always regenerate from research.md** for this talk to avoid hallucination recurrence.
+
+**Files changed:**
+- `tech-talks/copilot-code-review/README.md` — rewritten via Tech Talk Generator agent + manual cleanup
+- `slides/tech-talks/copilot-code-review.md` — deleted and recreated (24 slides)
+
+---
+
+## copilot-acp.md: Part 4 use-case slides restructured (2026-04-09)
+
+`schema_version: 1` | `date: 2026-04-09`
+
+Slide 17 (Zed Editor Integration) was split into three standalone slides. Deck grew from **22 → 24 slides**. Each use-case slide got visual weight additions: headline, subheading, expanded code, full-height cards with footer annotations, and a bottom insight strip. The slide count entry in the all-decks table below is now stale — copilot-acp.md is at 24 slides, not 22.
+
+---
+
+
 
 `schema_version: 1` | `date: 2026-04-09`
 
@@ -29,9 +62,9 @@ Multi-session effort completed. All 16 active tech-talk decks are at cockpit sty
 | `enterprise-patterns.md` | ✅ 22/22 | `507a335` |
 | `copilot-hooks.md` | ✅ 25/25 | `d47f85e` |
 | `vscode-latest.md` | ✅ 24/24 | `4374a80` |
-| `copilot-code-review.md` | ✅ 26/26 | `1d1f624` |
+| `copilot-code-review.md` | ✅ 24/24 | rewritten 2026-04-10 |
 
-**Total: 18 decks, 404 slides — all clean.**
+**Total: 18 decks, 402 slides — all clean.**
 
 ---
 
