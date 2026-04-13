@@ -146,47 +146,51 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 
 <!-- SLIDE: 💭 The Team, Before Module 5 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-red-900/30 via-rose-900/15 to-slate-900/20"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+<div class="text-red-500/8 font-black text-[11rem] uppercase tracking-widest rotate-[-20deg] whitespace-nowrap">Wrong Answers</div>
+</div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 5</span>
 <div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-red-600 to-rose-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-red-900/50 rotate-[-2deg] inline-block border border-red-400/40">⚠ Wrong Answers Only</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-amber-400 border border-red-800/30">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is how Copilot connects to the internet. That&rsquo;s why it sometimes knows current stuff. It&rsquo;s already on.&rdquo;</div>
-<div class="text-xs text-gray-500">Describing a completely different feature with total confidence.</div>
+<div class="text-xs text-red-400/70">Describing a completely different feature with total confidence.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-blue-400 border border-red-800/30">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is essentially SOAP with better branding and a younger demographic. I&rsquo;ll reserve judgment.&rdquo;</div>
-<div class="text-xs text-gray-500">Technically wrong. Spiritually on brand.</div>
+<div class="text-xs text-red-400/70">Technically wrong. Spiritually on brand.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-green-400 border border-red-800/30">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP means Copilot can write directly to the database now. That&rsquo;s what &lsquo;live data access&rsquo; means.&rdquo;</div>
-<div class="text-xs text-gray-500">She&rsquo;s going to have follow-up questions about prod access.</div>
+<div class="text-xs text-red-400/70">She&rsquo;s going to have follow-up questions about prod access.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-purple-400 border border-red-800/30">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP servers run entirely in the cloud. There&rsquo;s nothing local to secure or audit.&rdquo;</div>
-<div class="text-xs text-gray-500">The security concern is coming. It&rsquo;s just aimed at the wrong layer.</div>
+<div class="text-xs text-red-400/70">The security concern is coming. It&rsquo;s just aimed at the wrong layer.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-orange-400 border border-red-800/30">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is just a fancy name for the GitHub extension. I already have that installed. Is there a different download?&rdquo;</div>
-<div class="text-xs text-gray-500">Confidently conflating two unrelated things.</div>
+<div class="text-xs text-red-400/70">Confidently conflating two unrelated things.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-cyan-400 border border-red-800/30">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;MCP is already reading our Confluence docs, isn&rsquo;t it? I assumed that&rsquo;s what was happening.&rdquo;</div>
-<div class="text-xs text-gray-500">It was not happening. He has been very wrong for weeks.</div>
+<div class="text-xs text-red-400/70">It was not happening. He has been very wrong for weeks.</div>
 </div>
 </div>
 </div>
@@ -453,8 +457,8 @@ MCP servers let Copilot query <span class="text-orange-300">real tools and live 
 <div class="text-purple-300 font-bold text-base">5.2</div>
 <span class="text-xs text-gray-500">Elena &#x2B50;</span>
 </div>
-<div class="text-white text-xs font-semibold mb-1">Upgrade data-accuracy-check Skill</div>
-<div class="text-gray-400 text-xs leading-snug mb-2">Extend the <span class="text-gray-200">data-accuracy-check</span> skill to validate against the live database instead of the static universe file.</div>
+<div class="text-white text-xs font-semibold mb-1">Upgrade check-data-accuracy Skill</div>
+<div class="text-gray-400 text-xs leading-snug mb-2">Extend the <span class="text-gray-200">check-data-accuracy</span> skill to validate against the live database instead of the static universe file.</div>
 <div class="text-[10px] text-gray-400 space-y-0.5 border-t border-purple-500/20 pt-2 mt-auto">
 <div class="text-purple-300/80 font-semibold mb-1">You&rsquo;ll see:</div>
 <div>&#x2022; Skills + MCP working in combination</div>
@@ -498,7 +502,7 @@ Each exercise rotates the lead persona &mdash; everyone contributes, everyone fo
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-blue-400 text-sm text-gray-300">
-The <code class="text-emerald-300">data-accuracy-check</code> skill validates entries against the universe file — but it can&#39;t catch errors that are ALREADY in the database. <strong class="text-white">This exercise connects Copilot to live FanHub lore data so the skill can cross-check real records, not just the universe file.</strong>
+The <code class="text-emerald-300">check-data-accuracy</code> skill validates entries against the universe file — but it can&#39;t catch errors that are ALREADY in the database. <strong class="text-white">This exercise connects Copilot to live FanHub lore data so the skill can cross-check real records, not just the universe file.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
@@ -605,14 +609,14 @@ Once <code class="text-blue-300 font-mono">fanhub-db</code> is running in Agent 
 
 ---
 
-<!-- SLIDE: The data-accuracy-check skill catches writing errors. MCP catches data entry errors. -->
+<!-- SLIDE: The check-data-accuracy skill catches writing errors. MCP catches data entry errors. -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-6">
 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">5.2</div>
 <div>
 <div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
-<h2 class="!text-2xl !font-bold text-white !m-0">Upgrade data-accuracy-check with MCP</h2>
+<h2 class="!text-2xl !font-bold text-white !m-0">Upgrade check-data-accuracy with MCP</h2>
 </div>
 <div class="ml-auto flex gap-3 text-xs text-gray-400">
 <span class="px-3 py-1 bg-gray-800 rounded-full">Elena &#x2B50;</span>
@@ -620,13 +624,13 @@ Once <code class="text-blue-300 font-mono">fanhub-db</code> is running in Agent 
 </div>
 </div>
 <div class="relative z-10 mb-5 p-4 bg-gray-900/60 rounded-xl border-l-4 border-purple-400 text-sm text-gray-300">
-The <code class="text-emerald-300">data-accuracy-check</code> skill from M3/M4 verifies lore entries against the universe file. <strong class="text-white">This exercise upgrades it to also query live FanHub data via MCP &mdash; so it catches discrepancies between what the universe file says and what's actually stored in the database.</strong>
+The <code class="text-emerald-300">check-data-accuracy</code> skill from M3/M4 verifies lore entries against the universe file. <strong class="text-white">This exercise upgrades it to also query live FanHub data via MCP &mdash; so it catches discrepancies between what the universe file says and what's actually stored in the database.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-4">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">&#x1F4CB; Steps</div>
 <div class="space-y-2 text-xs">
-<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open <span class="font-mono text-emerald-300">.github/skills/data-accuracy-check/SKILL.md</span> from M3/M4</span></div>
+<div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Open <span class="font-mono text-emerald-300">.github/skills/check-data-accuracy/SKILL.md</span> from M3/M4</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Add a verification step that queries <span class="font-mono text-purple-300">#mcp-fanhub-db</span> to cross-check lore claims against live character records</span></div>
 <div class="flex items-start gap-3 p-3 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-purple-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Test: submit a lore entry that conflicts with a database record &mdash; does the skill catch it?</span></div>
 </div>
@@ -645,18 +649,18 @@ The <code class="text-emerald-300">data-accuracy-check</code> skill from M3/M4 v
 
 ---
 
-<!-- SLIDE: 📋 Example: data-accuracy-check — MCP upgrade -->
+<!-- SLIDE: 📋 Example: check-data-accuracy — MCP upgrade -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: data-accuracy-check &mdash; MCP upgrade</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: check-data-accuracy &mdash; MCP upgrade</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
 <div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 font-mono text-xs overflow-auto select-all">
 <div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">data-accuracy-check</span></div>
+<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">check-data-accuracy</span></div>
 <div class="text-orange-300">description<span class="text-white">: &gt;</span></div>
 <div class="text-green-300 ml-4">Use this skill when asked to verify, validate,</div>
 <div class="text-green-300 ml-4">or fact-check a lore entry, character bio,</div>
@@ -772,14 +776,14 @@ The <code class="text-emerald-300">data-accuracy-check</code> skill from M3/M4 v
 </div>
 </div>
 <div class="relative z-10 mb-3 p-3 bg-gray-900/60 rounded-xl border-l-4 border-orange-400 text-xs text-gray-300">
-The quotes feature is live. The database looks fine. But when you run <code class="text-emerald-300">data-accuracy-check</code> with <em>both</em> MCP servers and compare what&rsquo;s stored against what the API returns &mdash; <strong class="text-white">something doesn&rsquo;t match. Long quotes come back shorter. There&rsquo;s a bug in the code truncating <code class="text-amber-300">quote_text</code> to 50 characters &mdash; but it&rsquo;s invisible until you can read from both sources.</strong>
+The quotes feature is live. The database looks fine. But when you run <code class="text-emerald-300">check-data-accuracy</code> with <em>both</em> MCP servers and compare what&rsquo;s stored against what the API returns &mdash; <strong class="text-white">something doesn&rsquo;t match. Long quotes come back shorter. There&rsquo;s a bug in the code truncating <code class="text-amber-300">quote_text</code> to 50 characters &mdash; but it&rsquo;s invisible until you can read from both sources.</strong>
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-3">
 <div>
 <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">&#x1F4CB; Steps</div>
 <div class="space-y-1.5 text-xs">
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Use <span class="font-mono text-cyan-300">#mcp-fanhub-db</span> to query the <span class="font-mono text-amber-200">quotes</span> table &mdash; inspect some records, look at the <span class="font-mono text-amber-200">quote_text</span> field</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Run <span class="font-mono text-emerald-300">/data-accuracy-check</span> on a few quotes &mdash; does anything look unexpectedly short?</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Run <span class="font-mono text-emerald-300">/check-data-accuracy</span> on a few quotes &mdash; does anything look unexpectedly short?</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-orange-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Add <span class="font-mono text-orange-300">fanhub-api</span> to <span class="font-mono text-blue-300">.vscode/mcp.json</span> if not already done</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-600 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Use <span class="font-mono text-amber-300">#mcp-fanhub-api</span> to fetch the same quotes &mdash; compare <span class="font-mono text-amber-200">quote_text</span> in the DB vs. the API response</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-red-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">5</span><span class="text-gray-300">Identify the pattern: which quotes are affected? Can you find the 50-char limit in the code?</span></div>
@@ -855,18 +859,18 @@ The quotes feature is live. The database looks fine. But when you run <code clas
 
 ---
 
-<!-- SLIDE: 📋 Example: data-accuracy-check — API upgrade -->
+<!-- SLIDE: 📋 Example: check-data-accuracy — API upgrade -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: data-accuracy-check &mdash; API upgrade</span>
+<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CB; Example: check-data-accuracy &mdash; API upgrade</span>
 <div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 flex flex-col gap-3">
 <div class="grid grid-cols-2 gap-3 flex-1">
 <div class="bg-gray-950 rounded-xl border border-gray-700/50 p-4 font-mono text-xs overflow-auto select-all">
 <div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">data-accuracy-check</span></div>
+<div class="text-orange-300">name<span class="text-white">: </span><span class="text-green-300">check-data-accuracy</span></div>
 <div class="text-orange-300">description<span class="text-white">: &gt;</span></div>
 <div class="text-green-300 ml-4">Use this skill when asked to verify, validate,</div>
 <div class="text-green-300 ml-4">or fact-check a lore entry, character bio,</div>
@@ -1196,10 +1200,11 @@ MCP servers let Copilot see the real world. <span class="text-white font-semibol
 
 <!-- SLIDE: 💭 The Team, After Module 5 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/18 via-cyan-900/10 to-slate-900/10"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 5</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 5</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-emerald-900/40 inline-block border border-emerald-300/30">✓ After The Module</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">

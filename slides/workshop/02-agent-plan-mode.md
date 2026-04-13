@@ -129,47 +129,51 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 
 <!-- SLIDE: 💭 The Team, Before Module 2 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-red-900/30 via-rose-900/15 to-slate-900/20"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+<div class="text-red-500/8 font-black text-[11rem] uppercase tracking-widest rotate-[-20deg] whitespace-nowrap">Wrong Answers</div>
+</div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 2</span>
 <div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-red-600 to-rose-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-red-900/50 rotate-[-2deg] inline-block border border-red-400/40">⚠ Wrong Answers Only</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-amber-400 border border-red-800/30">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode just writes the code more slowly so you can check it as it goes. It&rsquo;s like watching it think out loud.&rdquo;</div>
-<div class="text-xs text-gray-500">About to discover the plan is the point.</div>
+<div class="text-xs text-red-400/70">About to discover the plan is the point.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-blue-400 border border-red-800/30">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode outputs a structured diagram of the proposed changes. I&rsquo;ve been asking for that for two years.&rdquo;</div>
-<div class="text-xs text-gray-500">Correctly excited. Completely wrong about what it outputs.</div>
+<div class="text-xs text-red-400/70">Correctly excited. Completely wrong about what it outputs.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-green-400 border border-red-800/30">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It&rsquo;s read mode. It reads the code before writing instead of after. Like a junior dev who actually does that.&rdquo;</div>
-<div class="text-xs text-gray-500">The bar she set is doing a lot of work here.</div>
+<div class="text-xs text-red-400/70">The bar she set is doing a lot of work here.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-purple-400 border border-red-800/30">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode means it won&rsquo;t write any code until you explicitly say go. It just waits. That&rsquo;s the feature.&rdquo;</div>
-<div class="text-xs text-gray-500">Wrong about the mechanism. Right about wanting control.</div>
+<div class="text-xs text-red-400/70">Wrong about the mechanism. Right about wanting control.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-orange-400 border border-red-800/30">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode is when it shows you the diff before applying it. I thought I was already using that.&rdquo;</div>
-<div class="text-xs text-gray-500">Mixing up three different features with confidence.</div>
+<div class="text-xs text-red-400/70">Mixing up three different features with confidence.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-cyan-400 border border-red-800/30">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Plan mode auto-generates the ticket description. Marcus told me. That&rsquo;s what we&rsquo;re doing today, right?&rdquo;</div>
-<div class="text-xs text-gray-500">Marcus did not tell him that.</div>
+<div class="text-xs text-red-400/70">Marcus did not tell him that.</div>
 </div>
 </div>
 </div>
@@ -187,12 +191,12 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 </div>
 <div class="relative z-10 grid grid-cols-2 gap-3 text-xs text-left">
 <div class="p-3 rounded-lg border-l-4 border-blue-500 bg-gray-900/60">
-<div class="font-bold text-blue-300 mb-0.5 text-sm">2.2–2.3 — Research-backed plans</div>
+<div class="font-bold text-blue-300 mb-0.5 text-sm">2.1–2.2 — Research-backed plans</div>
 <div class="text-gray-400 font-mono text-xs mb-2">/plan mode</div>
 <div class="text-gray-300">Two first-pass roadmaps with likely files, dependencies, and open questions surfaced before coding.</div>
 </div>
 <div class="p-3 rounded-lg border-l-4 border-green-500 bg-gray-900/60">
-<div class="font-bold text-green-300 mb-0.5 text-sm">2.4 — Cleaner execution</div>
+<div class="font-bold text-green-300 mb-0.5 text-sm">2.3 — Cleaner execution</div>
 <div class="text-gray-400 font-mono text-xs mb-2">Agent mode handoff</div>
 <div class="text-gray-300">Hand the validated roadmap to Agent mode — implementation with less guesswork and fewer conflicts.</div>
 </div>
@@ -418,7 +422,7 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 <div class="relative z-10 grid grid-cols-3 gap-3 flex-1">
 <div class="p-4 bg-amber-900/30 rounded-lg border border-amber-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
-<div class="text-amber-300 font-bold text-base">2.2 &mdash; Plan Lore card</div>
+<div class="text-amber-300 font-bold text-base">2.1 &mdash; Plan Lore card</div>
 <span class="text-xs text-amber-400/70">Jessica ⭐</span>
 </div>
 <div class="text-gray-300 text-xs leading-snug">Add a Lore card to the homepage and a new Lore page. Build the plan before writing a single line of code.</div>
@@ -426,15 +430,15 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 </div>
 <div class="p-4 bg-purple-900/30 rounded-lg border border-purple-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
-<div class="text-purple-300 font-bold text-base">2.3 &mdash; Plan add form</div>
+<div class="text-purple-300 font-bold text-base">2.2 &mdash; Plan add form</div>
 <span class="text-xs text-purple-400/70">David ⭐</span>
 </div>
-<div class="text-gray-300 text-xs leading-snug">Produce a second roadmap for the add-episode feature — in the same session as 2.2, without losing context.</div>
+<div class="text-gray-300 text-xs leading-snug">Produce a second roadmap for the add-episode feature — in the same session as 2.1, without losing context.</div>
 <div class="mt-auto pt-2 text-xs text-gray-500 border-t border-purple-500/20">One conversation, two independent plans — no rediscovery needed</div>
 </div>
 <div class="p-4 bg-green-900/30 rounded-lg border border-green-500/40 flex flex-col gap-1">
 <div class="flex items-center justify-between mb-1">
-<div class="text-green-300 font-bold text-base">2.4 &mdash; Execute + populate</div>
+<div class="text-green-300 font-bold text-base">2.3 &mdash; Execute + populate</div>
 <span class="text-xs text-green-400/70">Sarah ⭐</span>
 </div>
 <div class="text-gray-300 text-xs leading-snug">Hand the validated plan to Agent mode and let it implement — without re-explaining the codebase from scratch.</div>
@@ -448,11 +452,11 @@ Plan mode turns <span class="text-orange-300">“Where do I start?”</span> int
 </div>
 ---
 
-<!-- SLIDE: 🔨 Exercise 2.2: Plan the Lore Card & Page -->
+<!-- SLIDE: 🔨 Exercise 2.1: Plan the Lore Card & Page -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-3">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">2.2</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">2.1</div>
 <div>
 <div class="text-amber-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
 <h2 class="!text-2xl !font-bold text-white !m-0">Plan the Lore Card & Page</h2>
@@ -473,7 +477,7 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span><span class="text-gray-300">Switch to <strong>Plan</strong> mode — then write down your guess: how many files will this touch?</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span><span class="text-gray-300">Enter the Lore card prompt and watch plan mode read the codebase (60–120 s)</span></div>
 <div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span><span class="text-gray-300">Count files in the plan, compare to your guess, annotate ≥ 1 refinement you'd make</span></div>
-<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Click <strong>Open in Editor</strong>, then <strong>Save As Prompt File</strong> (lower-right) — David will spot what's missing in 2.3</span></div>
+<div class="flex items-start gap-3 p-2 bg-gray-900/40 rounded-lg"><span class="w-5 h-5 rounded-full bg-amber-700 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span><span class="text-gray-300">Click <strong>Open in Editor</strong>, then <strong>Save As Prompt File</strong> (lower-right) — David will spot what's missing in 2.2</span></div>
 </div>
 </div>
 <div class="space-y-2">
@@ -519,7 +523,7 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 👀 <strong class="text-orange-300">Watch the chat window while it runs.</strong> You'll see Copilot reading <span class="font-mono text-orange-200">ARCHITECTURE.md</span>, the existing card components, routing config, and DB schema — each listed as a tool call. It's learning the pattern of the existing cards before proposing how to add a new one.
 </div>
 <div class="relative z-10 mt-3 p-3 bg-blue-900/20 rounded-xl border border-blue-400/40 text-xs text-gray-300">
-💾 <strong class="text-blue-300">Save the plan:</strong> Click <span class="font-mono text-blue-200">Open in Editor</span> when the plan finishes. A <span class="font-mono text-blue-200">Save As Prompt File</span> button will appear in the lower-right — click it to save as a <span class="font-mono text-blue-200">.prompt.md</span> file for Exercise 2.3.
+💾 <strong class="text-blue-300">Save the plan:</strong> Click <span class="font-mono text-blue-200">Open in Editor</span> when the plan finishes. A <span class="font-mono text-blue-200">Save As Prompt File</span> button will appear in the lower-right — click it to save as a <span class="font-mono text-blue-200">.prompt.md</span> file for Exercise 2.2.
 </div>
 </div>
 
@@ -555,11 +559,11 @@ The homepage already has cards for Characters, Episodes, Seasons, and Network. J
 
 ---
 
-<!-- SLIDE: 🔨 Exercise 2.3: Plan the Lore Entry Form -->
+<!-- SLIDE: 🔨 Exercise 2.2: Plan the Lore Entry Form -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-3">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">2.3</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/30 flex-shrink-0">2.2</div>
 <div>
 <div class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
 <h2 class="!text-2xl !font-bold text-white !m-0">Plan the Lore Entry Form</h2>
@@ -610,10 +614,11 @@ Jessica shares her plan output with the group. David reads it line by line — a
 
 <div class="relative z-10 font-mono text-sm bg-gray-900/80 rounded-xl border border-purple-500/30 p-5 text-gray-200 leading-relaxed mb-4 select-all cursor-text">
 <span class="text-orange-400 font-bold">/plan</span> Add a form to the /lore page that lets me add a new lore entry. The form should have a title and description field. On submit, save the new entry and refresh the list so the new card appears immediately. The Lore count on the homepage card should also update.
+<div class="mt-3 text-gray-400">Before you create the plan, ask me any clarifying questions — for example: should this extend the existing lore card plan or be a separate plan? Should the form be reachable from global nav? Any other implementation choices I need to decide before you start.</div>
 </div>
 
 <div class="relative z-10 p-3 bg-orange-900/20 rounded-xl border border-orange-400/40 text-xs text-gray-300">
-🔍 <strong class="text-orange-300">The continuity check:</strong> Once the new plan arrives, scan it against Jessica's plan for three things — <strong class="text-orange-200">table names</strong> (not a new name), <strong class="text-orange-200">naming conventions</strong> (consistent, same route pattern as <span class="font-mono text-orange-200">/api/characters</span>), and <strong class="text-orange-200">data types</strong> (the <span class="font-mono text-orange-200">type</span> column uses the same enum values). Any drift here means the two plans will conflict the moment they're executed together.
+🔍 <strong class="text-orange-300">Why ask first:</strong> Without this, Copilot picks defaults silently — and you only discover them when the plan conflicts with Jessica's work. Upfront questions surface decisions like nav placement and whether to extend or replace plan 1 <em>before</em> the plan is written. Once you've answered, run the continuity check: same <strong class="text-orange-200">table name</strong>, same <strong class="text-orange-200">route pattern</strong> as <span class="font-mono text-orange-200">/api/lore-entries</span>, same <strong class="text-orange-200">type enum values</strong>.
 </div>
 </div>
 
@@ -645,11 +650,11 @@ Jessica shares her plan output with the group. David reads it line by line — a
 
 ---
 
-<!-- SLIDE: 🔨 Exercise 2.4: Execute the Plan -->
+<!-- SLIDE: 🔨 Exercise 2.3: Execute the Plan -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="relative z-10 flex items-center gap-4 mb-4">
-<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-green-500/30 flex-shrink-0">2.4</div>
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-green-500/30 flex-shrink-0">2.3</div>
 <div>
 <div class="text-green-300 text-xs font-semibold tracking-widest uppercase">Exercise</div>
 <h2 class="!text-2xl !font-bold text-white !m-0">Execute the Plan and Populate Your Universe</h2>
@@ -742,7 +747,7 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 <div class="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-base">📝</div>
 <div>
 <div class="text-blue-300 font-bold text-xs">Plan Lore card & page</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.2</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.1</div>
 </div>
 </div>
 <ul class="space-y-1 text-xs text-gray-300">
@@ -756,7 +761,7 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 <div class="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-base">🔍</div>
 <div>
 <div class="text-purple-300 font-bold text-xs">Plan the Lore form</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.3</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.2</div>
 </div>
 </div>
 <ul class="space-y-1 text-xs text-gray-300">
@@ -770,7 +775,7 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 <div class="w-8 h-8 rounded-lg bg-green-500/20 border border-green-400/30 flex items-center justify-center text-base">🚀</div>
 <div>
 <div class="text-green-300 font-bold text-xs">Execute + populate</div>
-<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.4</div>
+<div class="text-xs text-gray-400 uppercase tracking-wider">Exercise 2.3</div>
 </div>
 </div>
 <ul class="space-y-1 text-xs text-gray-300">
@@ -787,7 +792,7 @@ Sarah reviews <code>{plan}.prompt.md</code> — two plans merged: Jessica's Lore
 </div>
 <div class="p-3 rounded-xl bg-gradient-to-r from-orange-900/30 via-purple-900/30 to-blue-900/20 border border-white/10 text-left">
 <div class="text-xs font-bold text-white mb-1">Why this matters</div>
-<div class="text-xs text-gray-300">The lore entries you added in 2.4 become the target for Elena's accuracy-check prompt in Module 3 — Module 2 output feeds Module 3 input.</div>
+<div class="text-xs text-gray-300">The lore entries you added in 2.3 become the target for Elena's accuracy-check prompt in Module 3 — Module 2 output feeds Module 3 input.</div>
 </div>
 </div>
 </div>
@@ -909,10 +914,11 @@ Better planning makes execution calmer. <span class="text-white font-semibold">C
 
 <!-- SLIDE: 💭 The Team, After Module 2 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/18 via-cyan-900/10 to-slate-900/10"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 2</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 2</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-emerald-900/40 inline-block border border-emerald-300/30">✓ After The Module</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">

@@ -4,6 +4,25 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Slidev dev server: `--remote` flag in devcontainer requires `--remote=` (2026-04-13)
+
+`schema_version: 1` | `date: 2026-04-13`
+
+In the CopilotTraining devcontainer, Slidev's `--remote` flag must be passed as `--remote=` (with explicit empty `=`) when other positional args (e.g. the entry file) follow it. Because `--remote` is typed as `[string]` in yargs, passing `--remote` without `=` causes yargs to consume the next positional argument (the entry filename) as the remote password, breaking the dev server.
+
+**Correct `package.json` scripts entry:**
+```json
+"dev": "slidev --remote= --open"
+```
+
+**Effect:** Binds to `0.0.0.0` (all interfaces) with no password, allowing VS Code devcontainer port forwarding to reach the server on port 3030.
+
+**Also added** `"forwardPorts": [3030]` to `.devcontainer/devcontainer.json` for automatic port forwarding on container rebuild.
+
+**Source:** Diagnosed 2026-04-13 — server was listening on `IPv6 localhost:3030` only; `curl localhost:3030` worked inside container but browser hung from host.
+
+---
+
 ## Slidev: `---` in code blocks must be escaped as HTML entities (2026-04-13)
 
 `schema_version: 1` | `date: 2026-04-13`

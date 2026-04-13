@@ -135,47 +135,51 @@ Frontend, backend, tests, docs, and Python utilities should not all receive the 
 
 <!-- SLIDE: 💭 The Team, Before Module 1 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-red-900/30 via-rose-900/15 to-slate-900/20"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+<div class="text-red-500/8 font-black text-[11rem] uppercase tracking-widest rotate-[-20deg] whitespace-nowrap">Wrong Answers</div>
+</div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 1</span>
 <div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-red-600 to-rose-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-red-900/50 rotate-[-2deg] inline-block border border-red-400/40">⚠ Wrong Answers Only</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-amber-400 border border-red-800/30">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Oh, I already did this! I put a comment at the top of every file saying &lsquo;be helpful.&rsquo; Is that not the same thing?&rdquo;</div>
-<div class="text-xs text-gray-500">Confident she solved it six months ago.</div>
+<div class="text-xs text-red-400/70">Confident she solved it six months ago.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-blue-400 border border-red-800/30">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;This is a glorified .editorconfig. I&rsquo;ve had those since 2009. I&rsquo;m not sure what the announcement is.&rdquo;</div>
-<div class="text-xs text-gray-500">Pedantically wrong. Still technically impressive.</div>
+<div class="text-xs text-red-400/70">Pedantically wrong. Still technically impressive.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-green-400 border border-red-800/30">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;It reads the entire codebase automatically. You don&rsquo;t have to tell it anything. That&rsquo;s the whole product.&rdquo;</div>
-<div class="text-xs text-gray-500">Wrong about the most important part.</div>
+<div class="text-xs text-red-400/70">Wrong about the most important part.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-purple-400 border border-red-800/30">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Instructions are suggestions. It&rsquo;ll ignore them the moment something more convenient comes up.&rdquo;</div>
-<div class="text-xs text-gray-500">Professionally certain it won&rsquo;t hold.</div>
+<div class="text-xs text-red-400/70">Professionally certain it won&rsquo;t hold.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-orange-400 border border-red-800/30">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;The instructions file is basically a README. Copilot already reads READMEs, so this is already done. Right?&rdquo;</div>
-<div class="text-xs text-gray-500">Half-right. Wrong half.</div>
+<div class="text-xs text-red-400/70">Half-right. Wrong half.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-cyan-400 border border-red-800/30">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;I just paste our product brief in there and it knows our entire domain. Done in five minutes.&rdquo;</div>
-<div class="text-xs text-gray-500">Already scheduling the five-minute meeting.</div>
+<div class="text-xs text-red-400/70">Already scheduling the five-minute meeting.</div>
 </div>
 </div>
 </div>
@@ -1051,21 +1055,22 @@ Copilot keeps rediscovering the same structure because nothing explains the syst
 <div class="flex flex-col gap-2">
 <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">&#x1F9D1; Prompt to Copilot</div>
 <div class="bg-blue-900/30 rounded-xl p-4 border border-blue-500/30 text-gray-200 text-xs leading-relaxed flex-1 select-all cursor-text">
-<div>Look at this codebase and create a concise <span class="font-mono text-blue-300">ARCHITECTURE.md</span> file that gives Copilot the context it needs to give better suggestions.</div>
-<div class="mt-3">It should cover:</div>
+<div>Look at this codebase and create a concise <span class="font-mono text-blue-300">ARCHITECTURE.md</span> that gives Copilot the structural context it needs to give better suggestions.</div>
+<div class="mt-2 text-blue-300/80 italic">This is a navigation aid for Copilot, not a specification. Keep each section focused &mdash; omit anything Copilot doesn&rsquo;t need to generate good code.</div>
+<div class="mt-3">Cover only:</div>
 <div class="mt-1 text-gray-300">&#x2023; <strong>Tech stack</strong> &mdash; languages, frameworks, key libraries</div>
 <div class="text-gray-300">&#x2023; <strong>Folder structure</strong> &mdash; major directories and what lives in each</div>
 <div class="text-gray-300">&#x2023; <strong>Key flows</strong> &mdash; how a request moves through the system</div>
 <div class="text-gray-300">&#x2023; <strong>Key boundaries</strong> &mdash; what owns what, what must not cross</div>
 <div class="text-gray-300">&#x2023; <strong>Patterns</strong> &mdash; error handling, naming, async conventions</div>
-<div class="mt-3">Keep it under 40 lines. This is a navigation aid, not a spec.</div>
+<div class="mt-3 text-red-400/80">Do not include: a list of every file or class, historical context or changelogs, or architecture that isn&rsquo;t built yet.</div>
 </div>
 </div>
 <div class="flex flex-col gap-3">
 <div class="bg-gray-900/60 rounded-xl p-3 border border-gray-700/50 text-xs">
 <div class="text-blue-400 font-semibold text-sm mb-2">&#x1F4A1; Why this prompt works</div>
 <div class="space-y-2 text-gray-300">
-<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Scoped output</strong> &mdash; "under 40 lines" prevents a novel</div></div>
+<div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Scoped intent</strong> &mdash; "navigation aid, not a spec" focuses Copilot on what it actually needs</div></div>
 <div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Named purpose</strong> &mdash; "gives Copilot context" focuses it on the right level of detail</div></div>
 <div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Explicit sections</strong> &mdash; each bullet maps to a section Copilot generates</div></div>
 <div class="flex items-start gap-2"><div class="text-blue-400 flex-shrink-0">&#x2023;</div><div><strong class="text-white">Framing the audience</strong> &mdash; "navigation aid, not a spec" prevents over-engineering</div></div>
@@ -1821,10 +1826,11 @@ Better instructions create better starting conditions. <span class="text-white f
 ---
 <!-- SLIDE: 💭 The Team, After Module 1 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/18 via-cyan-900/10 to-slate-900/10"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 1</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 1</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-emerald-900/40 inline-block border border-emerald-300/30">✓ After The Module</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">

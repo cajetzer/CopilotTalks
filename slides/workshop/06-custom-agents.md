@@ -132,9 +132,9 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 <div class="text-xs text-gray-400 leading-tight">Now the goal is actual delivery.</div>
 </div>
 </div>
-<div class="relative z-10 flex items-center gap-3 p-3 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/40 shadow-lg">
-<span class="text-xl flex-shrink-0">⚡</span>
-<p class="text-white font-bold text-sm">Five modules. <span class="text-orange-300">One instruction.</span></p>
+<div class="relative z-10 flex items-center gap-3 p-2.5 bg-gradient-to-r from-red-900/50 to-purple-900/50 rounded-xl border border-red-500/40 shadow-lg">
+<span class="text-lg flex-shrink-0">⚡</span>
+<p class="text-white text-xs leading-snug">You <em>could</em> start with agents — but agents are only as good as what they run. <span class="text-orange-300 font-semibold">Skills need a tested prompt. Agents need skills and live data. The sequence is the architecture.</span></p>
 </div>
 </div>
 
@@ -142,47 +142,51 @@ Five modules of work sitting in this repo. Right now I have to invoke all of it 
 
 <!-- SLIDE: 💭 The Team, Before Module 6 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-blue-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-red-900/30 via-rose-900/15 to-slate-900/20"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+<div class="text-red-500/8 font-black text-[11rem] uppercase tracking-widest rotate-[-20deg] whitespace-nowrap">Wrong Answers</div>
+</div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
 <span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-blue-700/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, Before Module 6</span>
 <div class="flex-1 h-px bg-gradient-to-r from-slate-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-red-600 to-rose-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-red-900/50 rotate-[-2deg] inline-block border border-red-400/40">⚠ Wrong Answers Only</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-amber-400 border border-red-800/30">
 <div class="text-xs font-bold text-amber-300 mb-0.5">Jessica</div>
 <div class="text-xs text-gray-500 italic mb-2">The Eager Junior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Custom agents are just Copilot with a different name. Like a theme. A personality skin.&rdquo;</div>
-<div class="text-xs text-gray-500">About to discover it&rsquo;s considerably more than a skin.</div>
+<div class="text-xs text-red-400/70">About to discover it&rsquo;s considerably more than a skin.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-blue-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-blue-400 border border-red-800/30">
 <div class="text-xs font-bold text-blue-300 mb-0.5">David</div>
 <div class="text-xs text-gray-500 italic mb-2">The Seasoned Architect</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;A custom agent is a system prompt with a YAML header. I could reproduce this in ten minutes. I&rsquo;ll wait.&rdquo;</div>
-<div class="text-xs text-gray-500">He could write the YAML. He could not write the agent.</div>
+<div class="text-xs text-red-400/70">He could write the YAML. He could not write the agent.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-green-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-green-400 border border-red-800/30">
 <div class="text-xs font-bold text-green-300 mb-0.5">Sarah</div>
 <div class="text-xs text-gray-500 italic mb-2">The Skeptical Senior</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Once it&rsquo;s built, the agent runs on its own indefinitely. Zero maintenance. That&rsquo;s the pitch, right?&rdquo;</div>
-<div class="text-xs text-gray-500">&lsquo;Zero maintenance&rsquo; has never been a pitch that held.</div>
+<div class="text-xs text-red-400/70">&lsquo;Zero maintenance&rsquo; has never been a pitch that held.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-purple-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-purple-400 border border-red-800/30">
 <div class="text-xs font-bold text-purple-300 mb-0.5">Elena</div>
 <div class="text-xs text-gray-500 italic mb-2">The Quality Champion</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;The agent validates its own output. Self-testing. You don&rsquo;t need to review it &mdash; it reviews itself.&rdquo;</div>
-<div class="text-xs text-gray-500">She will spend the next hour testing that assumption to destruction.</div>
+<div class="text-xs text-red-400/70">She will spend the next hour testing that assumption to destruction.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-orange-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-orange-400 border border-red-800/30">
 <div class="text-xs font-bold text-orange-300 mb-0.5">Marcus</div>
 <div class="text-xs text-gray-500 italic mb-2">The DevOps Developer</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;Custom agents replace Copilot entirely. You&rsquo;re basically writing your own model config. That sounds like a lot.&rdquo;</div>
-<div class="text-xs text-gray-500">Half-checked-out. Catastrophically misinformed.</div>
+<div class="text-xs text-red-400/70">Half-checked-out. Catastrophically misinformed.</div>
 </div>
-<div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-cyan-400">
+<div class="p-4 rounded-xl bg-red-950/40 border-l-4 border-cyan-400 border border-red-800/30">
 <div class="text-xs font-bold text-cyan-300 mb-0.5">Rafael</div>
 <div class="text-xs text-gray-500 italic mb-2">The Product Visionary</div>
 <div class="text-xs text-gray-200 italic leading-snug mb-2">&ldquo;So I assign the Jira ticket to the agent, add it to the sprint, and check out for the day. That&rsquo;s what this is, right?&rdquo;</div>
-<div class="text-xs text-gray-500">Already blocking off his afternoon calendar.</div>
+<div class="text-xs text-red-400/70">Already blocking off his afternoon calendar.</div>
 </div>
 </div>
 </div>
@@ -1653,10 +1657,11 @@ Module 6 is where the earlier customizations stop feeling like parts and start f
 ---
 <!-- SLIDE: 💭 The Team, After Module 6 -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/18 via-cyan-900/10 to-slate-900/10"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 6</span>
-<div class="flex-1 h-px bg-gradient-to-r from-orange-400/50 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💭 The Team, After Module 6</span>
+<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/50 to-transparent"></div>
+<span class="px-3 py-1 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-md text-white text-xs font-black tracking-widest uppercase shadow-lg shadow-emerald-900/40 inline-block border border-emerald-300/30">✓ After The Module</span>
 </div>
 <div class="relative z-10 grid grid-cols-3 gap-3">
 <div class="p-4 rounded-xl bg-gray-900/50 border-l-4 border-amber-400">
