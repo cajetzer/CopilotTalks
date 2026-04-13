@@ -25,7 +25,7 @@ import TitleSlide from '../components/TitleSlide.vue'
 title="Building Agent Systems"
 subtitle="Subagents, Teams, and Autonomous Execution"
 tagline="Mechanisms for composing multi-agent AI systems that handle complex tasks"
-meta="Tech Talk · 60 minutes"
+meta="Tech Talk · 60 minutes "
 />
 
 ---
