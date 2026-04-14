@@ -19,6 +19,7 @@ updated: 2026-04-13
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1240,96 +1241,30 @@ user-invokable: true
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-y-auto">
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div>
-<div class="font-bold text-cyan-300 mb-2 text-sm">📦 Release Notes (v1.111–v1.115)</div>
-<div class="space-y-1">
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_115" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.115 (Apr 8)</a>
-<span class="text-gray-400"> — VS Code Agents app, terminal tools</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_114" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.114 (Apr 1)</a>
-<span class="text-gray-400"> — Video in chat, simplified #codebase</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_113" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.113 (Mar 25)</a>
-<span class="text-gray-400"> — Customizations editor, nested subagents</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_112" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.112 (Mar 18)</a>
-<span class="text-gray-400"> — Browser debugging, MCP sandboxing</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_111" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.111 (Mar 9)</a>
-<span class="text-gray-400"> — Autopilot mode, weekly releases begin</span>
-</div>
-</div>
-<div class="font-bold text-cyan-300 mb-2 mt-3 text-sm">📦 Release Notes (v1.108–v1.110)</div>
-<div class="space-y-1">
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_110" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.110 (Feb)</a>
-<span class="text-gray-400"> — Agent Plugins, browser tools, /create-*</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_109" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.109 (Jan)</a>
-<span class="text-gray-400"> — Skills GA, Claude Agent, Memory</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/updates/v1_108" class="text-cyan-400 hover:text-cyan-300 font-medium">v1.108 (Dec)</a>
-<span class="text-gray-400"> — Skills experimental, Agent Sessions</span>
-</div>
-</div>
-</div>
-<div>
-<div class="font-bold text-purple-300 mb-2 text-sm">📘 Documentation</div>
-<div class="space-y-1">
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/overview" class="text-purple-400 hover:text-purple-300 font-medium">GitHub Copilot in VS Code</a>
-<span class="text-gray-400"> — Features, agents, customization</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/customization/agent-plugins" class="text-purple-400 hover:text-purple-300 font-medium">Agent Plugins</a>
-<span class="text-gray-400"> — Installing and creating bundles</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/customization/agent-skills" class="text-purple-400 hover:text-purple-300 font-medium">Agent Skills</a>
-<span class="text-gray-400"> — Creating SKILL.md files</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents" class="text-purple-400 hover:text-purple-300 font-medium">Custom Agents</a>
-<span class="text-gray-400"> — .agent.md definitions</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/agents/background-agents" class="text-purple-400 hover:text-purple-300 font-medium">Background Agents</a>
-<span class="text-gray-400"> — Git worktree isolation</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/chat/mcp-servers" class="text-purple-400 hover:text-purple-300 font-medium">MCP Servers</a>
-<span class="text-gray-400"> — Model Context Protocol setup</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/chat/copilot-memory" class="text-purple-400 hover:text-purple-300 font-medium">Copilot Memory</a>
-<span class="text-gray-400"> — Persistent context across sessions</span>
-</div>
-<div class="p-1.5 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://code.visualstudio.com/docs/copilot/chat/chat-customizations" class="text-purple-400 hover:text-purple-300 font-medium">Chat Customizations</a>
-<span class="text-gray-400"> — Unified customization editor</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📦 Release Notes (v1.108–v1.115)", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/updates/v1_115", label: "v1.115 (Apr 8)", description: "VS Code Agents app, terminal tools" },
+        { href: "https://code.visualstudio.com/updates/v1_114", label: "v1.114 (Apr 1)", description: "Video in chat, simplified #codebase" },
+        { href: "https://code.visualstudio.com/updates/v1_113", label: "v1.113 (Mar 25)", description: "Customizations editor, nested subagents" },
+        { href: "https://code.visualstudio.com/updates/v1_112", label: "v1.112 (Mar 18)", description: "Browser debugging, MCP sandboxing" },
+        { href: "https://code.visualstudio.com/updates/v1_111", label: "v1.111 (Mar 9)", description: "Autopilot mode, weekly releases begin" },
+        { href: "https://code.visualstudio.com/updates/v1_110", label: "v1.110 (Feb)", description: "Agent Plugins, browser tools, /create-*" },
+        { href: "https://code.visualstudio.com/updates/v1_109", label: "v1.109 (Jan)", description: "Skills GA, Claude Agent, Memory" },
+        { href: "https://code.visualstudio.com/updates/v1_108", label: "v1.108 (Dec)", description: "Skills experimental, Agent Sessions" }
+    ] },
+    { title: "📘 Documentation", color: "purple", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/overview", label: "GitHub Copilot in VS Code", description: "Features, agents, customization" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/agent-plugins", label: "Agent Plugins", description: "Installing and creating bundles" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/agent-skills", label: "Agent Skills", description: "Creating SKILL.md files" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-agents", label: "Custom Agents", description: ".agent.md definitions" },
+        { href: "https://code.visualstudio.com/docs/copilot/agents/background-agents", label: "Background Agents", description: "Git worktree isolation" },
+        { href: "https://code.visualstudio.com/docs/copilot/chat/mcp-servers", label: "MCP Servers", description: "Model Context Protocol setup" },
+        { href: "https://code.visualstudio.com/docs/copilot/chat/copilot-memory", label: "Copilot Memory", description: "Persistent context across sessions" },
+        { href: "https://code.visualstudio.com/docs/copilot/chat/chat-customizations", label: "Chat Customizations", description: "Unified customization editor" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

@@ -19,6 +19,7 @@ updated: 2026-02-01
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1021,57 +1022,22 @@ Use <span class="text-purple-300">Terminal Sandboxing</span> for execution restr
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="mt-8 space-y-4">
-
-<div class="p-5 bg-gradient-to-r from-blue-900/40 to-blue-800/40 rounded-lg border-2 border-blue-400">
-<div class="text-xl font-bold text-blue-300 mb-2">📖 Primary Resources</div>
-<div class="grid grid-cols-2 gap-4 text-sm">
-<div class="text-gray-300">
-• <span class="text-blue-400 font-bold">Terminal Sandbox Configuration</span><br/>
-<span class="text-xs text-gray-500">Setup guide, settings reference, examples</span>
-</div>
-<div class="text-gray-300">
-• <span class="text-blue-400 font-bold">VS Code 1.109 Release Notes</span><br/>
-<span class="text-xs text-gray-500">Feature announcement and capabilities</span>
-</div>
-<div class="text-gray-300">
-• <span class="text-blue-400 font-bold">Agentic Mode Security</span><br/>
-<span class="text-xs text-gray-500">Complete security model</span>
-</div>
-<div class="text-gray-300">
-• <span class="text-blue-400 font-bold">Terminal Tool Lifecycle</span><br/>
-<span class="text-xs text-gray-500">awaitTerminal, killTerminal details</span>
-</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-4">
-<div class="p-4 bg-gray-800 rounded-lg border-l-4 border-indigo-400">
-<div class="text-lg font-bold text-indigo-300 mb-2">🔍 Chat Diagnostics</div>
-<div class="text-xs text-gray-400">View blocked attempts and sandbox status</div>
-</div>
-<div class="p-4 bg-gray-800 rounded-lg border-l-4 border-purple-400">
-<div class="text-lg font-bold text-purple-300 mb-2">👥 Enterprise Security</div>
-<div class="text-xs text-gray-400">Organization policies and compliance</div>
-</div>
-</div>
-
-</div>
-
-<div class="mt-6 text-center text-sm text-gray-500">
-🔗 code.visualstudio.com/docs/copilot/chat/chat-tools
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📖 Primary Resources", color: "cyan", items: [
+        { label: "Terminal Sandbox Configuration", description: "Setup guide, settings reference, examples" },
+        { label: "VS Code 1.109 Release Notes", description: "Feature announcement and capabilities" },
+        { label: "Agentic Mode Security", description: "Complete security model overview" },
+        { label: "Terminal Tool Lifecycle", description: "awaitTerminal, killTerminal details" }
+    ] },
+    { title: "Related Topics", color: "purple", items: [
+        { label: "Chat Diagnostics", description: "View blocked attempts and sandbox status" },
+        { label: "Enterprise Security", description: "Organization policies and compliance" },
+        { label: "Copilot Hooks", description: "Complementary governance at the agent layer" },
+        { label: "Custom Agents", description: "Design agents that respect sandbox boundaries" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

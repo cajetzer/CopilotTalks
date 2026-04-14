@@ -19,6 +19,7 @@ updated: 2026-04-10
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1255,73 +1256,24 @@ meta="Tech Talk · 35-40 minutes"
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="grid grid-cols-2 gap-3 text-xs flex-1 min-h-0 max-h-[420px] overflow-y-auto pr-2">
-<div class="space-y-2">
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Official Documentation</div>
-<div class="opacity-80 space-y-1">
-<div>[1] <span class="text-cyan-400">GitHub Copilot Code Review - Concepts</span></div>
-<div>[2] <span class="text-cyan-400">Configure Automatic Code Review</span></div>
-<div>[3] <span class="text-cyan-400">Using Copilot Code Review</span></div>
-<div>[4] <span class="text-cyan-400">Copilot Enterprise Documentation</span></div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">Blog Posts & Announcements</div>
-<div class="opacity-80 space-y-1">
-<div>[5] <span class="text-blue-400">GitHub Blog: Copilot Code Review Launch</span></div>
-<div>[6] <span class="text-blue-400">Microsoft DevBlogs: AI-Powered Code Review Best Practices</span></div>
-<div>[7] <span class="text-blue-400">GitHub Engineering: Building the Code Review Agent</span></div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Industry Research</div>
-<div class="opacity-80 space-y-1">
-<div>[8] <span class="text-indigo-400">Stack Overflow Developer Survey 2024</span></div>
-<div>[9] <span class="text-indigo-400">InfoQ: Measuring Developer Productivity</span></div>
-<div>[10] <span class="text-indigo-400">Gartner: AI-Augmented Software Engineering</span></div>
-</div>
-</div>
-</div>
-
-<div class="space-y-2">
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">Security & Compliance</div>
-<div class="opacity-80 space-y-1">
-<div>[11] <span class="text-purple-400">OWASP Top 10 2024</span></div>
-<div>[12] <span class="text-purple-400">GitHub Security Lab: AI in Application Security</span></div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-1">Community Resources</div>
-<div class="opacity-80 space-y-1">
-<div>[13] <span class="text-pink-400">GitHub Community: Copilot Review Patterns</span></div>
-<div>[14] <span class="text-pink-400">GitHub Actions Marketplace: Copilot Extensions</span></div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-rose-900/30 to-red-900/30 rounded-lg border border-rose-500/30">
-<div class="font-semibold text-rose-300 mb-1">Thought Leadership & Tools</div>
-<div class="opacity-80 space-y-1">
-<div>[15] <span class="text-rose-400">Martin Fowler: Continuous Code Review</span></div>
-<div>[16] <span class="text-rose-400">Interactive Time Savings Calculator</span></div>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="text-xs text-cyan-300">📖 Full reference list with URLs available in README.md</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "Official Documentation", color: "cyan", items: [
+        { label: "GitHub Copilot Code Review - Concepts", description: "Core review architecture and model behavior" },
+        { label: "Configure Automatic Code Review", description: "Setting up auto-review triggers and scope" },
+        { label: "Using Copilot Code Review", description: "Requesting reviews, interpreting suggestions" },
+        { label: "Copilot Enterprise Documentation", description: "Enterprise deployment and governance options" }
+    ] },
+    { title: "Industry Research", color: "purple", items: [
+        { label: "GitHub Blog: Copilot Code Review Launch", description: "Announcement and key metrics" },
+        { label: "Microsoft DevBlogs: AI Code Review Best Practices", description: "Implementation guidance" },
+        { label: "Stack Overflow Developer Survey 2024", description: "Code review bottleneck statistics" },
+        { label: "OWASP Top 10 2024", description: "Vulnerability categories caught by AI review" },
+        { label: "GitHub Security Lab: AI in Application Security", description: "73% fewer false positives" },
+        { label: "Gartner: AI-Augmented Software Engineering", description: "Market analysis and adoption trends" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

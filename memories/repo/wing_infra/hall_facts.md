@@ -33,6 +33,32 @@ Both `TitleSlide.vue` and `ThankYouSlide.vue` (in `slides/tech-talks/components/
 
 ---
 
+## ReferencesSlide component: apostrophe escaping required in single-quoted attribute (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+The `<ReferencesSlide :groups='[...]' />` prop uses single-quoted attribute syntax (required because the JSON array uses double quotes internally). Any apostrophe in item string values — e.g. `Peli's` — will **terminate the attribute early**, causing:
+
+```
+[plugin:vite:vue] Error parsing JavaScript expression: Unterminated string constant
+```
+
+**Fix:** escape apostrophes in all item `label` and `description` strings as `&#39;`.
+
+**Correct:**
+```html
+{ label: "Peli&#39;s Agent Factory Blog", description: "..." }
+```
+
+**Wrong (breaks build):**
+```html
+{ label: "Peli's Agent Factory Blog", description: "..." }
+```
+
+Also confirmed: the `---` slide separator must have a blank line **before** it when immediately following a self-closing component tag (`/>`). Missing the blank line causes a silent parse failure.
+
+---
+
 ## VS Code Remote (legacy-4): dev tunnel URL for Slidev on port 3030 (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

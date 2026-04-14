@@ -2,7 +2,7 @@
 theme: default
 class: text-center
 highlighter: shiki
-lineNumbers: false
+lineNumbers: falseok -
 info: |
   ## Building Agent Systems: Subagents, Teams, and Autonomous Execution
   CopilotTraining Tech Talk
@@ -19,6 +19,7 @@ updated: 2026-04-13
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1356,60 +1357,28 @@ The right agent for the right task, with the right isolation, at the right time 
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 text-xs">
-<div class="flex flex-col gap-4">
-<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-3">Core Mechanism</div>
-<div class="space-y-2 opacity-90">
-<div>📖 <a href="https://code.visualstudio.com/docs/copilot/agents/subagents" class="text-cyan-400 hover:underline">VS Code Subagents</a> — Context isolation, parallel execution</div>
-<div>📖 <a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents" class="text-cyan-400 hover:underline">Custom Agents in VS Code</a> — YAML frontmatter, tools, models</div>
-<div>📖 <a href="https://code.visualstudio.com/updates/v1_109#_agent-orchestration" class="text-cyan-400 hover:underline">VS Code 1.109 Agent Orchestration</a> — Invocation controls, parallel support</div>
-</div>
-</div>
-
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-3">Autonomous Execution</div>
-<div class="space-y-2 opacity-90">
-<div>📖 <a href="https://code.visualstudio.com/docs/copilot/agents/background-agents" class="text-blue-400 hover:underline">Background Agents</a> — Hand-off workflow, worktree integration</div>
-<div>📖 <a href="https://git-scm.com/docs/git-worktree" class="text-blue-400 hover:underline">Git Worktrees</a> — Technical reference, lifecycle</div>
-<div>📖 <a href="https://code.visualstudio.com/updates/v1_109#_agent-session-management" class="text-blue-400 hover:underline">VS Code 1.109 Session Management</a> — Session picker, multi-agent monitoring</div>
-</div>
-</div>
-</div>
-
-<div class="flex flex-col gap-4">
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-3">Production Implementations</div>
-<div class="space-y-2 opacity-90">
-<div>🐙 <a href="https://github.com/bradygaster/squad" class="text-indigo-400 hover:underline">Squad Repository</a> — Persistent memory, parallel execution, GitHub Issues</div>
-<div>📖 <a href="https://github.com/bradygaster/squad/blob/main/docs/guide.md" class="text-indigo-400 hover:underline">Squad Product Guide</a> — Comprehensive usage guide</div>
-<div>📖 <a href="https://github.com/bradygaster/squad/blob/main/docs/features/ralph.md" class="text-indigo-400 hover:underline">Ralph Work Monitor</a> — Autonomous backlog processing</div>
-<div>🐙 <a href="https://github.com/Sentry01/AgentCouncil" class="text-purple-400 hover:underline">AgentCouncil Repository</a> — Multi-model deliberation for Copilot CLI</div>
-</div>
-</div>
-
-<div class="p-4 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-3">Related Patterns</div>
-<div class="space-y-2 opacity-90">
-<div>📘 <span class="text-purple-400">Agentic SDLC</span> — Repo/CI/CD patterns for agent volume at scale</div>
-<div>📘 <span class="text-purple-400">Agentic Workflows</span> — GitHub-native automation patterns</div>
-<div>📘 <span class="text-purple-400">Custom Agents Workshop</span> — Hands-on creation and testing</div>
-<div>📘 <span class="text-purple-400">Copilot Primitives</span> — Instructions, prompts, skills, agents</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "Core Mechanism", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/agents/subagents", label: "VS Code Subagents", description: "Context isolation, parallel execution" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-agents", label: "Custom Agents in VS Code", description: "YAML frontmatter, tools, models" },
+        { href: "https://code.visualstudio.com/updates/v1_109#_agent-orchestration", label: "VS Code 1.109 Agent Orchestration", description: "Invocation controls, parallel support" },
+        { href: "https://code.visualstudio.com/docs/copilot/agents/background-agents", label: "Background Agents", description: "Hand-off workflow, worktree integration" },
+        { href: "https://git-scm.com/docs/git-worktree", label: "Git Worktrees", description: "Technical reference, lifecycle" },
+        { href: "https://code.visualstudio.com/updates/v1_109#_agent-session-management", label: "VS Code 1.109 Session Management", description: "Session picker, multi-agent monitoring" }
+    ] },
+    { title: "Production Implementations", color: "purple", items: [
+        { href: "https://github.com/bradygaster/squad", label: "Squad Repository", description: "Persistent memory, parallel execution, GitHub Issues" },
+        { href: "https://github.com/bradygaster/squad/blob/main/docs/guide.md", label: "Squad Product Guide", description: "Comprehensive usage guide" },
+        { href: "https://github.com/bradygaster/squad/blob/main/docs/features/ralph.md", label: "Ralph Work Monitor", description: "Autonomous backlog processing" },
+        { href: "https://github.com/Sentry01/AgentCouncil", label: "AgentCouncil Repository", description: "Multi-model deliberation for Copilot CLI" },
+        { label: "Agentic SDLC", description: "Repo/CI/CD patterns for agent volume at scale" },
+        { label: "Agentic Workflows", description: "GitHub-native automation patterns" },
+        { label: "Custom Agents Workshop", description: "Hands-on creation and testing" },
+        { label: "Copilot Primitives", description: "Instructions, prompts, skills, agents" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

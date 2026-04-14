@@ -20,6 +20,7 @@ updated: 2026-04-10
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1286,100 +1287,24 @@ Output: appId, password, tenant (save these)
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="flex flex-col gap-2">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-sm font-semibold text-cyan-300 mb-1">Official Documentation</div>
-<div class="space-y-1 text-xs">
-<div>
-<a href="https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started" class="text-cyan-400 hover:text-cyan-300 underline">Get started with Azure MCP Server</a>
-<div class="opacity-70 text-xs">Installation, authentication, and first queries</div>
-</div>
-<div>
-<a href="https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/" class="text-cyan-400 hover:text-cyan-300 underline">Azure MCP Server Documentation</a>
-<div class="opacity-70 text-xs">Service coverage, API reference, configuration options</div>
-</div>
-<div>
-<a href="https://github.com/Azure/azure-mcp" class="text-cyan-400 hover:text-cyan-300 underline">Azure MCP Server GitHub Repository</a>
-<div class="opacity-70 text-xs">Source code, examples, community contributions</div>
-</div>
-<div>
-<a href="https://spec.modelcontextprotocol.io/" class="text-cyan-400 hover:text-cyan-300 underline">Model Context Protocol Specification</a>
-<div class="opacity-70 text-xs">MCP standard, tool discovery, client-server architecture</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-sm font-semibold text-blue-300 mb-1">Copilot CLI Integration</div>
-<div class="space-y-1 text-xs">
-<div>
-<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices" class="text-blue-400 hover:text-blue-300 underline">Best practices for GitHub Copilot CLI</a>
-<div class="opacity-70 text-xs">Custom instructions, permissions, MCP integration</div>
-</div>
-<div>
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server" class="text-blue-400 hover:text-blue-300 underline">Add an MCP server to Copilot CLI</a>
-<div class="opacity-70 text-xs">Connection configuration and verification</div>
-</div>
-<div>
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli" class="text-blue-400 hover:text-blue-300 underline">Using GitHub Copilot CLI</a>
-<div class="opacity-70 text-xs">Interactive mode, Plan Mode, cloud delegation</div>
-</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-semibold text-indigo-300 mb-1">Related CopilotTraining Talks</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-indigo-400">→</span>
-<div>
-<div class="font-semibold text-white">GitHub Copilot CLI</div>
-<div class="opacity-70">Foundational understanding of terminal-native AI workflows, Plan Mode, cloud delegation</div>
-</div>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400">→</span>
-<div>
-<div class="font-semibold text-white">MCP Apps</div>
-<div class="opacity-70">Building custom MCP servers for internal tools and proprietary systems</div>
-</div>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400">→</span>
-<div>
-<div class="font-semibold text-white">Agentic Workflows</div>
-<div class="opacity-70">Delegating complex multi-step tasks to background agents with /fleet parallelization</div>
-</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-sm font-semibold text-purple-300 mb-1">Community Resources</div>
-<div class="space-y-1 text-xs">
-<div>
-<a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server" class="text-purple-400 hover:text-purple-300 underline">Azure MCP Server - VS Code Extension</a>
-<div class="opacity-70 text-xs">VS Code extension setup and usage</div>
-</div>
-<div>
-<a href="https://mcpservers.org/servers/github-com-microsoft-mcp" class="text-purple-400 hover:text-purple-300 underline">Azure MCP Server - MCP Registry</a>
-<div class="opacity-70 text-xs">Complete service list and capability matrix</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "Official Documentation", color: "cyan", items: [
+        { href: "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started", label: "Get started with Azure MCP Server", description: "Installation, authentication, and first queries" },
+        { href: "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/", label: "Azure MCP Server Documentation", description: "Service coverage, API reference, configuration options" },
+        { href: "https://github.com/Azure/azure-mcp", label: "Azure MCP Server GitHub Repository", description: "Source code, examples, community contributions" },
+        { href: "https://spec.modelcontextprotocol.io/", label: "Model Context Protocol Specification", description: "MCP standard, tool discovery, client-server architecture" },
+        { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices", label: "Best practices for GitHub Copilot CLI", description: "Custom instructions, permissions, MCP integration" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server", label: "Add an MCP server to Copilot CLI", description: "Connection configuration and verification" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli", label: "Using GitHub Copilot CLI", description: "Interactive mode, Plan Mode, cloud delegation" }
+    ] },
+    { title: "Community Resources", color: "purple", items: [
+        { href: "https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server", label: "Azure MCP Server - VS Code Extension", description: "VS Code extension setup and usage" },
+        { href: "https://mcpservers.org/servers/github-com-microsoft-mcp", label: "Azure MCP Server - MCP Registry", description: "Complete service list and capability matrix" },
+        { label: "Related CopilotTraining Talks", description: "GitHub Copilot CLI · MCP Apps · Agentic Workflows" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

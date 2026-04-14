@@ -125,6 +125,10 @@ Use the rich opener from `slides/TEMPLATE.md` — Part N pill + 600px orb + 3-co
 
 For `slides/tech-talks/*.md`, import `ThankYouSlide` from `../components/ThankYouSlide.vue` and use it for the final slide instead of inlining raw thank-you HTML. Pass deck-specific summary cards, prompt text, chips, and CTA code through component props.
 
+#### Tech-talk References Slide (REQUIRED for tech talks)
+
+For `slides/tech-talks/*.md`, import `ReferencesSlide` from `./components/ReferencesSlide.vue` and use it for the references slide instead of inlining raw HTML. The component accepts a `:groups` prop — an array of `{ title, color, items[] }` objects where each item has `{ href?, label, description }`. Import alongside `TitleSlide` and `ThankYouSlide` in the deck's `<script setup>` block. See `slides/tech-talks/template.md` for the full usage pattern and escaping rules (apostrophes must be `&#39;`).
+
 #### Progress Dots (REQUIRED on all topic section content slides)
 
 Every content slide inside a topic section must have progress dots — even single-slide sections. Section openers do NOT get dots. Full HTML in `slides/TEMPLATE.md`. When splitting slides, update ALL sibling dot totals (see `memories/repo/wing_infra/hall_advice.md`).

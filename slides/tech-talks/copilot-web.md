@@ -19,6 +19,7 @@ mdc: true
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -967,63 +968,22 @@ meta="Tech Talk · 40 minutes"
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-3 max-w-5xl mx-auto">
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20">
-<div class="text-cyan-300 font-bold text-xs mb-1">VS Code Documentation</div>
-<div class="text-xs opacity-80">GitHub Copilot coding agent — core concepts and VS Code integration</div>
-<a href="https://code.visualstudio.com/docs/copilot/copilot-coding-agent" target="_blank" class="text-xs text-cyan-400/60 mt-1 font-mono hover:text-cyan-300 transition-colors block">code.visualstudio.com/docs/copilot/copilot-coding-agent</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-lg border border-blue-500/20">
-<div class="text-blue-300 font-bold text-xs mb-1">GitHub Docs — About the Coding Agent</div>
-<div class="text-xs opacity-80">Architecture, security model, capabilities, and limitations</div>
-<a href="https://docs.github.com/en/copilot/concepts/coding-agent" target="_blank" class="text-xs text-blue-400/60 mt-1 font-mono hover:text-blue-300 transition-colors block">docs.github.com/en/copilot/concepts/coding-agent</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-purple-900/20 rounded-lg border border-indigo-500/20">
-<div class="text-indigo-300 font-bold text-xs mb-1">Customizing the Development Environment</div>
-<div class="text-xs opacity-80">copilot-setup-steps.yml reference, runner config, and options</div>
-<a href="https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent" target="_blank" class="text-xs text-indigo-400/60 mt-1 font-mono hover:text-indigo-300 transition-colors block">docs.github.com/.../customize-the-agent-environment</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/20 to-violet-900/20 rounded-lg border border-purple-500/20">
-<div class="text-purple-300 font-bold text-xs mb-1">Customizing or Disabling the Agent Firewall</div>
-<div class="text-xs opacity-80">Allowlist management, org/repo controls, and firewall limitations</div>
-<a href="https://docs.github.com/en/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent" target="_blank" class="text-xs text-purple-400/60 mt-1 font-mono hover:text-purple-300 transition-colors block">docs.github.com/.../customize-the-agent-firewall</a>
-</div>
-</div>
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-violet-900/20 to-fuchsia-900/20 rounded-lg border border-violet-500/20">
-<div class="text-violet-300 font-bold text-xs mb-1">GitHub Blog — Assigning Issues with Coding Agent</div>
-<div class="text-xs opacity-80">Delegation workflow, evidence bundle, and PR lifecycle</div>
-<a href="https://github.blog/changelog/2025-05-19-github-copilot-coding-agent-now-available-for-copilot-enterprise-and-copilot-pro-users/" target="_blank" class="text-xs text-violet-400/60 mt-1 font-mono hover:text-violet-300 transition-colors block">github.blog/.../assigning-and-completing-issues...</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-fuchsia-900/20 to-pink-900/20 rounded-lg border border-fuchsia-500/20">
-<div class="text-fuchsia-300 font-bold text-xs mb-1">Onboarding Your AI Peer Programmer</div>
-<div class="text-xs opacity-80">Issue quality, setup strategies, and team adoption patterns</div>
-<a href="https://github.blog/ai-and-ml/github-copilot/onboarding-your-ai-peer-programmer/" target="_blank" class="text-xs text-fuchsia-400/60 mt-1 font-mono hover:text-fuchsia-300 transition-colors block">github.blog/.../onboarding-your-ai-peer-programmer...</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/20 to-rose-900/20 rounded-lg border border-pink-500/20">
-<div class="text-pink-300 font-bold text-xs mb-1">Copilot Allowlist Reference</div>
-<div class="text-xs opacity-80">Complete list of hosts in the recommended allowlist</div>
-<a href="https://docs.github.com/en/copilot/reference/copilot-allowlist-reference" target="_blank" class="text-xs text-pink-400/60 mt-1 font-mono hover:text-pink-300 transition-colors block">docs.github.com/.../copilot-allowlist-reference</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-rose-900/20 to-red-900/20 rounded-lg border border-rose-500/20">
-<div class="text-rose-300 font-bold text-xs mb-1">Custom Setup Steps — More Reliable</div>
-<div class="text-xs opacity-80">Failure resilience and setup log visibility improvements</div>
-<a href="https://github.blog/changelog/2025-07-30-copilot-coding-agent-custom-setup-steps-are-now-more-reliable/" target="_blank" class="text-xs text-rose-400/60 mt-1 font-mono hover:text-rose-300 transition-colors block">github.blog/changelog/2025-07-30-copilot-coding-agent...</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "VS Code Documentation", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/copilot-coding-agent", label: "GitHub Copilot coding agent", description: "Core concepts and VS Code integration" },
+        { href: "https://docs.github.com/en/copilot/concepts/coding-agent", label: "GitHub Docs — About the Coding Agent", description: "Architecture, security model, capabilities, and limitations" },
+        { href: "https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent", label: "Customizing the Development Environment", description: "copilot-setup-steps.yml reference, runner config, and options" },
+        { href: "https://docs.github.com/en/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent", label: "Customizing or Disabling the Agent Firewall", description: "Allowlist management, org/repo controls, and firewall limitations" }
+    ] },
+    { title: "GitHub Blog & Resources", color: "purple", items: [
+        { href: "https://github.blog/changelog/2025-05-19-github-copilot-coding-agent-now-available-for-copilot-enterprise-and-copilot-pro-users/", label: "GitHub Blog — Assigning Issues with Coding Agent", description: "Delegation workflow, evidence bundle, and PR lifecycle" },
+        { href: "https://github.blog/ai-and-ml/github-copilot/onboarding-your-ai-peer-programmer/", label: "Onboarding Your AI Peer Programmer", description: "Issue quality, setup strategies, and team adoption patterns" },
+        { href: "https://docs.github.com/en/copilot/reference/copilot-allowlist-reference", label: "Copilot Allowlist Reference", description: "Complete list of hosts in the recommended allowlist" },
+        { href: "https://github.blog/changelog/2025-07-30-copilot-coding-agent-custom-setup-steps-are-now-more-reliable/", label: "Custom Setup Steps — More Reliable", description: "Failure resilience and setup log visibility improvements" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

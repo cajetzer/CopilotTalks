@@ -4,6 +4,34 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## ReferencesSlide component extracted from all 21 tech-talk decks (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+All 21 active tech-talk decks previously used inline HTML for the References slide. Extracted into a shared `slides/tech-talks/components/ReferencesSlide.vue` component. All decks updated to import and use it.
+
+**Component location:** `slides/tech-talks/components/ReferencesSlide.vue`
+**Import path:** `./components/ReferencesSlide.vue` (same rule as TitleSlide/ThankYouSlide)
+
+**Props:**
+```ts
+groups: Array<{
+  title: string     // group heading
+  color: string     // cyan | purple | blue | indigo | green | pink | orange | rose | amber | teal
+  items: Array<{
+    href?: string   // omit for cross-references to other talks (renders as <span>)
+    label: string
+    description: string
+  }>
+}>
+```
+
+**Template and agent instructions updated:** `slides/tech-talks/template.md` and `.github/agents/slide-generator.agent.md` both now include REQUIRED guidance for using this component.
+
+**Captures:** 21 reference-slide screenshots saved to `captures/<deck>-references.png`.
+
+---
+
 ## Slide Generator agent produces HTML balance errors requiring manual fixes (2026-04-13)
 
 `schema_version: 1` | `date: 2026-04-13`

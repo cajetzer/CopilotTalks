@@ -19,6 +19,7 @@ updated: 2026-02-01
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1082,37 +1083,20 @@ Source: GitHub.com Chat</code></pre>
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-gray-900/20 via-slate-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-gray-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-gray-600/80 to-slate-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-gray-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="max-w-3xl">
-<div class="text-lg font-bold text-white mb-4">Official Documentation</div>
-<div class="space-y-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-gray-900/40 to-slate-900/40 rounded-xl border border-gray-500/30">
-<div class="font-semibold text-gray-300 mb-1">📖 GitHub Docs: Copilot Memory</div>
-<div class="text-xs text-gray-400 mb-2">Core concepts, enabling memory, curation guide</div>
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory" class="text-blue-400 hover:text-blue-300 text-xs font-mono">docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-gray-900/40 to-slate-900/40 rounded-xl border border-gray-500/30">
-<div class="font-semibold text-gray-300 mb-1">⚙️ GitHub Settings: Manage Memory</div>
-<div class="text-xs text-gray-400 mb-2">View, edit, and delete stored memories; privacy controls</div>
-<a href="https://github.com/settings/copilot" class="text-blue-400 hover:text-blue-300 text-xs font-mono">github.com/settings/copilot</a>
-</div>
-<div class="p-3 bg-gradient-to-br from-gray-900/40 to-slate-900/40 rounded-xl border border-gray-500/30">
-<div class="font-semibold text-gray-300 mb-1">🎓 Custom Instructions Guide</div>
-<div class="text-xs text-gray-400 mb-2">Complementary feature for team standards (works with memory)</div>
-<a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions" class="text-blue-400 hover:text-blue-300 text-xs font-mono">code.visualstudio.com/docs/copilot/customization/custom-instructions</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "Official Documentation", color: "cyan", items: [
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory", label: "GitHub Docs: Copilot Memory", description: "Core concepts, enabling memory, curation guide" },
+        { href: "https://github.com/settings/copilot", label: "GitHub Settings: Manage Memory", description: "View, edit, and delete stored memories; privacy controls" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-instructions", label: "Custom Instructions Guide", description: "Complementary feature for team standards (works with memory)" }
+    ] },
+    { title: "🎓 Related Content", color: "purple", items: [
+        { label: "Copilot Primitives", description: "Instructions, prompts, skills, and agents — the full customization stack" },
+        { label: "Enterprise Patterns", description: "Org-level memory governance and privacy controls" },
+        { label: "Custom Instructions Workshop", description: "Pair memory with explicit instructions for maximum consistency" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

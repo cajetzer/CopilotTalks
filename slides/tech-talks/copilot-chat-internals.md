@@ -19,6 +19,7 @@ updated: 2026-04-10
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -831,55 +832,25 @@ meta="Tech Talk · 40 minutes"
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="space-y-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/30 rounded-lg border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-2">📖 Primary Documentation</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/chat/chat-debug-view" class="text-cyan-400 underline">Chat Debug View</a> — Complete guide to request inspection and debugging</div>
-<div>• <a href="https://code.visualstudio.com/docs/copilot/troubleshooting" class="text-cyan-400 underline">Troubleshoot AI in VS Code</a> — Comprehensive troubleshooting reference</div>
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers" class="text-cyan-400 underline">MCP Servers</a> — Configuring and debugging external tool servers</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-lg border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-1 text-sm">🔧 Additional Resources</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions" class="text-blue-400 underline">Custom Instructions</a></div>
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents" class="text-blue-400 underline">Custom Agents</a></div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-1 text-sm">📋 Release Notes</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• <a href="https://code.visualstudio.com/updates/v1_110" class="text-indigo-400 underline">VS Code v1.110</a> — Agent Debug Panel debut</div>
-<div>• <a href="https://code.visualstudio.com/updates" class="text-indigo-400 underline">Latest Release Notes</a></div>
-</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2 text-sm">🎓 Related CopilotTraining Content</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• <span class="text-purple-400">Copilot Chat</span> — Foundation: Learn context mechanisms before debugging them</div>
-<div>• <span class="text-purple-400">Copilot Hooks</span> — Governance: Use Debug View to inspect hook execution</div>
-<div>• <span class="text-purple-400">Custom Agents Workshop</span> — Application: Debug agent tool invocations</div>
-<div>• <span class="text-purple-400">Custom Instructions Workshop</span> — Configuration: Troubleshoot instruction load failures</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📖 Primary Documentation", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/chat/chat-debug-view", label: "Chat Debug View", description: "Complete guide to request inspection and debugging" },
+        { href: "https://code.visualstudio.com/docs/copilot/troubleshooting", label: "Troubleshoot AI in VS Code", description: "Comprehensive troubleshooting reference" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/mcp-servers", label: "MCP Servers", description: "Configuring and debugging external tool servers" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-instructions", label: "Custom Instructions", description: "Instructions configuration reference" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-agents", label: "Custom Agents", description: "Building agents with focused tools and personas" },
+        { href: "https://code.visualstudio.com/updates/v1_110", label: "VS Code v1.110", description: "Agent Debug Panel debut" },
+        { href: "https://code.visualstudio.com/updates", label: "Latest Release Notes", description: "Keep up with new debugging and agent features" }
+    ] },
+    { title: "🎓 Related CopilotTraining Content", color: "purple", items: [
+        { label: "Copilot Primitives", description: "Foundation: Learn context mechanisms before debugging them" },
+        { label: "Copilot Hooks", description: "Governance: Use Debug View to inspect hook execution" },
+        { label: "Custom Agents Workshop", description: "Application: Debug agent tool invocations" },
+        { label: "Custom Instructions Workshop", description: "Configuration: Troubleshoot instruction load failures" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

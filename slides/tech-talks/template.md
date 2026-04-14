@@ -72,6 +72,32 @@ Use this close sequence unless the recipe says otherwise:
 2. References
 3. Thank You
 
+For the References slide, use the shared component:
+
+```html
+<script setup>
+import ReferencesSlide from './components/ReferencesSlide.vue'
+</script>
+
+<!-- SLIDE: References -->
+<ReferencesSlide
+  :groups='[
+    { title: "📖 Official Documentation", color: "cyan", items: [
+        { href: "https://...", label: "{LINK_LABEL}", description: "{DESCRIPTION}" }
+    ] },
+    { title: "🛠️ Related Content", color: "purple", items: [
+        { label: "{TALK_OR_RESOURCE_TITLE}", description: "{DESCRIPTION}" }
+    ] }
+  ]'
+/>
+```
+
+**Notes on the groups prop:**
+- Use `href` for external links (renders as `<a>`); omit `href` for cross-references to other talks (renders as styled `<span>`)
+- `color` accepts: `cyan`, `purple`, `blue`, `indigo`, `green`, `pink`, `orange`, `rose`, `amber`, `teal`
+- Apostrophes inside item strings must be escaped as `&#39;` (the outer attribute uses single quotes)
+- Always include blank line between `/>` and the next `---` separator
+
 For the final slide, use the shared component:
 
 ```html

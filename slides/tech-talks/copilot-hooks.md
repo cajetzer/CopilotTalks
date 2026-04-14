@@ -19,6 +19,7 @@ updated: 2026-02-11
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1176,55 +1177,22 @@ fi</code></pre>
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-lg font-bold text-blue-300 mb-2">📖 Official Docs</div>
-<div class="space-y-1 opacity-90">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">Agent Hooks in VS Code</a></div>
-<div>• <a href="https://docs.github.com/en/copilot/concepts/agents" class="text-blue-400 underline">Copilot Agents Concepts</a></div>
-<div>• <a href="https://docs.github.com/en/copilot/reference/hooks-configuration" class="text-indigo-400 underline">Hooks Config Reference</a></div>
-<div>• <a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents" class="text-purple-400 underline">Hooks How-Tos</a></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-lg font-bold text-indigo-300 mb-2">🔗 Related Topics</div>
-<div class="space-y-1 opacity-90">
-<div>• Terminal Sandboxing — OS-level controls</div>
-<div>• Custom Instructions — Agent behavior</div>
-<div>• Enterprise Patterns — Org governance</div>
-<div>• Custom Agents — Building your own</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
-<div class="text-lg font-bold text-purple-300 mb-2">📝 Key Concepts</div>
-<div class="space-y-1 opacity-90">
-<div>• 8 Lifecycle Events</div>
-<div>• Permission Decision Patterns</div>
-<div>• JSON Lines Audit Trail</div>
-<div>• Real-time Compliance Checking</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
-<div class="text-lg font-bold text-pink-300 mb-2">🛠️ Tools & Examples</div>
-<div class="space-y-1 opacity-90">
-<div>• <code>jq</code> — Query audit logs</div>
-<div>• <code>curl</code> — API integrations</div>
-<div>• Hook templates in repo</div>
-<div>• Compliance dashboards</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📖 Official Docs", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/customization/hooks", label: "Agent Hooks in VS Code", description: "Configuration reference and examples" },
+        { href: "https://docs.github.com/en/copilot/concepts/agents", label: "Copilot Agents Concepts", description: "Agent types, capabilities, and security model" },
+        { href: "https://docs.github.com/en/copilot/reference/hooks-configuration", label: "Hooks Config Reference", description: "Full schema, trigger types, and output handling" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents", label: "Hooks How-Tos", description: "Step-by-step guides for common hook patterns" }
+    ] },
+    { title: "🔗 Related Topics", color: "purple", items: [
+        { label: "Terminal Sandboxing", description: "OS-level controls that complement hooks" },
+        { label: "Custom Instructions", description: "Shaping agent behavior proactively" },
+        { label: "Enterprise Patterns", description: "Org-wide governance with hooks" },
+        { label: "Custom Agents", description: "Building agents with built-in hook compliance" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

@@ -19,6 +19,7 @@ updated: 2025-04-10
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1347,55 +1348,25 @@ Developers can request focused review at any time:
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-cyan-300 font-bold mb-2">📖 Official Documentation</div>
-<div class="space-y-1.5 opacity-90">
-<div><a href="https://docs.github.com/en/copilot/concepts/agents/code-review" class="text-cyan-400 hover:underline">GitHub Copilot Code Review - Concepts</a></div>
-<div><a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review" class="text-cyan-400 hover:underline">Configure Automatic Code Review</a></div>
-<div><a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review" class="text-cyan-400 hover:underline">Using Copilot Code Review</a></div>
-<div><a href="https://docs.github.com/en/enterprise-cloud@latest/copilot/copilot-business-only/copilot-business-code-review" class="text-cyan-400 hover:underline">GitHub Copilot Enterprise Deployment</a></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-blue-300 font-bold mb-2">📰 Blog Posts & Announcements</div>
-<div class="space-y-1.5 opacity-90">
-<div><a href="https://github.blog/2024-02-14-github-copilot-code-review-now-generally-available/" class="text-blue-400 hover:underline">Copilot Code Review Launch (43% time reduction)</a></div>
-<div><a href="https://devblogs.microsoft.com/engineering/ai-powered-code-review/" class="text-blue-400 hover:underline">Microsoft: AI Code Review Best Practices</a></div>
-<div><a href="https://github.blog/engineering/code-review-agent-architecture/" class="text-blue-400 hover:underline">Building the Code Review Agent</a></div>
-</div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-indigo-300 font-bold mb-2">📊 Industry Research</div>
-<div class="space-y-1.5 opacity-90">
-<div><a href="https://survey.stackoverflow.co/2024/code-review-tools" class="text-indigo-400 hover:underline">Stack Overflow 2024: 68% cite code review bottleneck</a></div>
-<div><a href="https://www.infoq.com/articles/measuring-developer-productivity-2024/" class="text-indigo-400 hover:underline">InfoQ: Measuring Developer Productivity</a></div>
-<div><a href="https://www.gartner.com/en/documents/ai-augmented-software-engineering-2024" class="text-indigo-400 hover:underline">Gartner: AI-Augmented Software Engineering</a></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-2">🔐 Security & Compliance</div>
-<div class="space-y-1.5 opacity-90">
-<div><a href="https://owasp.org/www-project-top-ten/" class="text-purple-400 hover:underline">OWASP Top 10 2024 (vulnerability categories)</a></div>
-<div><a href="https://securitylab.github.com/research/ai-application-security/" class="text-purple-400 hover:underline">GitHub Security Lab: AI in AppSec (73% fewer false positives)</a></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📖 Official Documentation", color: "cyan", items: [
+        { href: "https://docs.github.com/en/copilot/concepts/agents/code-review", label: "GitHub Copilot Code Review - Concepts", description: "Core review architecture and model behavior" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review", label: "Configure Automatic Code Review", description: "Setting up auto-review triggers and scope" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review", label: "Using Copilot Code Review", description: "Requesting reviews, interpreting suggestions" },
+        { href: "https://docs.github.com/en/enterprise-cloud@latest/copilot/copilot-business-only/copilot-business-code-review", label: "GitHub Copilot Enterprise Deployment", description: "Enterprise deployment and governance" },
+        { href: "https://github.blog/2024-02-14-github-copilot-code-review-now-generally-available/", label: "Copilot Code Review Launch", description: "43% time reduction — GA announcement" },
+        { href: "https://github.blog/engineering/code-review-agent-architecture/", label: "Building the Code Review Agent", description: "Architecture deep-dive from GitHub Engineering" }
+    ] },
+    { title: "📊 Industry Research", color: "purple", items: [
+        { href: "https://survey.stackoverflow.co/2024/code-review-tools", label: "Stack Overflow 2024", description: "68% cite code review as a bottleneck" },
+        { href: "https://www.infoq.com/articles/measuring-developer-productivity-2024/", label: "InfoQ: Measuring Developer Productivity", description: "Frameworks for quantifying review impact" },
+        { href: "https://owasp.org/www-project-top-ten/", label: "OWASP Top 10 2024", description: "Vulnerability categories caught by AI review" },
+        { href: "https://securitylab.github.com/research/ai-application-security/", label: "GitHub Security Lab: AI in AppSec", description: "73% fewer false positives reported" },
+        { href: "https://devblogs.microsoft.com/engineering/ai-powered-code-review/", label: "Microsoft: AI Code Review Best Practices", description: "Implementation guidance for teams" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

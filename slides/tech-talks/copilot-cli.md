@@ -19,6 +19,7 @@ mdc: true
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1148,65 +1149,24 @@ PR will be created when complete<br/>
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-gray-900/20 via-gray-800/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-gray-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-gray-600/80 to-gray-500/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-gray-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div class="space-y-2">
-<div class="font-semibold text-lg mb-2">Official Documentation</div>
-<div class="p-2 bg-gray-900/50 rounded border border-cyan-500/30">
-<a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli" target="_blank" class="text-cyan-400 hover:text-cyan-300">About GitHub Copilot CLI</a>
-<div class="opacity-70 mt-1">Core concepts and capabilities</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-blue-500/30">
-<a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet" target="_blank" class="text-blue-400 hover:text-blue-300">Running tasks in parallel with /fleet</a>
-<div class="opacity-70 mt-1">Parallel orchestration documentation</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-indigo-500/30">
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli" target="_blank" class="text-indigo-400 hover:text-indigo-300">Use Copilot CLI</a>
-<div class="opacity-70 mt-1">Command syntax and workflows</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-purple-500/30">
-<a href="https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli" target="_blank" class="text-purple-400 hover:text-purple-300">Install Copilot CLI</a>
-<div class="opacity-70 mt-1">Setup for all platforms</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-pink-500/30">
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions" target="_blank" class="text-pink-400 hover:text-pink-300">Custom instructions</a>
-<div class="opacity-70 mt-1">Repository-specific behavior configuration</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="font-semibold text-lg mb-2">Additional Resources</div>
-<div class="p-2 bg-gray-900/50 rounded border border-cyan-500/30">
-<a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server" target="_blank" class="text-cyan-400 hover:text-cyan-300">Add an MCP server</a>
-<div class="opacity-70 mt-1">Extending with external tools</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-blue-500/30">
-<a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing" target="_blank" class="text-blue-400 hover:text-blue-300">Finding and installing plugins</a>
-<div class="opacity-70 mt-1">Plugin ecosystem and marketplaces</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-indigo-500/30">
-<a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins" target="_blank" class="text-indigo-400 hover:text-indigo-300">About plugins</a>
-<div class="opacity-70 mt-1">Plugin concepts and capabilities</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-purple-500/30">
-<a href="https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/" target="_blank" class="text-purple-400 hover:text-purple-300">Plan Mode announcement</a>
-<div class="opacity-70 mt-1">Latest features blog post</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-pink-500/30">
-<a href="https://github.com/github/copilot-cli" target="_blank" class="text-pink-400 hover:text-pink-300">Public repository</a>
-<div class="opacity-70 mt-1">Issue tracking and community discussions</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "Official Documentation", color: "cyan", items: [
+        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli", label: "About GitHub Copilot CLI", description: "Core concepts and capabilities" },
+        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet", label: "Running tasks in parallel with /fleet", description: "Parallel orchestration documentation" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli", label: "Use Copilot CLI", description: "Command syntax and workflows" },
+        { href: "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli", label: "Install Copilot CLI", description: "Setup for all platforms" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions", label: "Custom instructions", description: "Repository-specific behavior configuration" }
+    ] },
+    { title: "Additional Resources", color: "purple", items: [
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server", label: "Add an MCP server", description: "Extending with external tools" },
+        { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing", label: "Finding and installing plugins", description: "Plugin ecosystem and marketplaces" },
+        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins", label: "About plugins", description: "Plugin concepts and capabilities" },
+        { href: "https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/", label: "Plan Mode announcement", description: "Latest features blog post" },
+        { href: "https://github.com/github/copilot-cli", label: "Public repository", description: "Issue tracking and community discussions" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Part 5 — Reference & Syntax -->

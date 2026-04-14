@@ -11,6 +11,7 @@ Slide content is compiled as a **Vue SFC (Single File Component) template** — 
 - **Blank lines inside HTML blocks** — Can cause the Markdown parser to exit HTML block mode and re-enter Markdown parsing, producing broken Vue template output. Keep HTML on consecutive lines within a block.
 - **JSX brace syntax (`{'{'} '}'}`) is invalid** — Vue SFC syntax is only valid in actual Vue component files. Use HTML entities (`&#123;` / `&#125;`) to render literal curly braces in slide HTML.
 - **`---` inside content** — Vite sees the full file before Slidev processes separators; a bare `---` line anywhere in an HTML block will be treated as a slide separator.
+- **Apostrophes in single-quoted Vue attribute values** — When using single-quoted prop syntax (`:groups='[...]'`), any `'` inside the value terminates the attribute early, causing `Unterminated string constant` at that position. Escape apostrophes as `&#39;`. Example: `Peli&#39;s Agent Factory Blog`.
 
 When you see an unfamiliar `[plugin:vite:vue]` error, ask: _"What would break a Vue SFC template at this location?"_
 

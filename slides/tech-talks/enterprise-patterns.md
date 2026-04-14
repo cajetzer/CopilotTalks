@@ -19,6 +19,7 @@ updated: 2026-03-23
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1406,61 +1407,22 @@ meta="Tech Talk · 60 minutes"
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div>
-<div class="font-bold text-cyan-300 mb-2 text-sm">🤖 GitHub Copilot Enterprise</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/managing-copilot/managing-copilot-for-your-enterprise" class="text-cyan-400 hover:text-cyan-300 font-medium">Managing Copilot for Your Enterprise</a>
-<div class="text-gray-400 mt-0.5">Org policies, model access controls, seat management, and audit logs</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions" class="text-cyan-400 hover:text-cyan-300 font-medium">Organization-Wide Custom Instructions</a>
-<div class="text-gray-400 mt-0.5">Org-level and repo-level instructions, AGENTS.md, .github/copilot-instructions.md</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/concepts/agents/about-agent-skills" class="text-cyan-400 hover:text-cyan-300 font-medium">Organizational Agent Skills (GA)</a>
-<div class="text-gray-400 mt-0.5">Centrally versioned domain skills deployed across all org repositories</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces" class="text-cyan-400 hover:text-cyan-300 font-medium">Copilot Spaces (Knowledge Bases)</a>
-<div class="text-gray-400 mt-0.5">Multi-repo context — organize repos into spaces for cross-codebase queries</div>
-</div>
-</div>
-</div>
-<div>
-<div class="font-bold text-purple-300 mb-2 text-sm">📊 Metrics, Licensing & Standards</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/rest/copilot/copilot-metrics" class="text-purple-400 hover:text-purple-300 font-medium">Copilot Usage Metrics API</a>
-<div class="text-gray-400 mt-0.5">Acceptance rates, active users, feature adoption — org and team breakdowns</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access" class="text-purple-400 hover:text-purple-300 font-medium">Flexible Licensing Strategies</a>
-<div class="text-gray-400 mt-0.5">Full seats, usage-based, and review-only tiers for cost optimization</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://agents.md/" class="text-purple-400 hover:text-purple-300 font-medium">AGENTS.md Open Format</a>
-<div class="text-gray-400 mt-0.5">Cross-vendor standard for agent instruction files and repo conventions</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<span class="text-purple-400 font-medium">Related Tech Talks</span>
-<div class="text-gray-400 mt-0.5">Agentic Journey · Agentic SDLC · Agent Teams · Agentic Workflows</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "🤖 GitHub Copilot Enterprise", color: "cyan", items: [
+        { href: "https://docs.github.com/en/copilot/managing-copilot/managing-copilot-for-your-enterprise", label: "Managing Copilot for Your Enterprise", description: "Org policies, model access controls, seat management, and audit logs" },
+        { href: "https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions", label: "Organization-Wide Custom Instructions", description: "Org-level and repo-level instructions, AGENTS.md, .github/copilot-instructions.md" },
+        { href: "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills", label: "Organizational Agent Skills (GA)", description: "Centrally versioned domain skills deployed across all org repositories" },
+        { href: "https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces", label: "Copilot Spaces (Knowledge Bases)", description: "Multi-repo context — organize repos into spaces for cross-codebase queries" }
+    ] },
+    { title: "📊 Metrics, Licensing & Standards", color: "purple", items: [
+        { href: "https://docs.github.com/en/rest/copilot/copilot-metrics", label: "Copilot Usage Metrics API", description: "Acceptance rates, active users, feature adoption — org and team breakdowns" },
+        { href: "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access", label: "Flexible Licensing Strategies", description: "Full seats, usage-based, and review-only tiers for cost optimization" },
+        { href: "https://agents.md/", label: "AGENTS.md Open Format", description: "Cross-vendor standard for agent instruction files and repo conventions" },
+        { label: "Related Tech Talks", description: "Agentic Journey · Agentic SDLC · Agent Teams · Agentic Workflows" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

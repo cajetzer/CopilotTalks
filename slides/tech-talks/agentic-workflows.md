@@ -19,6 +19,7 @@ updated: 2026-03-05
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1165,78 +1166,23 @@ Express intent without implementation details — AI adapts to repository contex
 
 ---
 
-<!-- SLIDE: References & Resources -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-pink-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References & Resources</span>
-<div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-2">
-<div class="text-sm font-bold text-pink-300 mb-2">Official Documentation</div>
-<div class="space-y-1.5 text-xs">
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded border border-pink-500/20">
-<div class="text-pink-300 font-semibold">Introduction & Overview</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">github.github.com/gh-aw/introduction/overview/</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded border border-pink-500/20">
-<div class="text-pink-300 font-semibold">Security Architecture</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">github.github.com/gh-aw/introduction/architecture/</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded border border-pink-500/20">
-<div class="text-pink-300 font-semibold">Safe Outputs Reference</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">github.github.io/gh-aw/reference/safe-outputs/</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded border border-pink-500/20">
-<div class="text-pink-300 font-semibold">Quick Start Guide</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">github.github.com/gh-aw/setup/quick-start/</div>
-</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="text-sm font-bold text-purple-300 mb-2">Key Resources</div>
-<div class="space-y-1.5 text-xs">
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded border border-purple-500/20">
-<div class="text-purple-300 font-semibold">Peli's Agent Factory Blog</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">github.github.com/gh-aw/blog/2026-01-12-...</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded border border-purple-500/20">
-<div class="text-purple-300 font-semibold">Meet the Workflows</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">github.github.com/gh-aw/blog/2026-01-13-...</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded border border-purple-500/20">
-<div class="text-purple-300 font-semibold">GitHub Blog Announcement</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">github.blog/ai-and-ml/automate-repository-tasks...</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded border border-purple-500/20">
-<div class="text-purple-300 font-semibold">Community Examples</div>
-<div class="text-gray-400 text-xs font-mono mt-0.5">josh-ops.com/posts/github-agentic-workflows/</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-4 p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="grid grid-cols-3 gap-3 text-xs">
-<div>
-<div class="text-cyan-300 font-semibold mb-1">Installation</div>
-<div class="text-gray-400 font-mono">gh extension install github/gh-aw</div>
-</div>
-<div>
-<div class="text-blue-300 font-semibold mb-1">Create Workflow</div>
-<div class="text-gray-400 font-mono">gh aw new workflow-name</div>
-</div>
-<div>
-<div class="text-indigo-300 font-semibold mb-1">Compile</div>
-<div class="text-gray-400 font-mono">gh aw compile workflow-name</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: References -->
+<ReferencesSlide
+  :groups='[
+    { title: "Official Documentation", color: "cyan", items: [
+        { href: "https://github.github.com/gh-aw/introduction/overview/", label: "Introduction & Overview", description: "Overview of GitHub Agentic Workflows" },
+        { href: "https://github.github.com/gh-aw/introduction/architecture/", label: "Security Architecture", description: "Sandboxed agents, validated write operations" },
+        { href: "https://github.github.io/gh-aw/reference/safe-outputs/", label: "Safe Outputs Reference", description: "Pre-approved write operations and guardrails" },
+        { href: "https://github.github.com/gh-aw/setup/quick-start/", label: "Quick Start Guide", description: "From installation to first workflow" }
+    ] },
+    { title: "Key Resources", color: "purple", items: [
+        { href: "https://github.github.com/gh-aw/blog/2026-01-12-agent-factory/", label: "Peli&#39;s Agent Factory Blog", description: "100+ proven workflow patterns tested continuously" },
+        { href: "https://github.github.com/gh-aw/blog/2026-01-13-meet-the-workflows/", label: "Meet the Workflows", description: "Walkthrough of real production patterns" },
+        { href: "https://github.blog/ai-and-ml/automate-repository-tasks-with-agentic-workflows/", label: "GitHub Blog Announcement", description: "Official announcement and overview" },
+        { href: "https://josh-ops.com/posts/github-agentic-workflows/", label: "Community Examples", description: "Community-contributed workflow examples" }
+    ] }
+  ]'
+/>
 
 ---
 

@@ -19,6 +19,7 @@ updated: 2026-02-01
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1186,61 +1187,22 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div>
-<div class="font-bold text-cyan-300 mb-2 text-sm">📖 Official Documentation</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot" class="text-cyan-400 hover:text-cyan-300 font-medium">GitHub Copilot Documentation</a>
-<div class="text-gray-400 mt-0.5">Core concepts, getting started guide, and overview</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent" class="text-cyan-400 hover:text-cyan-300 font-medium">Copilot Coding Agent for PRs</a>
-<div class="text-gray-400 mt-0.5">Agent-assisted PR workflows and review</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line" class="text-cyan-400 hover:text-cyan-300 font-medium">Using Copilot in the Command Line</a>
-<div class="text-gray-400 mt-0.5">CLI installation and programmatic mode</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions" class="text-cyan-400 hover:text-cyan-300 font-medium">GitHub Actions Workflow Syntax</a>
-<div class="text-gray-400 mt-0.5">Triggers, jobs, steps, and permissions</div>
-</div>
-</div>
-</div>
-<div>
-<div class="font-bold text-purple-300 mb-2 text-sm">🎓 Related Content</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<span class="text-purple-400 font-medium">Agentic SDLC</span>
-<div class="text-gray-400 mt-0.5">Full Gen-4 transformation: repository topology, PR workflows, CI trust factory</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<span class="text-purple-400 font-medium">Agent Teams</span>
-<div class="text-gray-400 mt-0.5">Specialized agent patterns for complex multi-agent coordination</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<span class="text-purple-400 font-medium">Copilot Hooks</span>
-<div class="text-gray-400 mt-0.5">Governance and control mechanisms for agent behavior</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<span class="text-purple-400 font-medium">Enterprise Patterns</span>
-<div class="text-gray-400 mt-0.5">Organization-wide adoption patterns and rollout strategies</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📖 Official Documentation", color: "cyan", items: [
+        { href: "https://docs.github.com/en/copilot", label: "GitHub Copilot Documentation", description: "Core concepts, getting started guide, and overview" },
+        { href: "https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent", label: "Copilot Coding Agent for PRs", description: "Agent-assisted PR workflows and review" },
+        { href: "https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line", label: "Using Copilot in the Command Line", description: "CLI installation and programmatic mode" },
+        { href: "https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions", label: "GitHub Actions Workflow Syntax", description: "Triggers, jobs, steps, and permissions" }
+    ] },
+    { title: "🎓 Related Content", color: "purple", items: [
+        { label: "Agentic SDLC", description: "Full Gen-4 transformation: repository topology, PR workflows, CI trust factory" },
+        { label: "Agent Teams", description: "Specialized agent patterns for complex multi-agent coordination" },
+        { label: "Copilot Hooks", description: "Governance and control mechanisms for agent behavior" },
+        { label: "Enterprise Patterns", description: "Organization-wide adoption patterns and rollout strategies" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

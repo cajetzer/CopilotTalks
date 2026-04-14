@@ -20,6 +20,7 @@ section: Agent Architecture
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1263,62 +1264,23 @@ Also available: Python, Rust, Kotlin SDKs
 
 ---
 
-<!-- SLIDE: References & Resources -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References & Resources</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div>
-<div class="font-bold text-cyan-300 mb-2 text-sm">🤖 Official Docs &amp; Protocol</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://agentclientprotocol.com" class="text-cyan-400 hover:text-cyan-300 font-medium">Agent Client Protocol (ACP)</a>
-<div class="text-gray-400 mt-0.5">Official spec, architecture overview, and quick start</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://docs.github.com/en/copilot/reference/acp-server" class="text-cyan-400 hover:text-cyan-300 font-medium">Copilot CLI ACP Server Reference</a>
-<div class="text-gray-400 mt-0.5">Server modes, integration examples, TypeScript client</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://github.com/agentclientprotocol/agent-client-protocol" class="text-cyan-400 hover:text-cyan-300 font-medium">ACP GitHub Repository</a>
-<div class="text-gray-400 mt-0.5">Open source protocol spec and community libraries</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://zed.dev/acp" class="text-cyan-400 hover:text-cyan-300 font-medium">Zed ACP Integration</a>
-<div class="text-gray-400 mt-0.5">How Zed implemented ACP client support</div>
-</div>
-</div>
-</div>
-<div>
-<div class="font-bold text-indigo-300 mb-2 text-sm">🛠️ SDKs &amp; Implementation</div>
-<div class="space-y-1.5">
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://www.npmjs.com/package/@agentclientprotocol/sdk" class="text-indigo-400 hover:text-indigo-300 font-medium">TypeScript SDK (npm)</a>
-<div class="text-gray-400 mt-0.5">Reference implementation with full type safety</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://pypi.org/project/agent-client-protocol/" class="text-indigo-400 hover:text-indigo-300 font-medium">Python SDK (PyPI)</a>
-<div class="text-gray-400 mt-0.5">Python client and agent implementation</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<a href="https://crates.io/crates/agent-client-protocol" class="text-indigo-400 hover:text-indigo-300 font-medium">Rust SDK (crates.io)</a>
-<div class="text-gray-400 mt-0.5">Rust library for building ACP clients and agents</div>
-</div>
-<div class="p-2 bg-gray-900/50 rounded border border-gray-700/50">
-<span class="text-indigo-400 font-medium">Related Tech Talks</span>
-<div class="text-gray-400 mt-0.5">Copilot CLI · MCP Apps · Agent Teams · Customization</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<!-- SLIDE: References -->
+<ReferencesSlide
+  :groups='[
+    { title: "🤖 Official Docs & Protocol", color: "cyan", items: [
+        { href: "https://agentclientprotocol.com", label: "Agent Client Protocol (ACP)", description: "Official spec, architecture overview, and quick start" },
+        { href: "https://docs.github.com/en/copilot/reference/acp-server", label: "Copilot CLI ACP Server Reference", description: "Server modes, integration examples, TypeScript client" },
+        { href: "https://github.com/agentclientprotocol/agent-client-protocol", label: "ACP GitHub Repository", description: "Open source protocol spec and community libraries" },
+        { href: "https://zed.dev/acp", label: "Zed ACP Integration", description: "How Zed implemented ACP client support" }
+    ] },
+    { title: "🛠️ SDKs & Implementation", color: "purple", items: [
+        { href: "https://www.npmjs.com/package/@agentclientprotocol/sdk", label: "TypeScript SDK (npm)", description: "Reference implementation with full type safety" },
+        { href: "https://pypi.org/project/agent-client-protocol/", label: "Python SDK (PyPI)", description: "Python client and agent implementation" },
+        { href: "https://crates.io/crates/agent-client-protocol", label: "Rust SDK (crates.io)", description: "Rust library for building ACP clients and agents" },
+        { label: "Related Tech Talks", description: "Copilot CLI · MCP Apps · Agent Teams · Customization" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

@@ -19,6 +19,7 @@ updated: 2026-03-23
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1036,53 +1037,24 @@ templates
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-slate-900/20 via-gray-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-slate-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-slate-600/80 to-gray-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-slate-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="text-sm font-bold text-white mb-3">Official Documentation & Resources</div>
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-slate-900/40 to-gray-900/40 rounded-xl border border-slate-500/30">
-<div class="text-xs font-semibold text-slate-300 mb-2">📖 Overview & Getting Started</div>
-<div class="text-xs opacity-90 space-y-1">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/copilot-customization" class="text-cyan-400 hover:text-cyan-300">Customize AI in Visual Studio Code</a></div>
-<div>• <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot" class="text-cyan-400 hover:text-cyan-300">Adding repository custom instructions</a></div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-slate-900/40 to-gray-900/40 rounded-xl border border-slate-500/30">
-<div class="text-xs font-semibold text-slate-300 mb-2">📖 Instructions Files</div>
-<div class="text-xs opacity-90 space-y-1">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/custom-instructions" class="text-blue-400 hover:text-blue-300">Use custom instructions in VS Code</a></div>
-<div>• <a href="https://docs.github.com/en/copilot/reference/custom-instructions-support" class="text-blue-400 hover:text-blue-300">Custom instructions support reference</a></div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-slate-900/40 to-gray-900/40 rounded-xl border border-slate-500/30">
-<div class="text-xs font-semibold text-slate-300 mb-2">📖 Skills, Prompts, Agents</div>
-<div class="text-xs opacity-90 space-y-1">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/agent-skills" class="text-indigo-400 hover:text-indigo-300">Use Agent Skills in VS Code</a></div>
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/prompt-files" class="text-indigo-400 hover:text-indigo-300">Use prompt files in VS Code</a></div>
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/custom-agents" class="text-indigo-400 hover:text-indigo-300">Custom agents in VS Code</a></div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-slate-900/40 to-gray-900/40 rounded-xl border border-slate-500/30">
-<div class="text-xs font-semibold text-slate-300 mb-2">🌐 Open Standards & Community</div>
-<div class="text-xs opacity-90 space-y-1">
-<div>• <a href="https://agents.md/" class="text-purple-400 hover:text-purple-300">AGENTS.md open format</a></div>
-<div>• <a href="https://agentskills.io/" class="text-purple-400 hover:text-purple-300">Agent Skills open standard</a></div>
-<div>• <a href="https://github.com/github/awesome-copilot" class="text-purple-400 hover:text-purple-300">Awesome Copilot repository</a></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📖 Overview & Getting Started", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/copilot-customization", label: "Customize AI in Visual Studio Code", description: "Comprehensive customization overview" },
+        { href: "https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot", label: "Adding repository custom instructions", description: "Repo-scoped instructions reference" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-instructions", label: "Use custom instructions in VS Code", description: "VS Code instructions configuration" },
+        { href: "https://docs.github.com/en/copilot/reference/custom-instructions-support", label: "Custom instructions support reference", description: "Surface support matrix and limits" }
+    ] },
+    { title: "🌐 Open Standards & Community", color: "purple", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/customization/agent-skills", label: "Use Agent Skills in VS Code", description: "Skill file format and invocation" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/prompt-files", label: "Use prompt files in VS Code", description: "Reusable prompt templates" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-agents", label: "Custom agents in VS Code", description: ".agent.md definitions and configuration" },
+        { href: "https://agents.md/", label: "AGENTS.md open format", description: "Cross-vendor agent instruction standard" },
+        { href: "https://agentskills.io/", label: "Agent Skills open standard", description: "Community skill library and spec" },
+        { href: "https://github.com/github/awesome-copilot", label: "Awesome Copilot repository", description: "Community prompts, skills, and agents" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

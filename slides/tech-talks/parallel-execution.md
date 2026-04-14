@@ -19,6 +19,7 @@ updated: 2026-02-01
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -740,51 +741,21 @@ Spend 15 minutes on interactive planning to ensure autonomous execution succeeds
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 mt-8">
-<div class="space-y-3">
-<div class="text-lg font-bold text-cyan-300 mb-3">📚 Related Patterns</div>
-<div class="p-3 bg-gray-800 rounded-lg text-sm">
-<div class="text-white font-bold">Need task decomposition?</div>
-<div class="text-cyan-400">→ See multi-step-tasks</div>
-<div class="text-xs text-gray-400">Research/analysis phases</div>
-</div>
-<div class="p-3 bg-gray-800 rounded-lg text-sm">
-<div class="text-white font-bold">Need specialized roles?</div>
-<div class="text-cyan-400">→ See agent-teams</div>
-<div class="text-xs text-gray-400">Planner/coder/reviewer patterns</div>
-</div>
-</div>
-
-<div class="space-y-3">
-<div class="text-lg font-bold text-indigo-300 mb-3">🔗 Resources</div>
-<div class="p-3 bg-gray-800 rounded-lg text-xs">
-<div class="text-white space-y-1">
-<div>• VS Code: Background Agents</div>
-<div>• VS Code: Cloud Agents</div>
-<div>• VS Code 1.109: Session Management</div>
-<div>• Git Worktrees (Technical Reference)</div>
-</div>
-</div>
-<div class="p-3 bg-gray-800 rounded-lg text-xs">
-<div class="text-cyan-400 font-bold mb-1">Related Talks:</div>
-<div class="text-white space-y-1">
-<div>• Agentic SDLC (Part 2)</div>
-<div>• Copilot CLI</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "📚 Related Patterns", color: "cyan", items: [
+        { label: "Need task decomposition?", description: "→ See multi-step-tasks" },
+        { label: "Need specialized roles?", description: "→ See agent-teams" }
+    ] },
+    { title: "🔗 Resources", color: "purple", items: [
+        { label: "VS Code: Background Agents", description: "Worktree isolation for parallel workstreams" },
+        { label: "VS Code: Cloud Agents", description: "Remote execution and scaling" },
+        { label: "VS Code 1.109: Session Management", description: "Session picker and monitoring" },
+        { label: "Git Worktrees", description: "Technical reference for isolated environments" },
+        { label: "Related Talks", description: "Agentic SDLC (Part 2) · Copilot CLI" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->

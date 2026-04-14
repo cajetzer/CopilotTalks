@@ -19,6 +19,7 @@ updated: 2026-02-18
 <script setup>
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
+import ReferencesSlide from './components/ReferencesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -816,53 +817,20 @@ meta="Tech Talk · 45 minutes"
 ---
 
 <!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-2 text-sm">Primary Documentation</div>
-<div class="space-y-2 text-xs">
-<div>
-<a href="https://github.com/github/copilot-sdk" target="_blank" class="text-blue-400 hover:text-blue-300">GitHub Copilot SDK Repository</a>
-<div class="text-gray-400 text-xs">Installation, API reference, language-specific examples</div>
-</div>
-<div>
-<a href="https://github.blog/news-insights/company-news/build-an-agent-into-any-app-with-the-github-copilot-sdk/" target="_blank" class="text-blue-400 hover:text-blue-300">SDK Blog Announcement</a>
-<div class="text-gray-400 text-xs">Technical preview announcement and architecture overview</div>
-</div>
-<div>
-<a href="https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line" target="_blank" class="text-blue-400 hover:text-blue-300">Copilot CLI Documentation</a>
-<div class="text-gray-400 text-xs">Understanding the agent runtime SDK wraps</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-2 text-sm">Additional Resources</div>
-<div class="space-y-2 text-xs">
-<div>
-<a href="https://github.com/github/awesome-copilot/blob/main/cookbook/copilot-sdk/python/README.md" target="_blank" class="text-blue-400 hover:text-blue-300">Python SDK Cookbook</a>
-<div class="text-gray-400 text-xs">Python-specific patterns and recipes</div>
-</div>
-<div>
-<a href="https://docs.github.com/en/copilot/concepts/billing/copilot-requests" target="_blank" class="text-blue-400 hover:text-blue-300">Copilot Requests & Billing</a>
-<div class="text-gray-400 text-xs">Understanding quotas and usage tracking</div>
-</div>
-<div>
-<a href="https://github.com/github/copilot-sdk/blob/main/docs/auth/byok.md" target="_blank" class="text-blue-400 hover:text-blue-300">BYOK Documentation</a>
-<div class="text-gray-400 text-xs">Bring Your Own Key for custom model providers</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+<ReferencesSlide
+  :groups='[
+    { title: "Primary Documentation", color: "cyan", items: [
+        { href: "https://github.com/github/copilot-sdk", label: "GitHub Copilot SDK Repository", description: "Installation, API reference, language-specific examples" },
+        { href: "https://github.blog/news-insights/company-news/build-an-agent-into-any-app-with-the-github-copilot-sdk/", label: "SDK Blog Announcement", description: "Technical preview announcement and architecture overview" },
+        { href: "https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line", label: "Copilot CLI Documentation", description: "Understanding the agent runtime SDK wraps" }
+    ] },
+    { title: "Additional Resources", color: "purple", items: [
+        { href: "https://github.com/github/awesome-copilot/blob/main/cookbook/copilot-sdk/python/README.md", label: "Python SDK Cookbook", description: "Python-specific patterns and recipes" },
+        { href: "https://docs.github.com/en/copilot/concepts/billing/copilot-requests", label: "Copilot Requests & Billing", description: "Understanding quotas and usage tracking" },
+        { href: "https://github.com/github/copilot-sdk/blob/main/docs/auth/byok.md", label: "BYOK Documentation", description: "Bring Your Own Key for custom model providers" }
+    ] }
+  ]'
+/>
 ---
 
 <!-- SLIDE: Thank You -->
