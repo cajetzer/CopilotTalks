@@ -17,7 +17,8 @@ updated: 2026-02-01
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1115,33 +1116,13 @@ Source: GitHub.com Chat</code></pre>
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You</h1>
-<div class="mt-6 text-lg opacity-70 relative z-10">Build context over time like a long-term collaborator</div>
-
-<div class="mt-8 grid grid-cols-3 gap-4 max-w-3xl relative z-10">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30 text-center">
-<div class="text-2xl font-bold text-cyan-300">99x</div>
-<div class="text-xs opacity-70 mt-1">ROI on time invested</div>
-<div class="text-xs text-cyan-400 mt-0.5">2 min → 198 min saved</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 text-center">
-<div class="text-2xl font-bold text-blue-300">28 days</div>
-<div class="text-xs opacity-70 mt-1">Auto-expiration cycle</div>
-<div class="text-xs text-blue-400 mt-0.5">Keeps preferences fresh</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30 text-center">
-<div class="text-2xl font-bold text-indigo-300">10-15</div>
-<div class="text-xs opacity-70 mt-1">Ideal memory count</div>
-<div class="text-xs text-indigo-400 mt-0.5">Curated for impact</div>
-</div>
-</div>
-
-<div class="mt-8 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="Stateful AI That Remembers Your Preferences"
+:cards="[
+  { icon: '💡', value: '99x', detail: 'ROI on time invested', subdetail: '2 min → 198 min saved across sessions' },
+  { icon: '🔄', value: '28 days', detail: 'Auto-expiration cycle', subdetail: 'Keeps preferences fresh and relevant' },
+  { icon: '🎯', value: '10-15', detail: 'Ideal memory count', subdetail: 'Curated for maximum impact' },
+]"
+prompt="Questions? Let's discuss how to bring persistent memory to your Copilot workflows"
+/>

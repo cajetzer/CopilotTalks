@@ -1,8 +1,13 @@
 import { defineAppSetup } from '@slidev/types'
-import TitleSlide from '../components/TitleSlide.vue'
 
 export default defineAppSetup(({ app, router }) => {
-  app.component('TitleSlide', TitleSlide)
+  // Import components dynamically to ensure they resolve correctly
+  import('../components/ThankYouSlide.vue').then((mod) => {
+    app.component('ThankYouSlide', mod.default)
+  })
+  import('../components/TitleSlide.vue').then((mod) => {
+    app.component('TitleSlide', mod.default)
+  })
 
   // Handle 404 redirects with slide number preservation
   if (typeof window !== 'undefined') {

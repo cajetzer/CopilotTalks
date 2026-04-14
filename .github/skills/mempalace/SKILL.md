@@ -43,6 +43,8 @@ After completing content work, write diary entries for anything future sessions 
 
 **Never write during a session mid-stream.** Diary writes happen at session END only — after the work is saved and verified.
 
+**Write mechanism: always use `replace_string_in_file` or `multi_replace_string_in_file` to edit the hall `.md` files directly** (e.g. `memories/repo/wing_infra/hall_facts.md`). Never use the `memory` tool with `/memories/repo/` paths — that routes to Copilot's personal memory service, not the repo files, and the entries will be invisible in the workspace.
+
 ---
 
 ## What NEVER to Write

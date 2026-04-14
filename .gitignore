@@ -45,6 +45,8 @@ Thumbs.db
 
 # Large capture files (scripts/cli-capture/_all.txt can be 2+ GB)
 scripts/cli-capture/_all.txt
+captures
+thankyou-screenshots
 
 # Temporary files
 tmp/

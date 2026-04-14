@@ -17,7 +17,8 @@ updated: 2026-02-01
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -985,31 +986,13 @@ Run a subagent to research auth
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">Multi-Step Tasks: Context Isolation with Subagents</span>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-400 font-bold text-lg">🎯 Context Isolation</div>
-<div class="opacity-80 text-xs mt-1">Research stays separated from main session</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-400 font-bold text-lg">⚡ 3–5x Throughput</div>
-<div class="opacity-80 text-xs mt-1">Parallel execution multiplies output</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-400 font-bold text-lg">🔧 Specialized Agents</div>
-<div class="opacity-80 text-xs mt-1">Domain expertise per subtask</div>
-</div>
-</div>
-<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss how subagents can transform your complex workflows</div>
-<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="Multi-Step Tasks: Context Isolation with Subagents"
+:cards="[
+  { icon: '🎯', value: 'Context Isolation', detail: 'Research stays separated', subdetail: 'Main session stays clean and focused' },
+  { icon: '⚡', value: '3–5x Throughput', detail: 'Parallel execution multiplies output', subdetail: 'Multiple subagents work simultaneously' },
+  { icon: '🔧', value: 'Specialized Agents', detail: 'Domain expertise per subtask', subdetail: 'Right tool for each job' },
+]"
+prompt="Questions? Let's discuss how subagents can transform your complex workflows"
+/>

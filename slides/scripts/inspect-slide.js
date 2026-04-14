@@ -35,9 +35,9 @@ const path = require("path");
 // ── Config ────────────────────────────────────────────────────────────────────
 
 const SLIDES_DIR = path.resolve(__dirname, "..");
-const HARNESS_DIR = path.join(SLIDES_DIR, ".harness");
+const HARNESS_DIR = path.join(SLIDES_DIR, "..", "captures");
 const SLIDEV_READY_TIMEOUT_MS = 60_000;
-const SLIDEV_POLL_INTERVAL_MS = 500;
+const SLIDEV_POLL_INTERVAL_MS = 2000;
 // Test at multiple viewport sizes to catch responsive breakpoint overflows
 const VIEWPORTS = [
   { width: 1920, height: 1080, name: "desktop" },
@@ -105,26 +105,29 @@ if (!deckFile) {
 
 function isPortResponding(p) {
   return new Promise((resolve) => {
-    const req = http.get(`http://localhost:${p}/`, (res) => {
-      res.resume();
+    const net = require("net");
+    const socket = new net.Socket();
+    socket.setTimeout(2000);
+    socket.connect(p, "127.0.0.1", () => {
+      socket.destroy();
       resolve(true);
     });
-    req.setTimeout(1000);
-    req.on("error", () => resolve(false));
-    req.on("timeout", () => {
-      req.destroy();
+    socket.on("error", (err) => {
+      socket.destroy();
+      // EADDRINUSE on connect = ephemeral port pool clogged; treat as "not yet ready"
       resolve(false);
     });
+    socket.on("timeout", () => { socket.destroy(); resolve(false); });
   });
 }
 
 async function waitForPort(p, timeoutMs) {
-  const start = Date.now();
-  while (Date.now() - start < timeoutMs) {
-    if (await isPortResponding(p)) return true;
-    await new Promise((r) => setTimeout(r, SLIDEV_POLL_INTERVAL_MS));
-  }
-  return false;
+  // Fixed sleep instead of polling — polling exhausts the ephemeral port pool via TimeWait
+  const FIXED_WAIT_MS = 15000;
+  console.error(`[harness] sleeping ${FIXED_WAIT_MS / 1000}s for slidev to start...`);
+  await new Promise((r) => setTimeout(r, FIXED_WAIT_MS));
+  console.error(`[harness] assuming slidev is ready`);
+  return true;
 }
 
 // ── Slidev dev start ──────────────────────────────────────────────────────────
@@ -136,7 +139,7 @@ function startSlidevDev(file, p) {
   // On Windows, shell:true is required for npx to resolve correctly
   const child = spawn(
     "npx",
-    ["slidev", "--remote=", "--open", relFile, "--port", String(p)],
+    ["slidev", "--remote=", relFile, "--port", String(p)],
     {
       cwd: SLIDES_DIR,
       detached: true,

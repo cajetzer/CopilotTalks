@@ -17,7 +17,8 @@ updated: 2026-03-23
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1463,27 +1464,13 @@ meta="Tech Talk · 60 minutes"
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 mb-4">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You</h1>
-<div class="mt-4 relative z-10 grid grid-cols-3 gap-4 max-w-3xl">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30 text-center">
-<div class="text-2xl font-bold text-cyan-300">16x</div>
-<div class="text-xs text-gray-300 mt-1">ROI from knowledge multiplication</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 text-center">
-<div class="text-2xl font-bold text-blue-300">30-40%</div>
-<div class="text-xs text-gray-300 mt-1">Cost reduction via flexible licensing</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30 text-center">
-<div class="text-2xl font-bold text-indigo-300">500+</div>
-<div class="text-xs text-gray-300 mt-1">Developers benefit from one org instruction</div>
-</div>
-</div>
-<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="Enterprise Patterns for AI Adoption"
+:cards="[
+  { icon: '💡', value: '16x', detail: 'ROI from knowledge multiplication', subdetail: 'One instruction benefits entire organization' },
+  { icon: '💰', value: '30-40%', detail: 'Cost reduction via flexible licensing', subdetail: 'Right-size seats based on usage patterns' },
+  { icon: '👥', value: '500+', detail: 'Developers benefit from one instruction', subdetail: 'Organization-wide knowledge at scale' },
+]"
+prompt="Questions? Let's discuss which enterprise patterns apply to your organization first"
+/>

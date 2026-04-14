@@ -21,9 +21,11 @@ This repository includes a development container configuration that automaticall
 
 ### Features
 
-- **Docker-in-Docker** — Build and run FanHub containers within Codespaces
-- **GitHub CLI** — Manage issues, PRs, and workflows from the terminal
 - **Node.js 20** — Latest LTS version for FanHub development
+
+Note: the default local dev container intentionally does not enable Docker-in-Docker. That feature adds significant startup complexity on Windows and is not required for normal content authoring in this repository.
+
+Note: the local container definition also avoids Dev Container features that must be fetched during creation. If Docker Desktop and the base image are available locally, this keeps startup more reliable on Windows networks that intermittently fail against feature registries.
 
 ## Using This Dev Container
 
@@ -68,6 +70,22 @@ Check the "Ports" tab in VS Code's terminal panel. Ports should auto-forward whe
 ### Container Build Fails?
 
 Ensure Docker Desktop is running and you have enough disk space (5GB+ recommended).
+
+### Container Hangs Before Startup Commands?
+
+If VS Code stalls before `postCreateCommand` runs, the problem is usually in container creation or feature initialization rather than this repository's bootstrap.
+
+This configuration keeps first attach intentionally light:
+
+- No Docker-in-Docker feature by default
+- No GitHub CLI Dev Container feature during image creation
+- No Playwright browser download during container creation
+
+After the container opens successfully, install optional tooling manually if needed:
+
+```bash
+npx playwright install --with-deps chromium
+```
 
 ## Customization
 

@@ -1,6 +1,12 @@
 # Slide Visual Design System
 
-This file is the authoritative reference for all visual patterns used in CopilotTraining Slidev decks. The slide-generator agent reads this file before generating slides.
+This file is the authoritative shared reference for Slidev deck primitives used across CopilotTraining decks. The slide-generator agent reads this file before generating slides.
+
+Category-specific visuals and archetypes live in these profile docs and must also be read before generation:
+
+- `slides/tech-talks/template.md`
+- `slides/exec-talks/template.md`
+- `slides/workshop/template.md`
 
 ---
 
@@ -25,21 +31,23 @@ Every deck follows this 5-section skeleton. Total slide budget: **under 25 slide
 
 ---
 
-## Color Schemes by Category
+## Category Profiles
 
-| Category | Primary Gradient | Background | Accent |
-|---|---|---|---|
-| **Workshop** | `from-orange-400 via-red-400 to-purple-400` | `from-orange-900/20 via-red-900/10 to-purple-900/20` | `from-orange-600/80 to-red-600/80` |
-| **Tech-talks** | `from-cyan-400 via-blue-400 to-indigo-400` | `from-cyan-900/20 via-blue-900/10 to-indigo-900/20` | `from-cyan-600/80 to-blue-600/80` |
-| **Exec-talks** | `from-blue-400 via-cyan-400 to-green-400` | `from-blue-900/20 via-cyan-900/10 to-green-900/20` | `from-blue-600/80 to-cyan-600/80` |
+Use category profiles for colors, title-slide style, and category-specific archetypes.
+
+| Category | Profile | Notes |
+|---|---|---|
+| **Workshop** | `slides/workshop/template.md` | Instructional decks with exercise and validation archetypes |
+| **Tech-talks** | `slides/tech-talks/template.md` | Practitioner decks with capability-led narrative and `TitleSlide` |
+| **Exec-talks** | `slides/exec-talks/template.md` | Strategic decks with value, risk, and operating-model framing |
 
 ### Color Progression Within a Deck
 
 | Progression | Colors | Use For |
 |---|---|---|
-| Cool→Warm | cyan → blue → indigo → purple → pink | Tech talks, building complexity |
-| Warm→Cool | orange → red → purple → blue | Workshop modules |
-| Professional | blue → cyan → green | Exec talks, strategic themes |
+| Cool→Warm | cyan → blue → indigo → purple → pink | Common multi-part progression for technical deep dives |
+| Warm→Cool | orange → red → purple → blue | Common workshop pacing pattern |
+| Professional | blue → cyan → green | Common exec-talk progression |
 
 **Section color pairings (in order):**
 - Section 1: `from-cyan-400 to-blue-400`
@@ -108,7 +116,20 @@ mdc: true
 
 ## Title Slide (REQUIRED — use for every deck)
 
-Replace `{TITLE}`, `{SUBTITLE}`, and color values per the category color scheme above.
+Do not choose the title-slide pattern from this file alone. Resolve the deck category first, then load the matching category profile and use its title-slide pattern.
+
+- Tech talks: `slides/tech-talks/template.md`
+- Exec talks: `slides/exec-talks/template.md`
+- Workshop: `slides/workshop/template.md`
+
+Every category title slide still follows the same shared content contract:
+
+- `{TITLE}`
+- `{SUBTITLE}`
+- `{TAGLINE}`
+- `{FOOTER_TEXT}`
+
+Use this generic shape only as a shared reference for the required content fields.
 
 ```html
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
@@ -126,63 +147,6 @@ Replace `{TITLE}`, `{SUBTITLE}`, and color values per the category color scheme 
 <div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-{ACCENT_COLOR}-400 to-transparent rounded-full relative z-10"></div>
 </div>
 <div class="abs-br m-6 flex gap-2"><span class="text-sm opacity-50">{FOOTER_TEXT}</span></div>
-```
-
-### Workshop Example (orange → red → purple)
-
-```html
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-red-900/10 to-purple-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-72" alt="" /></div>
-<img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-orange-400 via-red-400 to-purple-400 bg-clip-text text-transparent relative z-10">Module 1: Instructions</h1>
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-orange-600/80 to-red-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-orange-500/25">The Consistency Problem</span>
-</div>
-<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full relative z-10"></div>
-</div>
-<div class="abs-br m-6 flex gap-2"><span class="text-sm opacity-50">⏰ 45 minutes</span></div>
-```
-
-### Tech-talk Example (cyan → blue → indigo)
-
-```html
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-64" alt="" /></div>
-<img src="./sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Copilot CLI</h1>
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-cyan-500/25">AI Assistance at the Terminal</span>
-</div>
-<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
-<div class="abs-br m-6 flex gap-2"><span class="text-sm opacity-50">Tech Talk · 45 minutes</span></div>
-```
-
-### Exec-talk Example (blue → cyan → green)
-
-```html
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-green-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-green-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-64" alt="" /></div>
-<img src="./sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 bg-clip-text text-transparent relative z-10">Agentic Economics</h1>
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-blue-600/80 to-cyan-600/80 rounded-full text-white text-xl font-medium shadow-lg shadow-blue-500/25">Making the Business Case</span>
-</div>
-<div class="mt-6 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
-<div class="abs-br m-6 flex gap-2"><span class="text-sm opacity-50">CopilotTraining Executive Talk</span></div>
 ```
 
 ---
@@ -275,43 +239,31 @@ Use this **rich section opener** (no `layout:` frontmatter — CSS only). The la
 
 ## Thank You Slide (REQUIRED)
 
-Use this pattern for the final slide in tech talks. **No `layout:` or `class:` frontmatter** — the outer div handles full-height centering. Always include the SDP logo with blur glow, a 3-stat card grid with key metrics, and a closing discussion prompt.
+Resolve the deck category first, then use the matching category profile for the final-slide archetype. For tech talks, use the shared `ThankYouSlide` component from `slides/components/ThankYouSlide.vue` instead of inlining raw HTML.
+
+Shared content contract:
+
+- Optional pill text
+- Optional tagline
+- 3-4 summary cards
+- Optional chips row
+- Optional prompt or CTA code block
 
 ```html
+<script setup>
+import ThankYouSlide from '../components/ThankYouSlide.vue'
+</script>
+
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-
-<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
-
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">{TITLE}: {SUBTITLE}</span>
-</div>
-
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-lg">{CALL_OUT_1}</div>
-<div class="text-gray-300 mt-2 text-xs">{DETAIL_1}</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-300 font-bold text-lg">{CALL_OUT_2}</div>
-<div class="text-gray-300 mt-2 text-xs">{DETAIL_2}</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-300 font-bold text-lg">{CALL_OUT_3}</div>
-<div class="text-gray-300 mt-2 text-xs">{DETAIL_3}</div>
-</div>
-</div>
-
-<div class="mt-6 text-sm opacity-60 relative z-10">{DISCUSSION_PROMPT}</div>
-<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
+<ThankYouSlide
+pill-text="{TITLE}: {SUBTITLE}"
+:cards="[
+  { value: '{CALL_OUT_1}', detail: '{DETAIL_1}' },
+  { value: '{CALL_OUT_2}', detail: '{DETAIL_2}' },
+  { value: '{CALL_OUT_3}', detail: '{DETAIL_3}' },
+]"
+prompt="{DISCUSSION_PROMPT}"
+/>
 ```
 
 ---

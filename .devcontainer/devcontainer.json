@@ -2,13 +2,6 @@
   "name": "GitHub Copilot Training Workshop",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
 
-  "forwardPorts": [3030],
-
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -89,8 +82,8 @@
     }
   },
 
-  // Post-create command to set up the environment
-  "postCreateCommand": "npm install && cd slides && npm install && cd .. && npx playwright install --with-deps chromium",
+  // Keep local container startup light; install heavier tooling on demand.
+  "postCreateCommand": "npm install && cd slides && npm install",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "remoteUser": "node",

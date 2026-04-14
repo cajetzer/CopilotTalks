@@ -17,7 +17,8 @@ mdc: true
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1026,31 +1027,13 @@ meta="Tech Talk · 40 minutes"
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-base font-medium shadow-lg shadow-cyan-500/25">GitHub Copilot's Coding Agent in Practice</span>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30 text-center">
-<div class="text-cyan-400 font-bold text-lg">85%</div>
-<div class="opacity-80 text-xs">reduction in issue triage time</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30 text-center">
-<div class="text-blue-400 font-bold text-lg">4hr → 30min</div>
-<div class="opacity-80 text-xs">PR review with mobile workflow</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30 text-center">
-<div class="text-indigo-400 font-bold text-lg">0 merges</div>
-<div class="opacity-80 text-xs">agent never merges its own code</div>
-</div>
-</div>
-<div class="mt-6 text-sm opacity-60 relative z-10">Questions? Let's discuss which tasks in your backlog are ready to delegate today.</div>
-<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="GitHub Copilot's Coding Agent in Practice"
+:cards="[
+  { icon: '⚡', value: '85%', detail: 'Reduction in issue triage time', subdetail: 'Automated classification and context gathering' },
+  { icon: '📱', value: '4hr → 30min', detail: 'PR review with mobile workflow', subdetail: 'Review agent output on phone, merge from anywhere' },
+  { icon: '🛡️', value: '0 merges', detail: 'Agent never merges its own code', subdetail: 'Human approval required for all changes' },
+]"
+prompt="Questions? Let's discuss which tasks in your backlog are ready to delegate today."
+/>

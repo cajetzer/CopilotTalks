@@ -4,6 +4,56 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Tech-talk component import path must be `./components/` not `../components/` (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+All tech-talk deck `.md` files must import `TitleSlide` and `ThankYouSlide` using `./components/` (relative to `slides/tech-talks/`). Using `../components/` resolves to the root `slides/components/` folder which does NOT contain these components — build fails with `UNRESOLVED_IMPORT`. Fixed 2026-04-14 across all 21 active tech-talk decks.
+
+**Correct:**
+```js
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
+```
+
+**Wrong (causes build failure):**
+```js
+import ThankYouSlide from '../components/ThankYouSlide.vue'
+```
+
+---
+
+## `TitleSlide` and `ThankYouSlide`: `logoSrc`/`logoAlt` props removed (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+Both `TitleSlide.vue` and `ThankYouSlide.vue` (in `slides/tech-talks/components/`) no longer accept `logoSrc` or `logoAlt` props. The logo is hardcoded as `src="../sdp-logo.png"` `alt="SDP Logo"` in the template. The `import defaultTechTalkLogoSrc` line was also removed.
+
+**`logoClass` prop is KEPT** — it remains on both components (default `"w-64"`) because `parallel-execution.md` overrides it with `logoClass="w-20"`.
+
+---
+
+## VS Code Remote (legacy-4): dev tunnel URL for Slidev on port 3030 (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+When running `npm run dev` from `slides/` on the remote machine **legacy-4**, VS Code automatically creates a dev tunnel and forwards port 3030. The tunnel URL is:
+
+```
+https://9gbdmjtg-3030.use2.devtunnels.ms/21
+```
+
+The VS Code built-in browser (`simpleBrowser.show`) can open `https://9gbdmjtg-3030.use2.devtunnels.ms:3030` to view the live Slidev deck inside the editor — the hostname will likely change each session
+
+**Workflow to view slides from remote:**
+1. `cd slides && npm run dev .\tech-talks\<deck>.md` on legacy-4
+2. In VS Code: `Ctrl+Shift+P` → `Simple Browser: Show` → `http://localhost:3030`
+   — OR use the tunnel URL above if connecting from an external browser.
+
+https://vscode.dev/tunnel/legacy-4 to connect to VSCode on remote
+
+---
+
 ## Slidev dev server: `--remote` flag in devcontainer requires `--remote=` (2026-04-13)
 
 `schema_version: 1` | `date: 2026-04-13`

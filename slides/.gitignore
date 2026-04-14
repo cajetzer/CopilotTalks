@@ -4,6 +4,9 @@ node_modules/
 # Build output
 dist/
 .slidev/
+.tmp-agentic-build/
+tech-talks/index.html
+workshop/index.html
 
 # OS files
 .DS_Store

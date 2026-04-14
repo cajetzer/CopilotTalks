@@ -18,11 +18,16 @@ Transform module README files into beautiful, concise Slidev presentations for C
 
 1. **README Exists** — Confirm the source README.md exists. If not, stop: "No README.md found at `<path>`. Generate it first (e.g., via tech-talk-generator) before creating slides."
 2. **Not Archived** — Read the source README frontmatter. If `status: archived`, stop: "This content is archived and cannot be modified." Also refuse to modify an existing slide file with `status: archived`.
-3. **Read Template** — Read `slides/TEMPLATE.md` for all visual patterns before writing a single slide. Every slide type has a specific template — follow it exactly, including the cockpit wrapper for content slides.
-4. **Read Visual Exemplar** — Read the first 200 lines of `slides/tech-talks/agentic-sdlc.md` as the gold-standard visual reference. Every content slide in that deck uses the cockpit pattern (pill breadcrumb + absolute gradients + `justify-start px-14`). Match this aesthetic.
-5. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section→icon→container mapping before updating the index.
-6. **Read Deck Recipe for Tech Talks** — If the source is under `tech-talks/`, look for `deck.recipe.yml` in the same folder as the README. If it exists, use it as the per-talk adaptation recipe. If it does not exist, synthesize an initial recipe from the README and save it before generating slides.
-7. **Query Memory** — Read `memories/repo/wing_infra/hall_facts.md`, `hall_discoveries.md`, and `hall_advice.md` for confirmed Slidev build rules and structural patterns. If the target deck has a wing entry (e.g., `memories/repo/wing_agent_architecture/hall_facts.md`), read that too. Apply these before writing any HTML.
+3. **Resolve Category** — Determine whether the target deck is a workshop, tech talk, or exec talk from the source path and frontmatter. Treat category as a first-class input to generation, not an inference from examples later.
+4. **Read Shared Template** — Read `slides/TEMPLATE.md` for shared primitives and structural rules before writing a single slide. Every content slide must still follow the shared cockpit wrapper and Slidev safety constraints.
+5. **Read Category Profile** — Read exactly one matching profile before generating slides:
+	- `slides/workshop/template.md`
+	- `slides/tech-talks/template.md`
+	- `slides/exec-talks/template.md`
+6. **Read Visual Exemplar** — Read the first 200 lines of `slides/tech-talks/agentic-sdlc.md` as the gold-standard visual reference for cockpit content slides. Match that level of structure and visual depth unless the category profile explicitly requires otherwise.
+7. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section→icon→container mapping before updating the index.
+8. **Read Deck Recipe for Tech Talks** — If the source is under `tech-talks/`, look for `deck.recipe.yml` in the same folder as the README. If it exists, use it as the per-talk adaptation recipe. If it does not exist, synthesize an initial recipe from the README and save it before generating slides.
+9. **Query Memory** — Read `memories/repo/wing_infra/hall_facts.md`, `hall_discoveries.md`, and `hall_advice.md` for confirmed Slidev build rules and structural patterns. If the target deck has a wing entry (e.g., `memories/repo/wing_agent_architecture/hall_facts.md`), read that too. Apply these before writing any HTML.
 
 ### 1. Parse the README
 
@@ -92,22 +97,21 @@ Do **not** overwrite an existing recipe unless the user explicitly asks to refre
 
 ### 2. Generate Slide Structure
 
-Standard sequence (12-20 slides):
+Category-driven sequence (12-20 slides):
 
-1. **Title** — beautified title slide from TEMPLATE.md (category color scheme)
-2. **Context** — The Opportunity or the core question, depending on the recipe
-3. **TOC** — clickable section navigation (see TOC rules below)
-4. **Objectives** — top 3-5 goals
-5. **Personas** — 1-3 persona cards
-6. **Before/After** — two-column comparison panels
-7. **Key Concepts** — 2-3 concepts
-8. **Exercises** — overview table
-9. **Quote/Realization** — persona transformation
-10. **Metrics** — quantified outcomes
-11. **Next Up** — preview next module / related talk
-12. **End** — Thank You slide from TEMPLATE.md
+1. **Title** — use the title-slide pattern defined by the category profile
+2. **Opening Frame** — choose the category-appropriate opener archetype
+3. **TOC / Agenda** — when appropriate for the category and total deck size
+4. **Core Body** — select slide archetypes from the category profile, then adapt emphasis using the README and any deck recipe
+5. **Close** — use the closing pattern defined by the category profile
 
 Add section divider slides for each 🎬 major section (tech talks / exec talks).
+
+Use the category profiles to choose the archetype family:
+
+- Workshops: objectives, exercise framing, checkpoints, debrief, next module
+- Tech talks: capability reveal, workflow comparison, architecture, metrics, references
+- Exec talks: strategic context, value framing, risk, operating model, recommended actions
 
 #### Cockpit Template (REQUIRED for all content slides)
 
@@ -116,6 +120,10 @@ Every content slide **must** use the cockpit wrapper from `slides/TEMPLATE.md` �
 #### Section Openers (Rich "Part N" pattern)
 
 Use the rich opener from `slides/TEMPLATE.md` — Part N pill + 600px orb + 3-col teaser + mono callout. Not the old `layout: center` pattern.
+
+#### Tech-talk Thank You Slide (REQUIRED for tech talks)
+
+For `slides/tech-talks/*.md`, import `ThankYouSlide` from `../components/ThankYouSlide.vue` and use it for the final slide instead of inlining raw thank-you HTML. Pass deck-specific summary cards, prompt text, chips, and CTA code through component props.
 
 #### Progress Dots (REQUIRED on all topic section content slides)
 
@@ -169,6 +177,8 @@ Run `node slides/scripts/sync-index-dates.mjs` after creating or updating any sl
 
 For tech talks, also include the per-talk recipe decisions: the deck should reflect `deck.recipe.yml`, not just whatever ordering seems convenient in the moment.
 
+For all categories, the category profile is authoritative for visual system and archetype selection. `deck.recipe.yml` adds deck-specific editorial choices; it does not replace category behavior.
+
 ## Quality Checklist
 
 ### Content
@@ -194,6 +204,8 @@ For tech talks, also include the per-talk recipe decisions: the deck should refl
 ### Visual & Structure
 
 - [ ] Title slide uses TEMPLATE.md pattern with correct category colors
+- [ ] Matching category profile was loaded before generation
+- [ ] Tech-talk thank-you slide uses `ThankYouSlide` from `../components/ThankYouSlide.vue`
 - [ ] SDP logo included with glow effect (`./sdp-logo.png`)
 - [ ] **Every content slide uses the cockpit template** (pill breadcrumb + absolute gradients + `justify-start px-14`)
 - [ ] **No plain centered `h1` content slides** — only title, section openers, and thank-you use centered layouts

@@ -92,12 +92,6 @@ See `.github/workflows/tech-talk-phase3-build.yml` for automation details.
 
 ---
 
-## 📊 check-slides.js
-
-*(Existing script - add documentation here as needed)*
-
----
-
 ## Contributing
 
 When adding new scripts:

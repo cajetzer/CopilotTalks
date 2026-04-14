@@ -17,7 +17,8 @@ updated: 2026-04-13
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1412,39 +1413,28 @@ The right agent for the right task, with the right isolation, at the right time 
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="relative mb-6">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold !mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">Thank You</h1>
-
-<div class="grid grid-cols-3 gap-4 max-w-3xl text-sm mb-8">
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/40">
-<div class="text-3xl mb-2">🧱</div>
-<div class="text-2xl font-bold text-cyan-300">4</div>
-<div class="text-xs opacity-80 mt-1">Patterns Covered</div>
-<div class="text-xs text-cyan-400/70 mt-1">Subagents → Teams → Autonomous → Multi-Model</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/40">
-<div class="text-3xl mb-2">⚡</div>
-<div class="text-2xl font-bold text-blue-300">10 min</div>
-<div class="text-xs opacity-80 mt-1">To First Agent Team</div>
-<div class="text-xs text-blue-400/70 mt-1">Squad setup via npx</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/40">
-<div class="text-3xl mb-2">🚀</div>
-<div class="text-2xl font-bold text-indigo-300">68%</div>
-<div class="text-xs opacity-80 mt-1">Active Time Reduction</div>
-<div class="text-xs text-indigo-400/70 mt-1">85 min → 27 min with background agents</div>
-</div>
-</div>
-
-<div class="text-lg opacity-70">Ready to compose your multi-agent systems</div>
-</div>
-
-<div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="Building Agent Systems: Subagents, Teams, and Autonomous Execution"
+:cards="[
+  {
+    icon: '🧱',
+    value: '4',
+    detail: 'Patterns Covered',
+    subdetail: 'Subagents → Teams → Autonomous → Multi-Model',
+  },
+  {
+    icon: '⚡',
+    value: '10 min',
+    detail: 'To First Agent Team',
+    subdetail: 'Squad setup via npx',
+  },
+  {
+    icon: '🚀',
+    value: '68%',
+    detail: 'Active Time Reduction',
+    subdetail: '85 min → 27 min with background agents',
+  },
+]"
+prompt="Ready to compose your multi-agent systems"
+/>

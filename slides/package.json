@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Slidev presentation decks for CopilotTraining training modules",
   "scripts": {
-    "dev": "CHOKIDAR_USEPOLLING=true CHOKIDAR_INTERVAL=1000 slidev --remote= --open",
+    "dev": "slidev --open",
+    "dev:polling": "cross-env CHOKIDAR_USEPOLLING=true CHOKIDAR_INTERVAL=1000 slidev --open",
     "build": "slidev build",
     "build-all": "bash scripts/build-all.sh",
     "build-all:verbose": "bash scripts/build-all.sh -v",
@@ -21,5 +22,7 @@
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "^0.25.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }

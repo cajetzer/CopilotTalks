@@ -17,7 +17,8 @@ updated: 2026-03-23
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1085,29 +1086,13 @@ templates
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-blue-900/20 to-indigo-900/30"></div>
-<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-8">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-5xl !font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent mb-6">Thank You</h1>
-<div class="grid grid-cols-3 gap-4 max-w-3xl mb-8">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-3xl font-bold text-cyan-300 mb-1">4</div>
-<div class="text-xs text-gray-300">Configuration Primitives</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-3xl font-bold text-blue-300 mb-1">5 min</div>
-<div class="text-xs text-gray-300">To Transform Copilot</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-3xl font-bold text-indigo-300 mb-1">40%</div>
-<div class="text-xs text-gray-300">Reduction in Review Comments</div>
-</div>
-</div>
-<div class="w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
-</div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="Making AI Understand Your Codebase"
+:cards="[
+  { icon: '🔧', value: '4', detail: 'Configuration Primitives', subdetail: 'Instructions, Skills, Prompts, Agents' },
+  { icon: '⚡', value: '5 min', detail: 'To Transform Copilot', subdetail: 'From generic to team-aware assistant' },
+  { icon: '📉', value: '40%', detail: 'Reduction in Review Comments', subdetail: 'When Copilot knows your style' },
+]"
+prompt="Questions? Start with copilot-instructions.md today — five minutes to transform Copilot"
+/>

@@ -17,7 +17,8 @@ updated: 2026-03-05
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1240,37 +1241,15 @@ Express intent without implementation details — AI adapts to repository contex
 ---
 
 <!-- SLIDE: Thank You -->
-
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center">
-<div class="mb-6">
-<div class="absolute inset-0 blur-2xl opacity-30"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-<h1 class="!text-4xl !font-bold !mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">Thank You</h1>
-<div class="grid grid-cols-3 gap-4 mb-8">
-<div class="px-6 py-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30 text-center">
-<div class="text-3xl font-bold text-cyan-300">📝</div>
-<div class="text-sm font-semibold text-gray-300 mt-2">Intent-Driven</div>
-<div class="text-xs text-gray-400 mt-1">Markdown → Automation</div>
-</div>
-<div class="px-6 py-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 text-center">
-<div class="text-3xl font-bold text-blue-300">🔒</div>
-<div class="text-sm font-semibold text-gray-300 mt-2">Security-First</div>
-<div class="text-xs text-gray-400 mt-1">Sandboxed + Validated</div>
-</div>
-<div class="px-6 py-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30 text-center">
-<div class="text-3xl font-bold text-indigo-300">🏭</div>
-<div class="text-sm font-semibold text-gray-300 mt-2">100+ Patterns</div>
-<div class="text-xs text-gray-400 mt-1">Proven at Scale</div>
-</div>
-</div>
-<div class="text-sm text-gray-400 mb-2">Start with</div>
-<div class="font-mono text-lg text-cyan-400 px-6 py-2 bg-cyan-950/50 rounded-lg border border-cyan-500/30">
-gh extension install github/gh-aw
-</div>
-</div>
-<div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="GitHub Agentic Workflows: Repository Automation with AI Agents"
+:cards="[
+  { icon: '📝', value: 'Intent-Driven', detail: 'Markdown → Automation', subdetail: 'Natural language workflow definition' },
+  { icon: '🔒', value: 'Security-First', detail: 'Sandboxed + Validated', subdetail: 'Hook system enforces guardrails' },
+  { icon: '🏭', value: '100+ Patterns', detail: 'Proven at Scale', subdetail: 'Production-ready templates' },
+]"
+prompt="Questions? Let's discuss how to bring agent capabilities to your workflows"
+codeLabel="Start with"
+codeSnippet="gh extension install github/gh-aw"
+/>

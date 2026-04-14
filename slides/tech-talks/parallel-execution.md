@@ -17,7 +17,8 @@ updated: 2026-02-01
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -787,42 +788,14 @@ Spend 15 minutes on interactive planning to ensure autonomous execution succeeds
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/15 via-blue-500/15 to-indigo-500/15 rounded-full blur-3xl"></div>
-<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-full blur-2xl"></div>
-<div class="relative z-10 text-center">
-<div class="relative mb-6 inline-block">
-<div class="absolute inset-0 blur-2xl opacity-40">
-<img src="./sdp-logo.png" class="w-20" alt="" />
-</div>
-<img src="./sdp-logo.png" class="w-20 relative" alt="SDP Logo" />
-</div>
-<div class="mb-6">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-sm font-medium shadow-lg">
-Parallel Execution: When Agents Work Simultaneously
-</span>
-</div>
-<div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
-<div class="p-4 bg-gray-800/80 rounded-xl border border-cyan-500/30 backdrop-blur">
-<div class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">68%</div>
-<div class="text-xs text-cyan-300 font-semibold mt-1">reduction</div>
-<div class="text-xs text-gray-400 mt-1">active time per task</div>
-</div>
-<div class="p-4 bg-gray-800/80 rounded-xl border border-blue-500/30 backdrop-blur">
-<div class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">27 min</div>
-<div class="text-xs text-blue-300 font-semibold mt-1">active time</div>
-<div class="text-xs text-gray-400 mt-1">vs 85 min supervised</div>
-</div>
-<div class="p-4 bg-gray-800/80 rounded-xl border border-indigo-500/30 backdrop-blur">
-<div class="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Zero</div>
-<div class="text-xs text-indigo-300 font-semibold mt-1">conflicts</div>
-<div class="text-xs text-gray-400 mt-1">git worktree isolation</div>
-</div>
-</div>
-<div class="text-base opacity-60">
-Questions? Let's discuss running your first parallel agent experiment
-</div>
-<div class="mt-4 w-32 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent mx-auto"></div>
-</div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="Parallel Execution: When Agents Work Simultaneously"
+logoClass="w-20"
+:cards="[
+  { icon: '⚡', value: '68%', detail: 'Active time reduction', subdetail: '85 min → 27 min per task' },
+  { icon: '⏱️', value: '27 min', detail: 'Active time per task', subdetail: 'vs 85 min supervised execution' },
+  { icon: '✅', value: 'Zero', detail: 'Merge conflicts', subdetail: 'git worktree isolation guarantees safety' },
+]"
+prompt="Questions? Let's discuss running your first parallel agent experiment"
+/>

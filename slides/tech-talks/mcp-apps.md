@@ -17,7 +17,8 @@ updated: 2026-02-01
 ---
 
 <script setup>
-import TitleSlide from '../components/TitleSlide.vue'
+import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/TitleSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1352,39 +1353,13 @@ MCP Apps transform chat from text stream to visual workspace. Start with one hig
 ---
 
 <!-- SLIDE: Thank You -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
-
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
-<img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
-</div>
-
-<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
-
-<div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">MCP Apps: Rich Interactive UI in Chat</span>
-</div>
-
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-lg">5 Components</div>
-<div class="text-gray-300 mt-2 text-xs">Charts, tables, forms, trees, cards for inline visualization</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-300 font-bold text-lg">10-20 min → 2-3 min</div>
-<div class="text-gray-300 mt-2 text-xs">Time savings per query eliminating export/import cycles</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-300 font-bold text-lg">100% Accuracy</div>
-<div class="text-gray-300 mt-2 text-xs">Validation in forms eliminates configuration errors</div>
-</div>
-</div>
-
-<div class="mt-8 text-center text-sm opacity-70 relative z-10">
-Questions? Let's discuss how MCP Apps can streamline your data exploration workflows.
-</div>
-
-<div class="mt-6 w-48 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
-</div>
+<ThankYouSlide
+title="Thank You"
+subtitle="Rich Interactive UI in Chat"
+:cards="[
+  { icon: '🎨', value: '5 Components', detail: 'Charts, tables, forms, trees, cards', subdetail: 'For inline visualization and interaction' },
+  { icon: '⏱️', value: '10-20 min → 2-3 min', detail: 'Time savings per query', subdetail: 'Eliminating export/import cycles' },
+  { icon: '✅', value: '100% Accuracy', detail: 'Validation in forms', subdetail: 'Eliminates configuration errors' },
+]"
+prompt="Questions? Let's discuss how MCP Apps can streamline your data exploration workflows."
+/>

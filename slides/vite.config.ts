@@ -2,11 +2,19 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   server: {
-    watch: {
-      // Docker bind mounts don't propagate native FS events on Mac/Windows.
-      // Polling ensures Vite detects saves and HMR fires in a devcontainer.
-      usePolling: true,
-      interval: 1000,
+    hmr: {
+      overlay: true,
     },
+    watch: {
+      // Use native file watching on local Windows (faster than polling)
+      // Only use polling in Docker/devcontainer environments
+      usePolling: false,
+      // Watch additional file types
+      ignored: ['!**/node_modules/**', '!**/.git/**'],
+    },
+  },
+  // Force optimization to rebuild on changes
+  optimizeDeps: {
+    force: true,
   },
 })

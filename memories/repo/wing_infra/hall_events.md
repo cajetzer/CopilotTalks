@@ -4,6 +4,21 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## Infrastructure cleanup: template paths moved, capture scripts consolidated (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+**Template files moved** from `slides/templates/` to:
+- `slides/tech-talks/template.md`
+- `slides/exec-talks/template.md`
+- `slides/workshop/template.md`
+
+References updated in `slides/TEMPLATE.md` and `.github/agents/slide-generator.agent.md`.
+
+**Capture scripts consolidated.** All old capture scripts deleted (`quick-capture.js`, `recapture-*.js`, `capture-screenshots.js`, `capture-with-server.js`, `capture-thank-you-slides.js`, `capture-title-thanks.ps1`). `thankyou-screenshots/` folder deleted. Canonical script is `slides/scripts/capture-deck-slides.js` — run from `slides/`, output to `captures/` at repo root. `inspect-slide.js` also updated to output to `captures/`.
+
+---
+
 ## vscode-latest tech-talk updated to v1.115 (2026-04-13)
 
 `schema_version: 1` | `date: 2026-04-13`

@@ -4,9 +4,9 @@
     <div class="sv-title-orb" :class="orbClass"></div>
     <div class="sv-title-logo">
       <div class="sv-title-logo-glow">
-        <img :src="logoSrc" :class="logoClass" alt="" />
+        <img src="../sdp-logo.png" :class="logoClass" alt="" />
       </div>
-      <img :src="logoSrc" :class="[logoClass, 'relative']" :alt="logoAlt" />
+      <img src="../sdp-logo.png" :class="[logoClass, 'relative']" alt="SDP Logo" />
     </div>
     <h1 class="sv-title-heading" :class="headingClass">{{ title }}</h1>
     <div class="sv-title-pill-wrap">
@@ -22,15 +22,11 @@
 </template>
 
 <script setup>
-import defaultTechTalkLogoSrc from "../tech-talks/sdp-logo.png";
-
 defineProps({
   title: { type: String, required: true },
   subtitle: { type: String, required: true },
   tagline: { type: String, default: "" },
   meta: { type: String, default: "" },
-  logoSrc: { type: String, default: defaultTechTalkLogoSrc },
-  logoAlt: { type: String, default: "SDP Logo" },
   logoClass: { type: String, default: "w-64" },
   backgroundClass: {
     type: String,
