@@ -12,6 +12,7 @@ transition: slide-left
 title: The Agentic Journey - Incremental Path from Issue to PR Automation
 module: tech-talks/agentic-journey
 mdc: true
+section: Agentic Engineering
 status: active
 updated: 2026-02-01
 ---

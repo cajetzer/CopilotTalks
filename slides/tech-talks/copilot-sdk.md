@@ -12,6 +12,7 @@ transition: slide-left
 title: GitHub Copilot SDK
 module: tech-talks/copilot-sdk
 mdc: true
+section: Customization & Context
 status: active
 updated: 2026-02-18
 ---

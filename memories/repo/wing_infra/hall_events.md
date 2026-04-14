@@ -4,6 +4,20 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## Tech-talk sections restructured: Agent Architecture + Agentic SDLC → Agentic Engineering (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+The two sub-groups **Agent Architecture** (🤖) and **Agentic SDLC** (🚀) were merged into a single **Agentic Engineering** (⚡) sub-group in `slides/index-custom.html` and `slides/SECTIONS.md`.
+
+**Agentic Engineering now contains:** Agent Teams, Copilot ACP, GitHub Agentic Workflows, Agentic Journey, Agentic SDLC.
+
+Note: Enterprise Patterns moved to **Copilot Tools** (also 2026-04-14) — it was in the old Agentic SDLC sub-group but fits better with the tools-facing audience.
+
+Valid `section:` values as of 2026-04-14: `Copilot Tools`, `Customization & Context`, `Agentic Engineering`.
+
+---
+
 ## Infrastructure cleanup: template paths moved, capture scripts consolidated (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

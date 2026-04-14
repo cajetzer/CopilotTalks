@@ -12,6 +12,7 @@ transition: slide-left
 title: GitHub Copilot Hooks - Governance & Compliance
 module: tech-talks/copilot-hooks
 mdc: true
+section: Customization & Context
 status: active
 updated: 2026-02-11
 ---

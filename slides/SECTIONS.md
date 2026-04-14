@@ -32,8 +32,7 @@ Top-level container class: `section tech-talks`
 |---|---|---|---|---|
 | `Copilot Tools` | 💬 | `copilot-tools` | Where you interact with Copilot every day | Chat Internals, CLI, CLI + Azure MCP, Code Review, Web, What's New in VS Code |
 | `Customization & Context` | 🧩 | `customization-context` | Making it yours — instructions, skills, and integrations | Primitives, Hooks, Memory, SDK, MCP Apps |
-| `Agent Architecture` | 🤖 | `agent-architecture` | Patterns for composing and orchestrating multi-agent systems | Agent Teams, ACP, ~~Multi-Step Tasks~~ (merged), ~~Parallel Execution~~ (merged) |
-| `Agentic SDLC` | 🚀 | `agentic-sdlc` | Transforming the full software delivery lifecycle with AI agents | Workflows, Journey, SDLC, Enterprise Patterns |
+| `Agentic Engineering` | ⚡ | `agentic-engineering` | Composing agent systems and transforming the full software delivery lifecycle | Agent Teams, ACP, Workflows, Journey, SDLC, Enterprise Patterns |
 
 ---
 

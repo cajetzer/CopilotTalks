@@ -12,6 +12,7 @@ transition: slide-left
 title: GitHub Agentic Workflows - Repository Automation with AI Agents
 module: tech-talks/agentic-workflows
 mdc: true
+section: Agentic Engineering
 status: active
 updated: 2026-03-05
 ---

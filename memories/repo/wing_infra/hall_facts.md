@@ -33,6 +33,30 @@ Both `TitleSlide.vue` and `ThankYouSlide.vue` (in `slides/tech-talks/components/
 
 ---
 
+## `section:` frontmatter is required in all tech-talk decks (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+All 17 active tech-talk `.md` files must include a `section:` field in YAML frontmatter. The field must match one of the valid values in `slides/SECTIONS.md`.
+
+**Valid values (as of 2026-04-14):**
+- `Copilot Tools`
+- `Customization & Context`
+- `Agentic Engineering`
+
+**Correct placement** — between `mdc:` and `status:`:
+```yaml
+module: tech-talks/<slug>
+mdc: true
+section: Agentic Engineering
+status: active
+updated: YYYY-MM-DD
+```
+
+All 17 decks were updated 2026-04-14. The slide generator agent and `slides/tech-talks/template.md` should emit this field for new decks.
+
+---
+
 ## ReferencesSlide component: apostrophe escaping required in single-quoted attribute (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

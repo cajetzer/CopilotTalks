@@ -11,6 +11,7 @@ drawings:
 transition: slide-left
 title: From Issue to Pull Request
 module: tech-talks/copilot-web
+section: Copilot Tools
 status: active
 updated: 2026-04-06
 mdc: true

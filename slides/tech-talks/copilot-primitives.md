@@ -12,6 +12,7 @@ transition: slide-left
 title: Copilot Configuration Primitives
 module: tech-talks/copilot-primitives
 mdc: true
+section: Customization & Context
 status: active
 updated: 2026-03-23
 ---

@@ -4,7 +4,7 @@ class: text-center
 highlighter: shiki
 lineNumbers: falseok -
 info: |
-  ## Building Agent Systems: Subagents, Teams, and Autonomous Execution
+  ## Agent Teams: Subagents, Teams, and Autonomous Execution
   CopilotTraining Tech Talk
 drawings:
   persist: false
@@ -12,6 +12,7 @@ transition: slide-left
 title: Building Agent Systems - Subagents, Teams, and Autonomous Execution
 module: tech-talks/agent-teams
 mdc: true
+section: Agentic Engineering
 status: active
 updated: 2026-04-13
 ---
@@ -24,7 +25,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 
 <!-- SLIDE: Title Slide -->
 <TitleSlide
-title="Building Agent Systems"
+title="Agent Teams"
 subtitle="Subagents, Teams, and Autonomous Execution"
 tagline="Mechanisms for composing multi-agent AI systems that handle complex tasks"
 meta="Tech Talk · 60 minutes "

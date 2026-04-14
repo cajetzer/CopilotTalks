@@ -12,6 +12,7 @@ transition: slide-left
 title: Agentic SDLC - Level 5 Infrastructure for AI Velocity
 module: tech-talks/agentic-sdlc
 mdc: true
+section: Agentic Engineering
 status: active
 updated: 2026-04-02
 ---

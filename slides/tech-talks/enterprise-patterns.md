@@ -12,6 +12,7 @@ transition: slide-left
 title: Scaling GitHub Copilot Across Organizations - Enterprise Patterns for AI Adoption
 module: tech-talks/enterprise-patterns
 mdc: true
+section: Copilot Tools
 status: active
 updated: 2026-03-23
 ---

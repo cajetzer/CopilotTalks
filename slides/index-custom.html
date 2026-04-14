@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Avenir Next', Arial, sans-serif;
       background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
@@ -17,11 +19,13 @@
       min-height: 100vh;
       padding: 2rem;
     }
+
     .container {
       max-width: 1800px;
       margin: 0 auto;
       width: 100%;
     }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
@@ -30,11 +34,13 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .subtitle {
       font-size: 1.2rem;
       color: #94a3b8;
       margin-bottom: 3rem;
     }
+
     .section {
       margin-bottom: 3rem;
       background: rgba(255, 255, 255, 0.03);
@@ -43,6 +49,7 @@
       padding: 2rem;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
+
     .section-header {
       display: flex;
       align-items: center;
@@ -51,57 +58,68 @@
       padding-bottom: 1rem;
       border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     }
+
     .section-icon {
       font-size: 2rem;
     }
+
     .section-title {
       font-size: 1.75rem;
       font-weight: 600;
       margin: 0;
     }
+
     .section-description {
       color: #94a3b8;
       font-size: 0.95rem;
       margin-top: 0.25rem;
     }
+
     /* Workshop: orange → red → purple */
     .section.workshop {
       border-color: rgba(251, 146, 60, 0.3);
       background: linear-gradient(135deg, rgba(251, 146, 60, 0.05) 0%, rgba(248, 113, 113, 0.03) 50%, rgba(192, 132, 252, 0.03) 100%);
     }
+
     .section.workshop .section-title {
       background: linear-gradient(135deg, #fb923c 0%, #f87171 50%, #c084fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     /* Tech-talks: cyan → blue → indigo */
     .section.tech-talks {
       border-color: rgba(34, 211, 238, 0.3);
       background: linear-gradient(135deg, rgba(34, 211, 238, 0.05) 0%, rgba(59, 130, 246, 0.03) 50%, rgba(99, 102, 241, 0.03) 100%);
     }
+
     .section.tech-talks .section-title {
       background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #6366f1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     /* Exec-talks: blue → cyan → green */
     .section.exec-talks {
       border-color: rgba(59, 130, 246, 0.3);
       background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(34, 211, 238, 0.03) 50%, rgba(74, 222, 128, 0.03) 100%);
     }
+
     .section.exec-talks .section-title {
       background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 50%, #4ade80 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
     }
+
     .card {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -112,54 +130,65 @@
       color: inherit;
       display: block;
     }
+
     .card:hover {
       background: rgba(255, 255, 255, 0.08);
       transform: translateY(-4px);
     }
+
     /* Workshop card styles: orange → red → purple */
     .section.workshop .card:hover {
       border-color: rgba(251, 146, 60, 0.6);
       box-shadow: 0 4px 20px rgba(251, 146, 60, 0.2);
     }
+
     .section.workshop .card h2 {
       background: linear-gradient(135deg, #fb923c 0%, #f87171 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     /* Tech-talks card styles: cyan → blue → indigo */
     .section.tech-talks .card:hover {
       border-color: rgba(34, 211, 238, 0.6);
       box-shadow: 0 4px 20px rgba(34, 211, 238, 0.2);
     }
+
     .section.tech-talks .card h2 {
       background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     /* Exec-talks card styles: blue → cyan → green */
     .section.exec-talks .card:hover {
       border-color: rgba(59, 130, 246, 0.6);
       box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
     }
+
     .section.exec-talks .card h2 {
       background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .card p {
       font-size: 0.9rem;
       color: #cbd5e1;
       line-height: 1.5;
     }
+
     .sub-group {
       margin-bottom: 2rem;
     }
+
     .sub-group:last-child {
       margin-bottom: 0;
     }
+
     .sub-group-header {
       display: flex;
       align-items: center;
@@ -167,10 +196,12 @@
       margin-bottom: 1rem;
       padding-left: 0.25rem;
     }
+
     .sub-group-icon {
       font-size: 1.15rem;
       opacity: 0.9;
     }
+
     .sub-group-label {
       font-size: 0.85rem;
       font-weight: 600;
@@ -178,35 +209,41 @@
       letter-spacing: 0.08em;
       color: #64748b;
     }
+
     .section.tech-talks .sub-group-label {
       background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .sub-group-line {
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
       margin-left: 0.5rem;
     }
+
     .sub-group-desc {
       font-size: 0.75rem;
       color: #475569;
       font-style: italic;
       margin-left: 0.5rem;
     }
+
     /* Related Repos: purple → pink → rose */
     .section.repos {
       border-color: rgba(168, 85, 247, 0.3);
       background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(236, 72, 153, 0.03) 50%, rgba(251, 113, 133, 0.03) 100%);
     }
+
     .section.repos .section-title {
       background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #fb7185 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .note {
       margin-top: 1.5rem;
       padding: 1rem;
@@ -216,6 +253,7 @@
       font-size: 0.9rem;
       color: #fcd34d;
     }
+
     /* "NEW" badge — auto-applied by JS to cards updated within 7 days */
     .badge-new {
       display: inline-block;
@@ -235,16 +273,19 @@
       box-shadow: 0 0 12px rgba(251, 191, 36, 0.7), 0 0 24px rgba(251, 191, 36, 0.3);
       animation: pulse-new 2s ease-in-out infinite;
     }
+
     /* Card glow for NEW items — amber border + soft ambient glow */
     .card-new {
       border-color: rgba(251, 191, 36, 0.5) !important;
       box-shadow: 0 0 12px rgba(251, 191, 36, 0.15), 0 4px 24px rgba(251, 191, 36, 0.1) !important;
       background: rgba(251, 191, 36, 0.04) !important;
     }
+
     .card-new:hover {
       border-color: rgba(251, 191, 36, 0.8) !important;
       box-shadow: 0 0 20px rgba(251, 191, 36, 0.3), 0 8px 32px rgba(251, 191, 36, 0.15) !important;
     }
+
     /* Deprecated card — muted/dimmed treatment */
     .card-deprecated {
       opacity: 0.45;
@@ -253,9 +294,11 @@
       background: rgba(255, 255, 255, 0.02) !important;
       pointer-events: none;
     }
+
     .card-deprecated:hover {
       transform: none;
     }
+
     .badge-deprecated {
       display: inline-block;
       font-size: 0.7rem;
@@ -270,12 +313,21 @@
       margin-left: 0.5rem;
       vertical-align: middle;
     }
+
     @keyframes pulse-new {
-      0%, 100% { box-shadow: 0 0 10px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 191, 36, 0.2); }
-      50% { box-shadow: 0 0 14px rgba(251, 191, 36, 0.8), 0 0 28px rgba(251, 191, 36, 0.3); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 191, 36, 0.2);
+      }
+
+      50% {
+        box-shadow: 0 0 14px rgba(251, 191, 36, 0.8), 0 0 28px rgba(251, 191, 36, 0.3);
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>CopilotTraining</h1>
@@ -301,27 +353,38 @@
         <div class="grid">
           <a href="/CopilotTraining/tech-talks/copilot-chat-internals/" class="card">
             <h2>Copilot Chat Internals</h2>
-            <p>Under the hood diagnostics. Chat Debug View, customization diagnostics, and extension logs for systematic troubleshooting.</p>
+            <p>Under the hood diagnostics. Chat Debug View, customization diagnostics, and extension logs for systematic
+              troubleshooting.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-cli/" class="card">
             <h2>Copilot CLI</h2>
-            <p>AI assistance at the terminal. Natural language to shell commands, git operations, and scripting workflows.</p>
+            <p>AI assistance at the terminal. Natural language to shell commands, git operations, and scripting
+              workflows.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-azure-mcp/" class="card">
             <h2>Copilot CLI + Azure MCP</h2>
-            <p>Rapid Azure prototyping and deployment. Infrastructure becomes conversational — AI that knows what's running in your subscriptions.</p>
+            <p>Rapid Azure prototyping and deployment. Infrastructure becomes conversational — AI that knows what's
+              running in your subscriptions.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-code-review/" class="card">
             <h2>Copilot Code Review</h2>
-            <p>Accelerating PR velocity with AI-powered review. 40-60% faster cycle times, custom compliance rulesets, and measurable ROI.</p>
+            <p>Accelerating PR velocity with AI-powered review. 40-60% faster cycle times, custom compliance rulesets,
+              and measurable ROI.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-web/" class="card">
             <h2>Copilot Web</h2>
-            <p>AI assistance beyond the IDE. PR reviews in browsers, issue triage on mobile, with full repository customizations.</p>
+            <p>AI assistance beyond the IDE. PR reviews in browsers, issue triage on mobile, with full repository
+              customizations.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/vscode-latest/" class="card">
             <h2>What's New in VS Code</h2>
-            <p>Latest Copilot features in VS Code v1.108-v1.110. Agent Plugins, /create-* commands, Explore subagent, agentic browser tools, and /yolo mode.</p>
+            <p>Latest Copilot features in VS Code v1.108-v1.110. Agent Plugins, /create-* commands, Explore subagent,
+              agentic browser tools, and /yolo mode.</p>
+          </a>
+          <a href="/CopilotTraining/tech-talks/enterprise-patterns/" class="card">
+            <h2>Enterprise Patterns</h2>
+            <p>Scaling Copilot across organizations. From team silos to standardized foundations with measurable ROI.
+            </p>
           </a>
         </div>
       </div>
@@ -337,79 +400,66 @@
         <div class="grid">
           <a href="/CopilotTraining/tech-talks/copilot-primitives/" class="card">
             <h2>Copilot Primitives</h2>
-            <p>The 4 configuration primitives. Instructions, prompts, skills, and agents — make Copilot understand your codebase better.</p>
+            <p>The 4 configuration primitives. Instructions, prompts, skills, and agents — make Copilot understand your
+              codebase better.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-hooks/" class="card">
             <h2>Copilot Hooks</h2>
-            <p>Programmable governance for AI agents. Real-time prevention, audit trails, and compliance enforcement at execution time.</p>
+            <p>Programmable governance for AI agents. Real-time prevention, audit trails, and compliance enforcement at
+              execution time.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-memory/" class="card">
             <h2>Copilot Memory</h2>
-            <p>Cross-session context persistence. Store preferences, project context, and workflow patterns that persist across all conversations.</p>
+            <p>Cross-session context persistence. Store preferences, project context, and workflow patterns that persist
+              across all conversations.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-sdk/" class="card">
             <h2>Copilot SDK</h2>
-            <p>Embedding AI agents in your applications. Build custom tools, bots, and automation with programmatic Copilot access.</p>
+            <p>Embedding AI agents in your applications. Build custom tools, bots, and automation with programmatic
+              Copilot access.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/mcp-apps/" class="card">
             <h2>MCP Apps</h2>
-            <p>Rich UI in chat responses. Transform chat from text-only to interactive visual experiences with component-based MCP tools.</p>
+            <p>Rich UI in chat responses. Transform chat from text-only to interactive visual experiences with
+              component-based MCP tools.</p>
           </a>
         </div>
       </div>
 
-      <!-- Agent Architecture -->
+      <!-- Agentic Engineering -->
       <div class="sub-group">
         <div class="sub-group-header">
-          <span class="sub-group-icon">🤖</span>
-          <span class="sub-group-label">Agent Architecture</span>
-          <span class="sub-group-desc">Patterns for composing and orchestrating multi-agent systems</span>
+          <span class="sub-group-icon">⚡</span>
+          <span class="sub-group-label">Agentic Engineering</span>
+          <span class="sub-group-desc">Composing agent systems and transforming the full software delivery
+            lifecycle</span>
           <span class="sub-group-line"></span>
         </div>
         <div class="grid">
           <a href="/CopilotTraining/tech-talks/agent-teams/" class="card">
-            <h2>Building Agent Systems</h2>
-            <p>From subagents to autonomous teams. The complete stack: context isolation, role specialists (Squad), background agents + worktrees, and multi-model deliberation (AgentCouncil).</p>
-          </a>
-          <a href="/CopilotTraining/tech-talks/multi-step-tasks/" class="card card-deprecated">
-            <h2>Multi-Step Tasks <span class="badge-deprecated">Merged</span></h2>
-            <p>Merged into Building Agent Systems. Subagent delegation, context isolation, and phased workflows are now covered there.</p>
-          </a>
-          <a href="/CopilotTraining/tech-talks/parallel-execution/" class="card card-deprecated">
-            <h2>Parallel Execution <span class="badge-deprecated">Merged</span></h2>
-            <p>Merged into Building Agent Systems. Background agents + Git worktrees for autonomous parallel execution are now covered there.</p>
+            <h2>Agent Teams</h2>
+            <p>From subagents to autonomous teams. The complete stack: context isolation, role specialists (Squad),
+              background agents + worktrees, and multi-model deliberation (AgentCouncil).</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-acp/" class="card">
             <h2>Copilot ACP</h2>
-            <p>The Agent Client Protocol for universal AI integration. Use Copilot's agentic capabilities in any editor, tool, or workflow — not just VS Code.</p>
+            <p>The Agent Client Protocol for universal AI integration. Use Copilot's agentic capabilities in any editor,
+              tool, or workflow — not just VS Code.</p>
           </a>
-        </div>
-      </div>
-
-      <!-- Agentic SDLC -->
-      <div class="sub-group">
-        <div class="sub-group-header">
-          <span class="sub-group-icon">🚀</span>
-          <span class="sub-group-label">Agentic SDLC</span>
-          <span class="sub-group-desc">Transforming the full software delivery lifecycle with AI agents</span>
-          <span class="sub-group-line"></span>
-        </div>
-        <div class="grid">
           <a href="/CopilotTraining/tech-talks/agentic-workflows/" class="card">
             <h2>GitHub Agentic Workflows</h2>
-            <p>Repository automation with AI agents. Write workflows in Markdown, compiled to secure GitHub Actions with safe-output validation.</p>
+            <p>Repository automation with AI agents. Write workflows in Markdown, compiled to secure GitHub Actions with
+              safe-output validation.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/agentic-journey/" class="card">
             <h2>Agentic Journey</h2>
-            <p>From "assign to copilot" to full SDLC transformation. The 5-phase incremental path with 4-workflow architecture and historical context search.</p>
+            <p>From "assign to copilot" to full SDLC transformation. The 5-phase incremental path with 4-workflow
+              architecture and historical context search.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/agentic-sdlc/" class="card">
             <h2>Agentic SDLC</h2>
-            <p>Level 5 infrastructure for AI velocity. Rewire repositories, PR workflows, and CI/CD to scale from 2-3 features/week to 10-15/day with autonomous agents.</p>
-          </a>
-          <a href="/CopilotTraining/tech-talks/enterprise-patterns/" class="card">
-            <h2>Enterprise Patterns</h2>
-            <p>Scaling Copilot across organizations. From team silos to standardized foundations with measurable ROI.</p>
+            <p>Level 5 infrastructure for AI velocity. Rewire repositories, PR workflows, and CI/CD to scale from 2-3
+              features/week to 10-15/day with autonomous agents.</p>
           </a>
         </div>
       </div>
@@ -427,7 +477,8 @@
       <div class="grid">
         <a href="/CopilotTraining/exec-talks/agentic-delivery/" class="card">
           <h2>Agentic Delivery</h2>
-          <p>No instruments, no delivery. Why enterprises can't fly on AI autopilot without governance, compliance, and audit trails.</p>
+          <p>No instruments, no delivery. Why enterprises can't fly on AI autopilot without governance, compliance, and
+            audit trails.</p>
         </a>
 
         <a href="/CopilotTraining/exec-talks/agentic-economics/" class="card">
@@ -437,7 +488,8 @@
 
         <a href="/CopilotTraining/exec-talks/agentic-labor/" class="card">
           <h2>Agentic Labor</h2>
-          <p>The invisible 80%. Beyond code generation—how agents transform issue triage, compliance, documentation, and knowledge transfer.</p>
+          <p>The invisible 80%. Beyond code generation—how agents transform issue triage, compliance, documentation, and
+            knowledge transfer.</p>
         </a>
       </div>
     </div>
@@ -454,32 +506,38 @@
       <div class="grid">
         <a href="/CopilotTraining/workshop/00-orientation/" class="card">
           <h2>00 - Orientation</h2>
-          <p>The Challenge: Build FanHub in 8 hours. Meet the team, understand the messy codebase, embrace the constraint.</p>
+          <p>The Challenge: Build FanHub in 8 hours. Meet the team, understand the messy codebase, embrace the
+            constraint.</p>
         </a>
 
         <a href="/CopilotTraining/workshop/01-instructions/" class="card">
           <h2>01 - Instructions</h2>
-          <p>The magic file. Stop Copilot from guessing—document your architecture and patterns so AI suggestions are consistent.</p>
+          <p>The magic file. Stop Copilot from guessing—document your architecture and patterns so AI suggestions are
+            consistent.</p>
         </a>
 
         <a href="/CopilotTraining/workshop/02-agent-plan-mode/" class="card">
           <h2>02 - Agent Plan Mode</h2>
-          <p>From implementation to orchestration. Let AI research dependencies and plan multi-file features before coding.</p>
+          <p>From implementation to orchestration. Let AI research dependencies and plan multi-file features before
+            coding.</p>
         </a>
 
         <a href="/CopilotTraining/workshop/03-04-combined/" class="card">
           <h2>03+04 - From Prompts to Skills</h2>
-          <p>Build reusable prompts then graduate them to agent skills. Turn repeated patterns into team-wide functions and packaged domain capabilities.</p>
+          <p>Build reusable prompts then graduate them to agent skills. Turn repeated patterns into team-wide functions
+            and packaged domain capabilities.</p>
         </a>
 
         <a href="/CopilotTraining/workshop/05-mcp-servers/" class="card">
           <h2>05 - MCP Servers</h2>
-          <p>Beyond static files. Connect Copilot to live databases, APIs, and external tools as first-class context sources.</p>
+          <p>Beyond static files. Connect Copilot to live databases, APIs, and external tools as first-class context
+            sources.</p>
         </a>
 
         <a href="/CopilotTraining/workshop/06-custom-agents/" class="card">
           <h2>06 - Custom Agents</h2>
-          <p>End context-switching overhead. Bundle tools, skills, and instructions into role-based presets you switch instantly.</p>
+          <p>End context-switching overhead. Bundle tools, skills, and instructions into role-based presets you switch
+            instantly.</p>
         </a>
       </div>
     </div>
@@ -496,23 +554,28 @@
       <div class="grid">
         <a href="https://github.com/rbmathis/Animalia" class="card" target="_blank" rel="noopener">
           <h2>Animalia 🦁</h2>
-          <p>3M LoC C# codebase for stress-testing Copilot on large repos. Breadcrumb navigation, harness benchmarks, and customization patterns at scale.</p>
+          <p>3M LoC C# codebase for stress-testing Copilot on large repos. Breadcrumb navigation, harness benchmarks,
+            and customization patterns at scale.</p>
         </a>
         <a href="https://github.com/MSBart2/FanHub" class="card" target="_blank" rel="noopener">
           <h2>FanHub 🎬</h2>
-          <p>Intentionally broken workshop starter in 4 languages (Node, .NET, Java, Go). 180+ seeded bugs to fix with Copilot — the messiness is the point.</p>
+          <p>Intentionally broken workshop starter in 4 languages (Node, .NET, Java, Go). 180+ seeded bugs to fix with
+            Copilot — the messiness is the point.</p>
         </a>
         <a href="https://github.com/MSBart2/cli-acp" class="card" target="_blank" rel="noopener">
           <h2>ACP Orchestrator 🎛️</h2>
-          <p>Web UI for orchestrating Copilot CLI agents across multiple repos via Agent Client Protocol. Broadcast prompts, coalesce results, coordinate cross-repo work.</p>
+          <p>Web UI for orchestrating Copilot CLI agents across multiple repos via Agent Client Protocol. Broadcast
+            prompts, coalesce results, coordinate cross-repo work.</p>
         </a>
         <a href="https://github.com/Sentry01/AgentCouncil" class="card" target="_blank" rel="noopener">
           <h2>Agent Council 🏛️</h2>
-          <p>Multi-agent deliberation framework. Agents debate, vote, and reach consensus on complex decisions through structured council sessions.</p>
+          <p>Multi-agent deliberation framework. Agents debate, vote, and reach consensus on complex decisions through
+            structured council sessions.</p>
         </a>
         <a href="https://github.com/bradygaster/squad" class="card" target="_blank" rel="noopener">
           <h2>Squad 🤝</h2>
-          <p>Coordinated multi-agent workflows using the Agent Client Protocol. Define agent teams, assign roles, and orchestrate collaborative task execution.</p>
+          <p>Coordinated multi-agent workflows using the Agent Client Protocol. Define agent teams, assign roles, and
+            orchestrate collaborative task execution.</p>
         </a>
       </div>
     </div>
@@ -585,4 +648,5 @@
     });
   </script>
 </body>
+
 </html>

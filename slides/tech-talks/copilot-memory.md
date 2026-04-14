@@ -12,6 +12,7 @@ transition: slide-left
 title: Copilot Memory - Stateful AI That Remembers Your Preferences
 module: tech-talks/copilot-memory
 mdc: true
+section: Customization & Context
 status: active
 updated: 2026-02-01
 ---

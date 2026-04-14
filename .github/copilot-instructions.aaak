@@ -103,8 +103,7 @@ references:  # optional but recommended
 ### Valid Sections (from index-custom.html)
 - `Copilot Tools` — Chat, CLI, Azure MCP, Code Review, Web, VS Code
 - `Customization & Context` — Primitives, Hooks, Memory, SDK, MCP Apps
-- `Agent Architecture` — Agent Teams, ACP
-- `Agentic SDLC` — Workflows, Journey, SDLC, Enterprise Patterns
+- `Agentic Engineering` — Agent Teams, ACP, Workflows, Journey, SDLC, Enterprise Patterns
 - `Executive Talks` — Delivery, Economics, Labor
 - `Workshop` — Modules 00–06
 

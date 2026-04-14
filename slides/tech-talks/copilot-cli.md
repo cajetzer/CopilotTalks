@@ -11,6 +11,7 @@ drawings:
 transition: slide-left
 title: GitHub Copilot CLI
 module: tech-talks/copilot-cli
+section: Copilot Tools
 status: active
 updated: 2026-04-07
 mdc: true

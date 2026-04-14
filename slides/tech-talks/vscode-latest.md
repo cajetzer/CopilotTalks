@@ -12,6 +12,7 @@ transition: slide-left
 title: What's New in Copilot for VS Code - v1.108 to v1.115
 module: tech-talks/vscode-latest
 mdc: true
+section: Copilot Tools
 status: active
 updated: 2026-04-13
 ---

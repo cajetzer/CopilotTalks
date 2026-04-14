@@ -12,9 +12,9 @@ transition: slide-left
 title: Copilot ACP - Universal AI Integration
 module: tech-talks/copilot-acp
 mdc: true
+section: Agentic Engineering
 status: active
 updated: 2026-02-11
-section: Agent Architecture
 ---
 
 <script setup>

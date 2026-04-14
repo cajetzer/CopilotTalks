@@ -162,7 +162,7 @@ Run `node slides/scripts/sync-index-dates.mjs` after creating or updating any sl
 
 ### 6. Set Metadata
 
-- New slides: `status: active`, `updated: <today YYYY-MM-DD>`
+- New slides: `status: active`, `updated: <today YYYY-MM-DD>`, `section: <value from slides/SECTIONS.md>`
 - Updated slides: update `updated:` to today
 
 ## Output Paths
@@ -217,6 +217,7 @@ For all categories, the category profile is authoritative for visual system and 
 - [ ] **Progress dots on every topic section content slide** (not just sections with 2+; section openers excluded)
 - [ ] Section color pairs advance correctly: cyan/blue → blue/indigo → indigo/purple → purple/pink
 - [ ] `module` field in frontmatter with correct path
+- [ ] `section:` field in frontmatter matching a valid value from `slides/SECTIONS.md` (between `mdc:` and `status:`)
 - [ ] `status: active` and `updated: <today>` in frontmatter
 - [ ] `deck.recipe.yml` was used for tech talks, or created if missing
 - [ ] `index-custom.html` updated with correct card entry
