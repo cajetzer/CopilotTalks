@@ -236,4 +236,3 @@ When a `<code>` block contains YAML with pipe syntax (`|`) or inline multi-line 
 **Prevention:** After editing slides with YAML examples, check the browser view manually — inspect-slide alone won't catch this error.
 
 **Source:** copilot-code-review slide review 2026-04-09 — both problematic slides identified and fixed.
-
