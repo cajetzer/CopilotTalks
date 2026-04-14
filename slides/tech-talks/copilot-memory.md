@@ -21,6 +21,7 @@ updated: 2026-02-01
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 40 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How do I stop re-explaining my coding style, workflow preferences, and project context every session?"</div>
-<div class="text-xl opacity-90 mt-6">The AI forgets everything between sessions — same explanations, same corrections, same context setup. <span class="text-cyan-300 font-semibold">Memory breaks this cycle by making preferences persist.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Context Resets</div>
-<div class="opacity-70 mt-1">Every session starts fresh</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Wasted Time</div>
-<div class="opacity-70 mt-1">Same instructions repeated</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Preferences Lost</div>
-<div class="opacity-70 mt-1">Months of training forgotten</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How do I stop re-explaining my coding style, workflow preferences, and project context every session?"
+subtext="The AI forgets everything between sessions — same explanations, same corrections, same context setup."
+highlight="Memory breaks this cycle by making preferences persist."
+:cards='[
+  { icon: "💡", title: "Developers with Established Conventions", description: "Persist code style, testing preferences, and doc patterns across all sessions" },
+  { icon: "🔁", title: "Power Users Who Train Copilot Daily", description: "Stop losing months of corrections when sessions end or devices change" },
+  { icon: "👥", title: "Teams Sharing Agent Best Practices", description: "Repo-scoped memories preserve codebase conventions for every developer on the team" },
+  { title: "Context Resets", description: "Every session starts fresh — memory makes preferences survive across all sessions" },
+  { title: "Wasted Time", description: "Same instructions and corrections every session — memory eliminates this entirely" },
+  { title: "Preferences Lost", description: "Months of training forgotten when conversations end — memory persists it all" }
+]'
+/>
 
 ---
 

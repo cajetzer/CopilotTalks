@@ -21,6 +21,7 @@ updated: 2026-02-11
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 45 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl border-2 border-amber-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How do I integrate Copilot's agentic capabilities into any editor, tool, or workflow?"</div>
-<div class="text-xl opacity-90 mt-6">Not just VS Code — teams using Zed, JetBrains, Neovim, or Emacs deserve the same agent experience. <span class="text-amber-300 font-semibold">ACP is the LSP for AI agents — a standard protocol for editor ↔ agent communication.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-amber-900/20 to-amber-800/10 rounded-lg border border-amber-500/20 text-center">
-<div class="text-amber-300 font-bold">Editor Lock-In</div>
-<div class="opacity-70 mt-1">Beyond VS Code</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-orange-900/20 to-orange-800/10 rounded-lg border border-orange-500/20 text-center">
-<div class="text-orange-300 font-bold">N×M Problem</div>
-<div class="opacity-70 mt-1">Standard protocol</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-red-900/20 to-red-800/10 rounded-lg border border-red-500/20 text-center">
-<div class="text-red-300 font-bold">Custom Tools</div>
-<div class="opacity-70 mt-1">Embed agent runtime</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How do I integrate Copilot's agentic capabilities into any editor, tool, or workflow?"
+subtext="Not just VS Code — any editor deserves the same Copilot agent experience."
+highlight="ACP is the LSP for AI agents — a standard protocol for editor communication."
+:cards='[
+  { icon: "🛠️", title: "Extension Developers Building AI Tools", description: "Embed Copilot agent runtime in VS Code extensions using the ACP SDK" },
+  { icon: "🖊️", title: "Teams Using Non-VS Code Editors", description: "Zed, JetBrains, Neovim, and Emacs — same Copilot agent experience everywhere" },
+  { icon: "🏗️", title: "Platform Teams Building Integrations", description: "Connect CI/CD pipelines, review tools, and terminals to Copilot agents via ACP" },
+  { title: "Editor Lock-In", description: "Teams outside VS Code miss agent features — ACP solves this universally" },
+  { title: "N×M Problem", description: "N editors × M agents becomes N+M with a standard open protocol" },
+  { title: "Custom Tools", description: "Embed the Copilot agent runtime directly into any application or workflow" }
+]'
+/>
 
 ---
 

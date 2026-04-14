@@ -21,6 +21,7 @@ updated: 2026-03-05
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 45-60 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How can I automate repository tasks that require judgment and context?"</div>
-<div class="text-xl opacity-90 mt-6">Triaging issues, reviewing code quality, synthesizing progress reports — tasks that need understanding, not just triggers. <span class="text-cyan-300 font-semibold">Agentic workflows replace brittle YAML with AI that adapts to context.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Beyond YAML</div>
-<div class="opacity-70 mt-1">No brittle conditionals</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Context-Aware</div>
-<div class="opacity-70 mt-1">Adapts to repo state</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Secure by Design</div>
-<div class="opacity-70 mt-1">Managed permissions</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How can I automate repository tasks that require judgment and context?"
+subtext="Triage, code review, progress reports — tasks needing judgment, not just triggers."
+highlight="Agentic workflows replace brittle YAML with AI that adapts to context."
+:cards='[
+  { icon: "🔧", title: "DevOps Engineers Automating Repo Tasks", description: "GitHub Actions triggering AI agents on push, PR, and issue events" },
+  { icon: "📝", title: "Team Leads Eliminating Manual Reviews", description: "Auto-triage issues, synthesize progress reports, and review PRs without blocking" },
+  { icon: "⚡", title: "Platform Engineers Building Safe Agents", description: "Markdown intent compiled to secure, sandboxed, validated YAML workflows" },
+  { title: "Beyond YAML", description: "No brittle conditionals — AI adapts to repository state and context dynamically" },
+  { title: "Context-Aware", description: "Agents understand issues, code history, and project state — not just event payloads" },
+  { title: "Secure by Design", description: "Managed permissions and validated write operations keep agent actions safe" }
+]'
+/>
 
 ---
 

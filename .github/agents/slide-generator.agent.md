@@ -121,9 +121,13 @@ Every content slide **must** use the cockpit wrapper from `slides/TEMPLATE.md` �
 
 Use the rich opener from `slides/TEMPLATE.md` — Part N pill + 600px orb + 3-col teaser + mono callout. Not the old `layout: center` pattern.
 
+#### Tech-talk Core Question Slide (REQUIRED — slide 2 for tech talks)
+
+For `slides/tech-talks/*.md`, import `CoreQuestionSlide` from `./components/CoreQuestionSlide.vue` and use it as slide 2. Props: `question` (String, required), `subtext` (String), `highlight` (String, required), `:cards` (Array, exactly 6). Cards 0-2 = audience/use-case with `icon`; cards 3-5 = insight/stat (icon optional). Apostrophes in `:cards='[...]'` must be `&#39;`. Blank line required before `---` after `/>`. See `slides/tech-talks/template.md` for full usage pattern and constraints.
+
 #### Tech-talk Thank You Slide (REQUIRED for tech talks)
 
-For `slides/tech-talks/*.md`, import `ThankYouSlide` from `../components/ThankYouSlide.vue` and use it for the final slide instead of inlining raw thank-you HTML. Pass deck-specific summary cards, prompt text, chips, and CTA code through component props.
+For `slides/tech-talks/*.md`, import `ThankYouSlide` from `./components/ThankYouSlide.vue` and use it for the final slide instead of inlining raw thank-you HTML. Pass deck-specific summary cards, prompt text, chips, and CTA code through component props.
 
 #### Tech-talk References Slide (REQUIRED for tech talks)
 
@@ -209,7 +213,8 @@ For all categories, the category profile is authoritative for visual system and 
 
 - [ ] Title slide uses TEMPLATE.md pattern with correct category colors
 - [ ] Matching category profile was loaded before generation
-- [ ] Tech-talk thank-you slide uses `ThankYouSlide` from `../components/ThankYouSlide.vue`
+- [ ] Tech-talk slide 2 uses `CoreQuestionSlide` from `./components/CoreQuestionSlide.vue` (6 cards: 3 audience + 3 stats)
+- [ ] Tech-talk thank-you slide uses `ThankYouSlide` from `./components/ThankYouSlide.vue`
 - [ ] SDP logo included with glow effect (`./sdp-logo.png`)
 - [ ] **Every content slide uses the cockpit template** (pill breadcrumb + absolute gradients + `justify-start px-14`)
 - [ ] **No plain centered `h1` content slides** — only title, section openers, and thank-you use centered layouts

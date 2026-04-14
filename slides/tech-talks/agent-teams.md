@@ -21,6 +21,7 @@ updated: 2026-04-13
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 60 minutes "
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"What mechanisms make multi-agent AI work — and how do I compose them into systems?"</div>
-<div class="text-xl opacity-90 mt-6">Systems that handle complex tasks, run autonomously, and improve over time. <span class="text-cyan-300 font-semibold">Beyond single-agent limits to coordinated AI teams.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Single Agent Ceiling</div>
-<div class="opacity-70 mt-1">300-500 LOC limit</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Supervision Bottleneck</div>
-<div class="opacity-70 mt-1">Can't look away</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Workspace Collisions</div>
-<div class="opacity-70 mt-1">Merge conflicts at scale</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="What mechanisms make multi-agent AI work — and how do I compose them into systems?"
+subtext="Systems that handle complex tasks, run autonomously, and improve over time."
+highlight="Beyond single-agent limits to coordinated AI teams."
+:cards='[
+  { icon: "🏗️", title: "Platform Engineers Building Systems", description: "Orchestrating multiple AI agents across complex, long-running tasks" },
+  { icon: "👔", title: "Engineering Managers Scaling Output", description: "Parallelizing work across background agents and git worktrees" },
+  { icon: "🔬", title: "Staff Engineers Tackling Big Refactors", description: "Decomposing 5,000+ LOC challenges into isolated parallel workstreams" },
+  { title: "Single Agent Ceiling", description: "Context windows hit 300-500 LOC limits — teams and worktrees break through" },
+  { title: "Supervision Bottleneck", description: "Background agents and squads free you from watching every step" },
+  { title: "Workspace Collisions", description: "Git worktrees eliminate merge conflicts across parallel agent work" }
+]'
+/>
 
 ---
 

@@ -21,6 +21,7 @@ updated: 2026-04-10
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 45 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How do I prototype and deploy Azure solutions conversationally from my terminal?"</div>
-<div class="text-xl opacity-90 mt-6">With AI that actually knows what's already running in your subscriptions — <span class="text-cyan-300 font-semibold">no more portal context-switching or assumption-based deployments.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">No Portal Switching</div>
-<div class="opacity-70 mt-1">Stay in terminal</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Live State Aware</div>
-<div class="opacity-70 mt-1">Knows your resources</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Pre-Flight Validation</div>
-<div class="opacity-70 mt-1">Catch errors early</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How do I prototype and deploy Azure solutions conversationally from my terminal?"
+subtext="With AI that actually knows what's already running in your subscriptions —"
+highlight="no more portal context-switching or assumption-based deployments."
+:cards='[
+  { icon: "☁️", title: "Cloud Developers Deploying to Azure", description: "Conversational provisioning — ask about your resources, then deploy in minutes" },
+  { icon: "🔧", title: "DevOps Engineers Managing Infrastructure", description: "Query live subscription state and validate configs from the terminal directly" },
+  { icon: "🚀", title: "Platform Teams Prototyping Faster", description: "Plan Mode validation before any resource change — from 45 minutes to 8 minutes" },
+  { title: "No Portal Switching", description: "Stay in terminal — Copilot queries live Azure resource state for you" },
+  { title: "Live State Aware", description: "Knows your actual running resources before suggesting changes or deployments" },
+  { title: "Pre-Flight Validation", description: "Catch mismatched SKUs and quota errors before the deployment actually runs" }
+]'
+/>
 
 ---
 

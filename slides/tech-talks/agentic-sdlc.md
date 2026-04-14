@@ -21,6 +21,7 @@ updated: 2026-04-02
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 30 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How do I rewire repositories and workflows to scale from 2-3 features/week to 10-15/day?"</div>
-<div class="text-xl opacity-90 mt-6">AI agents produce code 10-15x faster than humans can review it. <span class="text-cyan-300 font-semibold">The bottleneck shifts from writing to reviewing — and your infrastructure must shift with it.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Code Volume</div>
-<div class="opacity-70 mt-1">500-2000 LOC in 15 min</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Review Capacity</div>
-<div class="opacity-70 mt-1">Can't scale linearly</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">CI Critical Path</div>
-<div class="opacity-70 mt-1">Agents idle on flake</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How do I rewire repositories and workflows to scale from 2-3 features/week to 10-15/day?"
+subtext="AI agents produce code 10-15x faster than humans can review it."
+highlight="The bottleneck shifts from writing to reviewing — and your infrastructure must shift with it."
+:cards='[
+  { icon: "🏗️", title: "Platform Engineers Building AgentRC", description: "Repo structure, CI pipelines, and test coverage optimized for AI agents" },
+  { icon: "👔", title: "Engineering Managers at Scale", description: "Moving from sprint planning to autonomous PR queues shipping 10-15 features daily" },
+  { icon: "🔬", title: "Tech Leads Redesigning Code Review", description: "Transitioning from line-by-line review to evidence-based governance at scale" },
+  { title: "Code Volume", description: "500-2000 LOC in 15 min — human review capacity cannot keep up" },
+  { title: "Review Capacity", description: "Review does not scale linearly with agent output — new patterns required" },
+  { title: "CI Critical Path", description: "Flaky tests block agents — fast, reliable CI becomes a critical dependency" }
+]'
+/>
 
 ---
 

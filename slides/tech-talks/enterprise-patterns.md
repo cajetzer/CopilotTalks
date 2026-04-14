@@ -21,6 +21,7 @@ updated: 2026-03-23
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -33,38 +34,20 @@ meta="Tech Talk · 60 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How do I scale GitHub Copilot from pilot teams to organization-wide adoption?"</div>
-<div class="text-xl opacity-90 mt-6">Consistent standards, governance, and measurable ROI. <span class="text-cyan-300 font-semibold">The transition from pilot success to organizational capability requires deliberate infrastructure.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-cyan-300 font-bold">Repeated Reinvention</div>
-<div class="opacity-70 mt-1">50 teams × same patterns</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-2xl mb-1">🧱</div>
-<div class="text-blue-300 font-bold">Knowledge Silos</div>
-<div class="opacity-70 mt-1">Success doesn't compound</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-indigo-300 font-bold">ROI Measurement</div>
-<div class="opacity-70 mt-1">Anecdotes vs. data</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How do I scale GitHub Copilot from pilot teams to organization-wide adoption?"
+subtext="Consistent standards, governance, and measurable ROI."
+highlight="The transition from pilot success to organizational capability requires deliberate infrastructure."
+:cards='[
+  { icon: "🏢", title: "Engineering Leaders Scaling AI Adoption", description: "Move from successful pilot to measurable, org-wide Copilot capability" },
+  { icon: "⚙️", title: "Platform Teams Standardizing AI Patterns", description: "Shared instructions, skills, and agent patterns deployed across all teams" },
+  { icon: "📈", title: "CTO Offices Proving ROI with Data", description: "Replace anecdotes and surveys with data-driven measurement and benchmarks" },
+  { icon: "🔄", title: "Repeated Reinvention", description: "50 teams rebuilding the same patterns — shared infrastructure eliminates this waste" },
+  { icon: "🧱", title: "Knowledge Silos", description: "Success in one team does not compound — shared primitives change everything" },
+  { icon: "📊", title: "ROI Measurement", description: "Anecdotes vs. data — dashboards and metrics make impact quantifiable at scale" }
+]'
+/>
 
 ---
 

@@ -21,6 +21,7 @@ updated: 2026-04-10
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 35-40 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How can Copilot Code Review reduce PR review time while improving quality?"</div>
-<div class="text-xl opacity-90 mt-6">Every team struggles with the same tradeoff — faster reviews or better quality. <span class="text-cyan-300 font-semibold">AI-assisted review breaks this constraint by handling systematic checks humans often miss.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Capacity Bottleneck</div>
-<div class="opacity-70 mt-1">3-4 day wait times</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Quality Gaps</div>
-<div class="opacity-70 mt-1">40-60% miss rate</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Onboarding Friction</div>
-<div class="opacity-70 mt-1">6-8 weeks to learn standards</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How can Copilot Code Review reduce PR review time while improving quality?"
+subtext="Every team struggles with the same tradeoff — faster reviews or better quality."
+highlight="AI review breaks this tradeoff — catching systematic issues humans often miss."
+:cards='[
+  { icon: "👥", title: "Teams with PR Review Backlogs", description: "Cut 3-4 day wait times with automated first-pass review on every pull request" },
+  { icon: "🔐", title: "Security-Conscious Organizations", description: "Systematic vulnerability checks on every PR — OWASP-style, automatically" },
+  { icon: "🎓", title: "Orgs Onboarding New Developers", description: "Standards enforcement that teaches conventions while reviewing code in context" },
+  { title: "Capacity Bottleneck", description: "3-4 day wait times slow delivery — AI handles the first-pass review instantly" },
+  { title: "Quality Gaps", description: "40-60% of issues missed in manual review — AI catches systematic defects" },
+  { title: "Onboarding Friction", description: "6-8 weeks to learn standards — AI enforces them automatically from day one" }
+]'
+/>
 
 ---
 

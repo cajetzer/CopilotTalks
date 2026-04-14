@@ -21,6 +21,7 @@ updated: 2026-02-11
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 45 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How do I govern AI agent workflows without blocking their velocity?"</div>
-<div class="text-xl opacity-90 mt-6">Security needs prevention. Compliance needs audit trails. Quality needs enforcement. <span class="text-cyan-300 font-semibold">Hooks intercept agent actions in real-time without adding manual gates.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Autonomous Ops</div>
-<div class="opacity-70 mt-1">Files, commands, APIs</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Compliance Needs</div>
-<div class="opacity-70 mt-1">SOC 2, HIPAA, PCI-DSS</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Real-Time Enforcement</div>
-<div class="opacity-70 mt-1">Prevent, don't detect</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How do I govern AI agent workflows without blocking their velocity?"
+subtext="Security needs prevention. Compliance needs audit trails. Quality needs enforcement."
+highlight="Hooks intercept agent actions in real-time without adding manual gates."
+:cards='[
+  { icon: "🔐", title: "Security Engineers Enforcing Policy", description: "Block credential leaks, restrict production access, and deny risky operations" },
+  { icon: "🏢", title: "Compliance Teams at Regulated Orgs", description: "SOC 2, HIPAA, and PCI-DSS audit trails without slowing agent velocity at all" },
+  { icon: "⚡", title: "Platform Teams Enabling Safe Autonomy", description: "Give agents broad permissions guarded by hooks that enforce your boundaries" },
+  { title: "Autonomous Ops", description: "Agents touch files, run commands, call APIs — hooks intercept each action" },
+  { title: "Compliance Needs", description: "SOC 2, HIPAA, PCI-DSS require evidence for every operation — hooks provide it" },
+  { title: "Real-Time Enforcement", description: "Prevent violations before execution — never rely on detecting them after the fact" }
+]'
+/>
 
 ---
 

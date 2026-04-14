@@ -21,6 +21,7 @@ mdc: true
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -34,57 +35,19 @@ meta="Tech Talk · 45 minutes"
 ---
 
 <!-- SLIDE: Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="p-6 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl border border-amber-500/30 max-w-4xl mx-auto mb-8">
-<div class="text-2xl font-bold text-amber-300 mb-3">
-"How do I bring AI into my terminal workflow?"
-</div>
-<div class="text-lg opacity-90">
-Whether building something new, debugging my own code, or managing infrastructure
-</div>
-</div>
-
-<div class="grid grid-cols-3 gap-4 text-sm">
-<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="text-2xl mb-2">🔧</div>
-<div class="font-semibold text-cyan-300">Developers Building New Software</div>
-<div class="text-xs opacity-80 mt-2">Scaffolding projects, exploring libraries, architecture decisions</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="text-2xl mb-2">🐛</div>
-<div class="font-semibold text-blue-300">Debugging Your Own Code</div>
-<div class="text-xs opacity-80 mt-2">Container failures, async bugs, intermittent test flakes</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="text-2xl mb-2">⚙️</div>
-<div class="font-semibold text-indigo-300">DevOps Managing Infrastructure</div>
-<div class="text-xs opacity-80 mt-2">Docker, deployments, CI/CD analysis, log triage</div>
-</div>
-</div>
-
-<div class="mt-6 grid grid-cols-3 gap-3 text-xs max-w-4xl mx-auto">
-<div class="p-3 bg-green-900/20 rounded-lg border border-green-500/20">
-<div class="font-semibold text-green-400">Terminal sees runtime context</div>
-<div class="opacity-80 mt-1">Logs, env vars, process state, network — not just source files</div>
-</div>
-<div class="p-3 bg-blue-900/20 rounded-lg border border-blue-500/20">
-<div class="font-semibold text-blue-400">16% coding, 84% everything else</div>
-<div class="opacity-80 mt-1">Most AI tools optimize the 16% and leave 84% untouched</div>
-</div>
-<div class="p-3 bg-purple-900/20 rounded-lg border border-purple-500/20">
-<div class="font-semibold text-purple-400">Catch ambiguity before code</div>
-<div class="opacity-80 mt-1">Plan Mode asks questions; prevents 6-8 rework iterations</div>
-</div>
-</div>
-</div>
-</div>
+<CoreQuestionSlide
+question="How do I bring AI into my terminal workflow?"
+subtext="Whether building something new, debugging, or managing infrastructure —"
+highlight="Copilot CLI meets you at the command line, where the real work happens."
+:cards='[
+  { icon: "🔧", title: "Developers Building New Software", description: "Scaffolding projects, exploring libraries, architecture decisions" },
+  { icon: "🐛", title: "Debugging Your Own Code", description: "Container failures, async bugs, intermittent test flakes" },
+  { icon: "⚙️", title: "DevOps Managing Infrastructure", description: "Docker, deployments, CI/CD analysis, log triage" },
+  { title: "Terminal sees runtime context", description: "Logs, env vars, process state, network — not just source files" },
+  { title: "16% coding, 84% everything else", description: "Most AI tools optimize the 16% and leave 84% untouched" },
+  { title: "Catch ambiguity before code", description: "Plan Mode asks questions; prevents 6-8 rework iterations" }
+]'
+/>
 
 ---
 

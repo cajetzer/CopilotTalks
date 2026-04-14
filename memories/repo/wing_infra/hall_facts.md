@@ -4,6 +4,55 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## CoreQuestionSlide component: props, constraints, and usage (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+The `CoreQuestionSlide` component is **REQUIRED as slide 2** in all tech-talk decks.
+
+**Import:**
+```js
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+```
+
+**Props:**
+| Prop | Type | Required | Notes |
+|------|------|----------|-------|
+| `question` | String | ✅ | The core question text, quoted. Max 100 chars. |
+| `subtext` | String | — | Setup sentence before the highlight. |
+| `highlight` | String | ✅ | Bold colored punchline. `subtext`+`highlight` ≤ 160 chars combined. |
+| `:cards` | Array (6) | ✅ | Exactly 6 `{ icon?, title, description }` objects. |
+
+**Card schema:** `{ icon?: string, title: string, description: string }`
+- `title` ≤ 40 chars; `description` ≤ 90 chars
+- Cards 0-2 (row 1): audience/use-case cards — include `icon`, renders as ghost watermark
+- Cards 3-5 (row 2): insight/stat cards — `icon` optional
+- Exactly 6 cards — component `console.error`s if count differs
+
+**Apostrophe rule:** `:cards='[...]'` uses single-quoted attribute. Escape apostrophes in strings as `&#39;`.
+
+**Separator rule:** blank line required before `---` after `/>` closing tag.
+
+**Usage:**
+```html
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="The core question?"
+subtext="Setup text without the punchline —"
+highlight="The highlighted punchline goes here."
+:cards='[
+  { icon: "🔧", title: "Audience Persona 1", description: "What they get" },
+  { icon: "👥", title: "Audience Persona 2", description: "What they get" },
+  { icon: "🚀", title: "Audience Persona 3", description: "What they get" },
+  { title: "Key Stat 1", description: "Concrete constraint or metric" },
+  { title: "Key Stat 2", description: "Concrete constraint or metric" },
+  { title: "Key Stat 3", description: "Concrete constraint or metric" }
+]'
+/>
+```
+
+---
+
 ## Tech-talk component import path must be `./components/` not `../components/` (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

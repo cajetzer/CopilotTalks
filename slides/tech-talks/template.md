@@ -37,12 +37,45 @@ meta="{FOOTER_TEXT}"
 
 Do not inline the legacy raw HTML hero for tech talks unless the user explicitly asks for a custom variant.
 
+## Core Question Slide (REQUIRED — Slide 2)
+
+Every tech-talk deck **must** have a Core Question slide as slide 2, using the shared component:
+
+```html
+<script setup>
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+</script>
+
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="{THE_CORE_QUESTION}"
+subtext="{SETUP_TEXT_WITHOUT_HIGHLIGHT}"
+highlight="{BOLD_COLORED_PUNCHLINE}"
+:cards='[
+  { icon: "🔧", title: "Audience Persona 1", description: "What this persona gets from this talk" },
+  { icon: "👥", title: "Audience Persona 2", description: "What this persona gets from this talk" },
+  { icon: "🚀", title: "Audience Persona 3", description: "What this persona gets from this talk" },
+  { title: "Key Pain / Stat 1", description: "Concrete number or constraint driving the problem" },
+  { title: "Key Pain / Stat 2", description: "Concrete number or constraint driving the problem" },
+  { title: "Key Pain / Stat 3", description: "Concrete number or constraint driving the problem" }
+]'
+/>
+```
+
+**Card layout rules:**
+- Cards 0-2 (row 1): audience/use-case cards — include `icon` prop (renders as ghost watermark)
+- Cards 3-5 (row 2): insight/stat/pain cards — `icon` is optional
+- Exactly 6 cards required; component logs an error if count differs
+- `title` ≤ 40 chars; `description` ≤ 90 chars; `question` ≤ 100 chars; `subtext`+`highlight` ≤ 160 chars
+- Apostrophes inside `:cards='[...]'` must use `&#39;`
+- Always include blank line between `/>` and the next `---` separator
+
 ## Required Opening Flow
 
 Default sequence:
 
 1. Title
-2. Context slide: usually `The Opportunity`, the core question, or a capability shift
+2. Core Question (use `CoreQuestionSlide` component)
 3. TOC if the deck has multiple major sections
 
 ## Preferred Slide Archetypes

@@ -4,6 +4,22 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## CoreQuestionSlide component rollout complete across all 17 tech-talk decks (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+Slide 2 (Core Question) in all 17 active tech-talk decks converted from inline HTML to the shared `CoreQuestionSlide` component. Pilot: `copilot-cli.md`. Remaining 16 done in batch.
+
+**Cards synthesized:** each deck received 3 audience/use-case cards (row 1, with icons) + 3 insight/stat cards (row 2, preserving existing pain-point data).
+
+**Color normalization:** `copilot-acp.md` was converted from amber/orange to standard cyan/blue during rollout.
+
+**Template updated:** `slides/tech-talks/template.md` now marks CoreQuestionSlide as REQUIRED slide 2.
+
+**Builds verified:** `agent-teams`, `copilot-acp`, `enterprise-patterns` all passed ✅.
+
+---
+
 ## Tech-talk sections restructured: Agent Architecture + Agentic SDLC → Agentic Engineering (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

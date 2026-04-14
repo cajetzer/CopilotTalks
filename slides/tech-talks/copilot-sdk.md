@@ -21,6 +21,7 @@ updated: 2026-02-18
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 45 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How do I embed Copilot's agentic capabilities directly into my own applications and workflows?"</div>
-<div class="text-xl opacity-90 mt-6">When automation needs go beyond IDE and CLI patterns — release notes, test analysis, custom integrations — <span class="text-cyan-300 font-semibold">the SDK provides production-tested agent runtime as a programmable library.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Automation Gap</div>
-<div class="opacity-70 mt-1">AI needs beyond IDE/CLI</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Production Runtime</div>
-<div class="opacity-70 mt-1">No DIY agent loops</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Integrations Ready</div>
-<div class="opacity-70 mt-1">Jira, Slack, CI/CD</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How do I embed Copilot's agentic capabilities directly into my own applications and workflows?"
+subtext="When AI automation needs go beyond IDE and CLI — release notes, test analysis —"
+highlight="the SDK provides production-tested agent runtime as a programmable library."
+:cards='[
+  { icon: "🔧", title: "Backend Engineers Building Automation", description: "Embed Copilot agent runtime directly in Node.js scripts and CI/CD pipelines" },
+  { icon: "🚀", title: "DevOps Teams Owning CI/CD Pipelines", description: "Auto-generate release notes, analyze test failures, and triage flaky tests" },
+  { icon: "🏗️", title: "Platform Teams Creating Internal Tools", description: "Jira, Slack, and GitHub integrations with AI decision-making built right in" },
+  { title: "Automation Gap", description: "AI capabilities needed beyond IDE and CLI — SDK bridges this gap programmatically" },
+  { title: "Production Runtime", description: "No DIY agent loops — SDK provides battle-tested Copilot runtime as a library" },
+  { title: "Integrations Ready", description: "Connect Jira, Slack, and CI/CD with AI that understands your team context" }
+]'
+/>
 
 ---
 

@@ -4,6 +4,29 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## CoreQuestionSlide component extracted from all 17 tech-talk decks (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+All 17 active tech-talk decks previously used inline HTML for slide 2 (Core Question). Extracted into a shared `slides/tech-talks/components/CoreQuestionSlide.vue` component. Pilot deck was `copilot-cli.md`. All 17 decks updated.
+
+**Component location:** `slides/tech-talks/components/CoreQuestionSlide.vue`
+**Import path:** `./components/CoreQuestionSlide.vue`
+
+**Card layout pattern that works:**
+- Row 1 (indices 0-2): audience/use-case cards with `icon` prop — icon renders as ghost watermark (`absolute bottom-1 right-2 text-5xl opacity-10`)
+- Row 2 (indices 3-5): insight/stat/pain cards — `icon` optional, typically omitted
+- Exactly 6 cards required; component console.errors if count differs
+- Row 1 uses `bg/30` (prominent); Row 2 uses `bg/20` (muted)
+
+**copilot-acp** was normalized from amber/orange to cyan/blue during this rollout.
+
+**Template updated:** `slides/tech-talks/template.md` now documents CoreQuestionSlide as REQUIRED slide 2 with full usage docs.
+
+**Captures:** 17 screenshots saved to `captures/<deck>-core-question.png`.
+
+---
+
 ## ReferencesSlide component extracted from all 21 tech-talk decks (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

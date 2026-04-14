@@ -21,6 +21,7 @@ updated: 2026-03-23
 import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -33,35 +34,20 @@ meta="Tech Talk · 30 minutes"
 
 ---
 
-<!-- SLIDE: The Core Question -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-8 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border-2 border-cyan-500/40 text-center">
-<div class="text-3xl font-semibold mb-4">"How can I make GitHub Copilot understand my codebase better?"</div>
-<div class="text-xl opacity-90 mt-6">This isn't a limitation of the AI model — it's a context problem. <span class="text-cyan-300 font-semibold">Copilot's response quality is directly proportional to how much it knows about your specific codebase.</span></div>
-</div>
-<div class="mt-8 grid grid-cols-3 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold">Repeated Context</div>
-<div class="opacity-70 mt-1">Same explanations every session</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold">Generic Responses</div>
-<div class="opacity-70 mt-1">Textbook, not your patterns</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold">Inconsistent Quality</div>
-<div class="opacity-70 mt-1">Varies by developer context</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+question="How can I make GitHub Copilot understand my codebase better?"
+subtext="This isn't a limitation of the AI model — it's a context problem."
+highlight="Copilot's response quality is directly proportional to how much it knows about your codebase."
+:cards='[
+  { icon: "📁", title: "Developers Personalizing Copilot", description: "Instructions, skills, and custom prompts that encode your patterns and standards" },
+  { icon: "🏢", title: "Team Leads Standardizing AI Use", description: "Custom instructions enforce org conventions for every developer automatically" },
+  { icon: "🚀", title: "Power Users Maximizing Agent Output", description: "Combine instructions, skills, and prompts for domain-expert level responses" },
+  { title: "Repeated Context", description: "Same codebase explanations every session — instructions fix this permanently" },
+  { title: "Generic Responses", description: "Textbook answers instead of your patterns — primitives make Copilot specific" },
+  { title: "Inconsistent Quality", description: "Varies by developer context — shared instructions level the playing field" }
+]'
+/>
 
 ---
 
