@@ -4,6 +4,18 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## TitleSlide style props removed; TocSlide added to generator template (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+**TitleSlide cleanup:** All style pass-through props (`backgroundClass`, `orbClass`, `headingClass`, `pillClass`, `dividerClass`, `logoClass`) removed from `TitleSlide.vue`. No deck ever passed them — they were dead props. Colors are now hardcoded inline, consistent with `TocSlide` and all other components. Props reduced to: `title`, `subtitle`, `tagline`, `meta`.
+
+**Generator template updated:** `slides/tech-talks/template.md` now includes a full `TocSlide` (slide 3) section with usage example and constraints. Required Opening Flow updated to list all 3 required opening components.
+
+**Agent instructions updated:** `slide-generator.agent.md` now has a REQUIRED slide 3 entry for `TocSlide`, replaces the old raw-HTML TOC rules with component-only instructions, and adds slide 3 to the pre-submit checklist.
+
+---
+
 ## TocSlide component created and rolled out to all 17 tech-talk decks (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

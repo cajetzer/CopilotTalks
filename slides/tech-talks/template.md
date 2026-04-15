@@ -70,13 +70,41 @@ highlight="{BOLD_COLORED_PUNCHLINE}"
 - Apostrophes inside `:cards='[...]'` must use `&#39;`
 - Always include blank line between `/>` and the next `---` separator
 
+## Table of Contents Slide (REQUIRED — Slide 3)
+
+Every tech-talk deck **must** have a TOC slide as slide 3, using the shared component:
+
+```html
+<script setup>
+import TocSlide from './components/TocSlide.vue'
+</script>
+
+<!-- SLIDE: Table of Contents -->
+<TocSlide
+  :sections='[
+    { icon: "🔧", title: "Section One Title", subtitle: "One-line section description", blurb: "What the audience learns in this section", slide: 4 },
+    { icon: "⚙️", title: "Section Two Title", subtitle: "One-line section description", blurb: "What the audience learns in this section", slide: 8 },
+    { icon: "🚀", title: "Section Three Title", subtitle: "One-line section description", blurb: "What the audience learns in this section", slide: 12 },
+    { icon: "🎯", title: "Section Four Title", subtitle: "One-line section description", blurb: "What the audience learns in this section", slide: 16 },
+  ]'
+/>
+```
+
+**TocSlide rules:**
+- Exactly 4 sections required; component logs an error if count differs
+- `slide` value must be the actual slide number of that section's Part opener
+- `title` ≤ 40 chars; `subtitle` ≤ 80 chars; `blurb` ≤ 100 chars
+- Apostrophes inside `:sections='[...]'` must use `&#39;`; never use `&quot;`
+- Outer attribute uses single quotes, inner JSON uses double quotes
+- Always include blank line between `/>` and the next `---` separator
+
 ## Required Opening Flow
 
 Default sequence:
 
-1. Title
+1. Title (use `TitleSlide` component)
 2. Core Question (use `CoreQuestionSlide` component)
-3. TOC if the deck has multiple major sections
+3. Table of Contents (use `TocSlide` component — always required)
 
 ## Preferred Slide Archetypes
 

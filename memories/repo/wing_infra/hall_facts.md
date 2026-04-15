@@ -4,6 +4,20 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Tech-talk component convention: no style pass-through props (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+All 5 tech-talk components (`TitleSlide`, `TocSlide`, `CoreQuestionSlide`, `ThankYouSlide`, `ReferencesSlide`) use **hardcoded styles only** — no style props are accepted or passed from deck files.
+
+**Rationale:** Style props were on `TitleSlide` originally but no deck ever passed them. Removed April 2026. Hardcoding keeps dark/light mode changes in one place per component and prevents style drift between decks.
+
+**Rule for new components:** Never add `backgroundClass`, `headingClass`, `pillClass`, or similar style-string props. Put all color/gradient decisions inside the component's `CARD_STYLES` constant or inline in the template.
+
+**TitleSlide current props:** `title` (required), `subtitle` (required), `tagline` (default `""`), `meta` (default `""`). That's it.
+
+---
+
 ## CoreQuestionSlide component: props, constraints, and usage (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

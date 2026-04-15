@@ -125,6 +125,10 @@ Use the rich opener from `slides/TEMPLATE.md` — Part N pill + 600px orb + 3-co
 
 For `slides/tech-talks/*.md`, import `CoreQuestionSlide` from `./components/CoreQuestionSlide.vue` and use it as slide 2. Props: `question` (String, required), `subtext` (String), `highlight` (String, required), `:cards` (Array, exactly 6). Cards 0-2 = audience/use-case with `icon`; cards 3-5 = insight/stat (icon optional). Apostrophes in `:cards='[...]'` must be `&#39;`. Blank line required before `---` after `/>`. See `slides/tech-talks/template.md` for full usage pattern and constraints.
 
+#### Tech-talk Table of Contents Slide (REQUIRED — slide 3 for tech talks)
+
+For `slides/tech-talks/*.md`, import `TocSlide` from `./components/TocSlide.vue` and use it as slide 3. Props: `:sections` (Array, exactly 4 items). Each item: `{ icon, title, subtitle, blurb, slide }`. `slide` must be the actual slide number of that section's Part opener. Apostrophes must be `&#39;`; never use `&quot;`. Outer attribute uses single quotes, inner JSON uses double quotes. Blank line required before `---` after `/>`. See `slides/tech-talks/template.md` for full usage pattern and constraints.
+
 #### Tech-talk Thank You Slide (REQUIRED for tech talks)
 
 For `slides/tech-talks/*.md`, import `ThankYouSlide` from `./components/ThankYouSlide.vue` and use it for the final slide instead of inlining raw thank-you HTML. Pass deck-specific summary cards, prompt text, chips, and CTA code through component props.
@@ -139,13 +143,11 @@ Every content slide inside a topic section must have progress dots — even sing
 
 ### 2a. TOC Slide Rules
 
-- **Always slide 3** (after title and context)
-- Scan README for `<!-- 🎬 MAJOR SECTION: [Name] -->` markers first; fall back to H2 headings
-- Use `@click="$nav.go(N)"` for navigation — **never** `<a href="#anchor">`
-- Count all slides after generating to set correct `$nav.go(N)` values
-- Use 2×2 grid for 4 sections, 3-column for 3 or 6 sections (see TEMPLATE.md for HTML)
-- Color progression: cyan → blue → indigo → purple → pink
-- Skip TOC only if < 10 total slides or single-topic deep dive with no clear sections
+- **Always slide 3** for tech talks — use `TocSlide` component (see required component section above)
+- Scan README for `<!-- 🎬 MAJOR SECTION: [Name] -->` markers first; fall back to H2 headings to identify the 4 sections
+- `slide` value in each section must be the actual slide number — count all slides after generating
+- Color progression is handled by the component: cyan → blue → indigo → purple
+- Do NOT inline raw TOC HTML — always use `<TocSlide :sections='[...]' />`
 
 ### 3. Content Limits
 
@@ -214,6 +216,7 @@ For all categories, the category profile is authoritative for visual system and 
 - [ ] Title slide uses TEMPLATE.md pattern with correct category colors
 - [ ] Matching category profile was loaded before generation
 - [ ] Tech-talk slide 2 uses `CoreQuestionSlide` from `./components/CoreQuestionSlide.vue` (6 cards: 3 audience + 3 stats)
+- [ ] Tech-talk slide 3 uses `TocSlide` from `./components/TocSlide.vue` (exactly 4 sections, correct `slide` numbers)
 - [ ] Tech-talk thank-you slide uses `ThankYouSlide` from `./components/ThankYouSlide.vue`
 - [ ] SDP logo included with glow effect (`./sdp-logo.png`)
 - [ ] **Every content slide uses the cockpit template** (pill breadcrumb + absolute gradients + `justify-start px-14`)
