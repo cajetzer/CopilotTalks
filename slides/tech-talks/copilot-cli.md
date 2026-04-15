@@ -13,7 +13,7 @@ title: GitHub Copilot CLI
 module: tech-talks/copilot-cli
 section: Copilot Tools
 status: active
-updated: 2026-04-07
+updated: 2026-06-24
 mdc: true
 ---
 
@@ -22,6 +22,7 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+import TocSlide from './components/TocSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -52,52 +53,14 @@ highlight="Copilot CLI meets you at the command line, where the real work happen
 ---
 
 <!-- SLIDE: Table of Contents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-6">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-6 mt-2 max-w-4xl mx-auto">
-<div @click="$nav.go(6)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
-<div class="text-3xl mb-2">🎯</div>
-<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Plan Mode & Steering</div>
-<div class="text-sm text-gray-300 mt-1">Collaborative planning before implementation</div>
-<div class="text-xs text-cyan-400/70 mt-2">45 min → 8 min debugging, 8 attempts → 2</div>
-</div>
-</div>
-<div @click="$nav.go(10)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
-<div class="text-3xl mb-2">⚡</div>
-<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Operating Modes</div>
-<div class="text-sm text-gray-300 mt-1">Interactive, programmatic, and cloud delegation</div>
-<div class="text-xs text-blue-400/70 mt-2">IDE and terminal stay completely free</div>
-</div>
-</div>
-<div @click="$nav.go(13)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
-<div class="text-3xl mb-2">🤖</div>
-<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Built-in Agents</div>
-<div class="text-sm text-gray-300 mt-1">Specialized agents and /fleet fan-out</div>
-<div class="text-xs text-indigo-400/70 mt-2">Explicit parallel orchestration</div>
-</div>
-</div>
-<div @click="$nav.go(16)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
-<div class="text-3xl mb-2">🚀</div>
-<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Use Cases</div>
-<div class="text-sm text-gray-300 mt-1">Real-world patterns with metrics</div>
-<div class="text-xs text-purple-400/70 mt-2">90 min → 15 min scaffolding, GitHub.com from terminal</div>
-</div>
-</div>
-</div>
-<div class="mt-6 text-center text-sm opacity-60">Click any section to jump directly there</div>
-</div>
-</div>
-
+<TocSlide
+  :sections='[
+    { icon: "🎯", title: "Plan Mode & Steering", subtitle: "Collaborative planning before implementation", blurb: "45 min → 8 min debugging, 8 attempts → 2", slide: 6 },
+    { icon: "⚡", title: "Operating Modes", subtitle: "Interactive, programmatic, and cloud delegation", blurb: "IDE and terminal stay completely free", slide: 10 },
+    { icon: "🤖", title: "Built-in Agents", subtitle: "Specialized agents and /fleet fan-out", blurb: "Explicit parallel orchestration", slide: 14 },
+    { icon: "🚀", title: "Use Cases & Reference", subtitle: "Real-world patterns plus CLI reference", blurb: "90 min → 15 min scaffolding, commands & config", slide: 17 },
+  ]'
+/>
 ---
 
 <!-- SLIDE: Objectives -->
@@ -889,33 +852,37 @@ PR will be created when complete<br/>
 
 ---
 
-<!-- SLIDE: Part 4 — Use Cases -->
+<!-- SLIDE: Part 4 — Use Cases & Reference -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
 <div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Use Cases</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-4">Real-world patterns with quantified outcomes</h2>
+<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Use Cases & Reference</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-4">Real-world patterns and complete CLI reference</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="grid grid-cols-4 gap-3 text-sm max-w-4xl">
 <div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
 <div class="text-2xl mb-1">🌱</div>
-<div class="text-purple-300 font-semibold">Greenfield Scaffolding</div>
+<div class="text-purple-300 font-semibold">Greenfield</div>
 <div class="text-xs opacity-70 mt-1">90 min → 15 min</div>
 </div>
 <div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
 <div class="text-2xl mb-1">🐳</div>
-<div class="text-pink-300 font-semibold">Docker Debugging</div>
+<div class="text-pink-300 font-semibold">Debugging</div>
 <div class="text-xs opacity-70 mt-1">45 min → 8 min</div>
 </div>
 <div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
 <div class="text-2xl mb-1">🐙</div>
-<div class="text-rose-300 font-semibold">GitHub.com Integration</div>
+<div class="text-rose-300 font-semibold">GitHub.com</div>
 <div class="text-xs opacity-70 mt-1">Issues, PRs from terminal</div>
 </div>
-</div>
+<div class="px-4 py-3 bg-fuchsia-900/30 rounded-xl border border-fuchsia-500/30">
+<div class="text-2xl mb-1">⌨️</div>
+<div class="text-fuchsia-300 font-semibold">Reference</div>
+<div class="text-xs opacity-70 mt-1">Commands, flags, config</div>
+</div></div>
 <div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-2.5 text-left max-w-xl">
 <span class="text-gray-400">Terminal-native AI for the 84% of dev time</span><br />
 <span class="text-purple-300 mt-1 block">↳ not spent writing code</span>
@@ -930,7 +897,7 @@ PR will be created when complete<br/>
 <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases & Reference</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
@@ -983,7 +950,7 @@ PR will be created when complete<br/>
 <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases & Reference</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
@@ -1036,7 +1003,7 @@ PR will be created when complete<br/>
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Use Cases & Reference</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
@@ -1131,46 +1098,6 @@ PR will be created when complete<br/>
     ] }
   ]'
 />
----
-
-<!-- SLIDE: Part 5 — Reference & Syntax -->
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 5</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Reference &amp; Syntax</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Commands, flags, config, and environment</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-4 gap-3 text-sm max-w-4xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⌨️</div>
-<div class="text-purple-300 font-semibold">Interactive Commands</div>
-<div class="text-xs opacity-70 mt-1">/ slash commands in sessions</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🔧</div>
-<div class="text-pink-300 font-semibold">CLI Flags</div>
-<div class="text-xs opacity-70 mt-1">Permissions, models, modes</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-rose-300 font-semibold">Configuration</div>
-<div class="text-xs opacity-70 mt-1">~/.copilot/config.json settings</div>
-</div>
-<div class="px-4 py-3 bg-fuchsia-900/30 rounded-xl border border-fuchsia-500/30">
-<div class="text-2xl mb-1">🌐</div>
-<div class="text-fuchsia-300 font-semibold">Environment</div>
-<div class="text-xs opacity-70 mt-1">Env vars, BYOK, OTel</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">All examples sourced from live CLI output</span><br />
-<span class="text-purple-300 mt-1 block">↳ run scripts/capture-cli-help.ps1 to refresh</span>
-</div>
-</div>
-</div>
-
 ---
 
 <!-- SLIDE: Interactive Mode Commands -->

@@ -14,7 +14,7 @@ module: tech-talks/copilot-sdk
 mdc: true
 section: Customization & Context
 status: active
-updated: 2026-02-18
+updated: 2026-04-14
 ---
 
 <script setup>
@@ -22,6 +22,7 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+import TocSlide from './components/TocSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -52,45 +53,14 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 ---
 
 <!-- SLIDE: Table of Contents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-4 mt-2 max-w-5xl mx-auto">
-<div @click="$nav.go(4)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
-<div class="text-3xl mb-2">🏗️</div>
-<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Architecture</div>
-<div class="text-sm text-gray-300 mt-1">How SDK wraps Copilot CLI</div>
-<div class="text-xs text-cyan-400/70 mt-1">Agent runtime as a library</div>
-</div>
-</div>
-<div @click="$nav.go(7)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
-<div class="text-3xl mb-2">🔧</div>
-<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Integration Patterns</div>
-<div class="text-sm text-gray-300 mt-1">CLI tools, APIs, automation</div>
-<div class="text-xs text-blue-400/70 mt-1">Embed agents in any application</div>
-</div>
-</div>
-<div @click="$nav.go(12)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
-<div class="text-3xl mb-2">🚀</div>
-<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Real-World Use Cases</div>
-<div class="text-sm text-gray-300 mt-1">Release notes, test analysis, more</div>
-<div class="text-xs text-indigo-400/70 mt-1">2 hours → 10 minutes automation wins</div>
-</div>
-</div>
-</div>
-
-<div class="mt-4 text-center text-sm opacity-60">Click any section to jump directly there</div>
-</div>
-</div>
-
+<TocSlide
+  :sections='[
+    { icon: "🏗️", title: "Architecture", subtitle: "How SDK wraps Copilot CLI", blurb: "Agent runtime as a library", slide: 4 },
+    { icon: "🚀", title: "Getting Started", subtitle: "Install, configure, first SDK call", blurb: "pip install in 15 minutes", slide: 7 },
+    { icon: "🌐", title: "Advanced Patterns", subtitle: "Web APIs and scheduled automation", blurb: "Embed agents in any application", slide: 10 },
+    { icon: "📊", title: "Real-World Use Cases", subtitle: "Release notes, test analysis, more", blurb: "2 hours → 10 minutes automation wins", slide: 13 },
+  ]'
+/>
 ---
 
 <!-- SLIDE: Part 1 — Architecture & Capabilities -->
@@ -263,33 +233,27 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 
 ---
 
-<!-- SLIDE: Part 2 — Integration Patterns -->
+<!-- SLIDE: Part 2 — Getting Started -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
 <div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Integration Patterns</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Building tools with the SDK</h2>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Getting Started</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Install, configure, and make your first SDK call</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="grid grid-cols-2 gap-3 text-sm max-w-2xl">
 <div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-blue-300 font-semibold">CLI Tools</div>
-<div class="text-xs opacity-70 mt-1">Command-line tools powered by SDK backend</div>
+<div class="text-2xl mb-1">📦</div>
+<div class="text-blue-300 font-semibold">Installation</div>
+<div class="text-xs opacity-70 mt-1">pip install in 15 minutes</div>
 </div>
 <div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🌐</div>
-<div class="text-indigo-300 font-semibold">Web APIs</div>
-<div class="text-xs opacity-70 mt-1">REST endpoints exposing SDK capabilities</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⏰</div>
-<div class="text-purple-300 font-semibold">Scheduled Tasks</div>
-<div class="text-xs opacity-70 mt-1">Automated analysis on cron schedules</div>
-</div>
-</div>
+<div class="text-2xl mb-1">⚙️</div>
+<div class="text-indigo-300 font-semibold">CLI Tool Pattern</div>
+<div class="text-xs opacity-70 mt-1">Release notes generator example</div>
+</div></div>
 <div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
 <span class="text-gray-400">Install SDK in 15 minutes, embed agents in any app</span><br />
 <span class="text-blue-300 mt-1 block">↳ no months-long platform build</span>
@@ -304,15 +268,13 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Integration Patterns</span>
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">� Getting Started</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
+<span class="text-white/40 text-xs ml-1">1 of 2</span>
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Installation & Basic Usage</div>
@@ -361,15 +323,13 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Integration Patterns</span>
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">� Getting Started</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
+<span class="text-white/40 text-xs ml-1">2 of 2</span>
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Pattern 1: CLI Tool with SDK Backend</div>
@@ -407,20 +367,47 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 
 ---
 
+<!-- SLIDE: Part 3 — Advanced Patterns -->
+
+<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-blue-900/20"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
+<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-blue-400 bg-clip-text text-transparent leading-tight">Advanced Patterns</h1>
+<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Web APIs and scheduled automation</h2>
+<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
+<div class="grid grid-cols-2 gap-3 text-sm max-w-2xl">
+<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-2xl mb-1">🌐</div>
+<div class="text-indigo-300 font-semibold">Web APIs</div>
+<div class="text-xs opacity-70 mt-1">REST endpoints exposing SDK capabilities</div>
+</div>
+<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
+<div class="text-2xl mb-1">⏰</div>
+<div class="text-purple-300 font-semibold">Scheduled Tasks</div>
+<div class="text-xs opacity-70 mt-1">Automated analysis on cron schedules</div>
+</div></div>
+<div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
+<span class="text-gray-400">From simple scripts to production services</span><br />
+<span class="text-indigo-300 mt-1 block">↳ embed agents in any application or workflow</span>
+</div></div>
+</div>
+
+---
+
 <!-- SLIDE: Pattern 2 - Web API -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Integration Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🌐 Advanced Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
+<span class="text-white/40 text-xs ml-1">1 of 2</span>
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Pattern 2: Web API with SDK</div>
@@ -472,15 +459,13 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Integration Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🌐 Advanced Patterns</span>
+<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
+<span class="text-white/40 text-xs ml-1">2 of 2</span>
 </div>
 <div class="relative z-10 mb-2">
 <div class="text-lg font-bold text-white mb-0.5">Pattern 3: Scheduled Automation</div>
@@ -520,13 +505,13 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 
 ---
 
-<!-- SLIDE: Part 3 — Real-World Use Cases -->
+<!-- SLIDE: Part 4 — Real-World Use Cases -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
+<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
 <h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Real-World Use Cases</h1>
 <h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Production deployments with measurable outcomes</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>

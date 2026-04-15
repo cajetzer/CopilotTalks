@@ -22,6 +22,7 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+import TocSlide from './components/TocSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -52,53 +53,14 @@ highlight="no more portal context-switching or assumption-based deployments."
 ---
 
 <!-- SLIDE: Table of Contents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mt-4 max-w-4xl mx-auto">
-<div @click="$nav.go(4)" class="cursor-pointer group">
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
-<div class="text-3xl mb-1">💬</div>
-<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Live Azure Context</div>
-<div class="text-sm text-gray-300 mt-1">Conversational resource discovery and config extraction</div>
-<div class="text-xs text-cyan-400/70 mt-1">Query live state without portal tab-switching</div>
-</div>
-</div>
-<div @click="$nav.go(8)" class="cursor-pointer group">
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
-<div class="text-3xl mb-1">🔄</div>
-<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">The Prototype Loop</div>
-<div class="text-sm text-gray-300 mt-1">Plan Mode validation before deployment</div>
-<div class="text-xs text-blue-400/70 mt-1">45 minutes → 8 minutes with live context</div>
-</div>
-</div>
-<div @click="$nav.go(12)" class="cursor-pointer group">
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
-<div class="text-3xl mb-1">⚙️</div>
-<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Configuration & Setup</div>
-<div class="text-sm text-gray-300 mt-1">10-minute installation and connection</div>
-<div class="text-xs text-indigo-400/70 mt-1">VS Code, npm, or Docker — your choice</div>
-</div>
-</div>
-<div @click="$nav.go(15)" class="cursor-pointer group">
-<div class="p-4 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
-<div class="text-3xl mb-1">🛡️</div>
-<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Guardrails & Trust Boundaries</div>
-<div class="text-sm text-gray-300 mt-1">RBAC-scoped access and read-only mode</div>
-<div class="text-xs text-purple-400/70 mt-1">Safe exploration without elevation</div>
-</div>
-</div>
-</div>
-
-<div class="mt-4 text-center text-sm opacity-60">Click any section to jump directly there</div>
-</div>
-</div>
-
+<TocSlide
+  :sections='[
+    { icon: "💬", title: "Live Azure Context", subtitle: "Conversational resource discovery and config extraction", blurb: "Query live state without portal tab-switching", slide: 4 },
+    { icon: "🔄", title: "The Prototype Loop", subtitle: "Plan Mode validation before deployment", blurb: "45 minutes → 8 minutes with live context", slide: 8 },
+    { icon: "⚙️", title: "Configuration & Setup", subtitle: "10-minute installation and connection", blurb: "VS Code, npm, or Docker — your choice", slide: 12 },
+    { icon: "🛡️", title: "Guardrails & Trust Boundaries", subtitle: "RBAC-scoped access and read-only mode", blurb: "Safe exploration without elevation", slide: 15 },
+  ]'
+/>
 ---
 
 <!-- SLIDE: Part 1 — Live Azure Context -->

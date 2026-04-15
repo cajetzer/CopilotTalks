@@ -14,7 +14,7 @@ module: tech-talks/enterprise-patterns
 mdc: true
 section: Copilot Tools
 status: active
-updated: 2026-03-23
+updated: 2026-06-24
 ---
 
 <script setup>
@@ -22,6 +22,7 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+import TocSlide from './components/TocSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -52,56 +53,14 @@ highlight="The transition from pilot success to organizational capability requir
 ---
 
 <!-- SLIDE: Table of Contents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mt-2 max-w-4xl mx-auto">
-<div @click="$nav.go(4)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
-<div class="text-2xl mb-1">🏢</div>
-<div class="text-base font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Organization-Wide Standards</div>
-<div class="text-xs text-gray-300 mt-1">Custom instructions at scale</div>
-</div>
-</div>
-<div @click="$nav.go(8)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
-<div class="text-2xl mb-1">🧠</div>
-<div class="text-base font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Skills & Knowledge Bases</div>
-<div class="text-xs text-gray-300 mt-1">Institutional knowledge that scales</div>
-</div>
-</div>
-<div @click="$nav.go(11)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
-<div class="text-2xl mb-1">🔐</div>
-<div class="text-base font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Governance & Licensing</div>
-<div class="text-xs text-gray-300 mt-1">Control, compliance, and cost optimization</div>
-</div>
-</div>
-<div @click="$nav.go(15)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-base font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Adoption & Enablement</div>
-<div class="text-xs text-gray-300 mt-1">Scaling without bottlenecks</div>
-</div>
-</div>
-<div @click="$nav.go(18)" class="cursor-pointer group">
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-rose-900/40 rounded-xl border border-pink-500/50 hover:border-pink-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-pink-500/10">
-<div class="text-2xl mb-1">🤝</div>
-<div class="text-base font-bold bg-gradient-to-r from-pink-300 to-rose-300 bg-clip-text text-transparent">Multi-Team Coordination</div>
-<div class="text-xs text-gray-300 mt-1">Federated governance</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 text-center text-sm opacity-60">Click any section to jump directly there</div>
-</div>
-</div>
-
+<TocSlide
+  :sections='[
+    { icon: "🏢", title: "Organization-Wide Standards", subtitle: "Custom instructions at scale", blurb: "One config, hundreds of developers aligned automatically", slide: 4 },
+    { icon: "🧠", title: "Skills & Knowledge Bases", subtitle: "Institutional knowledge that scales", blurb: "Domain expertise that loads on demand", slide: 8 },
+    { icon: "🔐", title: "Governance & Licensing", subtitle: "Control, compliance, and cost optimization", blurb: "Seat management, policy controls, audit trails", slide: 11 },
+    { icon: "📊", title: "Scaling & Measurement", subtitle: "Adoption, ROI, and federated governance", blurb: "Self-service onboarding, metrics, 16× knowledge ROI", slide: 15 },
+  ]'
+/>
 ---
 
 <!-- SLIDE: Part 1 — Organization-Wide Standards -->
@@ -918,31 +877,36 @@ highlight="The transition from pilot success to organizational capability requir
 
 ---
 
-<!-- SLIDE: Part 4 — Adoption & Enablement -->
+<!-- SLIDE: Part 4 — Scaling & Measurement -->
 
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
 <div class="relative z-10 flex flex-col items-center text-center">
 <div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Adoption & Enablement</h1>
-<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-4">Scaling without bottlenecks</h2>
+<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Scaling & Measurement</h1>
+<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-4">Adoption, ROI, and federated governance</h2>
 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+<div class="grid grid-cols-4 gap-3 text-sm max-w-4xl">
 <div class="px-3 py-2 bg-purple-900/30 rounded-xl border border-purple-500/30">
 <div class="text-xl mb-1">📊</div>
 <div class="text-purple-300 font-semibold text-sm">Metrics Framework</div>
-<div class="text-xs opacity-70 mt-1">Leading, intermediate, lagging indicators</div>
+<div class="text-xs opacity-70 mt-1">Leading, intermediate, lagging</div>
 </div>
 <div class="px-3 py-2 bg-pink-900/30 rounded-xl border border-pink-500/30">
 <div class="text-xl mb-1">🎓</div>
 <div class="text-pink-300 font-semibold text-sm">Self-Service Kit</div>
-<div class="text-xs opacity-70 mt-1">30-minute quick start, copy/paste ready</div>
+<div class="text-xs opacity-70 mt-1">30-minute quick start</div>
 </div>
 <div class="px-3 py-2 bg-rose-900/30 rounded-xl border border-rose-500/30">
 <div class="text-xl mb-1">💰</div>
 <div class="text-rose-300 font-semibold text-sm">ROI Reporting</div>
-<div class="text-xs opacity-70 mt-1">Data-driven narrative for CFO</div>
+<div class="text-xs opacity-70 mt-1">Data-driven CFO narrative</div>
+</div>
+<div class="px-3 py-2 bg-fuchsia-900/30 rounded-xl border border-fuchsia-500/30">
+<div class="text-xl mb-1">🤝</div>
+<div class="text-fuchsia-300 font-semibold text-sm">Federated Model</div>
+<div class="text-xs opacity-70 mt-1">16x knowledge ROI</div>
 </div>
 </div>
 <div class="mt-3 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
@@ -959,12 +923,12 @@ highlight="The transition from pilot success to organizational capability requir
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Adoption & Enablement</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Scaling & Measurement</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
 <div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
+<span class="text-white/40 text-xs ml-1">1 of 3</span>
 </div>
 </div>
 <div class="relative z-10 mb-2">
@@ -1075,12 +1039,12 @@ highlight="The transition from pilot success to organizational capability requir
 <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Adoption & Enablement</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Scaling & Measurement</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
+<span class="text-white/40 text-xs ml-1">2 of 3</span>
 </div>
 </div>
 <div class="relative z-10 mb-2">
@@ -1154,52 +1118,18 @@ highlight="The transition from pilot success to organizational capability requir
 
 ---
 
-<!-- SLIDE: Part 5 — Multi-Team Coordination -->
-
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-pink-900/25 via-rose-900/15 to-orange-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-500/10 via-rose-500/10 to-orange-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-pink-600/40 to-rose-600/40 rounded-full border border-pink-400/30 text-pink-300 text-sm font-medium tracking-widest uppercase">Part 5</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-pink-400 via-rose-300 to-orange-400 bg-clip-text text-transparent leading-tight">Multi-Team Coordination</h1>
-<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-4">Federated governance that scales</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-3 py-2 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-xl mb-1">🤝</div>
-<div class="text-pink-300 font-semibold text-sm">Federated Model</div>
-<div class="text-xs opacity-70 mt-1">Platform provides, teams customize</div>
-</div>
-<div class="px-3 py-2 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-xl mb-1">💡</div>
-<div class="text-rose-300 font-semibold text-sm">Community Practice</div>
-<div class="text-xs opacity-70 mt-1">Share learnings, prevent silos</div>
-</div>
-<div class="px-3 py-2 bg-orange-900/30 rounded-xl border border-orange-500/30">
-<div class="text-xl mb-1">🔁</div>
-<div class="text-orange-300 font-semibold text-sm">16x ROI</div>
-<div class="text-xs opacity-70 mt-1">Knowledge multiplication effect</div>
-</div>
-</div>
-<div class="mt-3 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">Balance central control with team autonomy</span><br />
-<span class="text-pink-300 mt-1 block">↳ consistency + velocity through federated governance</span>
-</div>
-</div>
-</div>
-
----
-
 <!-- SLIDE: Federated Governance Model & ROI -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-rose-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-pink-600/80 to-rose-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤝 Multi-Team Coordination</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Scaling & Measurement</span>
 <div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-pink-400 shadow-lg shadow-pink-500/50"></div>
-<span class="text-white/40 text-xs ml-1">1 of 1</span>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
+<span class="text-white/40 text-xs ml-1">3 of 3</span>
 </div>
 </div>
 <div class="relative z-10 mb-2">

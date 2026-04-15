@@ -51,8 +51,8 @@ Slides that appear in every deck and could become components:
 | Title | ✅ Done | `TitleSlide.vue` |
 | Thank You | ✅ Done | `ThankYouSlide.vue` |
 | References | ✅ Done | `ReferencesSlide.vue` |
-| Core Question | 🔲 Candidate | High variance in content; worth attempting |
+| Core Question | ✅ Done | `CoreQuestionSlide.vue` |
 | Section Opener | 🔲 Candidate | "Part N" pattern is already very consistent across decks |
-| Table of Contents | 🔲 Candidate | Lower priority — structure varies more by deck |
+| Table of Contents | ✅ Done | `TocSlide.vue` |
 
 Follow the same pattern for any future component: one deck pilot → verify → roll out → update template + generator.

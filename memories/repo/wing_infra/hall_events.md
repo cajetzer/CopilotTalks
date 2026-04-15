@@ -4,6 +4,26 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## TocSlide component created and rolled out to all 17 tech-talk decks (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+All 17 active tech-talk decks received a shared `TocSlide` component replacing the raw inline HTML Table of Contents slides.
+
+**Component location:** `slides/tech-talks/components/TocSlide.vue`
+**Import path:** `./components/TocSlide.vue`
+**Rollout script:** `slides/scripts/rollout-toc-slide.mjs`
+**Capture script:** `slides/scripts/capture-toc-slides.mjs` (spins up slidev dev per-deck, outputs to `captures/<deck>-toc.png`)
+
+Pre-work: 3 decks required section restructuring before rollout:
+- `copilot-sdk`: 3 → 4 sections (split Part 2 into Getting Started + Advanced Patterns)
+- `copilot-cli`: 5 → 4 sections (merged Part 4+5 into Use Cases & Reference)
+- `enterprise-patterns`: 5 → 4 sections (merged Part 4+5 into Scaling & Measurement)
+
+**Builds verified:** `agentic-journey`, `copilot-acp`, `enterprise-patterns` ✅
+
+---
+
 ## CoreQuestionSlide component rollout complete across all 17 tech-talk decks (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

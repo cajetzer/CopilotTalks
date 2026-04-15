@@ -22,6 +22,7 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+import TocSlide from './components/TocSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -52,53 +53,14 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 ---
 
 <!-- SLIDE: Table of Contents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 mt-2 max-w-4xl mx-auto">
-<div @click="$nav.go(4)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
-<div class="text-3xl mb-2">⚙️</div>
-<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Setup & Configuration</div>
-<div class="text-sm text-gray-300 mt-1">From enablement to first review in 15 minutes</div>
-<div class="text-xs text-cyan-400/70 mt-2">Rulesets UI + custom instruction files</div>
-</div>
-</div>
-<div @click="$nav.go(9)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
-<div class="text-3xl mb-2">💬</div>
-<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Understanding Review Feedback</div>
-<div class="text-sm text-gray-300 mt-1">Six capability categories with examples</div>
-<div class="text-xs text-blue-400/70 mt-2">Security, quality, tests, performance, compliance, architecture</div>
-</div>
-</div>
-<div @click="$nav.go(12)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
-<div class="text-3xl mb-2">📊</div>
-<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Measuring ROI</div>
-<div class="text-sm text-gray-300 mt-1">Calculator + optional automation</div>
-<div class="text-xs text-indigo-400/70 mt-2">40-60% cycle time reduction, 90%+ security improvement</div>
-</div>
-</div>
-<div @click="$nav.go(16)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
-<div class="text-3xl mb-2">🏛️</div>
-<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Enterprise Compliance</div>
-<div class="text-sm text-gray-300 mt-1">HIPAA, PCI-DSS, SOC2 guidance patterns</div>
-<div class="text-xs text-purple-400/70 mt-2">Custom instruction files for regulatory standards</div>
-</div>
-</div>
-</div>
-
-<div class="mt-6 text-center text-sm opacity-60">Click any section to jump directly there</div>
-</div>
-</div>
-
+<TocSlide
+  :sections='[
+    { icon: "⚙️", title: "Setup & Configuration", subtitle: "From enablement to first review in 15 minutes", blurb: "Rulesets UI + custom instruction files", slide: 4 },
+    { icon: "💬", title: "Understanding Review Feedback", subtitle: "Six capability categories with examples", blurb: "Security, quality, tests, performance, compliance, architecture", slide: 9 },
+    { icon: "📊", title: "Measuring ROI", subtitle: "Calculator + optional automation", blurb: "40-60% cycle time reduction, 90%+ security improvement", slide: 12 },
+    { icon: "🏛️", title: "Enterprise Compliance", subtitle: "HIPAA, PCI-DSS, SOC2 guidance patterns", blurb: "Custom instruction files for regulatory standards", slide: 16 },
+  ]'
+/>
 ---
 
 <!-- SLIDE: Part 1 — Setup & Configuration -->

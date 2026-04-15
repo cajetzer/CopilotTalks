@@ -53,6 +53,53 @@ highlight="The highlighted punchline goes here."
 
 ---
 
+## TocSlide component: props, constraints, and apostrophe/quote gotcha (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+The `TocSlide` component is **REQUIRED as slide 3** in all tech-talk decks (after Title and Core Question).
+
+**Import:**
+```js
+import TocSlide from './components/TocSlide.vue'
+```
+
+**Props:**
+| Prop | Type | Required | Notes |
+|------|------|----------|-------|
+| `:sections` | Array (4) | ✅ | Exactly 4 `{ icon, title, subtitle, blurb, slide }` objects. |
+
+**Section schema:** `{ icon: string, title: string, subtitle: string, blurb: string, slide: number }`
+- All fields required — component `console.error`s if `icon` or `blurb` missing
+- `title` ≤ 40 chars; `subtitle` ≤ 80 chars; `blurb` ≤ 100 chars (warns if exceeded)
+- `slide` = the Slidev slide number for that section's Part opener slide
+
+**CRITICAL — attribute quoting gotcha:**
+The attribute is single-quoted: `:sections='[...]'`. Two failure modes:
+1. **Apostrophes in string values** (e.g. `what's`) terminate the attribute early → `Unterminated string constant`
+   Fix: replace with Unicode right single quote `'` (U+2019) or rephrase
+2. **`&quot;` HTML entities** in string values get decoded to `"` by the HTML parser, breaking the inner JS double-quoted strings
+   Fix: use `\"` or rephrase to avoid quotes entirely
+
+**Safe approach:** avoid apostrophes and double quotes in all section data strings.
+
+**Color progression:** fixed cyan → blue → indigo → purple (card 1 → 4). Cannot be changed per-deck.
+
+**Usage:**
+```html
+<!-- SLIDE: Table of Contents -->
+<TocSlide
+  :sections='[
+    { icon: "🎯", title: "Section One", subtitle: "Subtitle text", blurb: "Blurb text", slide: 4 },
+    { icon: "🏗️", title: "Section Two", subtitle: "Subtitle text", blurb: "Blurb text", slide: 8 },
+    { icon: "🚀", title: "Section Three", subtitle: "Subtitle text", blurb: "Blurb text", slide: 12 },
+    { icon: "🛡️", title: "Section Four", subtitle: "Subtitle text", blurb: "Blurb text", slide: 16 },
+  ]'
+/>
+```
+
+---
+
 ## Tech-talk component import path must be `./components/` not `../components/` (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

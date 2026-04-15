@@ -4,6 +4,21 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## TocSlide rollout script pattern for bulk component injection (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+Bulk-replacing a Slidev slide block across 17 decks with a component works reliably with this pattern:
+
+1. **Regex to match the block:** `<!-- SLIDE: Table of Contents -->\n[\s\S]*?(?=\n---\n)` — matches from comment to the line just before the next `---` separator
+2. **Add import idempotently:** check `content.includes("import TocSlide")` before inserting
+3. **Attribute syntax:** `:sections='[{ icon: "...", title: "..." }]'` — outer single quotes, inner double quotes. Never use `&quot;` (decoded by HTML parser) and never use bare apostrophes (terminates attribute).
+4. **Script location:** `slides/scripts/rollout-toc-slide.mjs` — contains all 17 decks' section data, idempotent (safe to re-run)
+
+**Capture script:** `slides/scripts/capture-toc-slides.mjs` — spins up a fresh slidev dev per deck (killing previous), screenshots slide 3, saves to `captures/<deck>-toc.png`. ~30s per deck.
+
+---
+
 ## CoreQuestionSlide component extracted from all 17 tech-talk decks (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

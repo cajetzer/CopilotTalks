@@ -22,6 +22,7 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
 import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
+import TocSlide from './components/TocSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -52,52 +53,14 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 ---
 
 <!-- SLIDE: Table of Contents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-6">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
-<div @click="$nav.go(4)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
-<div class="text-3xl mb-2">🔄</div>
-<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Delegation Loop</div>
-<div class="text-sm text-gray-300 mt-1">From assignment to draft PR</div>
-<div class="text-xs text-cyan-400/70 mt-2">Asynchronous, evidence-driven</div>
-</div>
-</div>
-<div @click="$nav.go(9)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
-<div class="text-3xl mb-2">✍️</div>
-<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Writing Issues</div>
-<div class="text-sm text-gray-300 mt-1">Specs that produce quality PRs</div>
-<div class="text-xs text-blue-400/70 mt-2">Template-driven, image-capable</div>
-</div>
-</div>
-<div @click="$nav.go(13)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
-<div class="text-3xl mb-2">🔒</div>
-<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Trust &amp; Configuration</div>
-<div class="text-sm text-gray-300 mt-1">Environment setup and firewall</div>
-<div class="text-xs text-indigo-400/70 mt-2">Setup before enforcement</div>
-</div>
-</div>
-<div @click="$nav.go(17)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
-<div class="text-3xl mb-2">✅</div>
-<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Review Workflow</div>
-<div class="text-sm text-gray-300 mt-1">Mobile-ready, agents-first</div>
-<div class="text-xs text-purple-400/70 mt-2">4hr → 30min turnaround</div>
-</div>
-</div>
-</div>
-<div class="mt-6 text-center text-sm opacity-60">Click any section to jump directly there</div>
-</div>
-</div>
-
+<TocSlide
+  :sections='[
+    { icon: "🔄", title: "Delegation Loop", subtitle: "From assignment to draft PR", blurb: "Asynchronous, evidence-driven", slide: 4 },
+    { icon: "✍️", title: "Writing Issues", subtitle: "Specs that produce quality PRs", blurb: "Template-driven, image-capable", slide: 9 },
+    { icon: "🔒", title: "Trust & Configuration", subtitle: "Environment setup and firewall", blurb: "Setup before enforcement", slide: 13 },
+    { icon: "✅", title: "Review Workflow", subtitle: "Mobile-ready, agents-first", blurb: "4hr → 30min turnaround", slide: 17 },
+  ]'
+/>
 ---
 
 <!-- SLIDE: Part 1 — The Delegation Loop -->
