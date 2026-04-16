@@ -1058,6 +1058,9 @@ Android: Google Play (beta)
 <div class="opacity-80">Not YAML from scratch</div>
 </div>
 </div>
+</div>
+</div>
+
 ---
 
 <!-- SLIDE: Before/After -->
