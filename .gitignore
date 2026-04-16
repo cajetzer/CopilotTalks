@@ -43,7 +43,11 @@ Thumbs.db
 *.swo
 *~
 
-# Large capture files (scripts/cli-capture/_all.txt can be 2+ GB)
+# Slidev-generated index.html files (re-created on each build, not needed in source)
+slides/workshop/index.html
+slides/tech-talks/index.html
+slides/exec-talks/index.html
+
 scripts/cli-capture/_all.txt
 captures
 thankyou-screenshots

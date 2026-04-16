@@ -129,40 +129,58 @@ Write-Host "   $($AllDecks.Count) deck(s) to build" -ForegroundColor Gray
 Write-Host ""
 
 if ($Parallel) {
-    # Parallel build — each job returns a result object; print summary after all complete
+    # Parallel build — start all jobs (throttled to 4), print each result as it finishes
     Write-Host "   Building in parallel (4 at a time)..." -ForegroundColor Magenta
-    $Results = $AllDecks | ForEach-Object -Parallel {
-        $deck = $_
-        $SlidesDir = $using:SlidesDir
-        $OutputDir = $using:OutputDir
+    Write-Host ""
 
-        $start = Get-Date
-        Push-Location $SlidesDir
-        try {
-            $output = npx slidev build "$($deck.Category)/$($deck.BaseName).md" `
-                --base "/CopilotTraining/$($deck.Category)/$($deck.BaseName)/" `
-                --out "$OutputDir/$($deck.Category)/$($deck.BaseName)" 2>&1
-            $exitCode = $LASTEXITCODE
-        } finally {
-            Pop-Location
+    $total = $AllDecks.Count
+    $completed = 0
+
+    # Start-ThreadJob with -ThrottleLimit queues jobs so at most 4 run at once
+    $jobs = $AllDecks | ForEach-Object {
+        $category = $_.Category
+        $baseName = $_.BaseName
+        Start-ThreadJob -ThrottleLimit 4 -ScriptBlock {
+            $category  = $using:category
+            $baseName  = $using:baseName
+            $SlidesDir = $using:SlidesDir
+            $OutputDir = $using:OutputDir
+
+            $start = Get-Date
+            Push-Location $SlidesDir
+            try {
+                $output = npx slidev build "$category/$baseName.md" `
+                    --base "/CopilotTraining/$category/$baseName/" `
+                    --out "$OutputDir/$category/$baseName" 2>&1
+                $exitCode = $LASTEXITCODE
+            } finally {
+                Pop-Location
+            }
+
+            $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
+            [pscustomobject]@{
+                Category = $category
+                BaseName = $baseName
+                Success  = ($exitCode -eq 0)
+                Elapsed  = $elapsed
+                Output   = $output
+            }
         }
+    }
 
-        $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
-        [pscustomobject]@{
-            Category = $deck.Category
-            BaseName = $deck.BaseName
-            Success  = ($exitCode -eq 0)
-            Elapsed  = $elapsed
-            Output   = $output
-        }
-    } -ThrottleLimit 4
+    # Drain jobs one-at-a-time as they complete — gives live progress
+    $remaining = [System.Collections.Generic.List[object]]$jobs
+    while ($remaining.Count -gt 0) {
+        $done = Wait-Job -Job $remaining -Any
+        $r = Receive-Job $done
+        Remove-Job $done
+        $null = $remaining.Remove($done)
+        $completed++
 
-    # Print results in order
-    foreach ($r in $Results | Sort-Object Category, BaseName) {
         if ($r.Success) {
-            Write-Host "   [OK] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Green
+            Write-Host "   [$completed/$total] [OK] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Green
         } else {
-            Write-Host "   [FAILED] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Red
+            Write-Host "   [$completed/$total] [FAILED] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Red
             $r.Output | Where-Object {
                 $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
             } | ForEach-Object { Write-Host "      $_" -ForegroundColor DarkRed }
