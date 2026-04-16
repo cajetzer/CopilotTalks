@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1077,8 +1078,19 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 </div>
 </div>
 </div>
-</div>
-</div>
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="PR Bottleneck to Automated First-Pass Review"
+:leftItems='["Wait time: 3–4 days", "Security: manual oversight", "False positives: baseline", "Review cycle: slow feedback"]'
+:rightItems='["Instant automated review", "Security: 90%+ improvement", "False positives: 73% reduction", "Fast AI feedback loop"]'
+:metrics='[
+  { value: "3–4 days → instant", detail: "Review time" },
+  { value: "90%+", detail: "Security improvement" },
+  { value: "73%", detail: "False positive reduction" }
+]'
+/>
 
 ---
 

@@ -1,69 +1,37 @@
-<template>
-  <div
-    class="h-full flex flex-col items-center justify-center relative overflow-hidden"
-  >
-    <div
-      class="absolute inset-0 bg-gradient-to-br"
-      :class="t.ambientBg"
-    ></div>
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r rounded-full blur-3xl"
-      :class="t.orb"
-    ></div>
+<!--
+  ThankYouSlide Styling Architecture:
 
-    <div class="relative z-10 flex flex-col items-center text-center">
-      <div class="relative mb-2">
-        <div class="absolute inset-0 blur-2xl opacity-50">
-          <img src="../sdp-logo.png" class="w-28" alt="" />
-        </div>
-        <img src="../sdp-logo.png" class="w-28 relative" alt="SDP Logo" />
-      </div>
+  This component uses a three-layer styling approach that must be preserved:
 
-      <h1
-        class="!text-4xl !font-bold !mb-2 bg-gradient-to-r bg-clip-text text-transparent"
-        :class="t.heading"
-      >
-        {{ title }}
-      </h1>
+  Layer 1: Layout & Structure (style.css)
+    • Positioning: position: absolute, z-index
+    • Layout: flex, flex-direction, justify-content, align-items
+    • Sizing: height, width
+    • Spacing: margin, padding
+    Example: .sv-thanks-slide { position: relative; display: flex; height: 100%; }
 
-      <div class="mb-3">
-        <span
-          class="px-6 py-1 bg-gradient-to-r rounded-full text-white text-sm font-medium shadow-lg"
-          :class="t.pill"
-        >
-          {{ subtitle }}
-        </span>
-      </div>
+  Layer 2: Typography & Effects (inline Tailwind utilities)
+    • Sizing: text-3xl, font-bold, text-sm, w-20
+    • Effects: shadow-lg, rounded, border
+    • Spacing: mb, mt, gap
+    • Positioning: relative
+    Example: class="text-3xl font-bold" and class="w-20"
 
-      <div class="grid gap-2 max-w-3xl text-sm mb-3" :class="gridColsClass">
-        <div
-          v-for="(card, index) in cards"
-          :key="index"
-          :class="cardStyles[index % 4].card"
-          class="p-2 rounded-xl border"
-        >
-          <div class="text-2xl mb-1">{{ card.icon }}</div>
-          <div :class="cardStyles[index % 4].value" class="text-xl font-bold">
-            {{ card.value }}
-          </div>
-          <div class="text-xs opacity-80 mt-1">{{ card.detail }}</div>
-          <div :class="cardStyles[index % 4].subdetail" class="text-xs mt-1">
-            {{ card.subdetail }}
-          </div>
-        </div>
-      </div>
+  Layer 3: Dynamic Colors (Vue theme object)
+    • DARK_THEME and LIGHT_THEME with orb, tagline, footer, etc.
+    • Applied via :class="t.orb" for dynamic switching
+    • Never hardcode colors in the template
+    Example: :class="t.tagline" → "text-indigo-300" or "text-indigo-700"
 
-      <div class="text-sm opacity-70">
-        {{ prompt }}
-      </div>
-    </div>
+  WHY THIS MATTERS:
+  All color values must come from the theme object so isDark switching works.
+  The theme object is reactive, inline styles and CSS classes are not.
 
-    <div
-      class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent to-transparent"
-      :class="t.divider"
-    ></div>
-  </div>
-</template>
+  DO NOT:
+  - Move colors to styles.css
+  - Add inline style="" attributes
+  - Hardcode color classes in the template
+-->
 
 <script setup>
 import { computed } from "vue";
@@ -113,3 +81,86 @@ const LIGHT_THEME = {
 const cardStyles = computed(() => isDark.value ? DARK_CARD_STYLES : LIGHT_CARD_STYLES)
 const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 </script>
+
+<template>
+<template>
+  <!-- Full-height centered container -->
+  <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+    <!-- Ambient gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
+
+    <!-- Animated blur orb (centered) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r rounded-full blur-3xl" :class="t.orb"></div>
+
+    <!-- ===== CENTER CONTENT ===== -->
+    <div class="relative z-10 flex flex-col items-center text-center">
+      <!-- ===== LOGO SECTION ===== -->
+      <!-- Logo with glow effect -->
+      <div class="relative mb-2">
+        <!-- Blurred background logo (glow) -->
+        <div class="absolute inset-0 blur-2xl opacity-50">
+          <img src="../sdp-logo.png" class="w-28" alt="" />
+        </div>
+        <!-- Main logo (sharp, on top) -->
+        <img src="../sdp-logo.png" class="w-28 relative" alt="SDP Logo" />
+      </div>
+
+      <!-- ===== HEADING ===== -->
+      <!-- Main title with gradient text -->
+      <h1 class="!text-4xl !font-bold !mb-2 bg-gradient-to-r bg-clip-text text-transparent" :class="t.heading">
+        {{ title }}
+      </h1>
+
+      <!-- ===== SUBTITLE PILL ===== -->
+      <!-- Tagline in pill format -->
+      <div class="mb-3">
+        <span class="px-6 py-1 bg-gradient-to-r rounded-full text-white text-sm font-medium shadow-lg" :class="t.pill">
+          {{ subtitle }}
+        </span>
+      </div>
+
+      <!-- ===== CARDS SECTION ===== -->
+      <!-- Grid of outcome/detail cards (2, 3, or 4 columns based on card count) -->
+      <div class="grid gap-2 max-w-3xl text-sm mb-3" :class="gridColsClass">
+        <!-- Card item -->
+        <div
+          v-for="(card, index) in cards"
+          :key="index"
+          :class="cardStyles[index % 4].card"
+          class="p-2 rounded-xl border"
+        >
+          <!-- Card icon (large watermark) -->
+          <div class="text-2xl mb-1">
+            {{ card.icon }}
+          </div>
+
+          <!-- Card value (main number/metric) -->
+          <div :class="cardStyles[index % 4].value" class="text-xl font-bold">
+            {{ card.value }}
+          </div>
+
+          <!-- Card detail (metric description) -->
+          <div class="text-xs opacity-80 mt-1">
+            {{ card.detail }}
+          </div>
+
+          <!-- Card subdetail (additional info) -->
+          <div :class="cardStyles[index % 4].subdetail" class="text-xs mt-1">
+            {{ card.subdetail }}
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PROMPT/CTA ===== -->
+      <!-- Call-to-action or final prompt -->
+      <div class="text-sm opacity-70">
+        {{ prompt }}
+      </div>
+    </div>
+
+    <!-- ===== BOTTOM DIVIDER ===== -->
+    <!-- Decorative bottom line -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent to-transparent" :class="t.divider"></div>
+  </div>
+</template>
+</template>

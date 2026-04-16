@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1127,6 +1128,22 @@ highlight="The transition from pilot success to organizational capability requir
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="50 Teams to Organization-Level Scaling"
+leftLabel="Before"
+rightLabel="After"
+:leftItems='["Teams: 50 isolated silos", "Cost: per-team overhead", "Onboarding: 45 days", "Knowledge: siloed practices"]'
+:rightItems='["Teams: unified organization", "Cost: 30–40% reduction", "Onboarding: 28 days", "Knowledge: shared patterns"]'
+:metrics='[
+  { value: "16x", detail: "ROI" },
+  { value: "30–40%", detail: "Cost reduction" },
+  { value: "45 → 28 days", detail: "Onboarding" }
+]'
+/>
 
 ---
 

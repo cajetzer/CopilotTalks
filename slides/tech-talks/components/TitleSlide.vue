@@ -1,23 +1,83 @@
+<!--
+  TitleSlide Styling Architecture:
+
+  This component uses a three-layer styling approach that must be preserved:
+
+  Layer 1: Layout & Structure (style.css)
+    • Positioning: position: absolute, z-index, inset
+    • Layout: flex, flex-direction, justify-content, align-items
+    • Sizing: width, height, border-radius
+    • Spacing: margin, padding
+    Example: .sv-title-slide { position: relative; display: flex; height: 100%; }
+
+  Layer 2: Typography & Effects (inline Tailwind utilities)
+    • Sizing: w-64, !text-5xl, !font-bold, !mt-8
+    • Effects: shadow-lg, bg-clip-text, text-transparent
+    • Positioning: relative
+    Example: class="w-64 relative" and class="!text-5xl !font-bold"
+
+  Layer 3: Dynamic Colors (Vue theme object)
+    • Component-aware color schemes defined in DARK_THEME and LIGHT_THEME
+    • Applied via :class="t.bg" for dynamic dark/light switching
+    • Never hardcode gradient colors in the template
+    Example: :class="t.bg" → "from-cyan-900/20 via-blue-900/10 to-indigo-900/20"
+
+  WHY THIS MATTERS:
+  CSS variables + @apply would look cleaner but break theme switching. The theme
+  object is Vue reactive (isDark ref), so it must drive color class selection.
+  Splitting layout (CSS) from colors (Vue) is intentional and good.
+
+  DO NOT:
+  - Move gradient colors to styles.css (breaks isDark reactivity)
+  - Add inline style="" attributes (loses Tailwind benefits)
+  - Use data-theme attributes (conflicts with isDark ref logic)
+-->
+
 <template>
+  <!-- Full-height container with flexbox centering -->
   <div class="sv-title-slide">
+    <!-- Ambient gradient background -->
     <div class="sv-title-bg bg-gradient-to-br" :class="t.bg"></div>
+
+    <!-- Animated blur orb -->
     <div class="sv-title-orb bg-gradient-to-r" :class="t.orb"></div>
+
+    <!-- Logo section with glow effect -->
     <div class="sv-title-logo">
+      <!-- Logo glow (blurred copy behind) -->
       <div class="sv-title-logo-glow">
         <img src="../sdp-logo.png" class="w-64" alt="" />
       </div>
+      <!-- Main logo (sharp, on top) -->
       <img src="../sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
     </div>
-    <h1 class="sv-title-heading !text-5xl !font-bold !mt-8 bg-gradient-to-r bg-clip-text text-transparent" :class="t.heading">{{ title }}</h1>
+
+    <!-- Main title with gradient text effect -->
+    <h1 class="sv-title-heading !text-5xl !font-bold !mt-8 bg-gradient-to-r bg-clip-text text-transparent" :class="t.heading">
+      {{ title }}
+    </h1>
+
+    <!-- Subtitle pill (theme-colored background) -->
     <div class="sv-title-pill-wrap">
-      <span class="sv-title-pill bg-gradient-to-r shadow-lg" :class="t.pill">{{ subtitle }}</span>
+      <span class="sv-title-pill bg-gradient-to-r shadow-lg" :class="t.pill">
+        {{ subtitle }}
+      </span>
     </div>
-    <div v-if="tagline" class="sv-title-tagline">{{ tagline }}</div>
+
+    <!-- Optional tagline text -->
+    <div class="sv-title-tagline">
+      {{ tagline }}
+    </div>
+
+    <!-- Decorative divider -->
     <div class="sv-title-divider bg-gradient-to-r from-transparent to-transparent" :class="t.divider"></div>
   </div>
 
+  <!-- Bottom-right metadata (speaker info, date, etc.) -->
   <div class="sv-title-meta">
-    <span class="text-sm opacity-50">{{ meta }}</span>
+    <span class="text-sm opacity-50">
+      {{ meta }}
+    </span>
   </div>
 </template>
 
@@ -28,8 +88,8 @@ import { isDark } from './useTheme';
 defineProps({
   title: { type: String, required: true },
   subtitle: { type: String, required: true },
-  tagline: { type: String, default: "" },
-  meta: { type: String, default: "" },
+  tagline: { type: String, required: true },
+  meta: { type: String, required: true },
 });
 
 const DARK_THEME = {

@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1126,6 +1127,22 @@ server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-am
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="ASCII Tables to Interactive Dashboards"
+leftLabel="Before"
+rightLabel="After"
+:leftItems='["Analysis: 15–20 min to read tables", "Queries: 10 min per manual drill-down", "Issue detection: manual scanning", "Dashboard: ASCII static view"]'
+:rightItems='["Analysis: 90 sec with visuals", "Queries: 2 min with interactive drill", "Issue detection: 40% faster", "Dashboard: interactive components"]'
+:metrics='[
+  { value: "15–20 min → 90 sec", detail: "Analysis time" },
+  { value: "10 min → 2 min", detail: "Query time" },
+  { value: "40%", detail: "Faster detection" }
+]'
+/>
 
 ---
 

@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -988,8 +989,19 @@ PR will be created when complete<br/>
 <div class="opacity-80">Not YAML from scratch</div>
 </div>
 </div>
-</div>
-</div>
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Trial-and-Error to Plan-First Workflow"
+:leftItems='["Attempts: 8 per task", "Docker debugging: 45 min", "Scaffolding: 90 min", "Manual verification"]'
+:rightItems='["Attempts: 2 with plan review", "Docker debugging: 8 min", "Scaffolding: 15 min", "AI verification built-in"]'
+:metrics='[
+  { value: "8 → 2", detail: "Attempt reduction" },
+  { value: "45 min → 8 min", detail: "Docker debugging" },
+  { value: "90 min → 15 min", detail: "Scaffolding time" }
+]'
+/>
 
 ---
 

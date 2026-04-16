@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1021,6 +1022,22 @@ user-invokable: true
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Single Assistant to Multi-Agent Platform"
+leftLabel="Before"
+rightLabel="After"
+:leftItems='["Capability: single-agent chat", "Releases: quarterly", "Parallelism: sequential research", "Bottleneck: human context switching"]'
+:rightItems='["Capability: 4 specialized agents", "Releases: v1.108–v1.115 (weekly)", "Parallelism: parallel research teams", "Bottleneck: eliminated"]'
+:metrics='[
+  { value: "4 types", detail: "Specialized agents" },
+  { value: "v1.108–v1.115", detail: "Weekly releases" },
+  { value: "Parallel", detail: "Research teams" }
+]'
+/>
 
 ---
 

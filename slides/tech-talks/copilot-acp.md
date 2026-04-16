@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1068,6 +1069,30 @@ Also available: Python, Rust, Kotlin SDKs
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+  header="🌐 From Tool Silos to Universal Protocol"
+  :leftItems="[
+    'Every editor needs a custom AI plugin — VS Code, Zed, Neovim, JetBrains all incompatible',
+    'Agents lock into specific editor integrations with brittle update cycles',
+    'Tools and CI/CD have no way to leverage agent capabilities',
+    'Developers lose AI features when switching editors'
+  ]"
+  :rightItems="[
+    'One ACP server works with any ACP-compatible editor or tool out of the box',
+    'Agents implement once, work everywhere — agents scale linearly with editors',
+    'CI/CD, custom tools, and dashboards all connect via standard SDKs',
+    'Developer experience consistent across your entire toolchain'
+  ]"
+  :metrics="[
+    { value: 'N×M → N+M', detail: 'Integration model shift' },
+    { value: '2-3 weeks → 2-3 days', detail: 'Time to add new editor' },
+    { value: 'Any Editor', detail: 'Full agent parity everywhere' }
+  ]"
+/>
 
 ---
 

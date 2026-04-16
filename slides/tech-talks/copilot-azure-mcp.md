@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1050,6 +1051,20 @@ Output: appId, password, tenant (save these)
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Portal-Based to Conversational Terminal"
+:leftItems='["Portal navigation for exploration", "Tools: 4–6 CLI commands", "Setup: 10 min per workspace", "Context: assumptions, documentation"]'
+:rightItems='["Conversational terminal queries", "Tools: 1 integrated MCP server", "Setup: 8 minutes", "Context: live subscriptions"]'
+:metrics='[
+  { value: "hours → 8 min", detail: "Prototype time" },
+  { value: "4–6 → 1", detail: "Tool consolidation" },
+  { value: "10 min", detail: "Setup time" }
+]'
+/>
 
 ---
 

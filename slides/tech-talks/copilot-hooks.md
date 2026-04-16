@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -985,9 +986,19 @@ fi</code></pre>
 <div class="font-semibold text-pink-300 mb-1">📊 Quality Metrics</div>
 <div class="opacity-80">PostToolUse logs rule violations. Dashboard shows which standards agents violate most → training signal.</div>
 </div>
-</div>
-</div>
-</div>
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Manual Compliance to Real-Time Governance"
+:leftItems='["Audit: 2–3 hrs per cycle", "Prevention: manual checks", "Coverage: isolated hooks", "Compliance: reactive"]'
+:rightItems='["Audit: 5 min automated", "Prevention: real-time governance", "Coverage: 8 lifecycle events", "Compliance: proactive"]'
+:metrics='[
+  { value: "2–3 hrs → 5 min", detail: "Audit acceleration" },
+  { value: "Real-time", detail: "Prevention mode" },
+  { value: "8 hooks", detail: "Lifecycle coverage" }
+]'
+/>
 
 ---
 

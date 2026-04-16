@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -847,6 +848,20 @@ templates
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Repeated Context to Encoded Conventions"
+:leftItems='["Context: repeated per conversation", "Implementation: manual per developer", "Effect: inconsistent across team", "ROI: hours per developer per month"]'
+:rightItems='["Context: encoded in instructions", "Implementation: 5 minutes", "Effect: instant team-wide", "ROI: 40% code review reduction"]'
+:metrics='[
+  { value: "40%", detail: "Code review reduction" },
+  { value: "5 min", detail: "Implementation time" },
+  { value: "Instant", detail: "Team-wide effect" }
+]'
+/>
 
 ---
 

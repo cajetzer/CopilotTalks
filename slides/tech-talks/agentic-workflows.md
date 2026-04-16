@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -896,7 +897,19 @@ Express intent without implementation details — AI adapts to repository contex
 </div>
 </div>
 </div>
-</div>
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="From YAML to Intent-Driven Automation"
+:leftItems='["Manual YAML authoring", "Complexity: 50%+", "Deployment: hours", "Audit trail: incomplete"]'
+:rightItems='["Natural language intent", "Complexity: 50% reduction", "Deployment: minutes", "Audit trail: comprehensive"]'
+:metrics='[
+  { value: "50%+", detail: "Complexity reduction" },
+  { value: "hours → min", detail: "Deployment acceleration" },
+  { value: "Full coverage", detail: "Audit trail" }
+]'
+/>
 
 ---
 

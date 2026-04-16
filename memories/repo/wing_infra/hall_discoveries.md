@@ -4,6 +4,31 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## Build script wrapper solves agent invocation path context issues (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+Creating a simple wrapper script at `slides/build.ps1` that delegates to `scripts/build-all.ps1` solves a persistent problem with agent/automation tools invoking the build system: agents often run from various working directories and PowerShell has trouble resolving relative paths consistently across contexts.
+
+**The pattern:**
+```powershell
+# slides/build.ps1
+$ScriptsDir = Join-Path $PSScriptRoot scripts
+Push-Location $ScriptsDir
+& .\build-all.ps1 @args
+Pop-Location
+```
+
+This wrapper:
+- ✅ Captures the slides/ directory using `$PSScriptRoot` (location-independent)
+- ✅ Changes directory before invoking the main script (ensures correct path resolution)
+- ✅ Forwards all parameters unchanged (supports `-Folder`, `-Verbose` flags)
+- ✅ Restores the original directory via `finally` block (no side effects)
+
+**Result:** Agents can call `slides\build.ps1` from any working directory without path logic. The wrapper handles navigation automatically. Build output is deterministic and reliable.
+
+---
+
 ## SectionOpenerSlide: multi-part rollout via per-part regex replacement (2026-04-16)
 
 `schema_version: 1` | `date: 2026-04-16`
@@ -123,6 +148,33 @@ for ($i = 0; $i -lt $slides.Count; $i++) {
 ```
 
 **Root cause hypothesis:** The agent's context window or chunked generation causes it to lose track of nesting depth, especially on slides with 3+ levels of nested divs.
+
+---
+
+## BeforeAfterSlide component simplified: hardcoded labels reduce prop complexity (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+Removed `leftLabel` and `rightLabel` props from BeforeAfterSlide component. Labels are now hardcoded as "Before" and "After" directly in the template.
+
+**Why this works:**
+- Before/After is _semantically fixed_ — there's never a use case for "Past" or "Initial State"
+- Removing props simplifies component API from 5 props to 3 props (header, leftItems, rightItems, metrics)
+- All 17 tech-talk decks were updated: removed redundant `leftLabel="Before" rightLabel="After"` lines
+- Agents generate simpler markup with fewer attribute lines to get wrong
+
+**Standardization bonus:**
+- All 17 decks now use identical slide comment: `<!-- SLIDE: Before/After -->`
+- Agents and humans can search for "Before/After" to find this slide in any deck
+- Previously each deck had a unique comment (The Value Recap, From Manual Bottlenecks to Agentic Velocity, etc.) making cross-deck navigation harder
+
+**Template and generator updated:**
+- `slides/tech-talks/template.md`: BeforeAfterSlide section now documents `header`, `leftItems` (4 bullets), `rightItems` (4 bullets), `metrics` (exactly 3)
+- `.github/agents/slide-generator.agent.md`: Added N-3 component to required slides table and validation checklist
+
+**Verified:** All 17 decks rebuild successfully with no changes to visual output.
+
+---
 
 **Source:** vscode-latest.md generation session 2026-04-13 — 7 of 24 slides required manual div balance fixes before build would pass.
 

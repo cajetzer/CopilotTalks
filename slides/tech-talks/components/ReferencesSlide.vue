@@ -1,45 +1,39 @@
-<template>
-  <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-    <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
-    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="t.orb"></div>
+<!--
+  ReferencesSlide Styling Architecture:
 
-    <!-- Breadcrumb pill -->
-    <div class="relative z-10 flex items-center gap-3 mb-4">
-      <span class="px-4 py-1 bg-gradient-to-r rounded-full text-white text-xs font-semibold tracking-wide shadow-lg" :class="t.pill">📚 References</span>
-      <div class="flex-1 h-px bg-gradient-to-r" :class="t.divider"></div>
-    </div>
+  This component uses a three-layer styling approach that must be preserved:
 
-    <!-- Two-column groups grid -->
-    <div class="relative z-10 flex-1 min-h-0">
-      <div class="grid grid-cols-2 gap-4 text-xs">
-        <div v-for="group in groups" :key="group.title">
-          <div :class="titleCls(group.color)" class="font-bold mb-2 text-sm">{{ group.title }}</div>
-          <div class="space-y-1.5">
-            <div
-              v-for="item in group.items"
-              :key="item.label"
-              class="p-2 rounded border"
-              :class="t.itemBg"
-            >
-              <a
-                v-if="item.href"
-                :href="item.href"
-                :class="linkCls(group.color)"
-                class="font-medium"
-              >{{ item.label }}</a>
-              <span
-                v-else
-                :class="spanCls(group.color)"
-                class="font-medium"
-              >{{ item.label }}</span>
-              <div class="mt-0.5" :class="t.itemDesc">{{ item.description }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
+  Layer 1: Layout & Structure (style.css)
+    • Positioning: position: absolute, z-index
+    • Layout: flex, flex-direction, justify-content, grid
+    • Sizing: height, border-radius
+    • Spacing: padding, margin, gap
+    Example: .sv-references-slide { position: relative; display: flex; height: 100%; }
+
+  Layer 2: Typography & Effects (inline Tailwind utilities)
+    • Grid layout: grid, grid-cols-2, gap-4, space-y
+    • Sizing: text-xs, text-sm, font-bold, font-medium
+    • Spacing: p-2, mb, mt
+    • Positioning: relative
+    • Effects: rounded, border, hover effects
+    Example: class="grid grid-cols-2 gap-4" and class="text-sm font-bold"
+
+  Layer 3: Dynamic Colors (Vue theme object)
+    • DARK_COLORS and LIGHT_COLORS with 10 color sets (one per accent color)
+    • titleCls, linkCls, spanCls methods map group.color to theme colors
+    • Applied via :class="linkCls(group.color)" for dynamic switching
+    • Never hardcode colors in the template
+    Example: :class="linkCls('cyan')" → "text-cyan-400 hover:text-cyan-300"
+
+  WHY THIS MATTERS:
+  References can be grouped by different colors (cyan, purple, blue, etc.).
+  Using color-aware theme mappings ensures all colors react to isDark.
+
+  DO NOT:
+  - Move reference colors to styles.css (breaks isDark reactivity)
+  - Add inline style="" attributes
+  - Hardcode colors like "text-cyan-400" in the template
+-->
 
 <script setup>
 /**
@@ -114,3 +108,64 @@ const titleCls = (c) => (colors.value[c] || colors.value.cyan).title;
 const linkCls  = (c) => (colors.value[c] || colors.value.cyan).link;
 const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
 </script>
+
+<template>
+<template>
+  <!-- Full-height container -->
+  <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <!-- Ambient gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
+
+    <!-- Animated blur orb in top-right -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="t.orb"></div>
+
+    <!-- ===== HEADER SECTION ===== -->
+    <!-- Section label pill + divider -->
+    <div class="relative z-10 flex items-center gap-3 mb-4">
+      <span class="px-4 py-1 bg-gradient-to-r rounded-full text-white text-xs font-semibold tracking-wide shadow-lg" :class="t.pill">
+        📚 References
+      </span>
+      <div class="flex-1 h-px bg-gradient-to-r" :class="t.divider"></div>
+    </div>
+
+    <!-- ===== CONTENT SECTION ===== -->
+    <!-- Two-column groups grid -->
+    <div class="relative z-10 flex-1 min-h-0">
+      <div class="grid grid-cols-2 gap-4 text-xs">
+        <!-- Reference group (category) -->
+        <div v-for="group in groups" :key="group.title">
+          <!-- Group heading -->
+          <div :class="titleCls(group.color)" class="font-bold mb-2 text-sm">
+            {{ group.title }}
+          </div>
+
+          <!-- Items list in this group -->
+          <div class="space-y-1.5">
+            <!-- Reference item -->
+            <div
+              v-for="item in group.items"
+              :key="item.label"
+              class="p-2 rounded border"
+              :class="t.itemBg"
+            >
+              <!-- Reference link -->
+              <a
+                :href="item.href"
+                :class="linkCls(group.color)"
+                class="font-medium"
+              >
+                {{ item.label }}
+              </a>
+
+              <!-- Reference description -->
+              <div class="mt-0.5" :class="t.itemDesc">
+                {{ item.description }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+</template>

@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -642,7 +643,19 @@ highlight="DevTools for AI closes this gap."
 <div class="text-sm font-semibold text-green-300">Mental Model Shift: From "AI responses are unpredictable black boxes" to "Every interaction is inspectable, debuggable, and improvable"</div>
 </div>
 </div>
-</div>
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Black-Box Debugging to Observable Reasoning"
+:leftItems='["Black-box reasoning", "Debugging: 45 min per issue", "Refinement: 30 min per cycle", "Trial-and-error debugging"]'
+:rightItems='["Observable thinking tokens", "Debugging: 4 min per issue", "Refinement: 5 min per cycle", "Systematic investigation"]'
+:metrics='[
+  { value: "45 min → 4 min", detail: "Debugging acceleration" },
+  { value: "30 min → 5 min", detail: "Refinement cycle" },
+  { value: "1–2 hrs/week", detail: "Savings" }
+]'
+/>
 
 ---
 

@@ -1,3 +1,41 @@
+<!--
+  SectionOpenerSlide Styling Architecture:
+
+  This component uses a three-layer styling approach that must be preserved:
+
+  Layer 1: Layout & Structure (style.css)
+    • Positioning: position: absolute, z-index
+    • Layout: flex, flex-direction, justify-content, grid
+    • Sizing: height, width, border-radius
+    • Spacing: padding, margin, gap
+    Example: .sv-section-opener-slide { position: relative; display: flex; }
+
+  Layer 2: Typography & Effects (inline Tailwind utilities)
+    • Sizing: text-5xl, font-bold, text-xs, text-xl
+    • Grid layout: grid, grid-cols-3, gap-4
+    • Spacing: p-4, mb, mt, px-8
+    • Positioning: relative, absolute
+    • Effects: bg-clip-text, text-transparent, rounded-lg, border, line-clamp
+    Example: class="text-5xl font-bold" and class="grid grid-cols-3 gap-4"
+
+  Layer 3: Dynamic Colors (Vue theme object)
+    • colorThemes object with 4 complete color sets (one per partNumber)
+    • Each part has distinct gradients and text colors
+    • Applied via computed colors based on props.partNumber
+    • Never hardcode colors in the template
+    Example: colors.value.title → "from-cyan-300 via-blue-300 to-indigo-300"
+
+  WHY THIS MATTERS:
+  SectionOpener is the only component where title uses gradient text (text-5xl with
+  bg-clip-text). Each of 4 parts needs distinct gradient colors that react to isDark.
+  Using colorThemes ensures proper part-to-color mapping.
+
+  DO NOT:
+  - Move part colors to styles.css (breaks isDark reactivity and partNumber logic)
+  - Add inline style="" attributes
+  - Hardcode gradients in the template
+-->
+
 <script setup>
 import { computed } from 'vue'
 import { isDark } from './useTheme'
@@ -137,25 +175,73 @@ const theme = computed(() => (isDark.value ? DARK_THEMES : LIGHT_THEMES)[props.p
 </script>
 
 <template>
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br" :class="theme.ambientBg"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r rounded-full blur-3xl" :class="theme.orb"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r rounded-full border text-sm font-medium tracking-widest uppercase" :class="theme.pill">Part {{ partNumber }}</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r bg-clip-text text-transparent leading-tight" :class="theme.h1">{{ title }}</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">{{ subtitle }}</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent to-transparent mb-6" :class="theme.divider"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div v-for="(card, i) in cards" :key="i" class="px-4 py-3 rounded-xl border" :class="[theme.cards[i].bg, theme.cards[i].border]">
-<div class="text-2xl mb-1">{{ card.icon }}</div>
-<div class="font-semibold" :class="theme.cards[i].title">{{ card.title }}</div>
-<div class="text-xs opacity-70 mt-1">{{ card.blurb }}</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">{{ terminal.context }}</span><br />
-<span class="mt-1 block" :class="theme.arrow">↳ {{ terminal.detail }}</span>
-</div>
-</div>
-</div>
+  <!-- Full-height centered container -->
+  <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+    <!-- Ambient gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br" :class="theme.ambientBg"></div>
+
+    <!-- Animated blur orb (centered) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r rounded-full blur-3xl" :class="theme.orb"></div>
+
+    <!-- ===== CENTER CONTENT ===== -->
+    <div class="relative z-10 flex flex-col items-center text-center">
+      <!-- ===== PART PILL ===== -->
+      <!-- Part number indicator -->
+      <div class="mb-4 px-4 py-1.5 bg-gradient-to-r rounded-full border text-sm font-medium tracking-widest uppercase" :class="theme.pill">
+        Part {{ partNumber }}
+      </div>
+
+      <!-- ===== SECTION TITLE ===== -->
+      <!-- Main title with gradient text (larger size) -->
+      <h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r bg-clip-text text-transparent leading-tight" :class="theme.h1">
+        {{ title }}
+      </h1>
+
+      <!-- ===== SECTION SUBTITLE ===== -->
+      <!-- Supporting subtitle (smaller size) -->
+      <h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">
+        {{ subtitle }}
+      </h2>
+
+      <!-- ===== DIVIDER ===== -->
+      <!-- Decorative separator line -->
+      <div class="w-24 h-0.5 bg-gradient-to-r from-transparent to-transparent mb-6" :class="theme.divider"></div>
+
+      <!-- ===== CONTEXT CARDS ===== -->
+      <!-- Three supporting context cards -->
+      <div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
+        <!-- Context card -->
+        <div v-for="(card, i) in cards" :key="i" class="px-4 py-3 rounded-xl border" :class="[theme.cards[i].bg, theme.cards[i].border]">
+          <!-- Card icon -->
+          <div class="text-2xl mb-1">
+            {{ card.icon }}
+          </div>
+
+          <!-- Card title -->
+          <div class="font-semibold" :class="theme.cards[i].title">
+            {{ card.title }}
+          </div>
+
+          <!-- Card description -->
+          <div class="text-xs opacity-70 mt-1">
+            {{ card.blurb }}
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TERMINAL CONTEXT ===== -->
+      <!-- Terminal/console-style context box -->
+      <div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+        <!-- Context line (before state) -->
+        <span class="text-gray-400">
+          {{ terminal.context }}
+        </span>
+        <!-- Arrow pointer + detail line (after state) -->
+        <br />
+        <span class="mt-1 block" :class="theme.arrow">
+          ↳ {{ terminal.detail }}
+        </span>
+      </div>
+    </div>
+  </div>
 </template>

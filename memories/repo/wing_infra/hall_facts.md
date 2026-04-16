@@ -4,6 +4,68 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Build script wrapper pattern: delegates from slides/ root to scripts/ directory (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+The main build orchestrator (`scripts/build-all.ps1`) must run from the `scripts/` directory to ensure correct path resolution. A wrapper script at `slides/build.ps1` enables calling from any context:
+
+```powershell
+# At scripts/build-all.ps1:
+$SlidesDir = Split-Path -Parent $PSScriptRoot  # resolves to slides/
+
+# At slides/build.ps1 wrapper:
+$ScriptsDir = Join-Path $PSScriptRoot scripts
+Push-Location $ScriptsDir
+& .\.\build-all.ps1 @args
+Pop-Location
+```
+
+**Usage from any directory:**
+```powershell
+# From anywhere, call the wrapper
+& "C:\...\slides\build.ps1" Tech-talks
+
+# Or from slides/ directory
+.\build.ps1 Tech-talks
+```
+
+**Parameters:** All parameters are forwarded unchanged via `@args`. Supports `Tech-talks`, `workshop`, `exec-talks`, `-Verbose` flag.
+
+**Why this matters:** Agents/automation tools can reliably invoke the build from different working directories without path context issues. The wrapper handles directory navigation automatically.
+
+**Documentation:** `slides/scripts/README.md` explains the pattern and provides complete usage reference.
+
+---
+
+## PowerShell emoji parser errors: use ASCII text equivalents (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+PowerShell's `Write-Host` cmdlet sometimes fails to parse emoji Unicode characters in string literals. This is particularly true when emoji appear in variable interpolations or complex string contexts, causing output pipeline issues.
+
+**Problem examples:**
+```powershell
+# FAILS: Emoji in interpolated string
+Write-Host "🚀 Building $Folder presentations..."
+
+# FAILS: Emoji in output
+Write-Host "✅ $Category/$BaseName built"
+```
+
+**Solution:** Use ASCII text placeholders instead:
+```powershell
+# WORKS: ASCII placeholders
+Write-Host "[ROCKET] Building $Folder presentations..."
+Write-Host "[OK] $Category/$BaseName built"
+```
+
+**Mapping:** 🚀→`[ROCKET]` | 📁→`[FOLDER]` | 📦→`[BOX]` | 📢→`[SPEAKER]` | 📂→`[OPEN_FOLDER]` | 🔨→`[HAMMER]` | ✅→`[OK]` | ❌→`[FAILED]` | ⏭️→`[SKIP]` | 🔬→`[SCIENCE]` | 📚→`[BOOKS]` | 📄→`[DOC]` | ✨→`[DONE]` | ⏱️→`[CLOCK]`
+
+**All scripts updated:** `scripts/build-all.ps1` uses ASCII equivalents throughout. Output remains readable and colorized per line.
+
+---
+
 ## useTheme.ts pattern: how dark/light mode works in tech-talk components (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`
@@ -336,6 +398,68 @@ In the CopilotTraining devcontainer, Slidev's `--remote` flag must be passed as 
 ```
 
 **Effect:** Binds to `0.0.0.0` (all interfaces) with no password, allowing VS Code devcontainer port forwarding to reach the server on port 3030.
+
+---
+
+## BeforeAfterSlide component: props, constraints, and usage (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+The `BeforeAfterSlide` component is **REQUIRED as slide N-3** (immediately before What You Can Do Today) in all tech-talk decks. Labels are hardcoded as "Before" and "After" — do not pass them as props.
+
+**Import:**
+```js
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
+```
+
+**Props:**
+| Prop | Type | Required | Notes |
+|------|------|----------|-------|
+| `header` | String | ✅ | Transformation title. Max 80 chars. (e.g., "From Manual Reviews to Scalable Quality") |
+| `:leftItems` | Array (4) | ✅ | Exactly 4 bullets describing the "before" state. Max 100 chars per item. |
+| `:rightItems` | Array (4) | ✅ | Exactly 4 bullets describing the "after" state. Max 100 chars per item. |
+| `:metrics` | Array (3) | ✅ | Exactly 3 quantified outcomes: `[{ value: string, detail: string }, ...]`. Max 60 chars per field. |
+
+**Hardcoded (not configurable):**
+- Left label: **Before** (red/rose theme)
+- Right label: **After** (green/emerald theme)
+- Metrics render with cyan/blue/indigo bullets and `→` progression arrow
+- Metric cards styled with gray backgrounds and transparent borders
+
+**Apostrophe rule:** `:leftItems='[...]'` uses single-quoted attributes. Escape apostrophes in strings as `&#39;`.
+
+**Separator rule:** blank line required before `---` after `/>` closing tag.
+
+**Slide comment:** must use `<!-- SLIDE: Before/After -->` for standardized searching across all decks.
+
+**Usage:**
+```html
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+  header="From Manual Reviews to Scalable Quality"
+  :leftItems='[
+    "Time-consuming manual code review process",
+    "Inconsistent feedback and coding standards",
+    "Delays blocking developer productivity",
+    "Limited reviewer scalability"
+  ]'
+  :rightItems='[
+    "Intelligent automated review with real-time suggestions",
+    "Consistent, contextual guidance applied instantly",
+    "Developers unblocked within seconds",
+    "Reviews scale to thousands of pull requests"
+  ]'
+  :metrics='[
+    { value: "80%", detail: "faster review time" },
+    { value: "10x", detail: "more consistent feedback" },
+    { value: "4.2h", detail: "saved per developer per week" }
+  ]'
+/>
+```
+
+**Build verified:** all 17 active tech-talk decks ✅ (April 2026)
+
+---
 
 **Also added** `"forwardPorts": [3030]` to `.devcontainer/devcontainer.json` for automatic port forwarding on container rebuild.
 

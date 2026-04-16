@@ -28,6 +28,7 @@ Slide 1 — Title              ← TitleSlide
 Slide 2 — Core Question      ← CoreQuestionSlide (REQUIRED)
 Slide 3 — Table of Contents  ← TocSlide (REQUIRED)
 ...content slides...
+N-3     — Before/After       ← BeforeAfterSlide (REQUIRED)
 N-2     — What You Can Do Today  ← WhatYouCanDoTodaySlide (REQUIRED)
 N-1     — References             ← ReferencesSlide (REQUIRED)
 N       — Thank You              ← ThankYouSlide (REQUIRED)
@@ -40,6 +41,7 @@ All component imports go in a single `<script setup>` block at the top of the de
 import TitleSlide from './components/TitleSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
@@ -108,7 +110,29 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
 
 ---
 
-## Closing Slides (N-2 to N)
+## Closing Slides (N-3 to N)
+
+### Slide N-3 — Before/After (REQUIRED)
+
+```html
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+  header="{TRANSFORMATION_TITLE}"
+  :leftItems='["item 1", "item 2", "item 3", "item 4"]'
+  :rightItems='["item 1", "item 2", "item 3", "item 4"]'
+  :metrics='[
+    { value: "{VALUE_1}", detail: "{DETAIL_1}" },
+    { value: "{VALUE_2}", detail: "{DETAIL_2}" },
+    { value: "{VALUE_3}", detail: "{DETAIL_3}" }
+  ]'
+/>
+```
+
+- `header`: transformation title describing the before→after journey (e.g., "From Manual Reviews to Scalable Quality")
+- `leftItems`: exactly 4 bullets describing the "before" state (no need for labels — "Before" is hardcoded)
+- `rightItems`: exactly 4 bullets describing the "after" state (no need for labels — "After" is hardcoded)
+- `metrics`: exactly 3 quantified outcomes showing impact (value + detail pair)
+- Placed immediately before What You Can Do Today (N-3 position)
 
 ### Slide N-2 — What You Can Do Today (REQUIRED)
 

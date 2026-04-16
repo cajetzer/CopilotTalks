@@ -1,3 +1,40 @@
+<!--
+  CoreQuestionSlide Styling Architecture:
+
+  This component uses a three-layer styling approach that must be preserved:
+
+  Layer 1: Layout & Structure (style.css)
+    • Positioning: position: absolute, z-index, inset
+    • Layout: flex, flex-direction, justify-content
+    • Sizing: width, height, border-radius
+    • Spacing: margin, padding, gap
+    Example: .sv-core-question-slide { position: relative; display: flex; }
+
+  Layer 2: Typography & Effects (inline Tailwind utilities)
+    • Sizing: text-2xl, font-bold, text-xs, text-5xl
+    • Effects: shadow-lg, rounded-lg, border, overflow
+    • Grid layout: grid, grid-cols-3, gap-4
+    • Positioning: relative, absolute
+    Example: class="grid grid-cols-3 gap-4" and class="text-2xl font-bold"
+
+  Layer 3: Dynamic Colors (Vue theme object)
+    • DARK_CARD_STYLES and LIGHT_CARD_STYLES for per-card colors
+    • DARK_THEME and LIGHT_THEME for structural colors (pill, divider, text)
+    • Applied via :class for dark/light switching
+    • Never hardcode colors in the template
+    Example: :class="cardStyles[i].bg" → "from-cyan-900/30 to-blue-900/30"
+
+  WHY THIS MATTERS:
+  The card styles and theme colors must be computed properties so they react
+  to isDark changes. This is why we define DARK_CARD_STYLES and LIGHT_CARD_STYLES
+  as separate arrays, not single CSS classes.
+
+  DO NOT:
+  - Move card colors to styles.css (breaks isDark reactivity)
+  - Add inline style="" attributes
+  - Hardcode color class strings like "bg-cyan-900/30" in the template
+-->
+
 <script setup>
 import { computed } from 'vue'
 import { isDark } from './useTheme'
@@ -9,7 +46,7 @@ const props = defineProps({
   },
   subtext: {
     type: String,
-    default: '',
+    required: true,
   },
   highlight: {
     type: String,
@@ -88,30 +125,58 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 </script>
 
 <template>
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="t.orb"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r rounded-full text-white text-xs font-semibold tracking-wide shadow-lg" :class="t.pill">🤔 The Core Question</span>
-<div class="flex-1 h-px bg-gradient-to-r" :class="t.divider"></div>
-</div>
-<div class="relative z-10">
-<div class="p-6 bg-gradient-to-br rounded-xl border max-w-4xl mx-auto mb-5" :class="t.questionCard">
-<div class="text-2xl font-bold mb-3 line-clamp-2" :class="t.questionText">"{{ question }}"</div>
-<div class="text-base opacity-90 line-clamp-2"><span v-if="subtext">{{ subtext }} </span><span class="font-semibold" :class="t.highlight">{{ highlight }}</span></div>
-</div>
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-4 text-sm">
-<div
-v-for="(card, i) in cards"
-:key="i"
-class="relative p-4 bg-gradient-to-br rounded-lg border overflow-hidden"
-:class="[cardStyles[i].bg, cardStyles[i].border]"
->
-<div v-if="card.icon" class="absolute bottom-1 right-2 text-5xl opacity-10 select-none pointer-events-none leading-none">{{ card.icon }}</div>
-<div class="relative text-xs font-semibold mb-1 line-clamp-2" :class="cardStyles[i].title">{{ card.title }}</div>
-<div class="relative text-[10px] leading-tight opacity-70 line-clamp-3">{{ card.description }}</div>
-</div>
-</div>
-</div>
+  <!-- Full-height container with flex column layout -->
+  <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <!-- Ambient gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
+
+    <!-- Animated blur orb in top-right -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="t.orb"></div>
+
+    <!-- Header pill and divider line -->
+    <div class="relative z-10 flex items-center gap-3 mb-4">
+      <span class="px-4 py-1 bg-gradient-to-r rounded-full text-white text-xs font-semibold tracking-wide shadow-lg" :class="t.pill">
+        🤔 The Core Question
+      </span>
+      <div class="flex-1 h-px bg-gradient-to-r" :class="t.divider"></div>
+    </div>
+
+    <!-- Central question card -->
+    <div class="relative z-10">
+      <div class="p-6 bg-gradient-to-br rounded-xl border max-w-4xl mx-auto mb-5" :class="t.questionCard">
+        <!-- Question text in quotes -->
+        <div class="text-2xl font-bold mb-3 line-clamp-2" :class="t.questionText">
+          "{{ question }}"
+        </div>
+        <!-- Subtext + highlighted phrase -->
+        <div class="text-base opacity-90 line-clamp-2">
+          <span>{{ subtext }} </span>
+          <span class="font-semibold" :class="t.highlight">{{ highlight }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Six supporting context cards (3x2 grid) -->
+    <div class="relative z-10 grid grid-cols-3 gap-4 text-sm">
+      <div
+        v-for="(card, i) in cards"
+        :key="i"
+        class="relative p-4 bg-gradient-to-br rounded-lg border overflow-hidden"
+        :class="[cardStyles[i].bg, cardStyles[i].border]"
+      >
+        <!-- Large icon watermark (background) -->
+        <div class="absolute bottom-1 right-2 text-5xl opacity-10 select-none pointer-events-none leading-none">
+          {{ card.icon }}
+        </div>
+        <!-- Card title -->
+        <div class="relative text-xs font-semibold mb-1 line-clamp-2" :class="cardStyles[i].title">
+          {{ card.title }}
+        </div>
+        <!-- Card description -->
+        <div class="relative text-[10px] leading-tight opacity-70 line-clamp-3">
+          {{ card.description }}
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

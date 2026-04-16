@@ -4,6 +4,73 @@ Patterns that consistently work for Slidev slide authoring and editing.
 
 ---
 
+## Tech-talk components: prettification pattern for maintainability (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+All tech-talk components (`TitleSlide`, `CoreQuestionSlide`, `BeforeAfterSlide`, `TocSlide`, `WhatYouCanDoTodaySlide`, `ReferencesSlide`, `ThankYouSlide`, `SectionOpenerSlide`) follow a consistent HTML prettification pattern for readability:
+
+**Template structure:**
+```vue
+<template>
+  <!-- High-level container description -->
+  <div class="h-full flex flex-col...">
+    <!-- Ambient gradient background -->
+    <div class="absolute inset-0..." :class="t.ambientBg"></div>
+
+    <!-- ===== SECTION NAME ===== -->
+    <!-- Section-level explanation -->
+    <div class="relative z-10...">
+      <!-- Element-level explanation -->
+      <div>{{ content }}</div>
+    </div>
+  </div>
+</template>
+```
+
+**Rules:**
+1. Each major DOM section gets a comment block: `<!-- ===== SECTION NAME ===== -->`
+2. Before complex elements (v-for loops, computed class bindings), add an explanatory comment
+3. Multi-line formatting for readability — one attribute per line for complex bindings
+4. Comments explain **purpose** ("Large icon watermark") and **data binding** ("Renders card.icon as background")
+5. Section separators improve visual scanning when reading the component
+
+**Benefits:**
+- Future agents can quickly understand component structure without reading the script
+- Maintenance changes are easier to reason about
+- Consistent style across all 8 components reduces cognitive load
+- Comment density helps onboard new contributors
+
+**Build-verified:** All 17 tech-talks build successfully with prettified components (2026-04-16).
+
+---
+
+## Slidev: Standardized slide comments improve agent/human navigation (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+All 17 tech-talk decks now use identical slide comments for component-based slides. Example: `<!-- SLIDE: Before/After -->` instead of deck-specific names like "The Value Recap" or "From Manual Bottlenecks to Agentic Velocity".
+
+**Benefits:**
+- Agents and humans can search for `<!-- SLIDE: Before/After -->` across all decks with identical results
+- Enables bulk regex operations on standardized markers (e.g., finding all Before/After slides at once)
+- Cross-deck consistency reduces friction when navigating or editing multiple decks
+- Build-verified and deployed across all 17 decks with zero visual/functional change
+
+**Pattern applied:**
+- `<!-- SLIDE: Title -->` — opening slide
+- `<!-- SLIDE: Core Question -->` — slide 2
+- `<!-- SLIDE: Table of Contents -->` — slide 3
+- `<!-- SLIDE: Before/After -->` — closing section intro (N-3)
+- `<!-- SLIDE: What You Can Do Today -->` — closing section CTA (N-2)
+- `<!-- SLIDE: References -->` — closing section references (N-1)
+- `<!-- SLIDE: Thank You -->` — closing slide (N)
+- Section openers use `<!-- SLIDE: Part N — {TITLE} -->` pattern (deck-specific, but includes part number for consistency)
+
+**Do NOT:** Use unique descriptive names for component-based slides (the "Value Recap" vs "Before/After" inconsistency made bulk editing harder and reduced regex effectiveness).
+
+---
+
 ## Slidev: Content limits per slide (hard limits)
 
 `schema_version: 1` | `date: 2026-04-08`
@@ -129,4 +196,3 @@ GitHub Copilot features evolve rapidly and agents frequently hallucinate configu
 **Best practice for content:** Use web search to verify any configuration claim before writing it into the talk. One hallucinated example spreads across all future regenerations.
 
 **Source:** copilot-code-review hallucination audit 2026-04-09 — fictional `copilot-review.yml` and YAML schemas had to be completely rewritten.
-

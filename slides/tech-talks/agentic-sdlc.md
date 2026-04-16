@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1006,6 +1007,30 @@ export class PaymentProcessor {}
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+  header="🚀 From Manual Bottlenecks to Agentic Velocity"
+  :leftItems="[
+    'Developers block on cross-repo coordination — hours of meetings per feature',
+    'Polyrepo workflows create 45-minute CI per repo, line-by-line reviews dominate',
+    'Agent autonomy stalls at Level 2/3 — no trust infrastructure for Level 5 velocity',
+    'Code quality depends on human review bandwidth — cannot scale beyond 300 lines/day'
+  ]"
+  :rightItems="[
+    'Monorepo atomicity eliminates coordination tax — one PR, one review, one deployment',
+    'Affected-only CI cuts runtime from 45 min to 8 min — 6-hour features done in 45 minutes',
+    'Evidence-based trust enables Level 5 autonomy — CI as trust factory, not quality gate',
+    '15,000+ lines/day at quality — intent-based validation replaces line-by-line review'
+  ]"
+  :metrics="[
+    { value: '150 → 3,600', detail: 'Features per year' },
+    { value: '3-5 days → 4-6 hours', detail: 'Time to production' },
+    { value: 'L2 → L5', detail: 'Agent autonomy level' }
+  ]"
+/>
 
 ---
 

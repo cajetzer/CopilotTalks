@@ -38,3 +38,7 @@ https://code.visualstudio.com/blogs/2026/03/05/making-agents-practical-for-real-
 ---
 
 https://github.blog/changelog/2026-03-06-figma-mcp-server-can-now-generate-design-layers-from-vs-code/
+
+---
+
+https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/

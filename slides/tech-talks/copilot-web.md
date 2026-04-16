@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -832,6 +833,22 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Manual Triage to Automated Issue-to-PR"
+leftLabel="Before"
+rightLabel="After"
+:leftItems='["Triage: 14 min per issue", "Turnaround: 4 hrs per issue", "Understanding PR: 2–3 minutes", "Delegation: manual handoff"]'
+:rightItems='["Triage: 2 min", "Turnaround: 30 min", "Understanding PR: 2–3 minutes", "Delegation: evidence-first"]'
+:metrics='[
+  { value: "14 min → 2 min", detail: "Triage acceleration" },
+  { value: "4 hrs → 30 min", detail: "Turnaround time" },
+  { value: "2–3 min", detail: "Understanding PR" }
+]'
+/>
 
 ---
 

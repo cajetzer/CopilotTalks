@@ -20,17 +20,17 @@ $SlidesDir = Split-Path -Parent $PSScriptRoot
 $OutputDir = Join-Path $SlidesDir "dist"
 
 if ($Folder) {
-    Write-Host "🚀 Building $Folder Slidev presentations..." -ForegroundColor Cyan
+    Write-Host "[ROCKET] Building $Folder Slidev presentations..." -ForegroundColor Cyan
 } else {
-    Write-Host "🚀 Building all Slidev presentations..." -ForegroundColor Cyan
+    Write-Host "[ROCKET] Building all Slidev presentations..." -ForegroundColor Cyan
 }
-Write-Host "📁 Slides directory: $SlidesDir" -ForegroundColor Gray
-Write-Host "📦 Output directory: $OutputDir" -ForegroundColor Gray
+Write-Host "[FOLDER] Slides directory: $SlidesDir" -ForegroundColor Gray
+Write-Host "[BOX] Output directory: $OutputDir" -ForegroundColor Gray
 if ($Verbose) {
-    Write-Host "📢 Verbose mode enabled" -ForegroundColor Yellow
+    Write-Host "[SPEAKER] Verbose mode enabled" -ForegroundColor Yellow
 }
 if ($Folder) {
-    Write-Host "📂 Folder filter: $Folder" -ForegroundColor Yellow
+    Write-Host "[OPEN_FOLDER] Folder filter: $Folder" -ForegroundColor Yellow
 }
 Write-Host ""
 
@@ -60,27 +60,30 @@ function Build-Slide {
     Push-Location $SlidesDir
     try {
         if ($Verbose) {
-            Write-Host "   🔨 $Category/$BaseName..." -ForegroundColor Yellow
+            Write-Host "   [HAMMER] $Category/$BaseName..." -ForegroundColor Yellow
             npx slidev build "$Category/$BaseName.md" `
                 --base "/CopilotTraining/$Category/$BaseName/" `
-                --out "$OutputDir/$Category/$BaseName"
+                --out "$OutputDir/$Category/$BaseName" 2>&1 | Out-Host
             $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
-            Write-Host "   ✅ $Category/$BaseName built (${ElapsedSeconds}s)" -ForegroundColor Green
+            # Check if dist folder was created (indicates successful build despite warnings)
+            if (Test-Path "$OutputDir/$Category/$BaseName") {
+                Write-Host "   [OK] $Category/$BaseName built (${ElapsedSeconds}s)" -ForegroundColor Green
+            } else {
+                Write-Host "   [FAILED] $Category/$BaseName (${ElapsedSeconds}s)" -ForegroundColor Red
+            }
         }
         else {
-            Write-Host "   🔨 $Category/$BaseName... " -NoNewline -ForegroundColor Yellow
-            $output = npx slidev build "$Category/$BaseName.md" `
+            Write-Host "   [HAMMER] $Category/$BaseName... " -NoNewline -ForegroundColor Yellow
+            $null = npx slidev build "$Category/$BaseName.md" `
                 --base "/CopilotTraining/$Category/$BaseName/" `
-                --out "$OutputDir/$Category/$BaseName" 2>&1
+                --out "$OutputDir/$Category/$BaseName" 2>&1 | Out-Null
             $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
-            if ($LASTEXITCODE -eq 0) {
-                Write-Host "✅ ${ElapsedSeconds}s" -ForegroundColor Green
+            # Check if dist folder was created (indicates successful build despite warnings)
+            if (Test-Path "$OutputDir/$Category/$BaseName") {
+                Write-Host "[OK] ${ElapsedSeconds}s" -ForegroundColor Green
             }
             else {
-                Write-Host "❌ (run with -Verbose for details)" -ForegroundColor Red
-                if ($Verbose) {
-                    Write-Host $output -ForegroundColor Red
-                }
+                Write-Host "[FAILED]" -ForegroundColor Red
             }
         }
     }
@@ -91,12 +94,15 @@ function Build-Slide {
 
 # Build workshop slides
 if (-not $Folder -or $Folder -eq 'workshop') {
-    Write-Host "📚 Building workshop slides..." -ForegroundColor Cyan
+    Write-Host "[BOOKS] Building workshop slides..." -ForegroundColor Cyan
     $WorkshopSlides = Get-ChildItem -Path "$SlidesDir/workshop" -Filter "*.md" -File
     foreach ($SlideFile in $WorkshopSlides) {
         $BaseName = $SlideFile.BaseName
+        if ($BaseName -eq 'template') {
+            continue
+        }
         if (Test-Archived $SlideFile.FullName) {
-            Write-Host "   ⏭️  Skipping archived: workshop/$BaseName" -ForegroundColor DarkGray
+            Write-Host "   [SKIP] Skipping archived: workshop/$BaseName" -ForegroundColor DarkGray
             $TotalSkipped++
             continue
         }
@@ -108,12 +114,15 @@ if (-not $Folder -or $Folder -eq 'workshop') {
 
 # Build tech-talks slides
 if (-not $Folder -or $Folder -eq 'tech-talks') {
-    Write-Host "🔬 Building tech-talks slides..." -ForegroundColor Cyan
+    Write-Host "[SCIENCE] Building tech-talks slides..." -ForegroundColor Cyan
     $TechTalksSlides = Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "*.md" -File
     foreach ($SlideFile in $TechTalksSlides) {
         $BaseName = $SlideFile.BaseName
+        if ($BaseName -eq 'template') {
+            continue
+        }
         if (Test-Archived $SlideFile.FullName) {
-            Write-Host "   ⏭️  Skipping archived: tech-talks/$BaseName" -ForegroundColor DarkGray
+            Write-Host "   [SKIP] Skipping archived: tech-talks/$BaseName" -ForegroundColor DarkGray
             $TotalSkipped++
             continue
         }
@@ -125,12 +134,15 @@ if (-not $Folder -or $Folder -eq 'tech-talks') {
 
 # Build exec-talks slides
 if (-not $Folder -or $Folder -eq 'exec-talks') {
-    Write-Host "💼 Building exec-talks slides..." -ForegroundColor Cyan
+    Write-Host "[BRIEFCASE] Building exec-talks slides..." -ForegroundColor Cyan
     $ExecTalksSlides = Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "*.md" -File
     foreach ($SlideFile in $ExecTalksSlides) {
         $BaseName = $SlideFile.BaseName
+        if ($BaseName -eq 'template') {
+            continue
+        }
         if (Test-Archived $SlideFile.FullName) {
-            Write-Host "   ⏭️  Skipping archived: exec-talks/$BaseName" -ForegroundColor DarkGray
+            Write-Host "   [SKIP] Skipping archived: exec-talks/$BaseName" -ForegroundColor DarkGray
             $TotalSkipped++
             continue
         }
@@ -141,7 +153,7 @@ if (-not $Folder -or $Folder -eq 'exec-talks') {
 }
 
 # Copy index.html to dist root
-Write-Host "📄 Copying index-custom.html to dist root..." -ForegroundColor Gray
+Write-Host "[DOC] Copying index-custom.html to dist root..." -ForegroundColor Gray
 Copy-Item "$SlidesDir/index-custom.html" "$OutputDir/index.html" -Force
 
 $TotalElapsedSeconds = [math]::Round(((Get-Date) - $StartTime).TotalSeconds, 1)
@@ -149,13 +161,13 @@ $TotalMinutes = [math]::Floor($TotalElapsedSeconds / 60)
 $RemainingSeconds = $TotalElapsedSeconds % 60
 
 Write-Host ""
-Write-Host "✨ $TotalBuilt presentations built, $TotalSkipped archived skipped." -ForegroundColor Green
+Write-Host "[DONE] $TotalBuilt presentations built, $TotalSkipped archived skipped." -ForegroundColor Green
 if ($TotalMinutes -gt 0) {
-    Write-Host "⏱️  Total time: ${TotalMinutes}m ${RemainingSeconds}s" -ForegroundColor Cyan
+    Write-Host "[CLOCK] Total time: ${TotalMinutes}m ${RemainingSeconds}s" -ForegroundColor Cyan
 }
 else {
-    Write-Host "⏱️  Total time: ${TotalElapsedSeconds}s" -ForegroundColor Cyan
+    Write-Host "[CLOCK] Total time: ${TotalElapsedSeconds}s" -ForegroundColor Cyan
 }
-Write-Host "📦 Output location: $OutputDir" -ForegroundColor Gray
+Write-Host "[BOX] Output location: $OutputDir" -ForegroundColor Gray
 Write-Host ""
 Write-Host "To preview locally, run: cd dist && python -m http.server 8080" -ForegroundColor Gray

@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -958,7 +959,19 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 
 <div class="mt-2 text-center text-xs text-gray-400 italic">Phase 5 (full SDLC) adds $1.8M/year but requires 3-6 month investment</div>
 </div>
-</div>
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="From Manual Issue-to-PR to Agentic Automation"
+:leftItems='["Triage: 20–30 min per issue", "Planning: 2–4 hrs", "Accuracy: varies by context", "Manual synthesis required"]'
+:rightItems='["Triage: 3 min", "Planning: 15 min", "Accuracy: +60% improvement", "Automated historical context"]'
+:metrics='[
+  { value: "20–30 min → 3 min", detail: "Triage acceleration" },
+  { value: "2–4 hrs → 15 min", detail: "Planning acceleration" },
+  { value: "+60%", detail: "Accuracy improvement" }
+]'
+/>
 
 ---
 

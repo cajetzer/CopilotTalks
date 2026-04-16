@@ -133,7 +133,8 @@ Structural rules the generator must enforce:
 | 2 | `CoreQuestionSlide` | Exactly 6 cards: 3 audience (with `icon`) + 3 stats |
 | 3 | `TocSlide` | Exactly 4 sections; `slide` values must be counted **after** generating all slides |
 | Part N | `SectionOpenerSlide` | One per section; `partNumber` 1–4 controls color; exactly 3 cards; no progress dots |
-| N-2 | `WhatYouCanDoTodaySlide` | Immediately before References; all 4 props required |
+| N-3 | `BeforeAfterSlide` | Transformation title + 4 before bullets + 4 after bullets + exactly 3 metrics |
+| N-2 | `WhatYouCanDoTodaySlide` | Immediately after Before/After; immediately before References; all 4 props required |
 | N-1 | `ReferencesSlide` | Use `href` for external links; omit for cross-references |
 | N | `ThankYouSlide` | Deck-specific summary cards, prompt, and CTA |
 
@@ -211,7 +212,8 @@ For all categories, the category profile is authoritative for visual system and 
 - [ ] Matching category profile was loaded before generation
 - [ ] Tech-talk slide 2 uses `CoreQuestionSlide` from `./components/CoreQuestionSlide.vue` (6 cards: 3 audience + 3 stats)
 - [ ] Tech-talk slide 3 uses `TocSlide` from `./components/TocSlide.vue` (exactly 4 sections, correct `slide` numbers)
-- [ ] Tech-talk deck has a `WhatYouCanDoTodaySlide` slide immediately before References (all 4 props: `today`, `thisWeek`, `thisMonth`, `footer`)
+- [ ] Tech-talk deck has a `BeforeAfterSlide` immediately before What You Can Do Today (exactly 4 left + 4 right items, exactly 3 metrics)
+- [ ] Tech-talk deck has a `WhatYouCanDoTodaySlide` slide immediately after Before/After and before References (all 4 props: `today`, `thisWeek`, `thisMonth`, `footer`)
 - [ ] Tech-talk thank-you slide uses `ThankYouSlide` from `./components/ThankYouSlide.vue`
 - [ ] SDP logo included with glow effect (`./sdp-logo.png`)
 - [ ] **Every content slide uses the cockpit template** (pill breadcrumb + absolute gradients + `justify-start px-14`)

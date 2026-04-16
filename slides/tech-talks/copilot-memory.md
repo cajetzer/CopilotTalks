@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -908,6 +909,20 @@ Source: GitHub.com Chat</code></pre>
 </div>
 </div>
 
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Context Reset to Persistent Preferences"
+:leftItems='["Context: reset each session", "Setup: repeat preferences manually", "Timeline: forget what worked", "Personalization: none"]'
+:rightItems='["Context: persistent across sessions", "Setup: 5 minutes", "Timeline: 40 sessions = 2 months", "Personalization: instant"]'
+:metrics='[
+  { value: "99x", detail: "ROI (2 min → 198 min saved)" },
+  { value: "5 min", detail: "Setup time" },
+  { value: "2 months", detail: "40 sessions" }
+]'
+/>
 
 ---
 

@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -659,6 +660,20 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Manual Analysis to Automated Intelligence"
+:leftItems='["Release notes: manual analysis", "Release: 2 hrs per cycle", "CI: bottleneck 60% of time", "Insight: late in process"]'
+:rightItems='["Release notes: AI-automated", "Release: 10 min per cycle", "CI: 60% blockage reduction", "Insight: real-time"]'
+:metrics='[
+  { value: "2 hrs → 10 min", detail: "Release time" },
+  { value: "60%", detail: "CI blockage reduction" },
+  { value: "15 min", detail: "Install time" }
+]'
+/>
 
 ---
 

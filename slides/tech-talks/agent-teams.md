@@ -25,6 +25,7 @@ import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1128,6 +1129,20 @@ Team, implement SSE + message queue<br/>per the validated design
 </div>
 </div>
 
+
+---
+
+<!-- SLIDE: Before/After -->
+<BeforeAfterSlide
+header="Breaking the Single-Agent Ceiling"
+:leftItems='["Context ceiling: 300–500 LOC", "Pollution: 50–80%", "Speedup: 85 min", "Single-threaded reasoning"]'
+:rightItems='["Unlimited context across agents", "Pollution: eliminated", "Speedup: 27 min", "Parallel review: Security, Performance, Testing"]'
+:metrics='[
+  { value: "300–500 LOC → ∞", detail: "Context ceiling" },
+  { value: "50–80% → 0%", detail: "Pollution eliminated" },
+  { value: "85 min → 27 min", detail: "Speedup" }
+]'
+/>
 
 ---
 

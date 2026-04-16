@@ -95,6 +95,9 @@ if [[ -z "$FOLDER" || "$FOLDER" == "workshop" ]]; then
     for SLIDE_FILE in "${SLIDES_DIR}"/workshop/*.md; do
         if [ -f "$SLIDE_FILE" ]; then
             BASENAME=$(basename "$SLIDE_FILE" .md)
+            if [ "$BASENAME" = "template" ]; then
+                continue
+            fi
             if is_archived "$SLIDE_FILE"; then
                 echo "   ⏭️  Skipping archived: workshop/${BASENAME}"
                 TOTAL_SKIPPED=$((TOTAL_SKIPPED + 1))
@@ -113,6 +116,9 @@ if [[ -z "$FOLDER" || "$FOLDER" == "tech-talks" ]]; then
     for SLIDE_FILE in "${SLIDES_DIR}"/tech-talks/*.md; do
         if [ -f "$SLIDE_FILE" ]; then
             BASENAME=$(basename "$SLIDE_FILE" .md)
+            if [ "$BASENAME" = "template" ]; then
+                continue
+            fi
             if is_archived "$SLIDE_FILE"; then
                 echo "   ⏭️  Skipping archived: tech-talks/${BASENAME}"
                 TOTAL_SKIPPED=$((TOTAL_SKIPPED + 1))
@@ -131,6 +137,9 @@ if [[ -z "$FOLDER" || "$FOLDER" == "exec-talks" ]]; then
     for SLIDE_FILE in "${SLIDES_DIR}"/exec-talks/*.md; do
         if [ -f "$SLIDE_FILE" ]; then
             BASENAME=$(basename "$SLIDE_FILE" .md)
+            if [ "$BASENAME" = "template" ]; then
+                continue
+            fi
             if is_archived "$SLIDE_FILE"; then
                 echo "   ⏭️  Skipping archived: exec-talks/${BASENAME}"
                 TOTAL_SKIPPED=$((TOTAL_SKIPPED + 1))
