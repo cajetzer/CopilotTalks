@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1136,101 +1137,12 @@ Output: appId, password, tenant (save these)
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-teal-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-teal-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-teal-900/30 rounded-xl border border-emerald-500/30">
-<div class="text-sm font-semibold text-emerald-300 mb-1">15-Minute Quick Start</div>
-<div class="text-xs space-y-1">
-<div class="flex items-start gap-2">
-<span class="text-emerald-400">1.</span>
-<span>Install Azure MCP Server (VS Code extension or <code class="bg-gray-950/80 px-1 py-0.5 rounded">npm install -g @azure/mcp</code>)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-emerald-400">2.</span>
-<span>Authenticate: <code class="bg-gray-950/80 px-1 py-0.5 rounded">az login</code></span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-emerald-400">3.</span>
-<span>Verify MCP: <code class="bg-gray-950/80 px-1 py-0.5 rounded">copilot /tools</code></span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-emerald-400">4.</span>
-<span>Run first query: "List all resource groups"</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-emerald-900/50 border border-emerald-500/50 rounded text-xs">
-<div class="font-semibold text-emerald-300">Success Criteria</div>
-<div class="opacity-80">AI returns live resource group list from your Azure subscription</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-xl border border-teal-500/30">
-<div class="text-sm font-semibold text-teal-300 mb-1">1-Hour Deep Dive</div>
-<div class="text-xs space-y-1">
-<div class="flex items-start gap-2">
-<span class="text-teal-400">1.</span>
-<span>Complete 15-minute quick start</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-teal-400">2.</span>
-<span>Create read-only service principal for production</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-teal-400">3.</span>
-<span>Configure multi-subscription MCP access (prod read-only, dev contributor)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-teal-400">4.</span>
-<span>Explore production resources conversationally</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-teal-400">5.</span>
-<span>Scaffold infrastructure from live templates</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-teal-900/50 border border-teal-500/50 rounded text-xs">
-<div class="font-semibold text-teal-300">Success Criteria</div>
-<div class="opacity-80">Query production safely (read-only) and generate infrastructure code for dev environments</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-sm font-semibold text-cyan-300 mb-1">2-4 Hour Mastery Path</div>
-<div class="text-xs space-y-1">
-<div class="flex items-start gap-2">
-<span class="text-cyan-400">1.</span>
-<span>Complete 1-hour deep dive</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400">2.</span>
-<span>Configure custom instructions for team conventions</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400">3.</span>
-<span>Run end-to-end deployment with Plan Mode (e.g., deploy containerized API with Azure Container Apps)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400">4.</span>
-<span>Set up organization-level MCP governance (if applicable)</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-cyan-900/50 border border-cyan-500/50 rounded text-xs">
-<div class="font-semibold text-cyan-300">Success Criteria</div>
-<div class="opacity-80">Complete real deployment using conversational workflows, validated against live state, with team conventions integrated</div>
-</div>
-</div>
-</div>
-<div class="mt-2 p-2 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-sm font-semibold text-blue-300 mb-1">Key Takeaway</div>
-<div class="text-xs text-white/90">Start with read-only mode on production subscriptions to explore Azure MCP safely. Upgrade to write access only on dedicated dev/staging subscriptions with peer-reviewed workflows. The 45-minute → 8-minute compression happens when AI has live context, not assumptions.</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Install Azure MCP Server (VS Code extension or npm install -g @azure/mcp)", "Authenticate: az login", "Verify MCP: copilot /tools", "Run first query: List all resource groups"]'
+  :thisWeek='["Create a read-only service principal for production", "Configure multi-subscription MCP access (prod read-only, dev contributor)", "Explore production resources conversationally", "Scaffold infrastructure from live templates"]'
+  :thisMonth='["Configure custom instructions for team conventions", "Run end-to-end deployment with Plan Mode", "Set up organization-level MCP governance"]'
+  footer="Start with read-only mode on production subscriptions to explore Azure MCP safely. The 45-minute → 8-minute compression happens when AI has live context, not assumptions."
+/>
 
 ---
 

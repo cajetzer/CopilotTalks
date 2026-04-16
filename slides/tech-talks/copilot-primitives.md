@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -933,55 +934,12 @@ templates
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-cyan-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="flex flex-col p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-xl mb-1">⚡</div>
-<div class="text-sm font-bold text-cyan-300 mb-2">Immediate (5-15 min)</div>
-<div class="text-xs opacity-90 space-y-1 flex-1">
-<div>☐ Create .github/copilot-instructions.md</div>
-<div>☐ Add tech stack, build commands, coding standards</div>
-<div>☐ Try /init to auto-generate from workspace</div>
-<div>☐ Check References section to verify they load</div>
-</div>
-</div>
-
-<div class="flex flex-col p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-xl mb-1">🔨</div>
-<div class="text-sm font-bold text-blue-300 mb-2">Short-Term (1 hour)</div>
-<div class="text-xs opacity-90 space-y-1 flex-1">
-<div>☐ Add path-specific .instructions.md files</div>
-<div>☐ Create first .prompt.md for common task</div>
-<div>☐ Review Awesome Copilot for examples</div>
-<div>☐ Share instructions via version control</div>
-</div>
-</div>
-
-<div class="flex flex-col p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-xl mb-1">🚀</div>
-<div class="text-sm font-bold text-indigo-300 mb-2">Advanced (2-4 hours)</div>
-<div class="text-xs opacity-90 space-y-1 flex-1">
-<div>☐ Build skill for frequent capability</div>
-<div>☐ Create planning agent (read-only)</div>
-<div>☐ Set up Plan → Implement → Review handoffs</div>
-<div>☐ Explore agentskills.io standard</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-emerald-900/40 to-cyan-900/40 rounded-xl border border-emerald-500/30">
-<div class="text-sm font-semibold text-emerald-300 mb-1">🎯 The 5-Minute Transformation</div>
-<div class="text-xs opacity-90">One copilot-instructions.md file = 40% reduction in style review comments + project-aware responses from day one. This is the highest ROI customization available.</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Create .github/copilot-instructions.md", "Add tech stack, build commands, coding standards", "Try /init to auto-generate from workspace", "Check References section to verify they load"]'
+  :thisWeek='["Add path-specific .instructions.md files", "Create first .prompt.md for common task", "Review Awesome Copilot for examples", "Share instructions via version control"]'
+  :thisMonth='["Build a skill for a frequent capability", "Create a planning agent (read-only)", "Set up Plan → Implement → Review handoffs", "Explore agentskills.io standard"]'
+  footer="One copilot-instructions.md file = 40% reduction in style review comments + project-aware responses from day one. This is the highest ROI customization available."
+/>
 
 ---
 

@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -729,54 +730,12 @@ highlight="DevTools for AI closes this gap."
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-cyan-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 rounded-xl border border-emerald-500/30">
-<div class="font-bold text-emerald-300 mb-2 text-sm">🚀 Immediate Actions (5 minutes)</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>☐ Open Agent Debug Panel (<code class="bg-gray-800 px-1">Developer: Open Agent Debug Panel</code>)</div>
-<div>☐ Enable thinking display: Settings → <code class="bg-gray-800 px-1">chat.renderThinking</code> → "expanded"</div>
-<div>☐ Check Diagnostics: Right-click Chat → gear icon → Diagnostics</div>
-<div>☐ Try <code class="bg-gray-800 px-1">/compact</code> in a long conversation</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/30 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-2 text-sm">📈 Short-Term (30 minutes)</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>☐ Keep Agent Debug Panel open during dev sessions</div>
-<div>☐ Monitor context window indicator before large context additions</div>
-<div>☐ Validate customizations immediately after editing instruction files</div>
-</div>
-</div>
-</div>
-
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2 text-sm">🎯 Advanced (1-2 hours)</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>☐ Build debugging workflow: Agent Debug Panel → Chat Debug View → Diagnostics → Logs</div>
-<div>☐ Practice <code class="bg-gray-800 px-1">/fork</code> for parallel investigation branches</div>
-<div>☐ Create team documentation for common diagnostic patterns</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30">
-<div class="font-bold text-green-300 mb-2 text-sm">💡 Key Takeaway</div>
-<div class="text-xs text-gray-300">VS Code provides complete AI observability. Mastering Agent Debug Panel, Chat Debug View, Thinking Tokens, and Diagnostics transforms debugging from expensive trial-and-error into systematic investigation—saving teams 1-2 hours/week per developer.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Open Agent Debug Panel (Developer: Open Agent Debug Panel)", "Enable thinking display in Settings: chat.renderThinking expanded", "Check Diagnostics: Right-click Chat → gear icon → Diagnostics", "Try /compact in a long conversation"]'
+  :thisWeek='["Keep Agent Debug Panel open during dev sessions", "Monitor context window indicator before large context additions", "Validate customizations immediately after editing instruction files"]'
+  :thisMonth='["Build debugging workflow: Agent Debug Panel → Chat Debug View → Diagnostics → Logs", "Practice /fork for parallel investigation branches", "Create team documentation for common diagnostic patterns"]'
+  footer="VS Code provides complete AI observability. Mastering Agent Debug Panel, Chat Debug View, Thinking Tokens, and Diagnostics transforms debugging from expensive trial-and-error into systematic investigation — saving teams 1-2 hours/week per developer."
+/>
 
 ---
 

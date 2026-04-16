@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -914,6 +915,16 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: What You Can Do Today -->
+<WhatYouCanDoTodaySlide
+  :today='["Assign one small, well-scoped issue to the coding agent", "Add copilot-setup-steps.yml to your repo", "Review the evidence bundle in the resulting PR", "Check the agent session log to see how it reasoned"]'
+  :thisWeek='["Write an effective issue template for your repo", "Configure the agent firewall allowlist for your stack", "Practice evidence-first PR review on 3-5 agent PRs", "Identify issue patterns the agent handles reliably"]'
+  :thisMonth='["Build a delegation checklist for your team", "Establish PR review norms for agent-generated code", "Integrate agent assignments into your sprint workflow", "Track delegation success rate and refine issue quality"]'
+  footer="Assign one well-scoped issue today — the delegation loop becomes fluent once you've seen the full evidence bundle and reviewed your first agent PR."
+/>
 
 ---
 

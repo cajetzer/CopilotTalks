@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1076,6 +1077,16 @@ PR will be created when complete<br/>
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: What You Can Do Today -->
+<WhatYouCanDoTodaySlide
+  :today='["Install the Copilot CLI and authenticate", "Run your first task with plan mode enabled", "Compare the plan to what you would have done manually", "Explore the four built-in agent types"]'
+  :thisWeek='["Write custom instructions for your repo conventions", "Run a /fleet task across multiple parallel workstreams", "Try cloud delegation for a GitHub issue or PR task", "Add an MCP server for your stack"]'
+  :thisMonth='["Automate a repetitive GitHub workflow end-to-end", "Build a multi-step fleet pipeline for your project", "Configure plugins for your domain tooling", "Create team-wide custom instructions and share them"]'
+  footer="Run plan mode on a task you do daily — it shows exactly what the agent will do before acting, making the first few tries low-risk and fast to learn."
+/>
 
 ---
 

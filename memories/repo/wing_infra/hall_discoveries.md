@@ -99,7 +99,61 @@ for ($i = 0; $i -lt $slides.Count; $i++) {
 
 ---
 
-## Core Question slide standardization pattern (2026-04-10)
+## WhatYouCanDoTodaySlide: named props beat array-of-objects for fixed structure (2026-04-15)
+
+`schema_version: 1` | `date: 2026-04-15`
+
+When a component has a **fixed, known number of structurally identical slots**, named props are dramatically better than an array-of-objects prop:
+
+**Before (array-of-objects):**
+```html
+<WhatYouCanDoTodaySlide
+  :columns='[
+    { icon: "⚡", label: "Immediate (15 min)", items: ["item 1", "item 2"] },
+    { icon: "🔧", label: "Short-Term (1 hour)", items: ["item 1", "item 2"] },
+    { icon: "🚀", label: "Advanced (2-4 hours)", items: ["item 1", "item 2"] }
+  ]'
+  footer="Takeaway."
+/>
+```
+
+**After (named props):**
+```html
+<WhatYouCanDoTodaySlide
+  :today='["item 1", "item 2"]'
+  :thisWeek='["item 1", "item 2"]'
+  :thisMonth='["item 1", "item 2"]'
+  footer="Takeaway."
+/>
+```
+
+**Why it wins:**
+- Prop names ARE the column headers — zero ambiguity, no label drift across decks
+- Labels and icons hardcoded in component — removed 17 inconsistent label strings ("Immediate 15 min" vs "Now (15 min)" vs "15-Minute Quick Start")
+- Callsites read like plain English with no nesting
+- Icons become background decoration instead of inline content — cleaner card design
+
+**Apply this pattern** to any future component where the number of slots is fixed and known at design time (e.g., a 3-metric summary card, a 2-column before/after).
+
+---
+
+## Simplify slide generator by pointing to template.md instead of duplicating (2026-04-15)
+
+`schema_version: 1` | `date: 2026-04-15`
+
+The slide-generator agent previously contained 5 verbose paragraphs duplicating prop schemas already in `slides/tech-talks/template.md`. Since the template is loaded in pre-flight step 5, the agent only needs the structural frame (which slide, what count constraints) — not the full prop API.
+
+**Pattern:** replace verbose per-component sections in the agent with a single reference table:
+
+| Slide | Component | Key generative constraint |
+|---|---|---|
+| 2 | CoreQuestionSlide | Exactly 6 cards: 3 audience + 3 stats |
+| 3 | TocSlide | `slide` values must be counted AFTER generating all slides |
+| N-2 | WhatYouCanDoTodaySlide | All 4 props required; immediately before References |
+
+Then one pointer: "See `slides/tech-talks/template.md` for full prop schemas and escaping rules."
+
+**Result:** agent file ~40% shorter, zero duplication, template becomes the single source of truth.
 
 `schema_version: 1` | `date: 2026-04-10`
 

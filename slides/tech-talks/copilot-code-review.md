@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1149,58 +1150,12 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-cyan-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3 text-xs mb-4">
-<div class="p-2.5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1.5">Immediate Actions (15 minutes)</div>
-<div class="opacity-80 space-y-0.5">
-<div>☐ Navigate to Settings → Rules → Rulesets</div>
-<div>☐ Create ruleset targeting main branch</div>
-<div>☐ Enable "Automatically request Copilot code review"</div>
-<div>☐ Submit test PR and observe feedback quality</div>
-<div>☐ Review official documentation</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1.5">Short-Term Implementation (1 hour)</div>
-<div class="opacity-80 space-y-0.5">
-<div>☐ Create .github/copilot-instructions.md</div>
-<div>☐ Set up required status check integration</div>
-<div>☐ Train team on @github-copilot mentions</div>
-<div>☐ Establish baseline metrics (PR review time, revert rate)</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1.5">Advanced Exploration (Half day)</div>
-<div class="opacity-80 space-y-0.5">
-<div>☐ Build custom language-specific instruction files</div>
-<div>☐ Implement GitHub Actions for ROI tracking</div>
-<div>☐ Run ROI workshop with time-savings calculator</div>
-<div>☐ Deploy organization-wide with standardized rules</div>
-<div>☐ Calculate and present ROI to leadership</div>
-</div>
-</div>
-</div>
-
-<div class="p-4 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="font-semibold text-green-300 mb-2 text-sm">Next Steps After Completion</div>
-<div class="text-xs opacity-80 space-y-1">
-<div>1. ✅ Complete immediate and short-term actions above (get first review running today)</div>
-<div>2. 📊 Monitor metrics for 30 days to establish ROI baseline (track PR cycle time, finding categories, resolution rates)</div>
-<div>3. 📖 Review related talk: <span class="text-green-400">GitHub Copilot Workspace</span> (for end-to-end development workflow)</div>
-<div>4. 💬 Share learnings in team retrospective and iterate on configuration based on developer feedback</div>
-<div>5. 🚀 Expand to additional repositories based on proven ROI (typical teams expand after seeing 5-10x ROI in pilot)</div>
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Navigate to Settings → Rules → Rulesets", "Create a ruleset targeting main branch", "Enable automatic Copilot code review in rulesets", "Submit a test PR and observe feedback quality", "Review official documentation"]'
+  :thisWeek='["Create .github/copilot-instructions.md", "Set up required status check integration", "Train team on @github-copilot mentions", "Establish baseline metrics (PR review time, revert rate)"]'
+  :thisMonth='["Build custom language-specific instruction files", "Implement GitHub Actions for ROI tracking", "Run ROI workshop with time-savings calculator", "Deploy organization-wide with standardized rules", "Calculate and present ROI to leadership"]'
+  footer="Enable auto-review today, establish a 30-day metrics baseline tracking PR cycle time and finding categories, then expand org-wide once you have the ROI data — typical teams see 5-10x ROI in the first pilot."
+/>
 
 ---
 

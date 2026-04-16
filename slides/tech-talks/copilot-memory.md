@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -978,60 +979,12 @@ Source: GitHub.com Chat</code></pre>
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-rose-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-pink-600/80 to-rose-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Get Started in 15 Minutes</div>
-<div class="text-xs text-white/50">Immediate actions to enable and validate memory</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3 text-xs">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="font-bold text-cyan-300 mb-2">Immediate (15 min)</div>
-<div class="space-y-1">
-<div>☐ Enable in VS Code settings</div>
-<div>☐ Store first preference: "Remember: I prefer concise bullet-point explanations"</div>
-<div>☐ Verify in new chat — observe preference applied automatically</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="font-bold text-blue-300 mb-2">Short-Term (1 hour)</div>
-<div class="space-y-1">
-<div>☐ Store 3-5 core preferences: coding, communication, workflow</div>
-<div>☐ Review at github.com/settings/copilot</div>
-<div>☐ Test application in actual work</div>
-<div>☐ Delete/refine what didn't work</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🚀</div>
-<div class="font-bold text-indigo-300 mb-2">Advanced (2-4 hours)</div>
-<div class="space-y-1">
-<div>☐ Build 4-week progressive profile</div>
-<div>☐ Distinguish memory vs custom instructions</div>
-<div>☐ Set monthly review reminder</div>
-<div>☐ Share strategy with team</div>
-</div>
-</div>
-</div>
-<div class="relative z-10 mt-3 p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2 text-sm">🔄 Next Steps After Completion</div>
-<div class="space-y-1 text-xs">
-<div>1. ✅ Complete immediate actions and validate (1 week trial)</div>
-<div>2. 📖 Review Custom Instructions to understand layering</div>
-<div>3. 💬 Share your memory profile strategy with teammates</div>
-<div>4. 🚀 Explore advanced: Memory + Custom Agents + Instructions for maximum personalization</div>
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Enable in VS Code settings", "Store a coding style preference in memory", "Verify in a new chat — observe preference applied automatically"]'
+  :thisWeek='["Store 3-5 core preferences: coding, communication, workflow", "Review at github.com/settings/copilot", "Test application in actual work", "Delete/refine what didn&#39;t work"]'
+  :thisMonth='["Build a 4-week progressive memory profile", "Distinguish memory vs custom instructions", "Set a monthly review reminder", "Share your memory strategy with team"]'
+  footer="Validate your preferences over one week, review how memory layers with Custom Instructions, and share your memory profile strategy with teammates to multiply the personalization benefit."
+/>
 
 ---
 

@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1045,93 +1046,13 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Next Steps</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">What You Can Do Today</div>
-<div class="text-xs text-white/50">Progressive implementation path — each phase builds on the previous</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-4">
-<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
-<div class="text-sm font-bold text-cyan-300 mb-3">🚀 Immediate (15 minutes)</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="flex items-start gap-2">
-<div class="text-cyan-400 mt-0.5">□</div>
-<div>Review the 4 workflow files in talk repository</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-cyan-400 mt-0.5">□</div>
-<div>Identify repo with highest issue volume</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-cyan-400 mt-0.5">□</div>
-<div>Check prerequisites: Actions enabled, Copilot license active</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Review the 4 workflow files in the talk repository", "Identify your repo with highest issue volume", "Check prerequisites: Actions enabled, Copilot license active"]'
+  :thisWeek='["Copy 1-issue-triage.yml to your repo", "Create prompt templates in .github/prompts/", "Configure COPILOT_GITHUB_TOKEN secret", "Create a test issue and verify the workflow"]'
+  :thisMonth='["Add Phases 2-4 progressively (one per week)", "Customize prompts for team coding standards", "Track metrics: triage time, plan accuracy, review speed", "Monitor for Phase 5 graduation signals"]'
+  footer="Deploy Phase 1 today and validate for 1-2 weeks, then add phases progressively, build ROI dashboards, and present results using the Agentic Delivery executive framing."
+/>
 
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="text-sm font-bold text-blue-300 mb-3">⚡ Short-Term (2-3 hours)</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Copy <span class="font-mono">1-issue-triage.yml</span> to your repo</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Create prompt templates in <span class="font-mono">.github/prompts/</span></div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Configure <span class="font-mono">COPILOT_GITHUB_TOKEN</span> secret</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">□</div>
-<div>Create test issue and verify workflow</div>
-</div>
-</div>
-</div>
-
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-3">📈 Advanced (1-2 weeks)</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Add Phases 2-4 progressively (one per week)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Customize prompts for team coding standards</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Track metrics: triage time, plan accuracy, review speed</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">□</div>
-<div>Monitor for Phase 5 graduation signals</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-4 p-4 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-sm font-bold text-purple-300 mb-2">Next Steps After Completion</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. ✅ Complete Phase 1 deployment and validate for 1-2 weeks</div>
-<div>2. 📖 Review <strong>Agentic SDLC</strong> talk for full transformation planning</div>
-<div>3. 📊 Build ROI dashboard from metrics to justify expansion</div>
-<div>4. 🚀 Present results to leadership using <strong>Agentic Delivery</strong> executive framing</div>
-</div>
-</div>
-</div>
-</div>
 
 ---
 

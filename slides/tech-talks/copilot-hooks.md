@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1074,54 +1075,12 @@ fi</code></pre>
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-lg font-bold text-cyan-300 mb-2">🚀 <strong>15 Minutes</strong></div>
-<div class="space-y-1 opacity-80 text-xs">
-<div>• <a href="https://code.visualstudio.com/docs/copilot/customization/hooks" class="text-cyan-400 underline">Read hooks documentation</a></div>
-<div>• Create <code>.github/hooks/</code> directory</div>
-<div>• Test <code>/hooks</code> slash command</div>
-<div>• Understand 8 lifecycle events</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-lg font-bold text-blue-300 mb-2">⚡ <strong>1-2 Hours</strong></div>
-<div class="space-y-1 opacity-80 text-xs">
-<div>• Copy security-check.sh template</div>
-<div>• Deploy PreToolUse hook to test repo</div>
-<div>• Add context injection (SessionStart)</div>
-<div>• Test with dangerous operations</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-lg font-bold text-indigo-300 mb-2">🔄 <strong>2-4 Hours</strong></div>
-<div class="space-y-1 opacity-80 text-xs">
-<div>• Implement all 8 hooks (audit trail)</div>
-<div>• Add PostToolUse logging to JSON</div>
-<div>• Integrate Slack alert on denials</div>
-<div>• Query logs with jq</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
-<div class="text-lg font-bold text-purple-300 mb-2">📈 <strong>Scale to Org</strong></div>
-<div class="space-y-1 opacity-80 text-xs">
-<div>• Generalize hook library</div>
-<div>• Deploy org-wide policies</div>
-<div>• Connect to compliance system</div>
-<div>• Monitor via compliance dashboard</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Read hooks documentation", "Create .github/hooks/ directory", "Test /hooks slash command", "Understand the 8 lifecycle events"]'
+  :thisWeek='["Copy security-check.sh template", "Deploy PreToolUse hook to test repo", "Implement all 8 hooks (audit trail)", "Add PostToolUse logging to JSON", "Integrate Slack alert on denials"]'
+  :thisMonth='["Generalize hook library for your team", "Deploy org-wide compliance policies", "Connect hooks to compliance system", "Monitor via compliance dashboard"]'
+  footer="Start with one PreToolUse security check today, build the full 8-hook audit trail in an afternoon, and deploy org-wide compliance policies within a week."
+/>
 
 ---
 

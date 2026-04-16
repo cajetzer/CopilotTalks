@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1210,98 +1211,12 @@ Team, implement SSE + message queue<br/>per the validated design
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-rose-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-pink-600/80 to-rose-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30 flex-1">
-<div class="font-bold text-green-300 mb-3 flex items-center gap-2">
-<span>⚡</span> <span>Immediate (10 minutes)</span>
-</div>
-<div class="text-xs opacity-90 space-y-2">
-<div class="flex items-start gap-2">
-<span class="text-green-400">□</span>
-<span>Try implicit subagent invocation: "Run a subagent to research how auth works"</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-green-400">□</span>
-<span>Parallel subagent review: "Analyze this PR using three subagents: Security, Performance, Testing"</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-green-400">□</span>
-<span>Hand off to background agent: VS Code 1.109 session picker</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30 flex-1">
-<div class="font-bold text-blue-300 mb-3 flex items-center gap-2">
-<span>🚀</span> <span>Short-Term (1-2 hours)</span>
-</div>
-<div class="text-xs opacity-90 space-y-2">
-<div class="flex items-start gap-2">
-<span class="text-blue-400">□</span>
-<span>Install Squad: npx github:bradygaster/squad</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400">□</span>
-<span>Run 3-5 tasks with "Team, ..." fan-out</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400">□</span>
-<span>Check .ai-team/decisions.md after sessions</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400">□</span>
-<span>Install AgentCouncil: try adversarial council on a real decision</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30 flex-1">
-<div class="font-bold text-purple-300 mb-3 flex items-center gap-2">
-<span>🎯</span> <span>Advanced (1-2 weeks)</span>
-</div>
-<div class="text-xs opacity-90 space-y-2">
-<div class="flex items-start gap-2">
-<span class="text-purple-400">□</span>
-<span>Enable GitHub Issues integration with squad label triage</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400">□</span>
-<span>Activate Ralph (work monitor) for continuous backlog processing</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400">□</span>
-<span>Combine: AgentCouncil for decisions → Squad for implementation</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400">□</span>
-<span>Measure: implementation time, rework, test coverage, context switching</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-1 text-base">🔑 Key Takeaway</div>
-<div class="text-sm opacity-90">
-The right agent for the right task, with the right isolation, at the right time — subagents are the building block, teams organize them, background agents make them autonomous, and multi-model deliberation validates decisions before execution.
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Use implicit subagent invocation for research tasks", "Try parallel subagent review: Security, Performance, and Testing", "Hand off to background agent via VS Code session picker"]'
+  :thisWeek='["Install Squad: npx github:bradygaster/squad", "Run 3-5 tasks with the Team fan-out pattern", "Check .ai-team/decisions.md after sessions", "Install AgentCouncil: try adversarial council on a real decision"]'
+  :thisMonth='["Enable GitHub Issues integration with squad label triage", "Activate Ralph (work monitor) for continuous backlog processing", "Combine: AgentCouncil for decisions → Squad for implementation", "Measure: implementation time, rework, test coverage, context switching"]'
+  footer="The right agent for the right task, with the right isolation, at the right time — subagents are the building block, teams organize them, background agents make them autonomous, and multi-model deliberation validates decisions before execution."
+/>
 
 ---
 

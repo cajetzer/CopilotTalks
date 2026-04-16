@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1212,52 +1213,12 @@ server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-am
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-cyan-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-cyan-900/30 rounded-xl border border-emerald-500/30">
-<div class="text-lg mb-1">⚡</div>
-<div class="font-semibold text-emerald-300 mb-1">Immediate (15 min)</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Install MCP Apps Playground</div>
-<div>• Add to .vscode/mcp.json</div>
-<div>• Test: <code>@mcp-apps-playground show chart demo</code></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-lg mb-1">🏗️</div>
-<div class="font-semibold text-cyan-300 mb-1">Short-Term (1 hour)</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Identify one "export to CSV" workflow</div>
-<div>• Build MCP server returning table/chart</div>
-<div>• Test with 2-3 colleagues, measure savings</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-lg mb-1">🚀</div>
-<div class="font-semibold text-blue-300 mb-1">Advanced (2-4 hours)</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Build multi-step form workflow</div>
-<div>• Implement callback tools for drill-down</div>
-<div>• Integrate with custom agent</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 rounded-xl border border-blue-500/30">
-<div class="font-semibold text-blue-300 text-sm mb-1">Key Takeaway</div>
-<div class="text-xs text-gray-300">
-MCP Apps transform chat from text stream to visual workspace. Start with one high-value use case (metrics dashboard, query results, scaffolding forms), measure time savings, and expand from there.
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Install MCP Apps Playground", "Add to .vscode/mcp.json", "Test: @mcp-apps-playground show chart demo"]'
+  :thisWeek='["Identify one export-to-CSV workflow to replace", "Build MCP server returning table and chart", "Test with 2-3 colleagues and measure time savings"]'
+  :thisMonth='["Build a multi-step form workflow", "Implement callback tools for drill-down", "Integrate with a custom agent"]'
+  footer="MCP Apps transform chat from text stream to visual workspace. Start with one high-value use case (metrics dashboard, query results, scaffolding forms), measure time savings, and expand from there."
+/>
 
 ---
 

@@ -151,7 +151,80 @@ The attribute is single-quoted: `:sections='[...]'`. Two failure modes:
 
 ---
 
-## Tech-talk component import path must be `./components/` not `../components/` (2026-04-14)
+## WhatYouCanDoTodaySlide component: props, constraints, and usage (2026-04-15)
+
+`schema_version: 1` | `date: 2026-04-15`
+
+The `WhatYouCanDoTodaySlide` component is **REQUIRED as slide N-2** (immediately before References) in all tech-talk decks.
+
+**Import:**
+```js
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+```
+
+**Props:**
+| Prop | Type | Required | Notes |
+|------|------|----------|-------|
+| `:today` | Array | ✅ | Items for the "Today" column. Max 5. |
+| `:thisWeek` | Array | ✅ | Items for the "This Week" column. Max 5. |
+| `:thisMonth` | Array | ✅ | Items for the "This Month" column. Max 5. |
+| `footer` | String | ✅ | Single-sentence Key Takeaway. |
+
+**Hardcoded (not configurable):**
+- Column labels: **Today / This Week / This Month**
+- Column icons: ⚡ / 🗓️ / 🚀 — rendered as `text-7xl opacity-10` background decoration in upper-right of each card
+- Column colors: green/emerald (col 0), blue/indigo (col 1), purple/pink (col 2)
+- Footer title: "🔑 Key Takeaway"
+- Ambient theme: pink/rose
+
+**Apostrophe rule:** `:today='[...]'` etc. use single-quoted attributes. Escape apostrophes in strings as `&#39;`.
+
+**Separator rule:** blank line required before `---` after `/>` closing tag.
+
+**Usage:**
+```html
+<!-- SLIDE: What You Can Do Today -->
+<WhatYouCanDoTodaySlide
+  :today='["item 1", "item 2", "item 3"]'
+  :thisWeek='["item 1", "item 2", "item 3"]'
+  :thisMonth='["item 1", "item 2", "item 3"]'
+  footer="Single-sentence key takeaway for this deck."
+/>
+```
+
+**Build verified:** all 17 active tech-talk decks ✅ (April 2026)
+
+---
+
+## Tech-talk deck structure: 6 fixed slides (2026-04-15)
+
+`schema_version: 1` | `date: 2026-04-15`
+
+All tech-talk decks share a canonical 6-slide frame — 3 opening, 3 closing. Content slides fill the middle.
+
+```
+Slide 1   — Title               ← TitleSlide
+Slide 2   — Core Question       ← CoreQuestionSlide (REQUIRED)
+Slide 3   — Table of Contents   ← TocSlide (REQUIRED)
+...content slides...
+Slide N-2 — What You Can Do Today ← WhatYouCanDoTodaySlide (REQUIRED)
+Slide N-1 — References          ← ReferencesSlide (REQUIRED)
+Slide N   — Thank You           ← ThankYouSlide (REQUIRED)
+```
+
+All 6 imports go in a **single** `<script setup>` block at the top of the deck. The canonical import block is in `slides/tech-talks/template.md`.
+
+**Rule for new components:** always add to the fixed frame rather than inserting ad-hoc between content slides.
+
+---
+
+## Tech-talk template.md is now the authoritative prop/usage reference (2026-04-15)
+
+`schema_version: 1` | `date: 2026-04-15`
+
+As of 2026-04-15, `slides/tech-talks/template.md` is the single authoritative source for all component prop schemas, escaping rules, and usage examples. The slide-generator agent (`slide-generator.agent.md`) now defers to it with a pointer rather than duplicating content.
+
+**Do not duplicate prop schemas in both files.** If a prop schema needs updating, update `template.md` only. The generator reads it in pre-flight step 5.
 
 `schema_version: 1` | `date: 2026-04-14`
 

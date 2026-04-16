@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1088,6 +1089,16 @@ export class PaymentProcessor {}
 </div>
 </div>
 </div>
+
+---
+
+<!-- SLIDE: What You Can Do Today -->
+<WhatYouCanDoTodaySlide
+  :today='["Run agentrc assess on your repo to get a maturity score", "Identify your single biggest blocker to reaching L2", "Add an AGENTS.md with intent and architecture context", "Check your CI runtime — is it under 10 minutes?"]'
+  :thisWeek='["Enforce module boundaries with Nx or equivalent tooling", "Get CI consistently under 10 minutes", "Achieve AgentRC L2: documented and repeatable workflows", "Target a CI flake rate below 2%"]'
+  :thisMonth='["Reach AgentRC L3+ with standardized agent workflows", "Implement hermetic builds for reproducible trust signals", "Adopt intent-based PRs and governance pyramid controls", "Enable autonomous agent merge for qualifying PRs"]'
+  footer="Getting CI under 10 minutes is the single highest-leverage action — it unlocks faster agent feedback loops, more concurrent PRs, and the trust signals that make autonomous merge possible."
+/>
 
 ---
 

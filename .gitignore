@@ -47,6 +47,7 @@ Thumbs.db
 scripts/cli-capture/_all.txt
 captures
 thankyou-screenshots
+.harness
 
 # Temporary files
 tmp/

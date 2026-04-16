@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -1107,86 +1108,12 @@ user-invokable: true
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3 text-xs">
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="font-bold text-green-300 mb-2 text-sm">⚡ Immediate (5 min)</div>
-<div class="space-y-1">
-<div class="p-1.5 bg-green-900/30 rounded flex items-start gap-1">
-<span class="text-green-400 flex-shrink-0">☐</span>
-<span>Update VS Code to v1.110+</span>
-</div>
-<div class="p-1.5 bg-green-900/30 rounded flex items-start gap-1">
-<span class="text-green-400 flex-shrink-0">☐</span>
-<span>Try /init to bootstrap workspace instructions</span>
-</div>
-<div class="p-1.5 bg-green-900/30 rounded flex items-start gap-1">
-<span class="text-green-400 flex-shrink-0">☐</span>
-<span>Enable thinking tokens (budgetTokens: 4000)</span>
-</div>
-<div class="p-1.5 bg-green-900/30 rounded flex items-start gap-1">
-<span class="text-green-400 flex-shrink-0">☐</span>
-<span>Try /fork to branch a conversation</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2 text-sm">🔧 Short-Term (30 min)</div>
-<div class="space-y-1">
-<div class="p-1.5 bg-blue-900/30 rounded flex items-start gap-1">
-<span class="text-blue-400 flex-shrink-0">☐</span>
-<span>Enable terminal sandboxing (sandbox.enabled: true)</span>
-</div>
-<div class="p-1.5 bg-blue-900/30 rounded flex items-start gap-1">
-<span class="text-blue-400 flex-shrink-0">☐</span>
-<span>Create first Agent Skill in .github/skills/</span>
-</div>
-<div class="p-1.5 bg-blue-900/30 rounded flex items-start gap-1">
-<span class="text-blue-400 flex-shrink-0">☐</span>
-<span>Install an Agent Plugin via @agentPlugins</span>
-</div>
-<div class="p-1.5 bg-blue-900/30 rounded flex items-start gap-1">
-<span class="text-blue-400 flex-shrink-0">☐</span>
-<span>Use /compact to manually compact conversation</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-2 text-sm">🚀 Explore Further (1 hour)</div>
-<div class="space-y-1">
-<div class="p-1.5 bg-indigo-900/30 rounded flex items-start gap-1">
-<span class="text-indigo-400 flex-shrink-0">☐</span>
-<span>Define custom agent with subagent invocation</span>
-</div>
-<div class="p-1.5 bg-indigo-900/30 rounded flex items-start gap-1">
-<span class="text-indigo-400 flex-shrink-0">☐</span>
-<span>Enable Copilot Memory (copilotMemory.enabled)</span>
-</div>
-<div class="p-1.5 bg-indigo-900/30 rounded flex items-start gap-1">
-<span class="text-indigo-400 flex-shrink-0">☐</span>
-<span>Try agentic browser tools (enableChatTools: true)</span>
-</div>
-<div class="p-1.5 bg-indigo-900/30 rounded flex items-start gap-1">
-<span class="text-indigo-400 flex-shrink-0">☐</span>
-<span>Use /create-skill to extract debugging workflow</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30">
-<div class="font-bold text-green-300 mb-1 text-sm">🎯 Key Takeaway</div>
-<div class="text-xs text-gray-300">VS Code has evolved from a single-chat assistant to a multi-agent orchestration platform. Plan locally → implement in background → validate in browser → merge selectively. The workflow pattern is the real unlock.</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Update VS Code to v1.110+", "Try /init to bootstrap workspace instructions", "Enable thinking tokens (budgetTokens: 4000)", "Try /fork to branch a conversation"]'
+  :thisWeek='["Enable terminal sandboxing (sandbox.enabled: true)", "Create first Agent Skill in .github/skills/", "Install an Agent Plugin via @agentPlugins", "Use /compact to manually compact conversation"]'
+  :thisMonth='["Define custom agent with subagent invocation", "Enable Copilot Memory (copilotMemory.enabled)", "Try agentic browser tools (enableChatTools: true)", "Use /create-skill to extract a debugging workflow"]'
+  footer="VS Code has evolved from a single-chat assistant to a multi-agent orchestration platform. Plan locally → implement in background → validate in browser → merge selectively. The workflow pattern is the real unlock."
+/>
 
 ---
 

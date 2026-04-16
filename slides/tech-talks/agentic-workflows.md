@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -983,135 +984,13 @@ Express intent without implementation details — AI adapts to repository contex
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="text-lg font-bold text-white mb-0.5">Get Started</div>
-<div class="text-xs text-white/50">From installation to first workflow in 15 minutes</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-4">
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30 flex-1">
-<div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-300 font-bold text-sm">15m</div>
-<div class="text-base font-bold text-purple-300">Immediate</div>
-</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-purple-400 mt-0.5">1.</div>
-<div>Install gh-aw CLI extension</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-purple-400 mt-0.5">2.</div>
-<div>Create first workflow</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-purple-400 mt-0.5">3.</div>
-<div>Add instructions & safe-outputs</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-purple-400 mt-0.5">4.</div>
-<div>Compile and deploy</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-purple-950/50 rounded border border-purple-500/20">
-<div class="text-xs font-mono text-purple-300">gh aw new my-workflow</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-pink-900/40 to-rose-900/40 rounded-xl border border-pink-500/30 flex-1">
-<div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-300 font-bold text-sm">1h</div>
-<div class="text-base font-bold text-pink-300">Build Skills</div>
-</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-pink-400 mt-0.5">•</div>
-<div>Explore Peli's Agent Factory</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-pink-400 mt-0.5">•</div>
-<div>Study Safe Outputs reference</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-pink-400 mt-0.5">•</div>
-<div>Review example workflows</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-pink-400 mt-0.5">•</div>
-<div>Understand security model</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-pink-950/50 rounded border border-pink-500/20">
-<div class="text-xs font-mono text-pink-300">Learn patterns</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-rose-900/40 to-red-900/40 rounded-xl border border-rose-500/30 flex-1">
-<div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-300 font-bold text-sm">1d</div>
-<div class="text-base font-bold text-rose-300">Go Deep</div>
-</div>
-<div class="space-y-2 text-xs text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-rose-400 mt-0.5">•</div>
-<div>Create 3-5 specialized workflows</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-rose-400 mt-0.5">•</div>
-<div>Implement orchestrator pattern</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-rose-400 mt-0.5">•</div>
-<div>Build continuous improvement</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-rose-400 mt-0.5">•</div>
-<div>Try AgentCouncil</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-rose-950/50 rounded border border-rose-500/20">
-<div class="text-xs font-mono text-rose-300">Production-ready</div>
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Install gh-aw CLI extension", "Create your first workflow", "Add instructions and safe-outputs", "Compile and deploy"]'
+  :thisWeek='["Explore Peli&#39;s Agent Factory", "Study Safe Outputs reference", "Review example workflows", "Understand the security model"]'
+  :thisMonth='["Create 3-5 specialized workflows", "Implement orchestrator pattern", "Build continuous improvement loop", "Try AgentCouncil for multi-agent decisions"]'
+  footer="From installation to first workflow in 15 minutes — master Safe Outputs and the Noop pattern first, then build specialized agents and orchestrators for production-ready automation."
+/>
 
-<div class="mt-4 p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-2">🎯 Key Concepts to Master</div>
-<div class="grid grid-cols-5 gap-2 text-xs text-gray-300">
-<div class="text-center">
-<div class="text-green-400 font-semibold">Safe Outputs</div>
-<div class="text-xs opacity-70">Security foundation</div>
-</div>
-<div class="text-center">
-<div class="text-green-400 font-semibold">Noop Pattern</div>
-<div class="text-xs opacity-70">Prevent #1 failure</div>
-</div>
-<div class="text-center">
-<div class="text-green-400 font-semibold">Compilation</div>
-<div class="text-xs opacity-70">MD → secure YAML</div>
-</div>
-<div class="text-center">
-<div class="text-green-400 font-semibold">Specialization</div>
-<div class="text-xs opacity-70">Many focused agents</div>
-</div>
-<div class="text-center">
-<div class="text-green-400 font-semibold">Human-in-Loop</div>
-<div class="text-xs opacity-70">Trust but verify</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 ---
 

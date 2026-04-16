@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1159,57 +1160,13 @@ Also available: Python, Rust, Kotlin SDKs
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-teal-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1.5 bg-gradient-to-r from-cyan-600/80 to-teal-600/80 rounded-full text-white text-sm font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="grid grid-cols-3 gap-4 flex-1">
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30 flex flex-col">
-<div class="font-bold text-green-300 mb-3 flex items-center gap-2 text-base">
-<div class="text-xl">⚡</div>
-<div>Now (15 min)</div>
-</div>
-<div class="space-y-2.5 opacity-90 text-sm flex-1">
-<div>✓ Check CLI: <code class="bg-black/40 px-1.5 py-0.5 rounded">copilot --version</code></div>
-<div>✓ Start ACP daemon: <code class="bg-black/40 px-1.5 py-0.5 rounded">copilot --acp --stdio</code></div>
-<div>✓ Verify stdio connection works</div>
-<div>✓ Browse <a href="https://agentclientprotocol.com" class="text-green-300 underline">spec</a> + <a href="https://github.com/agentclientprotocol" class="text-green-300 underline">GitHub</a></div>
-</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30 flex flex-col">
-<div class="font-bold text-blue-300 mb-3 flex items-center gap-2 text-base">
-<div class="text-xl">🔧</div>
-<div>This Hour</div>
-</div>
-<div class="space-y-2.5 opacity-90 text-sm flex-1">
-<div>✓ Install SDK: <code class="bg-black/40 px-1.5 py-0.5 rounded">npm install @acp/sdk</code></div>
-<div>✓ Run basic client example</div>
-<div>✓ Implement permission policy</div>
-<div>✓ Try multi-turn conversation</div>
-</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30 flex flex-col">
-<div class="font-bold text-indigo-300 mb-3 flex items-center gap-2 text-base">
-<div class="text-xl">🚀</div>
-<div>Today (2-4h)</div>
-</div>
-<div class="space-y-2.5 opacity-90 text-sm flex-1">
-<div>✓ Clone <a href="https://github.com/MSBart2/cli-acp" class="text-indigo-300 underline">ACP Orchestrator</a> repo</div>
-<div>✓ Connect to multiple polyrepos</div>
-<div>✓ Run ACP agents across repos</div>
-<div>✓ Experiment with permission layers</div>
-</div>
-</div>
-</div>
-<div class="mt-4 p-4 bg-gradient-to-r from-cyan-900/20 to-teal-900/20 rounded-xl border border-cyan-500/20">
-<div class="text-sm opacity-90"><span class="text-cyan-300 font-semibold">Next steps:</span> Review <span class="text-cyan-300">Copilot CLI</span> + <span class="text-cyan-300">MCP Apps</span> talks. Explore <a href="https://agentclientprotocol.com" class="text-cyan-300 underline">agentclientprotocol.com</a> spec.</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Check CLI: copilot --version", "Start ACP daemon: copilot --acp --stdio", "Verify stdio connection works", "Browse the spec and GitHub repo"]'
+  :thisWeek='["Install SDK: npm install @acp/sdk", "Run basic client example", "Implement a permission policy", "Try multi-turn conversation"]'
+  :thisMonth='["Clone ACP Orchestrator repo", "Connect to multiple polyrepos", "Run ACP agents across repos", "Experiment with permission layers"]'
+  footer="ACP gives you a vendor-neutral stdio protocol for multi-agent systems — start with the daemon, implement permission policies, and scale to polyrepo orchestration as your architecture grows."
+/>
+
 
 ---
 

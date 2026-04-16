@@ -23,6 +23,7 @@ import TitleSlide from './components/TitleSlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -1218,105 +1219,12 @@ highlight="The transition from pilot success to organizational capability requir
 ---
 
 <!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-teal-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-emerald-600/80 to-teal-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-emerald-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-teal-900/30 rounded-lg border border-emerald-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">⚡</span>
-<div class="text-sm font-semibold text-emerald-300">Immediate (15 min)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-emerald-400 mt-0.5">□</span>
-<span class="opacity-80">Audit current adoption: teams, acceptance rates, standards?</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-emerald-400 mt-0.5">□</span>
-<span class="opacity-80">Identify 2-3 successful pilot teams for patterns</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-emerald-400 mt-0.5">□</span>
-<span class="opacity-80">Review org custom instructions docs</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-lg border border-teal-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🗓️</span>
-<div class="text-sm font-semibold text-teal-300">Short-Term (2-4 weeks)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-teal-400 mt-0.5">□</span>
-<span class="opacity-80">Create initial org-wide custom instructions</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-teal-400 mt-0.5">□</span>
-<span class="opacity-80">Deploy to pilots, gather feedback, iterate</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-teal-400 mt-0.5">□</span>
-<span class="opacity-80">Build metrics baseline using Copilot Metrics API</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-teal-400 mt-0.5">□</span>
-<span class="opacity-80">Start onboarding kit with copy/paste templates</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🚀</span>
-<div class="text-sm font-semibold text-cyan-300">Advanced (1-3 months)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">□</span>
-<span class="opacity-80">Develop shared Agent Skill library</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">□</span>
-<span class="opacity-80">Establish Community of Practice: monthly sessions</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">□</span>
-<span class="opacity-80">Configure Knowledge Bases (Enterprise tier)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">□</span>
-<span class="opacity-80">Build quarterly ROI dashboard for leadership</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-emerald-900/20 rounded-lg border border-emerald-500/20 text-center">
-<div class="text-xl font-bold text-emerald-300">15 min</div>
-<div class="text-xs text-emerald-400/70">to first action</div>
-</div>
-<div class="p-2 bg-teal-900/20 rounded-lg border border-teal-500/20 text-center">
-<div class="text-xl font-bold text-teal-300">80%+</div>
-<div class="text-xs text-teal-400/70">utilization target</div>
-</div>
-<div class="p-2 bg-cyan-900/20 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-xl font-bold text-cyan-300">200+</div>
-<div class="text-xs text-cyan-400/70">devs at scale</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-emerald-900/20 to-teal-900/20 rounded-lg border border-emerald-500/20">
-<div class="text-xs text-emerald-300/90"><strong>Next Steps:</strong> Achieve 80%+ utilization → Present ROI metrics to leadership → Scale from 50 to 200+ developers</div>
-</div>
-</div>
-</div>
-</div>
+<WhatYouCanDoTodaySlide
+  :today='["Audit current adoption: teams, acceptance rates, standards?", "Identify 2-3 successful pilot teams for patterns", "Review org custom instructions documentation"]'
+  :thisWeek='["Create initial org-wide custom instructions", "Deploy to pilots, gather feedback, iterate", "Build metrics baseline using Copilot Metrics API", "Start onboarding kit with copy/paste templates"]'
+  :thisMonth='["Develop shared Agent Skill library", "Establish Community of Practice: monthly sessions", "Configure Knowledge Bases (Enterprise tier)", "Build quarterly ROI dashboard for leadership"]'
+  footer="Target 80%+ utilization through progressive rollout — pilot with 2-3 high-adoption teams, build metrics baselines, then scale to 200+ developers with a standardized onboarding kit and shared skill library."
+/>
 
 ---
 
