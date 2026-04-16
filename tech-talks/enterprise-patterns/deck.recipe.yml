@@ -1,41 +1,16 @@
 version: 1
 
-source: tech-talks/enterprise-patterns/README.md
-
 deck:
   title: Scaling GitHub Copilot Across Organizations
   subtitle: Enterprise Patterns for AI Adoption
-  tagline: Transform individual team success into organizational capability with consistent standards, governance, and measurable ROI
+  tagline: Transform individual team success into organizational capability with consistent standards and governance
 
   intro:
     mode: core-question
 
-  toc:
-    enabled: true
-
-  sectionOrder:
-    - Organization-Wide Standards
-    - Organizational Skills & Knowledge Bases
-    - Governance & Licensing
-    - Adoption & Enablement
-    - Multi-Team Coordination
-
-  sectionModes:
-    Organization-Wide Standards: deep-dive
-    Organizational Skills & Knowledge Bases: balanced
-    Governance & Licensing: balanced
-    Adoption & Enablement: balanced
-    Multi-Team Coordination: compact
-
   highlightMoments:
-    - 16x ROI from knowledge multiplication across teams
-    - 30-40% cost reduction via flexible licensing strategy
-    - One org instruction change propagates to all repos instantly
-
-  references:
-    enabled: true
-    mode: standard
-
-  thankYou:
-    enabled: true
+    - 16x ROI from knowledge multiplication across teams via shared instructions
+    - 30-40% cost reduction via flexible licensing and entitlements strategy
+    - One org instruction change propagates to all repos instantly (no per-repo updates)
+    - Governance and safety through skills libraries and measured compliance
     variant: standard

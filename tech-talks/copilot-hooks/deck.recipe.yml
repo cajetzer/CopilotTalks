@@ -1,0 +1,17 @@
+# deck.recipe.yml — Copilot Hooks talk guidance
+
+version: 1
+
+deck:
+  title: "GitHub Copilot Hooks"
+  subtitle: "Programmable Governance for Agent Workflows"
+  tagline: "Real-time control and compliance at every agent lifecycle moment"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - 8 lifecycle hook events provide complete governance from SessionStart to Stop
+    - PreToolUse enables preventive enforcement — deny operations before execution
+    - SOC 2, HIPAA, PCI-DSS audit trails without slowing agent velocity
+    - Hooks execute in <2 seconds per operation — governance without velocity loss

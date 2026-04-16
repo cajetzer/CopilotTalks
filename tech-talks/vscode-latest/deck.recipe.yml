@@ -1,0 +1,17 @@
+# deck.recipe.yml — VS Code Latest talk guidance
+
+version: 1
+
+deck:
+  title: "What's New in Copilot for VS Code"
+  subtitle: "v1.108 – v1.115: Eight Releases of AI Innovation"
+  tagline: "From assistant to autonomous agent team"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - Four agent types optimized for different tasks — Local, Background, Cloud, Claude
+    - Background agents with Git worktree isolation enable parallel autonomous execution
+    - Explore subagent dedicated to research reduces Plan agent context contamination
+    - Weekly stable updates starting v1.111 — 8 releases of innovation in 4 months

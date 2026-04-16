@@ -1,0 +1,17 @@
+# deck.recipe.yml — Copilot ACP talk guidance
+
+version: 1
+
+deck:
+  title: "GitHub Copilot ACP"
+  subtitle: "The Agent Client Protocol"
+  tagline: "Universal AI integration for any editor, tool, or workflow"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - N×M integration problem solved to N+M via standard protocol (like LSP for AI agents)
+    - Universal editor support — Zed, JetBrains, Neovim, Emacs — not just VS Code
+    - Bidirectional streaming with real-time response chunks and permission mediation
+    - TypeScript, Python, Rust, Kotlin SDKs officially supported from day one

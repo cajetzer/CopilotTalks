@@ -1,0 +1,17 @@
+# deck.recipe.yml — Agent Teams talk guidance
+
+version: 1
+
+deck:
+  title: "Agent Teams"
+  subtitle: "Subagents, Teams, and Autonomous Execution"
+  tagline: "Mechanisms for composing multi-agent AI systems that handle complex tasks"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - 3 parallel subagents deliver 2.75x faster execution with 4-6x token reduction
+    - Context isolation per subagent improves quality 30-40% vs single-agent runs
+    - Squad enables persistent AI team with role-based coordination and shared memory
+    - Supervision time reduced 65-82% through background agent autonomy

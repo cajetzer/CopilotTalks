@@ -1,40 +1,17 @@
-version: 1
+# deck.recipe.yml — Agentic SDLC talk guidance
 
-source: tech-talks/agentic-sdlc/README.md
+version: 1
 
 deck:
   title: Agentic SDLC
   subtitle: Level 5 Infrastructure for AI Velocity
-  tagline: Progress from standardized engineering to autonomous delivery without losing trust
+  tagline: Autonomous delivery infrastructure that grows with agent throughput
 
   intro:
     mode: core-question
 
-  toc:
-    enabled: true
-
-  sectionOrder:
-    - Repository Topology
-    - PR Workflows
-    - Trust Manufacturing
-    - Implementation Roadmap
-
-  sectionModes:
-    Repository Topology: balanced
-    PR Workflows: deep-dive
-    Trust Manufacturing: deep-dive
-    Implementation Roadmap: compact
-
   highlightMoments:
-    - AgentRC maturity model: Levels 1-5 and what each unlocks for automation, speed, and safety
-    - Level 5 breakpoint: PR systems fail when Level 5 volume meets Level 3 review habits
-    - CI as a trust factory with less than 10 minute PR checks and near-zero flake tolerance
-    - 100x throughput scaling from standardized delivery to autonomous delivery
-
-  references:
-    enabled: true
-    mode: standard
-
-  thankYou:
-    enabled: true
-    variant: discussion
+    - AgentRC maturity model (Levels 1-5) shows what each stage unlocks for automation and safety
+    - Level 5 breakpoint where PR systems fail when agent volume meets review limitations
+    - CI as a trust factory (sub-10-min checks, near-zero flake) enables autonomous delivery
+    - 100x throughput scaling from standardized delivery patterns to autonomous execution

@@ -1,0 +1,17 @@
+# deck.recipe.yml — Agentic Workflows talk guidance
+
+version: 1
+
+deck:
+  title: "GitHub Agentic Workflows"
+  subtitle: "Repository Automation with AI Agents"
+  tagline: "Write repository automation in natural language, execute with security-first AI agents"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - Intent-driven automation replaces brittle YAML with AI that adapts to context
+    - 100+ proven workflow patterns specializing repository tasks out of the box
+    - Markdown → secure YAML compilation with sandboxed agent execution
+    - Read-only AI + validated write operations maintains enterprise security posture

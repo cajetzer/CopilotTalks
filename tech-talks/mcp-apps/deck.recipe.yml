@@ -1,0 +1,17 @@
+# deck.recipe.yml — MCP Apps talk guidance
+
+version: 1
+
+deck:
+  title: "MCP Apps"
+  subtitle: "Rich Interactive UI in Chat"
+  tagline: "Transform chat from text stream to visual workspace with inline charts, tables, and forms"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - Five built-in components (charts, tables, forms, trees, cards) cover 95% of visualization needs
+    - Interactive data visualization replaces static ASCII art and external tool exports
+    - Sortable, filterable tables with full-text search and CSV export — all inline in chat
+    - Custom sandboxed HTML/CSS/JS components for specialized visualizations

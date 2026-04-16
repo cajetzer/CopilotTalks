@@ -1,16 +1,20 @@
 # Build script for all Slidev presentations
 # This script builds each .md file in the slides subdirectories
-# Usage: build-all.ps1 [-Verbose] [-Folder <name>]
+# Usage: build-all.ps1 [-Verbose] [-Folder <name>] [-Deck <name>]
 #   -Folder: optional category to build (workshop, tech-talks, exec-talks)
+#   -Deck:   optional specific deck to build (e.g., copilot-cli); auto-detects category
 #   Examples:
-#     build-all.ps1                          # build all categories
-#     build-all.ps1 -Folder exec-talks       # build only exec-talks
+#     build-all.ps1                              # build all categories
+#     build-all.ps1 -Folder exec-talks           # build only exec-talks
+#     build-all.ps1 -Deck copilot-cli            # build only copilot-cli (auto-detect folder)
+#     build-all.ps1 -Deck copilot-cli -Verbose  # build with verbose output
 #     build-all.ps1 -Verbose -Folder tech-talks  # build only tech-talks (verbose)
 
 param(
     [switch]$Verbose,
     [ValidateSet('workshop', 'tech-talks', 'exec-talks')]
-    [string]$Folder
+    [string]$Folder,
+    [string]$Deck
 )
 
 $ErrorActionPreference = "Stop"
@@ -19,7 +23,29 @@ $StartTime = Get-Date
 $SlidesDir = Split-Path -Parent $PSScriptRoot
 $OutputDir = Join-Path $SlidesDir "dist"
 
-if ($Folder) {
+# If -Deck is specified, auto-detect its category
+if ($Deck) {
+    $DeckSearched = $false
+    $Categories = @('workshop', 'tech-talks', 'exec-talks')
+
+    foreach ($Cat in $Categories) {
+        $DeckPath = Join-Path $SlidesDir $Cat "$Deck.md"
+        if (Test-Path $DeckPath) {
+            $Folder = $Cat
+            $DeckSearched = $true
+            break
+        }
+    }
+
+    if (-not $DeckSearched) {
+        Write-Host "[ERROR] Deck not found: $Deck (searched in workshop, tech-talks, exec-talks)" -ForegroundColor Red
+        exit 1
+    }
+}
+
+if ($Deck) {
+    Write-Host "[ROCKET] Building single deck: $Deck..." -ForegroundColor Cyan
+} elseif ($Folder) {
     Write-Host "[ROCKET] Building $Folder Slidev presentations..." -ForegroundColor Cyan
 } else {
     Write-Host "[ROCKET] Building all Slidev presentations..." -ForegroundColor Cyan
@@ -94,8 +120,23 @@ function Build-Slide {
 
 # Build workshop slides
 if (-not $Folder -or $Folder -eq 'workshop') {
-    Write-Host "[BOOKS] Building workshop slides..." -ForegroundColor Cyan
-    $WorkshopSlides = Get-ChildItem -Path "$SlidesDir/workshop" -Filter "*.md" -File
+    if ($Deck) {
+        # Single deck build
+        $SlideFile = Get-ChildItem -Path "$SlidesDir/workshop" -Filter "$Deck.md" -File
+        if (-not $SlideFile) {
+            Write-Host "[ERROR] Deck not found: workshop/$Deck.md" -ForegroundColor Red
+            exit 1
+        }
+    } else {
+        Write-Host "[BOOKS] Building workshop slides..." -ForegroundColor Cyan
+    }
+
+    $WorkshopSlides = if ($Deck) {
+        @(Get-ChildItem -Path "$SlidesDir/workshop" -Filter "$Deck.md" -File)
+    } else {
+        @(Get-ChildItem -Path "$SlidesDir/workshop" -Filter "*.md" -File)
+    }
+
     foreach ($SlideFile in $WorkshopSlides) {
         $BaseName = $SlideFile.BaseName
         if ($BaseName -eq 'template') {
@@ -114,8 +155,23 @@ if (-not $Folder -or $Folder -eq 'workshop') {
 
 # Build tech-talks slides
 if (-not $Folder -or $Folder -eq 'tech-talks') {
-    Write-Host "[SCIENCE] Building tech-talks slides..." -ForegroundColor Cyan
-    $TechTalksSlides = Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "*.md" -File
+    if ($Deck) {
+        # Single deck build
+        $SlideFile = Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue
+        if (-not $SlideFile) {
+            Write-Host "[ERROR] Deck not found: tech-talks/$Deck.md" -ForegroundColor Red
+            exit 1
+        }
+    } else {
+        Write-Host "[SCIENCE] Building tech-talks slides..." -ForegroundColor Cyan
+    }
+
+    $TechTalksSlides = if ($Deck) {
+        @(Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue)
+    } else {
+        @(Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "*.md" -File)
+    }
+
     foreach ($SlideFile in $TechTalksSlides) {
         $BaseName = $SlideFile.BaseName
         if ($BaseName -eq 'template') {
@@ -134,8 +190,23 @@ if (-not $Folder -or $Folder -eq 'tech-talks') {
 
 # Build exec-talks slides
 if (-not $Folder -or $Folder -eq 'exec-talks') {
-    Write-Host "[BRIEFCASE] Building exec-talks slides..." -ForegroundColor Cyan
-    $ExecTalksSlides = Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "*.md" -File
+    if ($Deck) {
+        # Single deck build
+        $SlideFile = Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue
+        if (-not $SlideFile) {
+            Write-Host "[ERROR] Deck not found: exec-talks/$Deck.md" -ForegroundColor Red
+            exit 1
+        }
+    } else {
+        Write-Host "[BRIEFCASE] Building exec-talks slides..." -ForegroundColor Cyan
+    }
+
+    $ExecTalksSlides = if ($Deck) {
+        @(Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue)
+    } else {
+        @(Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "*.md" -File)
+    }
+
     foreach ($SlideFile in $ExecTalksSlides) {
         $BaseName = $SlideFile.BaseName
         if ($BaseName -eq 'template') {

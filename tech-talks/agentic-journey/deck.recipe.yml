@@ -1,0 +1,17 @@
+# deck.recipe.yml — Agentic Journey talk guidance
+
+version: 1
+
+deck:
+  title: "The Agentic Journey"
+  subtitle: "Incremental Path from Issue to PR Automation"
+  tagline: "4-workflow issue lifecycle with historical context planning"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - Issue triage compresses 20-30 min → 3 min per issue (88% duplicate detection accuracy)
+    - Historical context planning compresses 2-4 hours → 15 min with ±20% estimate accuracy
+    - Implementation: 8-12 hours → 1-2 hours to PR from approved plans
+    - $7,000/month ROI from planning automation; $2,000/month from triage alone

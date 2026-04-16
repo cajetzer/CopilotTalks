@@ -1,0 +1,17 @@
+# deck.recipe.yml — Copilot Chat Internals talk guidance
+
+version: 1
+
+deck:
+  title: "Copilot Chat Internals"
+  subtitle: "Debugging AI Interactions"
+  tagline: "Transform AI debugging from guesswork into systematic investigation"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - Agent Debug Panel (v1.110) gives real-time event monitoring and chart visualization
+    - Configuration errors diagnosed in 4 min instead of 45 min with debug view
+    - Thinking tokens reveal model reasoning steps before response is generated
+    - Chat Debug View exposes every file, instruction, and tool call sent to the model

@@ -38,9 +38,10 @@ chmod +x build.sh scripts/build-all.sh  # First time only
 
 | Goal | Windows | Linux/macOS |
 |------|---------|------------|
-| Validate tech-talks | `.\build.ps1 Tech-talks` | `./build.sh tech-talks` |
-| Validate workshop | `.\build.ps1 workshop` | `./build.sh workshop` |
-| Validate exec-talks | `.\build.ps1 exec-talks` | `./build.sh exec-talks` |
+| Validate single deck | `.\build.ps1 -Deck copilot-cli` | `./build.sh --deck copilot-cli` |
+| Validate tech-talks | `.\build.ps1 -Folder Tech-talks` | `./build.sh --folder tech-talks` |
+| Validate workshop | `.\build.ps1 -Folder workshop` | `./build.sh --folder workshop` |
+| Validate exec-talks | `.\build.ps1 -Folder exec-talks` | `./build.sh --folder exec-talks` |
 | Rebuild all | `.\build.ps1` | `./build.sh` |
 
 ### 3. Read the `[DONE]` line
@@ -51,6 +52,36 @@ chmod +x build.sh scripts/build-all.sh  # First time only
 
 ✅ **If you see this**, builds passed. Done.
 ❌ **If count is lower**, one or more decks failed. See troubleshooting.
+
+---
+
+## Single-Deck Builds (Faster Validation)
+
+When editing a single `.md` file or component that affects only one deck, build just that deck to save time:
+
+```powershell
+# Windows: build only copilot-cli
+.\build.ps1 -Deck copilot-cli
+
+# Also verbose for debugging:
+.\build.ps1 -Deck copilot-cli -Verbose
+```
+
+```bash
+# Linux/macOS: build only copilot-cli
+./build.sh --deck copilot-cli
+```
+
+The script will:
+1. Auto-detect the category (workshop/tech-talks/exec-talks)
+2. Build only that one `.md` file
+3. Output the same `[DONE]` and `[CLOCK]` lines
+
+**When to use:**
+- ✅ After editing a single `.md` file or its frontmatter
+- ✅ After modifying a component only used by one deck
+- ✅ Quick validation before pushing to a branch
+- ❌ Don't use after shared component changes — use category or full rebuild instead
 
 ---
 

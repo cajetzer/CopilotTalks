@@ -11,15 +11,20 @@
 #
 # USAGE:
 #   From slides/ directory:
-#     ./build.sh                       # build all categories
-#     ./build.sh tech-talks            # build only tech-talks
-#     ./build.sh workshop              # build only workshop
-#     ./build.sh exec-talks            # build only exec-talks
+#     ./build.sh                          # build all categories
+#     ./build.sh --folder tech-talks      # build only tech-talks
+#     ./build.sh --folder workshop        # build only workshop
+#     ./build.sh --folder exec-talks      # build only exec-talks
+#     ./build.sh --deck copilot-cli       # build only copilot-cli (auto-detects folder)
+#     ./build.sh --deck copilot-cli -v    # build with verbose output
 #
 #   From any directory:
-#     /path/to/slides/build.sh tech-talks
+#     /path/to/slides/build.sh --folder tech-talks
+#     /path/to/slides/build.sh --deck copilot-cli
 #
 # PARAMETERS:
+#   --folder CATEGORY: Category to build (workshop, tech-talks, exec-talks). Omit to build all.
+#   --deck NAME:       Single deck name to build (e.g., copilot-cli). Auto-detects category.
 #   All parameters are passed directly to scripts/build-all.sh
 
 # Get the directory where this script is located

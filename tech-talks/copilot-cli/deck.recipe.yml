@@ -1,8 +1,6 @@
-# deck.recipe.yml — Copilot CLI slide-generation recipe
+# deck.recipe.yml — Copilot CLI talk guidance
 
 version: 1
-
-source: tech-talks/copilot-cli/README.md
 
 deck:
   title: GitHub Copilot CLI
@@ -12,32 +10,8 @@ deck:
   intro:
     mode: core-question
 
-  toc:
-    enabled: true
-
-  # Major sections from 🎬 markers
-  sectionOrder:
-    - Plan Mode & Steering
-    - Operating Modes
-    - Built-in Agents
-    - Use Cases
-
-  sectionModes:
-    Plan Mode & Steering: deep-dive
-    Operating Modes: balanced
-    Built-in Agents: balanced
-    Use Cases: deep-dive
-
-  # Newest/most differentiated capabilities to feature prominently
   highlightMoments:
-    - /fleet fan-out explicitly decomposes parallel subtasks
-    - GitHub.com integration from terminal (issues, PRs without browser)
-    - Cloud delegation with & prefix completely frees IDE and terminal
-
-  references:
-    enabled: true
-    mode: standard
-
-  thankYou:
-    enabled: true
-    variant: standard
+    - Plan Mode cuts debugging from 45 min → 8 min and attempts from 8 → 2
+    - Cloud delegation with & prefix frees IDE and terminal for other work
+    - /fleet orchestrator explicitly parallelizes subtasks across subagents
+    - Remote control sessions let you monitor and steer from web and mobile

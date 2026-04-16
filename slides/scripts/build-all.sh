@@ -3,22 +3,56 @@ set -e
 
 # Build script for all Slidev presentations
 # This script builds each .md file in the slides subdirectories
-# Usage: build-all.sh [-v|--verbose] [folder]
-#   folder: optional category to build (workshop, tech-talks, exec-talks)
+# Usage: build-all.sh [-v|--verbose] [--folder FOLDER] [--deck DECK]
+#   --folder: optional category to build (workshop, tech-talks, exec-talks)
+#   --deck:   optional specific deck name; auto-detects category
+#   -v|--verbose: enable verbose output
 #   Examples:
-#     build-all.sh                    # build all categories
-#     build-all.sh exec-talks         # build only exec-talks
-#     build-all.sh -v tech-talks      # build only tech-talks (verbose)
+#     build-all.sh                              # build all categories
+#     build-all.sh --folder exec-talks          # build only exec-talks
+#     build-all.sh --deck copilot-cli           # build only copilot-cli (auto-detect folder)
+#     build-all.sh --deck copilot-cli -v        # build with verbose output
+#     build-all.sh -v --folder tech-talks       # build only tech-talks (verbose)
 
 VERBOSE=false
 FOLDER=""
+DECK=""
 
-for arg in "$@"; do
-    case "$arg" in
-        -v|--verbose) VERBOSE=true ;;
-        *) FOLDER="$arg" ;;
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -v|--verbose)
+            VERBOSE=true
+            shift
+            ;;
+        --folder)
+            FOLDER="$2"
+            shift 2
+            ;;
+        --deck)
+            DECK="$2"
+            shift 2
+            ;;
+        *)
+            echo "❌ Unknown option: $1"
+            exit 1
+            ;;
     esac
 done
+
+# If --deck is specified, auto-detect its category
+if [[ -n "$DECK" ]]; then
+    if [[ -f "$(dirname "${BASH_SOURCE[0]}")/../workshop/${DECK}.md" ]]; then
+        FOLDER="workshop"
+    elif [[ -f "$(dirname "${BASH_SOURCE[0]}")/../tech-talks/${DECK}.md" ]]; then
+        FOLDER="tech-talks"
+    elif [[ -f "$(dirname "${BASH_SOURCE[0]}")/../exec-talks/${DECK}.md" ]]; then
+        FOLDER="exec-talks"
+    else
+        echo "❌ Deck not found: ${DECK} (searched in workshop, tech-talks, exec-talks)"
+        exit 1
+    fi
+fi
 
 # Validate folder if specified
 if [[ -n "$FOLDER" && "$FOLDER" != "workshop" && "$FOLDER" != "tech-talks" && "$FOLDER" != "exec-talks" ]]; then
@@ -31,7 +65,9 @@ START_TIME=$(date +%s)
 SLIDES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUTPUT_DIR="${SLIDES_DIR}/dist"
 
-if [[ -n "$FOLDER" ]]; then
+if [[ -n "$DECK" ]]; then
+    echo "🚀 Building single deck: ${DECK}..."
+elif [[ -n "$FOLDER" ]]; then
     echo "🚀 Building ${FOLDER} Slidev presentations..."
 else
     echo "🚀 Building all Slidev presentations..."

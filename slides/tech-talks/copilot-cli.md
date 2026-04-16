@@ -13,7 +13,7 @@ title: GitHub Copilot CLI
 module: tech-talks/copilot-cli
 section: Copilot Tools
 status: active
-updated: 2026-06-24
+updated: 2026-04-16
 mdc: true
 ---
 
@@ -636,6 +636,75 @@ PR will be created when complete<br/>
 
 ---
 
+<!-- SLIDE: Remote Control: Sessions on Web and Mobile -->
+<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="relative z-10 flex items-center gap-3 mb-3">
+<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Operating Modes</span>
+<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<span class="text-white/40 text-xs">— Bonus: Remote Sessions</span>
+</div>
+<div class="relative z-10 mb-3">
+<div class="text-lg font-bold text-white mb-1">🌐 Remote Control: Monitor & Steer from Anywhere</div>
+<div class="text-xs text-white/50">Watch and manage CLI sessions from GitHub.com on web or mobile — now in public preview</div>
+</div>
+<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
+<div class="grid grid-cols-2 gap-4 text-xs">
+<div class="p-3 bg-gradient-to-br from-green-900/40 to-emerald-900/40 rounded-lg border border-green-500/30">
+<div class="font-semibold text-green-300 mb-2">Getting Started</div>
+<div class="font-mono bg-black/40 p-2 rounded mb-2 leading-snug">
+$ copilot --remote<br/>
+<br/>
+✅ Remote session enabled<br/>
+📱 Link: github.com/copilot/...<br/>
+🔗 QR Code: [scan to open]
+</div>
+<div class="opacity-90 space-y-1 text-xs">
+<div>• Start on local terminal</div>
+<div>• Session link displays immediately</div>
+<div>• Share QR code to join from mobile</div>
+<div>• Or use `/remote` command mid-session</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
+<div class="font-semibold text-cyan-300 mb-2">What You Can Do Remotely</div>
+<div class="space-y-1.5 opacity-90">
+<div>✅ Monitor session activity in real-time</div>
+<div>✅ Send steering messages mid-task</div>
+<div>✅ Approve/deny tool permissions</div>
+<div>✅ Switch modes (plan, interactive, autopilot)</div>
+<div>✅ Respond to agent questions via web/mobile</div>
+<div>✅ View and modify plans before execution</div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
+<div class="font-semibold text-indigo-300 mb-2">Platform Support</div>
+<div class="font-mono bg-black/40 p-2 rounded mb-2 text-xs">
+Web: GitHub.com<br/>
+iOS: TestFlight<br/>
+Android: Google Play (beta)
+</div>
+<div class="opacity-90 text-xs">
+🔐 <strong>Private sessions:</strong> Only visible to the user who started them
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-pink-900/40 to-rose-900/40 rounded-lg border border-pink-500/30">
+<div class="font-semibold text-pink-300 mb-2">Perfect For</div>
+<div class="space-y-1.5 opacity-90">
+<div>📱 Long-running tasks — monitor from anywhere</div>
+<div>✈️ Travel — keep projects progressing</div>
+<div>👥 Code review — steer from GitHub.com PR view</div>
+<div>⚠️ Permission gates — approve on mobile instantly</div>
+<div>🎯 Hands-free mode — watch plans execute</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+---
+
 <!-- SLIDE: Part 3 — Built-in Agents -->
 
 <SectionOpenerSlide
@@ -1020,17 +1089,20 @@ header="Trial-and-Error to Plan-First Workflow"
   :groups='[
     { title: "Official Documentation", color: "cyan", items: [
         { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli", label: "About GitHub Copilot CLI", description: "Core concepts and capabilities" },
+        { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/steer-remotely", label: "Remote Control Sessions", description: "Monitor and steer sessions from web and mobile" },
+        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-remote-access", label: "Remote Access Administration", description: "Administering remote access for Copilot Business/Enterprise" },
         { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet", label: "Running tasks in parallel with /fleet", description: "Parallel orchestration documentation" },
         { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli", label: "Use Copilot CLI", description: "Command syntax and workflows" },
         { href: "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli", label: "Install Copilot CLI", description: "Setup for all platforms" },
         { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions", label: "Custom instructions", description: "Repository-specific behavior configuration" }
     ] },
-    { title: "Additional Resources", color: "purple", items: [
+    { title: "Latest Features & Community", color: "purple", items: [
+        { href: "https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/", label: "Remote control CLI on web & mobile", description: "April 2026 announcement — public preview" },
+        { href: "https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/", label: "Plan Mode announcement", description: "Plan before you build — steer as you go" },
         { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server", label: "Add an MCP server", description: "Extending with external tools" },
         { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing", label: "Finding and installing plugins", description: "Plugin ecosystem and marketplaces" },
-        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins", label: "About plugins", description: "Plugin concepts and capabilities" },
-        { href: "https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/", label: "Plan Mode announcement", description: "Latest features blog post" },
-        { href: "https://github.com/github/copilot-cli", label: "Public repository", description: "Issue tracking and community discussions" }
+        { href: "https://github.com/github/copilot-cli", label: "Public repository", description: "Issue tracking and community discussions" },
+        { href: "https://github.com/orgs/community/discussions/191814", label: "Community discussion", description: "Share your favorite use cases and locations" }
     ] }
   ]'
 />

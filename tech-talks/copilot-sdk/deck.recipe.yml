@@ -1,0 +1,17 @@
+# deck.recipe.yml — Copilot SDK talk guidance
+
+version: 1
+
+deck:
+  title: "GitHub Copilot SDK"
+  subtitle: "Build AI-Powered Tools for Your Workflows"
+  tagline: "Transform repetitive analysis into automated intelligence"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - Release notes automation: 2 hours → 10 minutes per release (92% time reduction)
+    - Test failure analysis: 45 minutes → 5 minutes per failed build
+    - Production-tested agent runtime as a library — no DIY agent infrastructure
+    - Embed agents directly in Node.js, Python, Go, .NET, CI/CD, and internal tools

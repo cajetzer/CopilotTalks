@@ -1,49 +1,28 @@
-# deck.recipe.yml — per-talk slide-generation recipe
+# deck.recipe.yml — lightweight talk generation guidance
 #
-# Copy this file into a talk folder as `deck.recipe.yml` and adjust only the
-# fields you need. The README stays the source of content; this recipe controls
-# how that content is adapted into slides for this one talk.
+# This recipe guides slide generation from a README.md while letting the template.md
+# structure and generator handle slide organization. Use this file to emphasize what
+# matters most — not to control which slides appear.
+#
+# Keep this file minimal. Complex structure should be in README.md via <!-- 🎬 MAJOR SECTION: -->
+# markers and in template.md's strategic content outline.
 
 version: 1
 
-# Path to the source README that drives the deck
-source: tech-talks/example-topic/README.md
-
+# Metadata for the deck
 deck:
-  # Title slide text
-  title: Example Talk Title
-  subtitle: Example Subtitle
-  tagline: Example one-line promise for the deck
+  # Title, subtitle, tagline (e.g., from template frontmatter)
+  title: "[Feature/Capability Name]"
+  subtitle: "[Compelling Subtitle]"
+  tagline: "[One-line promise or focus]"
 
-  # How the opening slides should frame the talk
+  # How the opening slides frame the talk
   intro:
-    mode: core-question # core-question | opportunity
+    mode: core-question  # core-question | opportunity
 
-  # TOC behavior
-  toc:
-    enabled: true
-
-  # Ordered major sections from README `<!-- 🎬 MAJOR SECTION: ... -->` markers
-  sectionOrder:
-    - Section One
-    - Section Two
-    - Section Three
-
-  # Optional per-section emphasis hints for the slide generator
-  sectionModes:
-    Section One: deep-dive # deep-dive | balanced | compact
-    Section Two: balanced
-    Section Three: compact
-
-  # Optional named moments to feature prominently
+  # What to emphasize most (3-5 key points readers/audiences should remember)
+  # The generator uses these to shape slide emphasis and ordering
   highlightMoments:
-    - Single surprising capability or metric
-
-  # Closing / supporting slides
-  references:
-    enabled: true
-    mode: standard # standard | compact
-
-  thankYou:
-    enabled: true
-    variant: standard # standard | discussion
+    - "[Most important insight or capability]"
+    - "[Second key differentiator or outcome]"
+    - "[Third critical point for the audience]"

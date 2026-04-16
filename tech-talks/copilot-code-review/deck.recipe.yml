@@ -1,43 +1,20 @@
-# deck.recipe.yml — per-talk slide-generation recipe
-#
-# This recipe captures the slide-adaptation choices for the copilot-code-review tech talk.
-# The README stays the source of content; this recipe controls how that content is
-# adapted into slides for this one talk.
+# deck.recipe.yml — Copilot Code Review talk guidance
 
 version: 1
 
-# Path to the source README that drives the deck
-source: tech-talks/copilot-code-review/README.md
-
 deck:
-  # Title slide text
   title: GitHub Copilot Code Review
   subtitle: From Bottleneck to Accelerator
   tagline: Reduce PR review time while maintaining code quality and compliance
 
-  # How the opening slides should frame the talk
   intro:
-    mode: core-question # Start with the question "How can we reduce PR time while maintaining quality?"
+    mode: core-question
 
-  # TOC behavior
-  toc:
-    enabled: true
-
-  # Ordered major sections from README `<!-- 🎬 MAJOR SECTION: ... -->` markers
-  sectionOrder:
-    - Setup & Configuration
-    - Understanding Review Feedback
-    - Measuring ROI
-    - Enterprise Compliance
-
-  # Optional per-section emphasis hints for the slide generator
-  sectionModes:
-    Setup & Configuration: balanced # Basic + advanced patterns
-    Understanding Review Feedback: deep-dive # Six capability categories with examples
-    Measuring ROI: balanced # Calculator + optional automation
-    Enterprise Compliance: compact # Focus on instruction files
-
-  # Optional named moments to feature prominently
+  highlightMoments:
+    - Code review bottleneck → accelerator with focused feedback on substance not style
+    - Six capability categories for actionable, high-signal review feedback
+    - Enterprise compliance integration and measurable ROI tracking
+    - Scaling review quality across teams without context switching
   highlightMoments:
     - 40-60% reduction in PR review cycle time
     - 90%+ reduction in security violations reaching production

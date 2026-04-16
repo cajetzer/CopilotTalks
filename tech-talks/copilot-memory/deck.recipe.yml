@@ -1,0 +1,17 @@
+# deck.recipe.yml — Copilot Memory talk guidance
+
+version: 1
+
+deck:
+  title: "Copilot Memory"
+  subtitle: "Stateful AI That Remembers Your Preferences"
+  tagline: "Stop re-explaining your coding style every session"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - Preferences persist across all sessions (IDE, CLI, web) via GitHub account
+    - Semantic retrieval activates memories based on meaning, not keywords
+    - Cross-environment sync spans VS Code, GitHub.com, and GitHub CLI instantly
+    - 28-day auto-expiration with manual override to prevent stale preferences
