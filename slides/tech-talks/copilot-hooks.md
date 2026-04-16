@@ -64,6 +64,7 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
     { icon: "🏢", title: "Real-World Patterns", subtitle: "HIPAA, SOC 2, quality gates", blurb: "Multi-layer security, context injection, compliance trails", slide: 16 },
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — Lifecycle Control -->
@@ -79,6 +80,7 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
   ]'
   :terminal='{ context: "Governance without velocity loss", detail: "8 hooks cover the complete agent lifecycle" }'
 />
+
 ---
 
 <!-- SLIDE: The 8 Lifecycle Events -->
@@ -359,6 +361,7 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
   ]'
   :terminal='{ context: "Other hooks observe — PreToolUse controls", detail: "single control point for gating" }'
 />
+
 ---
 
 <!-- SLIDE: Security Check Implementation -->
@@ -590,6 +593,7 @@ fi</code></pre>
   ]'
   :terminal='{ context: "2-3 hours per audit request", detail: "→ 5 minutes with structured logs" }'
 />
+
 ---
 
 <!-- SLIDE: JSON Lines Logging -->
@@ -801,6 +805,7 @@ fi</code></pre>
   ]'
   :terminal='{ context: "Governance that scales", detail: "across teams and regulatory frameworks" }'
 />
+
 ---
 
 <!-- SLIDE: HIPAA Compliance Audit Trail -->
@@ -986,6 +991,10 @@ fi</code></pre>
 <div class="font-semibold text-pink-300 mb-1">📊 Quality Metrics</div>
 <div class="opacity-80">PostToolUse logs rule violations. Dashboard shows which standards agents violate most → training signal.</div>
 </div>
+</div>
+</div>
+</div>
+
 ---
 
 <!-- SLIDE: Before/After -->
@@ -1029,6 +1038,7 @@ header="Manual Compliance to Real-Time Governance"
     ] }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->

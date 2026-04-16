@@ -1,23 +1,32 @@
 # Build script for all Slidev presentations
 # This script builds each .md file in the slides subdirectories
-# Usage: build-all.ps1 [-Verbose] [-Folder <name>] [-Deck <name>]
-#   -Folder: optional category to build (workshop, tech-talks, exec-talks)
-#   -Deck:   optional specific deck to build (e.g., copilot-cli); auto-detects category
+# Usage: build-all.ps1 [-Verbose] [-Parallel] [-Folder <name>] [-Deck <name>]
+#   -Folder:        optional category to build (workshop, tech-talks, exec-talks)
+#   -Deck:          optional specific deck to build (e.g., copilot-cli); auto-detects category
+#   -Parallel:      run builds concurrently (requires PowerShell 7+, limit: 4)
 #   Examples:
-#     build-all.ps1                              # build all categories
-#     build-all.ps1 -Folder exec-talks           # build only exec-talks
-#     build-all.ps1 -Deck copilot-cli            # build only copilot-cli (auto-detect folder)
-#     build-all.ps1 -Deck copilot-cli -Verbose  # build with verbose output
-#     build-all.ps1 -Verbose -Folder tech-talks  # build only tech-talks (verbose)
+#     build-all.ps1                                        # build all categories (sequential)
+#     build-all.ps1 -Parallel                             # build all categories in parallel (4 at once)
+#     build-all.ps1 -Folder exec-talks                    # build only exec-talks
+#     build-all.ps1 -Deck copilot-cli                     # build only copilot-cli (auto-detect folder)
+#     build-all.ps1 -Deck copilot-cli -Verbose            # build with verbose output
+#     build-all.ps1 -Verbose -Folder tech-talks           # build only tech-talks (verbose)
 
 param(
     [switch]$Verbose,
+    [switch]$Parallel,
     [ValidateSet('workshop', 'tech-talks', 'exec-talks')]
     [string]$Folder,
     [string]$Deck
 )
 
 $ErrorActionPreference = "Stop"
+
+# -Parallel requires PowerShell 7+
+if ($Parallel -and $PSVersionTable.PSVersion.Major -lt 7) {
+    Write-Host "[WARN] -Parallel requires PowerShell 7+. Falling back to sequential." -ForegroundColor Yellow
+    $Parallel = $false
+}
 
 $StartTime = Get-Date
 $SlidesDir = Split-Path -Parent $PSScriptRoot
@@ -55,6 +64,9 @@ Write-Host "[BOX] Output directory: $OutputDir" -ForegroundColor Gray
 if ($Verbose) {
     Write-Host "[SPEAKER] Verbose mode enabled" -ForegroundColor Yellow
 }
+if ($Parallel) {
+    Write-Host "[PARALLEL] Parallel mode enabled (4 concurrent builds)" -ForegroundColor Magenta
+}
 if ($Folder) {
     Write-Host "[OPEN_FOLDER] Folder filter: $Folder" -ForegroundColor Yellow
 }
@@ -75,154 +87,129 @@ function Test-Archived {
     return ($head -contains 'status: archived')
 }
 
-# Helper function to build a slide
-function Build-Slide {
-    param(
-        [string]$Category,
-        [string]$BaseName
-    )
+# Collect all decks to build across all categories
+$AllDecks = [System.Collections.Generic.List[hashtable]]::new()
 
-    $SlideStartTime = Get-Date
-    Push-Location $SlidesDir
-    try {
-        if ($Verbose) {
-            Write-Host "   [HAMMER] $Category/$BaseName..." -ForegroundColor Yellow
-            npx slidev build "$Category/$BaseName.md" `
-                --base "/CopilotTraining/$Category/$BaseName/" `
-                --out "$OutputDir/$Category/$BaseName" 2>&1 | Out-Host
-            $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
-            # Check if dist folder was created (indicates successful build despite warnings)
-            if (Test-Path "$OutputDir/$Category/$BaseName") {
-                Write-Host "   [OK] $Category/$BaseName built (${ElapsedSeconds}s)" -ForegroundColor Green
+$CategoryConfig = @(
+    @{ Name = 'workshop';   Icon = '[BOOKS]';     Enabled = (-not $Folder -or $Folder -eq 'workshop') }
+    @{ Name = 'tech-talks'; Icon = '[SCIENCE]';   Enabled = (-not $Folder -or $Folder -eq 'tech-talks') }
+    @{ Name = 'exec-talks'; Icon = '[BRIEFCASE]'; Enabled = (-not $Folder -or $Folder -eq 'exec-talks') }
+)
+
+foreach ($Cat in $CategoryConfig) {
+    if (-not $Cat.Enabled) { continue }
+
+    $Filter = if ($Deck) { "$Deck.md" } else { "*.md" }
+    $SlideFiles = @(Get-ChildItem -Path "$SlidesDir/$($Cat.Name)" -Filter $Filter -File -ErrorAction SilentlyContinue)
+
+    if ($Deck -and $SlideFiles.Count -eq 0) { continue }  # may be in another category
+
+    foreach ($SlideFile in $SlideFiles) {
+        $BaseName = $SlideFile.BaseName
+        if ($BaseName -eq 'template') { continue }
+        if (Test-Archived $SlideFile.FullName) {
+            Write-Host "   [SKIP] Skipping archived: $($Cat.Name)/$BaseName" -ForegroundColor DarkGray
+            $TotalSkipped++
+            continue
+        }
+        $AllDecks.Add(@{ Category = $Cat.Name; BaseName = $BaseName })
+    }
+}
+
+if ($AllDecks.Count -eq 0) {
+    if ($Deck) {
+        Write-Host "[ERROR] Deck not found: $Deck (searched in workshop, tech-talks, exec-talks)" -ForegroundColor Red
+    } else {
+        Write-Host "[ERROR] No decks found to build." -ForegroundColor Red
+    }
+    exit 1
+}
+
+Write-Host "   $($AllDecks.Count) deck(s) to build" -ForegroundColor Gray
+Write-Host ""
+
+if ($Parallel) {
+    # Parallel build — each job returns a result object; print summary after all complete
+    Write-Host "   Building in parallel (4 at a time)..." -ForegroundColor Magenta
+    $Results = $AllDecks | ForEach-Object -Parallel {
+        $deck = $_
+        $SlidesDir = $using:SlidesDir
+        $OutputDir = $using:OutputDir
+
+        $start = Get-Date
+        Push-Location $SlidesDir
+        try {
+            $output = npx slidev build "$($deck.Category)/$($deck.BaseName).md" `
+                --base "/CopilotTraining/$($deck.Category)/$($deck.BaseName)/" `
+                --out "$OutputDir/$($deck.Category)/$($deck.BaseName)" 2>&1
+            $exitCode = $LASTEXITCODE
+        } finally {
+            Pop-Location
+        }
+
+        $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
+        [pscustomobject]@{
+            Category = $deck.Category
+            BaseName = $deck.BaseName
+            Success  = ($exitCode -eq 0)
+            Elapsed  = $elapsed
+            Output   = $output
+        }
+    } -ThrottleLimit 4
+
+    # Print results in order
+    foreach ($r in $Results | Sort-Object Category, BaseName) {
+        if ($r.Success) {
+            Write-Host "   [OK] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Green
+        } else {
+            Write-Host "   [FAILED] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Red
+            $r.Output | Where-Object {
+                $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
+            } | ForEach-Object { Write-Host "      $_" -ForegroundColor DarkRed }
+        }
+        $TotalBuilt++
+    }
+} else {
+    # Sequential build
+    foreach ($deck in $AllDecks) {
+        $SlideStartTime = Get-Date
+        Push-Location $SlidesDir
+        try {
+            if ($Verbose) {
+                Write-Host "   [HAMMER] $($deck.Category)/$($deck.BaseName)..." -ForegroundColor Yellow
+                npx slidev build "$($deck.Category)/$($deck.BaseName).md" `
+                    --base "/CopilotTraining/$($deck.Category)/$($deck.BaseName)/" `
+                    --out "$OutputDir/$($deck.Category)/$($deck.BaseName)" 2>&1 | Out-Host
+                $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
+                if ($LASTEXITCODE -eq 0) {
+                    Write-Host "   [OK] $($deck.Category)/$($deck.BaseName) built (${ElapsedSeconds}s)" -ForegroundColor Green
+                } else {
+                    Write-Host "   [FAILED] $($deck.Category)/$($deck.BaseName) (${ElapsedSeconds}s)" -ForegroundColor Red
+                }
             } else {
-                Write-Host "   [FAILED] $Category/$BaseName (${ElapsedSeconds}s)" -ForegroundColor Red
+                Write-Host "   [HAMMER] $($deck.Category)/$($deck.BaseName)... " -NoNewline -ForegroundColor Yellow
+                $buildOutput = npx slidev build "$($deck.Category)/$($deck.BaseName).md" `
+                    --base "/CopilotTraining/$($deck.Category)/$($deck.BaseName)/" `
+                    --out "$OutputDir/$($deck.Category)/$($deck.BaseName)" 2>&1
+                $buildExitCode = $LASTEXITCODE
+                $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
+                if ($buildExitCode -eq 0) {
+                    Write-Host "[OK] ${ElapsedSeconds}s" -ForegroundColor Green
+                } else {
+                    Write-Host "[FAILED] ${ElapsedSeconds}s" -ForegroundColor Red
+                    $buildOutput | Where-Object {
+                        $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
+                    } | ForEach-Object { Write-Host "      $_" -ForegroundColor DarkRed }
+                }
             }
+        } finally {
+            Pop-Location
         }
-        else {
-            Write-Host "   [HAMMER] $Category/$BaseName... " -NoNewline -ForegroundColor Yellow
-            $null = npx slidev build "$Category/$BaseName.md" `
-                --base "/CopilotTraining/$Category/$BaseName/" `
-                --out "$OutputDir/$Category/$BaseName" 2>&1 | Out-Null
-            $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
-            # Check if dist folder was created (indicates successful build despite warnings)
-            if (Test-Path "$OutputDir/$Category/$BaseName") {
-                Write-Host "[OK] ${ElapsedSeconds}s" -ForegroundColor Green
-            }
-            else {
-                Write-Host "[FAILED]" -ForegroundColor Red
-            }
-        }
-    }
-    finally {
-        Pop-Location
-    }
-}
-
-# Build workshop slides
-if (-not $Folder -or $Folder -eq 'workshop') {
-    if ($Deck) {
-        # Single deck build
-        $SlideFile = Get-ChildItem -Path "$SlidesDir/workshop" -Filter "$Deck.md" -File
-        if (-not $SlideFile) {
-            Write-Host "[ERROR] Deck not found: workshop/$Deck.md" -ForegroundColor Red
-            exit 1
-        }
-    } else {
-        Write-Host "[BOOKS] Building workshop slides..." -ForegroundColor Cyan
-    }
-
-    $WorkshopSlides = if ($Deck) {
-        @(Get-ChildItem -Path "$SlidesDir/workshop" -Filter "$Deck.md" -File)
-    } else {
-        @(Get-ChildItem -Path "$SlidesDir/workshop" -Filter "*.md" -File)
-    }
-
-    foreach ($SlideFile in $WorkshopSlides) {
-        $BaseName = $SlideFile.BaseName
-        if ($BaseName -eq 'template') {
-            continue
-        }
-        if (Test-Archived $SlideFile.FullName) {
-            Write-Host "   [SKIP] Skipping archived: workshop/$BaseName" -ForegroundColor DarkGray
-            $TotalSkipped++
-            continue
-        }
-        Build-Slide -Category "workshop" -BaseName $BaseName
         $TotalBuilt++
     }
-    Write-Host ""
 }
 
-# Build tech-talks slides
-if (-not $Folder -or $Folder -eq 'tech-talks') {
-    if ($Deck) {
-        # Single deck build
-        $SlideFile = Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue
-        if (-not $SlideFile) {
-            Write-Host "[ERROR] Deck not found: tech-talks/$Deck.md" -ForegroundColor Red
-            exit 1
-        }
-    } else {
-        Write-Host "[SCIENCE] Building tech-talks slides..." -ForegroundColor Cyan
-    }
-
-    $TechTalksSlides = if ($Deck) {
-        @(Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue)
-    } else {
-        @(Get-ChildItem -Path "$SlidesDir/tech-talks" -Filter "*.md" -File)
-    }
-
-    foreach ($SlideFile in $TechTalksSlides) {
-        $BaseName = $SlideFile.BaseName
-        if ($BaseName -eq 'template') {
-            continue
-        }
-        if (Test-Archived $SlideFile.FullName) {
-            Write-Host "   [SKIP] Skipping archived: tech-talks/$BaseName" -ForegroundColor DarkGray
-            $TotalSkipped++
-            continue
-        }
-        Build-Slide -Category "tech-talks" -BaseName $BaseName
-        $TotalBuilt++
-    }
-    Write-Host ""
-}
-
-# Build exec-talks slides
-if (-not $Folder -or $Folder -eq 'exec-talks') {
-    if ($Deck) {
-        # Single deck build
-        $SlideFile = Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue
-        if (-not $SlideFile) {
-            Write-Host "[ERROR] Deck not found: exec-talks/$Deck.md" -ForegroundColor Red
-            exit 1
-        }
-    } else {
-        Write-Host "[BRIEFCASE] Building exec-talks slides..." -ForegroundColor Cyan
-    }
-
-    $ExecTalksSlides = if ($Deck) {
-        @(Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "$Deck.md" -File -ErrorAction SilentlyContinue)
-    } else {
-        @(Get-ChildItem -Path "$SlidesDir/exec-talks" -Filter "*.md" -File)
-    }
-
-    foreach ($SlideFile in $ExecTalksSlides) {
-        $BaseName = $SlideFile.BaseName
-        if ($BaseName -eq 'template') {
-            continue
-        }
-        if (Test-Archived $SlideFile.FullName) {
-            Write-Host "   [SKIP] Skipping archived: exec-talks/$BaseName" -ForegroundColor DarkGray
-            $TotalSkipped++
-            continue
-        }
-        Build-Slide -Category "exec-talks" -BaseName $BaseName
-        $TotalBuilt++
-    }
-    Write-Host ""
-}
-
+Write-Host ""
 # Copy index.html to dist root
 Write-Host "[DOC] Copying index-custom.html to dist root..." -ForegroundColor Gray
 Copy-Item "$SlidesDir/index-custom.html" "$OutputDir/index.html" -Force

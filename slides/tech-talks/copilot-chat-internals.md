@@ -64,6 +64,7 @@ highlight="DevTools for AI closes this gap."
     { icon: "🔧", title: "Troubleshooting Patterns", subtitle: "Systematic diagnostic workflows", blurb: "Minutes to root cause, not hours", slide: 14 },
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — Agent Debug Panel -->
@@ -79,6 +80,7 @@ highlight="DevTools for AI closes this gap."
   ]'
   :terminal='{ context: "VS Code 1.110 flagship debugging feature", detail: "your live dashboard for AI interactions" }'
 />
+
 ---
 
 <!-- SLIDE: What Agent Debug Panel Shows -->
@@ -266,6 +268,7 @@ highlight="DevTools for AI closes this gap."
   ]'
   :terminal='{ context: "From \"why did it do that?\" to \"I see why it did that\"", detail: "evidence-based prompt refinement" }'
 />
+
 ---
 
 <!-- SLIDE: Chat Debug View Pipeline -->
@@ -452,6 +455,7 @@ highlight="DevTools for AI closes this gap."
   ]'
   :terminal='{ context: "From silent failures to clear root causes", detail: "infrastructure-level troubleshooting" }'
 />
+
 ---
 
 <!-- SLIDE: Diagnostics View & Extension Logs -->
@@ -577,6 +581,7 @@ highlight="DevTools for AI closes this gap."
   ]'
   :terminal='{ context: "From reactive firefighting to systematic debugging", detail: "repeatable investigation processes" }'
 />
+
 ---
 
 <!-- SLIDE: Common Troubleshooting Workflows -->
@@ -643,6 +648,8 @@ highlight="DevTools for AI closes this gap."
 <div class="text-sm font-semibold text-green-300">Mental Model Shift: From "AI responses are unpredictable black boxes" to "Every interaction is inspectable, debuggable, and improvable"</div>
 </div>
 </div>
+</div>
+
 ---
 
 <!-- SLIDE: Before/After -->
@@ -689,6 +696,7 @@ header="Black-Box Debugging to Observable Reasoning"
     ] }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->

@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir -p dist/workshop dist/tech-talks dist/exec-talks dist/.build-logs
 
-          MAX_JOBS=1
+          MAX_JOBS=4
           PIDS=()
           LABELS=()
           FAILED=0

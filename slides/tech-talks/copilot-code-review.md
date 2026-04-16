@@ -1078,6 +1078,9 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 </div>
 </div>
 </div>
+</div>
+</div>
+
 ---
 
 <!-- SLIDE: Before/After -->
@@ -1123,6 +1126,7 @@ header="PR Bottleneck to Automated First-Pass Review"
     ] }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->

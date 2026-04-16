@@ -64,6 +64,7 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
     { icon: "🔍", title: "Phase 4: Code Review", subtitle: "Security & outcome validation", blurb: "2-4 hours → 20 min review time", slide: 12 },
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — Agentic Intake -->
@@ -79,6 +80,7 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
   ]'
   :terminal='{ context: "Every new issue triggers automated analysis", detail: "20-30 min → 3 min per issue" }'
 />
+
 ---
 
 <!-- SLIDE: Triage Workflow & Metrics -->
@@ -225,6 +227,7 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
   ]'
   :terminal='{ context: "Estimate accuracy with historical context", detail: "±20% estimate vs ±50% without" }'
 />
+
 ---
 
 <!-- SLIDE: Historical Context Innovation -->
@@ -386,6 +389,7 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
   ]'
   :terminal='{ context: "Connecting Phase 2 plan to GitHub Copilot agent", detail: "8-12 hours → 1-2 hours to PR" }'
 />
+
 ---
 
 <!-- SLIDE: The Copilot Coding Agent -->
@@ -618,6 +622,7 @@ Best for: structured workflow, plan-driven implementation, audit trail
   ]'
   :terminal='{ context: "Code review accelerated by AI", detail: "2-4 hours → 20 min review time" }'
 />
+
 ---
 
 <!-- SLIDE: Review Focus Areas -->
@@ -959,6 +964,8 @@ Human review shifts from <span class="text-red-400">"read every line"</span> to 
 
 <div class="mt-2 text-center text-xs text-gray-400 italic">Phase 5 (full SDLC) adds $1.8M/year but requires 3-6 month investment</div>
 </div>
+</div>
+
 ---
 
 <!-- SLIDE: Before/After -->
@@ -1003,6 +1010,7 @@ header="From Manual Issue-to-PR to Agentic Automation"
     ] }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->

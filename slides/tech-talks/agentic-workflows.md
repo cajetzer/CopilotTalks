@@ -64,6 +64,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     { icon: "🏭", title: "Agent Factory Patterns", subtitle: "100+ proven workflow patterns", blurb: "Specialization reveals possibilities", slide: 13 },
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — The Opportunity -->
@@ -79,6 +80,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
   ]'
   :terminal='{ context: "From scripting \"how\" to declaring \"what\"", detail: "AI navigates the path" }'
 />
+
 ---
 
 <!-- SLIDE: Intent-Driven Automation -->
@@ -228,6 +230,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
   ]'
   :terminal='{ context: "Three-phase workflow execution", detail: "authoring → compilation → execution" }'
 />
+
 ---
 
 <!-- SLIDE: Three-Phase Architecture -->
@@ -513,6 +516,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
   ]'
   :terminal='{ context: "AI decides, validated handlers execute", detail: "security through separation of concerns" }'
 />
+
 ---
 
 <!-- SLIDE: Safe Output Types -->
@@ -598,6 +602,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
   ]'
   :terminal='{ context: "Repository-level AI automation is transformative", detail: "embedded agents have outsized impact" }'
 />
+
 ---
 
 <!-- SLIDE: Proven Patterns -->
@@ -897,6 +902,8 @@ Express intent without implementation details — AI adapts to repository contex
 </div>
 </div>
 </div>
+</div>
+
 ---
 
 <!-- SLIDE: Before/After -->
