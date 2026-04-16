@@ -55,7 +55,7 @@ When given a URL or module requirements:
 
 4. **Generate module README.md:**
    - Use `.github/skills/module-author/TEMPLATE.md` structure
-   - Follow `.github/copilot-instructions.md` voice guidelines
+   - Follow `AGENTS.md` voice guidelines
    - Create comprehensive exercise planning table
    - Include all required sections
 

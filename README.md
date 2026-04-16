@@ -45,7 +45,7 @@ Use the [live site](https://msbart2.github.io/CopilotTraining/) for the easiest 
 
 - [tech-talks/README.md](tech-talks/README.md) — tech talk authoring workflow
 - [slides/TEMPLATE.md](slides/TEMPLATE.md) — slide design patterns
-- [.github/copilot-instructions.md](.github/copilot-instructions.md) — repo-wide Copilot guidance
+- [AGENTS.md](AGENTS.md) — repo-wide Copilot guidance
 - [workshop/README.md](workshop/README.md) — workshop narrative and module structure
 
 ## License

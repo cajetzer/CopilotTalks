@@ -67,7 +67,7 @@ Below the frontmatter: full prose (Background, Goals, Fears, Voice in Exercises)
 
 In workshops, personas are *characters* — dialogue, arcs, transformation. In tech-talks, they must be *archetypes* — the reader identifies with the *type* (skeptical senior who needs ROI proof), not the character in someone else's story.
 
-`copilot-instructions.md` already encodes this: `Sarah=ROI, David=expertise, Marcus=workflow, Elena=quality, Rafael=business value`. That IS the tech-talk lens system — just not yet formalized or visible to readers.
+`AGENTS.md` already encodes this: `Sarah=ROI, David=expertise, Marcus=workflow, Elena=quality, Rafael=business value`. That IS the tech-talk lens system — just not yet formalized or visible to readers.
 
 ### Three Concrete Patterns
 

@@ -62,7 +62,7 @@ Six personas guide you through the workshop, each representing real developer ar
 
 | File                                     | Purpose                                 | Created In |
 | ---------------------------------------- | --------------------------------------- | ---------- |
-| `.github/copilot-instructions.md`        | Repository-wide team patterns           | Module 1   |
+| `AGENTS.md`                              | Repository-wide team patterns           | Module 1   |
 | `docs/ARCHITECTURE.md`                   | System design documentation             | Module 1   |
 | `docs/AI-PLANNING-WORKFLOWS.md`          | Planning templates                      | Module 2   |
 | `.github/prompts/*.prompt.md`            | Reusable prompt files                   | Module 3   |
@@ -94,4 +94,4 @@ This workshop is open for contributions. Areas of opportunity:
 - **Alternative instruction patterns** as examples
 - **Translations** to other languages
 
-See [.github/copilot-instructions.md](.github/copilot-instructions.md) for content guidelines.
+See [AGENTS.md](AGENTS.md) for content guidelines.

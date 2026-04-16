@@ -66,7 +66,7 @@ When given a URL (blog post, docs, announcement):
 Use the `module-author` skill to generate the module README.md:
 
 1. **Load the template:** Read `.github/skills/module-author/TEMPLATE.md`
-2. **Review requirements:** Check `.github/copilot-instructions.md` for voice, metrics, and formatting rules
+2. **Review requirements:** Check `AGENTS.md` for voice, metrics, and formatting rules
 3. **Create comprehensive planning table:** Each exercise row must include:
    - Exercise number and filename link
    - Lead persona (⭐) and support personas (🤝)

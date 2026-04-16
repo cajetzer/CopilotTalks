@@ -1,6 +1,6 @@
-# Copilot Instructions for CopilotTraining Content Development
+# CopilotTraining Agent Instructions
 
-> **Quick reference:** `.github/copilot-instructions.aaak` — condensed orientation for agents (sections, slide rules, personas, gotchas). Load it at session start for fast context without reading all the full docs.
+> **Quick reference:** `AGENTS.aaak` — condensed orientation for agents (sections, slide rules, personas, gotchas). Load it at session start for fast context without reading all the full docs.
 
 ---
 
@@ -31,7 +31,7 @@ Tech talks and exec talks also require `section:` matching a valid value from `s
 
 ## Tone and Voice
 
-Respectful · Practical · Honest · Outcome-based. Full voice rules, persona quick reference, and before-submit checklist: `.github/copilot-instructions.aaak`.
+Respectful · Practical · Honest · Outcome-based. Full voice rules, persona quick reference, and before-submit checklist: `AGENTS.aaak`.
 
 ---
 
@@ -45,7 +45,7 @@ Agents query the relevant hall after pre-flight gates complete, before content g
 
 ## Agent Invocation Guidelines
 
-Keep subagent prompts minimal — agents already have this file and their own `.agent.md` instructions. Full guidance: `.github/copilot-instructions.aaak`.
+Keep subagent prompts minimal — agents already have this file and their own `.agent.md` instructions. Full guidance: `AGENTS.aaak`.
 
 ---
 
