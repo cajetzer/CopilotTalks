@@ -20,7 +20,7 @@ Three components extracted and shipped:
 | `ThankYouSlide` | `components/ThankYouSlide.vue` | `title`, `subtitle`, `cards[]`, `prompt`, `logoClass` |
 | `ReferencesSlide` | `components/ReferencesSlide.vue` | `:groups` array |
 
-All 21 active tech-talk decks use all three components.
+All 17 active tech-talk decks use all three components.
 
 ## The Pattern That Works
 

@@ -4,6 +4,43 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## useTheme.ts pattern: how dark/light mode works in tech-talk components (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+All 5 tech-talk components share a single `isDark` reactive ref from `slides/tech-talks/components/useTheme.ts`.
+
+**To activate dark/light mode:** Edit `useTheme.ts` — replace `ref(true)` with `useDark()` from `@slidev/client`.
+
+**Pattern used in every component:**
+```ts
+import { computed } from 'vue'
+import { isDark } from './useTheme'
+
+const DARK_THEME = { ambientBg: '...', orb: '...', pill: '...', ... }
+const LIGHT_THEME = { ambientBg: '...', orb: '...', pill: '...', ... }
+const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
+```
+
+For card arrays (TocSlide, CoreQuestionSlide, ThankYouSlide):
+```ts
+const DARK_CARD_STYLES = [ { bg, border, hover, titleGrad, shadow, blurb }, ... ]
+const LIGHT_CARD_STYLES = [ { bg, border, hover, titleGrad, shadow, blurb }, ... ]
+const cardStyles = computed(() => isDark.value ? DARK_CARD_STYLES : LIGHT_CARD_STYLES)
+```
+
+**Light mode color mapping (reference):**
+- `*-900/40` bg → `*-100/80` bg
+- `border-*-500/50` → `border-*-300`
+- `text-*-300` title → `text-*-700` title
+- `text-*-400/70` blurb → `text-*-700/80` blurb
+- `bg-gray-900/50 border-gray-700/50` item row → `bg-gray-100/80 border-gray-200`
+- `text-gray-400` desc → `text-gray-600`
+
+**Build verified:** `npm run build -- tech-talks/copilot-acp.md` ✅ (April 2026)
+
+---
+
 ## Tech-talk component convention: no style pass-through props (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

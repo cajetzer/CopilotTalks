@@ -1,12 +1,12 @@
 <template>
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="t.orb"></div>
 
     <!-- Breadcrumb pill -->
     <div class="relative z-10 flex items-center gap-3 mb-4">
-      <span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-      <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+      <span class="px-4 py-1 bg-gradient-to-r rounded-full text-white text-xs font-semibold tracking-wide shadow-lg" :class="t.pill">📚 References</span>
+      <div class="flex-1 h-px bg-gradient-to-r" :class="t.divider"></div>
     </div>
 
     <!-- Two-column groups grid -->
@@ -18,7 +18,8 @@
             <div
               v-for="item in group.items"
               :key="item.label"
-              class="p-2 bg-gray-900/50 rounded border border-gray-700/50"
+              class="p-2 rounded border"
+              :class="t.itemBg"
             >
               <a
                 v-if="item.href"
@@ -31,7 +32,7 @@
                 :class="spanCls(group.color)"
                 class="font-medium"
               >{{ item.label }}</span>
-              <div class="text-gray-400 mt-0.5">{{ item.description }}</div>
+              <div class="mt-0.5" :class="t.itemDesc">{{ item.description }}</div>
             </div>
           </div>
         </div>
@@ -57,7 +58,10 @@
  *   }>
  */
 
-const COLORS = {
+import { computed } from 'vue'
+import { isDark } from './useTheme'
+
+const DARK_COLORS = {
   cyan:   { title: "text-cyan-300",   link: "text-cyan-400 hover:text-cyan-300",     span: "text-cyan-400"   },
   purple: { title: "text-purple-300", link: "text-purple-400 hover:text-purple-300", span: "text-purple-400" },
   blue:   { title: "text-blue-300",   link: "text-blue-400 hover:text-blue-300",     span: "text-blue-400"   },
@@ -68,13 +72,45 @@ const COLORS = {
   rose:   { title: "text-rose-300",   link: "text-rose-400 hover:text-rose-300",     span: "text-rose-400"   },
   amber:  { title: "text-amber-300",  link: "text-amber-400 hover:text-amber-300",   span: "text-amber-400"  },
   teal:   { title: "text-teal-300",   link: "text-teal-400 hover:text-teal-300",     span: "text-teal-400"   },
-};
+}
+const LIGHT_COLORS = {
+  cyan:   { title: "text-cyan-700",   link: "text-cyan-600 hover:text-cyan-700",     span: "text-cyan-600"   },
+  purple: { title: "text-purple-700", link: "text-purple-600 hover:text-purple-700", span: "text-purple-600" },
+  blue:   { title: "text-blue-700",   link: "text-blue-600 hover:text-blue-700",     span: "text-blue-600"   },
+  indigo: { title: "text-indigo-700", link: "text-indigo-600 hover:text-indigo-700", span: "text-indigo-600" },
+  green:  { title: "text-green-700",  link: "text-green-600 hover:text-green-700",   span: "text-green-600"  },
+  pink:   { title: "text-pink-700",   link: "text-pink-600 hover:text-pink-700",     span: "text-pink-600"   },
+  orange: { title: "text-orange-700", link: "text-orange-600 hover:text-orange-700", span: "text-orange-600" },
+  rose:   { title: "text-rose-700",   link: "text-rose-600 hover:text-rose-700",     span: "text-rose-600"   },
+  amber:  { title: "text-amber-700",  link: "text-amber-600 hover:text-amber-700",   span: "text-amber-600"  },
+  teal:   { title: "text-teal-700",   link: "text-teal-600 hover:text-teal-700",     span: "text-teal-600"   },
+}
+
+const DARK_THEME = {
+  ambientBg: 'from-blue-900/20 via-indigo-900/10 to-transparent',
+  orb:       'from-blue-500/10 to-transparent',
+  pill:      'from-blue-600/80 to-indigo-600/80',
+  divider:   'from-blue-400/60 to-transparent',
+  itemBg:    'bg-gray-900/50 border-gray-700/50',
+  itemDesc:  'text-gray-400',
+}
+const LIGHT_THEME = {
+  ambientBg: 'from-blue-100/40 via-indigo-50/20 to-transparent',
+  orb:       'from-blue-200/30 to-transparent',
+  pill:      'from-blue-500 to-indigo-500',
+  divider:   'from-blue-300/60 to-transparent',
+  itemBg:    'bg-gray-100/80 border-gray-200',
+  itemDesc:  'text-gray-600',
+}
+
+const colors = computed(() => isDark.value ? DARK_COLORS : LIGHT_COLORS)
+const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 
 defineProps({
   groups: { type: Array, required: true },
 });
 
-const titleCls = (c) => (COLORS[c] || COLORS.cyan).title;
-const linkCls  = (c) => (COLORS[c] || COLORS.cyan).link;
-const spanCls  = (c) => (COLORS[c] || COLORS.cyan).span;
+const titleCls = (c) => (colors.value[c] || colors.value.cyan).title;
+const linkCls  = (c) => (colors.value[c] || colors.value.cyan).link;
+const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
 </script>
