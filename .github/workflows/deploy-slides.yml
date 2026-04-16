@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir -p dist/workshop dist/tech-talks dist/exec-talks dist/.build-logs
 
-          MAX_JOBS=2
+          MAX_JOBS=1
           PIDS=()
           LABELS=()
           FAILED=0
@@ -134,8 +134,10 @@ jobs:
                 return 0
               fi
             done
-            echo "::error::Build failed for ${CATEGORY}/${BASENAME}. Log:"
-            tail -20 "$LOG_FILE"
+            echo "::error::Build failed for ${CATEGORY}/${BASENAME}. Log (head):"
+            head -40 "$LOG_FILE"
+            echo "--- (tail) ---"
+            tail -10 "$LOG_FILE"
             return 1
           }
 
