@@ -4,6 +4,32 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## SectionOpenerSlide component created and rolled out to all 17 tech-talk decks (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+All 17 active tech-talk decks had their raw HTML Part N section opener slides replaced with a shared `SectionOpenerSlide` component. This was the largest-footprint component rollout to date (4 slides per deck × 17 decks = 68 slides replaced).
+
+**Component location:** `slides/tech-talks/components/SectionOpenerSlide.vue`
+**Import path:** `./components/SectionOpenerSlide.vue`
+**Rollout script:** `slides/scripts/rollout-section-opener-slide.mjs`
+**Capture script:** `slides/scripts/capture-section-openers.js` → outputs `captures/<deck>-part-N.png`
+
+**Props:**
+- `partNumber` (1–4): controls color scheme (1=cyan, 2=blue, 3=indigo, 4=purple) — **not configurable per deck**
+- `title`: part title string
+- `subtitle`: one-sentence description
+- `cards`: exactly 3 items `{ icon, title, blurb }`
+- `terminal`: `{ context, detail }` — context line + metric/outcome punchline
+
+**Color progression is hardcoded by partNumber** — no color prop exists or should be added. Each part number has a fixed DARK_THEMES[n] and LIGHT_THEMES[n] entry.
+
+**Template and generator updated:** `slides/tech-talks/template.md` now has a full Section Openers section. `slide-generator.agent.md` checklist updated to require the component and forbid raw HTML openers.
+
+**68 screenshots captured** to `captures/` (`agent-teams-part-1.png` … `vscode-latest-part-4.png`).
+
+---
+
 ## All 5 tech-talk components refactored for dark/light theme readiness (2026-04-14)\n\n`schema_version: 1` | `date: 2026-04-14`\n\nAll 5 components now use a shared `useTheme.ts` pattern. Currently hardcoded to dark. Flipping to dynamic requires one line change in `useTheme.ts`.\n\n**Files changed:**\n- `slides/tech-talks/components/useTheme.ts` — created; exports `isDark = ref(true)`\n- `TitleSlide.vue` — DARK_THEME / LIGHT_THEME + computed `t`\n- `TocSlide.vue` — DARK/LIGHT_CARD_STYLES + DARK/LIGHT_THEME + computed `cardStyles` + `t`\n- `CoreQuestionSlide.vue` — same pattern as TocSlide\n- `ThankYouSlide.vue` — DARK/LIGHT_CARD_STYLES replaces 3 helper functions; DARK/LIGHT_THEME\n- `ReferencesSlide.vue` — DARK/LIGHT_COLORS map + DARK/LIGHT_THEME + computed `colors` + `t`\n\n**Light mode color values set but untested** — palette uses same cyan\u2192blue\u2192indigo\u2192purple progression with lighter tones (`*-100/80` bg, `*-300` border, `*-700` text). Visual review needed when light mode is activated.\n\n**Build verified:** `npm run build -- tech-talks/copilot-acp.md` \u2705\n\n---\n\n## TitleSlide style props removed; TocSlide added to generator template (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

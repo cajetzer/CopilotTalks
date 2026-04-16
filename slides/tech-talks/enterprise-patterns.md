@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,38 +67,17 @@ highlight="The transition from pilot success to organizational capability requir
 
 <!-- SLIDE: Part 1 — Organization-Wide Standards -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Organization-Wide Standards</h1>
-<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-4">Custom instructions at scale</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-3 py-2 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-xl mb-1">🏢</div>
-<div class="text-cyan-300 font-semibold text-sm">Org Instructions</div>
-<div class="text-xs opacity-70 mt-1">Define once, apply everywhere</div>
-</div>
-<div class="px-3 py-2 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-xl mb-1">🔁</div>
-<div class="text-blue-300 font-semibold text-sm">16x ROI</div>
-<div class="text-xs opacity-70 mt-1">Knowledge multiplication across teams</div>
-</div>
-<div class="px-3 py-2 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-xl mb-1">⚡</div>
-<div class="text-indigo-300 font-semibold text-sm">Instant Updates</div>
-<div class="text-xs opacity-70 mt-1">One change propagates to all repos</div>
-</div>
-</div>
-<div class="mt-3 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">Baseline consistency without manual per-repo configuration</span><br />
-<span class="text-cyan-300 mt-1 block">↳ senior architect knowledge reaches 500 developers instantly</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Organization-Wide Standards"
+  subtitle="Custom instructions at scale"
+  :cards='[
+    { icon: "🏢", title: "Org Instructions", blurb: "Define once, apply everywhere" },
+    { icon: "🔁", title: "16× ROI", blurb: "Knowledge multiplication across teams" },
+    { icon: "⚡", title: "Instant Updates", blurb: "One change propagates to all repos" },
+  ]'
+  :terminal='{ context: "Senior architect knowledge reaches 500 developers", detail: "instantly — baseline consistency without per-repo config" }'
+/>
 ---
 
 <!-- SLIDE: The Traditional Problem -->
@@ -346,38 +326,17 @@ highlight="The transition from pilot success to organizational capability requir
 
 <!-- SLIDE: Part 2 — Skills & Knowledge Bases -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Skills & Knowledge Bases</h1>
-<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-4">Institutional knowledge that scales</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-3 py-2 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-xl mb-1">🧠</div>
-<div class="text-blue-300 font-semibold text-sm">Org Skills (GA)</div>
-<div class="text-xs opacity-70 mt-1">Encode domain expertise once</div>
-</div>
-<div class="px-3 py-2 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-xl mb-1">📚</div>
-<div class="text-indigo-300 font-semibold text-sm">Knowledge Bases</div>
-<div class="text-xs opacity-70 mt-1">Multi-repo context (Enterprise)</div>
-</div>
-<div class="px-3 py-2 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-xl mb-1">🔄</div>
-<div class="text-purple-300 font-semibold text-sm">Central Updates</div>
-<div class="text-xs opacity-70 mt-1">Change once, propagate everywhere</div>
-</div>
-</div>
-<div class="mt-3 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">From documentation (often outdated) to executable systems</span><br />
-<span class="text-blue-300 mt-1 block">↳ senior architect knowledge reaches 500 developers instantly</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Skills & Knowledge Bases"
+  subtitle="Institutional knowledge that scales"
+  :cards='[
+    { icon: "🧠", title: "Org Skills (GA)", blurb: "Encode domain expertise once" },
+    { icon: "📚", title: "Knowledge Bases", blurb: "Multi-repo context (Enterprise)" },
+    { icon: "🔄", title: "Central Updates", blurb: "Change once, propagate everywhere" },
+  ]'
+  :terminal='{ context: "From documentation (often outdated) to executable systems", detail: "senior architect knowledge reaches 500 developers instantly" }'
+/>
 ---
 
 <!-- SLIDE: Organizational Agent Skills -->
@@ -558,38 +517,17 @@ highlight="The transition from pilot success to organizational capability requir
 
 <!-- SLIDE: Part 3 — Governance & Licensing -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Governance & Licensing</h1>
-<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-4">Control, compliance, and cost optimization</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-3 py-2 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-xl mb-1">🔐</div>
-<div class="text-indigo-300 font-semibold text-sm">Model Governance</div>
-<div class="text-xs opacity-70 mt-1">Control which AI models teams access</div>
-</div>
-<div class="px-3 py-2 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-xl mb-1">💰</div>
-<div class="text-purple-300 font-semibold text-sm">Flexible Licensing</div>
-<div class="text-xs opacity-70 mt-1">30-40% cost reduction via smart deployment</div>
-</div>
-<div class="px-3 py-2 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-xl mb-1">✅</div>
-<div class="text-pink-300 font-semibold text-sm">Compliance Auto</div>
-<div class="text-xs opacity-70 mt-1">Encode regulatory requirements</div>
-</div>
-</div>
-<div class="mt-3 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">Balance AI capability with enterprise requirements</span><br />
-<span class="text-indigo-300 mt-1 block">↳ cost optimization + risk reduction + audit readiness</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Governance & Licensing"
+  subtitle="Control, compliance, and cost optimization"
+  :cards='[
+    { icon: "🔐", title: "Model Governance", blurb: "Control which AI models teams access" },
+    { icon: "💰", title: "Flexible Licensing", blurb: "30-40% cost reduction via smart deployment" },
+    { icon: "✅", title: "Compliance Auto", blurb: "Encode regulatory requirements" },
+  ]'
+  :terminal='{ context: "Balance AI capability with enterprise requirements", detail: "cost optimization + risk reduction + audit readiness" }'
+/>
 ---
 
 <!-- SLIDE: Model Governance & Auto Selection -->
@@ -880,43 +818,17 @@ highlight="The transition from pilot success to organizational capability requir
 
 <!-- SLIDE: Part 4 — Scaling & Measurement -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Scaling & Measurement</h1>
-<h2 class="!text-xl !font-normal !m-0 opacity-70 mb-4">Adoption, ROI, and federated governance</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-4 gap-3 text-sm max-w-4xl">
-<div class="px-3 py-2 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-xl mb-1">📊</div>
-<div class="text-purple-300 font-semibold text-sm">Metrics Framework</div>
-<div class="text-xs opacity-70 mt-1">Leading, intermediate, lagging</div>
-</div>
-<div class="px-3 py-2 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-xl mb-1">🎓</div>
-<div class="text-pink-300 font-semibold text-sm">Self-Service Kit</div>
-<div class="text-xs opacity-70 mt-1">30-minute quick start</div>
-</div>
-<div class="px-3 py-2 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-xl mb-1">💰</div>
-<div class="text-rose-300 font-semibold text-sm">ROI Reporting</div>
-<div class="text-xs opacity-70 mt-1">Data-driven CFO narrative</div>
-</div>
-<div class="px-3 py-2 bg-fuchsia-900/30 rounded-xl border border-fuchsia-500/30">
-<div class="text-xl mb-1">🤝</div>
-<div class="text-fuchsia-300 font-semibold text-sm">Federated Model</div>
-<div class="text-xs opacity-70 mt-1">16x knowledge ROI</div>
-</div>
-</div>
-<div class="mt-3 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">Enable 50+ teams simultaneously without overwhelming platform team</span><br />
-<span class="text-purple-300 mt-1 block">↳ self-service onboarding + quantifiable metrics = scalable adoption</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Scaling & Measurement"
+  subtitle="Adoption, ROI, and federated governance"
+  :cards='[
+    { icon: "📊", title: "Metrics Framework", blurb: "Leading, intermediate, lagging indicators" },
+    { icon: "🎓", title: "Self-Service Kit", blurb: "30-minute quick start" },
+    { icon: "💰", title: "ROI Reporting", blurb: "Data-driven CFO narrative" },
+  ]'
+  :terminal='{ context: "Enable 50+ teams simultaneously", detail: "self-service onboarding + quantifiable metrics = scalable adoption" }'
+/>
 ---
 
 <!-- SLIDE: Metrics Framework -->

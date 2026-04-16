@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -66,38 +67,17 @@ highlight="no more portal context-switching or assumption-based deployments."
 
 <!-- SLIDE: Part 1 — Live Azure Context -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Live Azure Context</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Conversational resource discovery and config extraction</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">💬</div>
-<div class="text-cyan-300 font-semibold">Ask, Don't Browse</div>
-<div class="text-xs opacity-70 mt-1">Query what exists without portal</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">📋</div>
-<div class="text-blue-300 font-semibold">Extract Configs</div>
-<div class="text-xs opacity-70 mt-1">Live resources become templates</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-indigo-300 font-semibold">Session Context</div>
-<div class="text-xs opacity-70 mt-1">Previous queries stay in memory</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">No more portal tab-switching</span><br />
-<span class="text-cyan-300 mt-1 block">↳ infrastructure state in conversation</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Live Azure Context"
+  subtitle="Conversational resource discovery and config extraction"
+  :cards='[
+    { icon: "💬", title: "Ask, Don’t Browse", blurb: "Query what exists without portal" },
+    { icon: "📋", title: "Extract Configs", blurb: "Live resources become templates" },
+    { icon: "🔍", title: "Session Context", blurb: "Previous queries stay in memory" },
+  ]'
+  :terminal='{ context: "No more portal tab-switching", detail: "infrastructure state in conversation" }'
+/>
 ---
 
 <!-- SLIDE: Interactive Resource Discovery -->
@@ -321,38 +301,17 @@ Allow: 198.51.100.50 (CI/CD)
 
 <!-- SLIDE: Part 2 — The Prototype Loop -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">The Prototype Loop</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Plan Mode validation before deployment</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">💭</div>
-<div class="text-blue-300 font-semibold">Plan With AI</div>
-<div class="text-xs opacity-70 mt-1">Clarifying questions before code</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">✅</div>
-<div class="text-indigo-300 font-semibold">Validate Against Live State</div>
-<div class="text-xs opacity-70 mt-1">Catch mismatches pre-deployment</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-purple-300 font-semibold">Generate Infrastructure Code</div>
-<div class="text-xs opacity-70 mt-1">Production-validated Bicep output</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Traditional: 4-6 deploy-fail-adjust cycles</span><br />
-<span class="text-blue-300 mt-1 block">↳ With Plan Mode: 1-2 cycles, validated first</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="The Prototype Loop"
+  subtitle="Plan Mode validation before deployment"
+  :cards='[
+    { icon: "💭", title: "Plan With AI", blurb: "Clarifying questions before code" },
+    { icon: "✅", title: "Validate Against Live State", blurb: "Catch mismatches pre-deployment" },
+    { icon: "⚡", title: "Generate Infrastructure Code", blurb: "Production-validated Bicep output" },
+  ]'
+  :terminal='{ context: "Traditional: 4-6 deploy-fail-adjust cycles", detail: "With Plan Mode: 1-2 cycles, validated first" }'
+/>
 ---
 
 <!-- SLIDE: Plan Mode: Clarify Before Code -->
@@ -638,38 +597,17 @@ Developer needs complete staging environment that mirrors production App Service
 
 <!-- SLIDE: Part 3 — Configuration & Setup -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Configuration & Setup</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">10-minute installation and connection</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📦</div>
-<div class="text-indigo-300 font-semibold">Install MCP Server</div>
-<div class="text-xs opacity-70 mt-1">VS Code, npm, or Docker</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔐</div>
-<div class="text-purple-300 font-semibold">Authenticate</div>
-<div class="text-xs opacity-70 mt-1">Uses existing az login credentials</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🔌</div>
-<div class="text-pink-300 font-semibold">Connect to CLI</div>
-<div class="text-xs opacity-70 mt-1">Single JSON config file</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">10 minutes from install to first query</span><br />
-<span class="text-indigo-300 mt-1 block">↳ no new auth required — inherits Azure CLI session</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Configuration & Setup"
+  subtitle="10-minute installation and connection"
+  :cards='[
+    { icon: "📦", title: "Install MCP Server", blurb: "VS Code, npm, or Docker" },
+    { icon: "🔐", title: "Authenticate", blurb: "Uses existing az login credentials" },
+    { icon: "🔌", title: "Connect to CLI", blurb: "Single JSON config file" },
+  ]'
+  :terminal='{ context: "10 minutes from install to first query", detail: "no new auth required — inherits Azure CLI session" }'
+/>
 ---
 
 <!-- SLIDE: Installation and Connection -->
@@ -831,38 +769,17 @@ copilot /reset
 
 <!-- SLIDE: Part 4 — Guardrails & Trust Boundaries -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Guardrails & Trust Boundaries</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">RBAC-scoped access and read-only mode</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔐</div>
-<div class="text-purple-300 font-semibold">RBAC Inheritance</div>
-<div class="text-xs opacity-70 mt-1">No privilege elevation</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">👀</div>
-<div class="text-pink-300 font-semibold">Read-Only Mode</div>
-<div class="text-xs opacity-70 mt-1">Safe production exploration</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-rose-300 font-semibold">Subscription Boundaries</div>
-<div class="text-xs opacity-70 mt-1">Separate dev/prod access</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Start with Reader role on production</span><br />
-<span class="text-purple-300 mt-1 block">↳ upgrade to Contributor only on dedicated dev subscriptions</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Guardrails & Trust Boundaries"
+  subtitle="RBAC-scoped access and read-only mode"
+  :cards='[
+    { icon: "🔐", title: "RBAC Inheritance", blurb: "No privilege elevation" },
+    { icon: "👀", title: "Read-Only Mode", blurb: "Safe production exploration" },
+    { icon: "🔒", title: "Subscription Boundaries", blurb: "Separate dev/prod access" },
+  ]'
+  :terminal='{ context: "Start with Reader role on production", detail: "upgrade to Contributor only on dedicated dev subscriptions" }'
+/>
 ---
 
 <!-- SLIDE: Understanding RBAC Inheritance -->

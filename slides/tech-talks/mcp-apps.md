@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,38 +67,17 @@ highlight="MCP Apps turn static responses into interactive experiences."
 
 <!-- SLIDE: Part 1 — Component Types -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Component Types</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Five built-in components for most visualization needs</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-cyan-300 font-semibold">Charts & Tables</div>
-<div class="text-xs opacity-70 mt-1">Interactive data visualization with hover, zoom, sort, filter</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-blue-300 font-semibold">Forms & Trees</div>
-<div class="text-xs opacity-70 mt-1">Structured input collection and hierarchical navigation</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🎨</div>
-<div class="text-indigo-300 font-semibold">Cards & Custom</div>
-<div class="text-xs opacity-70 mt-1">Rich visual blocks and specialized components</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">MCP tools return component specs</span><br />
-<span class="text-cyan-300 mt-1 block">↳ VS Code renders them inline</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Component Types"
+  subtitle="Five built-in components for most visualization needs"
+  :cards='[
+    { icon: "📊", title: "Charts & Tables", blurb: "Interactive data visualization with hover, zoom, sort, filter" },
+    { icon: "📝", title: "Forms & Trees", blurb: "Structured input and hierarchical navigation" },
+    { icon: "🎨", title: "Cards & Custom", blurb: "Rich visual blocks and specialized components" },
+  ]'
+  :terminal='{ context: "MCP tools return component specs", detail: "VS Code renders them inline in chat" }'
+/>
 ---
 
 <!-- SLIDE: Charts Component -->
@@ -419,38 +399,17 @@ highlight="MCP Apps turn static responses into interactive experiences."
 
 <!-- SLIDE: Part 2 — Building MCP Apps -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Building MCP Apps</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Complete MCP server implementation returning components</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🏗️</div>
-<div class="text-blue-300 font-semibold">Server Structure</div>
-<div class="text-xs opacity-70 mt-1">MCP SDK, tools list, component response</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-indigo-300 font-semibold">Callback Handling</div>
-<div class="text-xs opacity-70 mt-1">Forms and trees trigger MCP tool calls on interaction</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-purple-300 font-semibold">Configuration</div>
-<div class="text-xs opacity-70 mt-1">Add to .vscode/mcp.json and test in chat</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Return type: "component" in content array</span><br />
-<span class="text-blue-300 mt-1 block">↳ VS Code detects and renders accordingly</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Building MCP Apps"
+  subtitle="Complete MCP server implementation returning components"
+  :cards='[
+    { icon: "🏗️", title: "Server Structure", blurb: "MCP SDK, tools list, component response" },
+    { icon: "🔄", title: "Callback Handling", blurb: "Forms and trees trigger tool calls on interaction" },
+    { icon: "⚙️", title: "Configuration", blurb: "Add to .vscode/mcp.json and test in chat" },
+  ]'
+  :terminal='{ context: "Return type: \"component\" in content array", detail: "VS Code detects and renders accordingly" }'
+/>
 ---
 
 <!-- SLIDE: MCP Server Structure -->
@@ -643,38 +602,17 @@ server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-am
 
 <!-- SLIDE: Part 3 — Real-World Patterns -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Real-World Patterns</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Practical use cases demonstrating MCP Apps value</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-indigo-300 font-semibold">Multi-Component Dashboards</div>
-<div class="text-xs opacity-70 mt-1">Single query returns comprehensive view</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-purple-300 font-semibold">Progressive Drill-Down</div>
-<div class="text-xs opacity-70 mt-1">Chart callbacks show detailed tables</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-pink-300 font-semibold">Form-Driven Workflows</div>
-<div class="text-xs opacity-70 mt-1">Multi-step guided processes</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Summary → Details without new prompts</span><br />
-<span class="text-indigo-300 mt-1 block">↳ Preserves context, faster iteration</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Real-World Patterns"
+  subtitle="Practical use cases demonstrating MCP Apps value"
+  :cards='[
+    { icon: "📊", title: "Multi-Component Dashboards", blurb: "Single query returns comprehensive view" },
+    { icon: "🔍", title: "Progressive Drill-Down", blurb: "Chart callbacks show detailed tables" },
+    { icon: "📝", title: "Form-Driven Workflows", blurb: "Multi-step guided processes" },
+  ]'
+  :terminal='{ context: "Summary → Details without new prompts", detail: "preserves context, faster iteration" }'
+/>
 ---
 
 <!-- SLIDE: Dashboard Pattern -->
@@ -955,38 +893,17 @@ server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-am
 
 <!-- SLIDE: Part 4 — Real-World Impact -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Real-World Impact</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Three proven use cases with measurable time savings</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-purple-300 font-semibold">Metrics Dashboards</div>
-<div class="text-xs opacity-70 mt-1">15-20 min → 90 sec (8x more frequent analysis)</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-pink-300 font-semibold">Database Queries</div>
-<div class="text-xs opacity-70 mt-1">10 min → 2 min per query (240 min/day saved)</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🏗️</div>
-<div class="text-rose-300 font-semibold">Scaffolding Forms</div>
-<div class="text-xs opacity-70 mt-1">20 min Slack thread → 3 min form (100% accuracy)</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Eliminate export/import cycles</span><br />
-<span class="text-purple-300 mt-1 block">↳ Explore data inline in chat</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Real-World Impact"
+  subtitle="Three proven use cases with measurable time savings"
+  :cards='[
+    { icon: "📊", title: "Metrics Dashboards", blurb: "15-20 min → 90 sec (8× more frequent analysis)" },
+    { icon: "🔍", title: "Database Queries", blurb: "10 min → 2 min per query (240 min/day saved)" },
+    { icon: "🏗️", title: "Scaffolding Forms", blurb: "20 min Slack thread → 3 min form (100% accuracy)" },
+  ]'
+  :terminal='{ context: "Eliminate export/import cycles", detail: "explore data inline in chat" }'
+/>
 ---
 
 <!-- SLIDE: Use Case 1 System Metrics Dashboard -->

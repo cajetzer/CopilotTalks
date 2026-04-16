@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,38 +67,17 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 
 <!-- SLIDE: Part 1 — Architecture & Capabilities -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Architecture & Capabilities</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">How SDK wraps the Copilot CLI agent runtime</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🔌</div>
-<div class="text-cyan-300 font-semibold">JSON-RPC Interface</div>
-<div class="text-xs opacity-70 mt-1">SDK spawns CLI in server mode, communicates via stdio</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🌐</div>
-<div class="text-blue-300 font-semibold">Multi-Language SDKs</div>
-<div class="text-xs opacity-70 mt-1">Python, TypeScript, Go, .NET — consistent APIs</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-indigo-300 font-semibold">Production Features</div>
-<div class="text-xs opacity-70 mt-1">Streaming, memory, MCP, BYOK, tool permissions</div>
-</div>
-</div>
-<div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">CLI is the agent runtime; SDK is how you control it</span><br />
-<span class="text-cyan-300 mt-1 block">↳ programmatically</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Architecture & Capabilities"
+  subtitle="How SDK wraps the Copilot CLI agent runtime"
+  :cards='[
+    { icon: "🔌", title: "JSON-RPC Interface", blurb: "SDK spawns CLI in server mode via stdio" },
+    { icon: "🌐", title: "Multi-Language SDKs", blurb: "Python, TypeScript, Go, .NET" },
+    { icon: "⚡", title: "Production Features", blurb: "Streaming, memory, MCP, BYOK, permissions" },
+  ]'
+  :terminal='{ context: "CLI is the agent runtime", detail: "SDK is how you control it programmatically" }'
+/>
 ---
 
 <!-- SLIDE: How SDK Works -->
@@ -236,32 +216,17 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 
 <!-- SLIDE: Part 2 — Getting Started -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Getting Started</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Install, configure, and make your first SDK call</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-2 gap-3 text-sm max-w-2xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">📦</div>
-<div class="text-blue-300 font-semibold">Installation</div>
-<div class="text-xs opacity-70 mt-1">pip install in 15 minutes</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-indigo-300 font-semibold">CLI Tool Pattern</div>
-<div class="text-xs opacity-70 mt-1">Release notes generator example</div>
-</div></div>
-<div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">Install SDK in 15 minutes, embed agents in any app</span><br />
-<span class="text-blue-300 mt-1 block">↳ no months-long platform build</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Getting Started"
+  subtitle="Install, configure, and make your first SDK call"
+  :cards='[
+    { icon: "📦", title: "Installation", blurb: "pip install in 15 minutes" },
+    { icon: "⚙️", title: "CLI Tool Pattern", blurb: "Release notes generator example" },
+    { icon: "🎯", title: "Streamable Results", blurb: "Real-time output handling" },
+  ]'
+  :terminal='{ context: "Install SDK in 15 minutes, embed agents", detail: "no months-long platform build" }'
+/>
 ---
 
 <!-- SLIDE: Getting Started -->
@@ -370,31 +335,17 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 
 <!-- SLIDE: Part 3 — Advanced Patterns -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-blue-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-blue-400 bg-clip-text text-transparent leading-tight">Advanced Patterns</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Web APIs and scheduled automation</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-2 gap-3 text-sm max-w-2xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🌐</div>
-<div class="text-indigo-300 font-semibold">Web APIs</div>
-<div class="text-xs opacity-70 mt-1">REST endpoints exposing SDK capabilities</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⏰</div>
-<div class="text-purple-300 font-semibold">Scheduled Tasks</div>
-<div class="text-xs opacity-70 mt-1">Automated analysis on cron schedules</div>
-</div></div>
-<div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">From simple scripts to production services</span><br />
-<span class="text-indigo-300 mt-1 block">↳ embed agents in any application or workflow</span>
-</div></div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Advanced Patterns"
+  subtitle="Web APIs and scheduled automation"
+  :cards='[
+    { icon: "🌐", title: "Web APIs", blurb: "REST endpoints exposing SDK capabilities" },
+    { icon: "⏰", title: "Scheduled Tasks", blurb: "Automated analysis on cron schedules" },
+    { icon: "🔗", title: "Integration", blurb: "Jira, Slack, CI/CD webhooks" },
+  ]'
+  :terminal='{ context: "From simple scripts to production services", detail: "embed agents in any application" }'
+/>
 ---
 
 <!-- SLIDE: Pattern 2 - Web API -->
@@ -508,38 +459,17 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 
 <!-- SLIDE: Part 4 — Real-World Use Cases -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Real-World Use Cases</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Production deployments with measurable outcomes</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-indigo-300 font-semibold">Release Notes</div>
-<div class="text-xs opacity-70 mt-1">2 hours → 10 minutes</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🧪</div>
-<div class="text-purple-300 font-semibold">Test Analysis</div>
-<div class="text-xs opacity-70 mt-1">45 min → 5 min per failure</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🚨</div>
-<div class="text-pink-300 font-semibold">Incident Response</div>
-<div class="text-xs opacity-70 mt-1">40% faster MTTR</div>
-</div>
-</div>
-<div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-4 py-2 text-left max-w-xl">
-<span class="text-gray-400">From manual analysis to automated intelligence</span><br />
-<span class="text-indigo-300 mt-1 block">↳ real time savings at production scale</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Real-World Use Cases"
+  subtitle="Production deployments with measurable outcomes"
+  :cards='[
+    { icon: "📝", title: "Release Notes", blurb: "2 hours → 10 minutes (92% reduction)" },
+    { icon: "🧪", title: "Test Analysis", blurb: "45 min → 5 min per failure" },
+    { icon: "🚨", title: "Incident Response", blurb: "40% faster MTTR" },
+  ]'
+  :terminal='{ context: "From manual analysis to automated intelligence", detail: "real time savings at production scale" }'
+/>
 ---
 
 <!-- SLIDE: Use Case 1 - Release Engineering -->

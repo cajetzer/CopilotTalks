@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -66,38 +67,17 @@ highlight="DevTools for AI closes this gap."
 
 <!-- SLIDE: Part 1 — Agent Debug Panel -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Agent Debug Panel</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Real-time event monitoring with chart visualization</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-cyan-300 font-semibold">Live Event Stream</div>
-<div class="text-xs opacity-70 mt-1">Every chat event as it happens</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🎨</div>
-<div class="text-blue-300 font-semibold">Chart View</div>
-<div class="text-xs opacity-70 mt-1">Visualize flow, timing, chains</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">✅</div>
-<div class="text-indigo-300 font-semibold">Customization Audit</div>
-<div class="text-xs opacity-70 mt-1">Verify config file load status</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">VS Code 1.110 flagship debugging feature</span><br />
-<span class="text-cyan-300 mt-1 block">↳ your live dashboard for AI interactions</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Agent Debug Panel"
+  subtitle="Real-time event monitoring with chart visualization"
+  :cards='[
+    { icon: "📊", title: "Live Event Stream", blurb: "Every chat event as it happens" },
+    { icon: "🎨", title: "Chart View", blurb: "Visualize flow, timing, chains" },
+    { icon: "✅", title: "Customization Audit", blurb: "Verify config file load status" },
+  ]'
+  :terminal='{ context: "VS Code 1.110 flagship debugging feature", detail: "your live dashboard for AI interactions" }'
+/>
 ---
 
 <!-- SLIDE: What Agent Debug Panel Shows -->
@@ -274,38 +254,17 @@ highlight="DevTools for AI closes this gap."
 
 <!-- SLIDE: Part 2 — Request Inspection -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Request Inspection</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">See what's sent, understand model reasoning, manage context</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-blue-300 font-semibold">Chat Debug View</div>
-<div class="text-xs opacity-70 mt-1">Complete request/response breakdown</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🧠</div>
-<div class="text-indigo-300 font-semibold">Thinking Tokens</div>
-<div class="text-xs opacity-70 mt-1">Model reasoning visibility</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-purple-300 font-semibold">Context Control</div>
-<div class="text-xs opacity-70 mt-1">/compact, /fork, window indicator</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">From "why did it do that?" to "I see why it did that"</span><br />
-<span class="text-blue-300 mt-1 block">↳ evidence-based prompt refinement</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Request Inspection"
+  subtitle="See what’s sent, understand model reasoning, manage context"
+  :cards='[
+    { icon: "🔍", title: "Chat Debug View", blurb: "Complete request/response breakdown" },
+    { icon: "🧠", title: "Thinking Tokens", blurb: "Model reasoning visibility" },
+    { icon: "📊", title: "Context Control", blurb: "/compact, /fork, window indicator" },
+  ]'
+  :terminal='{ context: "From \"why did it do that?\" to \"I see why it did that\"", detail: "evidence-based prompt refinement" }'
+/>
 ---
 
 <!-- SLIDE: Chat Debug View Pipeline -->
@@ -481,38 +440,17 @@ highlight="DevTools for AI closes this gap."
 
 <!-- SLIDE: Part 3 — Config & Infrastructure -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Config & Infrastructure</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Validate customizations, debug tools, troubleshoot infrastructure</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-indigo-300 font-semibold">Diagnostics View</div>
-<div class="text-xs opacity-70 mt-1">Config validation & load status</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">📜</div>
-<div class="text-purple-300 font-semibold">Extension Logs</div>
-<div class="text-xs opacity-70 mt-1">Network, auth, lifecycle events</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🔌</div>
-<div class="text-pink-300 font-semibold">MCP Servers</div>
-<div class="text-xs opacity-70 mt-1">External tool management</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">From silent failures to clear root causes</span><br />
-<span class="text-indigo-300 mt-1 block">↳ infrastructure-level troubleshooting</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Config & Infrastructure"
+  subtitle="Validate customizations, debug tools, troubleshoot infrastructure"
+  :cards='[
+    { icon: "⚙️", title: "Diagnostics View", blurb: "Config validation & load status" },
+    { icon: "📜", title: "Extension Logs", blurb: "Network, auth, lifecycle events" },
+    { icon: "🔌", title: "MCP Servers", blurb: "External tool management" },
+  ]'
+  :terminal='{ context: "From silent failures to clear root causes", detail: "infrastructure-level troubleshooting" }'
+/>
 ---
 
 <!-- SLIDE: Diagnostics View & Extension Logs -->
@@ -627,38 +565,17 @@ highlight="DevTools for AI closes this gap."
 
 <!-- SLIDE: Part 4 — Troubleshooting Patterns -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Troubleshooting Patterns</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Systematic workflows for common AI debugging scenarios</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">📋</div>
-<div class="text-purple-300 font-semibold">Proven Workflows</div>
-<div class="text-xs opacity-70 mt-1">Step-by-step diagnostic patterns</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-pink-300 font-semibold">Fast Root Cause</div>
-<div class="text-xs opacity-70 mt-1">Minutes, not hours</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-rose-300 font-semibold">Evidence-Based</div>
-<div class="text-xs opacity-70 mt-1">No more guesswork</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">From reactive firefighting to systematic debugging</span><br />
-<span class="text-purple-300 mt-1 block">↳ repeatable investigation processes</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Troubleshooting Patterns"
+  subtitle="Systematic workflows for common AI debugging scenarios"
+  :cards='[
+    { icon: "📋", title: "Proven Workflows", blurb: "Step-by-step diagnostic patterns" },
+    { icon: "⚡", title: "Fast Root Cause", blurb: "Minutes, not hours" },
+    { icon: "🎯", title: "Evidence-Based", blurb: "No more guesswork" },
+  ]'
+  :terminal='{ context: "From reactive firefighting to systematic debugging", detail: "repeatable investigation processes" }'
+/>
 ---
 
 <!-- SLIDE: Common Troubleshooting Workflows -->

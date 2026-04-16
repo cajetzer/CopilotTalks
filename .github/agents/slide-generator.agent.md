@@ -117,9 +117,9 @@ Use the category profiles to choose the archetype family:
 
 Every content slide **must** use the cockpit wrapper from `slides/TEMPLATE.md` — exact HTML is there. Never use a plain centered `h1`; only title, section openers, and thank-you use centered layouts. Color pair advances each section: cyan/blue → blue/indigo → indigo/purple → purple/pink.
 
-#### Section Openers (Rich "Part N" pattern)
+#### Section Openers (REQUIRED — `SectionOpenerSlide` component)
 
-Use the rich opener from `slides/TEMPLATE.md` — Part N pill + 600px orb + 3-col teaser + mono callout. Not the old `layout: center` pattern.
+Every Part N slide must use `SectionOpenerSlide` from `./components/SectionOpenerSlide.vue`. Do not write raw HTML section openers. See `slides/tech-talks/template.md` for the full prop schema.
 
 #### Tech-talk Required Components (slides 1–3 and N-2 to N)
 
@@ -132,11 +132,12 @@ Structural rules the generator must enforce:
 | 1 | `TitleSlide` | Title, subtitle, tagline, meta from recipe/README |
 | 2 | `CoreQuestionSlide` | Exactly 6 cards: 3 audience (with `icon`) + 3 stats |
 | 3 | `TocSlide` | Exactly 4 sections; `slide` values must be counted **after** generating all slides |
+| Part N | `SectionOpenerSlide` | One per section; `partNumber` 1–4 controls color; exactly 3 cards; no progress dots |
 | N-2 | `WhatYouCanDoTodaySlide` | Immediately before References; all 4 props required |
 | N-1 | `ReferencesSlide` | Use `href` for external links; omit for cross-references |
 | N | `ThankYouSlide` | Deck-specific summary cards, prompt, and CTA |
 
-All 6 imports go in a **single** `<script setup>` block at the top of the deck. See `slides/tech-talks/template.md` for the canonical import block.
+All imports go in a **single** `<script setup>` block at the top of the deck — including `SectionOpenerSlide`. See `slides/tech-talks/template.md` for the canonical import block.
 
 #### Progress Dots (REQUIRED on all topic section content slides)
 
@@ -215,7 +216,7 @@ For all categories, the category profile is authoritative for visual system and 
 - [ ] SDP logo included with glow effect (`./sdp-logo.png`)
 - [ ] **Every content slide uses the cockpit template** (pill breadcrumb + absolute gradients + `justify-start px-14`)
 - [ ] **No plain centered `h1` content slides** — only title, section openers, and thank-you use centered layouts
-- [ ] **Section openers use the rich "Part N" pattern** (Part N pill, 600px orb, 3-column teaser, monospace callout)
+- [ ] **Section openers use `SectionOpenerSlide`** from `./components/SectionOpenerSlide.vue` (not raw HTML)
 - [ ] **Progress dots on every topic section content slide** (not just sections with 2+; section openers excluded)
 - [ ] Section color pairs advance correctly: cyan/blue → blue/indigo → indigo/purple → purple/pink
 - [ ] `module` field in frontmatter with correct path

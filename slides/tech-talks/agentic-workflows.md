@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,38 +67,17 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 
 <!-- SLIDE: Part 1 — The Opportunity -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">The Opportunity</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Intent-driven automation with AI agents</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-cyan-300 font-semibold">Markdown Workflows</div>
-<div class="text-xs opacity-70 mt-1">Natural language instructions, not YAML</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🔐</div>
-<div class="text-blue-300 font-semibold">Security-First</div>
-<div class="text-xs opacity-70 mt-1">Read-only AI + validated write operations</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-indigo-300 font-semibold">Context-Aware</div>
-<div class="text-xs opacity-70 mt-1">AI adapts decisions to repository state</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">From scripting "how" to declaring "what"</span><br />
-<span class="text-cyan-300 mt-1 block">↳ AI navigates the path</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="The Opportunity"
+  subtitle="Intent-driven automation with AI agents"
+  :cards='[
+    { icon: "📝", title: "Markdown Workflows", blurb: "Natural language instructions, not YAML" },
+    { icon: "🔐", title: "Security-First", blurb: "Read-only AI + validated write operations" },
+    { icon: "🎯", title: "Context-Aware", blurb: "AI adapts decisions to repository state" },
+  ]'
+  :terminal='{ context: "From scripting \"how\" to declaring \"what\"", detail: "AI navigates the path" }'
+/>
 ---
 
 <!-- SLIDE: Intent-Driven Automation -->
@@ -236,38 +216,17 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 
 <!-- SLIDE: Part 2 — Core Architecture -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Core Architecture</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Markdown → Secure YAML compilation</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-blue-300 font-semibold">Author in Markdown</div>
-<div class="text-xs opacity-70 mt-1">Natural language workflow definitions</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-indigo-300 font-semibold">Compile to YAML</div>
-<div class="text-xs opacity-70 mt-1">Secure lock files with isolation</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-purple-300 font-semibold">Execute Safely</div>
-<div class="text-xs opacity-70 mt-1">Read-only AI + validated handlers</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Three-phase workflow execution</span><br />
-<span class="text-blue-300 mt-1 block">↳ authoring → compilation → execution</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Core Architecture"
+  subtitle="Markdown → Secure YAML compilation"
+  :cards='[
+    { icon: "📝", title: "Author in Markdown", blurb: "Natural language workflow definitions" },
+    { icon: "🔒", title: "Compile to YAML", blurb: "Secure lock files with isolation" },
+    { icon: "⚡", title: "Execute Safely", blurb: "Read-only AI + validated handlers" },
+  ]'
+  :terminal='{ context: "Three-phase workflow execution", detail: "authoring → compilation → execution" }'
+/>
 ---
 
 <!-- SLIDE: Three-Phase Architecture -->
@@ -542,38 +501,17 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 
 <!-- SLIDE: Part 3 — Safe Outputs -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Safe Outputs</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Security-first write operations</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-indigo-300 font-semibold">Declared Operations</div>
-<div class="text-xs opacity-70 mt-1">Pre-approved write operations</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🛡️</div>
-<div class="text-purple-300 font-semibold">Validation Pipeline</div>
-<div class="text-xs opacity-70 mt-1">Sanitize, rate-limit, domain-check</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-pink-300 font-semibold">Audit Trail</div>
-<div class="text-xs opacity-70 mt-1">Every action logged with markers</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">AI decides, validated handlers execute</span><br />
-<span class="text-indigo-300 mt-1 block">↳ security through separation of concerns</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Safe Outputs"
+  subtitle="Security-first write operations"
+  :cards='[
+    { icon: "🔒", title: "Declared Operations", blurb: "Pre-approved write operations" },
+    { icon: "🛡️", title: "Validation Pipeline", blurb: "Sanitize, rate-limit, domain-check" },
+    { icon: "📝", title: "Audit Trail", blurb: "Every action logged with markers" },
+  ]'
+  :terminal='{ context: "AI decides, validated handlers execute", detail: "security through separation of concerns" }'
+/>
 ---
 
 <!-- SLIDE: Safe Output Types -->
@@ -648,38 +586,17 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 
 <!-- SLIDE: Part 4 — Agent Factory Patterns -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Agent Factory Patterns</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">100+ proven workflow patterns</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🏭</div>
-<div class="text-purple-300 font-semibold">Peli's Factory</div>
-<div class="text-xs opacity-70 mt-1">100+ specialized workflows tested continuously</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-pink-300 font-semibold">Specialization Wins</div>
-<div class="text-xs opacity-70 mt-1">Many focused agents > one monolithic agent</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-rose-300 font-semibold">Continuous Patterns</div>
-<div class="text-xs opacity-70 mt-1">Daily improvements that compound over time</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Repository-level AI automation is transformative</span><br />
-<span class="text-purple-300 mt-1 block">↳ embedded agents have outsized impact</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Agent Factory Patterns"
+  subtitle="100+ proven workflow patterns"
+  :cards='[
+    { icon: "🏭", title: "Peli’s Factory", blurb: "100+ specialized workflows tested continuously" },
+    { icon: "🎯", title: "Specialization Wins", blurb: "Many focused agents > one monolithic agent" },
+    { icon: "🔄", title: "Continuous Patterns", blurb: "Daily improvements that compound over time" },
+  ]'
+  :terminal='{ context: "Repository-level AI automation is transformative", detail: "embedded agents have outsized impact" }'
+/>
 ---
 
 <!-- SLIDE: Proven Patterns -->

@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,38 +67,17 @@ highlight="ACP is the LSP for AI agents — a standard protocol for editor commu
 
 <!-- SLIDE: Part 1 — The LSP Analogy -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-violet-900/25 via-purple-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-violet-500/10 via-purple-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-violet-600/40 to-purple-600/40 rounded-full border border-violet-400/30 text-violet-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-400 bg-clip-text text-transparent leading-tight">The LSP Analogy</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Standardizing editor ↔ agent communication</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-violet-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-violet-900/30 rounded-xl border border-violet-500/30">
-<div class="text-2xl mb-1">📐</div>
-<div class="text-violet-300 font-semibold">N×M Problem</div>
-<div class="text-xs opacity-70 mt-1">Every editor × every agent = fragmentation</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-purple-300 font-semibold">N+M Solution</div>
-<div class="text-xs opacity-70 mt-1">One protocol connects any editor to any agent</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-indigo-300 font-semibold">Proven Pattern</div>
-<div class="text-xs opacity-70 mt-1">LSP did this for language servers, ACP for AI agents</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Before: Each editor builds custom AI plugin</span><br />
-<span class="text-violet-300 mt-1 block">↳ After: Implement ACP client once, connect to any agent</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="The LSP Analogy"
+  subtitle="Standardizing editor ↔ agent communication"
+  :cards='[
+    { icon: "📐", title: "N×M Problem", blurb: "Every editor × every agent = fragmentation" },
+    { icon: "⚡", title: "N+M Solution", blurb: "One protocol connects any editor to any agent" },
+    { icon: "🔄", title: "Proven Pattern", blurb: "LSP did this for language servers, ACP for AI" },
+  ]'
+  :terminal='{ context: "Before: Each editor builds custom AI plugin", detail: "After: Implement ACP client once, connect to any agent" }'
+/>
 ---
 
 <!-- SLIDE: Before ACP vs After ACP -->
@@ -214,43 +194,17 @@ highlight="ACP is the LSP for AI agents — a standard protocol for editor commu
 
 <!-- SLIDE: Part 2 — Protocol Architecture -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-indigo-900/15 to-blue-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-indigo-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-indigo-300 to-blue-400 bg-clip-text text-transparent leading-tight">Protocol Architecture</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Four layers of standardization</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-4 gap-2 text-xs max-w-4xl">
-<div class="px-3 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-xl mb-1">🔌</div>
-<div class="text-purple-300 font-semibold">Transport</div>
-<div class="opacity-70 mt-1">NDJSON over stdio/TCP</div>
-</div>
-<div class="px-3 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-xl mb-1">🔄</div>
-<div class="text-indigo-300 font-semibold">Protocol</div>
-<div class="opacity-70 mt-1">JSON-RPC bidirectional</div>
-</div>
-<div class="px-3 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-xl mb-1">💬</div>
-<div class="text-blue-300 font-semibold">Session</div>
-<div class="opacity-70 mt-1">Stateful context</div>
-</div>
-<div class="px-3 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-xl mb-1">🎯</div>
-<div class="text-cyan-300 font-semibold">Application</div>
-<div class="opacity-70 mt-1">AI + UI logic</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Inspired by LSP's proven design</span><br />
-<span class="text-purple-300 mt-1 block">↳ Four layers decouple editors from agents</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Protocol Architecture"
+  subtitle="Four layers of standardization"
+  :cards='[
+    { icon: "🔌", title: "Transport", blurb: "NDJSON over stdio/TCP" },
+    { icon: "🔄", title: "Protocol", blurb: "JSON-RPC bidirectional" },
+    { icon: "💬", title: "Session", blurb: "Stateful context management" },
+  ]'
+  :terminal='{ context: "Inspired by LSP’s proven design", detail: "Four layers decouple editors from agents" }'
+/>
 ---
 
 <!-- SLIDE: Four-Layer Architecture -->
@@ -501,38 +455,17 @@ highlight="ACP is the LSP for AI agents — a standard protocol for editor commu
 
 <!-- SLIDE: Part 3 — Getting Started -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-blue-900/15 to-cyan-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-blue-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-blue-300 to-cyan-400 bg-clip-text text-transparent leading-tight">Getting Started</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">From zero to connected in 5 minutes</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🚀</div>
-<div class="text-indigo-300 font-semibold">Start ACP Server</div>
-<div class="text-xs opacity-70 mt-1">One command launches Copilot as protocol server</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🔌</div>
-<div class="text-blue-300 font-semibold">Connect SDK</div>
-<div class="text-xs opacity-70 mt-1">TypeScript, Python, Rust, or Kotlin client</div>
-</div>
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">💬</div>
-<div class="text-cyan-300 font-semibold">Send Prompt</div>
-<div class="text-xs opacity-70 mt-1">Create session and stream responses</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Prerequisites: Copilot subscription + CLI installed</span><br />
-<span class="text-indigo-300 mt-1 block">↳ Node.js v22+ for TypeScript SDK examples</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Getting Started"
+  subtitle="From zero to connected in 5 minutes"
+  :cards='[
+    { icon: "🚀", title: "Start ACP Server", blurb: "One command launches Copilot as protocol server" },
+    { icon: "🔌", title: "Connect SDK", blurb: "TypeScript, Python, Rust, or Kotlin client" },
+    { icon: "💬", title: "Send Prompt", blurb: "Create session and stream responses" },
+  ]'
+  :terminal='{ context: "Prerequisites: Copilot subscription + CLI installed", detail: "Node.js v22+ for TypeScript SDK examples" }'
+/>
 ---
 
 <!-- SLIDE: Start the ACP Server & Connect SDK -->
@@ -694,38 +627,17 @@ Also available: Python, Rust, Kotlin SDKs
 
 <!-- SLIDE: Part 4 — Security & Use Cases -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-cyan-900/15 to-teal-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-teal-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-cyan-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent leading-tight">Security & Use Cases</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Trust boundaries and real-world patterns</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🛡️</div>
-<div class="text-blue-300 font-semibold">Permission Model</div>
-<div class="text-xs opacity-70 mt-1">Every tool invocation requires approval</div>
-</div>
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-cyan-300 font-semibold">Editor Integration</div>
-<div class="text-xs opacity-70 mt-1">Zed: 2 weeks vs 3+ months custom build</div>
-</div>
-<div class="px-4 py-3 bg-teal-900/30 rounded-xl border border-teal-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-teal-300 font-semibold">Polyrepo Workflows</div>
-<div class="text-xs opacity-70 mt-1">Cross-repo context in one session</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Agents never bypass permission layer</span><br />
-<span class="text-blue-300 mt-1 block">↳ Enterprise-ready trust without blind faith</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Security & Use Cases"
+  subtitle="Trust boundaries and real-world patterns"
+  :cards='[
+    { icon: "🛡️", title: "Permission Model", blurb: "Every tool invocation requires approval" },
+    { icon: "🎯", title: "Editor Integration", blurb: "Zed: 2 weeks vs 3+ months custom build" },
+    { icon: "🔄", title: "Polyrepo Workflows", blurb: "Cross-repo context in one session" },
+  ]'
+  :terminal='{ context: "Agents never bypass permission layer", detail: "Enterprise-ready trust without blind faith" }'
+/>
 ---
 
 <!-- SLIDE: Permission Model -->

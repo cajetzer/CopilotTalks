@@ -4,6 +4,35 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## SectionOpenerSlide: multi-part rollout via per-part regex replacement (2026-04-16)
+
+`schema_version: 1` | `date: 2026-04-16`
+
+Rolling out a component that appears 4 times per deck (Part 1–4 section openers) requires a per-part regex loop, not a single block replacement:
+
+```js
+function buildPartRegex(partNumber) {
+  return new RegExp(
+    `(<!-- SLIDE: Part ${partNumber}[^\\n]*-->)\\n\\n<div[\\s\\S]*?(?=\\n---)`,
+    ''
+  )
+}
+// iterate parts 1–4 per deck
+for (const part of parts) {
+  updated = updated.replace(buildPartRegex(part.partNumber), `$1\n\n${buildComponent(part)}`)
+}
+```
+
+Key differences from TocSlide rollout:
+- One deck has **4 section openers** → loop over parts, accumulate replacements, count them
+- **Skip guard:** `if (content.includes('<SectionOpenerSlide'))` catches already-converted decks
+- **Content data extracted per deck per part** using a subagent Explore pass across all 16 decks before writing the script
+- Apostrophes in prop values use Unicode right-single-quote `\u2019` (not `&#39;`) in the JS data constants — the rollout script itself applies `esc()` which replaces `'` → `\u2019` at output time
+
+**Script:** `slides/scripts/rollout-section-opener-slide.mjs` — idempotent, safe to re-run.
+
+---
+
 ## TocSlide rollout script pattern for bulk component injection (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -66,38 +67,17 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
 
 <!-- SLIDE: Part 1 — Agent Sessions & Orchestration -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Agent Sessions & Orchestration</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">From single-chat to multi-agent workflows</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-cyan-300 font-semibold">4 Agent Types</div>
-<div class="text-xs opacity-70 mt-1">Local, Background, Cloud, Claude</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🌳</div>
-<div class="text-blue-300 font-semibold">Worktree Isolation</div>
-<div class="text-xs opacity-70 mt-1">Background agents in dedicated Git worktrees</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🤝</div>
-<div class="text-indigo-300 font-semibold">Subagents</div>
-<div class="text-xs opacity-70 mt-1">Parallel delegation with Explore agent</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Plan locally → implement in background → merge selectively</span><br />
-<span class="text-cyan-300 mt-1 block">↳ multi-session workflow pattern</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Agent Sessions & Orchestration"
+  subtitle="From single-chat to multi-agent workflows"
+  :cards='[
+    { icon: "🔄", title: "4 Agent Types", blurb: "Local, Background, Cloud, Claude" },
+    { icon: "🌳", title: "Worktree Isolation", blurb: "Background agents in dedicated Git worktrees" },
+    { icon: "🤝", title: "Subagents", blurb: "Parallel delegation with Explore agent" },
+  ]'
+  :terminal='{ context: "Plan locally → implement in background → merge selectively", detail: "multi-session workflow pattern" }'
+/>
 ---
 
 <!-- SLIDE: Four Agent Types -->
@@ -381,38 +361,17 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
 
 <!-- SLIDE: Part 2 — Agent Customization -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Agent Customization</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Skills, Plugins, and org-level control</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🧩</div>
-<div class="text-blue-300 font-semibold">Agent Skills GA</div>
-<div class="text-xs opacity-70 mt-1">From experimental to enabled by default</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📦</div>
-<div class="text-indigo-300 font-semibold">Agent Plugins</div>
-<div class="text-xs opacity-70 mt-1">Prepackaged bundles from Extensions view</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🏢</div>
-<div class="text-purple-300 font-semibold">Org-Level</div>
-<div class="text-xs opacity-70 mt-1">Enforce consistency across teams</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Package domain expertise once</span><br />
-<span class="text-blue-300 mt-1 block">↳ agents apply it automatically</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Agent Customization"
+  subtitle="Skills, Plugins, and org-level control"
+  :cards='[
+    { icon: "🧩", title: "Agent Skills GA", blurb: "From experimental to enabled by default" },
+    { icon: "📦", title: "Agent Plugins", blurb: "Prepackaged bundles from Extensions view" },
+    { icon: "🏢", title: "Org-Level Control", blurb: "Enforce consistency across teams" },
+  ]'
+  :terminal='{ context: "Package domain expertise once", detail: "agents apply it automatically" }'
+/>
 ---
 
 <!-- SLIDE: Agent Skills — Now GA -->
@@ -678,38 +637,17 @@ user-invokable: true
 
 <!-- SLIDE: Part 3 — Claude & Anthropic Integration -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-violet-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-violet-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-violet-400 bg-clip-text text-transparent leading-tight">Claude & Anthropic Integration</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Thinking tokens and visible reasoning</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🧠</div>
-<div class="text-indigo-300 font-semibold">Claude Agent SDK</div>
-<div class="text-xs opacity-70 mt-1">Anthropic harness in VS Code</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">💭</div>
-<div class="text-purple-300 font-semibold">Thinking Tokens</div>
-<div class="text-xs opacity-70 mt-1">Visible hypothesis formation</div>
-</div>
-<div class="px-4 py-3 bg-violet-900/30 rounded-xl border border-violet-500/30">
-<div class="text-2xl mb-1">🔧</div>
-<div class="text-violet-300 font-semibold">Tool Search Tool</div>
-<div class="text-xs opacity-70 mt-1">Discover relevant tools from large pools</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">See how Claude reasons through complex problems</span><br />
-<span class="text-indigo-300 mt-1 block">↳ visible thinking tokens show hypothesis formation in real-time</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Claude & Anthropic Integration"
+  subtitle="Thinking tokens and visible reasoning"
+  :cards='[
+    { icon: "🧠", title: "Claude Agent SDK", blurb: "Anthropic harness in VS Code" },
+    { icon: "💭", title: "Thinking Tokens", blurb: "Visible hypothesis formation" },
+    { icon: "🔧", title: "Tool Search Tool", blurb: "Discover relevant tools from large pools" },
+  ]'
+  :terminal='{ context: "See how Claude reasons through complex problems", detail: "visible thinking tokens show hypothesis formation" }'
+/>
 ---
 
 <!-- SLIDE: Thinking Tokens -->
@@ -888,38 +826,17 @@ user-invokable: true
 
 <!-- SLIDE: Part 4 — Security & UX -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Security & UX</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Sandboxed autonomy and agentic browser tools</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-purple-300 font-semibold">Terminal Sandboxing</div>
-<div class="text-xs opacity-70 mt-1">OS-level restriction on agent commands</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-pink-300 font-semibold">YOLO Mode</div>
-<div class="text-xs opacity-70 mt-1">/yolo to toggle auto-approve globally</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🌐</div>
-<div class="text-rose-300 font-semibold">Agentic Browser</div>
-<div class="text-xs opacity-70 mt-1">Agents interact with web apps autonomously</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Auto-approve safe commands while sandboxing blocks system access</span><br />
-<span class="text-purple-300 mt-1 block">↳ sandboxed autonomy pattern</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Security & UX"
+  subtitle="Sandboxed autonomy and agentic browser tools"
+  :cards='[
+    { icon: "🔒", title: "Terminal Sandboxing", blurb: "OS-level restriction on agent commands" },
+    { icon: "⚡", title: "YOLO Mode", blurb: "/yolo to toggle auto-approve globally" },
+    { icon: "🌐", title: "Agentic Browser", blurb: "Agents interact with web apps autonomously" },
+  ]'
+  :terminal='{ context: "Auto-approve safe commands while sandboxing blocks system access", detail: "sandboxed autonomy pattern" }'
+/>
 ---
 
 <!-- SLIDE: Terminal Sandboxing & Auto-Approval -->

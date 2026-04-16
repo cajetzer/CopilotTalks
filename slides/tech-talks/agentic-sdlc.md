@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,38 +67,17 @@ highlight="The bottleneck shifts from writing to reviewing — and your infrastr
 
 <!-- SLIDE: Part 1 — AgentRC Maturity Model -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">AgentRC Maturity Model</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">5 levels from functional to autonomous</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">📐</div>
-<div class="text-cyan-300 font-semibold">AgentRC Levels</div>
-<div class="text-xs opacity-70 mt-1">5 stages from functional to autonomous</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-blue-300 font-semibold">The Breakpoint</div>
-<div class="text-xs opacity-70 mt-1">Where Level 3 habits fail at Level 5 volume</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-indigo-300 font-semibold">New Operating Model</div>
-<div class="text-xs opacity-70 mt-1">Evidence-based trust at machine velocity</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Level 5 requires Level 5 infrastructure</span><br />
-<span class="text-cyan-300 mt-1 block">↳ not just more agents</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="AgentRC Maturity Model"
+  subtitle="5 levels from functional to autonomous"
+  :cards='[
+    { icon: "📐", title: "AgentRC Levels", blurb: "5 stages from functional to autonomous" },
+    { icon: "⚡", title: "The Breakpoint", blurb: "Where Level 3 habits fail at Level 5 volume" },
+    { icon: "🔄", title: "New Operating Model", blurb: "Evidence-based trust at machine velocity" },
+  ]'
+  :terminal='{ context: "Level 5 requires Level 5 infrastructure", detail: "not just more agents" }'
+/>
 ---
 
 <!-- SLIDE: The AgentRC Levels -->
@@ -430,38 +410,17 @@ highlight="The bottleneck shifts from writing to reviewing — and your infrastr
 
 <!-- SLIDE: Part 2 — Repository Topology -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Repository Topology</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Rewiring code boundaries for agent-native delivery</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🏗️</div>
-<div class="text-blue-300 font-semibold">Monorepo Design</div>
-<div class="text-xs opacity-70 mt-1">Atomic changes across the full stack</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">��</div>
-<div class="text-indigo-300 font-semibold">Module Boundaries</div>
-<div class="text-xs opacity-70 mt-1">Build-time enforcement, zero drift</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-purple-300 font-semibold">War Story</div>
-<div class="text-xs opacity-70 mt-1">6-hour feature drop to 45 minutes</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Eliminate cross-repo coordination</span><br />
-<span class="text-blue-300 mt-1 block">↳ the hidden tax on agent throughput</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Repository Topology"
+  subtitle="Rewiring code boundaries for agent-native delivery"
+  :cards='[
+    { icon: "🏗️", title: "Monorepo Design", blurb: "Atomic changes across the full stack" },
+    { icon: "🎯", title: "Module Boundaries", blurb: "Build-time enforcement, zero drift" },
+    { icon: "⚡", title: "War Story", blurb: "6-hour feature drop to 45 minutes" },
+  ]'
+  :terminal='{ context: "Eliminate cross-repo coordination", detail: "the hidden tax on agent throughput" }'
+/>
 ---
 
 <!-- SLIDE: Monorepo Default for Agent Velocity -->
@@ -632,38 +591,17 @@ export class PaymentProcessor {}
 
 <!-- SLIDE: Part 3 — PR Workflows -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-violet-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-violet-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-violet-400 bg-clip-text text-transparent leading-tight">PR Workflows</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Scaling governance from line-by-line review to outcome validation</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📋</div>
-<div class="text-indigo-300 font-semibold">Intent-Based PRs</div>
-<div class="text-xs opacity-70 mt-1">Evidence bundles, not implementation reviews</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔺</div>
-<div class="text-purple-300 font-semibold">Governance Pyramid</div>
-<div class="text-xs opacity-70 mt-1">Tiered automation by risk level</div>
-</div>
-<div class="px-4 py-3 bg-violet-900/30 rounded-xl border border-violet-500/30">
-<div class="text-2xl mb-1">💰</div>
-<div class="text-violet-300 font-semibold">Economic Shift</div>
-<div class="text-xs opacity-70 mt-1">Scarcity moves from code to review bandwidth</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">300 lines/day human review can't scale to 15,000 lines/day</span><br />
-<span class="text-indigo-300 mt-1 block">↳ the model must change</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="PR Workflows"
+  subtitle="Scaling governance from line-by-line review to outcome validation"
+  :cards='[
+    { icon: "📋", title: "Intent-Based PRs", blurb: "Evidence bundles, not implementation reviews" },
+    { icon: "🔺", title: "Governance Pyramid", blurb: "Tiered automation by risk level" },
+    { icon: "💰", title: "Economic Shift", blurb: "Scarcity moves from code to review bandwidth" },
+  ]'
+  :terminal='{ context: "300 lines/day human review can’t scale to 15,000 lines/day", detail: "the model must change" }'
+/>
 ---
 
 <!-- SLIDE: The Economic Shift -->
@@ -829,38 +767,17 @@ export class PaymentProcessor {}
 
 <!-- SLIDE: Part 4 — Trust Manufacturing -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Trust Manufacturing</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Transforming CI from quality gate to trust evidence production</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⏱️</div>
-<div class="text-purple-300 font-semibold">10-Minute Rule</div>
-<div class="text-xs opacity-70 mt-1">Fast CI = agent throughput × safety</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-pink-300 font-semibold">Zero-Flake Tolerance</div>
-<div class="text-xs opacity-70 mt-1">Flaky tests block 15 PRs/day at scale</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🏭</div>
-<div class="text-rose-300 font-semibold">Attestations</div>
-<div class="text-xs opacity-70 mt-1">Automated trust signals at shipping velocity</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">CI becomes a trust factory</span><br />
-<span class="text-purple-300 mt-1 block">↳ production rate must match agent output rate</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Trust Manufacturing"
+  subtitle="Transforming CI from quality gate to trust evidence production"
+  :cards='[
+    { icon: "⏱️", title: "10-Minute Rule", blurb: "Fast CI = agent throughput × safety" },
+    { icon: "🎯", title: "Zero-Flake Tolerance", blurb: "Flaky tests block 15 PRs/day at scale" },
+    { icon: "🏭", title: "Attestations", blurb: "Automated trust signals at shipping velocity" },
+  ]'
+  :terminal='{ context: "CI becomes a trust factory", detail: "production rate must match agent output rate" }'
+/>
 ---
 
 <!-- SLIDE: The 10-Minute Rule -->

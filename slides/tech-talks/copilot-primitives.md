@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,38 +67,17 @@ highlight="Copilot's response quality is directly proportional to how much it kn
 
 <!-- SLIDE: Part 1 — Instructions -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Instructions</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">The foundation — always-on context</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">📖</div>
-<div class="text-cyan-300 font-semibold">Always Active</div>
-<div class="text-xs opacity-70 mt-1">Injected into every request automatically</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-blue-300 font-semibold">Three Selectors</div>
-<div class="text-xs opacity-70 mt-1">Repo-wide, path-specific, and directory-local</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-indigo-300 font-semibold">5-Minute Setup</div>
-<div class="text-xs opacity-70 mt-1">Immediate project-aware responses</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">One file = team-aware Copilot</span><br />
-<span class="text-cyan-300 mt-1 block">↳ encode conventions once, apply everywhere</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Instructions"
+  subtitle="The foundation — always-on context"
+  :cards='[
+    { icon: "📖", title: "Always Active", blurb: "Injected into every request automatically" },
+    { icon: "🎯", title: "Three Selectors", blurb: "Repo-wide, path-specific, directory-local" },
+    { icon: "⚡", title: "5-Minute Setup", blurb: "Immediate project-aware responses" },
+  ]'
+  :terminal='{ context: "One file = team-aware Copilot", detail: "encode conventions once, apply everywhere" }'
+/>
 ---
 
 <!-- SLIDE: Instructions — Three Selectors -->
@@ -337,38 +317,17 @@ frontend/<br/>AGENTS.md
 
 <!-- SLIDE: Part 2 — Skills -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Skills</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">On-demand expertise packs</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">📦</div>
-<div class="text-blue-300 font-semibold">Progressive Loading</div>
-<div class="text-xs opacity-70 mt-1">3 levels: discovery → instructions → resources</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-indigo-300 font-semibold">AI-Activated</div>
-<div class="text-xs opacity-70 mt-1">Loaded when task matches skill description</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔁</div>
-<div class="text-purple-300 font-semibold">Cross-Tool Portable</div>
-<div class="text-xs opacity-70 mt-1">VS Code + CLI + coding agent</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Unlike always-on instructions</span><br />
-<span class="text-blue-300 mt-1 block">↳ skills load only when relevant</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Skills"
+  subtitle="On-demand expertise packs"
+  :cards='[
+    { icon: "📦", title: "Progressive Loading", blurb: "3 levels: discovery → instructions → resources" },
+    { icon: "🎯", title: "AI-Activated", blurb: "Loaded when task matches skill description" },
+    { icon: "🔁", title: "Cross-Tool Portable", blurb: "VS Code + CLI + coding agent" },
+  ]'
+  :terminal='{ context: "Unlike always-on instructions", detail: "skills load only when relevant" }'
+/>
 ---
 
 <!-- SLIDE: Skills — Progressive Loading Architecture -->
@@ -608,38 +567,17 @@ templates
 
 <!-- SLIDE: Part 3 — Custom Prompts -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Custom Prompts</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Reusable workflow templates</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">⌨️</div>
-<div class="text-indigo-300 font-semibold">User-Invoked</div>
-<div class="text-xs opacity-70 mt-1">Triggered via /command in chat</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">📋</div>
-<div class="text-purple-300 font-semibold">Variable Interpolation</div>
-<div class="text-xs opacity-70 mt-1">{{componentName}}, ${selection}, ${file}</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-pink-300 font-semibold">References Instructions</div>
-<div class="text-xs opacity-70 mt-1">Reuse conventions without duplication</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Turn frequent tasks into /commands</span><br />
-<span class="text-indigo-300 mt-1 block">↳ standardize workflows across the team</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Custom Prompts"
+  subtitle="Reusable workflow templates"
+  :cards='[
+    { icon: "⌨️", title: "User-Invoked", blurb: "Triggered via /command in chat" },
+    { icon: "📋", title: "Variable Interpolation", blurb: "{{componentName}}, ${selection}, ${file}" },
+    { icon: "🔄", title: "Reuses Instructions", blurb: "No duplication of conventions" },
+  ]'
+  :terminal='{ context: "Turn frequent tasks into /commands", detail: "standardize workflows across the team" }'
+/>
 ---
 
 <!-- SLIDE: Custom Prompts — Component Generator Example -->
@@ -704,38 +642,17 @@ templates
 
 <!-- SLIDE: Part 4 — Custom Agents -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Custom Agents</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Specialized AI personas with constrained tools</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-purple-300 font-semibold">Tool Constraints</div>
-<div class="text-xs opacity-70 mt-1">Exactly which tools are available — and which aren't</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🤝</div>
-<div class="text-pink-300 font-semibold">Guided Handoffs</div>
-<div class="text-xs opacity-70 mt-1">Plan → Implement → Review with context preserved</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🎭</div>
-<div class="text-rose-300 font-semibold">Session Persona</div>
-<div class="text-xs opacity-70 mt-1">Instructions, model, and temperature for a specific role</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Different tasks need different capabilities</span><br />
-<span class="text-purple-300 mt-1 block">↳ constrain tools to prevent accidental edits</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Custom Agents"
+  subtitle="Specialized AI personas with constrained tools"
+  :cards='[
+    { icon: "🔒", title: "Tool Constraints", blurb: "Exactly which tools are available — and which aren’t" },
+    { icon: "🤝", title: "Guided Handoffs", blurb: "Plan → Implement → Review with context preserved" },
+    { icon: "🎭", title: "Session Persona", blurb: "Instructions, model, and temperature per role" },
+  ]'
+  :terminal='{ context: "Different tasks need different capabilities", detail: "constrain tools to prevent accidental edits" }'
+/>
 ---
 
 <!-- SLIDE: Custom Agents — Planner Example with Handoffs -->

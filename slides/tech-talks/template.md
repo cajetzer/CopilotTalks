@@ -33,13 +33,14 @@ N-1     — References             ← ReferencesSlide (REQUIRED)
 N       — Thank You              ← ThankYouSlide (REQUIRED)
 ```
 
-All 6 component imports go in a single `<script setup>` block at the top of the deck:
+All component imports go in a single `<script setup>` block at the top of the deck:
 
 ```html
 <script setup>
 import TitleSlide from './components/TitleSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import ThankYouSlide from './components/ThankYouSlide.vue'
@@ -160,6 +161,36 @@ import ThankYouSlide from './components/ThankYouSlide.vue'
   prompt="{DISCUSSION_PROMPT}"
 />
 ```
+
+---
+
+## Section Openers (REQUIRED for each Part N slide)
+
+Every Part N slide uses `SectionOpenerSlide`. The component handles the full centered layout, ambient orb, color progression, 3-column card preview, and terminal callout.
+
+```html
+<!-- SLIDE: Part 1 — {SECTION_TITLE} -->
+<SectionOpenerSlide
+  :partNumber="1"
+  title="{SECTION_TITLE}"
+  subtitle="{ONE_LINE_DESCRIPTION_OF_WHAT_THIS_PART_COVERS}"
+  :cards='[
+    { icon: "{EMOJI}", title: "{CARD_TITLE}", blurb: "{SHORT_BLURB}" },
+    { icon: "{EMOJI}", title: "{CARD_TITLE}", blurb: "{SHORT_BLURB}" },
+    { icon: "{EMOJI}", title: "{CARD_TITLE}", blurb: "{SHORT_BLURB}" },
+  ]'
+  :terminal='{ context: "{CONTEXT_LINE}", detail: "{METRIC_OR_OUTCOME}" }'
+/>
+```
+
+- `partNumber`: 1–4 (controls the color scheme — 1=cyan, 2=blue, 3=indigo, 4=purple)
+- `title`: the Part title (matches the `<!-- SLIDE: Part N — {title} -->` comment)
+- `subtitle`: one sentence describing what this part teaches
+- `cards`: exactly 3 items; `blurb` ≤ 60 chars; titles ≤ 30 chars
+- `terminal.context`: descriptive setup line
+- `terminal.detail`: the metric/outcome (e.g., "X → Y" or a punchline)
+- Section openers do **not** get progress dots
+- Apostrophes inside single-quoted `:cards='[...]'` and `:terminal='...'` must use `&#39;`
 
 ---
 

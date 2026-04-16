@@ -101,8 +101,8 @@ Slides that could become components. Deck counts are approximate — **verify wh
 | References | ✅ Done | `ReferencesSlide.vue` |
 | Core Question | ✅ Done | `CoreQuestionSlide.vue` |
 | Table of Contents | ✅ Done | `TocSlide.vue` |
-| What You Can Do Today | 🔲 Candidate | **14 decks** (highest count). 3-column grid: Immediate/Short-term/Long-term; consistent green/blue/indigo pattern; optional footer bar. Props: `columns[]{icon,label,color,items[]}`, `footer?` |
-| Section Opener | 🔲 Candidate | **12+ decks** (~4 per deck). Full-height centered layout; Part N pill + h1 + h2 + 3 preview cards + terminal snippet. Needs `color` theme prop (cyan/blue/indigo/purple) to vary gradient per part. Props: `partNumber`, `title`, `subtitle`, `cards[]{icon,title,blurb}`, `terminal{context,arrow}`, `color` |
+| What You Can Do Today | ✅ Done | `WhatYouCanDoTodaySlide.vue` |
+| Section Opener | ✅ Done | `SectionOpenerSlide.vue` — all 17 decks, 68 screenshots captured |
 | Before / After | 🔲 Candidate | **3-4 decks** (copilot-acp, copilot-code-review, agentic-sdlc). Red ❌ / Green ✅ two-column comparison. Lower impact but simple to extract. |
 
 **Priority order for next components:** WYCDT first (14 decks, simplest structure), then Section Opener (12+ decks, ~4 per deck so largest total rollout), then Before/After if warranted.

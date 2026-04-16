@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -186,38 +187,17 @@ highlight="Copilot CLI meets you at the command line, where the real work happen
 
 <!-- SLIDE: Part 1 — Plan Mode & Steering -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Plan Mode & Steering</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Collaborative planning before implementation</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-cyan-300 font-semibold">The Fundamental Shift</div>
-<div class="text-xs opacity-70 mt-1">Clarify intent before implementation</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">❓</div>
-<div class="text-blue-300 font-semibold">ask_user Tool</div>
-<div class="text-xs opacity-70 mt-1">Model pauses, asks questions, waits for answers</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-indigo-300 font-semibold">Real Impact</div>
-<div class="text-xs opacity-70 mt-1">8 debugging attempts → 2</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Most rework comes from ambiguous starts</span><br />
-<span class="text-cyan-300 mt-1 block">↳ not bad code</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Plan Mode & Steering"
+  subtitle="Collaborative planning before implementation"
+  :cards='[
+    { icon: "🎯", title: "Fundamental Shift", blurb: "Plan first, implement second" },
+    { icon: "❓", title: "ask_user Tool", blurb: "Agent seeks input when uncertain" },
+    { icon: "📊", title: "Real Impact", blurb: "Significantly fewer debugging iterations" },
+  ]'
+  :terminal='{ context: "8 debugging attempts → 2 with Plan Mode", detail: "45 min debugging session → 8 min" }'
+/>
 ---
 
 <!-- SLIDE: Plan Mode: The Fundamental Shift -->
@@ -457,38 +437,17 @@ highlight="Copilot CLI meets you at the command line, where the real work happen
 
 <!-- SLIDE: Part 2 — Operating Modes -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Operating Modes</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Interactive, programmatic, and cloud delegation</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">💬</div>
-<div class="text-blue-300 font-semibold">Interactive</div>
-<div class="text-xs opacity-70 mt-1">Conversational debugging</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🤖</div>
-<div class="text-indigo-300 font-semibold">Programmatic</div>
-<div class="text-xs opacity-70 mt-1">Headless CI/CD automation</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">☁️</div>
-<div class="text-purple-300 font-semibold">Cloud Delegation</div>
-<div class="text-xs opacity-70 mt-1">IDE and terminal stay free</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Choose the right mode for the task</span><br />
-<span class="text-blue-300 mt-1 block">↳ collaborative, automated, or independent</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Operating Modes"
+  subtitle="Interactive, programmatic, and cloud delegation"
+  :cards='[
+    { icon: "💬", title: "Interactive", blurb: "Real-time chat with agent steering" },
+    { icon: "🤖", title: "Programmatic", blurb: "Integrate into scripts and automation" },
+    { icon: "☁️", title: "Cloud Delegation", blurb: "GitHub-hosted background execution" },
+  ]'
+  :terminal='{ context: "IDE and terminal stay completely free", detail: "agents run where you want them" }'
+/>
 ---
 
 <!-- SLIDE: Three Operating Modes -->
@@ -678,38 +637,17 @@ PR will be created when complete<br/>
 
 <!-- SLIDE: Part 3 — Built-in Agents -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Built-in Agents</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Specialized agents and /fleet orchestration</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-indigo-300 font-semibold">Four Agent Types</div>
-<div class="text-xs opacity-70 mt-1">Explore, Task, Plan, Code-review</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-purple-300 font-semibold">Automatic Routing</div>
-<div class="text-xs opacity-70 mt-1">No explicit calls needed</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🌊</div>
-<div class="text-pink-300 font-semibold">/fleet Fan-Out</div>
-<div class="text-xs opacity-70 mt-1">Explicit parallel orchestration</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Copilot routes tasks to the right agent</span><br />
-<span class="text-indigo-300 mt-1 block">↳ or you explicitly decompose with /fleet</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Built-in Agents"
+  subtitle="Specialized agents and /fleet fan-out"
+  :cards='[
+    { icon: "🔍", title: "Explore", blurb: "Fast read-only codebase research" },
+    { icon: "⚙️", title: "Task", blurb: "General purpose implementation agent" },
+    { icon: "📋", title: "Plan", blurb: "Strategic planning and estimation" },
+  ]'
+  :terminal='{ context: "Orchestrator assigns work to subagents", detail: "/fleet coordinates explicit parallel execution" }'
+/>
 ---
 
 <!-- SLIDE: Four Agent Types -->
@@ -855,42 +793,17 @@ PR will be created when complete<br/>
 
 <!-- SLIDE: Part 4 — Use Cases & Reference -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-3 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-2 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Use Cases & Reference</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-4">Real-world patterns and complete CLI reference</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-4"></div>
-<div class="grid grid-cols-4 gap-3 text-sm max-w-4xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🌱</div>
-<div class="text-purple-300 font-semibold">Greenfield</div>
-<div class="text-xs opacity-70 mt-1">90 min → 15 min</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🐳</div>
-<div class="text-pink-300 font-semibold">Debugging</div>
-<div class="text-xs opacity-70 mt-1">45 min → 8 min</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🐙</div>
-<div class="text-rose-300 font-semibold">GitHub.com</div>
-<div class="text-xs opacity-70 mt-1">Issues, PRs from terminal</div>
-</div>
-<div class="px-4 py-3 bg-fuchsia-900/30 rounded-xl border border-fuchsia-500/30">
-<div class="text-2xl mb-1">⌨️</div>
-<div class="text-fuchsia-300 font-semibold">Reference</div>
-<div class="text-xs opacity-70 mt-1">Commands, flags, config</div>
-</div></div>
-<div class="mt-4 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-2.5 text-left max-w-xl">
-<span class="text-gray-400">Terminal-native AI for the 84% of dev time</span><br />
-<span class="text-purple-300 mt-1 block">↳ not spent writing code</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Use Cases & Reference"
+  subtitle="Real-world patterns and complete CLI reference"
+  :cards='[
+    { icon: "🌱", title: "Greenfield", blurb: "Project scaffolding (90 → 15 min)" },
+    { icon: "🐛", title: "Debugging", blurb: "Root cause analysis (45 → 8 min)" },
+    { icon: "🐙", title: "GitHub.com", blurb: "Web interface for CLI agents" },
+  ]'
+  :terminal='{ context: "Time shifts from writing code", detail: "to planning and reviewing" }'
+/>
 ---
 
 <!-- SLIDE: Greenfield Scaffolding -->

@@ -9,7 +9,7 @@ info: |
 drawings:
   persist: false
 transition: slide-left
-title: Building Agent Systems - Subagents, Teams, and Autonomous Execution
+title: Agent Teams - Subagents, Teams, and Autonomous Execution
 module: tech-talks/agent-teams
 mdc: true
 section: Agentic Engineering
@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -66,37 +67,17 @@ highlight="Beyond single-agent limits to coordinated AI teams."
 
 <!-- SLIDE: Part 1 — Subagents: The Building Block -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Subagents: The Building Block</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">The primitive mechanism that makes all multi-agent patterns possible</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-cyan-300 font-semibold">Context Isolation</div>
-<div class="text-xs opacity-70 mt-1">Each subagent runs in its own window</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-blue-300 font-semibold">Parallel Execution</div>
-<div class="text-xs opacity-70 mt-1">3 research subagents = 3x throughput</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-indigo-300 font-semibold">Summary-Only Returns</div>
-<div class="text-xs opacity-70 mt-1">500 tokens back vs. 20K exploration</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Research + dead-ends stay isolated</span><br />
-<span class="text-cyan-300 mt-1 block">↳ main context stays clean</span>
-</div>
-</div>
-</div>
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Subagents: The Building Block"
+  subtitle="The primitive mechanism that makes all multi-agent patterns possible"
+  :cards='[
+    { icon: "🔒", title: "Context Isolation", blurb: "Each subagent runs in its own window" },
+    { icon: "⚡", title: "Parallel Execution", blurb: "3 research subagents = 3x throughput" },
+    { icon: "📊", title: "Summary-Only Returns", blurb: "500 tokens back vs. 20K exploration" },
+  ]'
+  :terminal='{ context: "Research + dead-ends stay isolated", detail: "main context stays clean" }'
+/>
 
 ---
 
@@ -359,37 +340,17 @@ Synthesize findings into prioritized action items with severity levels.
 
 <!-- SLIDE: Part 2 — Agent Teams -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Agent Teams</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Organized specialists via the coordinator-delegate pattern</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="text-blue-300 font-semibold">Role Specialization</div>
-<div class="text-xs opacity-70 mt-1">Right agent for the right task</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🧠</div>
-<div class="text-indigo-300 font-semibold">Persistent Memory</div>
-<div class="text-xs opacity-70 mt-1">Knowledge compounds across sessions</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-purple-300 font-semibold">Tool Enforcement</div>
-<div class="text-xs opacity-70 mt-1">Reviewers can't edit, by design</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">10-minute setup via Squad</span><br />
-<span class="text-blue-300 mt-1 block">↳ persistent team that lives in your repo</span>
-</div>
-</div>
-</div>
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Agent Teams"
+  subtitle="Organized specialists via the coordinator-delegate pattern"
+  :cards='[
+    { icon: "🎯", title: "Role Specialization", blurb: "Right agent for the right task" },
+    { icon: "🧠", title: "Persistent Memory", blurb: "Knowledge compounds across sessions" },
+    { icon: "⚙️", title: "Tool Enforcement", blurb: "Reviewers can&apos;t edit, by design" },
+  ]'
+  :terminal='{ context: "10-minute setup via Squad", detail: "persistent team that lives in your repo" }'
+/>
 
 ---
 
@@ -689,37 +650,17 @@ Synthesize findings into prioritized action items with severity levels.
 
 <!-- SLIDE: Part 3 — Autonomous Execution -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Autonomous Execution</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Background agents + Git worktrees for supervision-free execution</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">⏱️</div>
-<div class="text-indigo-300 font-semibold">85 → 27 Active Minutes</div>
-<div class="text-xs opacity-70 mt-1">Shift from continuous to review-only</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔀</div>
-<div class="text-purple-300 font-semibold">Zero Conflicts</div>
-<div class="text-xs opacity-70 mt-1">Each agent in own worktree branch</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🚀</div>
-<div class="text-pink-300 font-semibold">Parallel Execution</div>
-<div class="text-xs opacity-70 mt-1">3 tasks: 51 min vs. 255 min supervised</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Built into VS Code 1.109+</span><br />
-<span class="text-indigo-300 mt-1 block">↳ no additional setup required</span>
-</div>
-</div>
-</div>
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Autonomous Execution"
+  subtitle="Background agents + Git worktrees for supervision-free execution"
+  :cards='[
+    { icon: "⏱️", title: "85 → 27 Active Minutes", blurb: "Shift from continuous to review-only" },
+    { icon: "🔀", title: "Zero Conflicts", blurb: "Each agent in own worktree branch" },
+    { icon: "🚀", title: "Parallel Execution", blurb: "3 tasks: 51 min vs. 255 min supervised" },
+  ]'
+  :terminal='{ context: "Built into VS Code 1.109+", detail: "no additional setup required" }'
+/>
 
 ---
 
@@ -924,37 +865,17 @@ Synthesize findings into prioritized action items with severity levels.
 
 <!-- SLIDE: Part 4 — Multi-Model Deliberation -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Multi-Model Deliberation</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">When different models think differently — AgentCouncil</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🤝</div>
-<div class="text-purple-300 font-semibold">Collaborative Mode</div>
-<div class="text-xs opacity-70 mt-1">Build on each other's ideas</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🗡️</div>
-<div class="text-pink-300 font-semibold">Adversarial Mode</div>
-<div class="text-xs opacity-70 mt-1">Attack positions to stress-test</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🎭</div>
-<div class="text-rose-300 font-semibold">Model Diversity</div>
-<div class="text-xs opacity-70 mt-1">Claude + GPT + Gemini</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Copilot CLI skill — no build required</span><br />
-<span class="text-purple-300 mt-1 block">↳ drop-in: council: your question</span>
-</div>
-</div>
-</div>
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Multi-Model Deliberation"
+  subtitle="When different models think differently — AgentCouncil"
+  :cards='[
+    { icon: "🤝", title: "Collaborative Mode", blurb: "Build on each other&apos;s ideas" },
+    { icon: "🗡️", title: "Adversarial Mode", blurb: "Attack positions to stress-test" },
+    { icon: "🎭", title: "Model Diversity", blurb: "Claude + GPT + Gemini" },
+  ]'
+  :terminal='{ context: "Copilot CLI skill — no build required", detail: "drop-in: council: your question" }'
+/>
 
 ---
 

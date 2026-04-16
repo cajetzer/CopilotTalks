@@ -58,13 +58,32 @@ function findSectionOpeners(slug) {
   const lines = content.split("\n");
 
   const results = [];
-  let slideNum = 1; // Slidev slide numbers start at 1
+  // Slidev frontmatter: the very first line is `---` (opens YAML) and the
+  // matching closing `---` ends the frontmatter block — that closing line is
+  // the boundary before slide 1.  Neither delimiter counts as a slide separator.
+  // Every subsequent bare `---` line advances the slide counter by 1.
+  let slideNum = 0;          // becomes 1 after frontmatter closes
+  let inFrontmatter = false;
+  let frontmatterDone = false;
   const SLIDE_SEP = /^---\s*$/;
   const PART_COMMENT = /<!--\s*SLIDE:\s*Part\s+(\d+)/i;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (SLIDE_SEP.test(line)) {
+      if (i === 0) {
+        // Opening frontmatter delimiter — not a slide
+        inFrontmatter = true;
+        continue;
+      }
+      if (inFrontmatter && !frontmatterDone) {
+        // Closing frontmatter delimiter — slide 1 starts here
+        inFrontmatter = false;
+        frontmatterDone = true;
+        slideNum = 1;
+        continue;
+      }
+      // Regular slide separator
       slideNum++;
       continue;
     }

@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -66,38 +67,17 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 
 <!-- SLIDE: Part 1 — The Delegation Loop -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">The Delegation Loop</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">From Issue Assignment to Draft PR</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-cyan-300 font-semibold">Three Triggers</div>
-<div class="text-xs opacity-70 mt-1">Browser, VS Code, or mobile — same async session</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🔬</div>
-<div class="text-blue-300 font-semibold">Sandboxed Execution</div>
-<div class="text-xs opacity-70 mt-1">Ephemeral Ubuntu runner, destroyed after use</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">⚖️</div>
-<div class="text-indigo-300 font-semibold">Separation of Duties</div>
-<div class="text-xs opacity-70 mt-1">Assigner cannot approve — enforced by GitHub</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Developer involvement begins at code review, not before</span><br />
-<span class="text-cyan-300 mt-1 block">↳ a closed loop from issue to reviewable PR</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="The Delegation Loop"
+  subtitle="From Issue Assignment to Draft PR"
+  :cards='[
+    { icon: "🔄", title: "Three Triggers", blurb: "Browser, VS Code, or mobile — same async session" },
+    { icon: "🔬", title: "Sandboxed Execution", blurb: "Ephemeral Ubuntu runner, destroyed after use" },
+    { icon: "⚖️", title: "Separation of Duties", blurb: "Assigner cannot approve — enforced by GitHub" },
+  ]'
+  :terminal='{ context: "Developer involvement begins at code review", detail: "closed loop from issue to reviewable PR" }'
+/>
 ---
 
 <!-- SLIDE: Triggering the Agent -->
@@ -320,38 +300,17 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 
 <!-- SLIDE: Part 2 — Writing Issues That Work -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Writing Issues That Work</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Specs That Produce Quality PRs</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">✍️</div>
-<div class="text-blue-300 font-semibold">Issue Anatomy</div>
-<div class="text-xs opacity-70 mt-1">Criteria, scope, context, constraints</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📸</div>
-<div class="text-indigo-300 font-semibold">Image-Based Creation</div>
-<div class="text-xs opacity-70 mt-1">Screenshot → structured issue in 2 minutes</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-purple-300 font-semibold">85% Time Savings</div>
-<div class="text-xs opacity-70 mt-1">14 min → 2 min per issue filed</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">The quality of the agent's PR is a direct reflection of the quality of the issue</span><br />
-<span class="text-blue-300 mt-1 block">↳ write issues the way you'd write a spec for a junior developer</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Writing Issues That Work"
+  subtitle="Specs That Produce Quality PRs"
+  :cards='[
+    { icon: "✍️", title: "Issue Anatomy", blurb: "Criteria, scope, context, constraints" },
+    { icon: "📸", title: "Image-Based Creation", blurb: "Screenshot → structured issue in 2 minutes" },
+    { icon: "⚡", title: "85% Time Savings", blurb: "14 min → 2 min per issue filed" },
+  ]'
+  :terminal='{ context: "The quality of the agent’s PR is a direct reflection", detail: "of the quality of the issue" }'
+/>
 ---
 
 <!-- SLIDE: Effective Issue Anatomy -->
@@ -490,38 +449,17 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 
 <!-- SLIDE: Part 3 — Trust & Configuration -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-violet-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-violet-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-violet-400 bg-clip-text text-transparent leading-tight">Trust &amp; Configuration</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Environment Setup and the Agent Firewall</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📄</div>
-<div class="text-indigo-300 font-semibold">Setup Steps</div>
-<div class="text-xs opacity-70 mt-1">copilot-setup-steps.yml controls the environment</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🛡️</div>
-<div class="text-purple-300 font-semibold">Agent Firewall</div>
-<div class="text-xs opacity-70 mt-1">Default allowlist + custom rules</div>
-</div>
-<div class="px-4 py-3 bg-violet-900/30 rounded-xl border border-violet-500/30">
-<div class="text-2xl mb-1">🏢</div>
-<div class="text-violet-300 font-semibold">Config Levels</div>
-<div class="text-xs opacity-70 mt-1">Org and repo-level controls</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Setup before enforcement — get the environment right first</span><br />
-<span class="text-indigo-300 mt-1 block">↳ firewall activates after setup steps complete</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Trust & Configuration"
+  subtitle="Environment Setup and the Agent Firewall"
+  :cards='[
+    { icon: "📄", title: "Setup Steps", blurb: "copilot-setup-steps.yml controls the environment" },
+    { icon: "🛡️", title: "Agent Firewall", blurb: "Default allowlist + custom rules" },
+    { icon: "🏢", title: "Config Levels", blurb: "Org and repo-level controls" },
+  ]'
+  :terminal='{ context: "Setup before enforcement — get the environment right first", detail: "firewall activates after setup steps complete" }'
+/>
 ---
 
 <!-- SLIDE: copilot-setup-steps.yml -->
@@ -714,38 +652,17 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 
 <!-- SLIDE: Part 4 — The Review Workflow -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">The Review Workflow</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">From Draft PR to Merge</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">📋</div>
-<div class="text-purple-300 font-semibold">Evidence-First</div>
-<div class="text-xs opacity-70 mt-1">Read bundle before touching the diff</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">📱</div>
-<div class="text-pink-300 font-semibold">Mobile Review</div>
-<div class="text-xs opacity-70 mt-1">4 hr → 30 min turnaround</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">🧠</div>
-<div class="text-rose-300 font-semibold">What to Delegate</div>
-<div class="text-xs opacity-70 mt-1">Design judgment stays human</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">The coding agent opens a draft PR — never merges</span><br />
-<span class="text-purple-300 mt-1 block">↳ review is where teams maintain quality and build trust</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="The Review Workflow"
+  subtitle="From Draft PR to Merge"
+  :cards='[
+    { icon: "📋", title: "Evidence-First", blurb: "Read bundle before touching the diff" },
+    { icon: "📱", title: "Mobile Review", blurb: "4 hr → 30 min turnaround" },
+    { icon: "🧠", title: "What to Delegate", blurb: "Design judgment stays human" },
+  ]'
+  :terminal='{ context: "The coding agent opens a draft PR — never merges", detail: "review is where teams maintain quality and build trust" }'
+/>
 ---
 
 <!-- SLIDE: Evidence-First Review -->

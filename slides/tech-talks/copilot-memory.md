@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -66,34 +67,17 @@ highlight="Memory breaks this cycle by making preferences persist."
 
 <!-- SLIDE: Part 1 — How Memory Works -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">How Memory Works</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Agent-accessible memory tool and storage lifecycle</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">💾</div>
-<div class="text-cyan-300 font-semibold">Store Operation</div>
-<div class="text-xs opacity-70 mt-1">Agent saves preferences that survive sessions</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-blue-300 font-semibold">Retrieve Operation</div>
-<div class="text-xs opacity-70 mt-1">Semantic search surfaces relevant memories</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-indigo-300 font-semibold">Cross-Environment Sync</div>
-<div class="text-xs opacity-70 mt-1">GitHub account storage, everywhere you work</div>
-</div>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="How Memory Works"
+  subtitle="Agent-accessible memory tool and storage lifecycle"
+  :cards='[
+    { icon: "💾", title: "Store Operation", blurb: "Agent writes memory to persistent store" },
+    { icon: "🔍", title: "Retrieve Operation", blurb: "Agents access prior context automatically" },
+    { icon: "🔄", title: "Cross-Environment", blurb: "Memory spans IDE, CLI, and web" },
+  ]'
+  :terminal='{ context: "Agent writes, reads, and manages files", detail: "across sessions automatically" }'
+/>
 ---
 
 <!-- SLIDE: Memory Tool Architecture -->
@@ -274,34 +258,17 @@ Auto-sync (no manual action)</code></pre>
 
 <!-- SLIDE: Part 2 — Enabling & Managing -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Enabling & Managing</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Configuration, visibility, and control over stored memories</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">⚙️</div>
-<div class="text-blue-300 font-semibold">Single Setting</div>
-<div class="text-xs opacity-70 mt-1">One config line enables memory tool</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">👀</div>
-<div class="text-indigo-300 font-semibold">Full Transparency</div>
-<div class="text-xs opacity-70 mt-1">View, edit, delete any memory via GitHub UI</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">⏱️</div>
-<div class="text-purple-300 font-semibold">28-Day Expiration</div>
-<div class="text-xs opacity-70 mt-1">Auto-expiration prevents stale preferences</div>
-</div>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Enabling & Managing"
+  subtitle="Configuration, visibility, and control over stored memories"
+  :cards='[
+    { icon: "⚙️", title: "Single Setting", blurb: "One config line enables the memory tool" },
+    { icon: "👀", title: "Full Transparency", blurb: "View all stored memory files" },
+    { icon: "⏱️", title: "28-Day Expiration", blurb: "Automatic cleanup policy" },
+  ]'
+  :terminal='{ context: "One config line enables memory tool", detail: "default 28-day retention" }'
+/>
 ---
 
 <!-- SLIDE: Enabling Memory -->
@@ -419,34 +386,17 @@ Source: GitHub.com Chat</code></pre>
 
 <!-- SLIDE: Part 3 — What to Store -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">What to Store</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Persistence criteria and best practices</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">💾</div>
-<div class="text-indigo-300 font-semibold">Ideal Candidates</div>
-<div class="text-xs opacity-70 mt-1">Coding style, workflow, communication</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🚫</div>
-<div class="text-purple-300 font-semibold">What NOT to Store</div>
-<div class="text-xs opacity-70 mt-1">Session-specific, secrets, team standards</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">✅</div>
-<div class="text-pink-300 font-semibold">Persistence Test</div>
-<div class="text-xs opacity-70 mt-1">4 questions to validate memory-worthiness</div>
-</div>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="What to Store"
+  subtitle="Persistence criteria and best practices"
+  :cards='[
+    { icon: "💾", title: "Ideal Candidates", blurb: "Preferences, patterns, project context" },
+    { icon: "🚫", title: "What NOT to Store", blurb: "Secrets, PII, or temporary state" },
+    { icon: "✅", title: "Persistence Test", blurb: "Is it useful weeks from now?" },
+  ]'
+  :terminal='{ context: "What persists vs. what stays in conversation context", detail: "strategic memory architecture" }'
+/>
 ---
 
 <!-- SLIDE: Ideal Candidates for Memory -->
@@ -693,34 +643,17 @@ Source: GitHub.com Chat</code></pre>
 
 <!-- SLIDE: Part 4 — Privacy & Best Practices -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Privacy & Best Practices</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Security model and effective usage</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔐</div>
-<div class="text-purple-300 font-semibold">Privacy-First Design</div>
-<div class="text-xs opacity-70 mt-1">Individual-private, org admins can't see content</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🧹</div>
-<div class="text-pink-300 font-semibold">Memory Hygiene</div>
-<div class="text-xs opacity-70 mt-1">Monthly reviews prevent stale preferences</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">📈</div>
-<div class="text-rose-300 font-semibold">Progressive Profiles</div>
-<div class="text-xs opacity-70 mt-1">4-week plan to build curated collection</div>
-</div>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Privacy & Best Practices"
+  subtitle="Security model and effective usage"
+  :cards='[
+    { icon: "🔐", title: "Privacy-First", blurb: "No sensitive data in memory" },
+    { icon: "🧹", title: "Memory Hygiene", blurb: "Curate actively, review regularly" },
+    { icon: "📈", title: "Progressive Profiles", blurb: "Build understanding over time" },
+  ]'
+  :terminal='{ context: "No sensitive data, curate actively", detail: "review regularly" }'
+/>
 ---
 
 <!-- SLIDE: Privacy and Security Model -->

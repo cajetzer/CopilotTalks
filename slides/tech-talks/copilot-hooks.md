@@ -24,6 +24,7 @@ import ReferencesSlide from './components/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -66,38 +67,17 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
 
 <!-- SLIDE: Part 1 — Lifecycle Control -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-cyan-600/40 to-blue-600/40 rounded-full border border-cyan-400/30 text-cyan-300 text-sm font-medium tracking-widest uppercase">Part 1</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-cyan-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent leading-tight">Lifecycle Control</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">8 hook events for governance</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-cyan-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-cyan-300 font-semibold">8 Lifecycle Events</div>
-<div class="text-xs opacity-70 mt-1">Session, prompt, tool, subagent, compaction, stop</div>
-</div>
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">⚡</div>
-<div class="text-blue-300 font-semibold">Synchronous Execution</div>
-<div class="text-xs opacity-70 mt-1">Agents wait for hook completion — fast is critical</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📝</div>
-<div class="text-indigo-300 font-semibold">JSON I/O</div>
-<div class="text-xs opacity-70 mt-1">Structured context in, decisions out via stdin/stdout</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Control points at every lifecycle moment</span><br />
-<span class="text-cyan-300 mt-1 block">↳ governance without velocity loss</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="1"
+  title="Lifecycle Control"
+  subtitle="8 hook events for governance"
+  :cards='[
+    { icon: "🔄", title: "8 Events", blurb: "SessionStart to Stop — complete lifecycle coverage" },
+    { icon: "🛡️", title: "Preventive Control", blurb: "Gate dangerous operations before execution" },
+    { icon: "📋", title: "Observability", blurb: "Complete lifecycle logging and audit" },
+  ]'
+  :terminal='{ context: "Governance without velocity loss", detail: "8 hooks cover the complete agent lifecycle" }'
+/>
 ---
 
 <!-- SLIDE: The 8 Lifecycle Events -->
@@ -367,38 +347,17 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
 
 <!-- SLIDE: Part 2 — Preventive Enforcement -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-indigo-900/15 to-purple-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full border border-blue-400/30 text-blue-300 text-sm font-medium tracking-widest uppercase">Part 2</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent leading-tight">Preventive Enforcement</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">PreToolUse is the only hook that can deny operations</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-blue-900/30 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🛡️</div>
-<div class="text-blue-300 font-semibold">Block Before Execution</div>
-<div class="text-xs opacity-70 mt-1">Deny dangerous operations with permissionDecision: deny</div>
-</div>
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">✏️</div>
-<div class="text-indigo-300 font-semibold">Modify Inputs</div>
-<div class="text-xs opacity-70 mt-1">Enforce safe defaults via updatedInput</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🤝</div>
-<div class="text-purple-300 font-semibold">Require Approval</div>
-<div class="text-xs opacity-70 mt-1">Use permissionDecision: ask for human judgment</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Other hooks observe — PreToolUse controls</span><br />
-<span class="text-blue-300 mt-1 block">↳ the only gate for real-time prevention</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="2"
+  title="Preventive Enforcement"
+  subtitle="PreToolUse is the only hook that can deny operations"
+  :cards='[
+    { icon: "🛡️", title: "Block Before Execution", blurb: "Deny dangerous operations outright" },
+    { icon: "✏️", title: "Modify Inputs", blurb: "Sanitize or transform parameters" },
+    { icon: "🤝", title: "Require Approval", blurb: "Gate on human authorization" },
+  ]'
+  :terminal='{ context: "Other hooks observe — PreToolUse controls", detail: "single control point for gating" }'
+/>
 ---
 
 <!-- SLIDE: Security Check Implementation -->
@@ -619,38 +578,17 @@ fi</code></pre>
 
 <!-- SLIDE: Part 3 — Observability & Audit -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/25 via-purple-900/15 to-pink-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full border border-indigo-400/30 text-indigo-300 text-sm font-medium tracking-widest uppercase">Part 3</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">Observability & Audit</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Complete lifecycle logging for compliance and debugging</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-indigo-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📋</div>
-<div class="text-indigo-300 font-semibold">JSON Lines Format</div>
-<div class="text-xs opacity-70 mt-1">One JSON object per line — direct querying with jq</div>
-</div>
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🔍</div>
-<div class="text-purple-300 font-semibold">Complete Trails</div>
-<div class="text-xs opacity-70 mt-1">Log all 8 lifecycle events for 100% coverage</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">📊</div>
-<div class="text-pink-300 font-semibold">SQL-Like Queries</div>
-<div class="text-xs opacity-70 mt-1">Filter, aggregate, export to CSV or databases</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Audit from 60-70% manual → 100% automated</span><br />
-<span class="text-indigo-300 mt-1 block">↳ 2-3 hours → 5 minutes per audit request</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="3"
+  title="Observability & Audit"
+  subtitle="Complete lifecycle logging for compliance and debugging"
+  :cards='[
+    { icon: "📋", title: "JSON Lines", blurb: "Structured event logging format" },
+    { icon: "🔍", title: "Complete Trails", blurb: "Full audit path with context" },
+    { icon: "📊", title: "SQL-Like Queries", blurb: "Searchable event database" },
+  ]'
+  :terminal='{ context: "2-3 hours per audit request", detail: "→ 5 minutes with structured logs" }'
+/>
 ---
 
 <!-- SLIDE: JSON Lines Logging -->
@@ -851,38 +789,17 @@ fi</code></pre>
 
 <!-- SLIDE: Part 4 — Real-World Patterns -->
 
-<div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/25 via-pink-900/15 to-rose-900/20"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="mb-4 px-4 py-1.5 bg-gradient-to-r from-purple-600/40 to-pink-600/40 rounded-full border border-purple-400/30 text-purple-300 text-sm font-medium tracking-widest uppercase">Part 4</div>
-<h1 class="!text-5xl !font-bold !mb-3 bg-gradient-to-r from-purple-400 via-pink-300 to-rose-400 bg-clip-text text-transparent leading-tight">Real-World Patterns</h1>
-<h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">Proven implementations for security, compliance, and quality</h2>
-<div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-6"></div>
-<div class="grid grid-cols-3 gap-3 text-sm max-w-3xl">
-<div class="px-4 py-3 bg-purple-900/30 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">🏥</div>
-<div class="text-purple-300 font-semibold">HIPAA Compliance</div>
-<div class="text-xs opacity-70 mt-1">Complete audit trail: 2-3 hours → 5 minutes per audit</div>
-</div>
-<div class="px-4 py-3 bg-pink-900/30 rounded-xl border border-pink-500/30">
-<div class="text-2xl mb-1">🔒</div>
-<div class="text-pink-300 font-semibold">SOC 2 Enforcement</div>
-<div class="text-xs opacity-70 mt-1">Preventive controls: 3 incidents/year → 0</div>
-</div>
-<div class="px-4 py-3 bg-rose-900/30 rounded-xl border border-rose-500/30">
-<div class="text-2xl mb-1">✨</div>
-<div class="text-rose-300 font-semibold">Quality Gates</div>
-<div class="text-xs opacity-70 mt-1">Rework time: 7.5 hours/sprint → 0</div>
-</div>
-</div>
-<div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
-<span class="text-gray-400">Multi-layer security + context injection + compliance trails</span><br />
-<span class="text-purple-300 mt-1 block">↳ governance that scales</span>
-</div>
-</div>
-</div>
-
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Real-World Patterns"
+  subtitle="Proven implementations for security, compliance, and quality"
+  :cards='[
+    { icon: "🏥", title: "HIPAA", blurb: "Healthcare compliance automation" },
+    { icon: "🛡️", title: "SOC2", blurb: "Security compliance enforcement" },
+    { icon: "✅", title: "Quality Gates", blurb: "Automated standards enforcement" },
+  ]'
+  :terminal='{ context: "Governance that scales", detail: "across teams and regulatory frameworks" }'
+/>
 ---
 
 <!-- SLIDE: HIPAA Compliance Audit Trail -->
