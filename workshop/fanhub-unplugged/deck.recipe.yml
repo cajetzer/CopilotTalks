@@ -1,0 +1,19 @@
+# deck.recipe.yml — FanHub Unplugged talk guidance
+
+version: 1
+
+deck:
+  title: "FanHub Unplugged"
+  subtitle: "Fix It, Ship It, Vibe It"
+  tagline: "A 60-minute agent-mode sprint — you direct, Copilot implements"
+
+  intro:
+    mode: core-question
+
+  highlightMoments:
+    - /init scopes the agent to your language track before it touches a single file — skip it and the agent guesses
+    - Write the whole prompt upfront — goal, constraints, and what done looks like — then let it run for 5+ minutes without interrupting
+    - When you get an error, paste it into chat with no comment — the agent has the context and will almost always fix it
+    - Batch your bugs — give the agent a thematic cluster (API consistency, auth gaps, security) not one issue at a time
+    - MCP closes the feedback loop — the agent calls the live API, reads the response, and verifies its own work without leaving chat
+    - If you're reading source code line by line, you've left director mode — describe what's wrong in words and let the agent fix it

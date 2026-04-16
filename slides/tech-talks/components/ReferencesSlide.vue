@@ -110,7 +110,6 @@ const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
 </script>
 
 <template>
-<template>
   <!-- Full-height container -->
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
     <!-- Ambient gradient background -->
@@ -167,5 +166,4 @@ const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
       </div>
     </div>
   </div>
-</template>
 </template>

@@ -107,7 +107,6 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 </script>
 
 <template>
-<template>
   <!-- Full-height container -->
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
     <!-- Ambient gradient background -->
@@ -169,5 +168,4 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
       </div>
     </div>
   </div>
-</template>
 </template>
