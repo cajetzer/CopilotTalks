@@ -4,6 +4,23 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## Section color audit: parse-then-check pattern catches drift across all decks (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+A reliable pattern for auditing content slide colors across all 17 decks:
+
+1. Parse deck → find `:partNumber="N"` lines to identify section boundaries
+2. Between each pair of boundaries, regex-match the 5 structural elements (bg gradient, orb, pill, dot, accent line)
+3. Extract the primary color token from each match
+4. Compare against the expected color for that partNumber (1=cyan, 2=blue, 3=indigo, 4=purple)
+
+**Key lesson:** The initial fix script caught 4 of 5 elements but **missed accent lines** (`h-px bg-gradient-to-r from-{color}-400/60`). A code review pass caught the omission. Always check ALL 5 structural element types when doing bulk color changes.
+
+**Script:** `slides/scripts/capture-twocol-slides.js` also contains the slide parsing logic (frontmatter detection, slide boundary counting, `<!-- SLIDE: -->` comment extraction) that can be reused for future audits.
+
+---
+
 ## Build script wrapper solves agent invocation path context issues (2026-04-16)
 
 `schema_version: 1` | `date: 2026-04-16`

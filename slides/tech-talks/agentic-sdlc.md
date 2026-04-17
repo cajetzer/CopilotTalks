@@ -783,10 +783,10 @@ export class PaymentProcessor {}
 
 <!-- SLIDE: The 10-Minute Rule -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 <div class="flex items-center gap-1.5">
   <span class="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></span>
@@ -836,10 +836,10 @@ export class PaymentProcessor {}
 
 <!-- SLIDE: How to Achieve Fast CI -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 <div class="flex items-center gap-1.5">
   <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
@@ -897,10 +897,10 @@ export class PaymentProcessor {}
 
 <!-- SLIDE: Zero-Flake Tolerance -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-violet-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-violet-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
 <div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
 <div class="flex items-center gap-1.5">
   <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
@@ -953,11 +953,11 @@ export class PaymentProcessor {}
 
 <!-- SLIDE: Key Takeaways -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Key Takeaways</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Key Takeaways</span>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-4 max-w-4xl mx-auto">

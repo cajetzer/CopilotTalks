@@ -4,6 +4,25 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Content slide colors must match their section's partNumber color scheme (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Every content slide between two SectionOpenerSlide boundaries must use colors matching that section's `partNumber`. The mapping is fixed and non-negotiable:
+
+| Part | Primary | Secondary | Background | Orb | Pill | Dot | Accent Line |
+|------|---------|-----------|------------|-----|------|-----|-------------|
+| 1 | cyan | blue | `from-cyan-900/20 via-blue-900/10` | `from-cyan-500/10` | `from-cyan-600/80 to-blue-600/80` | `bg-cyan-400` | `from-cyan-400/60` |
+| 2 | blue | indigo | `from-blue-900/20 via-indigo-900/10` | `from-blue-500/10` | `from-blue-600/80 to-indigo-600/80` | `bg-blue-400` | `from-blue-400/60` |
+| 3 | indigo | purple | `from-indigo-900/20 via-purple-900/10` | `from-indigo-500/10` | `from-indigo-600/80 to-purple-600/80` | `bg-indigo-400` | `from-indigo-400/60` |
+| 4 | purple | pink | `from-purple-900/20 via-pink-900/10` | `from-purple-500/10` | `from-purple-600/80 to-pink-600/80` | `bg-purple-400` | `from-purple-400/60` |
+
+**Card content colors** (borders, text accents within cards) may vary for semantic purposes (red for problems, green for solutions) — only the 5 structural elements (bg, orb, pill, dot, accent line) must conform.
+
+**Enforcement:** Run the section color audit script to detect mismatches. All 17 decks verified clean as of 2026-04-17.
+
+---
+
 ## Build script wrapper pattern: delegates from slides/ root to scripts/ directory (2026-04-16)
 
 `schema_version: 1` | `date: 2026-04-16`

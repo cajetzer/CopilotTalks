@@ -4,8 +4,8 @@ version: 1
 
 deck:
   title: GitHub Copilot CLI
-  subtitle: Terminal-Native AI
-  tagline: For Developers & DevOps Engineers
+  subtitle: AI at the Point of Work
+  tagline: Start Anywhere. Steer Anywhere. Resume Anywhere.
 
   intro:
     mode: core-question
@@ -14,4 +14,6 @@ deck:
     - Plan Mode cuts debugging from 45 min → 8 min and attempts from 8 → 2
     - Cloud delegation with & prefix frees IDE and terminal for other work
     - /fleet orchestrator explicitly parallelizes subtasks across subagents
-    - Remote control sessions let you monitor and steer from web and mobile
+    - Remote sessions (--remote) let you steer AI work from phone, browser, or any device
+    - Log forensics on remote servers without data transfer — reasoning where the data lives
+    - Persistent infrastructure patrol — AI that monitors, reasons about anomalies, and reports findings

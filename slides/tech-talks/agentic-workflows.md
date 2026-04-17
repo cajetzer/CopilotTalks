@@ -362,7 +362,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 <div class="flex items-center gap-2 text-xs">
 <div class="flex items-center gap-1.5">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <span class="text-white/40 text-xs ml-1">2 of 3</span>
 </div>

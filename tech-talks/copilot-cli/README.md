@@ -1,6 +1,6 @@
 ---
 status: active
-updated: 2026-03-17
+updated: 2026-04-17
 section: "Copilot Tools"
 references:
   - url: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli
@@ -27,12 +27,18 @@ references:
   - url: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins
     label: "About plugins for Copilot CLI"
     verified: 2026-02-23
+  - url: https://docs.github.com/en/copilot/how-tos/copilot-cli/steer-remotely
+    label: "Steering a GitHub Copilot CLI session from another device"
+    verified: 2026-04-17
+  - url: https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/
+    label: "Remote control CLI sessions on web and mobile (public preview)"
+    verified: 2026-04-17
 ---
 
-# GitHub Copilot CLI: Terminal-Native AI for Developers and DevOps
+# GitHub Copilot CLI: AI at the Point of Work
 
 > **The Question This Talk Answers:**
-> *"How do I bring AI into my terminal workflow — whether I'm building something new, debugging my own code, or managing infrastructure?"*
+> *"How do I bring AI to where the work actually is — and keep steering it from wherever I am?"*
 
 **Duration:** 45 minutes | **Target Audience:** Software Developers / DevOps Engineers / CLI Power Users
 
@@ -42,16 +48,16 @@ references:
 
 | Criterion | Assessment | Notes |
 |-----------|-----------|-------|
-| **Relevant** | 🟢 High | Developers building new software and DevOps engineers managing infrastructure both work primarily in terminals — context-switching to IDE/web for AI assistance breaks flow and forces re-explaining local context |
-| **Compelling** | 🟢 High | Plan Mode transforms debugging from 8 attempts to 2; Docker troubleshooting drops from 45 min to 8 min |
-| **Actionable** | 🟢 High | Install in 2 minutes, immediately usable for problem-solving, programmatic mode enables CI/CD automation |
+| **Relevant** | 🟢 High | Developers and DevOps engineers work across local machines, staging servers, and production environments — AI that follows the work to where it lives addresses the full operational surface, not just the code editor |
+| **Compelling** | 🟢 High | Plan Mode transforms debugging from 8 attempts to 2; `--remote` enables live server troubleshooting from your phone; log forensics without data transfer addresses compliance and speed |
+| **Actionable** | 🟢 High | Install in 2 minutes, immediately usable for problem-solving. `--remote` on a staging server takes one flag and a QR code scan |
 
 **Overall Status:** 🟢 Ready to use
 
 ---
 
 
-## The Problem
+## The Problem: Distance Between You and the Work
 
 ### Key Points
 
@@ -64,13 +70,16 @@ references:
 - **AI guesses when requirements are ambiguous. You pay for that later**
   A human developer hits an edge case in a spec and asks a question. AI hits the same ambiguity and picks one interpretation — confidently. You don't find out the guess was wrong until code review, or production. The right moment to catch this is before the first line of code is written, in a conversation that asks the questions a senior engineer would ask
 
+- **Even terminal AI assumes you're sitting at the terminal**
+  Your production server is in us-east-1. Your staging cluster is behind a VPN. The CI runner that just failed is ephemeral. The machine where the problem lives is rarely the machine in front of you. Until now, that meant: SSH in, run commands manually, copy-paste output into a chat window, lose context switching between tools. What if AI could go to the machine — and you could steer it from wherever you are?
+
 ---
 
 ## The Solution: GitHub Copilot CLI
 
 ### What It Does
 
-GitHub Copilot CLI brings conversational AI directly into terminal workflows with two operating modes: interactive sessions for collaborative problem-solving and programmatic execution for CI/CD automation. Plan Mode enables collaborative planning before code generation, reducing debugging cycles from 8 attempts to 2.
+GitHub Copilot CLI brings conversational AI directly into terminal workflows — wherever the terminal runs. Interactive sessions for collaborative problem-solving, programmatic execution for CI/CD automation, and remote sessions you can steer from any device. The session is the unit of work, not the shell: context persists across compactions, across devices, and across disconnects. Plan Mode enables collaborative planning before code generation, reducing debugging cycles from 8 attempts to 2.
 
 ### Key Capabilities
 
@@ -79,10 +88,11 @@ GitHub Copilot CLI brings conversational AI directly into terminal workflows wit
 - **Interactive Mode**: Terminal-native conversations with context maintained across commands — perfect for "figure this out" scenarios
 - **Programmatic Mode**: Single-command execution for scripts and pipelines — designed for headless CI/CD automation
 - **Cloud Delegation**: Background execution frees terminal for other work — delegate large tasks with `&` prefix
+- **Remote Sessions (`--remote`)**: Start a session on any machine (including over SSH), steer it from GitHub.com or GitHub Mobile via URL/QR code — the session lives where the problem is, you steer from wherever you are
 - **Built-in Agents**: Specialized agents (Explore, Task, Plan, Code-review) automatically handle common patterns
 - **`/fleet` Fan-Out**: Explicitly decompose a plan into parallel subtasks — orchestrator assigns work to subagents, each in their own context window; results are merged back automatically
 - **IDE Bridge via `/ide`**: Open any file in VS Code mid-session — CLI context and conversation stay alive; use terminal and IDE simultaneously
-- **Automatic Context Management**: Auto-compaction at 95% token limit enables virtually infinite sessions
+- **Automatic Context Management**: Auto-compaction at 95% token limit enables virtually infinite sessions — the foundation that makes sessions worth reconnecting to
 - **Repository Memory**: AI remembers team conventions, patterns, and preferences across sessions
 - **Performance & UX Upgrades**: Faster, more concise responses with improved diff/timeline views and better Windows/PowerShell support
 - **MCP Registry Integration**: Discover and connect external tools/agents via GitHub MCP Registry with organization-level controls
@@ -90,7 +100,7 @@ GitHub Copilot CLI brings conversational AI directly into terminal workflows wit
 
 ### Architecture Overview
 
-Three modes cover distinct workflows: **Interactive** for collaborative problem-solving with persistent context; **Plan Mode** (Shift+Tab) for clarifying requirements before any code is written; **Programmatic** (`copilot -p`) for headless CI/CD execution. Specialized built-in agents (Explore, Task, Plan, Code-review) are routed automatically. Cloud delegation (`&` prefix) offloads long-running work to GitHub's coding agent, freeing both your terminal and IDE. Auto-compaction and repository memory make sessions virtually infinite and cross-session aware.
+The session is the durable entity — terminals are viewports that connect and disconnect from it. Four modes cover distinct workflows: **Interactive** for collaborative problem-solving with persistent context; **Plan Mode** (Shift+Tab) for clarifying requirements before any code is written; **Programmatic** (`copilot -p`) for headless CI/CD execution; **Remote** (`copilot --remote`) for steering sessions from any device via web or mobile. Specialized built-in agents (Explore, Task, Plan, Code-review) are routed automatically. Cloud delegation (`&` prefix) offloads long-running work to GitHub's coding agent, freeing both your terminal and IDE. Auto-compaction and repository memory make sessions virtually infinite and cross-session aware.
 
 **Official Documentation:**
 - 📖 [About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli) — Core concepts and capabilities
@@ -134,7 +144,19 @@ Three modes cover distinct workflows: **Interactive** for collaborative problem-
 
 ## 🎯 Mental Model Shift
 
-> **The Core Insight:** From "execute commands manually and search docs when stuck" to "collaborate with AI in the terminal — whether building something new from scratch, debugging failing code, or automating infrastructure"
+> **The Core Insight:** From "execute commands manually and search docs when stuck" to "steer AI sessions that follow the work — across complexity, across time, and across machines"
+
+### The Distance Model
+
+Each capability in this talk removes a different kind of distance between you and the work:
+
+| Distance Removed | What Changes | Feature |
+|---|---|---|
+| **Intent** | AI stops guessing, starts asking | Plan Mode |
+| **Complexity** | One task becomes many, run in parallel | `/fleet` fan-out |
+| **Context** | Session survives compaction, remembers across sessions | Auto-compaction + Memory |
+| **Time** | Work outlives your attention | Cloud delegation (`&`) |
+| **Geography** | AI meets the problem where it lives | `--remote` |
 
 ### Move Toward (Embrace These Patterns)
 
@@ -142,18 +164,21 @@ Three modes cover distinct workflows: **Interactive** for collaborative problem-
 - ✅ **Plan Before You Build**: Use Plan Mode (Shift+Tab) to clarify intent and approve a strategy before implementation begins → 8 debugging attempts → 2; most rework in development comes from ambiguous starts, not bad code
 - ✅ **Delegate, Don't Block**: Long-running tasks (security audits, large refactors, doc generation) don't need to occupy your IDE or terminal — delegate with `& <task>` and get a PR when the agent finishes; both tools stay completely free
 - ✅ **Let /fleet Execute the Plan**: Once Plan Mode produces a strategy, hand it off — `/fleet implement all phases of this plan` decomposes the work into parallel subtasks, assigns each to a subagent, and merges results; you review the outcome, not the steps
+- ✅ **Sessions as Durable Work**: Think of a Copilot CLI session the way you think of a tmux session or a Jupyter notebook: persistent state you connect to, not ephemeral chat you restart. `--remote` makes this literal — start on your workstation, continue from your phone, review results from your laptop at home
 
 ### Move Away From (Retire These Habits)
 
 - ⚠️ **Starting new projects from the IDE**: Opening VS Code, creating a folder, and guessing at a tech stack before writing anything is the old way. The terminal is where you have the most context — what exists on disk, what's running, what the environment looks like. Use Copilot CLI as a design partner *before* you open the IDE: talk through the architecture, pick the libraries, generate the scaffold. Then open the IDE already oriented
 - ⚠️ **Re-explaining your codebase every session**: Spending the first 10 minutes of each Copilot session giving context — "we use docker-compose networking, not host networking; we deploy to Kubernetes; our convention is X" — is a sign repository memory isn't working for you yet. Invest once in teaching Copilot your conventions; subsequent sessions inherit that knowledge automatically
 - ⚠️ **Treating every long-running task as IDE-bound**: Kicking off a security audit, large refactor, or test suite generation from VS Code means your editor is occupied until the agent finishes. These tasks are better delegated from the CLI with `& <task>` — the agent runs in the cloud, both your IDE and terminal stay completely free, and a PR arrives when it's done
+- ⚠️ **Waiting until you're "at your desk" to respond to incidents**: The instinct to wait until you're at your workstation to address an operational issue is left over from when your tools required your workstation. When the AI session lives on the server and you can steer from any device, "at my desk" is no longer a prerequisite
 
 ### Move Against (Active Resistance Required)
 
 - 🛑 **Pasting secrets into prompts**: Credentials, tokens, and API keys typed into CLI sessions travel to GitHub's API as prompt content — the same way any other context does. It feels natural to give Copilot what it needs to help, but this is a data exposure risk. Use environment variables or secret managers; reference the name, not the value
 - 🛑 **`--yolo` outside sandboxed environments**: Permission prompts feel like friction when you're in flow. `--allow-all-tools` or `--yolo` removes that friction instantly — and grants the agent permission to run any shell command, edit any file, make any API call with your current credentials. If you're authenticated to production, the agent has production access. Approve per-tool or per-session, never blanket
 - 🛑 **Skipping Plan Mode because you're in a hurry**: When the deadline is close and you think you know what you need, Plan Mode feels like overhead. It isn't — it's most valuable precisely when you're rushing. The sessions that spiral into 8 failed attempts almost always started with "I'll just jump in." One minute of clarifying questions saves thirty minutes of rework
+- 🛑 **Leaving remote sessions unattended without guardrails**: A persistent `--remote` session with broad permissions on a production machine is powerful and dangerous. Always scope permissions with `--allow-tool`, set session timeouts, and use [Copilot Hooks](../copilot-hooks/) for governance. Never use `--yolo` on a remote production session
 
 > **Developer:** 90 min of library research + second-guessing → 15 min with Plan Mode proposing options, tradeoffs, and scaffolding the chosen stack. ~75 minutes saved.
 
@@ -170,6 +195,11 @@ Q: What's your primary workflow environment?
 ├─ "Terminal/CLI — for development, infrastructure, or both"
 │  → Use: Copilot CLI (this talk)
 │  └─ Best for: Greenfield development, debugging, exploring libraries, Docker, CI/CD, log analysis
+│
+├─ "I need to debug or analyze a remote server, staging box, or production machine"
+│  → Use: Copilot CLI with `--remote` (this talk)
+│  └─ Best for: Live system troubleshooting, log forensics, infrastructure patrol
+│  └─ AI runs where the problem is; steer from phone, browser, or any device
 │
 ├─ "I want to fire off a long-running agentic task without it consuming my IDE"
 │  → Use: Copilot CLI (this talk) — cloud delegation via `&` prefix
@@ -198,6 +228,8 @@ Q: What's your primary workflow environment?
 - Automating CI/CD build failure analysis and triage
 - Need intelligent command execution without leaving terminal flow
 - Want to run long-running agentic tasks (security audits, large refactors, test scaffolding) independently of your IDE — delegate from the terminal, IDE stays completely free, PR arrives when done
+- Troubleshooting remote servers, staging environments, or production machines — `--remote` puts AI where the problem is, and you steer from any device
+- Analyzing large log files directly on the server where they live — no downloading, no data transfer, no compliance concerns
 - Want AI to remember team conventions and patterns over time
 - Building automation that adapts to context (not fixed scripts)
 
@@ -460,10 +492,89 @@ jobs:
 
 ---
 
+<!-- 🎬 MAJOR SECTION: Remote Sessions -->
+## Remote Sessions: The Last Distance Falls
+
+*AI goes to the machine. You steer from wherever you are.*
+
+Every section of this talk has been quietly removing a different kind of distance between you and the work. Plan Mode closed the intent gap. Agents and `/fleet` closed the complexity gap. Cloud delegation closed the time gap. One distance remained: **geography** — the assumption that you need to be at the terminal to use the terminal.
+
+`--remote` removes that final constraint.
+
+### How It Works
+
+Start any Copilot CLI session with the `--remote` flag. The CLI generates a unique URL and QR code. Open that URL on GitHub.com or GitHub Mobile — you now have a live connection to the session from any device.
+
+```bash
+# SSH into a production server
+ssh ops@prod-server-3.us-east-1
+$ copilot --remote
+
+🔗 Remote session started.
+Monitor and steer this session from:
+   https://github.com/copilot/sessions/abc123
+   [QR CODE]
+
+Session will persist via tmux. Disconnect safely with Ctrl+D.
+```
+
+From your phone, tablet, or any browser:
+- See what Copilot is doing in real-time
+- Approve or deny tool permissions
+- Send steering messages ("focus on the auth logs, not network")
+- Inject new prompts
+- `/resume` the session from a different machine entirely
+
+You can also enable remote access mid-session with the `/remote` slash command.
+
+### Why This Matters
+
+The compelling part is **not** "do the same thing but from your phone." It's:
+
+- **Work stays where it lives.** Logs never leave the production boundary. No `scp`, no `rsync`, no uploading to third-party analysis tools.
+- **You don't lose momentum when context changes.** Walking to a meeting, switching devices, or getting paged at 2 AM — the session is continuous.
+- **The session becomes portable, not the machine.** Devices are interchangeable viewports into a durable AI work session.
+
+SSH moves your keystrokes. `--remote` moves a reasoning session.
+
+### Session Persistence and Resume
+
+Combine `--remote` with `tmux` or `screen` for sessions that survive SSH disconnects:
+
+```bash
+# On the server
+tmux new -s copilot-debug
+copilot --remote
+
+# SSH drops? No problem. Reconnect later:
+tmux attach -s copilot-debug
+
+# Or resume from a completely different machine:
+copilot --resume
+```
+
+Sessions are private — only visible to the initiating user unless the link is explicitly shared. For business/enterprise accounts, remote session policies are managed by org admins.
+
+### Combination Patterns
+
+`--remote` composes with every other capability in this talk:
+
+| Combination | What It Unlocks |
+|-------------|----------------|
+| **Plan Mode + `--remote`** | Safer live-system operations — AI asks clarifying questions *before* touching a production server. Critical when you're approving from a phone |
+| **`/fleet` + `--remote`** | Coordinate work across multiple environments simultaneously. One prompt, five servers, parallel execution, results merged |
+| **Cloud delegation + `--remote`** | Persistent infrastructure patrol — an agent that watches, investigates anomalies, and reports findings. You review from any device |
+| **Agents + `--remote`** | Remotely supervised parallel work — multiple specialized agents investigating on a server while you steer from elsewhere |
+| **Memory + `--remote`** | When you `/resume` a session from a new device, repository memory and context travel with it — no re-explaining your codebase |
+
+See also: [Steering a session remotely](https://docs.github.com/en/copilot/how-tos/copilot-cli/steer-remotely)
+
+---
+
 <!-- 🎬 MAJOR SECTION: Context Management -->
 ## Automatic Context Management and Repository Memory
 
-*Virtually infinite sessions with cross-session learning*
+*Session continuity: the foundation that makes sessions worth reconnecting to*
 
 ### Infinite Sessions via Auto-Compaction
 
@@ -665,49 +776,80 @@ For plugin management, creating plugins, or hosting your own marketplace, see [F
 
 ## Real-World Use Cases
 
-### Use Case 1: Scaffolding a New Project with AI as Thought Partner
+### Use Case 1: The Walking-to-Meeting Debug (Remote + Interactive)
 
-**The Problem:** 90+ minutes of library research and architecture debates before writing a line — often revisited later when the wrong choice surfaces.
+**The Problem:** An alert fires 3 minutes before standup. You start debugging at your desk, but you have to leave. Without `--remote`, you either skip the meeting or abandon the debug.
 
-**The Solution:** Use Copilot CLI with Plan Mode as an interactive design partner
+**The Solution:** Start locally, continue from your phone
 
 ```bash
-$ copilot
-> "I need to build a REST API with async support in Python. Walk me through framework and ORM options for my use case."
+# 9:02 AM — Alert fires. SSH into staging from your laptop.
+ssh ops@staging-auth-01
+$ copilot --remote
 
-🤔 Copilot (Plan Mode):
-A few questions first:
-1. Async throughout, or mixed sync/async endpoints?
-2. Will you deploy in containers or serverless?
-3. Simple CRUD or complex query patterns?
+> "The auth service is returning 503. Debug it."
 
-> "Fully async, containers, complex queries with joins"
+🤔 Copilot: Let me check the running environment.
+[runs: docker logs auth-service --tail 50]
+[runs: docker exec auth-service env | grep -E 'DB|REDIS|JWT']
 
-🤔 Copilot:
-Given your requirements, here's the comparison:
+# 9:05 AM — Scan QR code with your phone. Grab your bag.
 
-Framework: FastAPI (async-native, auto OpenAPI) vs Litestar (newer, stricter typing)
-ORM: SQLAlchemy 2.0 async (mature, complex query support) vs Tortoise-ORM (simpler, less powerful)
+# 9:07 AM — Walking to standup. Phone shows:
+# "Found: JWT_SECRET missing from staging container env."
 
-Recommendation: FastAPI + SQLAlchemy 2.0 async
-Reason: Best ecosystem maturity and complex join support for your use case.
+# From phone:
+> "Check if any other services depend on that secret"
 
-Shall I scaffold the project structure?
+# 9:10 AM — Copilot reports: 2 more services affected. Proposes fix.
+# From phone: approve the remediation plan.
 
-> "Yes, with auth middleware and Docker setup"
-
-[Copilot scaffolds folder structure, creates pyproject.toml, Dockerfile, and main.py with async boilerplate]
+# 9:12 AM — Walk into standup: "Staging auth is fixed, 3 services were affected."
 ```
 
+**Why this matters:** You never would have solved this before the meeting at all. Without `--remote`, the options are: skip the meeting, abandon the debug, or frantically copy-paste on the walk. `--remote` creates a third option that didn't exist.
+
 **Outcome:**
-- **90 minutes → 15 minutes** for library research and project setup
-- **Documented rationale** for every architectural decision
-- **Working scaffold** immediately, not just a chosen blank template
-- **No second-guessing** — tradeoffs are explicit from the start
+- **Incident resolved without sacrificing either the meeting or the debug**
+- **Session continuity** — context, history, and running commands stayed intact across devices
+- **No restart** — the phone connected to the same session, not a new one
 
 ---
 
-### Use Case 2: Debugging a Running System
+### Use Case 2: Log Forensics Without Data Transfer (Remote)
+
+**The Problem:** A production server has 12GB of application logs. Today, you'd `scp` a subset, grep locally, lose context, repeat. Sensitive data leaves the production boundary every time.
+
+**The Solution:** Bring reasoning to the data instead of moving the data to the reasoning
+
+```bash
+# On the server where the logs actually live
+ssh analytics@log-server
+$ copilot --remote
+
+> "Analyze access logs from the last 24 hours. Find the top 10 IP addresses
+   making requests to /api/auth that resulted in 401 responses, and check
+   if any show patterns consistent with credential stuffing."
+
+🤔 Copilot:
+[runs: grep '401' /var/log/nginx/access.log | awk '{print $1}' | sort | uniq -c | sort -rn | head -10]
+[runs: grep '203.0.113.42' /var/log/nginx/access.log | head -20]
+
+Found: 3 IPs making >10,000 auth attempts in 24 hours with sequential
+username patterns. This is consistent with credential stuffing.
+
+Recommendation: Block these IPs at the WAF and enable rate limiting on /api/auth.
+```
+
+**Why this matters:**
+- **The logs never leave the machine** — no `scp`, no uploading to third-party analysis tools
+- **Compliance-friendly** — PII stays within the production boundary
+- **Speed** — analyzing locally is orders of magnitude faster than transferring 12GB
+- **Scale** — you can analyze logs that are too big to download at all
+
+---
+
+### Use Case 3: Debugging a Running System (Interactive)
 
 **The Problem:** Service fails in staging, works fine locally. The relevant information — container logs, environment variables, network connectivity, process state — is in the runtime environment, not the source files. VS Code can read your code; it can't interrogate what's actually running.
 
@@ -740,7 +882,62 @@ The 503 vs 401 mismatch is a separate issue — I'll flag a bug for that too.
 
 ---
 
-### Use Case 3: GitHub.com Integration — Issues, PRs, and Actions
+### Use Case 4: Persistent Infrastructure Patrol (Remote + Cloud Delegation)
+
+**The Problem:** Traditional monitoring tools tell you *what* happened (CPU at 92%, pod restarting). They don't tell you *why* or *what to do about it*. You still have to SSH in and investigate manually.
+
+**The Solution:** A Copilot session that monitors, reasons about anomalies, and reports meaningful findings
+
+```bash
+# On a monitoring server, inside tmux
+tmux new -s copilot-patrol
+$ copilot --remote --allow-tool 'shell(kubectl)' --allow-tool 'shell(docker)'
+
+> "Monitor the Kubernetes cluster. Every 5 minutes, check pod health,
+   resource usage, and recent events. Alert me via the remote session
+   if anything looks abnormal."
+
+# You close your laptop. Go home. Check your phone Saturday morning.
+
+# Remote session shows:
+# "CPU at 92% on auth-7b — caused by crash loop that started after
+#  the 14:32 deploy, which changed memory limit from 512Mi to 256Mi.
+#  This is below steady-state requirements. Recommend rollback."
+
+# From phone: approve the rollback with one tap.
+```
+
+**Why this matters:** A monitoring tool says "CPU is at 92%." An AI patrol says *why*, traces it to the root cause, and proposes a fix. You approve from dinner.
+
+---
+
+### Use Case 5: Multi-Machine Orchestration (Remote + /fleet)
+
+**The Problem:** Debugging a distributed system failure. The problem spans three servers. Investigating them one at a time means losing context between SSH sessions.
+
+**The Solution:** `/fleet` + `--remote` across multiple environments
+
+```bash
+# Three remote sessions, one from each environment:
+# Terminal 1: copilot --remote on prod-db-1
+# Terminal 2: copilot --remote on prod-api-3
+# Terminal 3: copilot --remote on prod-worker-7
+
+# From your browser — three session URLs, one dashboard:
+# Steer all three investigations simultaneously.
+
+> "Check disk usage, validate SSL certs, and compare deployed versions
+   across all staging nodes."
+
+# Five parallel sessions. Five machines. One prompt.
+# Results merged into a single report.
+```
+
+**Why this matters:** Each session has full local context — file system, processes, logs — of its own machine. Your browser becomes a *console*, not for typing code, but for supervising distributed AI operations.
+
+---
+
+### Use Case 6: GitHub.com Integration — Issues, PRs, and Actions
 
 **The Problem:** Context-switching between terminal and browser to manage GitHub tasks (triage issues, review PRs, create workflows) breaks flow and requires re-explaining what you were doing.
 
@@ -791,8 +988,10 @@ $ copilot
 
 **DevOps Short-Term (1 hour):**
 - [ ] Add Copilot CLI to one CI/CD pipeline for build failure analysis — use `copilot -p "Analyze build failure" --allow-tool 'shell(gh)'`
+- [ ] Try `--remote` on a staging server: SSH in, run `copilot --remote`, scan the QR code on your phone, and steer from there
+- [ ] Analyze logs on a remote machine without downloading them — `copilot --remote` + "Analyze the last 24 hours of error logs"
 - [ ] Run a long-running agentic task with `& <task>` (security audit, doc generation) — confirm your IDE and terminal stay free while the agent runs in the cloud
-- [ ] Try GitHub.com integration: manage issues and open PRs directly from your terminal (see Use Case 3)
+- [ ] Try GitHub.com integration: manage issues and open PRs directly from your terminal (see Use Case 6)
 
 **Next:** Review [Copilot CLI Best Practices](https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices) · Share time-savings wins · Explore [Copilot Hooks](../copilot-hooks/) for governance
 
@@ -829,6 +1028,7 @@ See [DECISION-GUIDE.md](../DECISION-GUIDE.md) for complete navigation help.
 - 📖 **[About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli)** — Core concepts, capabilities, modes of use
 - 📖 **[Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)** — Command syntax, options, workflows, and slash commands
 - 📖 **[Installing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)** — Setup instructions for npm, Homebrew, WinGet, and install scripts
+- 📖 **[Steering a session remotely](https://docs.github.com/en/copilot/how-tos/copilot-cli/steer-remotely)** — Using `--remote` to monitor and steer sessions from web and mobile
 
 **Additional Resources:**
 - 🎓 [Copilot CLI Best Practices](https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices) — Optimization patterns and anti-patterns
@@ -841,6 +1041,7 @@ See [DECISION-GUIDE.md](../DECISION-GUIDE.md) for complete navigation help.
 - 🔌 [Creating a Plugin Marketplace](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace) — Host your team's or organization's plugins
 
 **GitHub Resources:**
+- 📋 [GitHub Blog: Remote control CLI sessions (public preview)](https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/) — Remote session steering from web and mobile
 - 📋 [GitHub Blog: Plan Mode Announcement](https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/) — Plan Mode, reasoning models, and latest features
 - 📋 [GitHub Blog: Faster, more concise, and prettier](https://github.blog/changelog/2025-10-10-github-copilot-cli-faster-more-concise-and-prettier/) — Performance improvements and output polish
 - 🐙 [Copilot CLI Public Repository](https://github.com/github/copilot-cli) — Issue tracking and community discussions
@@ -854,8 +1055,10 @@ See [DECISION-GUIDE.md](../DECISION-GUIDE.md) for complete navigation help.
 
 Plan Mode uses the `ask_user` tool to pause generation and prompt for clarification — this is a first-class model capability, not a prompt trick. The model predicts ambiguity, asks targeted questions, waits for answers, then commits to an approach. This eliminates the "assume and implement wrong" failure mode that causes 6-8 iteration cycles.
 
+### Remote Session Architecture
 
+`--remote` works by establishing a secure tunnel between the CLI process (running on the target machine) and GitHub's session relay infrastructure. The browser/mobile client connects to the same relay via authenticated WebSocket. All communication is authenticated with your GitHub identity — sessions are private to the initiating user. The CLI process is the source of truth; web and mobile are viewports. Combined with tmux or screen, sessions survive SSH disconnects entirely — the AI keeps working, and you reconnect when ready.
 
 ---
 
-**Terminal-native AI for developers building new software and DevOps engineers managing infrastructure**
+**AI at the point of work — start anywhere, steer anywhere, resume anywhere**

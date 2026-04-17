@@ -1034,11 +1034,11 @@ highlight="The transition from pilot success to organizational capability requir
 
 <!-- SLIDE: Federated Governance Model & ROI -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-rose-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-2">
 <span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Scaling & Measurement</span>
-<div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
+<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>

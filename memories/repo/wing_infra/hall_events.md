@@ -4,6 +4,96 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## Content slide component archetypes cataloged: 11 types cover 98% of all slides (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Audited all 17 active tech-talk decks (~192 content slides) and clustered them into 11 reusable component archetypes. Catalog saved to `slides/COMPONENT-ARCHETYPES.md` with typed props, structural rules, and 3-5 example slides per archetype.
+
+**The 11 archetypes (by frequency):**
+1. `TwoColComparisonSlide` (48, 25%) — two-column before/after or paired-concept
+2. `CardGridSlide` (32, 17%) — 2×2 or 2×3 uniform card grid
+3. `CodeExplainerSlide` (24, 13%) — code block + explanatory cards
+4. `MultiColCardsSlide` (22, 11%) — 3-5 equal-width card columns
+5. `UseCaseSlide` (16, 8%) — Problem → Solution → Outcome narrative
+6. `SequentialFlowSlide` (14, 7%) — numbered step progression
+7. `BeforeAfterMetricsSlide` (12, 6%) — before/after + quantified metrics
+8. `TerminalDemoSlide` (8, 4%) — terminal frame + annotations
+9. `HeroStatSlide` (6, 3%) — large hero stat + supporting cards
+10. `DecisionMatrixSlide` (6, 3%) — grid/table comparing options
+11. `ProgressionSlide` (4, 2%) — level/phase progression with detail panel
+
+**Only 4 outlier slides** (architectural diagrams in agent-teams and agentic-sdlc) don't fit any archetype.
+
+**Top 4 cover 66% of all slides.** Implementation priority follows this frequency order.
+
+**Next steps:** User picks an exemplar deck, then components get built and rolled out.
+
+---
+
+## Section color consistency enforced across all 17 tech-talk decks (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Fixed 7 decks where content slides used wrong section colors. The canonical 4-part color sequence (from SectionOpenerSlide.vue) must be followed by ALL content slides within each section:
+
+- **Part 1:** cyan → blue → indigo
+- **Part 2:** blue → indigo → purple
+- **Part 3:** indigo → purple → pink
+- **Part 4:** purple → pink → rose
+
+**5 structural elements must match per section:**
+1. Background gradient: `bg-gradient-to-br from-{primary}-900/20 via-{secondary}-900/10`
+2. Ambient orb: `bg-gradient-to-bl from-{primary}-500/10`
+3. Pill badge: `from-{primary}-600/80 to-{secondary}-600/80`
+4. Active progress dot: `bg-{primary}-400 shadow-lg shadow-{primary}-500/50`
+5. Accent line: `h-px bg-gradient-to-r from-{primary}-400/60`
+
+**Decks fixed:** copilot-acp (64 lines), copilot-sdk (19), agentic-sdlc (10), copilot-primitives (7), agentic-journey (4), enterprise-patterns (3), agentic-workflows (1). Total: 108 line changes.
+
+**Audit script pattern:** Parse deck → find `:partNumber="N"` boundaries → check color tokens in structural elements between boundaries → report mismatches. Code review caught that accent lines were initially missed.
+
+---
+
+## copilot-cli reframed around --remote: "AI at the Point of Work" (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+The `copilot-cli` tech-talk was comprehensively reframed from "Terminal-Native AI for Developers and DevOps" to **"AI at the Point of Work"** using a 3-phase collaborative council (Alpha/Opus 4.6, Beta/GPT-5.4, Gamma/GPT-5.4-mini → synthesis by Opus 4.6).
+
+**Structural spine: "Removing Distance."** Each section removes a different constraint between you and the work:
+- **Intent** → Plan Mode
+- **Complexity** → /fleet fan-out
+- **Context** → Auto-compaction + Memory
+- **Time** → Cloud delegation (&)
+- **Geography** → `--remote` (the culmination)
+
+**Tagline:** "Start Anywhere. Steer Anywhere. Resume Anywhere."
+
+**Key narrative lines:**
+- "SSH moves your keystrokes. `--remote` moves a reasoning session."
+- "The terminal was never the destination. It was the first viewport."
+- "The session is the unit of work, not the shell."
+
+**README changes (tech-talks/copilot-cli/README.md):**
+- New title, core question, problem framing ("Distance Between You and the Work")
+- New major section: "Remote Sessions: The Last Distance Falls"
+- Distance Model table added to Mental Model Shift
+- Use cases expanded from 3 → 6 (added walking-to-meeting debug, log forensics, infra patrol, multi-machine orchestration)
+- 249 lines added, 44 replaced
+
+**Slide deck changes (slides/tech-talks/copilot-cli.md):**
+- Full regeneration: 32 content slides + 10 preserved appendix reference slides = 42 total
+- 4-act structure: Part 1 "The Terminal Sees Reality" (cyan), Part 2 "Scaling the Reach" (blue), Part 3 "Anywhere" (indigo), Part 4 "Real-World Patterns" (purple)
+- `--remote` gets 4 dedicated slides in Part 3 (how it works, why it matters, combination patterns, walking-to-meeting demo)
+- Distance Model slide (slide 4) serves as the structural spine introduction
+- deck.recipe.yml updated with new subtitle, tagline, and highlight moments
+- Build verified clean ✅
+
+**Cross-reference note:** The --remote section references Copilot Hooks for governance. If copilot-hooks talk changes guardrail patterns, verify alignment here.
+
+---
+
 ## SectionOpenerSlide component created and rolled out to all 17 tech-talk decks (2026-04-16)
 
 `schema_version: 1` | `date: 2026-04-16`
