@@ -4,6 +4,55 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## copilot-plugins tech-talk created (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+New tech-talk added: **Copilot Plugins & APM: Composable AI Extensions**
+
+**Files created:**
+- `tech-talks/copilot-plugins/README.md` — CLI-first framing, distinguishes `copilot plugin` vs `apm` workflows
+- `tech-talks/copilot-plugins/deck.recipe.yml` — slide generation recipe
+- `demos/copilot-plugins-walkthrough.md` — 6-exercise CLI-driven demo (superseded; see fanhub-plugin entry below)
+- `slides/tech-talks/copilot-plugins.md` — 21-slide deck, builds clean
+- `memories/customization_context/facts.md` — new topic bench for CLI-first framing
+
+**Section placement:** Customization & Context
+
+**Framing decision:** CLI-first throughout. Core insight: `copilot plugin` = personal exploration, `apm` = team infrastructure as code.
+
+---
+
+## Slide generator updated: Tier-1 component catalog + COMPONENT-ARCHETYPES.md pre-flight (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+- `slides/tech-talks/template.md` — new "Tier-1 Body-Content Components" section with selection quick-reference table, universal props, and full prop schemas + usage examples for all 7 components. Also strengthened `&#34;`/`&quot;` entity prohibition with explanation + curly-quote alternative.
+- `.github/agents/slide-generator.agent.md` — new pre-flight step 8 (read COMPONENT-ARCHETYPES.md), new "Tier-1 Body Components (PREFERRED, not required)" subsection, checklist item. Renumbered Common Mistakes step ref.
+- First real-world test (copilot-plugins.md): 6/12 body slides used Tier-1 components; 4 used inline HTML for genuinely non-matching layouts. `&#34;` entity bug caught and fixed during build; one-shot repair pattern written to `infra/discoveries.md`.
+
+---
+
+## fanhub-plugin APM demo package created (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Created `demos/fanhub-plugin/` — a complete, installable APM plugin package sourced from the workshop module folders (Breaking Bad / ASP.NET Core / Blazor stack).
+
+**Contents:** 28 files — `.github/copilot-instructions.md`, `docs/architecture.md`, `docs/breaking-bad-universe.md`, 6 prompts, 3 skills (including `new-card-skill` with scripts + templates), `mcp-servers/fanhub-api-server.js`, `.vscode/mcp.json`, 2 agents, `apm.yml`, `WALKTHROUGH.md`, `README.md`.
+
+**Use:** Module 00 closing reveal. Clone fanhub-unplugged → show frustration → `apm install` → ask Copilot same question → reveal → pivot to "now let's build it."
+
+**Key insight confirmed:** `docs/architecture.md` ships as part of the payload and is read automatically by Copilot as codebase context — the single highest-value file in the package.
+
+**Source for all files:** `workshop/01-instructions/`, `workshop/03-custom-prompts/`, `workshop/04-agent-skills/skills/`, `workshop/05-mcp-servers/`, `workshop/06-custom-agents/`. NOT `examples/completed-config/` (that's the Node/React stack).
+
+---
+
+## copilot-plugins tech-talk created (2026-04-17 — SUPERSEDED by entry above)
+
+---
+
 ## Memory store renamed and flattened: MemPalace → Workbench, prefixes dropped (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`

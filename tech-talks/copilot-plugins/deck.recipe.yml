@@ -1,0 +1,52 @@
+# deck.recipe.yml — Copilot Plugins & APM talk slide generation guidance
+
+version: 1
+
+# Metadata for the deck
+deck:
+  title: "Copilot Plugins & APM"
+  subtitle: "Composable AI Extensions"
+  tagline: "Install once, configure everywhere"
+
+  # How the opening slides frame the talk
+  intro:
+    mode: core-question  # Lead with the question: "How do I extend Copilot..."
+
+  # Table of contents
+  toc:
+    enabled: true
+
+  # Section ordering from major sections
+  sectionOrder:
+    - "CLI-First Plugin Management"
+    - "Building an APM Manifest"
+    - "The Lockfile Pattern"
+    - "Discovery and Community Resources"
+
+  # Emphasis modes for specific sections
+  sectionModes:
+    "CLI-First Plugin Management":
+      emphasis: high  # This is the core CLI-first framing
+    "Building an APM Manifest":
+      emphasis: high  # The key "configuration as code" shift
+    "The Lockfile Pattern":
+      emphasis: medium  # Important for team workflow
+    "Discovery and Community Resources":
+      emphasis: medium  # Supporting discovery workflow
+
+  # What to emphasize most (3-5 key points readers/audiences should remember)
+  highlightMoments:
+    - "copilot plugin install vs apm install — when to use each"
+    - "Configuration as code: apm.yml belongs in version control"
+    - "Lockfiles prevent 'works on my machine' for AI configuration"
+    - "CLI-first workflow: discover, install, validate from the terminal"
+
+  # References section
+  references:
+    enabled: true
+    mode: numbered  # Use numbered footnote references
+
+  # Thank you slide
+  thankYou:
+    enabled: true
+    variant: standard

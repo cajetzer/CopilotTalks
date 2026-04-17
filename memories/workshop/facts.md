@@ -4,6 +4,33 @@ Locked, confirmed decisions for workshop modules.
 
 ---
 
+## fanhub-plugin demo: APM package lives in demos/fanhub-plugin/ (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+A complete, installable APM plugin package exists at `demos/fanhub-plugin/`. It contains the exact files participants build across modules 01–06 — sourced directly from the workshop module folders, not from `examples/completed-config/` (which is the Node.js version, not the Breaking Bad/.NET stack).
+
+**Install command (from inside fanhub-unplugged clone):**
+```bash
+apm install /path/to/demos/fanhub-plugin
+```
+
+**What it installs:**
+- `.github/copilot-instructions.md` (module 01)
+- `docs/architecture.md` + `docs/breaking-bad-universe.md` (module 01 — read by Copilot as codebase context)
+- 6 prompts (module 03)
+- 3 skills including `new-card-skill` with scripts + templates (module 04)
+- `mcp-servers/fanhub-api-server.js` + `.vscode/mcp.json` (module 05)
+- 2 agents: `scaffold-entity.agent.md` + `plan.agent.md` (module 06)
+
+**Intended use:** Module 00 closing reveal. Show the bare-clone frustration → `apm install` → ask Copilot the same question → pivot to "now let’s build this ourselves."
+
+**MCP caveat:** `apm install` copies the server file and wires `.vscode/mcp.json`, but the backend must be running separately before the MCP server is useful. Don't demo live MCP calls in the module 00 reveal.
+
+**Do NOT use `examples/completed-config/`** for this demo — it's the Node.js/Express/React stack, not the ASP.NET Core / Blazor / Breaking Bad stack used in the workshop modules.
+
+---
+
 ## Canonical skill name: check-data-accuracy
 
 **Date:** 2026-04-13

@@ -34,18 +34,28 @@ N-1     — References             ← ReferencesSlide (REQUIRED)
 N       — Thank You              ← ThankYouSlide (REQUIRED)
 ```
 
-All component imports go in a single `<script setup>` block at the top of the deck:
+All component imports go in a single `<script setup>` block at the top of the deck. Import only what the deck uses:
 
 ```html
 <script setup>
+// Required scaffold (all decks)
 import TitleSlide from './components/TitleSlide.vue'
 import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
 import TocSlide from './components/TocSlide.vue'
-import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import ReferencesSlide from './components/ReferencesSlide.vue'
 import ThankYouSlide from './components/ThankYouSlide.vue'
+
+// Tier-1 body-content components (import the ones you use; see catalog below)
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 </script>
 ```
 
@@ -222,7 +232,228 @@ Every Part N slide uses `SectionOpenerSlide`. The component handles the full cen
 
 - Apostrophes inside single-quoted array props (`:prop='[...]'`) must use `&#39;`
 - Always include a blank line between `/>` and the next `---` separator
-- Never use `&quot;` — use double quotes inside the JSON array
+- **Never** use `&quot;` or `&#34;` (HTML entity for double quote) inside any prop value — Vue decodes the entity *before* JS-parses the JSON, which terminates the string and breaks the build with a `SyntaxError: Unexpected token`. If you need a double-quote glyph in display text, use Unicode curly quotes (`“` / `”`) or single quotes (`&#39;`). Never `\"` either — the backslash survives the HTML decode and confuses the parser.
+- Use double quotes inside the JSON array (single quotes outside, double quotes inside)
+
+---
+
+## Tier-1 Body-Content Components (OPTIONAL but PREFERRED)
+
+These components cover the most common body-slide archetypes. **Prefer them over hand-rolled inline Tailwind when an archetype matches** — they handle the cockpit wrapper, section chrome (ambient bg, orb, pill, divider), color progression, and dark/light theming for you. Do NOT pass color/style/class props; all colors derive from `partNumber` (1–4) via `useSectionTheme.ts`.
+
+Freeform inline HTML is still allowed when the content doesn't fit any of these archetypes — they're a shortcut, not a straitjacket. See `slides/COMPONENT-ARCHETYPES.md` for the full selection matrix, overflow thresholds, and usage examples across decks.
+
+### Selection Quick-Reference
+
+| Situation                                                              | Component                      |
+| ---------------------------------------------------------------------- | ------------------------------ |
+| Before → After with quantified metrics (2–4 metric tiles)              | `BeforeAfterMetricsSlide`      |
+| Before → After without metrics (just two-panel opposition)             | `BeforeAfterPanelsSlide`       |
+| 3-column narrative: Problem → Solution → Outcome (hardcoded red→blue→green) | `ProblemSolutionOutcomeSlide`  |
+| Two non-opposed concepts side-by-side (cool palette, no red/green)     | `TwoColPairedConceptsSlide`    |
+| Exactly 3 options/tiers/capabilities in cards                          | `ThreeColumnCardSlide`         |
+| Exactly 4 items in a 2×2 taxonomy grid                                 | `FourCardGridSlide`            |
+| Code block + 2–4 feature cards (left layout or stacked)                | `CodeWithFeaturesSlide`        |
+
+**Universal props (every Tier-1 body component):**
+- `partNumber` (1–4, required) — drives ambient bg, orb, pill, divider, and card progression
+- `pillIcon` (string, required) — emoji or short glyph for the pill
+- `pillLabel` (string, required) — breadcrumb text (e.g., `"Subagents: Core Mechanism"`)
+- `title` (string, required) — slide headline (≤ 80 chars)
+- `insight` (optional object `{ icon, text }`) — optional bottom insight bar
+
+### `BeforeAfterMetricsSlide`
+
+```html
+<BeforeAfterMetricsSlide
+  :partNumber="2"
+  pillIcon="⚖️"
+  pillLabel="Impact: Measured"
+  title="From Manual Reviews to Scalable Quality"
+  :before='{
+    header: "Before",
+    items: [
+      { title: "Hours per PR", detail: "Avg 45 min senior-engineer time" },
+      "Scattered review checklists",
+      { title: "Security gaps", detail: "Caught post-merge" }
+    ]
+  }'
+  :after='{
+    header: "After",
+    items: [
+      "Review in 8 min",
+      { title: "Consistent rubric", detail: "Driven by Copilot skill" },
+      "Security caught pre-merge"
+    ]
+  }'
+  :metrics='[
+    { value: "82%", label: "faster first pass" },
+    { value: "3.1×", label: "throughput" },
+    { value: "0", label: "post-merge security bugs" }
+  ]'
+  :insight='{ icon: "🎯", text: "Key Insight: reviewers shift from gatekeepers to architects." }'
+/>
+```
+
+- `before` / `after`: `{ header, items }`. `items` accepts strings or `{ title, detail }` objects (mixing allowed).
+- `metrics`: 2–4 required; component logs an error if outside that range.
+
+### `BeforeAfterPanelsSlide`
+
+Same prop shape as `BeforeAfterMetricsSlide` but **no `metrics` prop**. Use when the comparison speaks for itself without numbers.
+
+```html
+<BeforeAfterPanelsSlide
+  :partNumber="1"
+  pillIcon="🧱"
+  pillLabel="Subagents: Two Patterns"
+  title="Implicit vs Explicit Invocation"
+  :before='{ header: "Implicit (chat hints)", items: ["Auto-triggered", "Harder to debug"] }'
+  :after='{ header: "Explicit (@agent)", items: ["Deterministic", "Visible in transcript"] }'
+/>
+```
+
+### `ProblemSolutionOutcomeSlide`
+
+3-column narrative with **hardcoded semantic colors** (red Problem → blue Solution → emerald Outcome). Section `partNumber` only tints the chrome; do not use this for non-problem/solution content.
+
+```html
+<ProblemSolutionOutcomeSlide
+  :partNumber="3"
+  pillIcon="🚀"
+  pillLabel="Autonomous: Use Case"
+  title="Polyrepo Dependency-Aware Development"
+  :problem='{
+    header: "The Problem",
+    items: [
+      "Context lost across repos",
+      { title: "Manual coordination", detail: "Slack threads + PR pings" }
+    ]
+  }'
+  :solution='{
+    header: "The Solution",
+    items: ["`acp-manifest.json` declares dependsOn"],
+    code: { language: "json", content: "{\"dependsOn\": [\"api\", \"shared-ui\"]}" }
+  }'
+  :outcome='{
+    header: "The Outcome",
+    items: ["Cross-repo context flows automatically"],
+    metrics: [{ value: "4×", label: "faster polyrepo tasks" }]
+  }'
+/>
+```
+
+- `solution.code` (optional): `{ language, content }` renders as a monospace block.
+- `outcome.metrics` (optional): array of `{ value, label }` tiles under the outcome column.
+
+### `TwoColPairedConceptsSlide`
+
+Two equal columns in the section's **cool palette** — no red/green opposition. For "two modes," "two patterns," "store vs retrieve."
+
+```html
+<TwoColPairedConceptsSlide
+  :partNumber="4"
+  pillIcon="🎭"
+  pillLabel="Multi-Model: Modes"
+  title="Collaborative vs Adversarial Deliberation"
+  :left='{
+    header: "Collaborative",
+    icon: "🤝",
+    items: [
+      { title: "Agents build on each other", detail: "Parallel synthesis" },
+      "Best for novel solutions"
+    ]
+  }'
+  :right='{
+    header: "Adversarial",
+    icon: "⚔️",
+    items: ["Agents debate", "Best for stress-testing"],
+    code: { language: "bash", content: "@council --mode adversarial \"...\"" }
+  }'
+/>
+```
+
+- `left.icon` / `right.icon` optional; shown before the header.
+- `left.code` / `right.code` optional; renders below the items list.
+
+### `ThreeColumnCardSlide`
+
+Exactly 3 cards. Each card can be description-only or include an `items` sub-list.
+
+```html
+<ThreeColumnCardSlide
+  :partNumber="2"
+  pillIcon="🛠️"
+  pillLabel="Distribution: Three Tiers"
+  title="Personal → Team → Organization"
+  :columns='[
+    { icon: "👤", title: "Personal", description: "copilot plugin install — local, exploratory" },
+    { icon: "👥", title: "Team", description: "apm.yml in repo — versioned, shared", items: ["Lock file", "CI install"] },
+    { icon: "🏢", title: "Org", description: "Private marketplace + signing policy" }
+  ]'
+/>
+```
+
+- Exactly 3 columns required.
+
+### `FourCardGridSlide`
+
+Exactly 4 cards in a 2×2 grid with the full section card palette (each card gets a distinct tint).
+
+```html
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🧱"
+  pillLabel="Extension Points"
+  title="Four Ways to Customize Copilot"
+  :cards='[
+    { icon: "📜", title: "Instructions",  description: "Persistent repo context via AGENTS.md and custom instructions" },
+    { icon: "🎯", title: "Prompts",       description: "Reusable prompts for common workflows" },
+    { icon: "🧠", title: "Agents",        description: "Role-scoped specialists with their own toolset" },
+    { icon: "🔌", title: "Plugins & MCP", description: "External capabilities wired via CLI or MCP server" }
+  ]'
+  :insight='{ icon: "💡", text: "Start small: instructions before agents, agents before plugins." }'
+/>
+```
+
+- Exactly 4 cards required. Each needs `icon`, `title`, `description`.
+
+### `CodeWithFeaturesSlide`
+
+Code block + 2–4 feature cards. Two layouts via `codePosition`:
+
+- `"left"` — code on the left (~60%), features stacked on the right (~40%)
+- `"top"` — code on top, features in a row below
+
+```html
+<CodeWithFeaturesSlide
+  :partNumber="2"
+  pillIcon="📦"
+  pillLabel="APM Manifest"
+  title="apm.yml — The Agent Supply Chain"
+  codePosition="left"
+  :code='{ language: "yaml", filename: "apm.yml", content: "name: my-team-config\nagents:\n  - @backend-reviewer@1.2.0\ninstructions:\n  - ./AGENTS.md\nplugins:\n  - github/copilot-plugin-jira@0.5.1" }'
+  :features='[
+    { icon: "🔒", title: "Versioned",  description: "Lock file pins exact versions" },
+    { icon: "🌲", title: "Composable", description: "Agents, instructions, plugins — one manifest" },
+    { icon: "🔁", title: "Reproducible", description: "apm install hydrates a fresh clone" }
+  ]'
+/>
+```
+
+- `code`: `{ language, content, filename? }`. `content` is raw text (no syntax highlighting beyond Slidev default).
+- `features`: 2–4 items required.
+- `codePosition`: must be `"left"` or `"top"`.
+
+### When NOT to use a Tier-1 component
+
+Fall back to inline HTML (following the cockpit wrapper in `slides/TEMPLATE.md`) when:
+
+- The archetype genuinely doesn't match (sequence diagrams, terminal transcripts, nested accordions, timelines)
+- You need an unusual layout (5-card grid, asymmetric columns, overlapping elements)
+- The slide is one-of-a-kind visual storytelling that wouldn't benefit from a shared component
+
+**Still use progress dots and the cockpit wrapper** on any inline-HTML body slide — the Tier-1 components just let you skip that boilerplate for the common cases.
 
 ---
 

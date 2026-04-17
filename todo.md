@@ -40,5 +40,13 @@ https://code.visualstudio.com/blogs/2026/03/05/making-agents-practical-for-real-
 https://github.blog/changelog/2026-03-06-figma-mcp-server-can-now-generate-design-layers-from-vs-code/
 
 ---
+New tech-talk: plugins/marketplace it's a CLI.  copilot-plugins, awesome-copilot  "copilot plugin list/install, etc."
+https://code.visualstudio.com/docs/copilot/customization/agent-plugins
+https://github.com/github/copilot-plugins
+https://github.com/github/awesome-copilot
+https://github.com/microsoft/apm
+https://microsoft.github.io/apm/introduction/what-is-apm/
 
-https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/
+
+apm install, apm.yml
+apm marketplace add/browse

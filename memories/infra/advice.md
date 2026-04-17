@@ -4,6 +4,28 @@ Patterns that consistently work for Slidev slide authoring and editing.
 
 ---
 
+## Tier-1 components adopted in first real deck (copilot-plugins): 6 of 12 body slides (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+First deck generated under the new Tier-1 component catalog (after updating `slides/tech-talks/template.md`) used components on 6 of 12 body slides and fell back to inline HTML for 4 genuinely unique layouts. This ratio (50%) is healthy — it means the components are earning their place without over-constraining creativity.
+
+**Components used and why:**
+- `TwoColPairedConceptsSlide` ×2 — `copilot plugin` vs `apm` (non-opposed comparison; cool palette correct)
+- `CodeWithFeaturesSlide` ×2 — CLI command flow + feature explanations (code-left layout)
+- `ThreeColumnCardSlide` ×1 — three discovery sources (marketplace / awesome-copilot / plugins repo)
+- `BeforeAfterPanelsSlide` ×1 — without/with lockfile (opposition without metrics)
+
+**Inline HTML (4 slides) — why components were skipped:**
+- 3-column action grid with semantic colors (emerald=install, blue=update, red=remove) — `ThreeColumnCardSlide` uses section palette, not semantic colors
+- CLI vs VS Code UI comparison with custom step formatting
+- Principles slide combining before/after with 3-principle breakdown
+- Multi-project code examples side-by-side
+
+**Takeaway for future generation:** When falling back to inline HTML, the reason should be "the layout genuinely doesn't match" not "I didn’t check." The generator pre-flight now includes COMPONENT-ARCHETYPES.md read (step 8) to force the check.
+
+---
+
 ## Topic benches must defer to component files, never duplicate them (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`

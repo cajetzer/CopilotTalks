@@ -4,6 +4,26 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## `&#34;` and `&quot;` are forbidden inside ANY prop value, not just single-quoted arrays (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Vue decodes HTML entities in attribute values **before** the JS expression parser runs. A `&#34;` (or `&quot;`) inside `:cards='[{ description: "Wiki page &#34;how to&#34; outdated" }]'` decodes to a literal `"`, which terminates the JSON string mid-value and crashes the build with `SyntaxError: Unexpected token, expected ","`. The error surface is the slide file but the line/column point at the post-decode position, making it confusing.
+
+**Fix when display text needs quotation marks:** use Unicode curly quotes (`“` U+201C, `”` U+201D) — read better typographically anyway. Never use `\"` either; the backslash survives HTML decode and breaks differently.
+
+**One-shot repair pattern (PowerShell, alternates open/close curly):**
+```powershell
+$content = Get-Content path/to/deck.md -Raw
+$script:i = 0
+$content = [regex]::Replace($content, '&#34;', { param($m); $script:i++; if ($script:i % 2 -eq 1) { [char]0x201C } else { [char]0x201D } })
+Set-Content path/to/deck.md -Value $content -NoNewline
+```
+
+**Caught while building copilot-plugins.md** (first deck generated under the new Tier-1 component catalog). Rule strengthened in `slides/tech-talks/template.md` Common Rules section.
+
+---
+
 ## `useSectionTheme.ts` helper: shared partNumber palette eliminates per-component theme duplication (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`
