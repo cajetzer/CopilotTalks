@@ -26,6 +26,9 @@ import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -82,408 +85,111 @@ highlight="Copilot's response quality is directly proportional to how much it kn
 ---
 
 <!-- SLIDE: Instructions — Three Selectors -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Instructions</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Three Ways to Scope Instructions</div>
-<div class="text-xs text-white/50">Each selector targets a different context level</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="flex flex-col p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">📦</div>
-<div class="font-bold text-cyan-300 text-sm mb-1">Repository Selector</div>
-<div class="text-xs opacity-80 mb-2">Applies to every request in the repo</div>
-<div class="flex-1 bg-gray-950/50 rounded p-2 font-mono text-xs text-cyan-200 border border-cyan-500/20">
-.github/<br/>copilot-instructions.md
-</div>
-<div class="mt-2 text-xs text-cyan-400/70">Best for: tech stack, build commands, coding standards</div>
-</div>
-
-<div class="flex flex-col p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">🎯</div>
-<div class="font-bold text-blue-300 text-sm mb-1">File-Pattern Selector</div>
-<div class="text-xs opacity-80 mb-2">Applies when <code>applyTo</code> matches</div>
-<div class="flex-1 bg-gray-950/50 rounded p-2 font-mono text-xs text-blue-200 border border-blue-500/20">
-.github/instructions/<br/>models.instructions.md
-</div>
-<div class="mt-2 text-xs text-blue-400/70">Best for: path-specific conventions (src/models/**)</div>
-</div>
-
-<div class="flex flex-col p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">📂</div>
-<div class="font-bold text-indigo-300 text-sm mb-1">Directory Selector</div>
-<div class="text-xs opacity-80 mb-2">Nearest file in tree (agent playbook)</div>
-<div class="flex-1 bg-gray-950/50 rounded p-2 font-mono text-xs text-indigo-200 border border-indigo-500/20">
-frontend/<br/>AGENTS.md
-</div>
-<div class="mt-2 text-xs text-indigo-400/70">Best for: local commands, tests, subproject rules</div>
-</div>
-</div>
-
-<div class="mt-3 p-2 bg-gradient-to-r from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
-<div class="text-xs opacity-90"><strong>Key Principle:</strong> All matching instructions combine. Repo-wide + path-specific + directory-local all apply when relevant.</div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="1"
+  pillIcon="📖"
+  pillLabel="Instructions"
+  title="Three Ways to Scope Instructions"
+  :columns='[
+    { icon: "📦", title: "Repository Selector", description: "Applies to every request in the repo. Best for tech stack, build commands, and coding standards. File: .github/copilot-instructions.md" },
+    { icon: "🎯", title: "File-Pattern Selector", description: "Applies when applyTo glob matches. Best for path-specific conventions. File: .github/instructions/models.instructions.md" },
+    { icon: "📂", title: "Directory Selector", description: "Nearest file in tree wins (the agent playbook). Best for local commands, tests, and subproject rules. File: frontend/AGENTS.md" }
+  ]'
+  :insight='{ icon: "💡", text: "Key Principle: All matching instructions combine. Repo-wide + path-specific + directory-local all apply when relevant." }'
+/>
 
 ---
 
 <!-- SLIDE: Instructions — Repository-Wide Pattern -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Instructions</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Repository-Wide Instructions Example</div>
-<div class="text-xs text-white/50">.github/copilot-instructions.md — the 5-minute transformation</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="flex-1 bg-gray-950/80 rounded-xl border border-cyan-500/30 p-3 overflow-y-auto flex flex-col gap-2 text-xs">
-<div class="font-mono text-cyan-300"># Repository Instructions</div>
-<div class="text-gray-300 leading-relaxed space-y-1">
-<div>This repository uses <strong>TypeScript with strict type checking enabled</strong>.</div>
-<div class="mt-2 font-semibold text-white">## Build and Test</div>
-<div>• Build: <code class="bg-gray-900 px-1 rounded">npm run build</code></div>
-<div>• Tests: <code class="bg-gray-900 px-1 rounded">npm test</code> (Jest, co-located in __tests__/)</div>
-<div class="mt-2 font-semibold text-white">## Coding Standards</div>
-<div>• Prefer functional programming patterns</div>
-<div>• Use explicit return types for all functions</div>
-<div>• Add JSDoc comments for exported functions</div>
-<div>• Use named exports (avoid default exports)</div>
-<div class="mt-2 font-semibold text-white">## Error Handling</div>
-<div>• Use custom error classes extending Error</div>
-<div>• Log with structured logging (logger.error())</div>
-<div>• Never swallow errors silently</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-2">
-<div class="p-2 bg-gradient-to-br from-emerald-900/40 to-cyan-900/40 rounded-lg border border-emerald-500/30">
-<div class="text-xs font-semibold text-emerald-300 mb-1">✅ Before vs After</div>
-<div class="text-xs opacity-80 space-y-1">
-<div><strong>Before:</strong> Generic Express boilerplate</div>
-<div><strong>After:</strong> TypeScript endpoint with Prisma, custom errors, JSDoc, co-located tests</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
-<div class="text-xs font-semibold text-cyan-300 mb-1">📊 Real Impact</div>
-<div class="text-xs opacity-80 space-y-1">
-<div><strong>40% reduction</strong> in style review comments</div>
-<div><strong>5 minutes</strong> to implement</div>
-<div><strong>Zero training</strong> — instant team-wide effect</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="📖"
+  pillLabel="Instructions"
+  title="Repository-Wide Instructions Example"
+  codePosition="top"
+  :code='{
+    language: "markdown",
+    filename: ".github/copilot-instructions.md",
+    content: "# Repository Instructions\n\nThis repository uses TypeScript with strict type checking enabled.\n\n## Build and Test\n- Build: `npm run build`\n- Tests: `npm test` (Jest, co-located in __tests__/)\n\n## Coding Standards\n- Prefer functional programming patterns\n- Use explicit return types for all functions\n- Add JSDoc comments for exported functions\n- Use named exports (avoid default exports)\n\n## Error Handling\n- Use custom error classes extending Error\n- Log with structured logging (logger.error())\n- Never swallow errors silently"
+  }'
+  :features='[
+    { icon: "✅", title: "Before vs After", description: "Generic Express boilerplate becomes a TypeScript endpoint with Prisma, custom errors, JSDoc, and co-located tests — all from one file." },
+    { icon: "📊", title: "Real Impact", description: "40% reduction in style review comments. 5 minutes to implement. Zero training required — instant team-wide effect." }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: Instructions — Path-Specific Targeting -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Instructions</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Path-Specific Instructions</div>
-<div class="text-xs text-white/50">Different rules for different file patterns using applyTo globs</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex-1 min-h-0 bg-gray-950/80 rounded-xl border border-cyan-500/30 p-3 overflow-y-auto max-h-64">
-<div class="font-mono text-xs text-cyan-300 mb-2">
-.github/instructions/models.instructions.md
-</div>
-<div class="bg-gray-900/70 rounded p-2 mb-2 font-mono text-xs">
-<div class="text-blue-400">---</div>
-<div class="text-white">applyTo: "src/models/**/*.ts"</div>
-<div class="text-blue-400">---</div>
-</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div class="font-semibold text-white"># Database Model Instructions</div>
-<div class="mt-1">When working with database models:</div>
-<div>• Use Prisma schema definitions</div>
-<div>• Include JSDoc comments with field descriptions</div>
-<div>• Define relationships explicitly with @relation</div>
-<div>• Add indexes for foreign keys</div>
-<div>• Use snake_case for DB columns, camelCase in TypeScript</div>
-<div>• Always include audit fields: createdAt, updatedAt</div>
-</div>
-</div>
-
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
-<div class="text-xs font-semibold text-cyan-300 mb-1">🎯 Precision</div>
-<div class="text-xs opacity-80">Only loads for matching files — keeps context budget clean</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-lg border border-blue-500/30">
-<div class="text-xs font-semibold text-blue-300 mb-1">🔄 Combines</div>
-<div class="text-xs opacity-80">Merges with repo-wide instructions when both match</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
-<div class="text-xs font-semibold text-indigo-300 mb-1">🗂️ Examples</div>
-<div class="text-xs opacity-80">src/web/** (React), src/api/** (Express), tests/** (test rules)</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="📖"
+  pillLabel="Instructions"
+  title="Path-Specific Instructions"
+  codePosition="top"
+  :code='{
+    language: "markdown",
+    filename: ".github/instructions/models.instructions.md",
+    content: "---\napplyTo: \"src/models/**/*.ts\"\n---\n\n# Database Model Instructions\n\nWhen working with database models:\n- Use Prisma schema definitions\n- Include JSDoc comments with field descriptions\n- Define relationships explicitly with @relation\n- Add indexes for foreign keys\n- Use snake_case for DB columns, camelCase in TypeScript\n- Always include audit fields: createdAt, updatedAt"
+  }'
+  :features='[
+    { icon: "🎯", title: "Precision", description: "Only loads for matching files — keeps the context budget clean and focused." },
+    { icon: "🔄", title: "Combines", description: "Merges with repo-wide instructions when both match the file path." },
+    { icon: "🗂️", title: "Examples", description: "src/web/** for React, src/api/** for Express, tests/** for test rules." }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: Instructions — AGENTS.md Playbook -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Instructions</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">AGENTS.md: The Open Agent Playbook</div>
-<div class="text-xs text-white/50">Local commands, tests, and cross-agent workflow guidance</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex-1 bg-gray-950/80 rounded-xl border border-cyan-500/30 p-3 overflow-y-auto">
-<div class="font-mono text-xs text-cyan-300 mb-2">frontend/AGENTS.md</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div class="font-semibold text-white"># AGENTS.md</div>
-<div class="mt-1 font-semibold text-white">## Dev environment tips</div>
-<div>• Install dependencies: <code class="bg-gray-900 px-1 rounded">pnpm install</code></div>
-<div>• Start frontend: <code class="bg-gray-900 px-1 rounded">pnpm --filter web dev</code></div>
-<div class="mt-1 font-semibold text-white">## Testing instructions</div>
-<div>• Run tests: <code class="bg-gray-900 px-1 rounded">pnpm --filter web test</code></div>
-<div>• Lint before PR: <code class="bg-gray-900 px-1 rounded">pnpm --filter web lint</code></div>
-<div class="mt-1 font-semibold text-white">## PR instructions</div>
-<div>• Title format: <code class="bg-gray-900 px-1 rounded">[web] &lt;Title&gt;</code></div>
-</div>
-</div>
-
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
-<div class="text-xs font-semibold text-cyan-300 mb-1">🗺️ Nearest File Wins</div>
-<div class="text-xs opacity-80">Directory tree traversal finds the most specific playbook</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-lg border border-blue-500/30">
-<div class="text-xs font-semibold text-blue-300 mb-1">🔁 Monorepo-Friendly</div>
-<div class="text-xs opacity-80">frontend/, infra/, api/ each get their own rules</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
-<div class="text-xs font-semibold text-indigo-300 mb-1">🤝 Open Format</div>
-<div class="text-xs opacity-80">Works across GitHub Copilot, Claude, and coding agents</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Part 2 — Skills -->
-
-<SectionOpenerSlide
-  :partNumber="2"
-  title="Skills"
-  subtitle="On-demand expertise packs"
-  :cards='[
-    { icon: "📦", title: "Progressive Loading", blurb: "3 levels: discovery → instructions → resources" },
-    { icon: "🎯", title: "AI-Activated", blurb: "Loaded when task matches skill description" },
-    { icon: "🔁", title: "Cross-Tool Portable", blurb: "VS Code + CLI + coding agent" },
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="📖"
+  pillLabel="Instructions"
+  title="AGENTS.md: The Open Agent Playbook"
+  codePosition="top"
+  :code='{
+    language: "markdown",
+    filename: "frontend/AGENTS.md",
+    content: "# AGENTS.md\n\n## Dev environment tips\n- Install dependencies: `pnpm install`\n- Start frontend: `pnpm --filter web dev`\n\n## Testing instructions\n- Run tests: `pnpm --filter web test`\n- Lint before PR: `pnpm --filter web lint`\n\n## PR instructions\n- Title format: `[web] &lt;Title&gt;`"
+  }'
+  :features='[
+    { icon: "🗺️", title: "Nearest File Wins", description: "Directory tree traversal finds the most specific playbook for the working file." },
+    { icon: "🔁", title: "Monorepo-Friendly", description: "frontend/, infra/, api/ each get their own rules without collision." },
+    { icon: "🤝", title: "Open Format", description: "Works across GitHub Copilot, Claude, and other coding agents that read AGENTS.md." }
   ]'
-  :terminal='{ context: "Unlike always-on instructions", detail: "skills load only when relevant" }'
 />
----
-
-<!-- SLIDE: Skills — Progressive Loading Architecture -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Skills</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Progressive Loading: Why Skills Stay Efficient</div>
-<div class="text-xs text-white/50">3-level loading system keeps context budget clean even with dozens of skills</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-xl">1️⃣</div>
-<div class="font-bold text-blue-300 text-sm">Discovery</div>
-</div>
-<div class="text-xs opacity-80 mb-2">Always loaded (lightweight metadata)</div>
-<div class="bg-gray-950/50 rounded p-2 font-mono text-xs text-blue-200 border border-blue-500/20">
-name: test-runner<br/>
-description: Run tests...
-</div>
-<div class="mt-2 text-xs text-blue-400/70">~50 bytes per skill</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-xl">2️⃣</div>
-<div class="font-bold text-indigo-300 text-sm">Instructions</div>
-</div>
-<div class="text-xs opacity-80 mb-2">When prompt matches skill description</div>
-<div class="bg-gray-950/50 rounded p-2 font-mono text-xs text-indigo-200 border border-indigo-500/20">
-Full SKILL.md body<br/>
-process, rules, when to use
-</div>
-<div class="mt-2 text-xs text-indigo-400/70">~1-2 KB when matched</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-xl">3️⃣</div>
-<div class="font-bold text-purple-300 text-sm">Resources</div>
-</div>
-<div class="text-xs opacity-80 mb-2">When Copilot references them</div>
-<div class="bg-gray-950/50 rounded p-2 font-mono text-xs text-purple-200 border border-purple-500/20">
-scripts/, examples/<br/>
-templates
-</div>
-<div class="mt-2 text-xs text-purple-400/70">Only when explicitly used</div>
-</div>
-</div>
-
-<div class="flex-1 bg-gray-950/80 rounded-xl border border-blue-500/30 p-3">
-<div class="text-xs font-semibold text-white mb-2">Example Skill Structure</div>
-<div class="font-mono text-xs text-gray-300 space-y-0.5">
-<div class="text-blue-400">.github/skills/</div>
-<div class="ml-3">test-runner/</div>
-<div class="ml-6 text-cyan-300">SKILL.md <span class="text-gray-500">← Level 2: instructions</span></div>
-<div class="ml-6 text-indigo-300">test-template.ts <span class="text-gray-500">← Level 3: resource</span></div>
-<div class="ml-6">scripts/</div>
-<div class="ml-9 text-purple-300">run-tests.sh <span class="text-gray-500">← Level 3: resource</span></div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-r from-emerald-900/40 to-cyan-900/40 rounded-lg border border-emerald-500/30">
-<div class="text-xs"><strong>Real Impact:</strong> 50 skills installed = 2.5 KB baseline. Only the 1-2 relevant skills load full content. Context stays clean.</div>
-</div>
-</div>
-</div>
 
 ---
 
 <!-- SLIDE: Skills — Scripts -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Skills</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Scripts: Executable Automation</div>
-<div class="text-xs text-white/50">Give Copilot verified, team-approved commands — no hallucinated CLI flags</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-xl">📜</div>
-<div class="font-bold text-cyan-300">What Are Scripts?</div>
-</div>
-<div class="text-xs opacity-80 mb-2">Shell scripts, Python files, or any executable that Copilot can read, understand, and run.</div>
-<div class="bg-gray-950/50 rounded p-2 font-mono text-xs border border-cyan-500/20 space-y-0.5">
-<div class="text-cyan-300">scripts/run-tests.sh</div>
-<div class="text-cyan-300">scripts/validate-schema.py</div>
-<div class="text-cyan-300">scripts/deploy-preview.sh</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-emerald-900/40 to-cyan-900/40 rounded-xl border border-emerald-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-xl">✨</div>
-<div class="font-bold text-emerald-300">Why Scripts Matter</div>
-</div>
-<div class="space-y-1">
-<div class="flex items-start gap-2">
-<div class="text-emerald-400">→</div>
-<div class="text-xs"><strong class="text-emerald-300">Verified:</strong> No guessing at CLI flags</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-emerald-400">→</div>
-<div class="text-xs"><strong class="text-emerald-300">Team-approved:</strong> Your exact workflows</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-emerald-400">→</div>
-<div class="text-xs"><strong class="text-emerald-300">Self-documenting:</strong> Copilot reads to understand</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-emerald-400">→</div>
-<div class="text-xs"><strong class="text-emerald-300">Composable:</strong> Chain for complex ops</div>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-gray-950/80 rounded-xl border border-blue-500/30 p-3">
-<div class="text-xs font-semibold text-white mb-2">Example: SKILL.md Referencing Scripts</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="font-mono text-xs text-gray-300 space-y-0.5">
-<div class="text-blue-400">test-runner/</div>
-<div class="ml-3 text-white">SKILL.md</div>
-<div class="ml-3 text-cyan-300">scripts/</div>
-<div class="ml-6 text-cyan-200">run-tests.sh</div>
-<div class="ml-6 text-cyan-200">coverage-report.sh</div>
-<div class="ml-6 text-cyan-200">watch-mode.sh</div>
-</div>
-<div class="text-xs space-y-1.5">
-<div class="text-gray-400">SKILL.md tells Copilot:</div>
-<div class="bg-gray-900/50 rounded px-2 py-1 font-mono text-emerald-300">"Run scripts/run-tests.sh to execute"</div>
-<div class="bg-gray-900/50 rounded px-2 py-1 font-mono text-emerald-300">"Run scripts/coverage-report.sh for coverage"</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="🔧"
+  pillLabel="Skills"
+  title="Skills Bundle Verified Scripts With Documentation"
+  :left='{
+    header: "What Are Scripts?",
+    icon: "📜",
+    items: [
+      { title: "Shell, Python, or any executable", detail: "Anything Copilot can read, understand, and run as part of a skill" },
+      { title: "scripts/run-tests.sh", detail: "Project-specific entry points your team has already validated" },
+      { title: "scripts/validate-schema.py", detail: "Reusable verification logic agents call instead of guessing" },
+      { title: "scripts/deploy-preview.sh", detail: "Deterministic workflows packaged alongside SKILL.md instructions" }
+    ]
+  }'
+  :right='{
+    header: "Why Scripts Matter",
+    icon: "✨",
+    items: [
+      { title: "Verified", detail: "No guessing at CLI flags — the script encodes the right invocation" },
+      { title: "Team-approved", detail: "Your exact workflows, reviewed and merged like any other code" },
+      { title: "Self-documenting", detail: "Copilot reads the script to understand inputs, outputs, side effects" },
+      { title: "Composable", detail: "Chain scripts together for complex multi-step operations" }
+    ]
+  }'
+  :insight='{ icon: "🧩", text: "SKILL.md tells Copilot: Run scripts/run-tests.sh to execute · Run scripts/coverage-report.sh for coverage." }'
+/>
 
 ---
 

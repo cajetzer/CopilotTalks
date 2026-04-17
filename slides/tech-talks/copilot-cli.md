@@ -1248,7 +1248,7 @@ import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 <div class="text-xs text-white/50">Issues, PRs, and Actions without context-switching to the browser</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-4 text-xs">
+<div class="grid grid-cols-2 gap-4 text-xs mb-3">
 <div class="space-y-3">
 <div class="p-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg border border-purple-500/20">
 <div class="font-semibold text-purple-300 mb-1">&#x1F4CB; Issues</div>
@@ -1282,6 +1282,9 @@ import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
 <div class="text-white/70">Copilot can create PRs on your behalf &#8212; you&#39;re marked as the author. Describe a change in English, end up with a PR on GitHub.com.</div>
 </div>
 </div>
+</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-xs"><span class="font-bold text-purple-300">🎯 Key Insight:</span> <span class="text-white/80">GitHub.com becomes an extension of your terminal — issues, PRs, and Actions without ever context-switching to the browser</span></div>
 </div>
 </div>
 </div>

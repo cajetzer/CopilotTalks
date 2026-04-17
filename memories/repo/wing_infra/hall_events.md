@@ -4,6 +4,54 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## Tier-1 slide components shipped: 7 reusable archetypes live in 4 decks (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Built and shipped the 7 highest-coverage components from `slides/COMPONENT-ARCHETYPES.md` Tier-1 list, plus a shared `useSectionTheme.ts` helper. All 27/27 decks build clean.
+
+**Components in `slides/tech-talks/components/`:**
+- `BeforeAfterMetricsSlide.vue` (14 target slides)
+- `BeforeAfterPanelsSlide.vue` (12)
+- `CodeWithFeaturesSlide.vue` (12; supports `codePosition: 'left' | 'top'`)
+- `ThreeColumnCardSlide.vue` (10)
+- `FourCardGridSlide.vue` (10)
+- `TwoColPairedConceptsSlide.vue` (10)
+- `ProblemSolutionOutcomeSlide.vue` (10)
+
+**Production conversions completed (one slide per component proven live):**
+- `copilot-acp.md`: BeforeAfterPanels ("Before vs After ACP"), FourCardGrid ("Key Capabilities"), ProblemSolutionOutcome ("Use Case — Zed")
+- `copilot-primitives.md`: ThreeColumnCard ("Three Selectors"), CodeWithFeatures ×3 (Repo-Wide / Path-Specific / AGENTS.md), TwoColPairedConcepts ("Skills: Scripts")
+- `copilot-hooks.md`: BeforeAfterMetrics ("HIPAA Audit Trail")
+- `agent-teams.md`: TwoColPairedConcepts ("Two Modes")
+
+**Status updated** in `slides/COMPONENT-ARCHETYPES.md` (Implementation Status section). Remaining ~68 slides await mechanical sweep using established patterns.
+
+---
+
+## Two-column slide conformance: Tier 1 complete — 15 of 114 slides audited and conformed (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Audited all 114 two-column capture PNGs across 17 tech-talk decks against a single reference layout (`agent-teams-s20-two-modes.png`). Classified into tiers:
+
+- **6 already conforming** — no changes needed
+- **15 easy (Tier 1)** — simple structure, bottom bar addition only
+- **65 Tier 2** — right structural bones but dense content needing more rework
+- **28 Out** — truly different layouts (before/after, code-heavy, asymmetric)
+
+**Tier 1 work completed:** 11 slides edited across 5 decks (agent-teams s12/s13/s15/s17, agentic-workflows s05/s15, copilot-cli s29, copilot-hooks s11, copilot-memory s12/s13). 4 already had bottom bars. All 5 decks build clean.
+
+**Before/after screenshots** saved to `captures/twocol-conformance/` (15 before + 11 after PNGs).
+
+**Full audit** saved to `captures/twocol/audit-results.md` with per-slide classifications.
+
+**Key criterion refined with user:** "less content = easier to conform" — number of cards doesn't matter, just that the slide follows a 2-col layout and can easily accept a bottom bar. Slides with title/subtitle above misplaced bars (like agent-teams s07) are NOT easy candidates.
+
+**Next:** Tier 2 (65 slides) requires content condensing before conformance.
+
+---
+
 ## Content slide component archetypes cataloged: 11 types cover 98% of all slides (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`
@@ -52,6 +100,26 @@ Fixed 7 decks where content slides used wrong section colors. The canonical 4-pa
 **Decks fixed:** copilot-acp (64 lines), copilot-sdk (19), agentic-sdlc (10), copilot-primitives (7), agentic-journey (4), enterprise-patterns (3), agentic-workflows (1). Total: 108 line changes.
 
 **Audit script pattern:** Parse deck → find `:partNumber="N"` boundaries → check color tokens in structural elements between boundaries → report mismatches. Code review caught that accent lines were initially missed.
+
+---
+
+## demos/ folder created: 7 tech-talk companion walkthroughs (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Created `demos/` at repo root containing grounded hands-on walkthroughs for the 7 STRONG YES tech-talks (from `plan-tech-talk-demos.md` evaluation):
+
+| File | Source talk | Primary demo target |
+|------|-------------|--------------------|
+| `copilot-cli-walkthrough.md` | tech-talks/copilot-cli | FanHub Node.js track |
+| `copilot-acp-walkthrough.md` | tech-talks/copilot-acp | github.com/MSBart2/cli-acp |
+| `copilot-azure-mcp-walkthrough.md` | tech-talks/copilot-azure-mcp | FanHub imagined on Azure App Service |
+| `copilot-code-review-walkthrough.md` | tech-talks/copilot-code-review | Forked FanHub with Rulesets |
+| `copilot-coding-agent-walkthrough.md` | tech-talks/copilot-web | Forked FanHub with copilot-setup-steps.yml |
+| `agentic-sdlc-walkthrough.md` | tech-talks/agentic-sdlc | Forked FanHub + AgentRC levels |
+| `agent-teams-walkthrough.md` | tech-talks/agent-teams | FanHub + Squad + AgentCouncil |
+
+**Origin:** AgentCouncil evaluation of all 17 tech-talks; 7 STRONG YES candidates selected based on hands-on value, practitioner need, and setup-to-result loop under 1 hour. Full rationale in `plan-tech-talk-demos.md`.
 
 ---
 

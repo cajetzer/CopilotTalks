@@ -419,7 +419,8 @@ Source: GitHub.com Chat</code></pre>
 <div class="text-lg font-bold text-white mb-0.5">Persistence-Worthy Preferences</div>
 <div class="text-xs text-white/50">Maximum value when stored long-term</div>
 </div>
-<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="relative z-10 flex-1 min-h-0 flex flex-col">
+<div class="grid grid-cols-2 gap-3 mb-3 flex-1">
 <div>
 <div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30 mb-2">
 <div class="font-bold text-indigo-300 mb-1 text-sm">🎨 Coding Style</div>
@@ -460,6 +461,10 @@ Source: GitHub.com Chat</code></pre>
 </div>
 </div>
 </div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-xs"><span class="font-bold text-indigo-300">🎯 Key Insight:</span> <span class="text-white/80">The best memory candidates are preferences you'd repeat every session — coding style, communication habits, and architectural decisions that compound over time</span></div>
+</div>
+</div>
 </div>
 
 ---
@@ -483,7 +488,8 @@ Source: GitHub.com Chat</code></pre>
 <div class="text-lg font-bold text-white mb-0.5">What Should NOT Be Stored</div>
 <div class="text-xs text-white/50">Ephemeral context, secrets, and team standards belong elsewhere</div>
 </div>
-<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
+<div class="relative z-10 flex-1 min-h-0 flex flex-col">
+<div class="grid grid-cols-2 gap-3 mb-3 flex-1">
 <div>
 <div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30 mb-2">
 <div class="font-bold text-red-300 mb-1 text-sm">❌ Session-Specific Context</div>
@@ -523,6 +529,10 @@ Source: GitHub.com Chat</code></pre>
 </div>
 <div class="mt-2 text-xs italic opacity-70">Why: Memory is personal — use custom instructions</div>
 </div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-red-900/30 to-amber-900/30 rounded-xl border border-red-500/30">
+<div class="text-xs"><span class="font-bold text-red-300">🎯 Key Insight:</span> <span class="text-white/80">Memory is personal and persistent — team standards belong in custom instructions, secrets in vaults, and ephemeral context stays in the session</span></div>
 </div>
 </div>
 </div>

@@ -26,6 +26,7 @@ import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -521,40 +522,42 @@ Synthesize findings into prioritized action items with severity levels.
 <div class="text-xs text-white/50">Each agent reads its own history — shared decisions available to all</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div class="p-4 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-3">📂 Memory Layers</div>
+<div class="grid grid-cols-2 gap-4 mb-3">
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl border border-purple-500/30">
+<div class="font-bold text-purple-300 mb-2">📂 Memory Layers</div>
 <table class="w-full text-xs">
 <thead class="text-left border-b border-purple-500/30">
 <tr>
-<th class="pb-2 font-semibold text-purple-300">File</th>
-<th class="pb-2 font-semibold text-purple-300">Contents</th>
-<th class="pb-2 font-semibold text-purple-300">Scope</th>
+<th class="pb-1 font-semibold text-purple-300">File</th>
+<th class="pb-1 font-semibold text-purple-300">Contents</th>
+<th class="pb-1 font-semibold text-purple-300">Scope</th>
 </tr>
 </thead>
 <tbody class="text-gray-300">
-<tr><td class="py-1.5">charter.md</td><td>Identity, expertise</td><td class="text-cyan-400">That agent</td></tr>
-<tr><td class="py-1.5">history.md</td><td>Project learnings</td><td class="text-cyan-400">That agent</td></tr>
-<tr><td class="py-1.5">decisions.md</td><td>Team decisions</td><td class="text-green-400">All agents</td></tr>
-<tr><td class="py-1.5">skills/</td><td>Reusable patterns</td><td class="text-green-400">All agents</td></tr>
+<tr><td class="py-1">charter.md</td><td>Identity, expertise</td><td class="text-cyan-400">That agent</td></tr>
+<tr><td class="py-1">history.md</td><td>Project learnings</td><td class="text-cyan-400">That agent</td></tr>
+<tr><td class="py-1">decisions.md</td><td>Team decisions</td><td class="text-green-400">All agents</td></tr>
+<tr><td class="py-1">skills/</td><td>Reusable patterns</td><td class="text-green-400">All agents</td></tr>
 </tbody>
 </table>
 </div>
-<div class="space-y-3">
-<div class="font-bold text-white mb-1 text-sm">📈 Memory Grows Over Time</div>
-<div class="p-3 bg-green-900/20 rounded-lg border border-green-500/20">
-<div class="font-semibold text-green-400 mb-1">🌱 First session</div>
-<div class="text-xs opacity-80">Project description, tech stack</div>
+<div class="p-3 bg-gradient-to-br from-green-900/30 to-blue-900/30 rounded-xl border border-green-500/30">
+<div class="font-bold text-green-300 mb-2">📈 Memory Grows Over Time</div>
+<div class="space-y-1.5 text-xs">
+<div class="p-2 bg-green-900/20 rounded border border-green-500/20">
+<span class="font-semibold text-green-400">🌱 First session:</span> <span class="opacity-80">Project description, tech stack</span>
 </div>
-<div class="p-3 bg-blue-900/20 rounded-lg border border-blue-500/20">
-<div class="font-semibold text-blue-400 mb-1">🌿 After a few sessions</div>
-<div class="text-xs opacity-80">Conventions, component patterns</div>
+<div class="p-2 bg-blue-900/20 rounded border border-blue-500/20">
+<span class="font-semibold text-blue-400">🌿 After a few sessions:</span> <span class="opacity-80">Conventions, component patterns</span>
 </div>
-<div class="p-3 bg-purple-900/20 rounded-lg border border-purple-500/20">
-<div class="font-semibold text-purple-400 mb-1">🌳 Mature project</div>
-<div class="text-xs opacity-80">Full architecture, tech debt map</div>
+<div class="p-2 bg-purple-900/20 rounded border border-purple-500/20">
+<span class="font-semibold text-purple-400">🌳 Mature project:</span> <span class="opacity-80">Full architecture, tech debt map</span>
 </div>
 </div>
+</div>
+</div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-xs"><span class="font-bold text-blue-300">🎯 Key Insight:</span> <span class="text-white/80">Memory compounds from session to session — each agent learns from its own work and shared team decisions become institutional knowledge</span></div>
 </div>
 </div>
 </div>
@@ -577,7 +580,7 @@ Synthesize findings into prioritized action items with severity levels.
 </div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
+<div class="grid grid-cols-2 gap-3 mb-3">
 <div>
 <div class="text-sm font-bold text-white mb-1.5">The Unified Decision Tree</div>
 <div class="font-mono text-xs bg-gray-950/80 border border-blue-500/30 rounded-lg p-2.5">
@@ -644,6 +647,9 @@ Synthesize findings into prioritized action items with severity levels.
 </table>
 </div>
 </div>
+<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
+<div class="text-xs"><span class="font-bold text-blue-300">🎯 Key Insight:</span> <span class="text-white/80">Start simple with Plan Mode — add complexity only when the task demands specialized roles or persistent memory</span></div>
+</div>
 </div>
 </div>
 
@@ -669,7 +675,7 @@ Synthesize findings into prioritized action items with severity levels.
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
 <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
+<div class="relative z-10 flex items-center gap-3 mb-1">
 <span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Autonomous: Git Worktree Isolation</span>
 <div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
 <div class="flex items-center gap-2">
@@ -679,14 +685,14 @@ Synthesize findings into prioritized action items with severity levels.
 <span class="text-white/40 text-xs ml-1">1 of 3</span>
 </div>
 </div>
-<div class="relative z-10 mb-2">
+<div class="relative z-10 mb-1">
 <div class="text-lg font-bold text-white mb-0.5">Independent Working Directories, Same Repository</div>
 <div class="text-xs text-white/50">Each background agent gets its own worktree — its own branch, its own filesystem space</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="flex flex-col gap-3">
-<div class="font-mono text-xs bg-gray-950/80 border border-indigo-500/30 rounded-lg p-3">
+<div class="grid grid-cols-2 gap-2 mb-2">
+<div class="flex flex-col gap-1.5">
+<div class="font-mono text-xs bg-gray-950/80 border border-indigo-500/30 rounded-lg p-2">
 <div class="text-indigo-400 font-bold mb-1">repo/ (shared .git/)</div>
 <div class="text-gray-300 space-y-0.5">
 <div>├── main/src/main.js</div>
@@ -697,9 +703,9 @@ Synthesize findings into prioritized action items with severity levels.
 <div class="ml-3 text-gray-500">↑ Agent B workspace</div>
 </div>
 </div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-1">🔄 Lifecycle</div>
-<div class="text-xs opacity-90 space-y-1">
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
+<div class="font-bold text-indigo-300 mb-0.5">🔄 Lifecycle</div>
+<div class="text-xs opacity-90 space-y-0.5">
 <div><span class="text-green-400">1.</span> VS Code creates worktree + branch</div>
 <div><span class="text-blue-400">2.</span> Agent executes in isolated worktree</div>
 <div><span class="text-purple-400">3.</span> Your main/ workspace never touched</div>
@@ -707,18 +713,18 @@ Synthesize findings into prioritized action items with severity levels.
 </div>
 </div>
 </div>
-<div class="flex flex-col gap-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-1">⚡ Key Benefits</div>
-<div class="text-xs opacity-90 space-y-1">
+<div class="flex flex-col gap-1.5">
+<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
+<div class="font-bold text-purple-300 mb-0.5">⚡ Key Benefits</div>
+<div class="text-xs opacity-90 space-y-0.5">
 <div>• Agent A and Agent B can both edit main.js — zero conflicts</div>
 <div>• Failed experiments: 5 min to remove vs. 90 min reverting</div>
 <div>• Breaking changes isolated from active work</div>
 <div>• Instant rollback: just remove worktree</div>
 </div>
 </div>
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="font-bold text-pink-300 mb-1">📊 vs. Supervised Isolation</div>
+<div class="p-2 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
+<div class="font-bold text-pink-300 mb-0.5">📊 vs. Supervised Isolation</div>
 <table class="w-full text-xs">
 <thead class="border-b border-pink-500/30">
 <tr class="text-left">
@@ -735,6 +741,9 @@ Synthesize findings into prioritized action items with severity levels.
 </table>
 </div>
 </div>
+</div>
+<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-xs"><span class="font-bold text-indigo-300">🎯 Key Insight:</span> <span class="text-white/80">Zero-risk experimentation — each agent works independently in its own worktree, your main workspace stays untouched</span></div>
 </div>
 </div>
 </div>
@@ -823,10 +832,10 @@ Synthesize findings into prioritized action items with severity levels.
 <div class="text-xs text-white/50">Vague hand-offs produce mid-task clarifications — defeating the purpose entirely</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-2 gap-3 mb-3">
 <div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
 <div class="font-bold text-green-300 mb-2 text-xs">✅ What Agents Need</div>
-<div class="text-xs opacity-90 space-y-2">
+<div class="text-xs opacity-90 space-y-1.5">
 <div>
 <div class="font-semibold text-green-400 mb-0.5">Explicit Acceptance Criteria</div>
 <div class="opacity-80">"Generate tests achieving 80%+ coverage for auth module"</div>
@@ -841,10 +850,10 @@ Synthesize findings into prioritized action items with severity levels.
 </div>
 </div>
 </div>
-<div class="flex flex-col gap-3">
+<div class="flex flex-col gap-2">
 <div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-2 text-xs">🎯 Three Parallel Patterns</div>
-<div class="text-xs space-y-1.5">
+<div class="font-bold text-indigo-300 mb-1.5 text-xs">🎯 Three Parallel Patterns</div>
+<div class="text-xs space-y-1">
 <div class="flex gap-2"><span class="text-purple-300 font-semibold shrink-0">1. Independent Features</span><span class="opacity-70">A, B, C → worktree-a, -b, -c</span></div>
 <div class="flex gap-2"><span class="text-pink-300 font-semibold shrink-0">2. Experimental Variants</span><span class="opacity-70">Redis vs. LRU vs. hybrid — benchmarks decide</span></div>
 <div class="flex gap-2"><span class="text-rose-300 font-semibold shrink-0">3. Specialized Roles</span><span class="opacity-70">Agent A refactors, B tests, C updates docs</span></div>
@@ -858,6 +867,9 @@ Synthesize findings into prioritized action items with severity levels.
 <div class="text-xs text-gray-400">Main agent orchestrates; subtasks run in parallel with own contexts</div>
 </div>
 </div>
+</div>
+<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
+<div class="text-xs"><span class="font-bold text-indigo-300">🎯 Key Insight:</span> <span class="text-white/80">Specificity in hand-offs directly determines autonomous success rate — vague instructions produce mid-task clarifications that defeat the purpose</span></div>
 </div>
 </div>
 </div>
@@ -952,69 +964,35 @@ Different models have different blind spots. Claude is good at nuance but may ov
 ---
 
 <!-- SLIDE: Two Modes -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎭 Multi-Model: Two Modes</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/40">
-<div class="flex items-center gap-2 mb-1"><span class="text-xl">🤝</span><span class="font-bold text-cyan-300">Collaborative (Default)</span></div>
-<div class="text-xs opacity-80 mb-2">Agents explore independently, read each other's drafts, improve</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-cyan-500/20 rounded p-2 mb-2 space-y-0.5">
-<div class="text-cyan-400">Phase 1 (parallel): Alpha, Beta, Gamma each draft</div>
-<div class="text-blue-400">Phase 2 (parallel): Each reads others → improved version</div>
-<div class="text-green-400">Phase 3: Orchestrator synthesizes all three</div>
-</div>
-<div class="text-xs opacity-80">
-<span class="font-semibold text-cyan-400">7 model calls</span> · ~2 sequential subagent calls
-</div>
-<div class="text-xs mt-1 font-semibold text-cyan-300">✅ Best For: Brainstorming · Design exploration · Research synthesis</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-red-900/40 to-rose-900/40 rounded-xl border border-red-500/40">
-<div class="flex items-center gap-2 mb-1"><span class="text-xl">🗡️</span><span class="font-bold text-red-300">Adversarial</span></div>
-<div class="text-xs opacity-80 mb-2">Draft independently, identify dominant position, others attack it</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-red-500/20 rounded p-2 mb-2 space-y-0.5">
-<div class="text-red-400">Phase 1 (parallel): Alpha, Beta, Gamma tackle independently</div>
-<div class="text-amber-400">Phase 2: Orchestrator identifies strongest position</div>
-<div class="text-orange-400">Phase 3 (parallel): Others attempt to tear it apart</div>
-<div class="text-purple-400">Phase 4: Verdict — SURVIVED / MODIFIED / OVERTURNED</div>
-</div>
-<div class="text-xs opacity-80">
-<span class="font-semibold text-red-400">6 model calls</span> · ~2 sequential subagent calls
-</div>
-<div class="text-xs mt-1 font-semibold text-red-300">✅ Best For: Architecture decisions · Security reviews · Tech comparisons</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2 text-xs">🎯 Mode Detection (Automatic)</div>
-<div class="grid grid-cols-3 gap-3 text-xs">
-<div class="p-2 bg-cyan-900/20 rounded border border-cyan-500/20">
-<div class="font-semibold text-cyan-300 mb-1">🤝 Triggers</div>
-<div class="opacity-80 font-mono">council:, brainstorm:</div>
-</div>
-<div class="p-2 bg-red-900/20 rounded border border-red-500/20">
-<div class="font-semibold text-red-300 mb-1">🗡️ Triggers</div>
-<div class="opacity-80 font-mono">debate:, stress-test:, vs</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded border border-purple-500/20">
-<div class="font-semibold text-purple-300 mb-1">📝 Verbose</div>
-<div class="opacity-80">Shows all drafts, attacks, verdict</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="4"
+  pillIcon="🎭"
+  pillLabel="Multi-Model: Two Modes"
+  title="AgentCouncil Runs in Two Distinct Modes"
+  :left='{
+    header: "Collaborative (Default)",
+    icon: "🤝",
+    items: [
+      { title: "Phase 1 (parallel)", detail: "Alpha, Beta, Gamma each draft independently" },
+      { title: "Phase 2 (parallel)", detail: "Each reads the others draft and produces an improved version" },
+      { title: "Phase 3", detail: "Orchestrator synthesizes all three drafts" },
+      { title: "7 model calls total", detail: "~2 sequential subagent calls; rest run in parallel" },
+      { title: "Best for", detail: "Brainstorming · design exploration · research synthesis" }
+    ]
+  }'
+  :right='{
+    header: "Adversarial",
+    icon: "🗡️",
+    items: [
+      { title: "Phase 1 (parallel)", detail: "Alpha, Beta, Gamma tackle the question independently" },
+      { title: "Phase 2", detail: "Orchestrator identifies the strongest position" },
+      { title: "Phase 3 (parallel)", detail: "Other agents attempt to tear it apart" },
+      { title: "Phase 4", detail: "Verdict: SURVIVED / MODIFIED / OVERTURNED" },
+      { title: "6 model calls total", detail: "Best for architecture decisions, security reviews, tech comparisons" }
+    ]
+  }'
+  :insight='{ icon: "🎯", text: "Mode auto-detected from prompt verbs: council:/brainstorm: → collaborative; debate:/stress-test:/vs → adversarial." }'
+/>
 
 ---
 

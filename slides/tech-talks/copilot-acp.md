@@ -26,6 +26,9 @@ import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -82,114 +85,47 @@ highlight="ACP is the LSP for AI agents — a standard protocol for editor commu
 ---
 
 <!-- SLIDE: Before ACP vs After ACP -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 The Standardization Shift</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div>
-<div class="text-lg font-bold text-red-300 mb-3">❌ Before ACP</div>
-<div class="space-y-2 text-sm">
-<div class="p-3 bg-red-900/20 rounded-lg border border-red-500/30">
-<div class="font-semibold text-red-300 mb-1">N×M Integration Matrix</div>
-<div class="text-xs opacity-80">Each editor builds custom plugin for each agent — VS Code needs one, JetBrains needs another</div>
-</div>
-<div class="p-3 bg-red-900/20 rounded-lg border border-red-500/30">
-<div class="font-semibold text-red-300 mb-1">Brittle Update Cycles</div>
-<div class="text-xs opacity-80">Agent updates break editor-specific integrations; maintainers spend months on glue code</div>
-</div>
-<div class="p-3 bg-red-900/20 rounded-lg border border-red-500/30">
-<div class="font-semibold text-red-300 mb-1">Editor Lock-In</div>
-<div class="text-xs opacity-80">Switching editors means losing AI capabilities entirely</div>
-</div>
-<div class="p-3 bg-red-900/20 rounded-lg border border-red-500/30">
-<div class="font-semibold text-red-300 mb-1">Automation Gaps</div>
-<div class="text-xs opacity-80">CI/CD pipelines and custom tools can't leverage agent capabilities without bespoke wiring</div>
-</div>
-</div>
-</div>
-<div>
-<div class="text-lg font-bold text-green-300 mb-3">✅ After ACP</div>
-<div class="space-y-2 text-sm">
-<div class="p-3 bg-green-900/20 rounded-lg border border-green-500/30">
-<div class="font-semibold text-green-300 mb-1">N+M Standard Protocol</div>
-<div class="text-xs opacity-80">Each editor implements ACP client once; each agent implements server once — scales linearly</div>
-</div>
-<div class="p-3 bg-green-900/20 rounded-lg border border-green-500/30">
-<div class="font-semibold text-green-300 mb-1">Protocol Versioning</div>
-<div class="text-xs opacity-80">Agent updates maintain compatibility through versioned protocol; integrations stay stable</div>
-</div>
-<div class="p-3 bg-green-900/20 rounded-lg border border-green-500/30">
-<div class="font-semibold text-green-300 mb-1">Editor Freedom</div>
-<div class="text-xs opacity-80">Use Zed, JetBrains, Neovim, or Emacs — full agent experience available in all ACP-compatible editors</div>
-</div>
-<div class="p-3 bg-green-900/20 rounded-lg border border-green-500/30">
-<div class="font-semibold text-green-300 mb-1">Universal Integration</div>
-<div class="text-xs opacity-80">CI/CD, custom tools, and dashboards connect through standard SDKs in TypeScript, Python, Rust, Kotlin</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="The Standardization Shift"
+  title="From N×M Integration Chaos to N+M Standard Protocol"
+  :before='{
+    header: "❌ Before ACP",
+    items: [
+      { title: "N×M Integration Matrix", detail: "Each editor builds custom plugin for each agent — VS Code needs one, JetBrains needs another" },
+      { title: "Brittle Update Cycles", detail: "Agent updates break editor-specific integrations; maintainers spend months on glue code" },
+      { title: "Editor Lock-In", detail: "Switching editors means losing AI capabilities entirely" },
+      { title: "Automation Gaps", detail: "CI/CD pipelines and custom tools cant leverage agent capabilities without bespoke wiring" }
+    ]
+  }'
+  :after='{
+    header: "✅ After ACP",
+    items: [
+      { title: "N+M Standard Protocol", detail: "Each editor implements ACP client once; each agent implements server once — scales linearly" },
+      { title: "Protocol Versioning", detail: "Agent updates maintain compatibility through versioned protocol; integrations stay stable" },
+      { title: "Editor Freedom", detail: "Use Zed, JetBrains, Neovim, or Emacs — full agent experience available in all ACP-compatible editors" },
+      { title: "Universal Integration", detail: "CI/CD, custom tools, and dashboards connect through standard SDKs in TypeScript, Python, Rust, Kotlin" }
+    ]
+  }'
+/>
 
 ---
 
 <!-- SLIDE: Key Capabilities -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ What ACP Enables</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-violet-900/30 to-purple-900/30 rounded-xl border border-violet-500/30">
-<div class="text-xl mb-1">🌐</div>
-<div class="font-bold text-violet-300 mb-1">Universal Editor Support</div>
-<div class="text-xs opacity-90 mb-1">Any ACP-compatible editor connects to Copilot without custom plugins</div>
-<div class="text-xs opacity-70 font-mono bg-black/30 p-2 rounded">Zed, JetBrains, Neovim, Emacs — all supported through one protocol</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl border border-purple-500/30">
-<div class="text-xl mb-1">📡</div>
-<div class="font-bold text-purple-300 mb-1">Bidirectional Streaming</div>
-<div class="text-xs opacity-90 mb-1">Real-time, interactive communication — agents stream responses and request permissions as they work</div>
-<div class="text-xs opacity-70 font-mono bg-black/30 p-2 rounded">Response chunks appear instantly, not after completion</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-blue-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-xl mb-1">💬</div>
-<div class="font-bold text-indigo-300 mb-1">Stateful Sessions</div>
-<div class="text-xs opacity-90 mb-1">Persistent conversation context across multiple prompts within a session</div>
-<div class="text-xs opacity-70 font-mono bg-black/30 p-2 rounded">No need to re-explain context every prompt</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl border border-blue-500/30">
-<div class="text-xl mb-1">🛡️</div>
-<div class="font-bold text-blue-300 mb-1">Permission-Mediated Security</div>
-<div class="text-xs opacity-90 mb-1">Every tool invocation goes through explicit user approval, maintaining trust boundaries</div>
-<div class="text-xs opacity-70 font-mono bg-black/30 p-2 rounded">Enterprise-ready security model built into protocol</div>
-</div>
-</div>
-<div class="mt-3 p-3 bg-gradient-to-r from-violet-900/20 to-purple-900/20 rounded-xl border border-violet-500/20">
-<div class="font-semibold text-violet-300 mb-1">🔧 Multi-Language SDK Ecosystem</div>
-<div class="text-xs opacity-90">Official SDKs in TypeScript, Python, Rust, and Kotlin for building custom integrations in your team's preferred language</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="⚡"
+  pillLabel="What ACP Enables"
+  title="Four Capabilities That Define the Protocol"
+  :cards='[
+    { icon: "🌐", title: "Universal Editor Support", description: "Zed, JetBrains, Neovim, Emacs — all supported through one protocol, no custom plugins required" },
+    { icon: "📡", title: "Bidirectional Streaming", description: "Response chunks appear instantly; agents stream output and request permissions as they work" },
+    { icon: "💬", title: "Stateful Sessions", description: "Persistent conversation context across multiple prompts — no re-explaining context every turn" },
+    { icon: "🛡️", title: "Permission-Mediated Security", description: "Every tool invocation goes through explicit user approval, maintaining enterprise trust boundaries" }
+  ]'
+  :insight='{ icon: "🔧", text: "Multi-language SDK ecosystem: official SDKs in TypeScript, Python, Rust, and Kotlin for custom integrations" }'
+/>
 
 ---
 
@@ -725,64 +661,36 @@ Also available: Python, Rust, Kotlin SDKs
 ---
 
 <!-- SLIDE: Use Case — Zed Editor Integration -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Use Case: Zed Editor Integration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 6</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<h2 class="text-xl font-bold text-white">Any Editor. Zero Custom Code.</h2>
-<p class="text-sm text-blue-300/80 mt-1">How Zed got full Copilot agent support in 2 weeks instead of 3 months — by implementing a protocol, not a plugin.</p>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-3 gap-2 text-xs flex-1">
-<div class="p-2 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30 flex flex-col">
-<div class="text-lg mb-1">🚧</div>
-<div class="font-bold text-red-300 mb-1">Problem</div>
-<div class="text-xs opacity-90 flex-1">Zed users wanted Copilot agent support. VS Code extension layer would take months, break with updates. Permanent burden for each editor.</div>
-<div class="mt-2 pt-2 border-t border-red-500/20 text-xs text-red-300/70">Custom per-editor</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/30 flex flex-col">
-<div class="text-lg mb-1">✅</div>
-<div class="font-bold text-blue-300 mb-1">Solution</div>
-<div class="text-xs opacity-90 mb-1 flex-1">Zed implemented ACP client — connect directly to Copilot CLI over stdio. One config line.</div>
-<div class="font-mono text-xs bg-black/40 p-1 rounded space-y-0">
-<div class="text-gray-400"># zed settings.json</div>
-<div class="text-cyan-300">"assistant": {</div>
-<div class="text-green-400">  "provider": {</div>
-<div class="text-green-400">    "name": "copilot_cli",</div>
-<div class="text-green-400">    "cmd": ["copilot", "--acp", "--stdio"]</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30 flex flex-col">
-<div class="text-lg mb-1">🎉</div>
-<div class="font-bold text-green-300 mb-1">Outcome</div>
-<div class="text-xs opacity-90 space-y-1 flex-1">
-<div>✅ 2 weeks vs 3+ months</div>
-<div>✅ Zero maintenance</div>
-<div>✅ Protocol versioned</div>
-<div>✅ Works in any editor</div>
-</div>
-<div class="mt-2 pt-2 border-t border-green-500/20 text-xs text-green-300/70">In production today</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/20 flex items-center gap-2">
-<div class="text-cyan-400 text-lg shrink-0">💡</div>
-<div class="text-xs text-cyan-200/90"><span class="font-semibold text-cyan-300">ACP insight:</span> Protocol neutrality means any tool gets full Copilot experience — no custom code, no maintenance.</div>
-</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="4"
+  pillIcon="🎯"
+  pillLabel="Use Case: Zed Editor Integration"
+  title="Any Editor. Zero Custom Code."
+  :problem='{
+    header: "Problem",
+    items: [
+      { title: "Zed users wanted Copilot agent support", detail: "VS Code extension layer would take months and break with each update" },
+      { title: "Permanent maintenance burden", detail: "Custom per-editor integration code becomes a forever-cost" },
+      { title: "Months of engineering work", detail: "3+ months estimated for full feature parity" }
+    ]
+  }'
+  :solution='{
+    header: "Solution",
+    items: [
+      { title: "Zed implemented ACP client", detail: "Connect directly to Copilot CLI over stdio — protocol, not plugin" },
+      { title: "Single config block in settings.json", detail: "One copilot --acp --stdio command line spawns the agent" }
+    ]
+  }'
+  :outcome='{
+    header: "Outcome",
+    items: [
+      { title: "Shipped in 2 weeks", detail: "vs 3+ months for a custom plugin approach" },
+      { title: "Zero ongoing maintenance", detail: "Protocol versioning means agent updates dont break Zed" },
+      { title: "Pattern works in any editor", detail: "JetBrains, Neovim, Emacs follow the same recipe" }
+    ]
+  }'
+  :insight='{ icon: "💡", text: "ACP insight: protocol neutrality means any tool gets full Copilot experience — no custom code, no maintenance." }'
+/>
 
 ---
 

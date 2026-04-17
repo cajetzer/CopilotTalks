@@ -103,8 +103,8 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 <div class="text-xs text-white/50">AI-powered repository automation that adapts to context</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div class="space-y-4">
+<div class="grid grid-cols-2 gap-3 mb-3">
+<div class="space-y-3">
 <div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
 <div class="text-lg font-bold text-cyan-300 mb-2">Intent-Driven Automation</div>
 <div class="text-sm text-gray-300">Describe desired outcomes in Markdown, not implementation steps</div>
@@ -116,7 +116,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 <div class="text-xs text-blue-400/70 mt-2">Write operations require explicit "safe outputs"</div>
 </div>
 </div>
-<div class="space-y-4">
+<div class="space-y-3">
 <div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
 <div class="text-lg font-bold text-indigo-300 mb-2">Adaptive Intelligence</div>
 <div class="text-sm text-gray-300">Make decisions based on repository state and context</div>
@@ -128,6 +128,9 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 <div class="text-xs text-purple-400/70 mt-2">Code simplifications, docs updates, metric tracking</div>
 </div>
 </div>
+</div>
+<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
+<div class="text-xs"><span class="font-bold text-cyan-300">🎯 Key Insight:</span> <span class="text-white/80">Agentic workflows let you describe what you want, not how to do it — AI handles the implementation within safe, sandboxed boundaries</span></div>
 </div>
 </div>
 </div>
@@ -694,9 +697,9 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 <div class="text-xs text-white/50">Automatic consistent labeling based on content analysis</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-5">
+<div class="grid grid-cols-2 gap-4 mb-3">
 <div class="space-y-3">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
+<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
 <div class="text-base font-bold text-red-300 mb-2">❌ The Problem</div>
 <div class="space-y-1.5 text-sm text-gray-300">
 <div class="flex items-start gap-2">
@@ -717,7 +720,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 </div>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
+<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
 <div class="text-base font-bold text-purple-300 mb-2">📝 The Workflow</div>
 <div class="space-y-1.5 text-xs text-gray-300">
 <div class="flex items-start gap-2">
@@ -736,7 +739,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 </div>
 </div>
 <div class="space-y-3">
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
+<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
 <div class="text-base font-bold text-green-300 mb-2">✅ The Value</div>
 <div class="space-y-1.5 text-sm text-gray-300">
 <div class="flex items-start gap-2">
@@ -757,7 +760,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 </div>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
+<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
 <div class="text-base font-bold text-blue-300 mb-2">🔍 Example Decisions</div>
 <div class="space-y-1.5 text-xs text-gray-300">
 <div class="flex items-start gap-2">
@@ -775,6 +778,9 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 </div>
 </div>
 </div>
+</div>
+<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
+<div class="text-xs"><span class="font-bold text-purple-300">🎯 Key Insight:</span> <span class="text-white/80">Agentic workflows turn tedious admin into instant, consistent automation — maintainers focus on substance while AI handles categorization</span></div>
 </div>
 </div>
 </div>

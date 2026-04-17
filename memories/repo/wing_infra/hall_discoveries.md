@@ -4,6 +4,56 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## `useSectionTheme.ts` helper: shared partNumber palette eliminates per-component theme duplication (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+When building the 7 Tier-1 slide components, the breakthrough was extracting the SectionOpenerSlide partNumber color progression into a single shared helper. Before: each new component would have duplicated DARK_THEME[4] / LIGHT_THEME[4] arrays inline. After: every section-aware component imports the same source of truth.
+
+**Helper exports (`slides/tech-talks/components/useSectionTheme.ts`):**
+- `validatePartNumber(partNumber, componentName)` — runtime guard, logs error if not 1–4
+- `useSectionChrome(() => partNumber)` — returns reactive `{ ambientBg, orb, pill, pillText, divider, accent }`
+- `useSectionCards(() => partNumber)` — returns reactive `[{ bg, border, title, blurb }, ...]` for 4 card slots
+- DARK_CHROME[4]/LIGHT_CHROME[4], DARK_CARDS[4][4]/LIGHT_CARDS[4][4] constants
+
+**Component contract that emerged:**
+- `partNumber: { type: Number, required: true }` on every section-aware component (no provide/inject; explicit is clearer)
+- partNumber tints chrome only — ambient bg, orb, pill, divider, accent
+- Semantic colors (red=before/problem, green=after/outcome, blue=solution) are HARDCODED inside the component, never parametrized
+- Section card palettes (cards[0..3]) supply non-semantic grids without leaking color into props
+
+**Why this matters next time:** any new content component should `import { useSectionChrome, useSectionCards } from './useSectionTheme'` rather than redefining its own DARK/LIGHT arrays. Adding a new partNumber (e.g. 5+ section talk) is now a one-file change.
+
+---
+
+## `slidev export --format png --range` for targeted slide screenshots (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+The reliable way to capture individual slide screenshots is `slidev export`, not Playwright MCP or manual browser automation.
+
+**Working command:**
+```bash
+cd slides && npx slidev export tech-talks/{deck}.md --format png --range "12,13,15" \
+  --executable-path "C:\Program Files\Google\Chrome\Application\chrome.exe" \
+  --output "../captures/twocol-conformance/export-{deck}" --dark
+```
+
+**Prerequisites:**
+- `playwright-chromium` must be installed in the `slides/` workspace (`npm install --no-save playwright-chromium`)
+- Chrome installed via `npx playwright install chrome` → installs to `C:\Program Files\Google\Chrome\Application\chrome.exe`
+- The `--executable-path` flag is required because the default Playwright Chrome path may point to wrong user directories
+
+**Known quirk:** `--range` resets the slide counter — exported slide 15 shows "1 / 24" instead of "15 / 24" in the footer. Cosmetic only, does not affect content verification.
+
+**Failed approaches (avoid):**
+1. Playwright MCP browser tools — Chrome path hardcoded to wrong user (`rmathis` vs `rdpuser`)
+2. `npx serve -s` on built dist — SPA mode redirects all routes to root index.html, breaking deep linking
+3. `file://` protocol on built dist — asset paths with `--base` flag don't resolve
+4. Hash-based routing (`#/12`) on served dist — blank white pages due to base path mismatch
+
+---
+
 ## Section color audit: parse-then-check pattern catches drift across all decks (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`

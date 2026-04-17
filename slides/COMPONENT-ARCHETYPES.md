@@ -1,554 +1,698 @@
 # Slide Component Archetypes — Specification Catalog
 
-> Generated from audit of all 17 active tech-talk slide decks (~192 content slides).
-> Goal: every content slide renders via one of these components with different props.
+> Generated from a fresh, deck-by-deck audit of all 17 active tech-talk slide decks (~198 content slides) on 2026-04-17.
+> **Methodology:** Visual-variant split — same structural shape with distinct visual treatment becomes a separate component.
+> **Goal:** every content slide renders via one of these components passing only **content** props. Components own *all* styling (light/dark, color, layout, spacing).
+
+---
+
+## Authoring Rules (apply to every component)
+
+1. **No style props.** Components must NOT accept `class`, `style`, `color`, `colorScheme`, `accent`, `gradient`, or any other style/layout pass-through. All visual treatment is hardcoded inside the component.
+2. **Light/dark via `isDark` ref.** Every component defines `DARK_THEME` and `LIGHT_THEME` constants and a `t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)` binding. See `slides/tech-talks/components/useTheme.ts`.
+3. **Three-layer styling.** Layer 1 = layout/positioning in `slides/style.css`. Layer 2 = non-color Tailwind in template. Layer 3 = colors via theme object. Never put colors in CSS, never inline-style, never accept color props.
+4. **Code as data.** Code is always a prop, never a slot: `code: { language: string; content: string; filename?: string }`.
+5. **File order.** Top doc comment block → `<script setup>` (imports, theme, props) → `<template>`. No exceptions.
+6. **Required props.** No silent fallback `default: ''`. If content is structurally required by the visual, mark it `required: true`.
+
+---
+
+## Existing Structural Components (already built — out of scope)
+
+These 8 already-shipped components in `slides/tech-talks/components/` cover non-content slides and are excluded from this audit:
+
+`TitleSlide`, `SectionOpenerSlide`, `TocSlide`, `BeforeAfterSlide`, `CoreQuestionSlide`, `ReferencesSlide`, `WhatYouCanDoTodaySlide`, `ThankYouSlide`.
 
 ---
 
 ## Summary
 
-| # | Component | Count | Description |
-|---|-----------|------:|-------------|
-| 1 | `TwoColComparisonSlide` | **48** | Two-column before/after, versus, or paired-concept layout |
-| 2 | `CardGridSlide` | **32** | 2×2 or 2×3 grid of feature/capability cards |
-| 3 | `CodeExplainerSlide` | **24** | Code block (left) + explanatory cards/text (right) |
-| 4 | `MultiColCardsSlide` | **22** | 3–5 equal-width card columns (features, phases, tiers) |
-| 5 | `UseCaseSlide` | **16** | Problem → Solution → Outcome narrative with metrics |
-| 6 | `SequentialFlowSlide` | **14** | Horizontal or vertical numbered step progression |
-| 7 | `BeforeAfterMetricsSlide` | **12** | Before/After comparison + quantified metric cards |
-| 8 | `TerminalDemoSlide` | **8** | Terminal frame with scrollable output + side annotations |
-| 9 | `HeroStatSlide` | **6** | Large hero number/callout + supporting detail cards |
-| 10 | `DecisionMatrixSlide` | **6** | Grid/table comparing options across criteria |
-| 11 | `ProgressionSlide` | **4** | Level/phase progression with progress dots and detail panel |
+30 archetypes covering 198 content slides across 17 decks. Grouped by family for navigation; each is its own component.
 
-**Total coverage: ~192 slides across 11 archetypes.**
+| # | Component | Family | Count | One-line description |
+|---|-----------|--------|------:|----------------------|
+| 1 | `BeforeAfterPanelsSlide` | Comparison | 12 | 2-col red/green opposition panels, no metrics |
+| 2 | `BeforeAfterMetricsSlide` | Comparison | 14 | 2-col red/green + metric tile row below |
+| 3 | `UseCaseBeforeAfterSlide` | Comparison | 9 | 2-col before/after + outcome metric + optional code block |
+| 4 | `MoveTowardAgainstSlide` | Comparison | 6 | Green checklist vs red/amber checklist + optional bottom callout |
+| 5 | `TwoColPairedConceptsSlide` | Comparison | 10 | 2-col paired concepts (no opposition coloring; cool palette) |
+| 6 | `TwoColCheckmarkSlide` | Comparison | 6 | Green ✓ vs red ✗ capability split |
+| 7 | `ProblemSolutionOutcomeSlide` | Narrative | 10 | 3-col red→blue→green narrative |
+| 8 | `ProgressionLevelDetailSlide` | Narrative | 6 | 3-col red loss / green changes / cyan checks (Level N detail) |
+| 9 | `ThreeColumnMindsetSlide` | Narrative | 3 | 3-col toward/away/stop |
+| 10 | `CodeWithFeaturesSlide` | Code | 12 | Code block + 2–4 feature cards adjacent or below |
+| 11 | `CodeWithMetricSlide` | Code | 6 | Code block + bottom green success-metric bar |
+| 12 | `DualCodeBlocksSlide` | Code | 4 | Two side-by-side code blocks (compare config / impl) |
+| 13 | `CodeShowcaseSlide` | Code | 3 | Single code block in gradient frame, no annotations |
+| 14 | `TerminalWithSideCardsSlide` | Terminal | 6 | Terminal frame + 3–4 right-side annotation cards |
+| 15 | `TerminalDemoSlide` | Terminal | 3 | Full-bleed scrollable terminal alone |
+| 16 | `FourCardGridSlide` | Grid | 10 | 2×2 gradient cards (cyan→purple progression) |
+| 17 | `FourColumnRowSlide` | Grid | 8 | 4 equal cards in single horizontal row |
+| 18 | `ThreeColumnCardSlide` | Grid | 10 | 3 equal cards (capability/tier/option) |
+| 19 | `SixCardGridSlide` | Grid | 5 | 2×3 or 3×2 card grid |
+| 20 | `EightCardGridSlide` | Grid | 2 | 4×2 lifecycle/event grid |
+| 21 | `FiveColumnProgressionSlide` | Grid | 3 | 5-col single row (e.g. L1–L5 levels) |
+| 22 | `HorizontalStepFlowSlide` | Flow | 5 | Numbered horizontal steps with → connectors |
+| 23 | `VerticalStepListSlide` | Flow | 4 | Numbered vertical list of step cards |
+| 24 | `VerticalPipelineSlide` | Flow | 4 | Vertical pipeline (4–5 stages with ↓) |
+| 25 | `BranchingFlowSlide` | Flow | 3 | Process flow with green/red/yellow outcome branches |
+| 26 | `HeroStatSlide` | Hero | 4 | One giant stat + supporting cards |
+| 27 | `TwoStatContrastSlide` | Hero | 3 | Two big numbers dramatically contrasted |
+| 28 | `DecisionMatrixTableSlide` | Decision | 5 | Full table (option rows × criteria columns) |
+| 29 | `DecisionQuadrantSlide` | Decision | 3 | 2×2 decision quadrant |
+| 30 | `DecisionTreeSlide` | Decision | 3 | ASCII decision tree, often paired with summary table |
+
+**Coverage: 188 / 198 slides. 10 outliers documented at end.**
 
 ---
 
-## 1. `TwoColComparisonSlide`
+## Family: Comparison (57 slides, 6 components)
 
-**Count:** ~48 slides · **The workhorse layout**
+### 1. `BeforeAfterPanelsSlide` — 12 slides
 
-### What it looks like
-Two equal columns comparing two concepts, approaches, or states. Each column has a header, optional icon/badge, and 2–6 bullet items or sub-cards. An optional bottom row spans full-width for a callout or insight.
+**Visual treatment:** Two equal columns, left in red/orange palette (✗/❌ glyph in header), right in green/emerald palette (✓ in header). Each panel shows 3–6 bullet items or sub-paragraphs. **No metrics row.** Opposition is communicated purely by color and glyph.
 
-### Structural properties
-- Exactly 2 columns (50/50 or 40/60 split)
-- Column headers with contrasting color accents (e.g., red vs green, gray vs blue)
-- Optional bottom-span insight/callout row
-- Optional code snippets within either column
+**Distinct from `BeforeAfterMetricsSlide`** because there is no quantified metric tile row.
 
-### Props
 ```ts
-interface TwoColComparisonSlideProps {
+interface Props {
   title: string
   subtitle?: string
-  leftColumn: {
-    header: string
-    headerColor: 'red' | 'gray' | 'blue' | 'yellow' // accent
-    icon?: string
-    items: Array<{ icon?: string; text: string; detail?: string }>
-    code?: string
-  }
-  rightColumn: {
-    header: string
-    headerColor: 'green' | 'blue' | 'cyan' | 'purple'
-    icon?: string
-    items: Array<{ icon?: string; text: string; detail?: string }>
-    code?: string
-  }
-  insight?: { icon?: string; text: string } // full-width bottom callout
+  before: { header: string; items: Array<{ icon?: string; text: string; detail?: string }> }
+  after:  { header: string; items: Array<{ icon?: string; text: string; detail?: string }> }
+  insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `agentic-sdlc` | The Economic Shift (2-col comparison + highlight callout) |
-| `copilot-cli` | Mental Model Shift (Move Toward vs Move Against) |
-| `copilot-azure-mcp` | The Mental Model Shift (Away From vs Toward) |
-| `copilot-memory` | Memory vs Instructions (2-col comparison + layered card) |
-| `agentic-workflows` | The Shift (prescriptive vs intent-driven) |
+**Examples:** `copilot-acp` Before ACP vs After ACP · `copilot-azure-mcp` Compression Effect · `agentic-sdlc` Coordination Tax · `agentic-sdlc` Enforced Module Boundaries · `copilot-memory` Memory Hygiene · `copilot-cli` Plan Mode Fundamental Shift.
 
 ---
 
-## 2. `CardGridSlide`
+### 2. `BeforeAfterMetricsSlide` — 14 slides
 
-**Count:** ~32 slides
+**Visual treatment:** Same red/green 2-col panels as above, **plus** a row of 2–4 numeric metric tiles below (large value + small label, accent color per tile). Optional bottom insight bar.
 
-### What it looks like
-A 2×2 or 2×3 uniform grid of cards. Each card has an icon/emoji, title, and 1–3 line description. Cards are equal-sized with consistent border/gradient styling. Optional bottom highlight row.
+**Distinct from `BeforeAfterPanelsSlide`** by mandatory metric row; **distinct from `UseCaseBeforeAfterSlide`** because there is no embedded code block.
 
-### Structural properties
-- Grid: 2×2 (4 cards) or 2×3 (6 cards)
-- Each card: icon + title + short description
-- Uniform card sizing and styling
-- Optional full-width bottom insight or highlight
-
-### Props
 ```ts
-interface CardGridSlideProps {
+interface Props {
   title: string
   subtitle?: string
-  columns: 2 | 3
-  cards: Array<{
-    icon: string
-    title: string
-    description: string
-    accentColor?: string
-  }>
-  bottomHighlight?: { icon?: string; text: string }
+  before: { header: string; items: string[] }
+  after:  { header: string; items: string[] }
+  metrics: Array<{ value: string; label: string; icon?: string }>  // 2–4 tiles
+  insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `agentic-workflows` | Intent-Driven Automation (2×2: intent/security/adaptive/improvement) |
-| `copilot-cli` | Operating Modes (2×2: Interactive/Programmatic/Cloud/Remote) |
-| `copilot-acp` | Key Capabilities (2×2 grid + bottom highlight) |
-| `copilot-code-review` | Six Capabilities (2×3 grid) |
-| `vscode-latest` | Four Agent Types (2×2 card grid) |
+**Examples:** `copilot-hooks` HIPAA Compliance · `copilot-hooks` SOC 2 Enforcement · `copilot-hooks` Multi-Tenant Quality Gates · `agentic-journey` Coding Metrics · `agentic-journey` Planning Metrics · `enterprise-patterns` Traditional Problem.
 
 ---
 
-## 3. `CodeExplainerSlide`
+### 3. `UseCaseBeforeAfterSlide` — 9 slides
 
-**Count:** ~24 slides
+**Visual treatment:** Red Before / green After panels at top, full-width syntax-highlighted code block in the middle, single bottom outcome metric pill (large green callout). The code is a **mandatory** part of the visual.
 
-### What it looks like
-A code block (usually left, sometimes top) paired with explanatory cards or annotation text. The code block may be syntax-highlighted YAML, JSON, Python, Bash, or TypeScript. The explanation side has 2–4 small info cards or a bulleted list.
+**Distinct from `BeforeAfterMetricsSlide`** by mandatory code block and single (not multi-tile) outcome.
 
-### Structural properties
-- 1 code block (mono-font, syntax highlighted)
-- 2–4 explanatory cards or annotation items alongside
-- Code can be left-col or top with cards below/right
-- Language tag for syntax highlighting
-
-### Props
 ```ts
-interface CodeExplainerSlideProps {
+interface Props {
   title: string
   subtitle?: string
-  code: {
-    language: 'yaml' | 'json' | 'python' | 'bash' | 'typescript' | 'markdown'
-    content: string
-    filename?: string
-  }
+  before: { items: string[] }
+  after:  { items: string[] }
+  code: { language: string; content: string; filename?: string }
+  outcome: { value: string; label: string }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-sdk` Use Case 1/2/3 (Release Engineering, Test Infra, Code Review Bots) · `mcp-apps` Use Case 1/2/3 (Metrics Dashboard, DB Queries, Form Scaffolding) · `copilot-web` Image-Based Issue Creation.
+
+---
+
+### 4. `MoveTowardAgainstSlide` — 6 slides
+
+**Visual treatment:** Centered italicized quote/header in pill at top. Two columns: left green "Move Toward" checklist (✓ glyphs), right amber/red "Move Away From" or "Move Against" checklist. Optional third bottom-spanning red box for an absolute "stop doing" rule.
+
+**Distinct from `BeforeAfterPanelsSlide`** by the prescriptive checklist framing (✓/⛔ per item) and the centered quote header.
+
+```ts
+interface Props {
+  title: string
+  quote: string
+  toward: { items: string[] }
+  awayFrom: { items: string[] }
+  stopDoing?: { items: string[] }    // bottom-span red
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `agent-teams` Mental Model Shift · `copilot-cli` Mental Model Shift · `copilot-azure-mcp` Mental Model Shift · `agentic-sdlc` Economic Shift.
+
+---
+
+### 5. `TwoColPairedConceptsSlide` — 10 slides
+
+**Visual treatment:** Two equal columns in **cool palette only** (cyan/blue/indigo/purple — never red/green opposition). Each column has a header pill, icon, and 3–6 items. Used when comparing two non-opposed concepts (e.g. "two patterns", "two modes", "store vs retrieve").
+
+**Distinct from `BeforeAfterPanelsSlide`** by absence of red/green opposition; both columns are equally "good".
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  left:  { header: string; icon?: string; items: Array<{ text: string; detail?: string }>; code?: { language: string; content: string } }
+  right: { header: string; icon?: string; items: Array<{ text: string; detail?: string }>; code?: { language: string; content: string } }
+  insight?: { icon?: string; text: string }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `agent-teams` Two Invocation Patterns · `agent-teams` Two Modes (Collaborative vs Adversarial) · `copilot-memory` Memory Tool Architecture (Store vs Retrieve) · `copilot-memory` Semantic Retrieval & Sync · `vscode-latest` Background Agents & Worktrees · `vscode-latest` Agent Plugins.
+
+---
+
+### 6. `TwoColCheckmarkSlide` — 6 slides
+
+**Visual treatment:** Two columns where left = green ✅ "do this" / "Copilot handles" checklist and right = blue or red ❌ "humans handle" / "don't do this". Every item has a leading checkmark or X glyph. Header is an icon + role label.
+
+**Distinct from `MoveTowardAgainstSlide`** by absence of centered quote and by role-based (not directive) framing.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  left:  { header: string; icon?: string; items: string[] }   // ✅
+  right: { header: string; icon?: string; items: string[] }   // 👤 or ❌
+  law?: { icon?: string; text: string }    // bottom centered constraint
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-code-review` Balancing Automation and Human Review · `copilot-web` What to Delegate · `copilot-web` Separation of Duties · `copilot-memory` Storage Decision Logic · `copilot-acp` Permission Model.
+
+---
+
+## Family: Narrative (19 slides, 3 components)
+
+### 7. `ProblemSolutionOutcomeSlide` — 10 slides
+
+**Visual treatment:** Three columns left-to-right: red Problem → blue Solution → green Outcome. Each column has icon, header, and 3–5 bullet items. Solution column may contain a small code snippet. Optional bottom insight.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  problem:  { items: string[] }
+  solution: { items: string[]; code?: { language: string; content: string } }
+  outcome:  { items: string[]; metrics?: Array<{ value: string; label: string }> }
+  insight?: { icon?: string; text: string }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-acp` Use Case Zed Editor · `copilot-acp` Use Case CI/CD Dashboard · `copilot-acp` Use Case Polyrepo · `agentic-journey` Use Case Duplicate Elimination · `agentic-workflows` Use Case Issue Triage · `copilot-chat-internals` Custom Instructions Not Loading · `copilot-chat-internals` Thinking Reveals Prompt Ambiguity.
+
+---
+
+### 8. `ProgressionLevelDetailSlide` — 6 slides
+
+**Visual treatment:** Three columns: red "What's Lost" / green "What Changes" / cyan "Key Checks". Header includes a level badge (Level 1, Level 2…). Color triplet is **distinct** from Problem/Solution/Outcome (cyan replaces green; semantic is "checklist", not "win"). Often paired with a top-of-deck progression strip showing N of 5 levels active.
+
+**Distinct from `ProblemSolutionOutcomeSlide`** by the cyan check column and the level-badge header.
+
+```ts
+interface Props {
+  level: { number: number; label: string; icon?: string }
+  whatLost:    { items: string[] }
+  whatChanges: { items: string[] }
+  keyChecks:   { items: string[] }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `agentic-sdlc` Level 1 Functional · Level 2 Documented · Level 3 Standardized · Level 4 Optimized · Level 5 Autonomous (5 slides) · `copilot-memory` Quantified Time Savings (variant).
+
+---
+
+### 9. `ThreeColumnMindsetSlide` — 3 slides
+
+**Visual treatment:** Three columns in semantic order: green "Move Toward" / yellow "Move Away From" / red "Stop Doing". Each column has 3–5 bullets. Heavier emphasis than `MoveTowardAgainstSlide` because it has three explicit zones.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  moveToward:  { items: string[] }
+  moveAway:    { items: string[] }
+  stopDoing:   { items: string[] }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `agentic-workflows` Mental Model Shift · `agent-teams` Mental Model Shift (3-zone variant) · `copilot-azure-mcp` Move Away/Toward Matrix.
+
+---
+
+## Family: Code (25 slides, 4 components)
+
+### 10. `CodeWithFeaturesSlide` — 12 slides
+
+**Visual treatment:** Syntax-highlighted code block on one side (left or top) paired with 2–4 small feature/explanation cards on the other side or below. Cards have icon + title + 1–2 line description.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  code: { language: string; content: string; filename?: string }
   codePosition: 'left' | 'top'
-  explanations: Array<{
-    icon?: string
-    title: string
-    description: string
-  }>
+  features: Array<{ icon?: string; title: string; description: string }>   // 2–4
   insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `copilot-primitives` | AGENTS.md Playbook (code + 3 feature cards) |
-| `copilot-hooks` | Security Check (Bash code + key principle card) |
-| `copilot-hooks` | Complete Audit Config (JSON config + explanation) |
-| `copilot-memory` | Memory Tool Architecture (2-col Store + Retrieve code) |
-| `vscode-latest` | Background Agents (2-col how it works + code) |
+**Examples:** `copilot-primitives` AGENTS.md Playbook · `copilot-primitives` Repository-Wide Instructions · `copilot-primitives` Path-Specific Instructions · `copilot-primitives` Custom Prompts Component Generator · `copilot-hooks` Context Injection · `copilot-hooks` JSON Lines Logging · `copilot-hooks` Complete Audit Configuration · `copilot-hooks` Hook Configuration Format.
 
 ---
 
-## 4. `MultiColCardsSlide`
+### 11. `CodeWithMetricSlide` — 6 slides
 
-**Count:** ~22 slides
+**Visual treatment:** Code block dominating the slide with a single full-width green success-metric bar at the bottom (large value + label). No side cards. **Distinct from `CodeWithFeaturesSlide`** by absence of feature cards and presence of the bottom metric bar.
 
-### What it looks like
-3 to 5 equal-width columns, each containing a card with icon, title, and description or bullet list. Used for feature breakdowns, phase descriptions, comparison grids, and tier layouts. Distinguished from `CardGridSlide` by being a single-row or freeform column layout rather than a strict 2-row grid.
-
-### Structural properties
-- 3–5 equal-width columns in a single row
-- Each column: icon + title + items/description
-- No row wrapping (single horizontal band)
-- Optional top-span header or subtitle
-
-### Props
 ```ts
-interface MultiColCardsSlideProps {
+interface Props {
   title: string
   subtitle?: string
-  columns: Array<{
-    icon?: string
-    title: string
-    accentColor?: string
-    items: Array<{ text: string; detail?: string }>
-    // OR
-    description?: string
-  }>
+  code: { language: string; content: string; filename?: string }
+  metric: { value: string; label: string }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-sdk` Pattern 1 CLI Tool · Pattern 2 Web API · Pattern 3 Scheduled Automation · `mcp-apps` Dashboard Pattern · Drill-Down Pattern · Form-Driven Workflow.
+
+---
+
+### 12. `DualCodeBlocksSlide` — 4 slides
+
+**Visual treatment:** Two side-by-side code blocks, each with its own filename label. Used for comparing config-vs-impl or two implementation styles.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  left:  { label: string; code: { language: string; content: string } }
+  right: { label: string; code: { language: string; content: string } }
   insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `agentic-sdlc` | AgentRC Levels (5-column progression with level cards) |
-| `copilot-cli` | Reasoning Models (4-col comparison: Low/Med/High/Extra) |
-| `copilot-acp` | ACP vs MCP vs LSP (3-col comparison table) |
-| `enterprise-patterns` | Flexible Licensing (3-col licensing tiers) |
-| `enterprise-patterns` | Metrics Framework (3-col metric types) |
+**Examples:** `copilot-code-review` Custom Guidance with Instruction Files · `copilot-acp` SDK Ecosystem (Python + MCP) · `copilot-primitives` Custom Agents Planner · `agent-teams` Squad Production Implementation.
 
 ---
 
-## 5. `UseCaseSlide`
+### 13. `CodeShowcaseSlide` — 3 slides
 
-**Count:** ~16 slides
+**Visual treatment:** Single bordered code block in gradient container, no annotations. The code IS the slide. Header pill + maybe one-line subtitle.
 
-### What it looks like
-A structured narrative: Problem statement (red/yellow accent) → Solution description (blue/green accent) → Outcome/metrics (green accent). May include a code snippet in the solution section. Often has an "insight" callout at bottom.
-
-### Structural properties
-- 3 distinct sections: Problem, Solution, Outcome
-- Color-coded sections (danger → info → success)
-- Optional code block in solution
-- Optional metrics row in outcome
-- Optional bottom insight callout
-
-### Props
 ```ts
-interface UseCaseSlideProps {
+interface Props {
   title: string
   subtitle?: string
-  problem: {
-    icon?: string
-    title?: string // defaults to "Problem"
-    items: string[]
-  }
-  solution: {
-    icon?: string
-    title?: string // defaults to "Solution"
-    items: string[]
-    code?: { language: string; content: string }
-  }
-  outcome: {
-    icon?: string
-    title?: string // defaults to "Outcome"
-    items: string[]
-    metrics?: Array<{ label: string; value: string; color?: string }>
-  }
+  code: { language: string; content: string; filename?: string }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `agentic-workflows` Markdown to YAML Example · `copilot-hooks` Security Check Implementation · `copilot-acp` Streaming & Results.
+
+---
+
+## Family: Terminal (9 slides, 2 components)
+
+### 14. `TerminalWithSideCardsSlide` — 6 slides
+
+**Visual treatment:** `TerminalFrame` (existing leaf component) on left ~60%, 3–4 stacked annotation cards on right ~40%. Each card has icon + title + 1–2 lines describing what's happening in the terminal.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  terminal: { command?: string; output: string; maxHeight?: string }
+  cards: Array<{ icon?: string; title: string; description: string }>   // 3–4
+  badges?: string[]
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-cli` /fleet Fan-Out · Cloud Delegation · Context Management · How --remote Works · Log Forensics · Infra Patrol & Multi-Machine.
+
+---
+
+### 15. `TerminalDemoSlide` — 3 slides
+
+**Visual treatment:** Full-bleed `TerminalFrame` dominating the slide with optional header pill above. No side cards. Used when the terminal output is long enough to warrant the full canvas.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  terminal: { command?: string; output: string; maxHeight?: string }
+  badges?: string[]
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-cli` Docker Debugging Demo · `copilot-cli` CI/CD Automation · `copilot-azure-mcp` Compression Effect demo.
+
+---
+
+## Family: Grid (38 slides, 6 components)
+
+### 16. `FourCardGridSlide` — 10 slides
+
+**Visual treatment:** 2×2 grid of equal cards. Each card uses a distinct gradient from a fixed cyan→blue→indigo→purple progression. Card content: large emoji/icon + title + 1–2 line description.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  cards: [Card, Card, Card, Card]   // exactly 4
+  bottomBar?: { icon?: string; text: string }
+  progressDots?: { current: number; total: number }
+}
+type Card = { icon: string; title: string; description: string }
+```
+
+**Examples:** `copilot-acp` Key Capabilities · `copilot-cli` Operating Modes · `vscode-latest` Four Agent Types · `vscode-latest` Chat UX Improvements · `copilot-web` The Evidence Bundle · `copilot-memory` Ideal Candidates · `enterprise-patterns` What to Standardize · `agentic-workflows` Intent-Driven Automation.
+
+---
+
+### 17. `FourColumnRowSlide` — 8 slides
+
+**Visual treatment:** Single horizontal row of 4 equal-width cards (no wrapping to second row, unlike 4-card 2×2 grid). Used for tier breakdowns and 4-way enumerations where horizontal reading order matters.
+
+**Distinct from `FourCardGridSlide`** by single-row layout and emphasis on horizontal progression.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  columns: [Col, Col, Col, Col]
+  insight?: { icon?: string; text: string }
+  progressDots?: { current: number; total: number }
+}
+type Col = { icon?: string; title: string; description?: string; items?: string[] }
+```
+
+**Examples:** `copilot-cli` Reasoning Models (Low/Med/High/Extra) · `copilot-code-review` Phased Rollout Strategy · `copilot-code-review` Six Capability Categories (4 of 6) · `copilot-hooks` Querying Audit Logs · `copilot-hooks` Integration Patterns · `agentic-sdlc` Key Takeaways · `agentic-journey` Expected ROI · `copilot-web` Effective Issue Anatomy categories.
+
+---
+
+### 18. `ThreeColumnCardSlide` — 10 slides
+
+**Visual treatment:** 3 equal-width cards in a single row. Each has icon + title + items list or short description. Colors typically progress cyan/blue/indigo or cyan/indigo/purple.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  columns: [Col, Col, Col]
+  insight?: { icon?: string; text: string }
+  progressDots?: { current: number; total: number }
+}
+type Col = { icon?: string; title: string; description?: string; items?: string[] }
+```
+
+**Examples:** `copilot-primitives` Instructions Three Selectors · `enterprise-patterns` Flexible Licensing · `enterprise-patterns` Metrics Framework · `copilot-acp` ACP vs MCP vs LSP · `copilot-web` Triggering the Agent · `vscode-latest` Session Management · `vscode-latest` Agentic Browser Tools · `copilot-cli` Extensibility · `copilot-cli` Why --remote Matters · `copilot-memory` Quantified Time Savings.
+
+---
+
+### 19. `SixCardGridSlide` — 5 slides
+
+**Visual treatment:** 2×3 or 3×2 grid (6 cards total). Same card style as `FourCardGridSlide` but extended palette (cyan/blue/indigo/purple/pink/rose).
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  cards: [Card, Card, Card, Card, Card, Card]
+  layout: '2x3' | '3x2'
   insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `copilot-acp` | Use Case — Zed Editor (3-col problem/solution/outcome) |
-| `copilot-acp` | Use Case — CI/CD Dashboard |
-| `copilot-acp` | Use Case — Polyrepo |
-| `agentic-journey` | Use Case — Duplicate Elimination |
-| `agentic-workflows` | Use Case — Issue Triage |
+**Examples:** `copilot-code-review` Six Capability Categories · `copilot-chat-internals` What Agent Debug Panel Shows · `agentic-workflows` Safe Output Types · `agentic-workflows` Proven Patterns · `copilot-acp` Start ACP Server (6-step grid).
 
 ---
 
-## 6. `SequentialFlowSlide`
+### 20. `EightCardGridSlide` — 2 slides
 
-**Count:** ~14 slides
+**Visual treatment:** 4×2 grid of 8 cards covering full lifecycle/event taxonomies. Extended gradient palette across all 8 cells (cyan→orange).
 
-### What it looks like
-A numbered or arrowed sequence of 3–6 steps displayed horizontally or vertically. Each step is a card with a number badge, title, and description. Arrows or connecting lines between steps. Optional benefit/info cards below the flow.
-
-### Structural properties
-- 3–6 sequential steps with number badges
-- Horizontal flow with `→` connectors (or vertical with `↓`)
-- Each step: number + title + short description
-- Optional bottom row of supplementary cards
-
-### Props
 ```ts
-interface SequentialFlowSlideProps {
+interface Props {
   title: string
   subtitle?: string
-  direction: 'horizontal' | 'vertical'
-  steps: Array<{
-    number: number
-    title: string
-    description: string
-    icon?: string
-    accentColor?: string
-  }>
-  supplementary?: Array<{
-    icon?: string
-    title: string
-    description: string
-  }>
-  progressDots?: { current: number; total: number }
-}
-```
-
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `copilot-hooks` | Execution Flow (6-step horizontal flow + 3 exit code cards) |
-| `copilot-code-review` | Hybrid Analysis (3-step flow + benefit cards) |
-| `copilot-code-review` | Deployment Patterns (4-col phase breakdown) |
-| `copilot-sdk` | How SDK Works (4-stage horizontal flow + 2 cards) |
-| `copilot-acp` | Start Server & Connect SDK (3-step + code) |
-
----
-
-## 7. `BeforeAfterMetricsSlide`
-
-**Count:** ~12 slides
-
-### What it looks like
-Side-by-side Before (red/gray) and After (green/blue) comparison with quantified improvement metrics displayed as stat cards below or alongside. Distinct from `TwoColComparisonSlide` by the mandatory presence of numeric metrics.
-
-### Structural properties
-- 2-column before/after with color coding
-- 2–4 metric cards with numeric values
-- Metrics show percentage/time improvements
-- Optional process description in each column
-
-### Props
-```ts
-interface BeforeAfterMetricsSlideProps {
-  title: string
-  subtitle?: string
-  before: {
-    title?: string // defaults to "Before"
-    items: string[]
-    accent?: 'red' | 'gray' | 'yellow'
-  }
-  after: {
-    title?: string // defaults to "After"
-    items: string[]
-    accent?: 'green' | 'blue' | 'cyan'
-  }
-  metrics: Array<{
-    label: string
-    value: string      // e.g., "73%", "4.2h → 18min"
-    icon?: string
-    color?: string
-  }>
+  cards: [Card, Card, Card, Card, Card, Card, Card, Card]   // exactly 8
   insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `copilot-sdk` | Use Case 1 — Release Engineering (Before/After + metrics) |
-| `copilot-sdk` | Use Case 2 — Test Infrastructure |
-| `copilot-sdk` | Use Case 3 — Code Review Bots |
-| `copilot-hooks` | HIPAA Compliance (Before/After + setup cards) |
-| `copilot-hooks` | SOC 2 Enforcement (Before/After + alert cards) |
+**Examples:** `copilot-hooks` The 8 Lifecycle Events · `copilot-web` Inside the Sandbox (8-step expanded variant).
 
 ---
 
-## 8. `TerminalDemoSlide`
+### 21. `FiveColumnProgressionSlide` — 3 slides
 
-**Count:** ~8 slides
+**Visual treatment:** 5 equal columns in a single row showing a graduated progression (e.g. levels, phases). Each column has a level badge + label + short description. Colors progress along the row.
 
-### What it looks like
-A `TerminalFrame` component (already exists) showing scrollable CLI output, with 2–3 annotation cards alongside or below explaining what's happening. The terminal dominates the slide.
-
-### Structural properties
-- Terminal frame (dark bg, mono font, scrollable)
-- 2–3 side or bottom annotation cards
-- Terminal content is the primary visual
-- Optional pill-badges for key commands
-
-### Props
 ```ts
-interface TerminalDemoSlideProps {
+interface Props {
   title: string
   subtitle?: string
-  terminal: {
-    command?: string        // shown as prompt line
-    output: string          // scrollable content
-    maxHeight?: string      // CSS max-height
-  }
-  annotations: Array<{
-    icon?: string
-    title: string
-    description: string
-  }>
-  badges?: string[]         // pill-shaped command badges
+  levels: [Level, Level, Level, Level, Level]   // exactly 5
+  progressDots?: { current: number; total: number }
+}
+type Level = { number: number; label: string; icon?: string; description?: string }
+```
+
+**Examples:** `agentic-sdlc` AgentRC Levels overview · `agentic-sdlc` How to Achieve Fast CI · `copilot-cli` The Distance Model.
+
+---
+
+## Family: Flow (16 slides, 4 components)
+
+### 22. `HorizontalStepFlowSlide` — 5 slides
+
+**Visual treatment:** 3–6 numbered cards arranged left-to-right with `→` connectors between them. Each card has number badge, title, and short description. Optional bottom row of supplementary cards.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  steps: Array<{ number: number; title: string; description: string; icon?: string }>   // 3–6
+  supplementary?: Array<{ icon?: string; title: string; description: string }>
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `copilot-cli` | Docker Debugging Demo (terminal + scrollable output) |
-| `copilot-cli` | Walking-to-Meeting Demo (terminal + 3 pill-badge cards) |
-| `copilot-cli` | Log Forensics (terminal + feature boxes) |
-| `copilot-azure-mcp` | The Compression Effect (scrollable code/output demo) |
-| `copilot-acp` | Core Message Flow (terminal + explanation boxes) |
+**Examples:** `copilot-code-review` Hybrid Analysis Approach · `copilot-sdk` How SDK Works · `copilot-acp` Start Server & Connect SDK · `copilot-web` Evidence-First Review · `agent-teams` The Hand-Off Workflow.
 
 ---
 
-## 9. `HeroStatSlide`
+### 23. `VerticalStepListSlide` — 4 slides
 
-**Count:** ~6 slides
+**Visual treatment:** 4–6 step cards stacked vertically, each with a left-side number badge, title, and description on the right. No connector arrows. Used when steps are too detailed for horizontal layout.
 
-### What it looks like
-One massive statistic, quote, or callout dominates the left/center of the slide. Supporting detail cards or explanatory text flanks the hero element. Used for "wow" moments and key takeaways.
-
-### Structural properties
-- 1 oversized stat/callout (large font, gradient text)
-- 2–4 smaller supporting cards
-- High visual contrast between hero and supporting elements
-
-### Props
 ```ts
-interface HeroStatSlideProps {
+interface Props {
   title: string
-  heroStat: {
-    value: string       // "84%", "10 min", "$2.4M"
-    label: string       // what the stat measures
-    color?: string      // gradient class
-  }
-  supportingCards: Array<{
-    icon?: string
-    title: string
-    description: string
-  }>
+  subtitle?: string
+  steps: Array<{ number: number; title: string; description: string; icon?: string }>   // 4–6
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `agentic-journey` Triage Workflow & Metrics · `copilot-cli` Combination Patterns · `copilot-web` Mobile Review & Custom Agents · `enterprise-patterns` Self-Service Onboarding Kit.
+
+---
+
+### 24. `VerticalPipelineSlide` — 4 slides
+
+**Visual treatment:** 4–5 stages stacked vertically with downward `↓` connectors between each stage. Each stage card spans full width with icon + title + description. Distinct from `VerticalStepListSlide` by mandatory connector arrows and emphasis on transformation.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  stages: Array<{ icon?: string; title: string; description: string }>   // 4–5
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-chat-internals` Chat Debug View Pipeline · `agentic-sdlc` Intent-Based PRs · `agentic-workflows` Three-Phase Architecture (vertical variant) · `copilot-web` copilot-setup-steps pipeline.
+
+---
+
+### 25. `BranchingFlowSlide` — 3 slides
+
+**Visual treatment:** Linear horizontal flow that branches at the end into 2–3 outcome boxes with distinct outcome colors (green = allow, red = block, yellow = warn). Used for decision-pipeline visualizations.
+
+```ts
+interface Props {
+  title: string
+  subtitle?: string
+  flow: Array<{ icon?: string; label: string }>   // linear stages
+  outcomes: Array<{ icon?: string; label: string; tone: 'allow' | 'block' | 'warn' }>   // 2–3 branches
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `copilot-hooks` Execution Flow · `copilot-hooks` Permission Decisions · `copilot-acp` Core Message Flow.
+
+---
+
+## Family: Hero (7 slides, 2 components)
+
+### 26. `HeroStatSlide` — 4 slides
+
+**Visual treatment:** One oversized statistic (gradient text, very large font) dominates the left/center. 2–4 smaller supporting cards on the right.
+
+```ts
+interface Props {
+  title: string
+  hero: { value: string; label: string }
+  supporting: Array<{ icon?: string; title: string; description: string }>   // 2–4
   insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `copilot-cli` | The 84% Problem (large hero stat + 4 supporting cards) |
-| `agentic-sdlc` | The 10-Minute Rule (60min vs 8min dramatic comparison) |
-| `agentic-workflows` | Mental Model Shift (large callout + comparison) |
-| `agent-teams` | Mental Model Shift (callout + move-toward/move-away) |
+**Examples:** `copilot-cli` The 84% Problem · `agentic-workflows` Mental Model Shift (callout variant) · `agent-teams` Mental Model Shift (callout variant) · `agentic-journey` ROI hero.
 
 ---
 
-## 10. `DecisionMatrixSlide`
+### 27. `TwoStatContrastSlide` — 3 slides
 
-**Count:** ~6 slides
+**Visual treatment:** Two giant numbers placed side-by-side with a center-aligned `vs` or `→` divider. Each side has its own color (red old / green new). Often a small impact-calculation row below.
 
-### What it looks like
-A structured grid or table helping the audience choose between options. Rows are options, columns are criteria. Cells contain checkmarks, badges, or short text. May include a code decision tree variant.
+**Distinct from `HeroStatSlide`** by dual-stat layout and absence of supporting cards.
 
-### Structural properties
-- Table/matrix with option rows × criteria columns
-- Visual indicators (✓/✗, color badges, ratings)
-- Optional decision tree or flowchart variant
-- 3–5 columns, 3–6 rows typical
-
-### Props
 ```ts
-interface DecisionMatrixSlideProps {
+interface Props {
+  title: string
+  left:  { value: string; label: string }    // red tone
+  right: { value: string; label: string }    // green tone
+  separator?: 'vs' | 'arrow'
+  impact?: { icon?: string; text: string }
+  progressDots?: { current: number; total: number }
+}
+```
+
+**Examples:** `agentic-sdlc` The 10-Minute Rule (60min vs 8min) · `copilot-memory` Time Savings contrast · `agentic-journey` Before/After hero.
+
+---
+
+## Family: Decision (11 slides, 3 components)
+
+### 28. `DecisionMatrixTableSlide` — 5 slides
+
+**Visual treatment:** Tabular grid where rows are options/situations and columns are criteria. Cells contain ✓/✗ glyphs, color badges, or short text. Header row has accent background.
+
+```ts
+interface Props {
   title: string
   subtitle?: string
-  columns: string[]                     // criteria headers
+  columns: string[]   // criteria headers
   rows: Array<{
     label: string
     icon?: string
-    cells: Array<{
-      value: string                     // "✓", "✗", text, or badge
-      color?: string
-    }>
+    cells: Array<{ value: string; tone?: 'good' | 'bad' | 'neutral' }>
   }>
   recommendation?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `copilot-primitives` | Choosing the Right Primitive (4×3 matrix) |
-| `agent-teams` | When to Use Agent Teams (decision quadrants) |
-| `agent-teams` | When to Use AgentCouncil vs. Squad (decision matrix) |
-| `mcp-apps` | Component Decision Tree (2×2 decision matrix) |
-| `agentic-journey` | When to Graduate (decision matrix + ROI) |
+**Examples:** `agent-teams` When to Use AgentCouncil vs. Squad · `copilot-acp` ACP vs MCP vs LSP · `copilot-primitives` Choosing the Right Primitive · `enterprise-patterns` Compliance Automation matrix · `agentic-journey` When to Graduate.
 
 ---
 
-## 11. `ProgressionSlide`
+### 29. `DecisionQuadrantSlide` — 3 slides
 
-**Count:** ~4 slides
+**Visual treatment:** 2×2 quadrant grid where each quadrant represents a decision outcome based on two axes. Axes are labeled at top and side.
 
-### What it looks like
-A level/week/phase progression showing growth over time. A horizontal track with markers at each level, plus a detail panel for the currently highlighted level. Progress dots indicate which level is being discussed.
-
-### Structural properties
-- Horizontal level/phase track with position markers
-- Detail panel for one level (problem/solution/checks)
-- Progress dots synced to level position
-- Visual progression (left = early, right = advanced)
-
-### Props
 ```ts
-interface ProgressionSlideProps {
+interface Props {
+  title: string
+  axisX: { left: string; right: string }
+  axisY: { top: string; bottom: string }
+  quadrants: [Quad, Quad, Quad, Quad]   // TL, TR, BL, BR
+  progressDots?: { current: number; total: number }
+}
+type Quad = { icon?: string; title: string; description: string }
+```
+
+**Examples:** `agent-teams` When to Use Agent Teams · `mcp-apps` Component Decision Tree · `copilot-web` Firewall Configuration Levels.
+
+---
+
+### 30. `DecisionTreeSlide` — 3 slides
+
+**Visual treatment:** Monospace ASCII decision tree on left (indented branches with `├──` / `└──`), summary table or rule cards on right. The ASCII art IS the visual.
+
+```ts
+interface Props {
   title: string
   subtitle?: string
-  levels: Array<{
-    number: number
-    label: string
-    icon?: string
-  }>
-  activeLevel: number
-  detail: {
-    sections: Array<{
-      title: string        // e.g., "Problem", "Solution", "Checks"
-      icon?: string
-      items: string[]
-    }>
+  tree: string   // monospace ASCII
+  summary?: {
+    columns: string[]
+    rows: Array<{ label: string; cells: string[] }>
   }
+  insight?: { icon?: string; text: string }
   progressDots?: { current: number; total: number }
 }
 ```
 
-### Example slides
-| Deck | Slide |
-|------|-------|
-| `agentic-sdlc` | Level 1–5 slides (5 slides using same archetype with different active level) |
-| `copilot-memory` | Progressive Profiles (4-week progressive build) |
+**Examples:** `agent-teams` When to Use Agent Teams (decision tree variant) · `copilot-web` copilot-setup-steps decision · `enterprise-patterns` Monorepo Nested Playbooks.
 
 ---
 
-## Outlier Slides (Low-Fit)
+## Outliers — Custom HTML (10 slides)
 
-These ~4 slides don't cleanly fit any archetype. Recommendation: stretch an existing archetype or leave as raw HTML.
+These slides have unique visual treatments that appear only once or twice and don't justify a dedicated component. Author them as raw HTML using the global Slidev layout. If a future deck reuses one of these patterns, promote it to an archetype.
 
-| Deck | Slide | Current Pattern | Recommendation |
-|------|-------|----------------|----------------|
-| `agentic-sdlc` | The Governance Pyramid | Pyramid diagram + metrics | Render as `HeroStatSlide` with custom SVG pyramid in hero slot, or raw HTML |
-| `agent-teams` | The Coordinator Pattern | Central coordinator node + radiating role columns + tools | Stretch `MultiColCardsSlide` with optional header node, or raw HTML |
-| `agent-teams` | The Ensemble | Coordinator + specialist columns + comparison grid | Stretch `MultiColCardsSlide` with comparison row, or raw HTML |
-| `agent-teams` | Combining AgentCouncil + Squad | Layered architecture diagram | Raw HTML (unique architectural diagram) |
+| Deck | Slide | Why outlier |
+|------|-------|-------------|
+| `agentic-sdlc` | The Governance Pyramid | Custom SVG/CSS pyramid diagram — geometric visual, no parallel pattern elsewhere |
+| `agent-teams` | The Coordinator Pattern | Central node + radiating roles + tools + memory box — bespoke org diagram |
+| `agent-teams` | The Ensemble | Coordinator + specialist columns + comparison grid — composite custom layout |
+| `agent-teams` | Combining AgentCouncil + Squad | Layered architecture diagram with install snippet — unique |
+| `agent-teams` | Squad: Memory & Persistence | Table + emoji growth-stage panel — single-deck narrative device |
+| `agent-teams` | Git Worktree Isolation | File tree + lifecycle benefits panel — bespoke IDE-like rendering |
+| `copilot-acp` | ACP Agent Orchestrator | Stack table + 2 image placeholders — image-driven, not card-driven |
+| `copilot-azure-mcp` | Subscription Boundaries | Multi-sub config code + trust path + warning panels — composite |
+| `enterprise-patterns` | Federated Governance & ROI | Investment vs returns + 3 metric tiles + law bar — nearly fits BeforeAfterMetrics but with mandatory law/governance bar |
+| `vscode-latest` | Org-Level Instructions & Controls | Org/custom split + code + cyan/blue summary bar — composite |
 
 ---
 
-## Cross-Archetype Props (shared by all)
+## Cross-Component Conventions
 
-Every component inherits these base props:
+Every component receives an optional `progressDots` and supports the global `<SlideNumber />`. Section accent colors come from the deck's frontmatter and are read by `SectionOpenerSlide` / `useTheme.ts`, **not** passed per slide.
 
 ```ts
-interface BaseSlideProps {
-  title: string
-  subtitle?: string
-  progressDots?: {
-    current: number
-    total: number
-  }
-  sectionColors?: {
-    from: string    // e.g., "cyan-400"
-    to: string      // e.g., "blue-400"
-  }
+interface BaseProgressProps {
+  progressDots?: { current: number; total: number }
 }
 ```
 
@@ -556,59 +700,82 @@ interface BaseSlideProps {
 
 ## Coverage Verification
 
-| Deck | Slides | Mapped | Outliers |
-|------|--------|--------|----------|
-| agentic-sdlc | 16 | 15 | 1 (Governance Pyramid) |
+| Deck | Total | Mapped | Outliers |
+|------|------:|-------:|---------:|
+| agent-teams | 15 | 9 | 6 |
 | agentic-journey | 12 | 12 | 0 |
-| agentic-workflows | 10 | 10 | 0 |
-| agent-teams | 16 | 13 | 3 (Coordinator, Ensemble, Combined) |
-| copilot-cli | 21 | 21 | 0 |
-| copilot-acp | 15 | 15 | 0 |
-| copilot-azure-mcp | 11 | 11 | 0 |
-| copilot-chat-internals | 9 | 9 | 0 |
-| copilot-code-review | 14 | 14 | 0 |
-| copilot-hooks | 15 | 15 | 0 |
+| agentic-sdlc | 14 | 13 | 1 |
+| agentic-workflows | 13 | 13 | 0 |
+| copilot-acp | 12 | 11 | 1 |
+| copilot-azure-mcp | 11 | 10 | 1 |
+| copilot-chat-internals | 8 | 8 | 0 |
+| copilot-cli | 19 | 19 | 0 |
+| copilot-code-review | 10 | 10 | 0 |
+| copilot-hooks | 14 | 14 | 0 |
 | copilot-memory | 13 | 13 | 0 |
 | copilot-primitives | 11 | 11 | 0 |
 | copilot-sdk | 9 | 9 | 0 |
-| copilot-web | 12 | 12 | 0 |
-| enterprise-patterns | 11 | 11 | 0 |
-| mcp-apps | 15 | 15 | 0 |
-| vscode-latest | 14 | 14 | 0 |
-| **Total** | **~192** | **~188** | **4** |
+| copilot-web | 12 | 11 | 1 |
+| enterprise-patterns | 11 | 10 | 1 |
+| mcp-apps | 14 | 14 | 0 |
+| vscode-latest | 14 | 13 | 1 |
+| **Total** | **198** | **188** | **10** |
 
 ---
 
-## Archetype Distribution
+## Implementation Status
 
-```
-TwoColComparisonSlide    ████████████████████████  48  (25%)
-CardGridSlide            ████████████████          32  (17%)
-CodeExplainerSlide       ████████████              24  (13%)
-MultiColCardsSlide       ███████████               22  (11%)
-UseCaseSlide             ████████                  16   (8%)
-SequentialFlowSlide      ███████                   14   (7%)
-BeforeAfterMetricsSlide  ██████                    12   (6%)
-TerminalDemoSlide        ████                       8   (4%)
-HeroStatSlide            ███                        6   (3%)
-DecisionMatrixSlide      ███                        6   (3%)
-ProgressionSlide         ██                         4   (2%)
-```
+### Tier 1 — ✅ SHIPPED (2026-04-17)
 
----
+All 7 highest-coverage components built, plus shared `useSectionTheme.ts` helper. All 27/27 decks build clean.
 
-## Implementation Priority
+| Component | Status | First production usage |
+|---|---|---|
+| `BeforeAfterMetricsSlide` (14) | ✅ shipped | copilot-hooks.md — "HIPAA Compliance Audit Trail" |
+| `BeforeAfterPanelsSlide` (12) | ✅ shipped | copilot-acp.md — "Before vs After ACP" |
+| `CodeWithFeaturesSlide` (12) | ✅ shipped | copilot-primitives.md — "Repository-Wide / Path-Specific / AGENTS.md" (×3) |
+| `ThreeColumnCardSlide` (10) | ✅ shipped | copilot-primitives.md — "Instructions: Three Selectors" |
+| `FourCardGridSlide` (10) | ✅ shipped | copilot-acp.md — "Key Capabilities" |
+| `TwoColPairedConceptsSlide` (10) | ✅ shipped | agent-teams.md — "Two Modes" · copilot-primitives.md — "Skills: Scripts" |
+| `ProblemSolutionOutcomeSlide` (10) | ✅ shipped | copilot-acp.md — "Use Case: Zed Editor Integration" |
 
-Recommended build order (by coverage × reuse value):
+**Conventions established for the helper (`useSectionTheme.ts`):**
+- Required `partNumber: 1–4` prop on every component, validated at runtime
+- DARK_CHROME[4] / LIGHT_CHROME[4] arrays drive ambient bg, orb, pill, divider, accent — keyed off SectionOpenerSlide's color progression (cyan→blue→indigo / blue→indigo→purple / indigo→purple→pink / purple→pink→rose)
+- DARK_CARDS[4][4] / LIGHT_CARDS[4][4] supply per-section card palettes for non-semantic grids
+- Semantic palettes (red=problem/before, green=outcome/after, blue=solution) are HARDCODED inside the component — partNumber never tints them
+- Tailwind JIT requires literal class strings: `GRID_COLS = { 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4' }` lookup constants for any dynamic column count
 
-1. **`TwoColComparisonSlide`** — covers 25% of all slides
-2. **`CardGridSlide`** — covers 17%, very uniform structure
-3. **`CodeExplainerSlide`** — covers 13%, pairs with existing TerminalFrame
-4. **`MultiColCardsSlide`** — covers 11%, close to CardGrid but distinct layout
-5. **`UseCaseSlide`** — covers 8%, highly standardized Problem/Solution/Outcome
-6. **`SequentialFlowSlide`** — covers 7%, step-by-step is a clear pattern
-7. **`BeforeAfterMetricsSlide`** — covers 6%, specialization of TwoCol
-8. **`TerminalDemoSlide`** — covers 4%, wraps existing TerminalFrame
-9. **`HeroStatSlide`** — covers 3%, visually distinctive
-10. **`DecisionMatrixSlide`** — covers 3%, table-based
-11. **`ProgressionSlide`** — covers 2%, niche but reusable
+### Remaining Build Order
+
+**Tier 1 follow-on — sweep remaining ~68 slides:**
+
+8. `UseCaseBeforeAfterSlide` (9)
+9. `FourColumnRowSlide` (8)
+
+**Tier 2 — High-value mid-coverage:**
+
+10. `TerminalWithSideCardsSlide` (6)
+11. `MoveTowardAgainstSlide` (6)
+12. `TwoColCheckmarkSlide` (6)
+13. `CodeWithMetricSlide` (6)
+14. `ProgressionLevelDetailSlide` (6) — agentic-sdlc relies on this
+15. `SixCardGridSlide` (5)
+16. `HorizontalStepFlowSlide` (5)
+17. `DecisionMatrixTableSlide` (5)
+
+**Tier 3 — Niche but reusable:**
+
+18. `DualCodeBlocksSlide` (4)
+19. `VerticalStepListSlide` (4)
+20. `VerticalPipelineSlide` (4)
+21. `HeroStatSlide` (4)
+22. `TerminalDemoSlide` (3)
+23. `CodeShowcaseSlide` (3)
+24. `ThreeColumnMindsetSlide` (3)
+25. `FiveColumnProgressionSlide` (3)
+26. `BranchingFlowSlide` (3)
+27. `TwoStatContrastSlide` (3)
+28. `DecisionQuadrantSlide` (3)
+29. `DecisionTreeSlide` (3)
+30. `EightCardGridSlide` (2)

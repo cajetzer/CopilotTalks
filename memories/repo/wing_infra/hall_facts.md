@@ -4,6 +4,42 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Tailwind JIT requires literal class strings: dynamic `grid-cols-${N}` is silently dropped (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Any component that needs a variable column count must use a lookup constant containing literal class names. Tailwind's JIT scanner reads source as text and cannot resolve runtime concatenation.
+
+**Wrong:** `<div :class="'grid-cols-' + count">` — class is generated at runtime, JIT never sees it, no CSS emitted.
+
+**Right:**
+```ts
+const GRID_COLS: Record<number, string> = {
+  2: 'grid-cols-2',
+  3: 'grid-cols-3',
+  4: 'grid-cols-4',
+}
+const gridClass = computed(() => GRID_COLS[props.count] ?? 'grid-cols-2')
+```
+
+Applied in `BeforeAfterMetricsSlide.vue`, `ProblemSolutionOutcomeSlide.vue`, `CodeWithFeaturesSlide.vue` (2026-04-17). Same rule applies to `col-span-N`, `gap-N`, any other Tailwind utility with a numeric variant.
+
+---
+
+## `multi_replace_string_in_file` across adjacent slides in a deck silently absorbs neighboring content (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+When converting multiple consecutive raw-HTML slides in a Slidev `.md` deck to component invocations in a single `multi_replace_string_in_file` call, mismatched closing `</div>` counts in the oldString patterns can absorb the **next** slide's wrapper divs silently. Symptom: build fails downstream with Vue parser errors like `Illegal '/' in tags` (e.g. `/class="...">`), and an unrelated slide is found half-deleted.
+
+**Safe approaches:**
+1. Convert one slide per call, verify the surrounding `<!-- SLIDE: ... -->` markers are intact afterward, then move on
+2. OR rewrite the **entire affected region** in one replacement that includes ALL the original content end-to-end (so any over-match is visible)
+
+**Real failure 2026-04-17:** Three consecutive `Instructions — *` slides in `copilot-primitives.md` were converted in one multi-replace; the `Skills — Scripts` slide that followed was clobbered. Required a follow-up rewrite of the whole region as TwoColPairedConceptsSlide. Build broke for one round before the fix.
+
+---
+
 ## Content slide colors must match their section's partNumber color scheme (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`

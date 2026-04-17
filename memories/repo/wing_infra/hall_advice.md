@@ -4,6 +4,63 @@ Patterns that consistently work for Slidev slide authoring and editing.
 
 ---
 
+## Two-column conformance: reference layout and edit pattern (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+**Reference layout (gold standard):** `captures/twocol/agent-teams-s20-two-modes.png`
+
+**Structural elements (top to bottom):**
+1. Pill header (colored, emoji) — top-left
+2. Progress dots — top-right with "N of M" counter
+3. Title/subtitle text row
+4. Two side-by-side bordered content cards (equal width, `grid grid-cols-2`)
+5. Bottom summary bar with gradient + `🎯 Key Insight:` label
+
+**Edit pattern applied to each conformance slide:**
+- Grid: `gap-6`/`gap-4` → `gap-3` for tighter card spacing
+- Cards: `p-4` → `p-3` to reclaim vertical space
+- Grid div: add `mb-3` for space before bottom bar
+- Bottom bar: `<div class="p-3 bg-gradient-to-br from-{color}-900/30 ... rounded-xl border ...">` with bold label + summary text
+- Use existing deck section colors for visual consistency
+
+**Overflow fix for dense 2-col slides (e.g., agent-teams s15 with repo tree + table):**
+- Header pill: `mb-2` → `mb-1`
+- Title block: `mb-2` → `mb-1`
+- Grid: `gap-3` → `gap-2`, `mb-3` → `mb-2`
+- Cards: `p-2.5` → `p-2`, inner `gap-2` → `gap-1.5`
+- Card headers: `mb-1` → `mb-0.5`
+- Bottom bar: `p-3` → `p-2`
+- This pattern reclaims ~30-40px total, enough to clear footer overflow
+
+**What makes a slide "easy to conform" (Tier 1 criterion refined with user):**
+- Already has 2-col card layout
+- Content is sparse enough that adding a bottom bar won't overflow
+- Does NOT have misplaced bars mid-content or complex nested structures
+- Number of cards per column is irrelevant — just needs the 2-col bones
+
+---
+
+## Demo walkthrough authoring rule: README first, no invented commands (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+When authoring `demos/` walkthroughs for tech-talks, the **only acceptable source of commands, flags, and feature claims** is the corresponding `tech-talks/<name>/README.md`. Never invent commands, flags, or capabilities.
+
+**Checklist before writing any exercise:**
+1. Read the talk's README — capabilities, artifacts, key commands are listed there
+2. Every CLI flag used must appear in the README or its linked docs
+3. Every UI flow (Rulesets, GitHub UI, etc.) must match the README's config instructions
+4. FanHub's real known bugs (Jesse Pinkman duplicate, broken genre filter, missing validation) should be used as exercise material where relevant — they're in `BUGS.md`
+
+**Common failure mode caught this session:** First draft invented `copilot agentic --intent`, `copilot squad --assemble`, `copilot council --debate` — none exist. Complete rewrite required after user feedback.
+
+**Structure that works:** Source talk → 5 exercises max → each grounds a specific capability claim → "What to notice" after each exercise anchors the insight.
+
+**Target repo for FanHub exercises:** `github.com/MSBart2/FanHub` — four language tracks, identical bugs across all four.
+
+---
+
 ## Tech-talk components: prettification pattern for maintainability (2026-04-16)
 
 `schema_version: 1` | `date: 2026-04-16`

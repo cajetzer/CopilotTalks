@@ -50,6 +50,31 @@ Section opener slides (Part 1, Part 2, Part 3, Part 4) use a large section numbe
 
 ---
 
+## copilot-acp demo: uses MSBart2/cli-acp (ACP Agent Orchestrator web app) (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+The companion demo for the copilot-acp tech-talk is **not** a TypeScript SDK tutorial. It is a live walkthrough of `github.com/MSBart2/cli-acp` — an ACP Agent Orchestrator web app the author built.
+
+**What cli-acp is:**
+- React + Vite frontend + Node.js + Express + Socket.IO backend
+- Spawns one `copilot --acp --stdio` process per repository
+- Orchestrator/worker role model: one coordinator, N repo-scoped workers
+- Broadcast prompts to all workers; orchestrator synthesizes coalesced results
+- Session persistence: save → Restore (review only) or Re-spawn (live agents)
+- Dependency manifest (`acp-manifest.json`) with `dependsOn`/`dependedBy` for cross-repo context injection
+
+**5 demo scenarios map to the repo's own docs:**
+1. Start app, launch orchestrator + workers (FanHub tracks as workers)
+2. First broadcast + Orchestrator Focus synthesis
+3. Targeted follow-up to one worker (broadcast vs. target distinction)
+4. Dependency-aware routing with `acp-manifest.json`
+5. Save → Restore vs. Re-spawn session lifecycle
+
+**Source:** `demos/copilot-acp-walkthrough.md` and `github.com/MSBart2/cli-acp/blob/main/SCENARIO.md`
+
+---
+
 ## copilot-acp.md: Part 4 use-case slides structure (post 2026-04-09 session)
 
 `schema_version: 1` | `date: 2026-04-09`

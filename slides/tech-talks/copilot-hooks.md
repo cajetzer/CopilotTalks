@@ -26,6 +26,7 @@ import TocSlide from './components/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -434,38 +435,30 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
 <div class="text-xs text-white/50">Three control modes for PreToolUse</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-3 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
-<div class="text-xl mb-1">✅</div>
-<div class="font-semibold text-emerald-300 mb-1">allow</div>
-<div class="opacity-80">Auto-approve execution — operation proceeds immediately</div>
+<div class="grid grid-cols-2 gap-2 text-xs mb-1">
+<div class="p-2.5 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="text-xl">✅</span><span class="font-semibold text-emerald-300">allow</span>
 </div>
-<div class="p-2 bg-gradient-to-br from-amber-900/30 to-amber-800/20 rounded-lg border border-amber-500/30">
-<div class="text-xl mb-1">🤔</div>
-<div class="font-semibold text-amber-300 mb-1">ask</div>
-<div class="opacity-80">Require user confirmation — safer than auto-allow for sensitive operations</div>
+<div class="opacity-80 mb-2">Auto-approve execution — operation proceeds immediately</div>
+<div class="p-2 bg-emerald-900/20 rounded border border-emerald-500/20">
+<div class="font-semibold text-emerald-300 mb-0.5">updatedInput</div>
+<div class="opacity-80">Modify tool parameters to enforce safe defaults (e.g., add --dry-run flag)</div>
 </div>
-<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-xl mb-1">🛑</div>
-<div class="font-semibold text-red-300 mb-1">deny</div>
+</div>
+<div class="space-y-2">
+<div class="p-2.5 bg-gradient-to-br from-amber-900/30 to-amber-800/20 rounded-lg border border-amber-500/30">
+<div class="flex items-center gap-2 mb-1"><span class="text-xl">🤔</span><span class="font-semibold text-amber-300">ask</span></div>
+<div class="opacity-80">Require user confirmation — safer for sensitive operations</div>
+</div>
+<div class="p-2.5 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
+<div class="flex items-center gap-2 mb-1"><span class="text-xl">🛑</span><span class="font-semibold text-red-300">deny</span></div>
 <div class="opacity-80">Block execution — operation is rejected immediately</div>
 </div>
 </div>
-
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30 text-xs">
-<div class="font-semibold text-blue-300 mb-1">Priority When Multiple Hooks Run</div>
-<div class="opacity-80">1. <span class="text-red-300">deny</span> (most restrictive) → 2. <span class="text-amber-300">ask</span> → 3. <span class="text-emerald-300">allow</span> (least restrictive)</div>
 </div>
-
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">updatedInput</div>
-<div class="opacity-80">Modify tool parameters to enforce safe defaults (e.g., add --dry-run flag)</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-1">additionalContext</div>
-<div class="opacity-80">Inject context into conversation (e.g., "Modified to dry-run mode per policy")</div>
-</div>
+<div class="p-2.5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
+<div class="text-xs"><span class="font-bold text-blue-300">🎯 Priority Rule:</span> <span class="text-white/80">When multiple hooks run: <span class="text-red-300">deny</span> (most restrictive) → <span class="text-amber-300">ask</span> → <span class="text-emerald-300">allow</span> (least restrictive). Use <span class="text-purple-300">additionalContext</span> to inject messages into conversation.</span></div>
 </div>
 </div>
 </div>
@@ -809,65 +802,36 @@ fi</code></pre>
 ---
 
 <!-- SLIDE: HIPAA Compliance Audit Trail -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">� Real-World Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Use Case: HIPAA Compliance Audit Trail</div>
-<div class="text-xs text-white/50">Healthcare — agent-generated code changes must be 100% auditable for 7-year retention</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-center mb-1">
-<div class="text-xl">❌</div>
-<div class="font-bold text-red-300">Before Hooks</div>
-</div>
-<div class="space-y-1 opacity-80">
-<div>⏱️ <strong>Audit time:</strong> 2-3 hours manual</div>
-<div>📊 <strong>Coverage:</strong> 60-70% of changes</div>
-<div>🔍 <strong>Query:</strong> Manual grep/awk</div>
-<div>💾 <strong>Retention:</strong> Manual archival</div>
-<div>❓ <strong>Auditor Q:</strong> "Who changed what, when?" → Manual investigation</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
-<div class="text-center mb-1">
-<div class="text-xl">✅</div>
-<div class="font-bold text-emerald-300">With Hooks</div>
-</div>
-<div class="space-y-1 opacity-80">
-<div>⚡ <strong>Audit time:</strong> 5 minutes automated</div>
-<div>📊 <strong>Coverage:</strong> 100% (all 8 events)</div>
-<div>🔍 <strong>Query:</strong> SQL-like jq filtering</div>
-<div>💾 <strong>Retention:</strong> Automatic S3 archival</div>
-<div>✓ <strong>Auditor Q:</strong> Single jq query → instant answer</div>
-</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-2 mt-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">🔗 Hook Setup</div>
-<div class="opacity-80">All 8 hooks append to <code>logs/audit.jsonl</code>. SessionStart logs user+branch, Stop hook pushes to S3.</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-1">📋 Sample Query</div>
-<div class="opacity-80 font-mono">jq -r '[.timestamp, .user, .event] | @csv' audit.jsonl | sort > audit-report.csv</div>
-</div>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="🔒"
+  pillLabel="Real-World Patterns"
+  title="Use Case: HIPAA Compliance Audit Trail"
+  :before='{
+    header: "❌ Before Hooks",
+    items: [
+      { title: "Audit time: 2-3 hours manual", detail: "Engineer manually greps git history and CI logs to reconstruct what changed" },
+      { title: "Coverage: 60-70% of changes", detail: "Off-tool agent actions and prompt-driven edits often missed" },
+      { title: "Manual S3 archival", detail: "Quarterly export script run by hand; gaps when forgotten" },
+      { title: "Auditor Q: Who, what, when?", detail: "Each question triggers a multi-hour manual investigation" }
+    ]
+  }'
+  :after='{
+    header: "✅ With Hooks",
+    items: [
+      { title: "Audit time: 5 minutes automated", detail: "All 8 lifecycle events append structured JSON to logs/audit.jsonl" },
+      { title: "Coverage: 100% of agent actions", detail: "SessionStart logs user+branch; Stop hook ships to S3 automatically" },
+      { title: "SQL-like jq filtering", detail: "Single jq pipeline answers any compliance question instantly" },
+      { title: "7-year retention guaranteed", detail: "S3 lifecycle policy + immutable bucket = compliance by construction" }
+    ]
+  }'
+  :metrics='[
+    { value: "24×", label: "Faster audits" },
+    { value: "100%", label: "Event coverage" },
+    { value: "7yr", label: "Retention enforced" }
+  ]'
+  :insight='{ icon: "📋", text: "Sample query: jq -r [.timestamp, .user, .event] | @csv audit.jsonl | sort > audit-report.csv" }'
+/>
 
 ---
 
