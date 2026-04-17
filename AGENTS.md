@@ -35,11 +35,11 @@ Respectful · Practical · Honest · Outcome-based. Full voice rules, persona qu
 
 ---
 
-## MemPalace — Project Memory
+## Workbench — Project Memory
 
-Institutional knowledge lives in `memories/repo/` as Markdown files organized by wing and hall. **Cardinal rule: MemPalace suggests; repo files confirm.**
+Institutional knowledge lives in `memories/` as Markdown files organized by **bench** (domain folder) and **drawer** (typed file). **Cardinal rule: the Workbench suggests; repo files confirm.**
 
-Agents query the relevant hall after pre-flight gates complete, before content generation. Writes happen at session END only, after one-shot user approval. Full usage patterns: `@mempalace` skill.
+Agents query the relevant drawer after pre-flight gates complete, before content generation. Writes happen at session END only, after one-shot user approval. Full usage patterns: `@workbench` skill.
 
 ---
 

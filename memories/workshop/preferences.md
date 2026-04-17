@@ -1,4 +1,4 @@
-# wing_workshop / hall_preferences
+# workshop / preferences
 
 Author taste, framing choices, and voice decisions for workshop modules.
 

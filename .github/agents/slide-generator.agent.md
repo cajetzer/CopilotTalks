@@ -27,7 +27,7 @@ Transform module README files into beautiful, concise Slidev presentations for C
 6. **Read Visual Exemplar** — Read the first 200 lines of `slides/tech-talks/agentic-sdlc.md` as the gold-standard visual reference for cockpit content slides. Match that level of structure and visual depth unless the category profile explicitly requires otherwise.
 7. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section→icon→container mapping before updating the index.
 8. **Read Deck Recipe for Tech Talks** — If the source is under `tech-talks/`, look for `deck.recipe.yml` in the same folder as the README. If it exists, use it as the per-talk adaptation recipe. If it does not exist, synthesize an initial recipe from the README and save it before generating slides.
-9. **Query Memory** — Read `memories/repo/wing_infra/hall_facts.md`, `hall_discoveries.md`, and `hall_advice.md` for confirmed Slidev build rules and structural patterns. If the target deck has a wing entry (e.g., `memories/repo/wing_agent_architecture/hall_facts.md`), read that too. Apply these before writing any HTML.
+9. **Query Memory** — Read `memories/infra/facts.md`, `discoveries.md`, and `advice.md` for confirmed Slidev build rules and structural patterns. If the target deck has a bench entry (e.g., `memories/agent_architecture/facts.md`), read that too. Apply these before writing any HTML.
 
 ### 1. Parse the README
 
@@ -66,7 +66,7 @@ For each use case, feature, or major section, score it on three axes:
 | **Differentiation** | Does this show something _only this tool_ can do?                  | Avoid demos that could apply to any AI assistant             |
 | **Audience impact** | Would a developer/DevOps engineer immediately think "I need that"? | Real time savings, workflow unblocking, capability unlocking |
 
-**Apply these heuristics** (full rules in `memories/repo/wing_infra/hall_advice.md`):
+**Apply these heuristics** (full rules in `memories/infra/advice.md`):
 
 - Prefer recent/novel content over established patterns
 - Elevate surprising integrations; compress or skip table-stakes demos
@@ -142,11 +142,11 @@ All imports go in a **single** `<script setup>` block at the top of the deck —
 
 #### Progress Dots (REQUIRED on all topic section content slides)
 
-Every content slide inside a topic section must have progress dots — even single-slide sections. Section openers do NOT get dots. Full HTML in `slides/TEMPLATE.md`. When splitting slides, update ALL sibling dot totals (see `memories/repo/wing_infra/hall_advice.md`).
+Every content slide inside a topic section must have progress dots — even single-slide sections. Section openers do NOT get dots. Full HTML in `slides/TEMPLATE.md`. When splitting slides, update ALL sibling dot totals (see `memories/infra/advice.md`).
 
 ### 3. Content Limits
 
-Hard limits are in `memories/repo/wing_infra/hall_advice.md`. Key: max 5 bullets/column, 200 chars/paragraph, 3 vertical stacks, 1 code block per slide. Prefer splitting over condensing.
+Hard limits are in `memories/infra/advice.md`. Key: max 5 bullets/column, 200 chars/paragraph, 3 vertical stacks, 1 code block per slide. Prefer splitting over condensing.
 
 ### 4. Update the Index
 
@@ -165,6 +165,10 @@ Run `node slides/scripts/sync-index-dates.mjs` after creating or updating any sl
 
 - New slides: `status: active`, `updated: <today YYYY-MM-DD>`, `section: <value from slides/SECTIONS.md>`
 - Updated slides: update `updated:` to today
+
+### 7. Workbench Update (session end)
+
+Before handing off, run the **Content Change → Workbench Update Protocol** in `.github/skills/workbench/SKILL.md`. Pay particular attention to question 5 (topic-specific gate): if this session changed anything about the deck's *content* that a future agent reading only the deck would miss — framing, audience misreads, ordering constraints, why an alternative was rejected — write a short entry to the matching topic bench (e.g. `memories/agent_architecture/discoveries.md`). If the only changes were Slidev/component patterns, write to `infra` instead. If neither applies, write nothing — empty topic benches are fine.
 
 ## Output Paths
 
@@ -230,7 +234,7 @@ For all categories, the category profile is authoritative for visual system and 
 
 ## Common Mistakes
 
-Full rules, gotchas, and structural fixes are in `memories/repo/wing_infra/hall_facts.md` and `hall_advice.md` — read them during pre-flight (step 7). Key reminders:
+Full rules, gotchas, and structural fixes are in `memories/infra/facts.md` and `advice.md` — read them during pre-flight (step 7). Key reminders:
 
 - `<!-- SLIDE: Name -->` required on **every** slide including slide 1 — missing it shifts all counts off by one
 - UTF-8 BOM breaks frontmatter — write with `UTF8Encoding($false)`

@@ -1,4 +1,4 @@
-# wing_infra / hall_discoveries
+# infra / discoveries
 
 Breakthroughs — patterns that solved persistent problems in Slidev slide authoring.
 
@@ -195,7 +195,7 @@ groups: Array<{
 
 `schema_version: 1` | `date: 2026-04-13`
 
-The Slide Generator agent (even with MemPalace pre-flight queries) produces decks with HTML balance errors that require manual correction before building. In the vscode-latest.md generation (24 slides), 7 slides had div balance issues:
+The Slide Generator agent (even with Workbench pre-flight queries) produces decks with HTML balance errors that require manual correction before building. In the vscode-latest.md generation (24 slides), 7 slides had div balance issues:
 
 **Common error patterns:**
 1. **Missing wrapper div** — First column of a 2-col grid missing its `<div class="p-3 bg-gradient-to-br ...">` wrapper
@@ -453,7 +453,7 @@ When a slide has a large fenced code block that overflows the bottom of the slid
 
 `schema_version: 1` | `date: 2026-04-10`
 
-Pattern: `overflow-y-auto max-h-32` on code containers allows vertical scrolling while keeping slide height fixed. Used successfully on copilot-azure-mcp slide 18 to restore full 23-line JSON config (user preferred full detail over condensed 4-line summary). The `max-h-*` is critical — `min-h-0` alone does not prevent harness overflow detection (see hall_facts entry on flex-1 overflow-y-auto).
+Pattern: `overflow-y-auto max-h-32` on code containers allows vertical scrolling while keeping slide height fixed. Used successfully on copilot-azure-mcp slide 18 to restore full 23-line JSON config (user preferred full detail over condensed 4-line summary). The `max-h-*` is critical — `min-h-0` alone does not prevent harness overflow detection (see `facts` entry on flex-1 overflow-y-auto).
 
 **Key insight:** Preserves both content richness and layout integrity — no height penalty to slide render time. Users consistently prefer scrollable detail over condensed/summarized code.
 

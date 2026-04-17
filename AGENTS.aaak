@@ -131,7 +131,7 @@ references:  # optional but recommended
 **Archived talks:**
 - Mark with `status: archived` in README frontmatter
 - Content excluded from new work
-- Archival rationale preserved in memory (hall_events)
+- Archival rationale preserved in memory (events drawer)
 
 ---
 
@@ -173,8 +173,8 @@ When calling subagents:
 
 ## Key Agents & Their Pre-Flight Gates
 
-| Agent | Pre-Flight Gate | Search MemPalace |
-|-------|----------------|-----------------|
+| Agent | Pre-Flight Gate | Search the Workbench |
+|-------|----------------|---------------------|
 | `slide-generator` | 6-step validation (README → SECTIONS.md → deck.recipe.yml) | After pre-flight, before generation |
 | `tech-talk-generator` | Research Brief → user approval | After Research Brief, before content |
 | `module-creator` | Outline approval | After outline, before build |
@@ -210,12 +210,12 @@ Full voice patterns and fears in PERSONAS.md.
 I
 ---
 
-## MemPalace — Project Memory
+## Workbench — Project Memory
 
 - **Query after pre-flight, before generation** — never during pre-flight gates
-- **Write at session END** — diary entries for gotchas, decisions, discoveries
-- **Cardinal rule:** MemPalace suggests; repo files confirm
-- Skill: `.github/skills/mempalace/SKILL.md` (full usage patterns, timing gates, wing/hall reference)
+- **Write at session END** — drawer entries for gotchas, decisions, discoveries
+- **Cardinal rule:** the Workbench suggests; repo files confirm
+- Skill: `.github/skills/workbench/SKILL.md` (full usage patterns, timing gates, bench/drawer reference)
 
 ---
 
@@ -227,4 +227,4 @@ I
 - **Slidev reference:** `.github/instructions/slidev-decks.instructions.md`
 - **Tech-talk template:** `tech-talks/TEMPLATE.md`
 - **Workshop template:** `workshop/TEMPLATE.md`
-- **MemPalace skill:** `.github/skills/mempalace/SKILL.md`
+- **Workbench skill:** `.github/skills/workbench/SKILL.md`

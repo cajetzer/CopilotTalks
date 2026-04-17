@@ -1,4 +1,4 @@
-# wing_workshop / hall_facts
+# workshop / facts
 
 Locked, confirmed decisions for workshop modules.
 

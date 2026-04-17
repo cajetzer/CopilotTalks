@@ -1,7 +1,48 @@
-# wing_infra / hall_events
+# infra / events
 
 Milestones, archival decisions, and major restructures.
 
+---
+
+## Memory store renamed and flattened: MemPalace → Workbench, prefixes dropped (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Renamed the project memory store from MemPalace to Workbench (eliminates naming collision with the `workshop/` content domain) and flattened the storage layout in two passes.
+
+**Pass 1 \u2014 metaphor rename (via `git mv`, history preserved):**
+- Skill folder: `.github/skills/mempalace/` → `.github/skills/workbench/`
+- 4 memory folders: `memories/repo/wing_*` → `memories/repo/bench_*`
+- 9 files: `hall_*.md` → `drawer_*.md`
+
+**Pass 2 \u2014 flatten layout (via `git mv`):**
+- Dropped the `repo/` intermediate folder; bench folders now live directly under `memories/`
+- Dropped the `bench_` prefix on folders → `memories/{infra,workshop,agent_architecture,agentic_sdlc}/`
+- Dropped the `drawer_` prefix on files → `{facts,events,discoveries,advice,preferences}.md`
+- Merged the lone `infra/facts/slidev-subdirectory-components.md` entry into `infra/facts.md` and removed the redundant `facts/` subdirectory
+
+**Final layout:**
+```
+memories/
+  agent_architecture/facts.md
+  agentic_sdlc/preferences.md
+  infra/{facts,events,discoveries,advice}.md
+  workshop/{facts,preferences}.md
+```
+
+**Content updates:**
+- `SKILL.md` fully rewritten with new bench/drawer terminology and unprefixed paths
+- `AGENTS.md`, `AGENTS.aaak` updated
+- `slide-generator.agent.md`, `tech-talk-generator.agent.md` paths updated
+- All 9 file h1 headers now `# {bench} / {drawer}` (e.g. `# infra / facts`)
+
+**Invocation now:** `@workbench` (was `@mempalace`).
+
+**Intentionally untouched:** `memory-plan.md` at repo root \u2014 historical planning artifact preserving the original MemPalace design rationale and the older `wing_/hall_/repo/` taxonomy.
+**Same-day addendum — protocol + prune:**
+- Added gate-5 (topic-specific gate) to the Content Change → Workbench Update Protocol in `SKILL.md`. Distinguishes "topic-specific framing/audience/ordering knowledge an agent reading only the deck would miss" (→ topic bench) from "we used component X / fixed a Slidev gotcha" (→ `infra`). Empty topic benches now explicitly acceptable.
+- Added "Workbench Update (session end)" steps to `slide-generator.agent.md` (step 7) and `tech-talk-generator.agent.md` (step 3a) pointing back at the protocol.
+- Pruned `agent_architecture/facts.md` from 4 entries to 1 (+ pointer): removed the agent-teams accent color map (now duplicated in `useSectionTheme.ts`), the breadcrumb pill convention (mechanical, visible in deck), and the copilot-acp Part 4 slide structure (now owned by Tier-1 components). Kept only the MSBart2/cli-acp demo framing entry, which is genuinely non-derivable from the deck.
 ---
 
 ## Tier-1 slide components shipped: 7 reusable archetypes live in 4 decks (2026-04-17)

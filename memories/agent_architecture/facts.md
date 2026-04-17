@@ -1,4 +1,34 @@
-# wing_agent_architecture / hall_facts
+# agent_architecture / facts
+
+Confirmed facts about agent-teams and ACP slide decks — framing, demo identity, structural decisions an agent reading only the deck would miss.
+
+> **On colors and chrome:** section accent colors (Part 1→cyan, Part 2→blue, Part 3→indigo, Part 4→purple) and per-card palettes are owned by `slides/tech-talks/components/useSectionTheme.ts`. Do not duplicate that mapping here — read the helper. Decks that still use raw inline Tailwind (e.g. agent-teams.md as of 2026-04-17) follow the same progression and should migrate to `SectionOpenerSlide` + Tier-1 components when touched.
+
+---
+
+## copilot-acp demo: uses MSBart2/cli-acp (ACP Agent Orchestrator web app)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+The companion demo for the copilot-acp tech-talk is **not** a TypeScript SDK tutorial. It is a live walkthrough of `github.com/MSBart2/cli-acp` — an ACP Agent Orchestrator web app the author built. An agent reading only the deck will see the URL on one slide but miss the framing.
+
+**What cli-acp is:**
+- React + Vite frontend + Node.js + Express + Socket.IO backend
+- Spawns one `copilot --acp --stdio` process per repository
+- Orchestrator/worker role model: one coordinator, N repo-scoped workers
+- Broadcast prompts to all workers; orchestrator synthesizes coalesced results
+- Session persistence: save → Restore (review only) or Re-spawn (live agents)
+- Dependency manifest (`acp-manifest.json`) with `dependsOn`/`dependedBy` for cross-repo context injection
+
+**5 demo scenarios:**
+1. Start app, launch orchestrator + workers (FanHub tracks as workers)
+2. First broadcast + Orchestrator Focus synthesis
+3. Targeted follow-up to one worker (broadcast vs. target distinction)
+4. Dependency-aware routing with `acp-manifest.json`
+5. Save → Restore vs. Re-spawn session lifecycle
+
+**Source:** `demos/copilot-acp-walkthrough.md` and `github.com/MSBart2/cli-acp/blob/main/SCENARIO.md`
+# agent_architecture / facts
 
 Confirmed facts about agent-teams and ACP slide decks — structure, color, and breadcrumb decisions.
 

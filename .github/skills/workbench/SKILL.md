@@ -1,21 +1,22 @@
 ---
-name: mempalace
-description: Read from and write to the MemPalace project memory store. Use when starting complex content work (query for prior context) or finishing a session that changed content (write diary entries). Never invoke during agent pre-flight gates.
+name: workbench
+description: Read from and write to the Workbench project memory store. Use when starting complex content work (query for prior context) or finishing a session that changed content (record drawer entries). Never invoke during agent pre-flight gates.
 infer: false
 ---
 
-# MemPalace Skill
+# Workbench Skill
 
-MemPalace is the project-level semantic memory store for CopilotTraining authoring decisions, patterns, and cross-reference knowledge. It is **separate from Copilot Memory** (which is personal/cross-project). MemPalace = _this repo's_ institutional knowledge.
+The Workbench is the project-level semantic memory store for CopilotTraining authoring decisions, patterns, and cross-reference knowledge. It is **separate from Copilot Memory** (which is personal/cross-project). The Workbench = _this repo's_ institutional knowledge.
 
-**Cardinal rule: MemPalace suggests; repo files confirm.**
-I
+**Cardinal rule: the Workbench suggests; repo files confirm.**
+
+The store is organized as **benches** (top-level domain folders under `memories/`) containing **drawers** (typed `.md` files inside each bench). Filenames drop the prefixes — a fact drawer in the infra bench is `memories/infra/facts.md`.
 
 ---
 
 ## When to Use This Skill
 
-### READ — Query MemPalace BEFORE generating content
+### READ — Query the Workbench BEFORE generating content
 
 Invoke after pre-flight gates complete, before starting content generation:
 
@@ -27,29 +28,29 @@ Invoke after pre-flight gates complete, before starting content generation:
 | Placing a card in index-custom.html             | `"Which section does [topic] belong in?"`                   |
 | Updating content that overlaps another artifact | Check cross-reference table: `"What else covers [topic]?"`  |
 
-**Never query MemPalace during pre-flight.** Pre-flight gates (README exists → not archived → TEMPLATE.md → SECTIONS.md) must complete first using live repo files. MemPalace comes after.
+**Never query the Workbench during pre-flight.** Pre-flight gates (README exists → not archived → TEMPLATE.md → SECTIONS.md) must complete first using live repo files. The Workbench comes after.
 
-### WRITE — Update MemPalace at session END
+### WRITE — Update the Workbench at session END
 
-After completing content work, write diary entries for anything future sessions should know:
+After completing content work, record drawer entries for anything future sessions should know:
 
-| What changed                            | Hall to write      | Example                                                           |
-| --------------------------------------- | ------------------ | ----------------------------------------------------------------- |
-| Discovered a recurring build gotcha     | `hall_facts`       | `"BOM at file start breaks Slidev frontmatter"`                   |
-| Archived a talk                         | `hall_events`      | `"multi-step-tasks archived 2026-04-07: merged into agent-teams"` |
-| Found a pattern that consistently works | `hall_discoveries` | `"cockpit wrapper div eliminates 90% of HTML balance errors"`     |
-| Made a framing/voice decision           | `hall_preferences` | `"agentic-sdlc opener: lead with the 10-15 features/day stat"`    |
-| Identified a cross-reference drift      | `hall_facts`       | Cross-reference table entry update                                |
+| What changed                            | Drawer to write      | Example                                                           |
+| --------------------------------------- | -------------------- | ----------------------------------------------------------------- |
+| Discovered a recurring build gotcha     | `facts`       | `"BOM at file start breaks Slidev frontmatter"`                   |
+| Archived a talk                         | `events`      | `"multi-step-tasks archived 2026-04-07: merged into agent-teams"` |
+| Found a pattern that consistently works | `discoveries` | `"cockpit wrapper div eliminates 90% of HTML balance errors"`     |
+| Made a framing/voice decision           | `preferences` | `"agentic-sdlc opener: lead with the 10-15 features/day stat"`    |
+| Identified a cross-reference drift      | `facts`       | Cross-reference table entry update                                |
 
-**Never write during a session mid-stream.** Diary writes happen at session END only — after the work is saved and verified.
+**Never write during a session mid-stream.** Drawer writes happen at session END only — after the work is saved and verified.
 
-**Write mechanism: always use `replace_string_in_file` or `multi_replace_string_in_file` to edit the hall `.md` files directly** (e.g. `memories/repo/wing_infra/hall_facts.md`). Never use the `memory` tool with `/memories/repo/` paths — that routes to Copilot's personal memory service, not the repo files, and the entries will be invisible in the workspace.
+**Write mechanism: always use `replace_string_in_file` or `multi_replace_string_in_file` to edit the drawer `.md` files directly** (e.g. `memories/infra/facts.md`). Never use the `memory` tool with `/memories/` paths — that routes to Copilot's personal memory service, not the workspace files, and the entries will be invisible in the repo.
 
 ---
 
 ## What NEVER to Write
 
-- Archived talk content (rationale only, as `hall_events`)
+- Archived talk content (rationale only, as `events`)
 - Slide deck CSS or Slidev layout details (too volatile, too noisy)
 - Secrets, tokens, credentials
 - Speculation — only write confirmed facts and decisions
@@ -57,51 +58,52 @@ After completing content work, write diary entries for anything future sessions 
 
 ---
 
-## Wing Reference
+## Bench Reference
 
-Queries and writes should target the appropriate wing:
+Queries and writes should target the appropriate bench:
 
-| Wing                         | What lives here                                                       |
-| ---------------------------- | --------------------------------------------------------------------- |
-| `wing_copilot_tools`         | Chat, CLI, Azure MCP, Code Review, Web, VS Code talks                 |
-| `wing_customization_context` | Primitives, Hooks, Memory, SDK, MCP Apps talks                        |
-| `wing_agent_architecture`    | Agent Teams, ACP talks                                                |
-| `wing_agentic_sdlc`          | Workflows, Journey, SDLC, Enterprise Patterns talks                   |
-| `wing_exec_talks`            | Delivery, Economics, Labor talks                                      |
-| `wing_workshop`              | All workshop modules + persona decisions                              |
-| `wing_infra`                 | Slidev patterns, frontmatter rules, build gotchas, archival rationale |
-| `wing_rmathis`               | Editorial voice, framing philosophy, author taste decisions           |
-
----
-
-## Hall Reference
-
-| Hall               | Use for                                                                                 |
-| ------------------ | --------------------------------------------------------------------------------------- |
-| `hall_facts`       | Locked, confirmed decisions — build rules, encoding gotchas, transport protocol choices |
-| `hall_events`      | Milestones, archival decisions, major restructures with dates                           |
-| `hall_discoveries` | Breakthroughs — patterns that solved persistent problems                                |
-| `hall_preferences` | Author taste — framing choices, voice decisions, style calls                            |
-| `hall_advice`      | Patterns that consistently work — opener structures, slide counts, card descriptions    |
+| Bench                   | What lives here                                                       |
+| ----------------------- | --------------------------------------------------------------------- |
+| `copilot_tools`         | Chat, CLI, Azure MCP, Code Review, Web, VS Code talks                 |
+| `customization_context` | Primitives, Hooks, Memory, SDK, MCP Apps talks                        |
+| `agent_architecture`    | Agent Teams, ACP talks                                                |
+| `agentic_sdlc`          | Workflows, Journey, SDLC, Enterprise Patterns talks                   |
+| `exec_talks`            | Delivery, Economics, Labor talks                                      |
+| `workshop`              | All workshop modules + persona decisions                              |
+| `infra`                 | Slidev patterns, frontmatter rules, build gotchas, archival rationale |
+| `rmathis`               | Editorial voice, framing philosophy, author taste decisions           |
 
 ---
 
-## Content Change → MemPalace Update Protocol
+## Drawer Reference
+
+| Drawer        | Use for                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------- |
+| `facts`       | Locked, confirmed decisions — build rules, encoding gotchas, transport protocol choices |
+| `events`      | Milestones, archival decisions, major restructures with dates                           |
+| `discoveries` | Breakthroughs — patterns that solved persistent problems                                |
+| `preferences` | Author taste — framing choices, voice decisions, style calls                            |
+| `advice`      | Patterns that consistently work — opener structures, slide counts, card descriptions    |
+
+---
+
+## Content Change → Workbench Update Protocol
 
 When you update a content artifact, ask:
 
-1. **Does this change a confirmed fact?** → Update or add `hall_facts` entry
-2. **Does this retire or archive something?** → Write `hall_events` with date and rationale
-3. **Does this affect a cross-reference?** → Update the cross-reference table in `wing_infra/hall_facts`
-4. **Did you discover something new that would save time next session?** → Write `hall_discoveries` or `hall_advice`
+1. **Does this change a confirmed fact?** → Update or add `facts` entry
+2. **Does this retire or archive something?** → Write `events` with date and rationale
+3. **Does this affect a cross-reference?** → Update the cross-reference table in `infra/facts`
+4. **Did you discover something new that would save time next session?** → Write `discoveries` or `advice`
+5. **Topic-specific gate — did this session change anything about *this deck's content* that an agent reading only the deck would miss?** (framing decisions, audience misreads, ordering constraints, why a section was rejected) → Write to the matching topic bench (e.g. `agent_architecture/discoveries.md`). If the answer is just "we used component X" or "we fixed a Slidev gotcha," that belongs in `infra`, not the topic bench.
 
-If none of the above apply, no write is needed.
+If none of the above apply, no write is needed. **Empty topic benches are acceptable** — do not pre-create folders or invent thin entries to fill them.
 
 ---
 
 ## Cross-Reference Table
 
-Maintained in `wing_infra/hall_facts`. Topics covered in multiple artifacts — check for drift when updating either:
+Maintained in `infra/facts`. Topics covered in multiple artifacts — check for drift when updating either:
 
 - **MCP transport:** `05-mcp-servers`, `mcp-apps`
 - **Instructions files:** `01-instructions`, `copilot-primitives`
@@ -118,24 +120,24 @@ When updating a listed artifact: query the paired artifact to verify alignment b
 1. Pre-flight completes:
    README exists ✓ → not archived ✓ → TEMPLATE.md ✓ → SECTIONS.md ✓ → deck.recipe.yml ✓
 
-2. QUERY MemPalace (now):
+2. QUERY the Workbench (now):
    "What patterns or gotchas exist for [talk-slug]?"
-   → Returns: "cockpit wrapper eliminates HTML balance errors" (hall_discoveries)
-   → Returns: "Thank-you slide pattern: blur-2xl double-logo, gradient h1" (hall_advice)
+   → Returns: "cockpit wrapper eliminates HTML balance errors" (discoveries)
+   → Returns: "Thank-you slide pattern: blur-2xl double-logo, gradient h1" (advice)
    Apply these to generation.
 
 3. Generate slides.
 
-4. Session END — WRITE diary:
+4. Session END — WRITE drawer entry:
    "Discovered: agentic-sdlc opener stat (10-15 features/day) works best as hero number on slide 2"
-   → wing_agentic_sdlc / hall_discoveries
+   → agentic_sdlc / discoveries
 ```
 
 ---
 
-## MemPalace Is NOT
+## The Workbench Is NOT
 
 - ❌ A replacement for reading repo files — always confirm against source
-- ❌ A wake-up injection context (don't front-load sessions with palace dumps)
+- ❌ A wake-up injection context (don't front-load sessions with workbench dumps)
 - ❌ Copilot Memory (that's personal/cross-project preferences)
 - ❌ A content archive (use git history for that)

@@ -1,6 +1,27 @@
-# wing_infra / hall_facts
+# infra / facts
 
 Confirmed, locked facts about Slidev infrastructure, build rules, and structural gotchas.
+
+---
+
+## Slidev component registration when running decks from subdirectories (2026-04-14)
+
+`schema_version: 1` | `date: 2026-04-14`
+
+When running `slidev tech-talks/agentic-journey.md`, Slidev treats `tech-talks/` as the project root, not `slides/`. Consequences:
+
+- `<script setup>` blocks in the markdown file **only apply to slide 1**
+- Slides 2+ rely on global component registration via `setup/main.ts`
+- Slidev looks for `tech-talks/setup/main.ts`, NOT `slides/setup/main.ts`
+- Components must be in `tech-talks/components/`, NOT `slides/components/`
+
+**Fix pattern (applied per subdirectory-served deck):**
+1. Create `tech-talks/[talk]/components/` and copy shared components in
+2. Create `tech-talks/[talk]/setup/main.ts` that registers components globally
+3. Update deck imports to `./components/` not `../components/`
+4. Fix asset paths in the copied components (e.g. logo imports)
+
+Without this pattern, components only render on slide 1; slides 2+ fail with `[Vue warn]: Failed to resolve component: TitleSlide`. Confirmed working in agentic-journey.md.
 
 ---
 

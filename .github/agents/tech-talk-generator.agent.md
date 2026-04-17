@@ -126,7 +126,8 @@ After the user responds:
 
 1. Incorporate the user's selected outline, toggle choices, or structural edits
 2. Read `tech-talks/TEMPLATE.md` for complete structure (can be done in parallel with research)
-3. **Query Memory** — Read `memories/repo/wing_infra/hall_facts.md` and `hall_advice.md` for confirmed voice and framing patterns. If the topic maps to a content wing (e.g., `wing_agent_architecture`), read that hall too. Apply before drafting any section.
+3. **Query Memory** — Read `memories/infra/facts.md` and `advice.md` for confirmed voice and framing patterns. If the topic maps to a content bench (e.g., `agent_architecture`), read that drawer too. Apply before drafting any section.
+3a. **Workbench Update (session end)** — After the README and recipe are written, run the **Content Change → Workbench Update Protocol** in `.github/skills/workbench/SKILL.md`. Pay particular attention to question 5 (topic-specific gate): if this session produced a non-obvious framing or structural decision specific to this talk's content — something a future agent reading only the README would miss — write a short entry to the matching topic bench. Generic voice/build lessons go to `infra`. If neither applies, write nothing.
 4. Frame ONE clear question this talk answers
 4. Verify content fitness rubric (all must be 🟢 before proceeding)
 5. Download images if found: `python3 scripts/download-images.py <source_url> <output_dir> --limit 7`

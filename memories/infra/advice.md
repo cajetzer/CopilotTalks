@@ -1,6 +1,29 @@
-# wing_infra / hall_advice
+# infra / advice
 
 Patterns that consistently work for Slidev slide authoring and editing.
+
+---
+
+## Topic benches must defer to component files, never duplicate them (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+When writing to a topic bench (e.g. `agent_architecture/facts.md`), if the fact is encoded in a Vue component or shared helper (`useSectionTheme.ts`, any Tier-1 slide component, `useTheme.ts`), do NOT duplicate it in the drawer. Instead, write a one-line pointer at the top of the drawer naming the component as the source of truth.
+
+**Why:** drawers go stale silently. A color map written in 2026-04-08 still reads as authoritative in 2026-04-17 even after `useSectionTheme.ts` became canonical. An agent following the drawer can introduce drift no one notices until visual inconsistency surfaces.
+
+**Rule of thumb for topic benches — only write entries that satisfy ALL of:**
+- Not derivable by reading the deck file
+- Not encoded in any component or shared helper
+- Carries framing, audience, ordering, or rejection rationale a future agent would otherwise miss
+
+**Counter-examples (these belong in the deck or in `infra`, not a topic bench):**
+- "agent-teams Part 1 uses cyan" → in `useSectionTheme.ts`
+- "copilot-acp uses BeforeAfterMetricsSlide on s12" → visible in deck
+- "section openers don't get progress dots" → universal Slidev rule, lives in `infra/advice.md`
+
+**Good example (the keeper in `agent_architecture/facts.md`):**
+- "copilot-acp demo is MSBart2/cli-acp orchestrator web app, NOT a TypeScript SDK tutorial" — framing decision, only the URL is in the deck, agent would default to wrong interpretation otherwise.
 
 ---
 

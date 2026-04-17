@@ -1,4 +1,4 @@
-# wing_agentic_sdlc / hall_preferences
+# agentic_sdlc / preferences
 
 Author taste, framing choices, and editorial decisions for agentic SDLC talks.
 
