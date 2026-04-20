@@ -20,7 +20,10 @@ param(
     [string]$Deck
 )
 
-$ErrorActionPreference = "Stop"
+# NOTE: Using pre-expanded variables ($category, $baseName) instead of inline
+# expressions ($deck.Category) to avoid npx.ps1 shim parsing issues.
+# Using "Continue" to allow build to proceed despite shim warnings.
+$ErrorActionPreference = "Continue"
 
 # -Parallel requires PowerShell 7+
 if ($Parallel -and $PSVersionTable.PSVersion.Major -lt 7) {
@@ -128,103 +131,67 @@ if ($AllDecks.Count -eq 0) {
 Write-Host "   $($AllDecks.Count) deck(s) to build" -ForegroundColor Gray
 Write-Host ""
 
+# Always use job-based builds — jobs run in isolated runspaces which avoids
+# npx.ps1 shim's $MyInvocation.Statement parsing issues with PS variables.
+# ThrottleLimit controls concurrency: 4 for -Parallel, 1 for sequential.
+$throttle = if ($Parallel) { 4 } else { 1 }
 if ($Parallel) {
-    # Parallel build — start all jobs (throttled to 4), print each result as it finishes
-    Write-Host "   Building in parallel (4 at a time)..." -ForegroundColor Magenta
+    Write-Host "   Building in parallel ($throttle at a time)..." -ForegroundColor Magenta
     Write-Host ""
+}
 
-    $total = $AllDecks.Count
-    $completed = 0
+$total = $AllDecks.Count
+$completed = 0
 
-    # Start-ThreadJob with -ThrottleLimit queues jobs so at most 4 run at once
-    $jobs = $AllDecks | ForEach-Object {
-        $category = $_.Category
-        $baseName = $_.BaseName
-        Start-ThreadJob -ThrottleLimit 4 -ScriptBlock {
-            $category  = $using:category
-            $baseName  = $using:baseName
-            $SlidesDir = $using:SlidesDir
-            $OutputDir = $using:OutputDir
+$jobs = $AllDecks | ForEach-Object {
+    $category = $_.Category
+    $baseName = $_.BaseName
+    Start-ThreadJob -ThrottleLimit $throttle -ScriptBlock {
+        $category  = $using:category
+        $baseName  = $using:baseName
+        $SlidesDir = $using:SlidesDir
+        $OutputDir = $using:OutputDir
 
-            $start = Get-Date
-            Push-Location $SlidesDir
-            try {
-                $output = npx slidev build "$category/$baseName.md" `
-                    --base "/CopilotTraining/$category/$baseName/" `
-                    --out "$OutputDir/$category/$baseName" 2>&1
-                $exitCode = $LASTEXITCODE
-            } finally {
-                Pop-Location
-            }
-
-            $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
-            [pscustomobject]@{
-                Category = $category
-                BaseName = $baseName
-                Success  = ($exitCode -eq 0)
-                Elapsed  = $elapsed
-                Output   = $output
-            }
-        }
-    }
-
-    # Drain jobs one-at-a-time as they complete — gives live progress
-    $remaining = [System.Collections.Generic.List[object]]$jobs
-    while ($remaining.Count -gt 0) {
-        $done = Wait-Job -Job $remaining -Any
-        $r = Receive-Job $done
-        Remove-Job $done
-        $null = $remaining.Remove($done)
-        $completed++
-
-        if ($r.Success) {
-            Write-Host "   [$completed/$total] [OK] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Green
-        } else {
-            Write-Host "   [$completed/$total] [FAILED] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Red
-            $r.Output | Where-Object {
-                $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
-            } | ForEach-Object { Write-Host "      $_" -ForegroundColor DarkRed }
-        }
-        $TotalBuilt++
-    }
-} else {
-    # Sequential build
-    foreach ($deck in $AllDecks) {
-        $SlideStartTime = Get-Date
+        $start = Get-Date
         Push-Location $SlidesDir
         try {
-            if ($Verbose) {
-                Write-Host "   [HAMMER] $($deck.Category)/$($deck.BaseName)..." -ForegroundColor Yellow
-                npx slidev build "$($deck.Category)/$($deck.BaseName).md" `
-                    --base "/CopilotTraining/$($deck.Category)/$($deck.BaseName)/" `
-                    --out "$OutputDir/$($deck.Category)/$($deck.BaseName)" 2>&1 | Out-Host
-                $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
-                if ($LASTEXITCODE -eq 0) {
-                    Write-Host "   [OK] $($deck.Category)/$($deck.BaseName) built (${ElapsedSeconds}s)" -ForegroundColor Green
-                } else {
-                    Write-Host "   [FAILED] $($deck.Category)/$($deck.BaseName) (${ElapsedSeconds}s)" -ForegroundColor Red
-                }
-            } else {
-                Write-Host "   [HAMMER] $($deck.Category)/$($deck.BaseName)... " -NoNewline -ForegroundColor Yellow
-                $buildOutput = npx slidev build "$($deck.Category)/$($deck.BaseName).md" `
-                    --base "/CopilotTraining/$($deck.Category)/$($deck.BaseName)/" `
-                    --out "$OutputDir/$($deck.Category)/$($deck.BaseName)" 2>&1
-                $buildExitCode = $LASTEXITCODE
-                $ElapsedSeconds = [math]::Round(((Get-Date) - $SlideStartTime).TotalSeconds, 1)
-                if ($buildExitCode -eq 0) {
-                    Write-Host "[OK] ${ElapsedSeconds}s" -ForegroundColor Green
-                } else {
-                    Write-Host "[FAILED] ${ElapsedSeconds}s" -ForegroundColor Red
-                    $buildOutput | Where-Object {
-                        $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
-                    } | ForEach-Object { Write-Host "      $_" -ForegroundColor DarkRed }
-                }
-            }
+            $output = npx slidev build "$category/$baseName.md" `
+                --base "/CopilotTraining/$category/$baseName/" `
+                --out "$OutputDir/$category/$baseName" 2>&1
+            $exitCode = $LASTEXITCODE
         } finally {
             Pop-Location
         }
-        $TotalBuilt++
+
+        $elapsed = [math]::Round(((Get-Date) - $start).TotalSeconds, 1)
+        [pscustomobject]@{
+            Category = $category
+            BaseName = $baseName
+            Success  = ($exitCode -eq 0)
+            Elapsed  = $elapsed
+            Output   = $output
+        }
     }
+}
+
+# Drain jobs one-at-a-time as they complete — gives live progress
+$remaining = [System.Collections.Generic.List[object]]$jobs
+while ($remaining.Count -gt 0) {
+    $done = Wait-Job -Job $remaining -Any
+    $r = Receive-Job $done
+    Remove-Job $done
+    $null = $remaining.Remove($done)
+    $completed++
+
+    if ($r.Success) {
+        Write-Host "   [$completed/$total] [OK] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Green
+    } else {
+        Write-Host "   [$completed/$total] [FAILED] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Red
+        $r.Output | Where-Object {
+            $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
+        } | ForEach-Object { Write-Host "      $_" -ForegroundColor DarkRed }
+    }
+    $TotalBuilt++
 }
 
 Write-Host ""
