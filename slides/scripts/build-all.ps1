@@ -81,6 +81,7 @@ New-Item -ItemType Directory -Force -Path "$OutputDir/tech-talks" | Out-Null
 New-Item -ItemType Directory -Force -Path "$OutputDir/exec-talks" | Out-Null
 
 $TotalBuilt = 0
+$TotalFailed = 0
 $TotalSkipped = 0
 
 # Helper function to check if a slide is archived
@@ -190,6 +191,7 @@ while ($remaining.Count -gt 0) {
         $r.Output | Where-Object {
             $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
         } | ForEach-Object { Write-Host "      $_" -ForegroundColor DarkRed }
+        $TotalFailed++
     }
     $TotalBuilt++
 }
@@ -204,7 +206,12 @@ $TotalMinutes = [math]::Floor($TotalElapsedSeconds / 60)
 $RemainingSeconds = $TotalElapsedSeconds % 60
 
 Write-Host ""
-Write-Host "[DONE] $TotalBuilt presentations built, $TotalSkipped archived skipped." -ForegroundColor Green
+$successCount = $TotalBuilt - $TotalFailed
+if ($TotalFailed -gt 0) {
+    Write-Host "[DONE] $successCount/$TotalBuilt presentations built, $TotalFailed FAILED, $TotalSkipped archived skipped." -ForegroundColor Red
+} else {
+    Write-Host "[DONE] $TotalBuilt presentations built, $TotalSkipped archived skipped." -ForegroundColor Green
+}
 if ($TotalMinutes -gt 0) {
     Write-Host "[CLOCK] Total time: ${TotalMinutes}m ${RemainingSeconds}s" -ForegroundColor Cyan
 }
@@ -214,3 +221,5 @@ else {
 Write-Host "[BOX] Output location: $OutputDir" -ForegroundColor Gray
 Write-Host ""
 Write-Host "To preview locally, run: cd dist && python -m http.server 8080" -ForegroundColor Gray
+
+if ($TotalFailed -gt 0) { exit 1 }

@@ -46,10 +46,10 @@
     <div class="sv-title-logo">
       <!-- Logo glow (blurred copy behind) -->
       <div class="sv-title-logo-glow">
-        <img src="../sdp-logo.png" class="w-64" alt="" />
+        <img src="../../sdp-logo.png" class="w-64" alt="" />
       </div>
       <!-- Main logo (sharp, on top) -->
-      <img src="../sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
+      <img src="../../sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
     </div>
 
     <!-- Main title with gradient text effect -->
@@ -83,7 +83,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import { isDark } from './useTheme';
+import { isDark } from '../useTheme';
 
 defineProps({
   title: { type: String, required: true },

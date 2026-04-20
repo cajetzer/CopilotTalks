@@ -35,7 +35,7 @@
 
 <script setup>
 import { computed } from "vue";
-import { isDark } from './useTheme'
+import { isDark } from '../useTheme'
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -98,10 +98,10 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
       <div class="relative mb-2">
         <!-- Blurred background logo (glow) -->
         <div class="absolute inset-0 blur-2xl opacity-50">
-          <img src="../sdp-logo.png" class="w-28" alt="" />
+          <img src="../../sdp-logo.png" class="w-28" alt="" />
         </div>
         <!-- Main logo (sharp, on top) -->
-        <img src="../sdp-logo.png" class="w-28 relative" alt="SDP Logo" />
+        <img src="../../sdp-logo.png" class="w-28 relative" alt="SDP Logo" />
       </div>
 
       <!-- ===== HEADING ===== -->

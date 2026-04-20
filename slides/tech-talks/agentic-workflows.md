@@ -18,14 +18,14 @@ updated: 2026-03-05
 ---
 
 <script setup>
-import ThankYouSlide from './components/ThankYouSlide.vue'
-import TitleSlide from './components/TitleSlide.vue'
-import ReferencesSlide from './components/ReferencesSlide.vue'
-import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
-import TocSlide from './components/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
-import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
-import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
+import TitleSlide from './components/structure/TitleSlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
+import TocSlide from './components/structure/TocSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->

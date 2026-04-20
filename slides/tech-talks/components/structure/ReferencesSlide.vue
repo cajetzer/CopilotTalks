@@ -53,7 +53,7 @@
  */
 
 import { computed } from 'vue'
-import { isDark } from './useTheme'
+import { isDark } from '../useTheme'
 
 const DARK_COLORS = {
   cyan:   { title: "text-cyan-300",   link: "text-cyan-400 hover:text-cyan-300",     span: "text-cyan-400"   },

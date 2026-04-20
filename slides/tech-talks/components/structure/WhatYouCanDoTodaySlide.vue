@@ -36,7 +36,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { isDark } from './useTheme'
+import { isDark } from '../useTheme'
 
 // Hardcoded column definitions — labels and icons are canonical, not configurable
 const COLUMNS = [

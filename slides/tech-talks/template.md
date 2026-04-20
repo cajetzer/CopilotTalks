@@ -39,14 +39,14 @@ All component imports go in a single `<script setup>` block at the top of the de
 ```html
 <script setup>
 // Required scaffold (all decks)
-import TitleSlide from './components/TitleSlide.vue'
-import CoreQuestionSlide from './components/CoreQuestionSlide.vue'
-import TocSlide from './components/TocSlide.vue'
-import SectionOpenerSlide from './components/SectionOpenerSlide.vue'
-import BeforeAfterSlide from './components/BeforeAfterSlide.vue'
-import WhatYouCanDoTodaySlide from './components/WhatYouCanDoTodaySlide.vue'
-import ReferencesSlide from './components/ReferencesSlide.vue'
-import ThankYouSlide from './components/ThankYouSlide.vue'
+import TitleSlide from './components/structure/TitleSlide.vue'
+import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
+import TocSlide from './components/structure/TocSlide.vue'
+import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
+import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 
 // Tier-1 body-content components (import the ones you use; see catalog below)
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'

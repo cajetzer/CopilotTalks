@@ -36,7 +36,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { isDark } from './useTheme'
+import { isDark } from '../useTheme'
 
 const props = defineProps({
   header:      { type: String, required: true },
