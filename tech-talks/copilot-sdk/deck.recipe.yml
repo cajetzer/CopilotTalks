@@ -10,8 +10,42 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Understand the engine → Install and run it → Build real patterns → See it proved in production
+  sectionOrder:
+    - "How the SDK Works"
+    - "Installing and Using the SDK"
+    - "Building Tools with the SDK"
+    - "Real-World Use Cases"
+
+  sectionModes:
+    "How the SDK Works":
+      emphasis: high
+      note: >
+        This is the conceptual anchor — the JSON-RPC-over-stdio architecture diagram is the
+        "aha" moment that explains why the SDK is not just a thin wrapper but the full agent runtime.
+    "Installing and Using the SDK":
+      emphasis: medium-high
+      note: >
+        Move fast here; the audience is practitioners who can follow install steps on their own —
+        spend time on streaming and the CopilotClient constructor options, not pip install.
+    "Building Tools with the SDK":
+      emphasis: high
+      note: >
+        The highest-value section — three copy-pasteable patterns (CLI tool, web API, scheduled
+        automation) are what practitioners came for; give each pattern its full 60 seconds of air.
+    "Real-World Use Cases":
+      emphasis: medium-high
+      note: >
+        Close with proof: quantified before/after numbers (2 h → 10 min, 45 min → 5 min) land the
+        ROI argument and give the audience language to bring back to their managers.
+
   highlightMoments:
-    - Release notes automation: 2 hours → 10 minutes per release (92% time reduction)
-    - Test failure analysis: 45 minutes → 5 minutes per failed build
-    - Production-tested agent runtime as a library — no DIY agent infrastructure
-    - Embed agents directly in Node.js, Python, Go, .NET, CI/CD, and internal tools
+    - "Release notes automation: 2 hours → 10 minutes per release (92% time reduction)"
+    - "Production-tested agent runtime as a library — no DIY agent infrastructure to build"
+    - "One SDK import gives you full planning loops, tool orchestration, and multi-turn conversations"
+    - "Test failure analysis: 45 minutes → 5 minutes per failed build"
+    - "Same SDK, different deployment targets: CLI tools, web APIs, scheduled jobs, and bots"
+
+# OPEN DECISION: 'When to Use This Pattern' (decision tree section in README) is intentionally
+# excluded from sectionOrder — its content (CLI vs IDE vs SDK comparison table) fits better as
+# a backup slide or facilitator reference than as a primary audience-facing section at this talk length.

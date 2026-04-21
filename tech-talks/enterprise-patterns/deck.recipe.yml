@@ -8,9 +8,39 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Fragmented silos → org-wide standards → shared institutional knowledge → governed scale → measurable ROI
+  sectionOrder:
+    - "Organization-Wide Standards: Custom Instructions at Scale"
+    - "Organizational Skills & Knowledge Bases: Institutional Knowledge That Scales"
+    - "Governance & Licensing: Control, Compliance, and Cost Optimization"
+    - "Adoption & Enablement: Scaling Without Bottlenecks"
+
+  sectionModes:
+    "Organization-Wide Standards: Custom Instructions at Scale":
+      emphasis: high
+      note: >
+        The foundational fix — one instruction change reaches every repo instantly, ending team-by-team reinvention of security, framework, and quality rules.
+
+    "Organizational Skills & Knowledge Bases: Institutional Knowledge That Scales":
+      emphasis: medium
+      note: >
+        Shows how domain expertise (security validation, compliance checks, architecture review) compounds across teams rather than fragmenting inside individual repos.
+
+    "Governance & Licensing: Control, Compliance, and Cost Optimization":
+      emphasis: medium-high
+      note: >
+        Critical for regulated industries and cost-conscious leaders — model policies, compliance automation, and 30-40% cost reduction via flexible licensing strategies.
+
+    "Adoption & Enablement: Scaling Without Bottlenecks":
+      emphasis: high
+      note: >
+        The ROI payoff — metrics framework, self-service onboarding, and federated governance model that converts adoption data into a CFO-ready investment narrative.
+
   highlightMoments:
-    - 16x ROI from knowledge multiplication across teams via shared instructions
-    - 30-40% cost reduction via flexible licensing and entitlements strategy
-    - One org instruction change propagates to all repos instantly (no per-repo updates)
-    - Governance and safety through skills libraries and measured compliance
-    variant: standard
+    - "16x ROI from knowledge multiplication across teams via shared org instructions"
+    - "One org instruction change propagates to all repos instantly — no per-repo updates needed"
+    - "30-40% cost reduction via flexible licensing and entitlements strategy"
+    - "Metrics framework replaces anecdotes with acceptance rates, PR velocity, and cost-per-feature data"
+
+# OPEN DECISION: "The Problem" and "The Solution" sections are currently rendered as framing slides
+# before Part 1 rather than named recipe sections — promote them if intro framing needs more weight.

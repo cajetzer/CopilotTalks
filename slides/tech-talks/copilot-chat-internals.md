@@ -26,6 +26,9 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -145,113 +148,56 @@ highlight="DevTools for AI closes this gap."
 ---
 
 <!-- SLIDE: Agent Debug Panel vs Chat Debug View -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Agent Debug Panel</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">When to Use Each Tool</div>
-<div class="text-xs text-white/50">Complementary debugging layers—monitoring vs deep inspection</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-cyan-800/30 rounded-xl border-2 border-cyan-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">🎯</div>
-<div class="font-bold text-cyan-300">Agent Debug Panel</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-cyan-900/30 rounded">✅ Real-time streaming</div>
-<div class="p-2 bg-cyan-900/30 rounded">✅ Chart View visualization</div>
-<div class="p-2 bg-cyan-900/30 rounded">✅ Config load audit</div>
-<div class="p-2 bg-cyan-900/30 rounded">✅ Tool timing</div>
-<div class="p-2 bg-cyan-900/30 rounded">✅ Session history</div>
-</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-xl border-2 border-blue-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">🔍</div>
-<div class="font-bold text-blue-300">Chat Debug View</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-blue-900/30 rounded">✅ Deep response inspection</div>
-<div class="p-2 bg-blue-900/30 rounded">✅ Full system prompt</div>
-<div class="p-2 bg-blue-900/30 rounded">✅ Complete context</div>
-<div class="p-2 bg-blue-900/30 rounded">✅ Per-exchange details</div>
-<div class="p-2 bg-blue-900/30 rounded">❌ Static snapshots</div>
-</div>
-</div>
-</div>
-
-<div class="mt-4 p-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30 text-center">
-<div class="text-sm font-semibold text-green-300">Workflow: Keep Agent Debug Panel open during dev sessions, switch to Chat Debug View for specific deep-dives</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="Agent Debug Panel"
+  title="When to Use Each Tool"
+  :left='{
+    header: "Agent Debug Panel",
+    icon: "🎯",
+    items: ["Real-time streaming", "Chart View visualization", "Config load audit", "Tool timing", "Session history"]
+  }'
+  :right='{
+    header: "Chat Debug View",
+    icon: "🔍",
+    items: ["Deep response inspection", "Full system prompt", "Complete context", "Per-exchange details", "Static snapshots only"]
+  }'
+  :insight='{ icon: "💡", text: "Keep Agent Debug Panel open during dev sessions, switch to Chat Debug View for specific deep-dives." }'
+/>
 
 ---
 
 <!-- SLIDE: Use Case: Custom Instructions Not Loading -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Agent Debug Panel</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Real-World Impact: Configuration Errors</div>
-<div class="text-xs text-white/50">From 45 minutes of blind debugging to 4 minutes with evidence</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30">
-<div class="font-bold text-red-300 text-sm mb-1">❌ The Problem</div>
-<div class="text-xs text-gray-300">Team wrote custom instructions in <code class="bg-gray-800 px-1">.github/copilot-instructions.md</code> to enforce coding standards. Copilot generated code that violated those standards. Developers spent 45 minutes debugging prompts.</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30">
-<div class="font-bold text-green-300 text-sm mb-1">✅ The Solution</div>
-<div class="text-xs text-gray-300">Opened Agent Debug Panel → Loaded Customizations section → discovered YAML frontmatter syntax error on line 3 (missing colon after <code class="bg-gray-800 px-1">applyTo</code>). File failed to load entirely.</div>
-</div>
-
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-lg border border-blue-500/30">
-<div class="font-bold text-blue-300 text-sm mb-1">🔧 Implementation</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. Gear icon → View Agent Logs</div>
-<div>2. Check "Loaded Customizations"</div>
-<div>3. See error: "YAML parse line 3"</div>
-<div>4. Fix syntax, verify ✅ status</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 text-sm mb-1">📊 Outcome</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div><span class="text-green-400 font-bold">4 minutes</span> instead of 45</div>
-<div><span class="text-green-400 font-bold">41 min savings</span> per error</div>
-<div>Team average: 2/week</div>
-<div><span class="text-cyan-400 font-bold">~1.4 hr/week saved</span></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="Agent Debug Panel"
+  title="Real-World Impact: Configuration Errors"
+  :problem='{
+    header: "Problem",
+    items: [
+      { title: "Custom instructions silently ignored", detail: "Team wrote .github/copilot-instructions.md to enforce coding standards — Copilot generated code that violated them" },
+      { title: "45 minutes of blind debugging", detail: "Developers had no way to find why instructions were not being applied" }
+    ]
+  }'
+  :solution='{
+    header: "Solution",
+    items: [
+      { title: "Opened Agent Debug Panel", detail: "Gear icon → View Agent Logs → Loaded Customizations section" },
+      { title: "Discovered YAML syntax error on line 3", detail: "Missing colon after applyTo — file failed to load entirely" },
+      { title: "Fixed syntax and verified green status", detail: "Confirmed file loading with clear error message and line number" }
+    ]
+  }'
+  :outcome='{
+    header: "Outcome",
+    items: [
+      { title: "4 minutes instead of 45", detail: "91% reduction in debug time — from blind searching to root cause" },
+      { title: "Team saves ~1.4 hr/week", detail: "2 configuration errors per week × 41 minutes saved each" }
+    ]
+  }'
+  :insight='{ icon: "💡", text: "Agent Debug Panel shows exactly which customization files loaded, which failed, and why — ending silent configuration failures." }'
+/>
 
 ---
 
@@ -320,125 +266,65 @@ highlight="DevTools for AI closes this gap."
 ---
 
 <!-- SLIDE: Thinking Tokens & Context -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔍 Request Inspection</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Thinking Tokens & Context Window</div>
-<div class="text-xs text-white/50">See how the model reasons, manage context space</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-1 text-sm">🧠 Thinking Tokens</div>
-<div class="text-xs text-gray-300 mb-2">Models like Claude, o-series show internal reasoning before generating responses</div>
-<div class="text-xs text-indigo-200/70 space-y-1">
-<div>• Problem decomposition</div>
-<div>• Tool selection logic</div>
-<div>• Context evaluation</div>
-<div>• Uncertainty signals</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-1 text-sm">⚙️ Enable Thinking Display</div>
-<div class="text-xs text-gray-300">Setting: <code class="bg-gray-800 px-1">chat.renderThinking</code></div>
-<div class="text-xs text-purple-200/70 mt-1 space-y-1">
-<div>• "collapsed" (default)</div>
-<div>• "expanded" (auto-show)</div>
-<div>• "hidden" (suppress)</div>
-</div>
-</div>
-</div>
-
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/30 rounded-lg border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-1 text-sm">📊 Context Window Indicator (v1.110)</div>
-<div class="text-xs text-gray-300 mb-2">Visual percentage + token breakdown by category</div>
-<div class="text-xs text-cyan-200/70 space-y-1">
-<div>&lt;60%: Healthy</div>
-<div>60-80%: Monitor</div>
-<div>&gt;80%: /compact or start fresh</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-lg border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-1 text-sm">🔧 Context Commands</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div><code class="bg-gray-800 px-1">/compact</code> — Compress history (95% → 42%)</div>
-<div><code class="bg-gray-800 px-1">/fork</code> — Branch conversation, explore alternatives</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="🔍"
+  pillLabel="Request Inspection"
+  title="Thinking Tokens & Context Window"
+  :left='{
+    header: "Model Reasoning",
+    icon: "🧠",
+    items: [
+      { title: "Thinking Tokens", detail: "Models like Claude and o-series show internal reasoning before generating responses" },
+      { title: "What you see", detail: "Problem decomposition, tool selection logic, context evaluation, uncertainty signals" },
+      { title: "Enable display", detail: "Settings: chat.renderThinking — collapsed (default), expanded (auto-show), or hidden" }
+    ]
+  }'
+  :right='{
+    header: "Context Management",
+    icon: "📊",
+    items: [
+      { title: "Context Window Indicator (v1.110)", detail: "Visual percentage + token breakdown by category" },
+      { title: "Health thresholds", detail: "<60% healthy · 60-80% monitor · >80% use /compact or start fresh" },
+      { title: "/compact", detail: "Compress conversation history (95% → 42%)" },
+      { title: "/fork", detail: "Branch conversation to explore alternatives without losing the main thread" }
+    ]
+  }'
+/>
 
 ---
 
 <!-- SLIDE: Use Case: Thinking Reveals Prompt Ambiguity -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔍 Request Inspection</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Real-World Impact: Prompt Debugging</div>
-<div class="text-xs text-white/50">From 30 minutes of trial-and-error to 5 minutes with model reasoning</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30">
-<div class="font-bold text-red-300 text-sm mb-1">❌ The Problem</div>
-<div class="text-xs text-gray-300">Request for "add caching" produced incorrect Redis implementation when team used in-memory caching. Developer couldn't understand why Copilot chose wrong approach.</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30">
-<div class="font-bold text-green-300 text-sm mb-1">✅ The Solution</div>
-<div class="text-xs text-gray-300">Enabled thinking token display (<code class="bg-gray-800 px-1">chat.renderThinking: expanded</code>). Model reasoning showed: "User mentioned caching—Redis is industry standard for distributed systems." Realized prompt didn't specify in-memory requirement.</div>
-</div>
-
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 text-sm mb-1">🔧 Implementation</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. Settings → <code class="bg-gray-800 px-1">renderThinking</code> → "expanded"</div>
-<div>2. Re-run original prompt</div>
-<div>3. Read thinking tokens</div>
-<div>4. Refine: "add in-memory caching using Map"</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 text-sm mb-1">📊 Outcome</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div><span class="text-green-400 font-bold">5 minutes</span> with thinking</div>
-<div>vs <span class="text-red-400">30 min</span> trial-and-error</div>
-<div><span class="text-cyan-400 font-bold">80% faster</span> prompt debug</div>
-<div>Evidence-based refinement</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="2"
+  pillIcon="🔍"
+  pillLabel="Request Inspection"
+  title="Real-World Impact: Prompt Debugging"
+  :problem='{
+    header: "Problem",
+    items: [
+      { title: "Wrong implementation from ambiguous prompt", detail: "Request for add caching produced Redis implementation when team used in-memory caching" },
+      { title: "30 minutes of trial-and-error", detail: "Developer had no way to understand why Copilot chose the wrong approach" }
+    ]
+  }'
+  :solution='{
+    header: "Solution",
+    items: [
+      { title: "Enabled thinking token display", detail: "Settings: chat.renderThinking set to expanded" },
+      { title: "Read model reasoning", detail: "Thinking showed: User mentioned caching — Redis is industry standard for distributed systems" },
+      { title: "Identified prompt ambiguity", detail: "Prompt did not specify in-memory requirement — model made a reasonable default assumption" },
+      { title: "Refined prompt", detail: "add in-memory caching using Map — correct result on first try" }
+    ]
+  }'
+  :outcome='{
+    header: "Outcome",
+    items: [
+      { title: "5 minutes vs 30 minutes", detail: "80% faster prompt debugging with evidence-based refinement" },
+      { title: "Replaced guesswork with reasoning", detail: "Thinking tokens reveal why the model decided what it decided" }
+    ]
+  }'
+  :insight='{ icon: "💡", text: "Thinking tokens reveal model reasoning — turning prompt debugging from guesswork into evidence-based refinement." }'
+/>
 
 ---
 
@@ -459,112 +345,63 @@ highlight="DevTools for AI closes this gap."
 ---
 
 <!-- SLIDE: Diagnostics View & Extension Logs -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Config & Infrastructure</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Configuration & Deep Debugging</div>
-<div class="text-xs text-white/50">Validate config files, troubleshoot network and auth</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-1 text-sm">⚙️ Diagnostics View</div>
-<div class="text-xs text-gray-300 mb-2">Verify custom agents, instructions, prompts, skills load successfully</div>
-<div class="text-xs text-indigo-200/70 space-y-1">
-<div>• All active customization files</div>
-<div>• Load status (✅/❌)</div>
-<div>• Error messages & line numbers</div>
-<div>• Application order</div>
-</div>
-<div class="mt-2 text-xs bg-gray-900/50 p-2 rounded">Chat view → right-click → <span class="text-indigo-300 font-semibold">Diagnostics</span></div>
-</div>
-</div>
-
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-1 text-sm">📜 Extension Logs (Trace Mode)</div>
-<div class="text-xs text-gray-300 mb-2">Deep troubleshooting for infrastructure issues</div>
-<div class="text-xs text-purple-200/70 space-y-1">
-<div>• Network requests/responses</div>
-<div>• Authentication status</div>
-<div>• Error stack traces</div>
-<div>• Performance timing</div>
-</div>
-<div class="mt-2 text-xs bg-gray-900/50 p-2 rounded">Developer: Set Log Level → <span class="text-purple-300 font-semibold">Trace</span></div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 grid grid-cols-4 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-r from-red-600/80 to-orange-600/80 rounded text-center text-white font-semibold">Agent not available → YAML error</div>
-<div class="p-2 bg-gradient-to-r from-orange-600/80 to-amber-600/80 rounded text-center text-white font-semibold">Instructions ignored → Wrong location</div>
-<div class="p-2 bg-gradient-to-r from-amber-600/80 to-yellow-600/80 rounded text-center text-white font-semibold">Skills not triggering → Glob mismatch</div>
-<div class="p-2 bg-gradient-to-r from-yellow-600/80 to-green-600/80 rounded text-center text-white font-semibold">Copilot not responding → Network/auth</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="⚙️"
+  pillLabel="Config & Infrastructure"
+  title="Configuration & Deep Debugging"
+  :left='{
+    header: "Diagnostics View",
+    icon: "⚙️",
+    items: [
+      { title: "All active customization files", detail: "Custom agents, instructions, prompts, and skills with load status" },
+      { title: "Error messages & line numbers", detail: "Exact failure point for YAML and configuration errors" },
+      { title: "Application order", detail: "See which files apply and in what sequence" },
+      "Access: Chat view → right-click → Diagnostics"
+    ]
+  }'
+  :right='{
+    header: "Extension Logs (Trace Mode)",
+    icon: "📜",
+    items: [
+      { title: "Network requests & responses", detail: "Full request payloads and response data for connectivity issues" },
+      { title: "Authentication status", detail: "Token validation, session state, proxy configuration" },
+      { title: "Error stack traces & performance timing", detail: "Root cause details for infrastructure failures" },
+      "Access: Developer: Set Log Level → Trace"
+    ]
+  }'
+  :insight='{ icon: "🔍", text: "Agent not available? YAML error. Instructions ignored? Wrong location. Skills not triggering? Glob mismatch. Copilot not responding? Network/auth." }'
+/>
 
 ---
 
 <!-- SLIDE: MCP Servers & Network Diagnostics -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Config & Infrastructure</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">External Tools & Network</div>
-<div class="text-xs text-white/50">Manage MCP servers, diagnose connectivity</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="p-4 bg-gradient-to-br from-pink-900/40 to-pink-800/30 rounded-xl border border-pink-500/30">
-<div class="font-bold text-pink-300 mb-2 text-sm">🔌 MCP Server Management</div>
-<div class="text-xs text-gray-300 mb-2">MCP servers extend Copilot with external capabilities—databases, APIs, custom tools</div>
-<div class="text-xs text-pink-200/70 space-y-1 mb-2">
-<div><span class="text-white font-semibold">Status:</span> Running/Stopped/Error</div>
-<div><span class="text-white font-semibold">Actions:</span> Show Output, Restart, Stop</div>
-</div>
-<div class="text-xs bg-gray-900/50 p-2 rounded">Cmd: <span class="text-pink-300 font-semibold">MCP: List Servers</span></div>
-</div>
-
-<div class="p-4 bg-gradient-to-br from-rose-900/40 to-rose-800/30 rounded-xl border border-rose-500/30">
-<div class="font-bold text-rose-300 mb-2 text-sm">🌐 Network Diagnostics</div>
-<div class="text-xs text-gray-300 mb-2">For firewall, VPN, proxy issues</div>
-<div class="text-xs text-rose-200/70 space-y-1 mb-2">
-<div>• Endpoint connectivity</div>
-<div>• Proxy configuration</div>
-<div>• Certificate validation</div>
-<div>• Authentication tokens</div>
-</div>
-<div class="text-xs bg-gray-900/50 p-2 rounded">Cmd: <span class="text-rose-300 font-semibold">GitHub Copilot: Collect Diagnostics</span></div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl border border-indigo-500/30">
-<div class="text-xs font-semibold text-indigo-300 mb-1">Real-World: MCP Server Timeout (3-5 hr/day savings)</div>
-<div class="text-xs text-gray-300">Custom agent using database schema MCP server started failing intermittently. No error message—agent just returned generic code. MCP: List Servers → Show Output revealed connection timeout (5s) due to VPN latency. Increased timeout to 15s. Reliability: 60% → 99%. Saved 3-5 retries per query × 20 queries/day = <span class="text-green-400 font-bold">1-1.5 hr/day saved</span> for team of 4.</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="⚙️"
+  pillLabel="Config & Infrastructure"
+  title="External Tools & Network"
+  :left='{
+    header: "MCP Server Management",
+    icon: "🔌",
+    items: [
+      { title: "Status monitoring", detail: "Running / Stopped / Error — real-time server health" },
+      { title: "Actions", detail: "Show Output, Restart, Stop for each configured MCP server" },
+      "Command: MCP: List Servers"
+    ]
+  }'
+  :right='{
+    header: "Network Diagnostics",
+    icon: "🌐",
+    items: [
+      { title: "Endpoint connectivity", detail: "Verify access to GitHub Copilot API endpoints" },
+      { title: "Proxy & certificate validation", detail: "Identify firewall, VPN, and certificate issues" },
+      { title: "Authentication tokens", detail: "Check token validity and session state" },
+      "Command: GitHub Copilot: Collect Diagnostics"
+    ]
+  }'
+  :insight='{ icon: "💡", text: "Real-world win: MCP server timeout raised from 5s to 15s over VPN boosted reliability from 60% to 99% — saving a team of 4 up to 1.5 hr/day." }'
+/>
 
 ---
 
@@ -585,70 +422,19 @@ highlight="DevTools for AI closes this gap."
 ---
 
 <!-- SLIDE: Common Troubleshooting Workflows -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Troubleshooting Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<span class="text-white/40 text-xs ml-1">1 of 1</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Systematic Diagnostic Workflows</div>
-<div class="text-xs text-white/50">Four common scenarios with proven step-by-step patterns</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/30 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-1 text-sm">1️⃣ "Copilot Ignores My Instructions"</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. Open Diagnostics (right-click Chat)</div>
-<div>2. Verify file listed & loaded</div>
-<div>3. Open Chat Debug View</div>
-<div>4. Check instructions in context</div>
-<div><span class="text-purple-200">Common:</span> Wrong location, YAML error, truncated</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-pink-800/30 rounded-lg border border-pink-500/30">
-<div class="font-bold text-pink-300 mb-1 text-sm">2️⃣ "Wrong Files in Context"</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. Open Chat Debug View</div>
-<div>2. Expand context section</div>
-<div>3. Review actual files included</div>
-<div><span class="text-pink-200">Common:</span> @workspace unexpected, #file path wrong</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-rose-900/40 to-rose-800/30 rounded-lg border border-rose-500/30">
-<div class="font-bold text-rose-300 mb-1 text-sm">3️⃣ "Tool Invocation Failed"</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. Open Chat Debug View</div>
-<div>2. Expand tool invocations</div>
-<div>3. Check error message</div>
-<div><span class="text-rose-200">Common:</span> MCP server down, auth failure, bad input</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-fuchsia-900/40 to-fuchsia-800/30 rounded-lg border border-fuchsia-500/30">
-<div class="font-bold text-fuchsia-300 mb-1 text-sm">4️⃣ "Response Doesn't Match Codebase"</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. Open Chat Debug View</div>
-<div>2. Check context sent</div>
-<div>3. Verify instructions mention patterns</div>
-<div><span class="text-fuchsia-200">Common:</span> Relevant files missing, context limit reached</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30 text-center">
-<div class="text-sm font-semibold text-green-300">Mental Model Shift: From "AI responses are unpredictable black boxes" to "Every interaction is inspectable, debuggable, and improvable"</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="4"
+  pillIcon="🔧"
+  pillLabel="Troubleshooting Patterns"
+  title="Systematic Diagnostic Workflows"
+  :cards='[
+    { icon: "1️⃣", title: "Copilot Ignores My Instructions", description: "Open Diagnostics → verify file loaded → open Chat Debug View → check instructions in context. Common: wrong location, YAML error, or truncated." },
+    { icon: "2️⃣", title: "Wrong Files in Context", description: "Open Chat Debug View → expand context section → review actual files included. Common: @workspace unexpected, #file path wrong." },
+    { icon: "3️⃣", title: "Tool Invocation Failed", description: "Open Chat Debug View → expand tool invocations → check error message. Common: MCP server down, auth failure, bad input schema." },
+    { icon: "4️⃣", title: "Response Does Not Match Codebase", description: "Open Chat Debug View → check context sent → verify instructions mention patterns. Common: relevant files missing, context limit reached." }
+  ]'
+  :insight='{ icon: "🎯", text: "From black-box AI responses to inspectable, debuggable interactions — every AI interaction is observable and improvable." }'
+/>
 
 ---
 

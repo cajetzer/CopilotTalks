@@ -16,30 +16,50 @@ deck:
   toc:
     enabled: true
 
-  # Section ordering from major sections
+  # Narrative arc: WHY the shift matters → HOW to explore the ecosystem → CODIFY as team
+  # infrastructure (manifest + lockfile together) → ACT with concrete next steps.
+  # "The Opportunity" earns audience attention before any CLI syntax appears.
+  # "What You Can Do Today" closes on action, not theory — a reading list cannot compete.
+  # "The Lockfile Pattern" folds into "Building an APM Manifest" as its natural conclusion.
   sectionOrder:
+    - "The Opportunity"
     - "CLI-First Plugin Management"
     - "Building an APM Manifest"
-    - "The Lockfile Pattern"
-    - "Discovery and Community Resources"
+    - "What You Can Do Today"
 
   # Emphasis modes for specific sections
   sectionModes:
+    "The Opportunity":
+      emphasis: medium-high
+      note: >
+        Frame the paradigm shift — per-developer configuration → per-repository configuration —
+        before any CLI commands appear; audience buy-in here determines whether the technical
+        sections land as "interesting" or "essential."
     "CLI-First Plugin Management":
-      emphasis: high  # This is the core CLI-first framing
+      emphasis: high
+      note: >
+        Live-demo apm marketplace browse and copilot plugin install; this is the audience's
+        first hands-on contact with the ecosystem and sets the CLI-first tone for the rest
+        of the talk.
     "Building an APM Manifest":
-      emphasis: high  # The key "configuration as code" shift
-    "The Lockfile Pattern":
-      emphasis: medium  # Important for team workflow
-    "Discovery and Community Resources":
-      emphasis: medium  # Supporting discovery workflow
+      emphasis: high
+      note: >
+        Walk through a complete apm.yml with plugins, instructions, skills, and MCP servers,
+        then close with the lockfile pattern as the natural capstone of "configuration as code" —
+        treat apm-lock.yml like package-lock.json, not an implementation detail.
+    "What You Can Do Today":
+      emphasis: medium-high
+      note: >
+        Deliver a concrete action ladder — try one plugin locally, add apm.yml to one repo,
+        review the lockfile diff on the next PR — so every attendee leaves with a step they
+        can take within the hour.
 
   # What to emphasize most (3-5 key points readers/audiences should remember)
   highlightMoments:
-    - "copilot plugin install vs apm install — when to use each"
-    - "Configuration as code: apm.yml belongs in version control"
-    - "Lockfiles prevent 'works on my machine' for AI configuration"
-    - "CLI-first workflow: discover, install, validate from the terminal"
+    - "copilot plugin install for exploration; apm install for team-wide reproducibility — two tools, two scopes"
+    - "apm.yml is infrastructure: commit it to version control alongside your code, not in a wiki page"
+    - "Lockfiles make 'works on my machine' impossible for AI configuration — apm-lock.yml is non-negotiable"
+    - "The complete onboarding: git clone && apm install gives every contributor identical AI context, zero manual steps"
 
   # References section
   references:
@@ -50,3 +70,10 @@ deck:
   thankYou:
     enabled: true
     variant: standard
+
+# OPEN DECISION: Should "The Lockfile Pattern" be restored as a standalone fourth section
+# (displacing "What You Can Do Today")?
+# Current choice: lockfile coverage folds into "Building an APM Manifest" to preserve an
+# action-oriented close. Restore as standalone only if audience feedback shows teams are
+# struggling specifically with lockfile drift rather than with initial manifest adoption —
+# i.e., once apm.yml is widely used, the lockfile deserves its own spotlight.

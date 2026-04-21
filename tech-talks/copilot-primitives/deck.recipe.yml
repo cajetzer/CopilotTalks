@@ -8,9 +8,40 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Always-on foundation → on-demand expertise → invoked workflows → orchestrated personas
+  sectionOrder:
+    - "Instructions: The Foundation"
+    - "Skills: On-Demand Expertise"
+    - "Custom Prompts: Reusable Workflows"
+    - "Agents: Specialized AI Personas"
+
+  sectionModes:
+    "Instructions: The Foundation":
+      emphasis: high
+      note: >
+        The entry-level win — five minutes to a repo-aware Copilot; covers all three instruction surfaces
+        including AGENTS.md as the open agent playbook.
+    "Skills: On-Demand Expertise":
+      emphasis: medium
+      note: >
+        On-demand capability packs loaded by AI relevance matching; keep to two slides to preserve pacing.
+    "Custom Prompts: Reusable Workflows":
+      emphasis: medium
+      note: >
+        Developer-invoked task templates that encode repeatable workflows; the component-generator example
+        makes the value concrete.
+    "Agents: Specialized AI Personas":
+      emphasis: medium-high
+      note: >
+        Orchestration peak — constrained tools, handoffs, and advanced patterns; positions agents as
+        the ceiling, not the starting point.
+
   highlightMoments:
-    - Progressive loading keeps context efficient (Instructions → Skills → Prompts → Agents)
-    - Five minutes to transform Copilot behavior with instructions alone
-    - Layered architecture enables specialization without context bloat
-    - Choosing the right primitive for your use case and team maturity
-    variant: standard
+    - "Five minutes to transform Copilot behavior with a single instructions file"
+    - "Three instruction surfaces — repo-wide, path-specific, AGENTS.md — each a different selector"
+    - "Progressive loading keeps context efficient: Instructions always-on, Skills on-demand, Prompts invoked, Agents orchestrated"
+    - "Choosing the right primitive prevents over-engineering — 80% of teams need instructions first"
+
+# OPEN DECISION: Whether to surface the Before/After and Choosing the Right Primitive closing slides
+# as a fifth synthesizing section or keep them as unattributed tail slides. Current recipe treats
+# them as tail slides; revisit if audiences ask for a clearer decision-framework anchor.

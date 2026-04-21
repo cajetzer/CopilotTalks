@@ -10,8 +10,41 @@ deck:
   intro:
     mode: core-question
 
+  # Narrative arc: establish the mechanism → show the one hook that prevents vs. observes →
+  # prove the audit trail for compliance → land real regulated-industry patterns audiences can deploy today
+  sectionOrder:
+    - "Phase 1: Lifecycle Control"
+    - "Phase 2: Preventive Enforcement with `PreToolUse`"
+    - "Phase 3: Observability & Audit Trail"
+    - "Phase 4: Real-World Implementation Patterns"
+
+  sectionModes:
+    "Phase 1: Lifecycle Control":
+      emphasis: medium
+      note: >
+        Move briskly — audiences familiar with event systems grasp the eight lifecycle moments quickly; use this section to build the mental model, not dwell on it.
+    "Phase 2: Preventive Enforcement with `PreToolUse`":
+      emphasis: high
+      note: >
+        Linger here — PreToolUse is the only hook that can deny execution before it happens, and that preventive distinction is the central insight that justifies the entire talk.
+    "Phase 3: Observability & Audit Trail":
+      emphasis: medium-high
+      note: >
+        Compliance officers need concrete proof; show JSON Lines logging and jq queries as deployable evidence of a complete audit trail for SOC 2 and HIPAA.
+    "Phase 4: Real-World Implementation Patterns":
+      emphasis: medium-high
+      note: >
+        Close with HIPAA, SOC 2, and multi-tenant patterns — copy-paste configurations the audience can deploy within hours of leaving the room.
+
   highlightMoments:
-    - 8 lifecycle hook events provide complete governance from SessionStart to Stop
-    - PreToolUse enables preventive enforcement — deny operations before execution
-    - SOC 2, HIPAA, PCI-DSS audit trails without slowing agent velocity
-    - Hooks execute in <2 seconds per operation — governance without velocity loss
+    - "PreToolUse is the only hook that can deny execution before it happens — every other approach is post-incident"
+    - "Eight lifecycle events span SessionStart to Stop, giving complete governance coverage with no gaps"
+    - "JSON Lines logging enables direct jq queries and SIEM integration for SOC 2 / HIPAA audit trails"
+    - "Hooks execute synchronously in <2 seconds — governance without velocity loss"
+    - "Context injection at SessionStart eliminates manual agent setup for project-specific rules and secrets"
+
+# OPEN DECISION: Phase 5 (Advanced Integration Patterns) and Real-World Use Cases exist in the README
+# but have no corresponding slide parts in the current deck. Consider whether to add a fifth section
+# covering multi-system integration (Splunk, Datadog, PagerDuty webhook patterns) or collapse those
+# topics into Part 4. Current 45-minute runtime likely cannot accommodate a fifth section without
+# cutting Part 3 detail — recommend merging the strongest integration patterns into Part 4 instead.

@@ -4,6 +4,27 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## copilot-chat-internals conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-chat-internals.md` promoted to 🟢 Conformed status.
+
+- **Slide 6** (Agent Debug Panel vs Chat Debug View) → `<TwoColPairedConceptsSlide>` partNumber=1, string items
+- **Slide 7** (Custom Instructions Not Loading) → `<ProblemSolutionOutcomeSlide>` partNumber=1
+- **Slide 10** (Thinking Tokens & Context) → `<TwoColPairedConceptsSlide>` partNumber=2, `{ title, detail }` items
+- **Slide 11** (Thinking Reveals Prompt Ambiguity) → `<ProblemSolutionOutcomeSlide>` partNumber=2
+- **Slide 13** (Diagnostics View & Extension Logs) → `<TwoColPairedConceptsSlide>` partNumber=3, mixed string + `{ title, detail }` items
+- **Slide 14** (MCP Servers & Network Diagnostics) → `<TwoColPairedConceptsSlide>` partNumber=3
+- **Slide 16** (Common Troubleshooting Workflows) → `<FourCardGridSlide>` partNumber=4
+- **Slides 5 & 9** kept raw HTML — 6-card grid exceeds FourCardGridSlide limit; slide 9 pipeline stack awaits ConceptStackSlide component
+
+**Build gotcha:** Multiple apostrophes in contractions (couldn't, weren't, didn't, Doesn't) inside single-quoted `:prop='...'` bindings each caused `Unterminated string constant`. Fixed one per build iteration. Rule reinforced: **scan all new prop strings for contractions before building** — replace with "could not", "were not", "did not", "does not".
+
+**Build:** ✓ 2.54s, no errors.
+
+---
+
 ## copilot-acp conformed (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

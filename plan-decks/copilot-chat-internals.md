@@ -1,8 +1,8 @@
 # Deck: copilot-chat-internals
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — build verified ✓
 **Deck file:** `slides/tech-talks/copilot-chat-internals.md`
-**Raw HTML slides:** 10 (out of 20 total)
+**Raw HTML slides converted:** 7 of 10 (slides 5 kept raw — 6-card grid exceeds FourCardGridSlide limit; slide 9 kept raw — ConceptStackSlide not yet built)
 
 ---
 

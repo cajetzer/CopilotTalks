@@ -10,8 +10,42 @@ deck:
   intro:
     mode: core-question
 
+  # Narrative arc: hook (stateless pain) → mechanism (how memory works) → activation (enable + manage) →
+  # decision framework (what to store) → guardrails + CTA (privacy, hygiene, and first actions).
+  # Peak engagement lands in "What to Store" — that's where developers make the behavioral shift.
+  sectionOrder:
+    - "How Copilot Memory Works"
+    - "Enabling and Managing Copilot Memory"
+    - "What to Store in Memory"
+    - "Privacy, Security, and Effective Usage"
+
+  sectionModes:
+    "How Copilot Memory Works":
+      emphasis: high
+      note: >
+        The mechanism — tool architecture, storage decision logic, and semantic retrieval — is the cognitive foundation everything else depends on; spend time here.
+    "Enabling and Managing Copilot Memory":
+      emphasis: medium
+      note: >
+        Setup is a single JSON toggle; keep this section brisk and use the management UI demo as the main engagement point.
+    "What to Store in Memory":
+      emphasis: high
+      note: >
+        The decision framework (Persistence Test, ideal vs. anti-patterns) is the most actionable takeaway — slow down and let the audience map examples to their own workflows.
+    "Privacy, Security, and Effective Usage":
+      emphasis: medium-high
+      note: >
+        This section doubles as guardrails AND the CTA payoff (Real-World Impact, Before/After, What You Can Do Today) — front-load the privacy model briefly, then pivot hard into the call to action.
+
   highlightMoments:
-    - Preferences persist across all sessions (IDE, CLI, web) via GitHub account
-    - Semantic retrieval activates memories based on meaning, not keywords
-    - Cross-environment sync spans VS Code, GitHub.com, and GitHub CLI instantly
-    - 28-day auto-expiration with manual override to prevent stale preferences
+    - Semantic retrieval applies memories by meaning, not keywords — "prefer functional components" activates even when you never say "functional"
+    - One toggle enables cross-session persistence across VS Code, GitHub.com, and GitHub CLI simultaneously
+    - Store once, benefit forever — 2-minute investment eliminates 5–10 minutes of context re-setup per session indefinitely
+    - Memory (personal) + Custom Instructions (team) compose cleanly — team consistency with individual style on top
+    - 28-day auto-expiration prompts periodic preference refresh, preventing stale context from silently degrading suggestions
+
+# OPEN DECISION: Part 4 ("Privacy, Security, and Effective Usage") currently carries 6 slides
+# and blends two distinct jobs — security guardrails + audience activation (CTA). Consider
+# splitting into a 5-section deck by extracting "Real-World Impact / Before/After / What You Can
+# Do Today" into a dedicated "Your First Week with Memory" closer, or trimming the privacy slides
+# to 2 and giving the CTA material more breathing room within the 40-minute slot.

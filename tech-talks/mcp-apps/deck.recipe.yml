@@ -10,8 +10,43 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: See the palette → Build the server → Apply the patterns → Prove the value
+  sectionOrder:
+    - "Component Types Deep-Dive"
+    - "Building MCP Apps"
+    - "Real-World Patterns"
+    - "Real-World Use Cases"
+
+  sectionModes:
+    "Component Types Deep-Dive":
+      emphasis: medium-high
+      note: >
+        Establish the visual vocabulary — five component types developers will reach for repeatedly;
+        move briskly through the catalog so the audience arrives at Building MCP Apps with a clear
+        mental model of what the palette offers.
+    "Building MCP Apps":
+      emphasis: high
+      note: >
+        The constructive core: server setup, returning component specs, and wiring callbacks for
+        stateful interactions — this is what the audience came to learn and where the most dwell time belongs.
+    "Real-World Patterns":
+      emphasis: medium-high
+      note: >
+        Elevate the audience from "can build" to "builds well" by naming the four canonical patterns
+        (dashboard, drill-down, form-driven, hierarchical); keep it design-level, not line-by-line.
+    "Real-World Use Cases":
+      emphasis: medium
+      note: >
+        Three concrete before/after scenarios validate the investment and give developers language to
+        justify adoption; move at pace — the proof lands faster than the patterns did.
+
   highlightMoments:
     - Five built-in components (charts, tables, forms, trees, cards) cover 95% of visualization needs
     - Interactive data visualization replaces static ASCII art and external tool exports
     - Sortable, filterable tables with full-text search and CSV export — all inline in chat
-    - Custom sandboxed HTML/CSS/JS components for specialized visualizations
+    - Callback-driven forms and trees trigger MCP tool calls on user interaction, enabling stateful multi-step workflows without leaving chat
+    - Custom sandboxed HTML/CSS/JS components for specialized visualizations that fall outside the built-in set
+
+# OPEN DECISION: "Real-World Use Cases" slides are labeled "Part 4 — Real-World Impact" in the deck
+# but the README heading is "Real-World Use Cases" — confirm the slide section-opener title matches
+# the README heading before the next delivery to avoid speaker confusion.

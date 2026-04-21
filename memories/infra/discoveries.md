@@ -4,6 +4,23 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## Contractions inside single-quoted prop bindings cause `Unterminated string constant` (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+English contractions (can't, couldn't, didn't, doesn't, weren't, won't, etc.) contain an apostrophe (`'`) which terminates a single-quoted Vue prop attribute early. This causes `Unterminated string constant` at build time — exactly like bare possessives (`team's`).
+
+**Fix:** Rewrite to full words before encoding in a `:prop='...'` binding:
+- `can't` → `cannot`
+- `couldn't` → `could not`
+- `didn't` → `did not`
+- `doesn't` → `does not`
+- `weren't` → `were not`
+
+**Pre-build checklist rule:** After writing any new component invocation with `:prop='...'` bindings that contain prose text, grep for `n't`, `'ve`, `'re`, `'ll`, `'d ` before running the build. Four separate build failures on copilot-chat-internals (slides 7, 11, 16) all traced to contractions.
+
+---
+
 ## YAML `---` frontmatter delimiters are safe inside JS string prop bindings (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

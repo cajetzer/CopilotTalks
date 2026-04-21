@@ -20,10 +20,26 @@ deck:
     - Advanced Patterns: Compliance and Regulatory Guidance  # Part 4: 4 slides — HIPAA, PCI-DSS, audit trail
 
   sectionModes:
-    Configuration and Quick Start: demo            # live setup walk-through anchors credibility
-    Best Practices and Team Adoption: lecture      # concept-heavy; presenter drives the six categories
-    Measuring ROI and Business Impact: interactive # calculator slide invites audience participation
-    Advanced Patterns: Compliance and Regulatory Guidance: lecture  # compliance examples; pace deliberately
+    "Configuration and Quick Start":
+      emphasis: high
+      note: >
+        Opens with a live 5-minute setup walk-through that gives the audience an immediate
+        win — credibility through speed before any conceptual depth is introduced.
+    "Best Practices and Team Adoption":
+      emphasis: medium-high
+      note: >
+        The six capability categories framework and hybrid analysis approach; concept-heavy
+        section that equips teams to own the rollout and frame it for stakeholders.
+    "Measuring ROI and Business Impact":
+      emphasis: high
+      note: >
+        The persuasion peak — interactive calculator slide with 40-60% cycle-time reduction
+        and 90%+ security-violation stats lands the executive business case.
+    "Advanced Patterns: Compliance and Regulatory Guidance":
+      emphasis: medium
+      note: >
+        HIPAA, PCI-DSS, and SOC2 custom instruction patterns with audit trail; important for
+        regulated-industry teams but deliberately paced to avoid overshadowing the ROI close.
 
   highlightMoments:
     - Code review shifts from bottleneck to accelerator — AI handles style so humans focus on substance
