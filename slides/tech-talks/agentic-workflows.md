@@ -163,6 +163,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     { icon: "2️⃣", title: "Compilation", description: "gh aw compile parses the Markdown and generates a secure YAML lock file", items: ["Parse frontmatter & body", "Generate secure YAML", "Agent job (read-only)", "Handler jobs (minimal write)"] },
     { icon: "3️⃣", title: "Execution", description: "Agent explores repo context, outputs JSON, handlers validate and execute", items: ["Agent explores repo", "Produces JSON output", "Handlers validate & sanitize", "Execute approved ops"] }
   ]'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -421,6 +422,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     { icon: "🛑", title: "Stop Doing", items: ["AI direct write access", "Ignoring noop pattern", "Skipping lock file compilation", "Manually editing lock files", "Triggering on every commit"] }
   ]'
   :insight='{ icon: "💡", text: "Express intent without implementation details — AI adapts to repository context." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

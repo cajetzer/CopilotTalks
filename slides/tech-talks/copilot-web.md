@@ -99,6 +99,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
     { icon: "📱", title: "GitHub Mobile", items: ["Open issue → tap Assignees → select Copilot", "Trigger from anywhere, review on the go"] }
   ]'
   :insight='{ icon: "💡", text: "All three paths create the same asynchronous session — no need to stay connected while the agent works." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---

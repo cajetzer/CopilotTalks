@@ -347,6 +347,7 @@ highlight="The transition from pilot success to organizational capability requir
     ] }
   ]'
   :insight='{ icon: "💰", text: "200-person org example: 80 full + 40 usage-based + 80 review-only = 30\u201340% cost savings vs. all-full seats, without restricting any team\u2019s access" }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -411,6 +412,7 @@ highlight="The transition from pilot success to organizational capability requir
     ] }
   ]'
   :insight='{ icon: "💡", text: "Track acceptance rate first (predicts everything else) \u2192 act on it \u2192 watch intermediate & lagging metrics improve. Target: 55\u201365% acceptance, \u221231% cost per feature." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

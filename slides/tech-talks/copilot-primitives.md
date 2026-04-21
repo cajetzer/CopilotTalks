@@ -98,6 +98,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     { icon: "📂", title: "Directory Selector", description: "Nearest file in tree wins (the agent playbook). Best for local commands, tests, and subproject rules. File: frontend/AGENTS.md" }
   ]'
   :insight='{ icon: "💡", text: "Key Principle: All matching instructions combine. Repo-wide + path-specific + directory-local all apply when relevant." }'
+  :progressDots='{ current: 1, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---

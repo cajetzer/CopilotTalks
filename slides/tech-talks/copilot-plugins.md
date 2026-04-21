@@ -117,6 +117,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     { icon: "✗", title: "Remove", description: "Clean removal, plugin disappears from all Copilot interfaces", items: [{ title: "copilot plugin uninstall code-review-assistant", detail: "Disappears from chat suggestions and CLI help output" }] }
   ]'
   :insight='{ icon: "🎯", text: "These commands manage your personal Copilot setup — perfect for trying new capabilities. When configuration becomes team infrastructure, use APM." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -315,6 +316,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     { icon: "⚙️", title: "microservice/", description: "Backend performance tools — goroutine analysis, profiling, optimization", items: ["go-concurrency-analyzer", "performance-profiler"] }
   ]'
   :insight='{ icon: "🎯", text: "No global plugin sprawl. Switch directories with cd and run apm install — Copilot adapts to project context automatically." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -512,7 +514,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     { icon: "🛠️", title: "Official Plugins Repo", description: "github.com/github/copilot-plugins — source code and contribution guidelines", items: ["Plugin manifest schema", "First-party plugin source", "Contribution guidelines", "Issue tracker for feature requests"] }
   ]'
   :insight='{ icon: "💡", text: "Start with the marketplace for vetted first-party plugins. Check Awesome Copilot for community experiments. Consult the plugins repo when building your own." }'
-  :progressDots='{ current: 1, total: 2 }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
