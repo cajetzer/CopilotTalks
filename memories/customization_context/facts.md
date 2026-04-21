@@ -4,6 +4,24 @@ Confirmed facts about Copilot customization topics: primitives, hooks, memory, S
 
 ---
 
+## copilot-primitives deck: conformance state as of 2026-04-21
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-primitives.md` is 🟢 Conformed. 3 raw HTML slides remain by design.
+
+| Slide | Name | Status | Notes |
+|---|---|---|---|
+| 10 | Skills — Templates | Raw HTML | 2×2 card grid + code block below — no single component covers both |
+| 12 | Custom Prompts — Component Generator | `CodeWithFeaturesSlide` (partNumber=3, top) | ✅ converted 2026-04-21 |
+| 14 | Custom Agents — Planner Example | `CodeWithFeaturesSlide` (partNumber=4, left) | ✅ converted 2026-04-21 |
+| 15 | Custom Agents — Advanced Patterns | Raw HTML | 2-card asymmetric (Squad + AgentCouncil) with embedded code — ThreeColumnCardSlide requires 3 columns |
+| 16 | Choosing the Right Primitive | Raw HTML | 2-col adoption guide + 4-col tag grid — two distinct layout regions, no component covers both |
+
+Slides 15 and 16 are genuinely bespoke; do not attempt to force them into existing components. Slide 10 could split into two slides if a future code-above-cards component is created.
+
+---
+
 ## copilot-plugins framing: CLI-first, personal vs team infrastructure distinction (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`
