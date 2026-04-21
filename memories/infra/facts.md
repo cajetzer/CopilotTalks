@@ -228,6 +228,47 @@ Write-Host "[OK] $Category/$BaseName built"
 
 ---
 
+## SectionOpenerSlide: props, constraints, and color architecture (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`SectionOpenerSlide` is a **structural** component (lives in `components/structure/`), not a Tier-1 body component — it does **not** take `progressDots`.
+
+**Props (all required):**
+| Prop | Type | Constraint |
+|------|------|-----------|
+| `partNumber` | Number | 1–4; logged as error outside this range |
+| `title` | String | Rendered as gradient text (text-5xl, bg-clip-text) |
+| `subtitle` | String | Secondary heading below title |
+| `cards` | Array | Exactly 3 items: `{ icon, title, blurb }` — error logged if not 3 |
+| `terminal` | Object | `{ context, detail }` |
+
+**Color architecture — `colorThemes` object with 4 complete sets:**
+
+Colors are keyed by `partNumber` and applied via `computed(() => colors.value.X)`. Never hardcode gradients in the template — all colors live in `DARK_THEMES` / `LIGHT_THEMES` arrays indexed by `partNumber - 1`.
+
+| Part | Gradient arc | h1 gradient |
+|------|-------------|-------------|
+| 1 | cyan → blue → indigo | `from-cyan-400 via-blue-300 to-indigo-400` |
+| 2 | blue → indigo → purple | `from-blue-400 via-indigo-300 to-purple-400` |
+| 3 | indigo → purple → pink | `from-indigo-400 via-purple-300 to-pink-400` |
+| 4 | purple → pink → rose | `from-purple-400 via-pink-300 to-rose-400` |
+
+Each theme object: `{ ambientBg, orb, pill, h1, divider, arrow, cards[3] }`. Cards array has 3 entries with `{ bg, border, title }` matching the gradient arc colors.
+
+**Three-layer styling (same pattern as all components):**
+- Layer 1 (style.css): positioning, layout, sizing, spacing
+- Layer 2 (inline Tailwind): typography, effects — `text-5xl font-bold bg-clip-text text-transparent`
+- Layer 3 (Vue colorThemes): all gradients and text colors via computed theme object
+
+**Do NOT:**
+- Move part colors to `style.css` (breaks `isDark` reactivity and `partNumber` logic)
+- Add `style=""` attributes
+- Hardcode gradient strings in the template
+- Remove or trim `DARK_THEMES` / `LIGHT_THEMES` entries — even though light mode is currently disabled (`isDark = ref(true)` in `useTheme.ts`), the `LIGHT_THEMES` array is already authored and must stay; removing it breaks dark/light switching the moment `useDark()` is wired in
+
+---
+
 ## useTheme.ts pattern: how dark/light mode works in tech-talk components (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`
