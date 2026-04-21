@@ -27,6 +27,10 @@ import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlid
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -148,61 +152,19 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
 ---
 
 <!-- SLIDE: Hook Configuration Format -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Lifecycle Control</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Hook Configuration</div>
-<div class="text-xs text-white/50">JSON files in .github/hooks/*.json — workspace hooks take precedence</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-json">{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "type": "command",
-        "command": "./scripts/validate-tool.sh",
-        "timeout": 15
-      }
-    ],
-    "PostToolUse": [
-      {
-        "type": "command",
-        "command": "npx prettier --write \"$TOOL_INPUT_FILE_PATH\""
-      }
-    ]
-  }
-}</code></pre>
-
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Configuration Locations</div>
-<div class="space-y-1 opacity-80">
-<div>• <code class="text-xs">.github/hooks/*.json</code> — Project-specific</div>
-<div>• <code class="text-xs">~/.claude/settings.json</code> — Personal</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">Platform Overrides</div>
-<div class="space-y-1 opacity-80">
-<div>• <code class="text-xs">windows</code> — PowerShell scripts</div>
-<div>• <code class="text-xs">linux</code> / <code class="text-xs">osx</code> — Bash scripts</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="🔄"
+  pillLabel="Lifecycle Control"
+  title="Hook Configuration"
+  codePosition="top"
+  :code='{ language: "json", filename: ".github/hooks/hooks.json", content: "{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"type\": \"command\",\n        \"command\": \"./scripts/validate-tool.sh\",\n        \"timeout\": 15\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"type\": \"command\",\n        \"command\": \"npx prettier --write $FILE_PATH\"\n      }\n    ]\n  }\n}" }'
+  :features='[
+    { icon: "📁", title: "Configuration Locations", description: "Project: .github/hooks/*.json · Personal: ~/.claude/settings.json" },
+    { icon: "⚙️", title: "Platform Overrides", description: "windows → PowerShell scripts · linux / osx → Bash scripts" }
+  ]'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
@@ -416,100 +378,46 @@ highlight="Hooks intercept agent actions in real-time without adding manual gate
 ---
 
 <!-- SLIDE: Permission Decisions -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Preventive Enforcement</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Permission Decisions</div>
-<div class="text-xs text-white/50">Three control modes for PreToolUse</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-2 text-xs mb-1">
-<div class="p-2.5 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
-<div class="flex items-center gap-2 mb-1.5">
-<span class="text-xl">✅</span><span class="font-semibold text-emerald-300">allow</span>
-</div>
-<div class="opacity-80 mb-2">Auto-approve execution — operation proceeds immediately</div>
-<div class="p-2 bg-emerald-900/20 rounded border border-emerald-500/20">
-<div class="font-semibold text-emerald-300 mb-0.5">updatedInput</div>
-<div class="opacity-80">Modify tool parameters to enforce safe defaults (e.g., add --dry-run flag)</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="p-2.5 bg-gradient-to-br from-amber-900/30 to-amber-800/20 rounded-lg border border-amber-500/30">
-<div class="flex items-center gap-2 mb-1"><span class="text-xl">🤔</span><span class="font-semibold text-amber-300">ask</span></div>
-<div class="opacity-80">Require user confirmation — safer for sensitive operations</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="flex items-center gap-2 mb-1"><span class="text-xl">🛑</span><span class="font-semibold text-red-300">deny</span></div>
-<div class="opacity-80">Block execution — operation is rejected immediately</div>
-</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="text-xs"><span class="font-bold text-blue-300">🎯 Priority Rule:</span> <span class="text-white/80">When multiple hooks run: <span class="text-red-300">deny</span> (most restrictive) → <span class="text-amber-300">ask</span> → <span class="text-emerald-300">allow</span> (least restrictive). Use <span class="text-purple-300">additionalContext</span> to inject messages into conversation.</span></div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="2"
+  pillIcon="🛡️"
+  pillLabel="Preventive Enforcement"
+  title="Permission Decisions"
+  :columns='[
+    { icon: "✅", title: "allow", description: "Auto-approve execution. Use updatedInput to modify parameters before the tool runs, e.g. add --dry-run flag." },
+    { icon: "🤔", title: "ask", description: "Require user confirmation before execution — safer for sensitive or irreversible operations." },
+    { icon: "🛑", title: "deny", description: "Block execution immediately — operation is rejected with a permissionDecisionReason returned to the agent." }
+  ]'
+  :insight='{ icon: "🎯", text: "Priority: deny (most restrictive) overrides ask, ask overrides allow. Use additionalContext to inject guidance messages into the conversation." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: File Path & Environment Restrictions -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🛡️ Preventive Enforcement</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Path & Environment Policies</div>
-<div class="text-xs text-white/50">Restrict operations by directory and environment</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">File Path Restrictions</div>
-<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>if [[ ! "$PATH_ARG" =~ ^(src/|test/|docs/) ]]; then
-  deny "Only edit src/, test/, docs/"
-fi</code></pre>
-</div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Environment-Aware Policies</div>
-<pre class="text-xs opacity-80 mt-1 overflow-x-auto"><code>if [[ "$CWD" =~ /production/ ]]; then
-  deny "Production requires deployment"
-fi</code></pre>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30 text-xs">
-<div class="font-semibold text-purple-300 mb-1">Multi-Environment Example</div>
-<div class="space-y-1 opacity-80">
-<div>• <span class="text-red-300">Production:</span> Block all writes — require manual deployment process</div>
-<div>• <span class="text-amber-300">Staging:</span> Ask for approval on destructive operations (rm, delete, drop)</div>
-<div>• <span class="text-emerald-300">Development:</span> Permissive — allow all operations</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="🛡️"
+  pillLabel="Preventive Enforcement"
+  title="Path & Environment Policies"
+  :left='{
+    header: "File Path Restrictions",
+    items: [
+      { title: "Allowlist pattern", detail: "Only permit writes to src/, test/, docs/ — deny everything else" }
+    ],
+    code: { language: "bash", content: "if [[ ! \"$PATH_ARG\" =~ ^(src/|test/|docs/) ]]; then\n  deny \"Only edit src/, test/, docs/\"\nfi" }
+  }'
+  :right='{
+    header: "Environment-Aware Policies",
+    items: [
+      { title: "Production", detail: "Block all writes — require manual deployment process" },
+      { title: "Staging", detail: "Ask for approval on destructive operations" },
+      { title: "Development", detail: "Permissive — allow all operations" }
+    ],
+    code: { language: "bash", content: "if [[ \"$CWD\" =~ /production/ ]]; then\n  deny \"Production requires deployment\"\nfi" }
+  }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
@@ -643,43 +551,19 @@ fi</code></pre>
 ---
 
 <!-- SLIDE: Complete Audit Configuration -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Observability & Audit</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Complete Audit Trail</div>
-<div class="text-xs text-white/50">Wire up all 8 lifecycle hooks for 100% observability</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<pre class="overflow-y-auto max-h-48 text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg p-2"><code class="language-json">{
-  "hooks": {
-    "SessionStart": [{"type": "command", "command": "./scripts/log-session-start.sh"}],
-    "UserPromptSubmit": [{"type": "command", "command": "./scripts/log-prompt.sh"}],
-    "PreToolUse": [{"type": "command", "command": "./scripts/log-tool-pre.sh"}],
-    "PostToolUse": [{"type": "command", "command": "./scripts/log-tool-post.sh"}],
-    "PreCompact": [{"type": "command", "command": "./scripts/log-pre-compact.sh"}],
-    "SubagentStart": [{"type": "command", "command": "./scripts/log-subagent-start.sh"}],
-    "SubagentStop": [{"type": "command", "command": "./scripts/log-subagent-stop.sh"}],
-    "Stop": [{"type": "command", "command": "./scripts/log-session-end.sh"}]
-  }
-}</code></pre>
-
-<div class="p-2 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30 text-xs">
-<span class="text-indigo-300 font-semibold">Example log output:</span> Each line is a complete JSON object — session start, prompt submission, tool executions, subagent spawns, session end. Query with jq: <code class="text-xs">cat logs/audit.jsonl | jq 'select(.event == "PreToolUse" and .permissionDecision == "deny")'</code>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="📋"
+  pillLabel="Observability & Audit"
+  title="Complete Audit Trail"
+  codePosition="top"
+  :code='{ language: "json", filename: ".github/hooks/hooks.json", content: "{\n  \"hooks\": {\n    \"SessionStart\": [{\"type\": \"command\", \"command\": \"./scripts/log-session-start.sh\"}],\n    \"UserPromptSubmit\": [{\"type\": \"command\", \"command\": \"./scripts/log-prompt.sh\"}],\n    \"PreToolUse\": [{\"type\": \"command\", \"command\": \"./scripts/log-tool-pre.sh\"}],\n    \"PostToolUse\": [{\"type\": \"command\", \"command\": \"./scripts/log-tool-post.sh\"}],\n    \"PreCompact\": [{\"type\": \"command\", \"command\": \"./scripts/log-pre-compact.sh\"}],\n    \"SubagentStart\": [{\"type\": \"command\", \"command\": \"./scripts/log-subagent-start.sh\"}],\n    \"SubagentStop\": [{\"type\": \"command\", \"command\": \"./scripts/log-subagent-stop.sh\"}],\n    \"Stop\": [{\"type\": \"command\", \"command\": \"./scripts/log-session-end.sh\"}]\n  }\n}" }'
+  :features='[
+    { icon: "🔗", title: "All 8 Events Covered", description: "SessionStart through Stop — complete lifecycle observability with no gaps" },
+    { icon: "📊", title: "Zero Infrastructure", description: "JSON Lines format runs anywhere jq is installed. Import to Elasticsearch, Datadog, or SQLite." }
+  ]'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
@@ -735,53 +619,20 @@ fi</code></pre>
 ---
 
 <!-- SLIDE: Integration Patterns -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Observability & Audit</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">External System Integration</div>
-<div class="text-xs text-white/50">Connect hooks to Slack, PagerDuty, Datadog, Jira, databases</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-xl mb-1">💬</div>
-<div class="font-semibold text-indigo-300 mb-1">Slack Notifications</div>
-<div class="opacity-80">Send alerts on security violations with violation details and session context</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30">
-<div class="text-xl mb-1">📟</div>
-<div class="font-semibold text-purple-300 mb-1">PagerDuty Alerts</div>
-<div class="opacity-80">Trigger on-call alerts for production security violations</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30">
-<div class="text-xl mb-1">📊</div>
-<div class="font-semibold text-pink-300 mb-1">Datadog / New Relic</div>
-<div class="opacity-80">Send performance metrics via StatsD protocol for real-time dashboards</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-rose-900/30 to-rose-800/20 rounded-lg border border-rose-500/30">
-<div class="text-xl mb-1">🎫</div>
-<div class="font-semibold text-rose-300 mb-1">Jira / ServiceNow</div>
-<div class="opacity-80">Create incidents for blocked dangerous operations via REST API</div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30 text-xs">
-<span class="text-indigo-300 font-semibold">Pattern:</span> Hooks execute curl commands with JSON payloads. Keep them fast (<5s) by offloading slow API calls to background jobs triggered by the hook.
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="3"
+  pillIcon="📋"
+  pillLabel="Observability & Audit"
+  title="External System Integration"
+  :cards='[
+    { icon: "💬", title: "Slack Notifications", description: "Send alerts on security violations with violation details and session context" },
+    { icon: "📟", title: "PagerDuty Alerts", description: "Trigger on-call alerts for production security violations in real time" },
+    { icon: "📊", title: "Datadog / New Relic", description: "Send performance metrics via StatsD protocol for real-time dashboards" },
+    { icon: "🎫", title: "Jira / ServiceNow", description: "Create incidents for blocked dangerous operations via REST API" }
+  ]'
+  :insight='{ icon: "⚡", text: "Hooks execute curl commands with JSON payloads. Keep them under 5s by offloading slow API calls to background jobs." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
@@ -831,6 +682,7 @@ fi</code></pre>
     { value: "7yr", label: "Retention enforced" }
   ]'
   :insight='{ icon: "📋", text: "Sample query: jq -r [.timestamp, .user, .event] | @csv audit.jsonl | sort > audit-report.csv" }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

@@ -4,6 +4,38 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## ALL Tier-1 body components require `progressDots` (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+All 8 Tier-1 body-content components require `progressDots: { current: N, total: M, activeColor: string }`. There are no exceptions — the previous split (5 required, 3 not) is obsolete as of this date.
+
+**All 8 require progressDots:**
+- `TwoColPairedConceptsSlide`
+- `ThreeColumnCardSlide`
+- `CodeWithFeaturesSlide`
+- `BeforeAfterPanelsSlide`
+- `HeroStatSlide`
+- `FourCardGridSlide`
+- `BeforeAfterMetricsSlide`
+- `ProblemSolutionOutcomeSlide`
+
+**`activeColor` by partNumber** (Tailwind class string passed verbatim):
+| Part | activeColor |
+|------|-------------|
+| 1 | `bg-cyan-400 shadow-lg shadow-cyan-500/50` |
+| 2 | `bg-blue-400 shadow-lg shadow-blue-500/50` |
+| 3 | `bg-indigo-400 shadow-lg shadow-indigo-500/50` |
+| 4 | `bg-purple-400 shadow-lg shadow-purple-500/50` |
+
+**`current` / `total`:** derived from the slide's position within its section (the raw HTML showed "N of M" in the header-row dot cluster).
+
+**Additional:** `HeroStatSlide.insight` is **required** (not optional), unlike the optional `insight` on all other components.
+
+**Retroactive impact:** Vue does not fail builds for missing required props. Always supply `progressDots` on every body component invocation.
+
+---
+
 ## Slidev component registration when running decks from subdirectories (2026-04-14)
 
 `schema_version: 1` | `date: 2026-04-14`

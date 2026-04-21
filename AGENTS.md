@@ -41,6 +41,8 @@ Institutional knowledge lives in `memories/` as Markdown files organized by **be
 
 Agents query the relevant drawer after pre-flight gates complete, before content generation. Writes happen at session END only, after one-shot user approval. Full usage patterns: `@workbench` skill.
 
+**When anything doesn't go as expected — a command fails, a convention is unclear, behavior is surprising, or you're about to iterate through guesses — query the Workbench before proceeding.** It contains verified solutions, known gotchas, and prior decisions. Use `@workbench` as your first response to uncertainty, not a last resort.
+
 ---
 
 ## Agent Invocation Guidelines

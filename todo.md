@@ -41,4 +41,8 @@ https://github.blog/changelog/2026-03-06-figma-mcp-server-can-now-generate-desig
 
 ---
 
-Can add WGLL to agentic-sdlc
+add WGLL to agentic-sdlc
+
+---
+
+Think about AGENTS.md vs copilot-instructions now that VSCode prefers it when running /init.  will affect several modules.

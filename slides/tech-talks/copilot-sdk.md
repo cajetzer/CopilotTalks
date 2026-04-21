@@ -166,6 +166,7 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
     { icon: "🔒", title: "Security & Production", description: "Restricted tool permissions, working directory limits, rate limiting & quotas, production error handling" }
   ]'
   :insight='{ icon: "💡", text: "Same production-tested runtime as Copilot CLI — no rebuilding agent infrastructure." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -364,6 +365,7 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
     { value: "92%", label: "Time reduction" }
   ]'
   :insight='{ icon: "✓", text: "Outputs markdown ready for GitHub releases — explains customer value, not technical implementation." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -382,6 +384,7 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
     { value: "60%", label: "CI blockage reduction" }
   ]'
   :insight='{ icon: "✓", text: "Specific file paths and line numbers for investigation, concrete suggested fixes prioritized by quick wins." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -400,6 +403,7 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
     { value: "Instant", label: "Feedback" }
   ]'
   :insight='{ icon: "✓", text: "Reviews security, performance, error handling, and testing — actionable feedback with line numbers." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

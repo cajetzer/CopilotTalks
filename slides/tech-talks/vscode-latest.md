@@ -96,6 +96,7 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
     { icon: "☁️", title: "Cloud", description: "GitHub-hosted infrastructure. Cross-repo operations, scale beyond local resources, org-level indexing." },
     { icon: "🧠", title: "Claude", description: "Anthropic SDK with thinking tokens. Complex reasoning tasks, architectural decisions, visible hypothesis formation." }
   ]'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -640,6 +641,7 @@ user-invokable: true
     { icon: "🌐", title: "Integrated Browser", description: "Replaces limited Simple Browser. Sign into websites, use DevTools, send elements to chat for AI assistance (v1.109)" },
     { icon: "🔎", title: "External Indexing", description: "Non-GitHub workspaces can be remotely indexed. Fast semantic search via #codebase, same experience as GitHub repos (v1.109)" }
   ]'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

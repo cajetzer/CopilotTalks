@@ -400,6 +400,7 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
     { value: "30% → 15%", label: "Rework reduced" }
   ]'
   :insight='{ icon: "💡", text: "Guidelines enforced automatically: follow existing patterns, write tests, atomic commits, single-purpose functions, error handling, descriptive commit messages. ROI: $17,000/month." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -433,6 +434,7 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
     { icon: "🧪", title: "Tests (~1 min)", description: "Coverage on new code, edge case test presence, integration test quality, flaky test detection, test maintainability" }
   ]'
   :insight='{ icon: "💡", text: "Human review shifts from reading every line to validating outcomes against intent — does the implementation match the approved plan? Agent catches 95% of technical issues; humans validate strategic alignment." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -452,6 +454,7 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
     { value: "8-12×", label: "Review capacity" }
   ]'
   :insight='{ icon: "💡", text: "Review bottleneck eliminated. Security improved. ROI: $10,000/month." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

@@ -107,7 +107,8 @@ highlight="The transition from pilot success to organizational capability requir
     { value: "16\u00d7", label: "ROI on org-level investment" },
     { value: "500+", label: "Developers aligned automatically" }
   ]'
-  :insight='{ icon: "💡", text: "Define security, frameworks, and quality requirements once at org level \u2192 every team inherits automatically" }'
+  :insight='{ icon: "💡", text: "Define security, frameworks, and quality requirements once at org level → every team inherits automatically" }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -125,6 +126,7 @@ highlight="The transition from pilot success to organizational capability requir
     { icon: "⚡", title: "Performance Budgets", description: "Under 2s load on 3G, Lighthouse score above 90, 200KB gzipped bundle budget" }
   ]'
   :insight='{ icon: "💡", text: "These four domains cover 90%+ of what teams reinvent independently. Define once in org instructions \u2192 every repo inherits automatically." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -280,7 +282,8 @@ highlight="The transition from pilot success to organizational capability requir
     { value: "Enterprise", label: "Tier required" },
     { value: "@kb", label: "Invoke from anywhere" }
   ]'
-  :insight='{ icon: "💬", text: "Sample queries: \u201cWhere is auth handled across our microservices?\u201d \u201cWhat compliance rules apply to user data?\u201d \u201cWhich services depend on the pricing engine?\u201d" }'
+  :insight='{ icon: "💬", text: "Sample queries: \"Where is auth handled across our microservices?\" \"What compliance rules apply to user data?\" \"Which services depend on the pricing engine?\"" }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---

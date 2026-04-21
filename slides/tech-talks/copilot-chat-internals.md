@@ -198,6 +198,7 @@ highlight="DevTools for AI closes this gap."
     ]
   }'
   :insight='{ icon: "💡", text: "Agent Debug Panel shows exactly which customization files loaded, which failed, and why — ending silent configuration failures." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -326,6 +327,7 @@ highlight="DevTools for AI closes this gap."
     ]
   }'
   :insight='{ icon: "💡", text: "Thinking tokens reveal model reasoning — turning prompt debugging from guesswork into evidence-based refinement." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -438,6 +440,7 @@ highlight="DevTools for AI closes this gap."
     { icon: "4️⃣", title: "Response Does Not Match Codebase", description: "Open Chat Debug View → check context sent → verify instructions mention patterns. Common: relevant files missing, context limit reached." }
   ]'
   :insight='{ icon: "🎯", text: "From black-box AI responses to inspectable, debuggable interactions — every AI interaction is observable and improvable." }'
+  :progressDots='{ current: 1, total: 1, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

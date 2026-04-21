@@ -180,6 +180,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
     { icon: "🔥", title: "Firewall Alerts", description: "Any blocked outbound connections — investigate before merging if unexpected calls appear" }
   ]'
   :insight='{ icon: "💡", text: "Reading the evidence bundle takes 2-3 minutes and gives a complete picture of what the agent did — before opening the diff." }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -280,6 +281,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
   :problem='{ header: "The Old Way", items: ["Screenshot alert → manually read error", "Transcribe to GitHub → add labels → assign", "~14 minutes per alert", "~60% detail capture — manual transcription misses context"] }'
   :solution='{ header: "With Web Copilot", items: ["Drag screenshot into github.com/copilot", "AI extracts errors, stack traces, timestamps, request IDs", "Structured issue in ~2 minutes", "~95% detail capture via vision model"] }'
   :outcome='{ header: "Time Savings", items: ["8 hrs/week saved at 40 alerts per week"], metrics: [{ value: "85%", label: "Time reduction" }, { value: "14 → 2 min", label: "Per issue filed" }] }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -370,6 +372,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
   :problem='{ header: "1 — Read Evidence Bundle", items: ["Check summary, test results, and firewall alerts", "2-3 minutes before touching the diff", "Know what the agent did before reading the code"] }'
   :solution='{ header: "2 — Review the Diff", items: ["Focus on correctness, edge cases, security", "Apply the same criteria as for any contributor PR", "Leave specific comments with file path and code pattern to follow"] }'
   :outcome='{ header: "3 — Approve or Iterate", items: ["Leave specific PR comments → agent reads, pushes commits, re-runs tests", "Effective for 3-5 iterations"], metrics: [{ value: "✅", label: "Specific: file path + pattern to follow" }, { value: "❌", label: "Too vague: This looks wrong. Fix it." }] }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

@@ -363,7 +363,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     code: { language: "yaml", content: "plugins:\n  code-review-assistant:\n    version: 1.2.3\n    resolved: https://registry.apm.dev/...\n    integrity: sha512-abc123..." }
   }'
   :insight='{ icon: "💡", text: "The lockfile is the contract: apm install with a lockfile guarantees reproducibility." }'
-  :progressDots='{ current: 1, total: 4 }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

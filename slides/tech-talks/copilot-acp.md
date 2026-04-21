@@ -126,6 +126,7 @@ highlight="ACP is the LSP for AI agents — a standard protocol for editor commu
     { icon: "🛡️", title: "Permission-Mediated Security", description: "Every tool invocation goes through explicit user approval, maintaining enterprise trust boundaries" }
   ]'
   :insight='{ icon: "🔧", text: "Multi-language SDK ecosystem: official SDKs in TypeScript, Python, Rust, and Kotlin for custom integrations" }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -691,6 +692,7 @@ Also available: Python, Rust, Kotlin SDKs
     ]
   }'
   :insight='{ icon: "💡", text: "ACP insight: protocol neutrality means any tool gets full Copilot experience — no custom code, no maintenance." }'
+  :progressDots='{ current: 2, total: 6, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -725,6 +727,7 @@ Also available: Python, Rust, Kotlin SDKs
     ]
   }'
   :insight='{ icon: "💡", text: "ACP insight: Stateful sessions turn one-shot commands into iterative conversations — like a good human reviewer vs. a linter." }'
+  :progressDots='{ current: 3, total: 6, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -759,6 +762,7 @@ Also available: Python, Rust, Kotlin SDKs
     ]
   }'
   :insight='{ icon: "💡", text: "ACP insight: Session-scoped context + MCP servers turns polyrepo into a navigable codebase — without merging repos." }'
+  :progressDots='{ current: 4, total: 6, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

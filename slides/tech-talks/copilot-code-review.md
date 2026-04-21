@@ -289,6 +289,7 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
     { icon: "✅", title: "Phase 4: Standardize (Week 9-12)", description: "Deploy organization-wide. Integrate metrics into reviews. Establish feedback loop (monthly). Celebrate wins, share data." }
   ]'
   :insight='{ icon: "✅", text: "This phased approach builds confidence and allows iteration before locking in standards." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -574,6 +575,7 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
     { icon: "🔐", title: "Security Vulnerabilities", description: "Baseline: 8 vulnerabilities/quarter. With Copilot: <1/quarter (90%+ reduction). Risk avoidance: prevents data breach, compliance fines." },
     { icon: "🚀", title: "Faster Onboarding", description: "Baseline: 6-8 weeks to first productive PR. With Copilot: 3-4 weeks (50% faster). Savings per hire: $16,000." }
   ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

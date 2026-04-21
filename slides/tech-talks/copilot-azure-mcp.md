@@ -385,6 +385,7 @@ Allow: 198.51.100.50 (CI/CD)
     { value: "5.6×", label: "Faster" }
   ]'
   :insight='{ icon: "💡", text: "Zero portal visits, one deployment cycle — 3-4 failed deployments reduced to zero." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -403,6 +404,7 @@ Allow: 198.51.100.50 (CI/CD)
     { value: "85%", label: "Cost reduction" }
   ]'
   :insight='{ icon: "✓", text: "Zero portal tab-switching, no manual SKU lookups — cost optimizations applied automatically (Premium GRS → Standard LRS, P2 → S1, 10k RU/s → 1k RU/s)." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -513,6 +515,7 @@ copilot /tools
     { icon: "✅", title: "Verification Test", description: "Ask: List all resource groups in my subscription. AI should invoke azure.resources.list-groups and return live results confirming connection." },
     { icon: "💡", title: "Key Points", description: "No separate Azure authentication needed. Single JSON config file. Service selection optional but recommended for focused workflows." }
   ]'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

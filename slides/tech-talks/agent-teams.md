@@ -143,64 +143,31 @@ highlight="Beyond single-agent limits to coordinated AI teams."
 ---
 
 <!-- SLIDE: Two Invocation Patterns -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧱 Two Invocation Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div class="flex flex-col">
-<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/40">
-<div class="text-xl mb-2">💬</div>
-<div class="font-bold text-cyan-300 text-lg mb-2">Pattern 1: Implicit (Chat Hints)</div>
-<div class="text-sm opacity-90 mb-3">Just describe the delegation in natural language</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-cyan-500/20 rounded p-3 mb-3">
-<div class="text-gray-300">Run a subagent to research OAuth2 implementation patterns in Node.js, focusing on token storage best practices and refresh rotation strategies. Return a structured summary with: recommended libraries, tradeoffs, and risks.</div>
-</div>
-<div class="text-xs opacity-80">
-<div class="font-semibold text-cyan-400 mb-1">✅ Best For</div>
-<div>• Exploratory research</div>
-<div>• Ad-hoc delegation</div>
-<div>• Quick investigative subtasks</div>
-</div>
-</div>
-</div>
-
-<div class="flex flex-col">
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/40">
-<div class="text-xl mb-2">📄</div>
-<div class="font-bold text-blue-300 text-lg mb-2">Pattern 2: Explicit (Prompt Files)</div>
-<div class="text-sm opacity-90 mb-3">Define multi-phase workflows in .md files</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-blue-500/20 rounded p-3 mb-3">
-<div class="text-gray-400">---</div>
-<div class="text-gray-300">name: feature-research</div>
-<div class="text-gray-300">tools: ['agent','read','search']</div>
-<div class="text-gray-400">---</div>
-<div class="text-gray-300 mt-1">## Phase 1: Codebase Research</div>
-<div class="text-gray-300">## Phase 2: Industry Practices</div>
-<div class="text-gray-300">## Phase 3: Implementation</div>
-</div>
-<div class="text-xs opacity-80">
-<div class="font-semibold text-blue-400 mb-1">✅ Best For</div>
-<div>• Reproducible workflows</div>
-<div>• Version-controlled procedures</div>
-<div>• Team-wide consistency</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="1"
+  pillIcon="🧱"
+  pillLabel="Two Invocation Patterns"
+  title="Two Patterns for Subagent Invocation"
+  :left='{
+    header: "Pattern 1: Implicit (Chat Hints)",
+    icon: "💬",
+    items: [
+      "Describe the delegation in natural language — no special syntax",
+      { title: "Best For", detail: "Exploratory research · Ad-hoc delegation · Quick investigative subtasks" }
+    ],
+    code: { language: "text", content: "Run a subagent to research OAuth2 implementation patterns in Node.js, focusing on token storage best practices and refresh rotation strategies. Return a structured summary with: recommended libraries, tradeoffs, and risks." }
+  }'
+  :right='{
+    header: "Pattern 2: Explicit (Prompt Files)",
+    icon: "📄",
+    items: [
+      "Define multi-phase workflows in versioned .md files",
+      { title: "Best For", detail: "Reproducible workflows · Version-controlled procedures · Team-wide consistency" }
+    ],
+    code: { language: "yaml", content: "---\nname: feature-research\ntools: [\"agent\",\"read\",\"search\"]\n---\n## Phase 1: Codebase Research\n## Phase 2: Industry Practices\n## Phase 3: Implementation" }
+  }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
@@ -437,67 +404,32 @@ Synthesize findings into prioritized action items with severity levels.
 ---
 
 <!-- SLIDE: Squad: The Production Implementation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-10 pt-1">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">👥 Agent Teams: Squad</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Persistent AI Development Team via GitHub Copilot</div>
-<div class="text-xs text-white/50">Install in one command: npx github:bradygaster/squad</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mb-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-1">📋 Form Your Team</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-blue-500/20 rounded p-2">
-<div class="text-cyan-400 mb-1">Squad proposes:</div>
-<div class="text-gray-300">🏗️ Ripley   — Lead</div>
-<div class="text-gray-300">⚛️ Dallas   — Frontend Dev</div>
-<div class="text-gray-300">🔧 Kane     — Backend Dev</div>
-<div class="text-gray-300">🧪 Lambert  — Tester</div>
-<div class="text-gray-300">📋 Scribe   — Memory (silent)</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-1">💬 Routing in Action</div>
-<div class="font-mono text-xs bg-gray-950/60 border border-indigo-500/20 rounded p-2 space-y-1.5">
-<div class="text-green-400">&gt; Ripley, fix error handling</div>
-<div class="text-gray-400">↳ direct to lead</div>
-<div class="text-green-400 mt-1">&gt; Team, build the login page</div>
-<div class="text-gray-400">↳ fans out to all in parallel</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-4 gap-2 text-xs">
-<div class="p-3 bg-blue-900/20 rounded border border-blue-500/20">
-<div class="font-semibold text-blue-300 mb-1">Reviewer Protocol</div>
-<div class="opacity-80">On reject → different agent revises</div>
-</div>
-<div class="p-3 bg-indigo-900/20 rounded border border-indigo-500/20">
-<div class="font-semibold text-indigo-300 mb-1">Ralph Monitor</div>
-<div class="opacity-80">Autonomous backlog processing</div>
-</div>
-<div class="p-3 bg-purple-900/20 rounded border border-purple-500/20">
-<div class="font-semibold text-purple-300 mb-1">Ceremonies</div>
-<div class="opacity-80">Design Review, Retrospective</div>
-</div>
-<div class="p-3 bg-pink-900/20 rounded border border-pink-500/20">
-<div class="font-semibold text-pink-300 mb-1">Model Routing</div>
-<div class="opacity-80">Docs→Haiku, Code→Sonnet</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="👥"
+  pillLabel="Agent Teams: Squad"
+  title="Persistent AI Development Team via GitHub Copilot"
+  :left='{
+    header: "Form Your Team",
+    icon: "📋",
+    items: [
+      { title: "Reviewer Protocol", detail: "On reject → different agent revises, not the same one" },
+      { title: "Ceremonies", detail: "Design Review and Retrospective built in" }
+    ],
+    code: { language: "text", content: "Squad proposes:\n🏗️ Ripley   — Lead\n⚛️ Dallas   — Frontend Dev\n🔧 Kane     — Backend Dev\n🧪 Lambert  — Tester\n📋 Scribe   — Memory (silent)" }
+  }'
+  :right='{
+    header: "Routing in Action",
+    icon: "💬",
+    items: [
+      { title: "Ralph Monitor", detail: "Autonomous backlog processing — runs without supervision" },
+      { title: "Model Routing", detail: "Docs → Haiku, Code → Sonnet — cost-aware dispatch" }
+    ],
+    code: { language: "text", content: "> Ripley, fix error handling\n↳ direct to lead\n\n> Team, build the login page\n↳ fans out to all in parallel" }
+  }'
+  :insight='{ icon: "⚡", text: "Install in one command: npx github:bradygaster/squad" }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 
 ---

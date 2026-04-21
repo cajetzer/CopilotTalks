@@ -101,6 +101,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     { icon: "🔄", title: "Continuous Improvement", description: "Daily automated enhancements that compound over time — code simplifications, docs updates" }
   ]'
   :insight='{ icon: "🎯", text: "Agentic workflows let you describe what you want, not how to do it — AI handles the implementation within safe, sandboxed boundaries." }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -408,6 +409,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     { icon: "🔍", title: "Example Decisions", description: "App crashes on startup → bug. Add dark mode → feature. How do I configure X? → question, docs" }
   ]'
   :insight='{ icon: "🎯", text: "Agentic workflows turn tedious admin into instant, consistent automation — maintainers focus on substance while AI handles categorization." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

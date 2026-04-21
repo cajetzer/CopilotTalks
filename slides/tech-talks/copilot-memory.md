@@ -117,6 +117,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { title: "\u201cWe chose Z because...\u201d", detail: "Historical decision context" }
   ] }'
   :insight='{ icon: "💡", text: "Agent asks permission when ambiguous: \u2018Should I remember this for future sessions?\u2019" }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -219,6 +220,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { icon: "🏗️", title: "Architectural Decisions", description: "Result type error handling, repository pattern for DB queries, Redis for pub/sub (ADR-047)" }
   ]'
   :insight='{ icon: "🎯", text: "The best memory candidates are preferences you repeat every session — coding style, communication habits, and architectural decisions that compound over time" }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -236,6 +238,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { icon: "👥", title: "Team Standards", description: "Team-wide coding standards, mandatory architecture patterns, compliance requirements — use custom instructions instead" }
   ]'
   :insight='{ icon: "🎯", text: "Memory is personal and persistent — team standards belong in custom instructions, secrets in vaults, and ephemeral context stays in the session" }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -277,6 +280,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { icon: "❓", title: "Question 4", description: "Is this sensitive or security-related? If yes, NEVER store in memory — use secret management systems" }
   ]'
   :insight='{ icon: "💡", text: "Start conservative — it\u2019s easier to add memories later than fix conflicting or stale ones. Curate to 10\u201320 most impactful preferences." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -315,7 +319,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { title: "Data portability", detail: "Export memories anytime as JSON" }
   ] }'
   :insight='{ icon: "🏢", text: "Enterprise Governance: Org policy can disable memory for all users. Individuals can delete individual memories or clear all with one click." }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -337,7 +341,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { title: "Functions under 20 lines with single responsibility", detail: "Specific and measurable" }
   ] }'
   :insight='{ icon: "🧹", text: "Monthly Memory Hygiene: (1) Audit stored memories, (2) Delete obsolete preferences, (3) Update evolved conventions, (4) Reconfirm critical ones" }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 
@@ -435,7 +439,8 @@ highlight="Memory breaks this cycle by making preferences persist."
     { value: "145 min", label: "Saved per week on re-explanation" },
     { value: "0", label: "Manual follow-ups per week" }
   ]'
-  :insight='{ icon: "💡", text: "Store once, agent applies automatically. 40 sessions over 2 months: 2 minutes invested \u2192 198 minutes saved." }'
+  :insight='{ icon: "💡", text: "Store once, agent applies automatically. 40 sessions over 2 months: 2 minutes invested → 198 minutes saved." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 
