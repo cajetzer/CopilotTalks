@@ -56,6 +56,7 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
 import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
 </script>
 ```
 
@@ -254,6 +255,7 @@ Freeform inline HTML is still allowed when the content doesn't fit any of these 
 | Exactly 3 options/tiers/capabilities in cards                          | `ThreeColumnCardSlide`         |
 | Exactly 4 items in a 2×2 taxonomy grid                                 | `FourCardGridSlide`            |
 | Code block + 2–4 feature cards (left layout or stacked)                | `CodeWithFeaturesSlide`        |
+| One dominant statistic + 2–4 supporting context cards                  | `HeroStatSlide`                |
 
 **Universal props (every Tier-1 body component):**
 - `partNumber` (1–4, required) — drives ambient bg, orb, pill, divider, and card progression
@@ -444,6 +446,35 @@ Code block + 2–4 feature cards. Two layouts via `codePosition`:
 - `code`: `{ language, content, filename? }`. `content` is raw text (no syntax highlighting beyond Slidev default).
 - `features`: 2–4 items required.
 - `codePosition`: must be `"left"` or `"top"`.
+
+### `HeroStatSlide`
+
+One oversized statistic on the left (section-tinted gradient, `text-8xl`) with 2–4 supporting context cards on the right. All props required.
+
+```html
+<HeroStatSlide
+  :partNumber="1"
+  pillIcon="📊"
+  pillLabel="Why the Terminal?"
+  title="The IDE Only Sees Code"
+  subtitle="The terminal sees everything else"
+  :hero='{ value: "68%", label: "of developer time is spent outside the IDE", source: "Source: Stripe, The Developer Coefficient (2018)" }'
+  :supporting='[
+    { icon: "🔍", title: "Container logs & process state", description: "Runtime diagnostics live in the terminal" },
+    { icon: "🌐", title: "Network traffic & env vars", description: "Connectivity checked at the shell" },
+    { icon: "📁", title: "File system & disk state", description: "Storage, permissions, deployment artifacts" },
+    { icon: "⚙️", title: "CI/CD pipelines & deploys", description: "Build failures, test results, deployment validation" }
+  ]'
+  :insight='{ icon: "💡", text: "The key insight goes here." }'
+  :progressDots='{ current: 1, total: 3 }'
+/>
+```
+
+- `hero`: `{ value, label, source }` — all three fields always rendered; use empty string for `source` if no citation.
+- `supporting`: exactly 2–4 items; each needs `icon`, `title`, `description`.
+- `insight`: `{ icon, text }` — always rendered; use an empty string icon (`""`) if no icon needed.
+- `progressDots`: `{ current, total }` — always rendered; set both to the correct slide position within the section.
+- Hero gradient follows section color: Part 1 = cyan→blue, 2 = blue→indigo, 3 = indigo→purple, 4 = purple→pink.
 
 ### When NOT to use a Tier-1 component
 

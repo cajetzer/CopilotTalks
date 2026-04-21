@@ -29,11 +29,11 @@ const props = defineProps({
   pillIcon:     { type: String, required: true },
   pillLabel:    { type: String, required: true },
   title:        { type: String, required: true },
-  subtitle:     { type: String, required: false, default: '' },
-  hero:         { type: Object, required: true },  // { value, label, source? }
-  supporting:   { type: Array,  required: true },  // 2–4: { icon?, title, description }
-  insight:      { type: Object, required: false, default: null },
-  progressDots: { type: Object, required: false, default: null },
+  subtitle:     { type: String, required: true },
+  hero:         { type: Object, required: true },  // { value, label, source }
+  supporting:   { type: Array,  required: true },  // 2–4: { icon, title, description }
+  insight:      { type: Object, required: true },  // { icon, text }
+  progressDots: { type: Object, required: true },  // { current, total }
 })
 
 validatePartNumber(props.partNumber, 'HeroStatSlide')
@@ -89,10 +89,10 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
       <div class="flex-1 h-px bg-gradient-to-r from-transparent to-transparent" :class="chrome.divider"></div>
     </div>
 
-    <!-- Title + optional subtitle -->
+    <!-- Title + subtitle -->
     <div class="relative z-10 mb-3">
       <div class="text-lg font-bold" :class="t.title">{{ title }}</div>
-      <div v-if="subtitle" class="text-sm mt-0.5" :class="t.subtitle">{{ subtitle }}</div>
+      <div class="text-sm mt-0.5" :class="t.subtitle">{{ subtitle }}</div>
     </div>
 
     <!-- Body: hero stat left, cards right -->
@@ -105,7 +105,7 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
             {{ hero.value }}
           </div>
           <div class="text-sm text-center max-w-xs" :class="t.heroLabel">{{ hero.label }}</div>
-          <div v-if="hero.source" class="mt-3 text-xs italic text-center" :class="t.heroSource">{{ hero.source }}</div>
+          <div class="mt-3 text-xs italic text-center" :class="t.heroSource">{{ hero.source }}</div>
         </div>
 
         <!-- Right: supporting cards -->
@@ -123,13 +123,13 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
         </div>
       </div>
 
-      <!-- Optional insight bar -->
-      <div v-if="insight" class="rounded-lg border px-4 py-2 text-sm" :class="t.insight">
-        <span v-if="insight.icon" class="mr-2">{{ insight.icon }}</span>{{ insight.text }}
+      <!-- Insight bar -->
+      <div class="rounded-lg border px-4 py-2 text-sm" :class="t.insight">
+        <span class="mr-2">{{ insight.icon }}</span>{{ insight.text }}
       </div>
 
       <!-- Progress dots -->
-      <div v-if="progressDots" class="flex justify-center gap-2 pb-1">
+      <div class="flex justify-center gap-2 pb-1">
         <div
           v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full transition-all"

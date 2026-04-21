@@ -569,12 +569,14 @@ interface Props {
 ```ts
 interface Props {
   title: string
-  hero: { value: string; label: string }
-  supporting: Array<{ icon?: string; title: string; description: string }>   // 2–4
-  insight?: { icon?: string; text: string }
-  progressDots?: { current: number; total: number }
+  hero: { value: string; label: string; source: string }
+  supporting: Array<{ icon: string; title: string; description: string }>   // 2–4
+  insight: { icon: string; text: string }
+  progressDots: { current: number; total: number }
 }
 ```
+
+**All props required** (no optional fields — pass `""` for `source` or `icon` when unused).
 
 **Examples:** `copilot-cli` The 84% Problem · `agentic-workflows` Mental Model Shift (callout variant) · `agent-teams` Mental Model Shift (callout variant) · `agentic-journey` ROI hero.
 

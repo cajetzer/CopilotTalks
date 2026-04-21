@@ -1,8 +1,8 @@
 # Deck: copilot-web
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — 10 slides converted, 2 kept raw HTML (8-step sandbox flow, 2-region separation of duties)
 **Deck file:** `slides/tech-talks/copilot-web.md`
-**Raw HTML slides:** 11 (out of 23 total)
+**Raw HTML slides converted:** 10 of 11
 
 ---
 

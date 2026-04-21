@@ -26,6 +26,12 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -82,49 +88,18 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 ---
 
 <!-- SLIDE: Triggering the Agent -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Delegation Loop</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Three Ways to Trigger</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-6 w-full max-w-5xl">
-<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/40 flex flex-col items-center text-center">
-<div class="text-4xl mb-3">🌐</div>
-<div class="text-lg font-bold text-cyan-300 mb-2">GitHub.com</div>
-<div class="text-sm opacity-80">Open issue → Assignees → select <span class="text-cyan-300 font-mono">Copilot</span></div>
-<div class="text-xs mt-3 opacity-60">Or type <span class="font-mono">/assigntopilot</span> in a comment</div>
-</div>
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/40 flex flex-col items-center text-center">
-<div class="text-4xl mb-3">💻</div>
-<div class="text-lg font-bold text-blue-300 mb-2">VS Code</div>
-<div class="text-sm opacity-80">Copilot Chat → <span class="font-mono text-blue-300">@github Create a PR that fixes #427</span></div>
-<div class="text-xs mt-3 opacity-60">Returns immediately — agent works async</div>
-</div>
-<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/40 flex flex-col items-center text-center">
-<div class="text-4xl mb-3">📱</div>
-<div class="text-lg font-bold text-indigo-300 mb-2">GitHub Mobile</div>
-<div class="text-sm opacity-80">Open issue → tap Assignees → select Copilot</div>
-<div class="text-xs mt-3 opacity-60">Trigger from anywhere, review on the go</div>
-</div>
-</div>
-<div class="mt-8 p-4 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20 text-center max-w-3xl">
-<div class="text-sm opacity-80">All three paths create the same asynchronous session — no need to stay connected while the agent works</div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="1"
+  pillIcon="🔄"
+  pillLabel="Delegation Loop"
+  title="Three Ways to Trigger"
+  :columns='[
+    { icon: "🌐", title: "GitHub.com", items: ["Open issue → Assignees → select Copilot", "Or type /assigntopilot in a comment"] },
+    { icon: "💻", title: "VS Code", items: ["Copilot Chat → @github Create a PR that fixes #427", "Returns immediately — agent works async"] },
+    { icon: "📱", title: "GitHub Mobile", items: ["Open issue → tap Assignees → select Copilot", "Trigger from anywhere, review on the go"] }
+  ]'
+  :insight='{ icon: "💡", text: "All three paths create the same asynchronous session — no need to stay connected while the agent works." }'
+/>
 
 ---
 
@@ -192,52 +167,19 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 ---
 
 <!-- SLIDE: The Evidence Bundle -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Delegation Loop</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-base font-bold text-white mb-0.5">The Evidence Bundle</div>
-<div class="text-xs text-gray-400">Included in every draft PR — read this before opening the diff</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 max-w-4xl w-full">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-xl mb-1">📝</div>
-<div class="text-sm font-bold text-cyan-300 mb-1">Summary of Changes</div>
-<div class="text-xs opacity-80">What was changed and why, in plain language — the agent's stated rationale for every decision</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-xl mb-1">✅</div>
-<div class="text-sm font-bold text-blue-300 mb-1">Test Results</div>
-<div class="text-xs opacity-80">Pass/fail status from the CI run inside the sandbox — know if the change works before reading the code</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-xl mb-1">📁</div>
-<div class="text-sm font-bold text-indigo-300 mb-1">Files Modified</div>
-<div class="text-xs opacity-80">List of changed files with the agent's rationale for each — scoped review before opening the full diff</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-xl mb-1">🔥</div>
-<div class="text-sm font-bold text-purple-300 mb-1">Firewall Alerts</div>
-<div class="text-xs opacity-80">Any blocked outbound connections — investigate before merging if unexpected calls appear</div>
-</div>
-</div>
-<div class="mt-2 p-2 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20 text-center max-w-3xl">
-<div class="text-xs">Reading the evidence bundle takes <span class="text-cyan-300 font-semibold">2–3 minutes</span> and gives a complete picture of what the agent did — <span class="text-blue-300">before opening the diff</span></div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🔄"
+  pillLabel="Delegation Loop"
+  title="The Evidence Bundle"
+  :cards='[
+    { icon: "📝", title: "Summary of Changes", description: "What was changed and why, in plain language — rationale for every decision stated before you open the diff" },
+    { icon: "✅", title: "Test Results", description: "Pass/fail status from the CI run inside the sandbox — know if the change works before reading the code" },
+    { icon: "📁", title: "Files Modified", description: "List of changed files with rationale for each — scoped review before opening the full diff" },
+    { icon: "🔥", title: "Firewall Alerts", description: "Any blocked outbound connections — investigate before merging if unexpected calls appear" }
+  ]'
+  :insight='{ icon: "💡", text: "Reading the evidence bundle takes 2-3 minutes and gives a complete picture of what the agent did — before opening the diff." }'
+/>
 
 ---
 
@@ -315,136 +257,28 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 ---
 
 <!-- SLIDE: Effective Issue Anatomy -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✍️ Writing Issues</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Weak vs. Effective Issues</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
-<div class="p-5 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border-2 border-red-500/50">
-<div class="text-red-400 font-bold text-base mb-3">❌ Weak — Inconsistent Results</div>
-<div class="p-3 bg-black/30 rounded-lg font-mono text-sm">
-<div class="text-gray-400">## Fix the authentication bug</div>
-<div class="text-gray-400 mt-1">The auth is broken. Please fix it.</div>
-</div>
-<div class="mt-3 space-y-1 text-xs text-red-300/80">
-<div>• No acceptance criteria — agent guesses "done"</div>
-<div>• No scope — may change unintended files</div>
-<div>• No context links — broad code search, missed files</div>
-</div>
-</div>
-<div class="p-5 bg-gradient-to-br from-green-900/30 to-emerald-800/20 rounded-xl border-2 border-green-500/50">
-<div class="text-green-400 font-bold text-base mb-3">✅ Effective — Consistent PRs</div>
-<div class="p-3 bg-black/30 rounded-lg font-mono text-xs leading-relaxed">
-<div class="text-blue-300">## Upgrade rate-limiting middleware v6 → v7</div>
-<div class="mt-1 text-green-300">### Acceptance Criteria</div>
-<div class="text-gray-300">- [ ] Updated to v7.x in package.json</div>
-<div class="text-gray-300">- [ ] onLimitReached migrated to handler</div>
-<div class="mt-1 text-yellow-300">### Scope</div>
-<div class="text-gray-300">In: src/middleware/, tests/</div>
-<div class="mt-1 text-purple-300">### Context</div>
-<div class="text-gray-300">Migration guide: [link to changelog]</div>
-</div>
-</div>
-</div>
-<div class="mt-5 grid grid-cols-4 gap-3 max-w-5xl mx-auto">
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-center text-xs">
-<div class="text-blue-300 font-bold mb-1">✓ Criteria</div>
-<div class="opacity-70">Testable "done" conditions</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-center text-xs">
-<div class="text-indigo-300 font-bold mb-1">✓ Scope</div>
-<div class="opacity-70">What's in and out</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/20 to-purple-800/10 rounded-lg border border-purple-500/20 text-center text-xs">
-<div class="text-purple-300 font-bold mb-1">✓ Context</div>
-<div class="opacity-70">Links + key files</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-violet-900/20 to-violet-800/10 rounded-lg border border-violet-500/20 text-center text-xs">
-<div class="text-violet-300 font-bold mb-1">✓ Constraints</div>
-<div class="opacity-70">Patterns to follow</div>
-</div>
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="2"
+  pillIcon="✍️"
+  pillLabel="Writing Issues"
+  title="Weak vs. Effective Issues"
+  :before='{ header: "Weak — Inconsistent Results", items: ["No acceptance criteria — agent guesses done", "No scope — may change unintended files", "No context links — broad code search, missed files"] }'
+  :after='{ header: "Effective — Consistent PRs", items: ["Testable acceptance criteria — pass/fail checkboxes", "Explicit scope sections: In and Out", "Context links + key files referenced", "Constraints naming patterns to follow"] }'
+  :insight='{ icon: "💡", text: "4 elements of an effective issue: Criteria, Scope, Context, Constraints — each shapes the quality of the agent PR." }'
+/>
 
 ---
 
 <!-- SLIDE: Image-Based Issue Creation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✍️ Writing Issues</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Image-Based Issue Creation</div>
-<div class="text-sm text-gray-400">Drag a screenshot into github.com/copilot — AI extracts the issue</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-5 max-w-5xl w-full items-start">
-<div class="flex flex-col gap-3">
-<div class="p-4 bg-gradient-to-br from-orange-900/30 to-red-900/20 rounded-xl border border-orange-500/30">
-<div class="text-2xl mb-2">📸</div>
-<div class="text-orange-300 font-bold text-sm mb-2">The Old Way</div>
-<div class="text-xs opacity-80 leading-relaxed">Screenshot alert → manually read error → transcribe to GitHub → add labels → assign → <span class="text-red-300 font-bold">14 minutes</span> per alert</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-red-900/20 to-red-800/10 rounded-lg border border-red-500/20 text-center">
-<div class="text-red-300 font-bold text-xs">~60% detail capture</div>
-<div class="text-xs opacity-60">Manual transcription misses context</div>
-</div>
-</div>
-<div class="flex flex-col items-center justify-center py-8 gap-2">
-<div class="text-3xl">📷</div>
-<div class="text-3xl text-cyan-400">→</div>
-<div class="text-xl font-bold text-cyan-300">🤖</div>
-<div class="text-xs text-center opacity-60 mt-2">Vision model reads full context</div>
-</div>
-<div class="flex flex-col gap-3">
-<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-green-900/20 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-2">🤖</div>
-<div class="text-cyan-300 font-bold text-sm mb-2">With Web Copilot</div>
-<div class="text-xs opacity-80 leading-relaxed">Drag screenshot → AI extracts errors, stack traces, timestamps, request IDs → structured issue in <span class="text-green-300 font-bold">2 minutes</span></div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/20 to-green-800/10 rounded-lg border border-green-500/20 text-center">
-<div class="text-green-300 font-bold text-xs">~95% detail capture</div>
-<div class="text-xs opacity-60">Vision model reads the full screenshot</div>
-</div>
-</div>
-</div>
-<div class="mt-5 flex gap-6 justify-center">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-cyan-300 font-bold text-lg">85%</div>
-<div class="text-xs opacity-70">time reduction</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-lg border border-blue-500/20 text-center">
-<div class="text-blue-300 font-bold text-lg">14 min → 2 min</div>
-<div class="text-xs opacity-70">per issue filed</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-purple-900/20 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-indigo-300 font-bold text-lg">8 hrs/week</div>
-<div class="text-xs opacity-70">saved at 40 alerts/week</div>
-</div>
-</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="2"
+  pillIcon="✍️"
+  pillLabel="Writing Issues"
+  title="Image-Based Issue Creation"
+  :problem='{ header: "The Old Way", items: ["Screenshot alert → manually read error", "Transcribe to GitHub → add labels → assign", "~14 minutes per alert", "~60% detail capture — manual transcription misses context"] }'
+  :solution='{ header: "With Web Copilot", items: ["Drag screenshot into github.com/copilot", "AI extracts errors, stack traces, timestamps, request IDs", "Structured issue in ~2 minutes", "~95% detail capture via vision model"] }'
+  :outcome='{ header: "Time Savings", items: ["8 hrs/week saved at 40 alerts per week"], metrics: [{ value: "85%", label: "Time reduction" }, { value: "14 → 2 min", label: "Per issue filed" }] }'
+/>
 
 ---
 
@@ -464,190 +298,46 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 ---
 
 <!-- SLIDE: copilot-setup-steps.yml -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Trust &amp; Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Configuring the Agent Environment</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
-<div class="p-5 bg-gradient-to-br from-indigo-900/30 to-purple-900/20 rounded-xl border border-indigo-500/30">
-<div class="text-indigo-300 font-bold text-sm mb-3">📄 .github/workflows/copilot-setup-steps.yml</div>
-<div class="p-3 bg-black/40 rounded-lg font-mono text-xs leading-relaxed">
-<div class="text-yellow-300">name: "Copilot Setup Steps"</div>
-<div class="mt-1 text-gray-400">on:</div>
-<div class="text-gray-400">  workflow_dispatch:</div>
-<div class="mt-1 text-gray-400">jobs:</div>
-<div class="text-cyan-300">  copilot-setup-steps:</div>
-<div class="text-gray-400">    runs-on: ubuntu-latest</div>
-<div class="text-gray-400">    steps:</div>
-<div class="text-gray-400">      - uses: actions/checkout@v4</div>
-<div class="text-green-300">      - uses: actions/setup-node@v4</div>
-<div class="text-gray-400">        with:</div>
-<div class="text-gray-400">          node-version: '20'</div>
-<div class="text-green-300">      - run: npm ci</div>
-</div>
-<div class="mt-2 text-xs text-red-300/80">⚠️ Job name must be exactly <span class="font-mono">copilot-setup-steps</span> — no other name works</div>
-</div>
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 rounded-lg border border-cyan-500/20 text-xs">
-<div class="text-cyan-300 font-bold mb-1">🔑 Runs Before Firewall</div>
-<div class="opacity-80">Private registry installs in setup steps succeed without needing allowlist entries — firewall activates after setup completes</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-lg border border-blue-500/20 text-xs">
-<div class="text-blue-300 font-bold mb-1">🔧 Testable in CI</div>
-<div class="opacity-80">Add <span class="font-mono text-blue-300">workflow_dispatch</span> + path triggers to validate setup before the agent runs it</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 rounded-lg border border-indigo-500/20 text-xs">
-<div class="text-indigo-300 font-bold mb-1">�� Logs Visible</div>
-<div class="opacity-80">Setup step logs appear in the Copilot session UI — environment debugging is straightforward</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/20 to-purple-800/10 rounded-lg border border-purple-500/20 text-xs">
-<div class="text-purple-300 font-bold mb-1">⚡ Failure-Resilient</div>
-<div class="opacity-80">If setup fails, agent continues and reports the failure in session log — setup errors don't silently block all work</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="🔒"
+  pillLabel="Trust & Configuration"
+  title="Configuring the Agent Environment"
+  codePosition="left"
+  :code='{ language: "yaml", filename: ".github/workflows/copilot-setup-steps.yml", content: "name: \"Copilot Setup Steps\"\non:\n  workflow_dispatch:\njobs:\n  copilot-setup-steps:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 20\n      - run: npm ci\n\n# Job name must be exactly copilot-setup-steps" }'
+  :features='[
+    { icon: "🔑", title: "Runs Before Firewall", description: "Private registry installs in setup steps succeed without needing allowlist entries — firewall activates after setup completes" },
+    { icon: "🔧", title: "Testable in CI", description: "Add workflow_dispatch and path triggers to validate setup before the agent runs it" },
+    { icon: "📋", title: "Logs Visible", description: "Setup step logs appear in the Copilot session UI — environment debugging is straightforward" },
+    { icon: "⚡", title: "Failure-Resilient", description: "If setup fails, agent continues and reports the failure in session log — setup errors do not silently block all work" }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: The Agent Firewall -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Trust &amp; Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-1">The Agent Firewall</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
-<div class="space-y-3">
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/20 rounded-xl border border-indigo-500/30">
-<div class="text-indigo-300 font-bold mb-2">🛡️ Default Allowlist Includes</div>
-<div class="space-y-1 text-sm">
-<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span>npm, PyPI, Maven, RubyGems, NuGet, Go modules</span></div>
-<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span>apt, yum, apk (OS package managers)</span></div>
-<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span>Docker Hub, ghcr.io, gcr.io (container registries)</span></div>
-<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span>GitHub APIs + raw.githubusercontent.com</span></div>
-<div class="flex items-center gap-2"><span class="text-green-400">✓</span><span>SSL certificate authorities + Playwright browsers</span></div>
-</div>
-<div class="mt-2 text-xs text-cyan-300/80">Most repos work immediately — no custom allowlist config needed</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-orange-900/20 to-red-900/20 rounded-xl border border-orange-500/30">
-<div class="text-orange-300 font-bold mb-2">⚠️ Firewall Limitations</div>
-<div class="space-y-1 text-xs opacity-80">
-<div>• Only applies to bash processes started by the agent</div>
-<div>• Does <span class="text-red-300 font-semibold">not</span> apply to MCP servers or setup steps</div>
-<div>• Only within the GitHub Actions appliance</div>
-<div>• Does not apply to self-hosted or Windows runners</div>
-</div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="p-4 bg-gradient-to-br from-purple-900/30 to-violet-900/20 rounded-xl border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-2">🚨 Blocked Connection Log (in PR)</div>
-<div class="p-3 bg-black/40 rounded-lg font-mono text-xs leading-relaxed">
-<div class="text-yellow-300">⚠️ Firewall blocked connection</div>
-<div class="text-gray-400">Target: unauthorized-domain.com:443</div>
-<div class="text-gray-400">Command: curl https://...</div>
-<div class="text-gray-400">Time: 2026-04-06T14:32:17Z</div>
-</div>
-<div class="mt-2 text-xs opacity-70">Appears in the PR evidence bundle — always investigate before merging</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="🔒"
+  pillLabel="Trust & Configuration"
+  title="The Agent Firewall"
+  :left='{ header: "Default Allowlist", icon: "🛡️", items: ["npm, PyPI, Maven, RubyGems, NuGet, Go modules", "apt, yum, apk (OS package managers)", "Docker Hub, ghcr.io, gcr.io (container registries)", "GitHub APIs + raw.githubusercontent.com", "SSL certificate authorities + Playwright browsers", "Most repos work immediately — no custom config needed"] }'
+  :right='{ header: "Blocked Connection Log", icon: "🚨", code: { language: "text", content: "⚠️ Firewall blocked connection\nTarget: unauthorized-domain.com:443\nCommand: curl https://...\nTime: 2026-04-06T14:32:17Z\n\nAppears in the PR evidence bundle —\nalways investigate before merging." } }'
+  :insight='{ icon: "⚠️", text: "Firewall only applies to agent bash processes — not MCP servers, setup steps, or self-hosted runners." }'
+/>
 
 ---
 
 <!-- SLIDE: Firewall Configuration Levels -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Trust &amp; Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Firewall Configuration Levels</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 max-w-5xl w-full">
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50">
-<div class="text-blue-300 font-bold text-lg mb-4 text-center">🏢 Organization Level</div>
-<div class="space-y-3 text-sm">
-<div class="p-2 bg-blue-900/20 rounded-lg">
-<div class="font-semibold text-blue-200">Enable/Disable Firewall</div>
-<div class="text-xs opacity-70 mt-1">Enabled · Disabled · Let repositories decide (default)</div>
-</div>
-<div class="p-2 bg-blue-900/20 rounded-lg">
-<div class="font-semibold text-blue-200">Recommended Allowlist</div>
-<div class="text-xs opacity-70 mt-1">Toggle the default package registry list on/off</div>
-</div>
-<div class="p-2 bg-blue-900/20 rounded-lg">
-<div class="font-semibold text-blue-200">Custom Allowlist</div>
-<div class="text-xs opacity-70 mt-1">Add domains or URLs — applies to all repos in the org</div>
-</div>
-<div class="p-2 bg-blue-900/20 rounded-lg">
-<div class="font-semibold text-blue-200">Repo Custom Rules</div>
-<div class="text-xs opacity-70 mt-1">Allow or prevent repos from adding their own rules</div>
-</div>
-</div>
-<div class="mt-3 text-xs opacity-50 text-center">Settings → Code, planning &amp; automation → Copilot → Cloud agent</div>
-</div>
-<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50">
-<div class="text-indigo-300 font-bold text-lg mb-4 text-center">📁 Repository Level</div>
-<div class="space-y-3 text-sm">
-<div class="p-2 bg-indigo-900/20 rounded-lg">
-<div class="font-semibold text-indigo-200">Enable/Disable Firewall</div>
-<div class="text-xs opacity-70 mt-1">Only if org is set to "Let repositories decide"</div>
-</div>
-<div class="p-2 bg-indigo-900/20 rounded-lg">
-<div class="font-semibold text-indigo-200">Recommended Allowlist</div>
-<div class="text-xs opacity-70 mt-1">Toggle on/off if org allows repository decisions</div>
-</div>
-<div class="p-2 bg-indigo-900/20 rounded-lg">
-<div class="font-semibold text-indigo-200">Custom Allowlist</div>
-<div class="text-xs opacity-70 mt-1">Add domains or URLs — combined with org-level rules</div>
-</div>
-</div>
-<div class="mt-3 p-3 bg-yellow-900/20 rounded-lg border border-yellow-500/20 text-xs text-yellow-300/80">
-💡 Org-level rules lock repo overrides when set to Enabled or Disabled
-</div>
-<div class="mt-2 text-xs opacity-50 text-center">Repository Settings → Code &amp; automation → Copilot → Cloud agent</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="🔒"
+  pillLabel="Trust & Configuration"
+  title="Firewall Configuration Levels"
+  :left='{ header: "Organization Level", icon: "🏢", items: [{ title: "Enable/Disable Firewall", detail: "Enabled · Disabled · Let repositories decide (default)" }, { title: "Recommended Allowlist", detail: "Toggle the default package registry list on/off" }, { title: "Custom Allowlist", detail: "Add domains or URLs — applies to all repos in the org" }, { title: "Repo Custom Rules", detail: "Allow or prevent repos from adding their own rules" }] }'
+  :right='{ header: "Repository Level", icon: "📁", items: [{ title: "Enable/Disable Firewall", detail: "Only if org is set to Let repositories decide" }, { title: "Recommended Allowlist", detail: "Toggle on/off if org allows repository decisions" }, { title: "Custom Allowlist", detail: "Add domains or URLs — combined with org-level rules" }, { title: "Note", detail: "Org-level rules lock repo overrides when set to Enabled or Disabled" }] }'
+  :insight='{ icon: "💡", text: "Org settings: Settings → Code, planning & automation → Copilot → Cloud agent. Repo settings: Repository Settings → Code & automation → Copilot → Cloud agent." }'
+/>
 
 ---
 
@@ -667,172 +357,45 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 ---
 
 <!-- SLIDE: Evidence-First Review -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Review Workflow</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Evidence-First Review Process</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="max-w-5xl mx-auto">
-<div class="grid grid-cols-3 gap-3 mb-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-violet-900/30 rounded-xl border border-purple-500/40">
-<div class="text-xl mb-1">1️⃣</div>
-<div class="text-purple-300 font-bold text-sm mb-1">Read Evidence Bundle</div>
-<div class="text-xs opacity-80 leading-relaxed">Check summary, test results, firewall alerts — 2-3 minutes to understand what happened before touching the diff</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-violet-900/40 to-fuchsia-900/30 rounded-xl border border-violet-500/40">
-<div class="text-xl mb-1">2️⃣</div>
-<div class="text-violet-300 font-bold text-sm mb-1">Review the Diff</div>
-<div class="text-xs opacity-80 leading-relaxed">Focus on correctness, edge cases, security — apply the same criteria as for any contributor's PR</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-fuchsia-900/40 to-pink-900/30 rounded-xl border border-fuchsia-500/40">
-<div class="text-xl mb-1">3️⃣</div>
-<div class="text-fuchsia-300 font-bold text-sm mb-1">Approve or Iterate</div>
-<div class="text-xs opacity-80 leading-relaxed">Leave specific PR comments → agent reads, pushes commits, re-runs tests. Effective for 3–5 iterations.</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/20 to-emerald-900/10 rounded-xl border border-green-500/20 mb-2">
-<div class="text-green-300 font-bold text-xs mb-1">✅ Comments That Work</div>
-<div class="p-2 bg-black/30 rounded font-mono text-xs">The handler in src/middleware/rateLimiter.js uses res.status(429).send() but we always use our error response wrapper. See src/utils/errorResponse.js for the pattern.</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-red-900/20 to-red-800/10 rounded-xl border border-red-500/20">
-<div class="text-red-300 font-bold text-xs mb-1">❌ Comments That Are Too Vague</div>
-<div class="p-2 bg-black/30 rounded font-mono text-xs">This looks wrong. Fix it.</div>
-</div>
-</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="4"
+  pillIcon="✅"
+  pillLabel="Review Workflow"
+  title="Evidence-First Review Process"
+  :problem='{ header: "1 — Read Evidence Bundle", items: ["Check summary, test results, and firewall alerts", "2-3 minutes before touching the diff", "Know what the agent did before reading the code"] }'
+  :solution='{ header: "2 — Review the Diff", items: ["Focus on correctness, edge cases, security", "Apply the same criteria as for any contributor PR", "Leave specific comments with file path and code pattern to follow"] }'
+  :outcome='{ header: "3 — Approve or Iterate", items: ["Leave specific PR comments → agent reads, pushes commits, re-runs tests", "Effective for 3-5 iterations"], metrics: [{ value: "✅", label: "Specific: file path + pattern to follow" }, { value: "❌", label: "Too vague: This looks wrong. Fix it." }] }'
+/>
 
 ---
 
 <!-- SLIDE: Mobile Review and Custom Agents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Review Workflow</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Mobile Review + Custom Agents</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
-<div class="p-5 bg-gradient-to-br from-purple-900/30 to-violet-900/20 rounded-xl border border-purple-500/30">
-<div class="text-purple-300 font-bold mb-3">📱 Mobile Review Workflow</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-start gap-2">
-<span class="text-purple-400 font-bold shrink-0">1.</span>
-<span>Open draft PR notification in GitHub Mobile</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 font-bold shrink-0">2.</span>
-<span>Read evidence bundle summary (2 min)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 font-bold shrink-0">3.</span>
-<span>Invoke <span class="font-mono text-purple-300">@review-enforcer</span> custom agent</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 font-bold shrink-0">4.</span>
-<span>Read analysis: security, logic, test coverage</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 font-bold shrink-0">5.</span>
-<span>Approve or leave specific change requests</span>
-</div>
-</div>
-<div class="mt-4 p-3 bg-green-900/20 rounded-lg border border-green-500/20 text-center">
-<div class="text-green-300 font-bold">4 hr → 30 min</div>
-<div class="text-xs opacity-70">average PR wait time with mobile reviews</div>
-</div>
-</div>
-<div class="p-5 bg-gradient-to-br from-violet-900/30 to-pink-900/20 rounded-xl border border-violet-500/30">
-<div class="text-violet-300 font-bold mb-3">🤖 @review-enforcer Agent</div>
-<div class="p-3 bg-black/40 rounded-lg font-mono text-xs leading-relaxed">
-<div class="text-blue-300"># @review-enforcer</div>
-<div class="mt-2 text-yellow-300">## Decision</div>
-<div class="text-gray-300">APPROVE / REQUEST_CHANGES</div>
-<div class="mt-2 text-yellow-300">## Findings</div>
-<div class="text-red-300">🔴 Critical (blocks merge)</div>
-<div class="text-yellow-300">🟡 Important (request changes)</div>
-<div class="text-green-300">🟢 Acceptable</div>
-<div class="mt-2 text-gray-400">Focus: security, correctness,</div>
-<div class="text-gray-400">breaking changes, error handling.</div>
-<div class="text-gray-400">Max 300 words. Mobile-optimized.</div>
-</div>
-<div class="mt-2 text-xs opacity-60">Place in .github/agents/review-enforcer.md</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="4"
+  pillIcon="✅"
+  pillLabel="Review Workflow"
+  title="Mobile Review + Custom Agents"
+  codePosition="left"
+  :code='{ language: "markdown", filename: ".github/agents/review-enforcer.md", content: "# @review-enforcer\n\n## Decision\nAPPROVE / REQUEST_CHANGES\n\n## Findings\n\ud83d\udd34 Critical (blocks merge)\n\ud83d\udfe1 Important (request changes)\n\ud83d\udfe2 Acceptable\n\nFocus: security, correctness,\nbreaking changes, error handling.\nMax 300 words. Mobile-optimized." }'
+  :features='[
+    { icon: "📱", title: "Review on Mobile", description: "Open draft PR → read evidence bundle → invoke @review-enforcer for color-coded analysis" },
+    { icon: "🤖", title: "Custom Review Agent", description: "Place in .github/agents/review-enforcer.md — returns mobile-optimized findings in under 300 words" },
+    { icon: "⚡", title: "4 hr → 30 min", description: "Average PR wait time with mobile-enabled async reviews — no laptop required" }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: What to Delegate -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Review Workflow</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">🧠 What to Delegate vs. Keep Human</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-4 max-w-5xl w-full">
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/20 rounded-xl border-2 border-green-500/40">
-<div class="text-green-400 font-bold text-base mb-3">✅ Delegate to Coding Agent</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-start gap-2"><span class="text-green-400">→</span><span>Dependency upgrades with clear migration path</span></div>
-<div class="flex items-start gap-2"><span class="text-green-400">→</span><span>CRUD endpoint scaffolding from established patterns</span></div>
-<div class="flex items-start gap-2"><span class="text-green-400">→</span><span>Documentation sync after refactoring</span></div>
-<div class="flex items-start gap-2"><span class="text-green-400">→</span><span>Test coverage for flagged gaps</span></div>
-<div class="flex items-start gap-2"><span class="text-green-400">→</span><span>Lint and style cleanup across files</span></div>
-</div>
-<div class="mt-2 text-xs opacity-60">Pattern: well-understood scope, single repo, 30 min–4 hr task</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/20 rounded-xl border-2 border-blue-500/40">
-<div class="text-blue-400 font-bold text-base mb-3">👤 Keep Human</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-start gap-2"><span class="text-blue-400">→</span><span>Novel feature design requiring creative judgment</span></div>
-<div class="flex items-start gap-2"><span class="text-blue-400">→</span><span>Complex debugging (local environment required)</span></div>
-<div class="flex items-start gap-2"><span class="text-blue-400">→</span><span>Multi-repository coordination</span></div>
-<div class="flex items-start gap-2"><span class="text-blue-400">→</span><span>Architecture decisions and design exploration</span></div>
-<div class="flex items-start gap-2"><span class="text-blue-400">→</span><span>Windows-only tooling (agent runs Ubuntu)</span></div>
-</div>
-<div class="mt-2 text-xs opacity-60">Pattern: open-ended, exploration needed, spans multiple repos</div>
-</div>
-</div>
-<div class="mt-3 p-3 bg-gradient-to-r from-cyan-900/20 to-indigo-900/20 rounded-xl border border-cyan-500/20 text-center max-w-4xl">
-<div class="text-sm">💡 <span class="text-cyan-300 font-semibold">The core shift:</span> Developers handle work requiring design judgment. The coding agent handles work that is <span class="text-indigo-300 font-semibold">well-understood, bounded, and repeatable</span> — the backlog items everyone knows need doing and no one has time to prioritize.</div>
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="4"
+  pillIcon="🧠"
+  pillLabel="Review Workflow"
+  title="What to Delegate vs. Keep Human"
+  :before='{ header: "Keep Human", items: ["Novel feature design requiring creative judgment", "Complex debugging (local environment required)", "Multi-repository coordination", "Architecture decisions and design exploration", "Windows-only tooling (agent runs Ubuntu)"] }'
+  :after='{ header: "Delegate to Coding Agent", items: ["Dependency upgrades with clear migration path", "CRUD endpoint scaffolding from established patterns", "Documentation sync after refactoring", "Test coverage for flagged gaps", "Lint and style cleanup across files"] }'
+  :insight='{ icon: "💡", text: "The core shift: developers handle work requiring design judgment; the agent handles well-understood, bounded, repeatable backlog tasks." }'
+/>
 
 ---
 

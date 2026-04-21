@@ -4,6 +4,30 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## copilot-web conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-web.md` promoted to 🟢 Conformed status.
+
+- **Slide 5** (Triggering the Agent) → `<ThreeColumnCardSlide>` partNumber=1, 3 columns: GitHub.com / VS Code / GitHub Mobile, each with 2 string items + insight
+- **Slide 7** (The Evidence Bundle) → `<FourCardGridSlide>` partNumber=1, 4 cards: Summary / Test Results / Files Modified / Firewall Alerts
+- **Slide 10** (Effective Issue Anatomy) → `<BeforeAfterPanelsSlide>` partNumber=2, before=Weak issue / after=Effective issue; insight with 4 elements (Criteria, Scope, Context, Constraints)
+- **Slide 11** (Image-Based Issue Creation) → `<ProblemSolutionOutcomeSlide>` partNumber=2, problem=Old Way (14 min) / solution=With Web Copilot (2 min) / outcome with 2 metrics
+- **Slide 13** (copilot-setup-steps.yml) → `<CodeWithFeaturesSlide>` partNumber=3, codePosition=left, YAML code; 4 features: Runs Before Firewall / Testable in CI / Logs Visible / Failure-Resilient
+- **Slide 14** (The Agent Firewall) → `<TwoColPairedConceptsSlide>` partNumber=3 (NOT BeforeAfterMetricsSlide — content has code block on right, no true metrics); left=Default Allowlist string items / right=Blocked Connection Log code block; insight with limitations
+- **Slide 15** (Firewall Configuration Levels) → `<TwoColPairedConceptsSlide>` partNumber=3, left=Organization Level 4 `{ title, detail }` items / right=Repository Level 4 `{ title, detail }` items
+- **Slide 17** (Evidence-First Review) → `<ProblemSolutionOutcomeSlide>` partNumber=4, problem=Read Bundle / solution=Review Diff / outcome=Approve or Iterate with 2 metric items
+- **Slide 18** (Mobile Review) → `<CodeWithFeaturesSlide>` partNumber=4, codePosition=left, @review-enforcer markdown; 3 features: Review on Mobile / Custom Review Agent / 4 hr → 30 min
+- **Slide 19** (What to Delegate) → `<BeforeAfterPanelsSlide>` partNumber=4, before=Keep Human / after=Delegate to Coding Agent (semantic color swap: red=keep, green=delegate)
+- **Slides 6 & 8** kept raw HTML — slide 6: 8-step sandbox sequence in 2-column numbered layout (awaits ConceptStackSlide); slide 8: 2-region layout (Constraint/Why + 3-col Lead/Agent/Reviewer) needs 2 components
+
+**Slide 15 orphan fix:** The `oldString` for the opening `<div>` of slide 15 only matched through `mb-3` before the title div. The title div and entire body remained as orphaned raw HTML after the component invocation. Fixed by a second replacement targeting the orphaned block end-to-end through the `---` separator.
+
+**Build:** ✓ 2.60s, no errors.
+
+---
+
 ## copilot-sdk conformed (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`
