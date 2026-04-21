@@ -25,7 +25,7 @@ export interface SectionChrome {
     pill: string
     pillText: string
     divider: string
-    accent: string // headline accent text color
+    arrow: string   // terminal arrow color (SectionOpenerSlide)
 }
 
 export interface SectionCard {
