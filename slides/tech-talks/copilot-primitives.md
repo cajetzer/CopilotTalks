@@ -288,62 +288,22 @@ highlight="Copilot's response quality is directly proportional to how much it kn
 ---
 
 <!-- SLIDE: Custom Prompts — Component Generator Example -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Custom Prompts</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<span class="text-white/40 text-xs ml-1">1 of 1</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-xl font-bold text-white mb-1">Example: /component Generator</div>
-<div class="text-sm text-white/60">Standardize React component scaffolding across the team</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="flex-1 min-h-0 bg-gray-950/80 rounded-xl border border-indigo-500/30 p-3 overflow-y-auto flex flex-col gap-2 max-h-52">
-<div class="font-mono text-xs text-indigo-300">.github/prompts/component.prompt.md</div>
-<div class="bg-gray-900/70 rounded p-2 font-mono text-xs space-y-0.5">
-<div class="text-blue-400">---</div>
-<div class="text-white">name: component</div>
-<div class="text-white">description: Generate React component with TypeScript, tests, docs</div>
-<div class="text-white">tools: ['editFiles', 'createFile']</div>
-<div class="text-white">agent: agent</div>
-<div class="text-blue-400">---</div>
-</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div class="font-semibold text-white"># Component Generator</div>
-<div class="mt-1">Create a new React component following our team's standards.</div>
-<div class="mt-1 font-semibold text-white">## Files to Create</div>
-<div class="bg-gray-900/70 rounded p-2 font-mono text-xs space-y-0.5 text-indigo-200">
-<div>src/components/&#123;&#123;componentName&#125;&#125;/</div>
-<div class="ml-3">&#123;&#123;componentName&#125;&#125;.tsx</div>
-<div class="ml-3">&#123;&#123;componentName&#125;&#125;.types.ts</div>
-<div class="ml-3">&#123;&#123;componentName&#125;&#125;.module.css</div>
-<div class="ml-3">__tests__/&#123;&#123;componentName&#125;&#125;.test.tsx</div>
-</div>
-<div class="mt-1 font-semibold text-white">## Requirements</div>
-<div>• Use functional components with hooks</div>
-<div>• Include TypeScript props interface with JSDoc</div>
-<div>• Follow conventions in [coding standards](../../copilot-instructions.md)</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-2">
-<div class="p-2 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
-<div class="text-xs font-semibold text-indigo-300 mb-1">💬 Usage</div>
-<div class="text-xs opacity-80">Type <code class="bg-gray-900 px-1 rounded">/component MyButton</code> in chat</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-lg border border-purple-500/30">
-<div class="text-xs font-semibold text-purple-300 mb-1">🔁 Consistency</div>
-<div class="text-xs opacity-80">Same structure every time, no manual repetition</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="📋"
+  pillLabel="Custom Prompts"
+  title="Example: /component Generator"
+  codePosition="top"
+  :code='{
+    language: "markdown",
+    filename: ".github/prompts/component.prompt.md",
+    content: "---\nname: component\ndescription: Generate React component with TypeScript, tests, docs\ntools: [\"editFiles\", \"createFile\"]\nagent: agent\n---\n\n# Component Generator\n\nCreate a new React component following team coding standards.\n\n## Files to Create\nsrc/components/{{componentName}}/\n   {{componentName}}.tsx\n   {{componentName}}.types.ts\n   {{componentName}}.module.css\n   __tests__/{{componentName}}.test.tsx\n\n## Requirements\n• Use functional components with hooks\n• Include TypeScript props interface with JSDoc\n• Follow conventions in coding standards"
+  }'
+  :features='[
+    { icon: "💬", title: "Usage", description: "Type /component MyButton in chat — generates the full folder structure automatically" },
+    { icon: "🔁", title: "Consistency", description: "Same structure every time, across every developer on the team" }
+  ]'
+/>
 
 ---
 
@@ -363,66 +323,23 @@ highlight="Copilot's response quality is directly proportional to how much it kn
 ---
 
 <!-- SLIDE: Custom Agents — Planner Example with Handoffs -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Custom Agents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Example: Planning Agent with Handoffs</div>
-<div class="text-xs text-white/50">Read-only planning → implementation → review workflow</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-3">
-<div class="flex flex-col bg-gray-950/80 rounded-xl border border-purple-500/30 p-3">
-<div class="font-mono text-xs text-purple-300 mb-2">.github/agents/planner.agent.md</div>
-<div class="bg-gray-900/70 rounded p-2 mb-2 font-mono text-xs space-y-0.5">
-<div class="text-blue-400">---</div>
-<div class="text-white">name: planner</div>
-<div class="text-white">description: Generate plans. Read-only.</div>
-<div class="text-white">tools: ['search', 'readFile', 'listFiles']</div>
-<div class="text-white">handoffs:</div>
-<div class="text-white ml-3">- label: Start Implementation</div>
-<div class="text-white ml-5">agent: agent</div>
-<div class="text-blue-400">---</div>
-</div>
-<div class="text-xs text-gray-300 flex-1 space-y-1">
-<div class="font-semibold text-white"># Planning Agent</div>
-<div>Senior architect role. Research codebase, generate plan.</div>
-<div class="mt-1"><strong>Rule:</strong> NEVER modify files — read-only</div>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
-<div class="text-xs font-semibold text-purple-300 mb-1">🔒 Why Constrain Tools?</div>
-<div class="text-xs opacity-80 space-y-0.5">
-<div>• <strong>Planner:</strong> read-only prevents edits</div>
-<div>• <strong>Security:</strong> search but no terminal</div>
-<div>• <strong>DB admin:</strong> SQL but no frontend</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-rose-900/40 rounded-xl border border-pink-500/30">
-<div class="text-xs font-semibold text-pink-300 mb-1">🤝 Handoff Workflow</div>
-<div class="text-xs opacity-80 space-y-0.5">
-<div><strong>1:</strong> Planner creates plan</div>
-<div><strong>2:</strong> "Start Implementation" button</div>
-<div><strong>3:</strong> Switches to agent with context</div>
-<div><strong>4:</strong> Optional security handoff</div>
-</div>
-</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-emerald-900/40 to-cyan-900/40 rounded-lg border border-emerald-500/30">
-<div class="text-xs"><strong class="text-emerald-300">Real Impact:</strong> DB admin agent = zero production migration rollbacks in 6 months, 60% faster schema review.</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="4"
+  pillIcon="🤖"
+  pillLabel="Custom Agents"
+  title="Example: Planning Agent with Handoffs"
+  codePosition="left"
+  :code='{
+    language: "markdown",
+    filename: ".github/agents/planner.agent.md",
+    content: "---\nname: planner\ndescription: Generate plans. Read-only.\ntools: [\"search\", \"readFile\", \"listFiles\"]\nhandoffs:\n  - label: Start Implementation\n    agent: agent\n---\n\n# Planning Agent\n\nSenior architect role. Research codebase, generate plan.\n\nRule: NEVER modify files — read-only"
+  }'
+  :features='[
+    { icon: "🔒", title: "Why Constrain Tools?", description: "Planner: read-only prevents edits · Security: search but no terminal · DB admin: SQL but no frontend" },
+    { icon: "🤝", title: "Handoff Workflow", description: "1: Planner creates plan → 2: Click Start Implementation → 3: Agent switches with context → 4: Optional security handoff" }
+  ]'
+  :insight='{ icon: "📈", text: "Real Impact: DB admin agent = zero production migration rollbacks in 6 months, 60% faster schema review." }'
+/>
 
 ---
 

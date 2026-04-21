@@ -4,6 +4,22 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## copilot-primitives conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-primitives.md` promoted to 🟢 Conformed status.
+
+- **Slide 12** (Custom Prompts — Component Generator) → `<CodeWithFeaturesSlide>` partNumber=3, `codePosition="top"`, 2 features
+- **Slide 14** (Custom Agents — Planner Example) → `<CodeWithFeaturesSlide>` partNumber=4, `codePosition="left"`, 2 features + insight bar
+- **Slides 10, 15, 16** kept as raw HTML — no component covers mixed 2×2 grid+code, asymmetric 2-card+code, or 2-col guide+4-col tag-grid layouts
+
+**Build gotcha hit:** apostrophe in `team's standards` inside a single-quoted `:code='...'` binding caused `Unterminated string constant`. Fixed by rewriting without possessive. Confirms the existing discoveries rule: bare `'` terminates a single-quoted prop attribute.
+
+**3 raw HTML slides remain** in this deck (10, 15, 16) — candidates for new component creation if ≥2 other decks share the same gap.
+
+---
+
 ## Phase 1 catalog complete: all 18 tech-talk decks cataloged (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

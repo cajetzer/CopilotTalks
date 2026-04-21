@@ -1,6 +1,6 @@
 # Deck: copilot-primitives
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — slides 12 and 14 converted; slides 10, 15, 16 kept as raw HTML (no matching component)
 **Deck file:** `slides/tech-talks/copilot-primitives.md`
 **Raw HTML slides:** 5 (out of 20 total)
 
