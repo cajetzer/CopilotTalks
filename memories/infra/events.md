@@ -4,6 +4,24 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## copilot-sdk conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-sdk.md` promoted to 🟢 Conformed status.
+
+- **Slide 6** (SDK Capabilities / What You Get) → `<FourCardGridSlide>` partNumber=1, 4 cards: Core Agent Features / Advanced Features / SDK-Specific Advantages / Security & Production; insight: "Same production-tested runtime as Copilot CLI — no rebuilding agent infrastructure."
+- **Slide 8** (Installation & Basic Usage) → `<CodeWithFeaturesSlide>` partNumber=2, codePosition=left, Python basic chat code; 3 feature cards: Install SDK (pip/npm/go commands) / Prerequisites / First Run
+- **Slide 11** (Pattern 2: Web API with SDK) → `<CodeWithFeaturesSlide>` partNumber=3, codePosition=left, Flask PR analysis code; 2 feature cards: Security (restricted tools, sandboxed dir) / Integration (webhooks, CI/CD, dashboards)
+- **Slide 14** (Use Case 1: Release Engineering) → `<BeforeAfterMetricsSlide>` partNumber=4, 3 metrics: Before 2+ hrs / After 10 min / 92% reduction
+- **Slide 15** (Use Case 2: Test Infrastructure) → `<BeforeAfterMetricsSlide>` partNumber=4, 3 metrics: Before 45 min / After 5 min / 60% CI blockage reduction
+- **Slide 16** (Use Case 3: Code Review Bots) → `<BeforeAfterMetricsSlide>` partNumber=4, 3 metrics: 50% faster reviews / 2x PR throughput / Instant feedback
+- **Slides 5, 9, 12** kept raw HTML — slide 5: 4-stage horizontal flow diagram (Application→SDK→CLI→Service) with responsibility boxes, no component match; slides 9 & 12: full Python scripts (release-notes.py, scheduled automation), await TerminalDemoSlide component
+
+**Build:** ✓ 2.60s, no errors.
+
+---
+
 ## copilot-chat-internals conformed (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

@@ -1,8 +1,8 @@
 # Deck: copilot-sdk
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — 6 slides converted, 4 kept raw HTML (flow diagram ×2, long scripts ×2)
 **Deck file:** `slides/tech-talks/copilot-sdk.md`
-**Raw HTML slides:** 10 (out of 20 total)
+**Raw HTML slides converted:** 6 of 10
 
 ---
 

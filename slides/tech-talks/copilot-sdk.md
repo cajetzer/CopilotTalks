@@ -26,6 +26,9 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -151,67 +154,19 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 ---
 
 <!-- SLIDE: SDK Capabilities -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Architecture</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">What You Get</div>
-<div class="text-xs text-white/50">All Copilot CLI features accessible programmatically + SDK-specific advantages</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1 text-sm">Core Agent Features</div>
-<div class="space-y-1 text-xs">
-<div>✅ Planning & multi-turn execution</div>
-<div>✅ Tool invocation (files, shell, Git)</div>
-<div>✅ Multiple AI models (GPT-4, Claude)</div>
-<div>✅ Custom agents, skills, tools</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1 text-sm">Advanced Features</div>
-<div class="space-y-1 text-xs">
-<div>✅ MCP server integration</div>
-<div>✅ Persistent memory across sessions</div>
-<div>✅ Real-time streaming responses</div>
-<div>✅ BYOK (Bring Your Own Key)</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-indigo-300 mb-1 text-sm">SDK-Specific Advantages</div>
-<div class="space-y-1 text-xs">
-<div>🎯 Embed in any application</div>
-<div>🎯 Programmatic prompt control</div>
-<div>🎯 Tool permission sandboxing</div>
-<div>🎯 Error handling & retries</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1 text-sm">Security & Production</div>
-<div class="space-y-1 text-xs">
-<div>🔒 Restricted tool permissions</div>
-<div>🔒 Working directory limits</div>
-<div>🔒 Rate limiting & quotas</div>
-<div>🔒 Production error handling</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-lg border border-cyan-400/30 text-center text-xs">
-<span class="text-cyan-200">Same production-tested runtime as Copilot CLI — no rebuilding agent infrastructure</span>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🏗️"
+  pillLabel="Architecture"
+  title="What You Get"
+  :cards='[
+    { icon: "🔌", title: "Core Agent Features", description: "Planning & multi-turn execution, tool invocation (files, shell, Git), multiple AI models (GPT-4, Claude), custom agents, skills, tools" },
+    { icon: "⚡", title: "Advanced Features", description: "MCP server integration, persistent memory across sessions, real-time streaming responses, BYOK (Bring Your Own Key)" },
+    { icon: "🎯", title: "SDK-Specific Advantages", description: "Embed in any application, programmatic prompt control, tool permission sandboxing, error handling & retries" },
+    { icon: "🔒", title: "Security & Production", description: "Restricted tool permissions, working directory limits, rate limiting & quotas, production error handling" }
+  ]'
+  :insight='{ icon: "💡", text: "Same production-tested runtime as Copilot CLI — no rebuilding agent infrastructure." }'
+/>
 
 ---
 
@@ -231,57 +186,19 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 ---
 
 <!-- SLIDE: Getting Started -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">� Getting Started</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Installation & Basic Usage</div>
-<div class="text-xs text-white/50">Prerequisites: Copilot CLI installed and authenticated</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="grid grid-cols-2 gap-3 text-sm mb-3">
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1 text-xs">Install SDK</div>
-<div class="space-y-1 text-xs font-mono">
-<div class="text-gray-300">Python: <span class="text-cyan-400">pip install github-copilot-sdk</span></div>
-<div class="text-gray-300">TypeScript: <span class="text-cyan-400">npm install @github/copilot-sdk</span></div>
-<div class="text-gray-300">Go: <span class="text-cyan-400">go get github.com/github/copilot-sdk/go</span></div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1 text-xs">Prerequisites</div>
-<div class="space-y-1 text-xs">
-<div>✓ Copilot CLI installed & authenticated</div>
-<div>✓ GitHub Copilot subscription</div>
-<div>✓ Python 3.8+ / Node 18+ / Go 1.20+ / .NET 6+</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0 flex flex-col">
-<div class="text-xs text-gray-400 mb-2">Python: Basic Chat Example</div>
-<div class="overflow-y-auto flex-1 bg-gray-900/50 rounded p-3 font-mono text-xs text-gray-300 leading-relaxed">
-<div><span class="text-purple-400">from</span> github_copilot_sdk <span class="text-purple-400">import</span> CopilotClient</div>
-<div class="mt-2 text-green-400"># Initialize client (spawns CLI in server mode)</div>
-<div>client = CopilotClient()</div>
-<div class="mt-2 text-green-400"># Simple chat interaction</div>
-<div>response = client.chat(<span class="text-amber-300">"Explain OAuth vs JWT"</span>)</div>
-<div><span class="text-cyan-400">print</span>(response.text)</div>
-<div class="mt-2 text-green-400"># Streaming for better UX</div>
-<div><span class="text-purple-400">for</span> chunk <span class="text-purple-400">in</span> client.chat_stream(<span class="text-amber-300">"Analyze this repository"</span>):</div>
-<div class="ml-4"><span class="text-cyan-400">print</span>(chunk.text, end=<span class="text-amber-300">''</span>, flush=<span class="text-cyan-400">True</span>)</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="2"
+  pillIcon="🚀"
+  pillLabel="Getting Started"
+  title="Installation & Basic Usage"
+  codePosition="left"
+  :code='{ language: "python", filename: "basic_chat.py", content: "from github_copilot_sdk import CopilotClient\n\n# Initialize client (spawns CLI in server mode)\nclient = CopilotClient()\n\n# Simple chat interaction\nresponse = client.chat(\"Explain OAuth vs JWT\")\nprint(response.text)\n\n# Streaming for better UX\nfor chunk in client.chat_stream(\"Analyze this repository\"):\n    print(chunk.text, end=\"\", flush=True)" }'
+  :features='[
+    { icon: "📦", title: "Install SDK", description: "Python: pip install github-copilot-sdk · TypeScript: npm install @github/copilot-sdk · Go: go get github.com/github/copilot-sdk/go" },
+    { icon: "✅", title: "Prerequisites", description: "Copilot CLI installed & authenticated, GitHub Copilot subscription, Python 3.8+ / Node 18+ / Go 1.20+ / .NET 6+" },
+    { icon: "⚡", title: "First Run", description: "Client spawns CLI in server mode automatically — no separate server process needed" }
+  ]'
+/>
 
 ---
 
@@ -350,60 +267,18 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 ---
 
 <!-- SLIDE: Pattern 2 - Web API -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🌐 Advanced Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Pattern 2: Web API with SDK</div>
-<div class="text-xs text-white/50">Expose SDK capabilities via REST endpoints</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="p-3 bg-gray-950/60 rounded-lg border border-gray-700/50 flex-1 min-h-0 flex flex-col">
-<div class="text-xs text-gray-400 mb-2">Flask API: PR analysis endpoint with security-restricted SDK client</div>
-<div class="overflow-y-auto flex-1 bg-gray-900/50 rounded p-3 font-mono text-xs text-gray-300 leading-relaxed">
-<div><span class="text-purple-400">from</span> flask <span class="text-purple-400">import</span> Flask, request, jsonify</div>
-<div><span class="text-purple-400">from</span> github_copilot_sdk <span class="text-purple-400">import</span> CopilotClient</div>
-<div class="mt-2">app = Flask(__name__)</div>
-<div>client = CopilotClient(</div>
-<div class="ml-4">allowed_tools=[<span class="text-amber-300">'file_read'</span>],  <span class="text-green-400"># Read-only for security</span></div>
-<div class="ml-4">working_directory=<span class="text-amber-300">'/tmp/pr-diffs'</span></div>
-<div>)</div>
-<div class="mt-2"><span class="text-cyan-400">@app.route</span>(<span class="text-amber-300">'/api/analyze-pr'</span>, methods=[<span class="text-amber-300">'POST'</span>])</div>
-<div><span class="text-purple-400">def</span> <span class="text-cyan-400">analyze_pr</span>():</div>
-<div class="ml-4">pr_diff = request.json.get(<span class="text-amber-300">'diff'</span>)</div>
-<div class="ml-4"><span class="text-purple-400">if not</span> pr_diff:</div>
-<div class="ml-8"><span class="text-purple-400">return</span> jsonify(&#123;<span class="text-amber-300">'error'</span>: <span class="text-amber-300">'Missing diff'</span>&#125;), 400</div>
-<div class="ml-4 mt-2">prompt = <span class="text-amber-300">f"""</span></div>
-<div class="ml-4"><span class="text-amber-300">Review this PR for security, logic errors, performance issues.</span></div>
-<div class="ml-4"><span class="text-amber-300">Provide actionable feedback with line numbers:</span></div>
-<div class="ml-4"><span class="text-amber-300">&#123;pr_diff&#125;</span></div>
-<div class="ml-4"><span class="text-amber-300">"""</span></div>
-<div class="ml-4 mt-2"><span class="text-purple-400">try</span>:</div>
-<div class="ml-8">response = client.chat(prompt)</div>
-<div class="ml-8"><span class="text-purple-400">return</span> jsonify(&#123;<span class="text-amber-300">'analysis'</span>: response.text&#125;)</div>
-<div class="ml-4"><span class="text-purple-400">except</span> Exception <span class="text-purple-400">as</span> e:</div>
-<div class="ml-8"><span class="text-purple-400">return</span> jsonify(&#123;<span class="text-amber-300">'error'</span>: <span class="text-cyan-400">str</span>(e)&#125;), 500</div>
-</div>
-</div>
-<div class="mt-2 grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded border border-blue-500/30">
-<span class="font-semibold text-blue-300">Security:</span> Restricted tools, sandboxed directory
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded border border-green-500/30">
-<span class="font-semibold text-green-300">Integration:</span> Webhooks, CI/CD, internal dashboards
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="🌐"
+  pillLabel="Advanced Patterns"
+  title="Pattern 2: Web API with SDK"
+  codePosition="left"
+  :code='{ language: "python", filename: "app.py", content: "from flask import Flask, request, jsonify\nfrom github_copilot_sdk import CopilotClient\n\napp = Flask(__name__)\nclient = CopilotClient(\n    allowed_tools=[\"file_read\"],\n    working_directory=\"/tmp/pr-diffs\"\n)\n\n@app.route(\"/api/analyze-pr\", methods=[\"POST\"])\ndef analyze_pr():\n    pr_diff = request.json.get(\"diff\")\n    if not pr_diff:\n        return jsonify({\"error\": \"Missing diff\"}), 400\n    prompt = f\"Review this PR for security and logic errors:\"\n    response = client.chat(prompt)\n    return jsonify({\"analysis\": response.text})" }'
+  :features='[
+    { icon: "🔒", title: "Security", description: "Restricted to read-only tools, sandboxed to /tmp/pr-diffs working directory — no write access" },
+    { icon: "🔗", title: "Integration", description: "Expose via webhooks, plug into CI/CD pipelines, or connect to internal dashboards" }
+  ]'
+/>
 
 ---
 
@@ -474,192 +349,56 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
 ---
 
 <!-- SLIDE: Use Case 1 - Release Engineering -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Real-World Use Cases</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Release Engineering Automation</div>
-<div class="text-xs text-white/50">Automated git commit analysis → categorized customer-facing release notes</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm mb-2">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">❌</div>
-<div class="font-bold text-red-300 text-sm">Before</div>
-</div>
-<div class="space-y-1 text-xs">
-<div>• 100-200 commits manual review</div>
-<div>• 2+ hours per release</div>
-<div>• Quality varies by author</div>
-<div>• Release managers do git archaeology</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">✨</div>
-<div class="font-bold text-emerald-300 text-sm">After (SDK)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div>• SDK analyzes git history automatically</div>
-<div>• 10 minutes per release</div>
-<div>• Consistent quality every time</div>
-<div>• Managers focus on strategy</div>
-</div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30 text-xs">
-<div class="font-semibold text-indigo-300 mb-1">Implementation Highlights</div>
-<div class="space-y-1">
-<div>✓ Categorizes: Features, Fixes, Breaking Changes, Security Updates</div>
-<div>✓ Explains customer value, not technical implementation</div>
-<div>✓ Includes issue references and migration steps</div>
-<div>✓ Outputs markdown ready for GitHub releases</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-400/30 text-center text-xs">
-<span class="text-green-200 font-semibold">Outcome: 2+ hours → 10 minutes (92% time reduction)</span>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="📝"
+  pillLabel="Real-World Use Cases"
+  title="Release Engineering Automation"
+  :before='{ header: "Before SDK", items: ["100-200 commits manual review", "2+ hours per release", "Quality varies by author", "Release managers do git archaeology"] }'
+  :after='{ header: "After SDK", items: ["SDK analyzes git history automatically", "10 minutes per release", "Consistent quality every time", "Categorizes Features, Fixes, Breaking Changes, Security"] }'
+  :metrics='[
+    { value: "2+ hrs", label: "Before" },
+    { value: "10 min", label: "After" },
+    { value: "92%", label: "Time reduction" }
+  ]'
+  :insight='{ icon: "✓", text: "Outputs markdown ready for GitHub releases — explains customer value, not technical implementation." }'
+/>
 
 ---
 
 <!-- SLIDE: Use Case 2 - Test Infrastructure -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Real-World Use Cases</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Intelligent Test Infrastructure Monitoring</div>
-<div class="text-xs text-white/50">Automated failure analysis, flaky test detection, root cause identification</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm mb-2">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">❌</div>
-<div class="font-bold text-red-300 text-sm">Before</div>
-</div>
-<div class="space-y-1 text-xs">
-<div>• Manual log analysis per failure</div>
-<div>• 45 min average per failed build</div>
-<div>• Flaky tests undetected until 3rd failure</div>
-<div>• PRs blocked by CI issues</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">✨</div>
-<div class="font-bold text-emerald-300 text-sm">After (SDK)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div>• SDK analyzes test reports automatically</div>
-<div>• 5 min per failed build</div>
-<div>• Flaky tests caught on first failure</div>
-<div>• 60% reduction in CI blockage time</div>
-</div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30 text-xs">
-<div class="font-semibold text-indigo-300 mb-1">Analysis Outputs</div>
-<div class="space-y-1">
-<div>• Root causes with confidence scores (high/medium/low)</div>
-<div>• Flaky test detection via error pattern analysis</div>
-<div>• Specific file paths and line numbers for investigation</div>
-<div>• Concrete suggested fixes prioritized by quick wins</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-400/30 text-center text-xs">
-<span class="text-green-200 font-semibold">Outcome: 45 min → 5 min per build | 60% less CI blockage</span>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="🧪"
+  pillLabel="Real-World Use Cases"
+  title="Intelligent Test Infrastructure Monitoring"
+  :before='{ header: "Before SDK", items: ["Manual log analysis per failure", "45 min average per failed build", "Flaky tests undetected until 3rd failure", "PRs blocked by CI issues"] }'
+  :after='{ header: "After SDK", items: ["SDK analyzes test reports automatically", "5 min per failed build", "Flaky tests caught on first failure", "Root causes with confidence scores (high/medium/low)"] }'
+  :metrics='[
+    { value: "45 min", label: "Before" },
+    { value: "5 min", label: "After" },
+    { value: "60%", label: "CI blockage reduction" }
+  ]'
+  :insight='{ icon: "✓", text: "Specific file paths and line numbers for investigation, concrete suggested fixes prioritized by quick wins." }'
+/>
 
 ---
 
 <!-- SLIDE: Use Case 3 - Code Review Bots -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Real-World Use Cases</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Code Quality Enforcement Bots</div>
-<div class="text-xs text-white/50">Pre-review analysis of PR diffs against team-specific standards</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-sm mb-2">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">❌</div>
-<div class="font-bold text-red-300 text-sm">Before</div>
-</div>
-<div class="space-y-1 text-xs">
-<div>• Senior engineers check basic standards</div>
-<div>• 2-3 day wait for feedback</div>
-<div>• Review bottleneck on architecture team</div>
-<div>• Junior devs stuck on preventable issues</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-lg border border-emerald-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">✨</div>
-<div class="font-bold text-emerald-300 text-sm">After (SDK Bot)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div>• SDK bot checks standards automatically</div>
-<div>• Instant inline feedback on PR</div>
-<div>• Seniors focus on architecture/design</div>
-<div>• PR throughput doubled</div>
-</div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30 text-xs">
-<div class="font-semibold text-indigo-300 mb-1">Review Scope</div>
-<div class="space-y-1">
-<div>Security: SQL injection, XSS, auth issues • Performance: N+1 queries, missing pagination</div>
-<div>Error handling: try/catch, timeouts, retries • Testing: coverage requirements, migration tests</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-400/30 text-center text-xs">
-<span class="text-green-200 font-semibold">Outcome: 50% faster reviews | 2× PR throughput | Instant feedback</span>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="🚨"
+  pillLabel="Real-World Use Cases"
+  title="Code Quality Enforcement Bots"
+  :before='{ header: "Before SDK", items: ["Senior engineers check basic standards", "2-3 day wait for feedback", "Review bottleneck on architecture team", "Junior devs stuck on preventable issues"] }'
+  :after='{ header: "After SDK Bot", items: ["SDK bot checks standards automatically", "Instant inline feedback on PR", "Seniors focus on architecture & design", "PR throughput doubled"] }'
+  :metrics='[
+    { value: "50%", label: "Faster reviews" },
+    { value: "2x", label: "PR throughput" },
+    { value: "Instant", label: "Feedback" }
+  ]'
+  :insight='{ icon: "✓", text: "Reviews security, performance, error handling, and testing — actionable feedback with line numbers." }'
+/>
 
 ---
 
