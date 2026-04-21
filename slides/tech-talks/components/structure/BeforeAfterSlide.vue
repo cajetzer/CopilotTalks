@@ -45,9 +45,11 @@ const props = defineProps({
   metrics:     { type: Array,  required: true }, // exactly 3: { value, detail }
 })
 
-if (props.metrics.length !== 3) {
-  console.error('[BeforeAfterSlide] ❌ metrics must contain exactly 3 items (got ' + props.metrics.length + ')')
-}
+const validationError = computed(() => {
+  if (!props.metrics || props.metrics.length !== 3)
+    return `[BeforeAfterSlide] ❌ metrics must contain exactly 3 items (got ${props.metrics?.length ?? 'none'})`
+  return null
+})
 
 const DARK_THEME = {
   ambientBg: 'from-blue-900/20 via-indigo-900/10 to-transparent',
@@ -98,6 +100,11 @@ const metricStyles = computed(() => isDark.value ? DARK_THEME.metricContainers :
 <template>
   <!-- Full-height container -->
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <!-- Ambient gradient background -->
     <div :class="['absolute inset-0 bg-gradient-to-br', t.ambientBg]"></div>
 
@@ -167,5 +174,6 @@ const metricStyles = computed(() => isDark.value ? DARK_THEME.metricContainers :
         </div>
       </div>
     </div>
+    </template>
   </div>
 </template>

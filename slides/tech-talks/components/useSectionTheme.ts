@@ -182,7 +182,7 @@ const LIGHT_CARDS: SectionCard[][] = [
 
 export function validatePartNumber(partNumber: number, componentName: string): void {
     if (partNumber < 1 || partNumber > 4 || !Number.isInteger(partNumber)) {
-        console.error('[' + componentName + '] ❌ partNumber must be 1–4 (got ' + partNumber + ')')
+        throw new Error('[' + componentName + '] ❌ partNumber must be 1–4 (got ' + partNumber + ')')
     }
 }
 

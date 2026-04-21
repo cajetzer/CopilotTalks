@@ -100,9 +100,15 @@ const LIGHT_THEME = {
 const colors = computed(() => isDark.value ? DARK_COLORS : LIGHT_COLORS)
 const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 
-defineProps({
+const props = defineProps({
   groups: { type: Array, required: true },
 });
+
+const validationError = computed(() => {
+  if (!props.groups || props.groups.length === 0)
+    return '[ReferencesSlide] ❌ groups must contain at least 1 item'
+  return null
+})
 
 const titleCls = (c) => (colors.value[c] || colors.value.cyan).title;
 const linkCls  = (c) => (colors.value[c] || colors.value.cyan).link;
@@ -112,6 +118,11 @@ const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
 <template>
   <!-- Full-height container -->
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <!-- Ambient gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
 
@@ -165,5 +176,6 @@ const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
         </div>
       </div>
     </div>
+    </template>
   </div>
 </template>

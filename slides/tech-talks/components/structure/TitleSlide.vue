@@ -34,6 +34,11 @@
 -->
 
 <template>
+  <div v-if="validationError" class="h-full bg-red-950 flex flex-col items-center justify-center p-12">
+    <div class="text-red-400 text-4xl mb-4">⛔</div>
+    <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+  </div>
+  <template v-else>
   <!-- Full-height container with flexbox centering -->
   <div class="sv-title-slide">
     <!-- Ambient gradient background -->
@@ -79,18 +84,27 @@
       {{ meta }}
     </span>
   </div>
+  </template>
 </template>
 
 <script setup>
 import { computed } from 'vue';
 import { isDark } from '../useTheme';
 
-defineProps({
+const props = defineProps({
   title: { type: String, required: true },
   subtitle: { type: String, required: true },
   tagline: { type: String, required: true },
   meta: { type: String, required: true },
 });
+
+const validationError = computed(() => {
+  if (!props.title)    return '[TitleSlide] ❌ title is required'
+  if (!props.subtitle) return '[TitleSlide] ❌ subtitle is required'
+  if (!props.tagline)  return '[TitleSlide] ❌ tagline is required'
+  if (!props.meta)     return '[TitleSlide] ❌ meta is required'
+  return null
+})
 
 const DARK_THEME = {
   bg:      'from-cyan-900/20 via-blue-900/10 to-indigo-900/20',

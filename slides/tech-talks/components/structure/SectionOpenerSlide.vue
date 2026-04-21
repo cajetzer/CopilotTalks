@@ -48,12 +48,15 @@ const props = defineProps({
   terminal:   { type: Object, required: true }, // { context, detail }
 })
 
-if (props.partNumber < 1 || props.partNumber > 4) {
-  console.error('[SectionOpenerSlide] ❌ partNumber must be 1–4 (got ' + props.partNumber + ')')
-}
-if (props.cards.length !== 3) {
-  console.error('[SectionOpenerSlide] ❌ cards must contain exactly 3 items (got ' + props.cards.length + ')')
-}
+const validationError = computed(() => {
+  if (!props.partNumber || props.partNumber < 1 || props.partNumber > 4)
+    return `[SectionOpenerSlide] ❌ partNumber must be 1–4 (got ${props.partNumber})`
+  if (!props.cards || props.cards.length !== 3)
+    return `[SectionOpenerSlide] ❌ cards must contain exactly 3 items (got ${props.cards?.length ?? 'none'})`
+  if (!props.terminal?.context || !props.terminal?.detail)
+    return `[SectionOpenerSlide] ❌ terminal prop must have { context, detail } strings`
+  return null
+})
 
 // Color progression hardcoded by part number — not configurable per deck
 // Part 1: cyan → blue → indigo
@@ -177,6 +180,12 @@ const theme = computed(() => (isDark.value ? DARK_THEMES : LIGHT_THEMES)[props.p
 <template>
   <!-- Full-height centered container -->
   <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+    <!-- Prop validation error — renders instead of content when props are wrong -->
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <!-- Ambient gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br" :class="theme.ambientBg"></div>
 
@@ -243,5 +252,6 @@ const theme = computed(() => (isDark.value ? DARK_THEMES : LIGHT_THEMES)[props.p
         </span>
       </div>
     </div>
+    </template>
   </div>
 </template>

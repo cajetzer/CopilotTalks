@@ -27,7 +27,7 @@
 <script setup>
 import { computed } from 'vue'
 import { isDark } from './useTheme'
-import { useSectionChrome, validatePartNumber } from './useSectionTheme'
+import { useSectionChrome } from './useSectionTheme'
 
 const props = defineProps({
   partNumber:   { type: Number, required: true },
@@ -40,20 +40,23 @@ const props = defineProps({
   progressDots: { type: Object, required: true }, // { current, total, activeColor }
 })
 
-validatePartNumber(props.partNumber, 'MaturityJourneyRoadmapSlide')
-if (props.stages.length < 2 || props.stages.length > 5) {
-  console.error('[MaturityJourneyRoadmapSlide] ❌ stages must have 2–5 items (got ' + props.stages.length + ')')
-}
+const validationError = computed(() => {
+  if (!props.partNumber || props.partNumber < 1 || props.partNumber > 4)
+    return `[MaturityJourneyRoadmapSlide] ❌ partNumber must be 1–4 (got ${props.partNumber})`
+  if (!props.stages || props.stages.length < 2 || props.stages.length > 5)
+    return `[MaturityJourneyRoadmapSlide] ❌ stages must have 2–5 items (got ${props.stages?.length ?? 'none'})`
+  return null
+})
 
 const chrome = useSectionChrome(() => props.partNumber)
 
 // Internal stage color progression — independent of section theme
 const STAGE_PALETTE = [
-  { bg: 'from-slate-700/50 to-slate-800/50', border: 'border-slate-500/40', label: 'text-slate-400', name: 'text-slate-300', desc: 'text-slate-400/80', chevron: 'text-slate-600' },
-  { bg: 'from-blue-900/50 to-blue-800/50',   border: 'border-blue-500/40',  label: 'text-blue-400',  name: 'text-blue-300',  desc: 'text-blue-200/70',  chevron: 'text-blue-700' },
-  { bg: 'from-indigo-900/50 to-indigo-800/50', border: 'border-indigo-500/40', label: 'text-indigo-400', name: 'text-indigo-300', desc: 'text-indigo-200/70', chevron: 'text-indigo-600' },
-  { bg: 'from-cyan-900/50 to-cyan-800/50',   border: 'border-cyan-500/40',  label: 'text-cyan-400',  name: 'text-cyan-300',  desc: 'text-cyan-200/70',  chevron: 'text-cyan-600' },
-  { bg: 'from-emerald-900/50 to-emerald-800/50', border: 'border-emerald-500/40', label: 'text-emerald-400', name: 'text-emerald-300', desc: 'text-emerald-200/70', chevron: 'text-emerald-600' },
+  { bg: 'from-slate-700/50 to-slate-800/50',     border: 'border-slate-500/40',   divider: 'bg-slate-500',   label: 'text-slate-400',   name: 'text-slate-300',   desc: 'text-slate-400/80',  chevron: 'text-slate-600'   },
+  { bg: 'from-blue-900/50 to-blue-800/50',       border: 'border-blue-500/40',    divider: 'bg-blue-500',    label: 'text-blue-400',    name: 'text-blue-300',    desc: 'text-blue-200/70',   chevron: 'text-blue-700'    },
+  { bg: 'from-indigo-900/50 to-indigo-800/50',   border: 'border-indigo-500/40',  divider: 'bg-indigo-500',  label: 'text-indigo-400',  name: 'text-indigo-300',  desc: 'text-indigo-200/70', chevron: 'text-indigo-600'  },
+  { bg: 'from-cyan-900/50 to-cyan-800/50',       border: 'border-cyan-500/40',    divider: 'bg-cyan-500',    label: 'text-cyan-400',    name: 'text-cyan-300',    desc: 'text-cyan-200/70',   chevron: 'text-cyan-600'    },
+  { bg: 'from-emerald-900/50 to-emerald-800/50', border: 'border-emerald-500/40', divider: 'bg-emerald-500', label: 'text-emerald-400', name: 'text-emerald-300', desc: 'text-emerald-200/70', chevron: 'text-emerald-600' },
 ]
 
 // Distribute palette evenly when fewer than 5 stages
@@ -79,6 +82,11 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
 
 <template>
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <div class="absolute inset-0 bg-gradient-to-br" :class="chrome.ambientBg"></div>
     <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="chrome.orb"></div>
 
@@ -112,14 +120,13 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
           <div
             class="flex-1 flex flex-col p-3 bg-gradient-to-b rounded-xl border text-center relative"
             :class="[stageColors[i].bg, stageColors[i].border, stage.isTarget ? 'ring-2 ring-offset-1 ring-offset-transparent' : '']"
-            :style="stage.isTarget ? '' : ''"
           >
             <!-- TARGET badge -->
             <div v-if="stage.isTarget" class="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-500/80 rounded-full text-white text-[10px] font-bold tracking-wide whitespace-nowrap">
               TARGET
             </div>
             <div class="text-3xl font-black leading-none mb-1 mt-1" :class="stageColors[i].label">{{ stage.label }}</div>
-            <div class="w-full h-px mb-2 opacity-30" :class="stageColors[i].border.replace('border-', 'bg-')"></div>
+            <div class="w-full h-px mb-2 opacity-30" :class="stageColors[i].divider"></div>
             <div class="text-sm font-bold mb-1" :class="stageColors[i].name">{{ stage.name }}</div>
             <div class="text-xs flex-1" :class="stageColors[i].desc">{{ stage.description }}</div>
             <div v-if="stage.icon" class="mt-2 text-lg">{{ stage.icon }}</div>
@@ -132,5 +139,6 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
       <!-- Optional caption -->
       <div v-if="caption" class="text-center text-xs italic" :class="t.caption">{{ caption }}</div>
     </div>
+    </template>
   </div>
 </template>

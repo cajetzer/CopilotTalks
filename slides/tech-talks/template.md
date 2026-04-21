@@ -57,6 +57,11 @@ import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
 import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 import HeroStatSlide from './components/HeroStatSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
+import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
+import MaturityLevelDrilldownSlide from './components/MaturityLevelDrilldownSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 </script>
 ```
 
@@ -238,11 +243,11 @@ Every Part N slide uses `SectionOpenerSlide`. The component handles the full cen
 
 ---
 
-## Tier-1 Body-Content Components (OPTIONAL but PREFERRED)
+## Tier-1 Body-Content Components (REQUIRED — no inline HTML)
 
-These components cover the most common body-slide archetypes. **Prefer them over hand-rolled inline Tailwind when an archetype matches** — they handle the cockpit wrapper, section chrome (ambient bg, orb, pill, divider), color progression, and dark/light theming for you. Do NOT pass color/style/class props; all colors derive from `partNumber` (1–4) via `useSectionTheme.ts`.
+All 13 body-slide archetypes. **Every body content slide must use one of these components** — do not write inline HTML for body content. Components handle the cockpit wrapper, section chrome (ambient bg, orb, pill, divider), color progression, and dark/light theming. Do NOT pass color/style/class props; all colors derive from `partNumber` (1–4) via `useSectionTheme.ts`.
 
-Freeform inline HTML is still allowed when the content doesn't fit any of these archetypes — they're a shortcut, not a straitjacket. See `slides/COMPONENT-ARCHETYPES.md` for the full selection matrix, overflow thresholds, and usage examples across decks.
+See `slides/COMPONENT-ARCHETYPES.md` for the full selection matrix, overflow thresholds, and usage examples. If content does not fit a single component, adapt or split the slide — there is no inline HTML fallback.
 
 ### Selection Quick-Reference
 
@@ -256,6 +261,11 @@ Freeform inline HTML is still allowed when the content doesn't fit any of these 
 | Exactly 4 items in a 2×2 taxonomy grid                                 | `FourCardGridSlide`            |
 | Code block + 2–4 feature cards (left layout or stacked)                | `CodeWithFeaturesSlide`        |
 | One dominant statistic + 2–4 supporting context cards                  | `HeroStatSlide`                |
+| Old vs new workflow, mirrored numbered steps (red/green)               | `WorkflowShowdownStepsSlide`   |
+| 2–5 maturity/adoption stages in horizontal progression with TARGET     | `MaturityJourneyRoadmapSlide`  |
+| AI terminal conversation: prompt → thinking → response → outcome       | `AITerminalTranscriptSlide`    |
+| Deep-dive into one maturity level: blockquote + 3-column diagnostic    | `MaturityLevelDrilldownSlide`  |
+| Multi-row concept→explanation→tag taxonomy (section card colors)       | `FrameworkMappingRowsSlide`    |
 
 **Universal props (every Tier-1 body component):**
 - `partNumber` (1–4, required) — drives ambient bg, orb, pill, divider, and card progression
@@ -487,15 +497,151 @@ One oversized statistic on the left (section-tinted gradient, `text-8xl`) with 2
 - `insight`: `{ icon, text }` — always rendered; use an empty string icon (`""`) if no icon needed.
 - `progressDots`: see universal props above.
 
-### When NOT to use a Tier-1 component
+### `WorkflowShowdownStepsSlide`
 
-Fall back to inline HTML (following the cockpit wrapper in `slides/TEMPLATE.md`) when:
+Two-column numbered step comparison — the "before" path (red/problem) vs the "after" path (green/outcome). Steps are mirrored so the audience follows the divergence beat by beat. The strongest tension → catharsis layout.
 
-- The archetype genuinely doesn't match (sequence diagrams, terminal transcripts, nested accordions, timelines)
-- You need an unusual layout (5-card grid, asymmetric columns, overlapping elements)
-- The slide is one-of-a-kind visual storytelling that wouldn't benefit from a shared component
+```html
+<WorkflowShowdownStepsSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="Section · Concept"
+  title="Traditional Workflow vs. Plan Mode"
+  subtitle="From trial-and-error to collaborative strategy"
+  leftLabel="Traditional Workflow"
+  rightLabel="With Plan Mode"
+  :steps='[
+    { left: { label: "Make request", note: "Describe what you need" }, right: { label: "Make request", note: "Describe what you need" } },
+    { left: { label: "AI generates solution", note: "Assumes intent, one interpretation" }, right: { label: "AI asks questions", note: "Clarifies intent before acting" } },
+    { left: { label: "You review and fix", note: "Discover wrong assumptions" }, right: { label: "Collaborate on plan", note: "Review strategy before any code" } },
+    { left: { label: "Repeat until it works", note: "Average: 8 attempts" }, right: { label: "Execute with confidence", note: "Ambiguity resolved upfront" } }
+  ]'
+  :outcomeLeft='{ icon: "🔄", label: "Repeat ×8 — average attempts before success" }'
+  :outcomeRight='{ icon: "✓", label: "Done in ~2 attempts" }'
+  summaryMetric="8 debugging attempts → 2 with Plan Mode"
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+```
 
-**Still use progress dots and the cockpit wrapper** on any inline-HTML body slide — the Tier-1 components just let you skip that boilerplate for the common cases.
+- `steps`: 2–5 items; each step is an object with `left` and `right` sides, each having `label` (required) and `note` (optional detail line).
+- `outcomeLeft` / `outcomeRight`: `{ icon?, label }` — the ending stamp for each column.
+- `summaryMetric`: optional bottom bar for a single key number (e.g., `"8 attempts → 2"`).
+- Red/green semantic colors are hardcoded — do not fight them with `accentMode`.
+
+### `MaturityJourneyRoadmapSlide`
+
+Horizontal stage progression with chevron separators. One stage can be marked `isTarget: true` to receive a "TARGET" badge. Supports 2–5 stages; the internal color palette (slate → blue → indigo → cyan → emerald) is distributed automatically.
+
+```html
+<MaturityJourneyRoadmapSlide
+  :partNumber="2"
+  pillIcon="📐"
+  pillLabel="AgentRC Maturity Model"
+  title="5 Levels of Repository Readiness"
+  subtitle="Each level unlocks a new class of agent capability"
+  :stages='[
+    { label: "L1", name: "Functional",   description: "Reliable scripts and baseline CI",          icon: "🔧", isTarget: false },
+    { label: "L2", name: "Documented",   description: "Explicit conventions agents can follow",     icon: "📖", isTarget: false },
+    { label: "L3", name: "Standardized", description: "CI/CD policies and auditable review",        icon: "⚙️", isTarget: false },
+    { label: "L4", name: "Optimized",    description: "MCP tools and multi-step workflows",         icon: "🤖", isTarget: false },
+    { label: "L5", name: "Autonomous",   description: "Agents as primary producers",                icon: "🚀", isTarget: true  }
+  ]'
+  caption="L1–L4 are prerequisites — each level must stay healthy as you reach L5"
+  :progressDots='{ current: 1, total: 1, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+```
+
+- `stages`: 2–5 items; each needs `label`, `name`, `description`. `icon` and `isTarget` are optional.
+- Only one stage should have `isTarget: true`. It receives the emerald highlight ring and "TARGET" badge.
+- `caption`: optional bottom-center italic text (e.g., a key constraint about the journey).
+
+### `AITerminalTranscriptSlide`
+
+A cinematic terminal block rendering a multi-turn AI conversation. Terminal color grammar is hardcoded (green=prompt, cyan=user, yellow=thinking, white=response, green=outcome) — never override these semantics.
+
+```html
+<AITerminalTranscriptSlide
+  :partNumber="3"
+  pillIcon="🎯"
+  pillLabel="Section · Demo"
+  title="Plan Mode in Action: Docker Debugging"
+  subtitle="Root cause in 8 minutes instead of 45"
+  :transcript='[
+    { type: "prompt",   text: "copilot" },
+    { type: "user",     text: "Debug why the backend container will not start" },
+    { type: "thinking", label: "🤔 Copilot (Plan Mode):" },
+    { type: "response", lines: ["Before I start, a few questions:", "1. Check docker-compose config, logs, or both?", "2. Include environment variable analysis?"] },
+    { type: "user",     text: "Start with logs, then check config if needed" },
+    { type: "divider" },
+    { type: "outcome",  text: "Found: Port 5000 mapped to 5001 in docker-compose.yml" },
+    { type: "outcome",  text: "Fix applied. Container starts successfully." }
+  ]'
+  footerMetric="8 min → 45 min reduction"
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
+```
+
+Turn types:
+- `prompt` — `{ type: "prompt", text }` renders green `$ text`
+- `user` — `{ type: "user", text }` renders cyan `> "text"`
+- `thinking` — `{ type: "thinking", label? }` renders yellow label (defaults to `"🤔 Copilot:"`)
+- `response` — `{ type: "response", lines: string[] }` renders white indented lines
+- `divider` — `{ type: "divider" }` renders a thin cyan separator line
+- `outcome` — `{ type: "outcome", text }` renders green `✅ text`
+
+### `MaturityLevelDrilldownSlide`
+
+Deep-dive into one level/stage of a sequence. Structure: chrome header → title → italic blockquote → 3-column diagnostic grid. Pairs with `MaturityJourneyRoadmapSlide` (roadmap = wide shot; drilldown = close-up per level).
+
+```html
+<MaturityLevelDrilldownSlide
+  :partNumber="1"
+  pillIcon="📐"
+  pillLabel="AgentRC Maturity Model"
+  title="🔧 Functional"
+  subtitle="Safe for AI-assisted development with close human review"
+  quote="A repo at Level 1 is safe for AI-assisted development. Agents can produce output, but need close human review because there are no enforced conventions or CI gates."
+  :lossItems='["PRs fail due to fragile build paths", "CI babysitting and setup and debug time", "Agent PRs arrive without context, require back-and-forth"]'
+  :changeItems='["Build and test paths become explicit and measurable", "CI setup and debug time reduced", "Linting removes style review churn"]'
+  :checkItems='["Linting configured", "Build and test scripts present", "README present", "Lockfile committed"]'
+  :progressDots='{ current: 1, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+```
+
+- `quote`: the level's defining sentence — rendered as a full-width italic blockquote.
+- `lossItems` / `changeItems` / `checkItems`: string arrays, bullet-prefixed automatically.
+- `lossesLabel` / `changesLabel` / `checksLabel`: optional header overrides (defaults shown below).
+- Column colors: red (losses), green (changes), `chrome.accent` (checks — harmonizes with section).
+- Default column headers: `"⏳ Where Time Is Lost"`, `"✅ What Changes"`, `"🔍 Key Checks"`.
+
+### `FrameworkMappingRowsSlide`
+
+Labeled row taxonomy: fixed-width concept label on the left → explanation text in the center → monospace tag on the right. Row colors come from `useSectionCards()` and cycle through the section's 4-card palette automatically. Supports 2–6 rows.
+
+```html
+<FrameworkMappingRowsSlide
+  :partNumber="1"
+  pillIcon="🧠"
+  pillLabel="The Distance Model"
+  title="Five Distances Copilot CLI Removes"
+  subtitle="Each section removes a different kind of distance between you and the work"
+  :rows='[
+    { label: "Intent",     description: "AI stops guessing and starts asking — Plan Mode clarifies before acting", tag: "Plan Mode"      },
+    { label: "Complexity", description: "One task becomes many, run in parallel across independent workstreams",   tag: "/fleet fan-out" },
+    { label: "Context",    description: "Session survives compaction and remembers decisions across sessions",     tag: "Auto-compact"   },
+    { label: "Time",       description: "Work outlives your attention — background delegation frees the terminal", tag: "& delegation"   },
+    { label: "Geography",  description: "AI meets the problem where it lives — remote sessions cross any distance", tag: "--remote"      }
+  ]'
+  footnote="The session is the unit of work, not the shell"
+  :progressDots='{ current: 1, total: 1, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+```
+
+- `rows`: 2–6 items; each needs `label`, `description`, `tag`. Row color cycles through section cards.
+- `footnote`: optional bottom-center italic caption.
+- Do not hardcode colors in `rows` — the section card palette provides automatic visual distinction.
+
+**There is no inline HTML fallback.** If content does not fit any of the 13 components, adapt the content to the closest archetype or split it across two component slides. Components own all styling — do not add inline Tailwind for colors, layout, or theming. The 13 components cover terminal transcripts (`AITerminalTranscriptSlide`), maturity models (`MaturityJourneyRoadmapSlide`, `MaturityLevelDrilldownSlide`), workflow comparisons (`WorkflowShowdownStepsSlide`), and framework taxonomies (`FrameworkMappingRowsSlide`) in addition to the original 8 archetypes.
 
 ---
 

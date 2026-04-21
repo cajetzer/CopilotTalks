@@ -11,7 +11,7 @@
 <script setup>
 import { computed } from 'vue'
 import { isDark } from './useTheme'
-import { useSectionChrome, useSectionCards, validatePartNumber } from './useSectionTheme'
+import { useSectionChrome, useSectionCards } from './useSectionTheme'
 
 const props = defineProps({
   partNumber: { type: Number, required: true },
@@ -23,10 +23,13 @@ const props = defineProps({
   progressDots: { type: Object, required: true },
 })
 
-validatePartNumber(props.partNumber, 'FourCardGridSlide')
-if (props.cards.length !== 4) {
-  console.error('[FourCardGridSlide] ❌ cards must contain exactly 4 items (got ' + props.cards.length + ')')
-}
+const validationError = computed(() => {
+  if (!props.partNumber || props.partNumber < 1 || props.partNumber > 4)
+    return `[FourCardGridSlide] ❌ partNumber must be 1–4 (got ${props.partNumber})`
+  if (!props.cards || props.cards.length !== 4)
+    return `[FourCardGridSlide] ❌ cards must contain exactly 4 items (got ${props.cards?.length ?? 'none'})`
+  return null
+})
 
 const chrome    = useSectionChrome(() => props.partNumber)
 const cardStyle = useSectionCards(() => props.partNumber)
@@ -46,6 +49,11 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
 
 <template>
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <div class="absolute inset-0 bg-gradient-to-br" :class="chrome.ambientBg"></div>
     <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="chrome.orb"></div>
 
@@ -80,5 +88,6 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
         <span class="mr-2">{{ insight.icon }}</span>{{ insight.text }}
       </div>
     </div>
+    </template>
   </div>
 </template>

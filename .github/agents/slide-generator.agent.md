@@ -26,7 +26,7 @@ Transform module README files into beautiful, concise Slidev presentations for C
 	- `slides/exec-talks/template.md`
 6. **Read Visual Exemplar** — Read the first 200 lines of `slides/tech-talks/agentic-sdlc.md` as the gold-standard visual reference for cockpit content slides. Match that level of structure and visual depth unless the category profile explicitly requires otherwise.
 7. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section→icon→container mapping before updating the index.
-8. **Read Component Archetypes (tech talks)** — If the target is a tech-talk deck, skim `slides/COMPONENT-ARCHETYPES.md` for the Tier-1 body-content component catalog. The detailed prop schemas and quick-reference selection table are in `slides/tech-talks/template.md` (already read in step 5). You are not required to use these components, but you should prefer them when an archetype matches.
+8. **Read Component Archetypes (tech talks)** — If the target is a tech-talk deck, skim `slides/COMPONENT-ARCHETYPES.md` for the full body-content component catalog. The detailed prop schemas and quick-reference selection table are in `slides/tech-talks/template.md` (already read in step 5). Every body content slide **must** use one of the 13 Tier-1 components — do not write inline HTML for body slides. Choose the best-fit component for each slide; if content does not obviously fit, adapt or split the content until it does.
 9. **Read Deck Recipe for Tech Talks** — If the source is under `tech-talks/`, look for `deck.recipe.yml` in the same folder as the README. If it exists, use it as the per-talk adaptation recipe. If it does not exist, synthesize an initial recipe from the README and save it before generating slides.
 10. **Query Memory** — Read `memories/infra/facts.md`, `discoveries.md`, and `advice.md` for confirmed Slidev build rules and structural patterns. If the target deck has a bench entry (e.g., `memories/agent_architecture/facts.md`), read that too. Apply these before writing any HTML.
 
@@ -126,11 +126,11 @@ Every Part N slide must use `SectionOpenerSlide` from `./components/structure/Se
 
 `slides/tech-talks/template.md` (loaded in pre-flight step 5) is the authoritative reference for all prop schemas, escaping rules, and usage examples. Do not reproduce them here — read the template.
 
-#### Tech-talk Tier-1 Body Components (PREFERRED, not required)
+#### Tech-talk Body Components (REQUIRED — no inline HTML)
 
-For body slides between section openers, **prefer a Tier-1 component when an archetype matches** rather than hand-rolling inline Tailwind. The catalog lives in `slides/tech-talks/template.md` under "Tier-1 Body-Content Components," with a selection quick-reference table and full prop schemas. Covered archetypes include: before/after (with or without metrics), problem→solution→outcome narrative, paired concepts, 3-card row, 4-card grid, code-with-features, and hero-stat layouts.
+Every body slide between section openers **must** use one of the 13 Tier-1 components — do not write inline HTML for body slides. The full catalog with prop schemas and the selection quick-reference table is in `slides/tech-talks/template.md` under "Tier-1 Body-Content Components." The 13 components cover every common body-slide archetype: before/after with and without metrics, workflow showdown steps, problem→solution→outcome, paired concepts, 3-column card, 4-card grid, code-with-features, hero stat, AI terminal transcript, maturity journey roadmap, maturity level drilldown, and framework mapping rows.
 
-Inline HTML is still welcome for one-of-a-kind layouts, sequence diagrams, terminal transcripts, and anything that doesn't match an archetype. Treat Tier-1 components as shortcuts, not a straitjacket — creativity on unique slides is encouraged. All body slides (component or inline) must still include progress dots and follow the cockpit wrapper from `slides/TEMPLATE.md`.
+If content does not obviously fit a single component, choose the closest match and adapt the content — do not fall back to raw HTML. When content is genuinely too complex, split it across two slides using two components. Components handle the cockpit wrapper, section chrome, color progression, and dark/light theming — do not add inline Tailwind for these concerns.
 
 Structural rules the generator must enforce:
 
@@ -231,7 +231,7 @@ For all categories, the category profile is authoritative for visual system and 
 - [ ] **No plain centered `h1` content slides** — only title, section openers, and thank-you use centered layouts
 - [ ] **Section openers use `SectionOpenerSlide`** from `./components/structure/SectionOpenerSlide.vue` (not raw HTML)
 - [ ] **Progress dots on every topic section content slide** (not just sections with 2+; section openers excluded)
-- [ ] **Tier-1 body components preferred where an archetype matches** (before/after, problem→solution→outcome, paired concepts, 3-card row, 4-card grid, code+features) — inline HTML is acceptable for one-of-a-kind layouts
+- [ ] **Every body content slide uses one of the 13 Tier-1 components** — NO inline HTML for body slides (WorkflowShowdownSteps, MaturityJourneyRoadmap, AITerminalTranscript, MaturityLevelDrilldown, FrameworkMappingRows are the 5 newest additions)
 - [ ] Section color pairs advance correctly: cyan/blue → blue/indigo → indigo/purple → purple/pink
 - [ ] `module` field in frontmatter with correct path
 - [ ] `section:` field in frontmatter matching a valid value from `slides/SECTIONS.md` (between `mdc:` and `status:`)

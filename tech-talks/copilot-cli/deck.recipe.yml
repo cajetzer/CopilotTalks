@@ -10,10 +10,71 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Problem → Foundation → Geography → Practice
+  # Each section closes one dimension of the Distance Model:
+  #   S1 (Intent): Plan Mode closes the gap between requirement and implementation
+  #   S2 (Scale):  Range & delegation multiplies what one session can reach
+  #   S3 (Geography): --remote eliminates the physical constraint
+  #   S4 (Practice):  Proof that the model survives real production workflows
+  #
+  # SECTION NAMES: The current deck uses older names in the SectionOpenerSlide components
+  # ("Scaling the Reach", "Anywhere", "Real-World Patterns"). When regenerating slides
+  # from this recipe, update those three section openers to match the names below.
+  sectionOrder:
+    - "The Terminal Sees Reality"
+    - "Range and Delegation"
+    - "Work Where the Problem Is"
+    - "Patterns That Actually Stick"
+
+  sectionModes:
+    "The Terminal Sees Reality":
+      emphasis: high
+      note: >
+        One live demo only: Docker container debug with Plan Mode (45 min → 8 min,
+        8 attempts → 2). Do NOT run the CI/CD demo here — move it to S4 as a fourth
+        concrete scenario. Ends with the 4-operating-mode reference slide and real-time
+        steering; pace the reasoning-model configuration slide quickly.
+
+    "Range and Delegation":
+      emphasis: high
+      note: >
+        Renamed from "Scaling the Reach". Lead with /fleet fan-out (the most architecturally
+        novel capability — explicit parallelization across subagents). Cloud delegation (&
+        prefix) follows as the Time-dimension demo. Mental Model Shift closes this section
+        as a reframe before S3 delivers the geography payoff — do not move it to the outro.
+
+    "Work Where the Problem Is":
+      emphasis: high
+      note: >
+        Renamed from "Anywhere". --remote is the marquee capability and the strongest live-
+        demo candidate if only one demo runs per talk. The walking-to-meeting scenario is the
+        most visceral and memorable moment in the deck — give it full breathing room. Combination
+        Patterns content compresses into the section opener or the demo setup slide.
+
+    "Patterns That Actually Stick":
+      emphasis: medium
+      note: >
+        Renamed from "Real-World Patterns". Expanded from 3 to 4 concrete scenarios: log
+        forensics (no data transfer — compliance framing), infra patrol + multi-machine, GitHub.com
+        terminal integration, CI/CD automation (relocated from S1 — it is a real-world pattern,
+        not a foundational concept). Deliver as narrative stories, not feature listings;
+        name the failure mode each pattern prevents.
+
+  # Trimmed from 6 to 4. Cut: "cloud delegation & prefix" (mechanism detail, not a
+  # standalone outcome) and "persistent infrastructure patrol" (too abstract without demo setup;
+  # earns its weight inside S4, not as a highlight). Four moments, one per Distance Model dimension.
   highlightMoments:
     - Plan Mode cuts debugging from 45 min → 8 min and attempts from 8 → 2
-    - Cloud delegation with & prefix frees IDE and terminal for other work
     - /fleet orchestrator explicitly parallelizes subtasks across subagents
     - Remote sessions (--remote) let you steer AI work from phone, browser, or any device
     - Log forensics on remote servers without data transfer — reasoning where the data lives
-    - Persistent infrastructure patrol — AI that monitors, reasons about anomalies, and reports findings
+
+  # OPEN DECISION: Does the CI/CD Automation demo in S4 run live or as a narrated walkthrough?
+  # - Live: the "it works right now" credibility peaks, but a CI/CD trigger-to-result loop can
+  #   exceed 3 minutes of wait time and if anything goes wrong the closing section breaks.
+  # - Narrated: reliable and repeatable; S4 keeps narrative pace across all four scenarios.
+  # This choice cascades into whether S4 is a demo section or a storytelling section.
+  #
+  # SLIDE BUDGET NOTE: Current deck is 32 slides, intentionally exceeding the 25-slide TEMPLATE
+  # ceiling. This is appropriate for a 45-minute practitioner talk with multiple embedded demos.
+  # Do not cut to 25 when regenerating — preserve the current slide distribution.

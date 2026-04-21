@@ -55,31 +55,14 @@ const props = defineProps({
   cards: {
     type: Array,
     required: true,
-    validator: (val) => {
-      if (val.length !== 6) {
-        console.error('[CoreQuestionSlide] ❌ cards must contain exactly 6 items (got ' + val.length + ')')
-        return false
-      }
-      return true
-    },
+    validator: (val) => val.length === 6,
   },
 })
 
-// Overflow guards — limits: question ≤100, subtext+highlight ≤160, title ≤40, description ≤90
-if (props.question.length > 100) {
-  console.warn('[CoreQuestionSlide] ⚠️ question is ' + props.question.length + ' chars (limit: 100). Risk of overflow.')
-}
-const subtextLen = (props.subtext + ' ' + props.highlight).length
-if (subtextLen > 160) {
-  console.warn('[CoreQuestionSlide] ⚠️ subtext+highlight is ' + subtextLen + ' chars (limit: 160). Risk of overflow.')
-}
-props.cards.forEach((card, i) => {
-  if ((card.title?.length ?? 0) > 40) {
-    console.warn('[CoreQuestionSlide] ⚠️ cards[' + i + '].title is ' + card.title.length + ' chars (limit: 40). Risk of overflow.')
-  }
-  if ((card.description?.length ?? 0) > 90) {
-    console.warn('[CoreQuestionSlide] ⚠️ cards[' + i + '].description is ' + card.description.length + ' chars (limit: 90). Risk of overflow.')
-  }
+const validationError = computed(() => {
+  if (!props.cards || props.cards.length !== 6)
+    return `[CoreQuestionSlide] ❌ cards must contain exactly 6 items (got ${props.cards?.length ?? 'none'})`
+  return null
 })
 
 // Card styles (row 1: prominent /30, row 2: muted /20)
@@ -127,6 +110,11 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 <template>
   <!-- Full-height container with flex column layout -->
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <!-- Ambient gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
 
@@ -178,5 +166,6 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
         </div>
       </div>
     </div>
+    </template>
   </div>
 </template>

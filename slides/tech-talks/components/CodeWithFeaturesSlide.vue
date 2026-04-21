@@ -14,7 +14,7 @@
 <script setup>
 import { computed } from 'vue'
 import { isDark } from './useTheme'
-import { useSectionChrome, useSectionCards, validatePartNumber } from './useSectionTheme'
+import { useSectionChrome, useSectionCards } from './useSectionTheme'
 
 const props = defineProps({
   partNumber:   { type: Number, required: true },
@@ -28,10 +28,15 @@ const props = defineProps({
   progressDots: { type: Object, required: true }, // { current: N, total: M, activeColor: 'bg-...' }
 })
 
-validatePartNumber(props.partNumber, 'CodeWithFeaturesSlide')
-if (props.features.length < 2 || props.features.length > 4) {
-  console.error('[CodeWithFeaturesSlide] ❌ features must contain 2–4 items (got ' + props.features.length + ')')
-}
+const validationError = computed(() => {
+  if (!props.partNumber || props.partNumber < 1 || props.partNumber > 4)
+    return `[CodeWithFeaturesSlide] ❌ partNumber must be 1–4 (got ${props.partNumber})`
+  if (!props.features || props.features.length < 2 || props.features.length > 4)
+    return `[CodeWithFeaturesSlide] ❌ features must contain 2–4 items (got ${props.features?.length ?? 'none'})`
+  if (!['left', 'top'].includes(props.codePosition))
+    return `[CodeWithFeaturesSlide] ❌ codePosition must be 'left' or 'top' (got '${props.codePosition}')`
+  return null
+})
 
 const chrome    = useSectionChrome(() => props.partNumber)
 const cardStyle = useSectionCards(() => props.partNumber)
@@ -58,6 +63,11 @@ const featuresGrid = computed(() => GRID_COLS[props.features.length] || 'grid-co
 
 <template>
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <div class="absolute inset-0 bg-gradient-to-br" :class="chrome.ambientBg"></div>
     <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="chrome.orb"></div>
 
@@ -116,5 +126,6 @@ const featuresGrid = computed(() => GRID_COLS[props.features.length] || 'grid-co
         <span class="mr-2">{{ insight.icon }}</span>{{ insight.text }}
       </div>
     </div>
+    </template>
   </div>
 </template>

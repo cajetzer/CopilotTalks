@@ -4,6 +4,59 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## component-test.md is NOT a tech-talk (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/component-test.md` exists solely as a **visual testing harness** for the 13 Tier-1 body components. It is **not a tech-talk**. Never include it when listing tech-talks, counting tech-talks, generating content for tech-talks, or running conformance sweeps. Exclude it from any "all tech-talks" enumeration.
+
+---
+
+## `throw` inside Vue `<script setup>` is useless — Vite build passes, slide goes blank (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+Vue SSR's error boundary silently catches any exception thrown inside `<script setup>` (including `computed`, reactive initializers, and setup-time validation). The Vite build reports exit code 0 with no warnings. The slide renders blank. There is no console output visible to the deck author.
+
+**Consequence:** any `throw new Error(...)` or `validatePartNumber()` call inside a component's script is dead code from an authoring-feedback perspective. It will never surface a visible error.
+
+**Replacement:** use `validationError = computed(...)` + `<div v-if="validationError">` overlay in the template. See `infra/discoveries.md` → "Visual prop error guard" for the canonical pattern.
+
+**All 20 components updated** (13 body + 7 structure) as of 2026-04-21. `validatePartNumber()` in `useSectionTheme.ts` still exists but is no longer called by any component.
+
+---
+
+## Structure component authoring edges: TitleSlide, SectionOpenerSlide.terminal (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+**TitleSlide file order is reversed** — `<template>` block appears before `<script setup>` (unusual; all other components follow script-first order). It also has **two sibling root elements** (`sv-title-slide` + `sv-title-meta`) — a Vue 3 fragment. When wrapping in an error guard, you cannot use `absolute inset-0` (no single root wrapper); instead give the error div `class="h-full bg-red-950 ..."` and wrap both sibling divs in `<template v-else>`.
+
+**SectionOpenerSlide.terminal is required and must be an object** — passing it as `undefined` or omitting it causes a Vue TypeError (`Cannot read properties of undefined (reading 'context')`). The slide goes silently blank. Shape: `{ context: string, detail: string }`. This is the most common authoring mistake in component-test.md — check every SectionOpenerSlide invocation for a valid `:terminal` binding.
+
+**ThankYouSlide correct props** — `title`, `subtitle`, `cards` (array of 2–4 items with `{ icon, value, detail, subdetail }`), and `prompt`. Props `message` and `links` do NOT exist; using them causes a blank slide with no error. The `cards` array must be 2–4 items — the visual guard enforces this now.
+
+---
+
+## Tier-1 body component catalog: 13 components, inline HTML forbidden (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+As of 2026-04-21, there are **13 Tier-1 body-content components** (up from 8). All 13 are in `slides/tech-talks/components/`. Using inline HTML for body slides is **forbidden** — `slide-generator.agent.md` and `slides/tech-talks/template.md` both enforce this.
+
+**Original 8:** `BeforeAfterMetricsSlide`, `BeforeAfterPanelsSlide`, `ProblemSolutionOutcomeSlide`, `TwoColPairedConceptsSlide`, `ThreeColumnCardSlide`, `FourCardGridSlide`, `CodeWithFeaturesSlide`, `HeroStatSlide`
+
+**5 new additions:**
+- `WorkflowShowdownStepsSlide` — before/after workflow step comparison
+- `MaturityJourneyRoadmapSlide` — horizontal maturity arc with level callouts
+- `AITerminalTranscriptSlide` — AI terminal transcript display
+- `MaturityLevelDrilldownSlide` — single maturity-level drilldown with bullets
+- `FrameworkMappingRowsSlide` — taxonomy/classification row grid
+
+**All 13 require** `partNumber` (1–4) and `progressDots: { current, total, activeColor }`. Full prop schemas in `slides/tech-talks/template.md`. Visual reference deck: `slides/tech-talks/component-test.md`.
+
+---
+
 ## ALL Tier-1 body components require `progressDots` (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

@@ -4,6 +4,43 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## Visual prop error guard: ⛔ overlay replaces `throw` for authoring feedback (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+Vue SSR silently swallows errors thrown inside `<script setup>`. A `throw` when a required prop is wrong produces a **blank slide with no visual indication** of the problem — the Vite build passes with exit code 0. This makes `throw` useless for authoring-time feedback.
+
+**The breakthrough:** replace every `throw` (and `validatePartNumber()` call) with a `validationError` computed that returns an error string or null, then show a visible red ⛔ overlay in the template when it's non-null.
+
+**Canonical pattern — script:**
+```js
+const validationError = computed(() => {
+  if (!props.cards || props.cards.length !== 3)
+    return `[ComponentName] ❌ cards must contain exactly 3 items (got ${props.cards?.length ?? 'none'})`
+  return null
+})
+```
+
+**Canonical pattern — template** (immediately after outer wrapper `<div>` opens):
+```html
+<div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+  <div class="text-red-400 text-4xl mb-4">⛔</div>
+  <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+</div>
+<template v-else>
+  ...normal content...
+</template>
+```
+The closing `</template>` goes immediately before the outer wrapper's closing `</div>`.
+
+**Applied to all 20 components** as of 2026-04-21: all 13 Tier-1 body components + all 7 structure components (`TitleSlide`, `ThankYouSlide`, `TocSlide`, `CoreQuestionSlide`, `BeforeAfterSlide`, `ReferencesSlide`, `WhatYouCanDoTodaySlide`).
+
+**`useSectionChrome` / `useSectionCards` are safe with bad partNumber** — they clamp internally (`Math.min(Math.max(n-1,0),3)`), so removing `validatePartNumber()` from content components is safe.
+
+**TitleSlide special case** — it has two root elements (`sv-title-slide` + `sv-title-meta`) and `<template>` comes before `<script setup>` (reversed from convention). The error div is NOT `absolute inset-0` (no single wrapper root to be absolute within); use `class="h-full bg-red-950 ..."` as the sole root element, wrapping both sibling divs in `<template v-else>`.
+
+---
+
 ## Contractions inside single-quoted prop bindings cause `Unterminated string constant` (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

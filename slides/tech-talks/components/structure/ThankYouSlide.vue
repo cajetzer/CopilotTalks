@@ -44,6 +44,12 @@ const props = defineProps({
   prompt: { type: String, required: true },
 });
 
+const validationError = computed(() => {
+  if (!props.cards || props.cards.length < 2 || props.cards.length > 4)
+    return `[ThankYouSlide] ❌ cards must contain 2–4 items (got ${props.cards?.length ?? 'none'})`
+  return null
+})
+
 const gridColsClass = computed(() => {
   if (props.cards.length === 4) return "grid-cols-4";
   if (props.cards.length === 2) return "grid-cols-2";
@@ -85,6 +91,11 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 <template>
   <!-- Full-height centered container -->
   <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <!-- Ambient gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
 
@@ -160,5 +171,6 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
     <!-- ===== BOTTOM DIVIDER ===== -->
     <!-- Decorative bottom line -->
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent to-transparent" :class="t.divider"></div>
+    </template>
   </div>
 </template>

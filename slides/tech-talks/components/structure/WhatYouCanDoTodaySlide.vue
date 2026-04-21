@@ -52,14 +52,14 @@ const props = defineProps({
   footer:    { type: String, required: true },
 })
 
-const itemSets = computed(() => [props.today, props.thisWeek, props.thisMonth])
-
-// Overflow guards
-itemSets.value.forEach((items, i) => {
-  if (items.length > 5) {
-    console.warn('[WhatYouCanDoTodaySlide] ⚠️ ' + COLUMNS[i].label + ' has ' + items.length + ' items (limit: 5). Risk of overflow.')
-  }
+const validationError = computed(() => {
+  if (!Array.isArray(props.today))    return '[WhatYouCanDoTodaySlide] ❌ today must be an array'
+  if (!Array.isArray(props.thisWeek)) return '[WhatYouCanDoTodaySlide] ❌ thisWeek must be an array'
+  if (!Array.isArray(props.thisMonth)) return '[WhatYouCanDoTodaySlide] ❌ thisMonth must be an array'
+  return null
 })
+
+const itemSets = computed(() => [props.today, props.thisWeek, props.thisMonth])
 
 // Fixed 3-column color scheme (enforced — not configurable per deck)
 // Col 0: green/emerald  — Immediate
@@ -103,6 +103,11 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 <template>
   <!-- Full-height container -->
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <!-- Ambient gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
 
@@ -162,5 +167,6 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
         </div>
       </div>
     </div>
+    </template>
   </div>
 </template>

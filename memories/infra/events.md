@@ -4,6 +4,26 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## 5 new Tier-1 components added + inline HTML mandate (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+Tier-1 body component catalog expanded from 8 to 13. All 5 new components are fully implemented with dark/light theming, `progressDots`, and `partNumber`.
+
+**New components (all in `slides/tech-talks/components/`):**
+- `WorkflowShowdownStepsSlide` — side-by-side before/after workflow steps with numbered steps
+- `MaturityJourneyRoadmapSlide` — horizontal maturity arc (e.g. L0→L3) with callouts
+- `AITerminalTranscriptSlide` — AI terminal / shell transcript display with syntax regions
+- `MaturityLevelDrilldownSlide` — single-level drilldown: label + bullets per maturity stage
+- `FrameworkMappingRowsSlide` — taxonomy / classification rows (e.g. dimension × category grid)
+
+**Policy change — `slide-generator.agent.md` and `slides/tech-talks/template.md` updated:**
+All 13 body-slide archetypes are now REQUIRED. There is no inline HTML fallback. Both files updated to enforce: "Every body content slide must use one of the 13 Tier-1 components — do not write inline HTML for body slides."
+
+Prior language ("OPTIONAL but PREFERRED", "inline HTML is still welcome for one-of-a-kind layouts") removed entirely. Future slide generation agents have no permission to emit raw HTML for body slides.
+
+---
+
 ## copilot-cli conformed (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

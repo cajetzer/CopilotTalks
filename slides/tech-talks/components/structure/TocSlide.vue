@@ -43,33 +43,18 @@ const props = defineProps({
   sections: {
     type: Array,
     required: true,
-    validator: (val) => {
-      if (val.length !== 4) {
-        console.error('[TocSlide] ❌ sections must contain exactly 4 items (got ' + val.length + ')')
-        return false
-      }
-      return true
-    },
+    validator: (val) => val.length === 4,
   },
 })
 
-// Overflow guards — limits: title ≤40, subtitle ≤80, blurb ≤100
-props.sections.forEach((s, i) => {
-  if (!s.icon) {
-    console.error('[TocSlide] ❌ sections[' + i + '].icon is required')
+const validationError = computed(() => {
+  if (!props.sections || props.sections.length !== 4)
+    return `[TocSlide] ❌ sections must contain exactly 4 items (got ${props.sections?.length ?? 'none'})`
+  for (let i = 0; i < props.sections.length; i++) {
+    if (!props.sections[i].icon)  return `[TocSlide] ❌ sections[${i}].icon is required`
+    if (!props.sections[i].blurb) return `[TocSlide] ❌ sections[${i}].blurb is required`
   }
-  if (!s.blurb) {
-    console.error('[TocSlide] ❌ sections[' + i + '].blurb is required')
-  }
-  if ((s.title?.length ?? 0) > 40) {
-    console.warn('[TocSlide] ⚠️ sections[' + i + '].title is ' + s.title.length + ' chars (limit: 40). Risk of overflow.')
-  }
-  if ((s.subtitle?.length ?? 0) > 80) {
-    console.warn('[TocSlide] ⚠️ sections[' + i + '].subtitle is ' + s.subtitle.length + ' chars (limit: 80). Risk of overflow.')
-  }
-  if ((s.blurb?.length ?? 0) > 100) {
-    console.warn('[TocSlide] ⚠️ sections[' + i + '].blurb is ' + s.blurb.length + ' chars (limit: 100). Risk of overflow.')
-  }
+  return null
 })
 
 // Card styles: cyan → blue → indigo → purple
@@ -109,6 +94,11 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
 <template>
   <!-- Full-height container -->
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
+    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
+      <div class="text-red-400 text-4xl mb-4">⛔</div>
+      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
+    </div>
+    <template v-else>
     <!-- Ambient gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br" :class="t.ambientBg"></div>
 
@@ -167,5 +157,6 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
         Click any section to jump directly there
       </div>
     </div>
+    </template>
   </div>
 </template>
