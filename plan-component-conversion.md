@@ -19,7 +19,7 @@ A repeatable playbook for converting raw inline HTML slides in any tech-talk dec
 | `copilot-chat-internals` | 🔵 Cataloged | 10 | [plan-decks/copilot-chat-internals.md](plan-decks/copilot-chat-internals.md) |
 | `copilot-code-review` | 🔵 Cataloged | 14 | [plan-decks/copilot-code-review.md](plan-decks/copilot-code-review.md) |
 | `copilot-hooks` | 🔵 Cataloged | 15 | [plan-decks/copilot-hooks.md](plan-decks/copilot-hooks.md) |
-| `copilot-memory` | 🔵 Cataloged | 13 | [plan-decks/copilot-memory.md](plan-decks/copilot-memory.md) |
+| `copilot-memory` | � Conformed | 13 | [plan-decks/copilot-memory.md](plan-decks/copilot-memory.md) |
 | `copilot-plugins` | 🔵 Cataloged | 7 | [plan-decks/copilot-plugins.md](plan-decks/copilot-plugins.md) |
 | `copilot-primitives` | 🔵 Cataloged | 5 | [plan-decks/copilot-primitives.md](plan-decks/copilot-primitives.md) |
 | `copilot-sdk` | 🔵 Cataloged | 10 | [plan-decks/copilot-sdk.md](plan-decks/copilot-sdk.md) |
@@ -28,7 +28,7 @@ A repeatable playbook for converting raw inline HTML slides in any tech-talk dec
 | `mcp-apps` | 🔵 Cataloged | 15 | [plan-decks/mcp-apps.md](plan-decks/mcp-apps.md) |
 | `vscode-latest` | 🔵 Cataloged | 14 | [plan-decks/vscode-latest.md](plan-decks/vscode-latest.md) |
 
-**Status key:** ⬜ Not started · 🟡 In Progress · 🔵 Cataloged · ✅ Done
+**Status key:** ⬜ Not started · 🟡 In Progress · 🔵 Cataloged · 🟢 Conformed · ✅ Done
 
 ---
 

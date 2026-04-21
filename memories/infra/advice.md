@@ -4,6 +4,35 @@ Patterns that consistently work for Slidev slide authoring and editing.
 
 ---
 
+## Build flags and granularity options (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+**Always use `-Parallel` when building all slides** — it runs 4 concurrent builds and cuts total time from ~86s to ~26s for all tech-talks. No tradeoff; use it by default.
+
+```powershell
+.\build.ps1 Tech-talks -Parallel
+```
+
+**Single-deck build** — fastest way to validate one deck without waiting for all 19:
+
+```powershell
+.\build.ps1 Tech-talks   # then check output for [FAILED] on the specific deck
+# OR target just one by running Slidev directly from slides/ dir:
+npx slidev build tech-talks/copilot-memory.md --out dist/tech-talks/copilot-memory
+```
+
+**Single-slide dev server** — best for visual/overflow inspection during edit loops:
+
+```powershell
+npx slidev dev tech-talks/copilot-memory.md
+# then navigate to the slide number in browser; no full build required
+```
+
+Use the dev server + browser for rapid edit/verify of individual slides; use `build.ps1 -Parallel` for final pre-push verification of all decks.
+
+---
+
 ## Cross-deck component frequency after full 18-deck catalog (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`
