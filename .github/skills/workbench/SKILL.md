@@ -27,6 +27,7 @@ Invoke after pre-flight gates complete, before starting content generation:
 | Creating workshop exercises                     | `"What persona voice and arc decisions apply to [module]?"` |
 | Placing a card in index-custom.html             | `"Which section does [topic] belong in?"`                   |
 | Updating content that overlaps another artifact | Check cross-reference table: `"What else covers [topic]?"`  |
+| Editing any content that touches a cross-cutting topic (MCP, agent mode, CLI, instructions, memory) | Read `topics/<topic>.md` — check coverage map for drift risk before editing |
 
 **Never query the Workbench during pre-flight.** Pre-flight gates (README exists → not archived → TEMPLATE.md → SECTIONS.md) must complete first using live repo files. The Workbench comes after.
 
@@ -64,6 +65,7 @@ Queries and writes should target the appropriate bench:
 
 | Bench                   | What lives here                                                       |
 | ----------------------- | --------------------------------------------------------------------- |
+| `topics`                | Cross-cutting feature index — topics that appear in 3+ artifacts (MCP, agent mode, CLI, instructions, memory) |
 | `copilot_tools`         | Chat, CLI, Azure MCP, Code Review, Web, VS Code talks                 |
 | `customization_context` | Primitives, Hooks, Memory, SDK, MCP Apps talks                        |
 | `agent_architecture`    | Agent Teams, ACP talks                                                |
@@ -103,14 +105,14 @@ If none of the above apply, no write is needed. **Empty topic benches are accept
 
 ## Cross-Reference Table
 
-Maintained in `infra/facts`. Topics covered in multiple artifacts — check for drift when updating either:
+Maintained in `infra/facts`. Topics covered in multiple artifacts — check for drift when updating either.
 
-- **MCP transport:** `05-mcp-servers`, `mcp-apps`
-- **Instructions files:** `01-instructions`, `copilot-primitives`
-- **Agent sessions:** `vscode-latest`, `06-custom-agents`
-- **Memory layers:** `copilot-memory`, `05-mcp-servers`
+For cross-cutting topics (MCP, agent mode, CLI, custom instructions, memory), use the **`topics/` bench** instead — each has a dedicated drawer with full coverage maps and drift risk notes. The `infra/facts` table below covers artifact-pair relationships not captured by a topic drawer:
 
-When updating a listed artifact: query the paired artifact to verify alignment before publishing.
+- **MCP transport:** `05-mcp-servers`, `mcp-apps` → see `topics/mcp.md`
+- **Instructions files:** `01-instructions`, `copilot-primitives` → see `topics/custom-instructions.md`
+- **Agent sessions:** `vscode-latest`, `06-custom-agents` → see `topics/agent-mode.md`
+- **Memory layers:** `copilot-memory`, `05-mcp-servers` → see `topics/copilot-memory.md`
 
 ---
 
