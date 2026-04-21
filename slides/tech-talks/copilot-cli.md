@@ -4,57 +4,64 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## GitHub Copilot CLI
-  AI at the Point of Work
+  ## GitHub Copilot CLI: AI at the Point of Work
+  CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: GitHub Copilot CLI
+title: GitHub Copilot CLI - AI at the Point of Work
 module: tech-talks/copilot-cli
+mdc: true
 section: Copilot Tools
 status: active
-updated: 2026-04-17
-mdc: true
+updated: 2026-04-21
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 </script>
+
+
 
 <!-- SLIDE: Title -->
 <TitleSlide
   title="GitHub Copilot CLI"
   subtitle="AI at the Point of Work"
   tagline="Start Anywhere. Steer Anywhere. Resume Anywhere."
-  meta="Tech Talk &#183; Copilot Tools &#183; 45 min"
+  meta="Tech Talk · 45 minutes"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="How do I bring AI to where the work actually is?"
-  subtext="Most AI tools live in the editor. The work lives"
-  highlight=" everywhere else."
+  question="How do I bring AI to where the work actually is — and keep steering it from wherever I am?"
+  subtext="Developers spend 68% of their time outside the IDE — deployments, debugging, log analysis, CI triage."
+  highlight="Most AI tools optimize the 16% you spend writing code and leave the rest untouched."
   :cards='[
-    { icon: "&#x1F527;", title: "Developers", description: "Plan, scaffold, and debug from the terminal with full runtime context" },
-    { icon: "&#x2699;&#xFE0F;", title: "DevOps Engineers", description: "Automate CI/CD, triage logs, and patrol infrastructure" },
-    { icon: "&#x1F4F1;", title: "On-Call Responders", description: "Steer remote sessions from any device during incidents" },
-    { title: "84% non-coding work", description: "Most dev time is debugging, deploying, and triaging &#8212; not writing code" },
-    { title: "8 attempts &#8594; 2", description: "Plan Mode catches ambiguity before the first line of code" },
-    { title: "Geography eliminated", description: "&#45;&#45;remote puts AI where the problem is; you steer from anywhere" }
+    { icon: "💻", title: "CLI Power Users", description: "Developers who live in terminals for Docker, git, infrastructure, and scripting" },
+    { icon: "🔧", title: "DevOps Engineers", description: "Engineers debugging production systems, analyzing logs, and managing infrastructure" },
+    { icon: "🚀", title: "Platform Teams", description: "Teams building CI/CD automation, deployment pipelines, and infrastructure as code" },
+    { title: "68% outside the IDE", description: "Most developer time is spent in terminals, not editors (Stripe Developer Coefficient)" },
+    { title: "8 debugging attempts avg", description: "Traditional workflow: request → generate → review → fix → repeat until it works" },
+    { title: "84% of work untouched", description: "Most AI tools target the 16% spent writing code — leave debugging, ops, CI untouched" }
   ]'
 />
 
@@ -63,177 +70,95 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "&#x1F3AF;", title: "The Terminal Sees Reality", subtitle: "Plan Mode, reasoning, and runtime context", blurb: "84% of work happens outside the editor &#8212; meet it there", slide: 6 },
-    { icon: "&#x26A1;", title: "Scaling the Reach", subtitle: "Agents, /fleet, cloud delegation, and context", blurb: "One task becomes many; work outlives your attention", slide: 13 },
-    { icon: "&#x1F310;", title: "Anywhere", subtitle: "Remote sessions and the last distance falls", blurb: "AI goes to the machine. You steer from wherever you are", slide: 20 },
-    { icon: "&#x1F680;", title: "Real-World Patterns", subtitle: "Use cases and what you can do today", blurb: "Walking-to-meeting debug, log forensics, infra patrol", slide: 25 }
+    { icon: "👁️", title: "The Terminal Sees Reality",        subtitle: "Context lives where the problem lives", blurb: "The IDE sees code. The terminal sees everything else: logs, containers, processes, networks.", slide: 4  },
+    { icon: "⚡", title: "Range and Delegation",              subtitle: "Multiply what one session can reach",  blurb: "Plan Mode, /fleet fan-out, cloud delegation — from single tasks to orchestrated workflows.", slide: 11 },
+    { icon: "🌍", title: "Work Where the Problem Is",        subtitle: "Geography is no longer a constraint",  blurb: "Remote sessions put AI on the machine — steer from phone, browser, any device.", slide: 18 },
+    { icon: "🎯", title: "Patterns That Actually Stick",     subtitle: "Real-world production workflows",      blurb: "Log forensics, multi-machine patrol, GitHub integration, CI automation.", slide: 23 },
   ]'
 />
 
 ---
 
-<!-- SLIDE: The Distance Model -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F9E0; Core Framework</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">The Distance Model</div>
-<div class="text-sm text-gray-400">Each section removes a different kind of distance between you and the work</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="space-y-2.5 text-sm">
-<div class="p-3 bg-gradient-to-r from-cyan-500/15 to-blue-500/10 rounded-lg border border-cyan-500/30 flex items-center gap-4">
-<div class="w-24 shrink-0 font-bold text-cyan-300">Intent</div>
-<div class="flex-1 text-white/80">AI stops guessing, starts asking</div>
-<div class="shrink-0 text-xs text-cyan-400/80 font-mono">Plan Mode</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-blue-500/15 to-indigo-500/10 rounded-lg border border-blue-500/30 flex items-center gap-4">
-<div class="w-24 shrink-0 font-bold text-blue-300">Complexity</div>
-<div class="flex-1 text-white/80">One task becomes many, run in parallel</div>
-<div class="shrink-0 text-xs text-blue-400/80 font-mono">/fleet fan-out</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-indigo-500/15 to-purple-500/10 rounded-lg border border-indigo-500/30 flex items-center gap-4">
-<div class="w-24 shrink-0 font-bold text-indigo-300">Context</div>
-<div class="flex-1 text-white/80">Session survives compaction, remembers across sessions</div>
-<div class="shrink-0 text-xs text-indigo-400/80 font-mono">Auto-compact + Memory</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-purple-500/15 to-pink-500/10 rounded-lg border border-purple-500/30 flex items-center gap-4">
-<div class="w-24 shrink-0 font-bold text-purple-300">Time</div>
-<div class="flex-1 text-white/80">Work outlives your attention</div>
-<div class="shrink-0 text-xs text-purple-400/80 font-mono">Cloud delegation (&amp;)</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-pink-500/15 to-rose-500/10 rounded-lg border border-pink-500/30 flex items-center gap-4">
-<div class="w-24 shrink-0 font-bold text-pink-300">Geography</div>
-<div class="flex-1 text-white/80">AI meets the problem where it lives</div>
-<div class="shrink-0 text-xs text-pink-400/80 font-mono">&#45;&#45;remote</div>
-</div>
-</div>
-<div class="mt-3 text-center text-xs text-white/40 italic">The session is the unit of work, not the shell</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: The 84% Problem -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F4CA; Why the Terminal?</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">The IDE Only Sees Code</div>
-<div class="text-sm text-gray-400">The terminal sees everything else</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-4 h-full">
-<div class="flex flex-col justify-center items-center">
-<div class="text-7xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">68%</div>
-<div class="text-sm text-white/70 text-center max-w-xs">of developer time is spent on non-feature work: debugging, maintenance, deployments, log analysis, CI triage</div>
-<div class="mt-3 text-xs text-white/40 italic">Source: Stripe, The Developer Coefficient (2018)</div>
-</div>
-<div class="space-y-3 text-xs">
-<div class="p-3 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20">
-<div class="font-semibold text-cyan-300 mb-1">&#x1F50D; Container logs &amp; process state</div>
-<div class="text-white/70">Runtime diagnostics live in the terminal, not source files</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20">
-<div class="font-semibold text-blue-300 mb-1">&#x1F310; Network traffic &amp; env vars</div>
-<div class="text-white/70">Configuration and connectivity are checked at the shell</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-lg border border-indigo-500/20">
-<div class="font-semibold text-indigo-300 mb-1">&#x1F4C1; File system &amp; disk state</div>
-<div class="text-white/70">Storage, permissions, and deployment artifacts</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg border border-purple-500/20">
-<div class="font-semibold text-purple-300 mb-1">&#x2699;&#xFE0F; CI/CD pipelines &amp; deploys</div>
-<div class="text-white/70">Build failures, test results, deployment validation</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Part 1 &#8212; The Terminal Sees Reality -->
-
+<!-- SLIDE: Part 1 — The Terminal Sees Reality -->
 <SectionOpenerSlide
   :partNumber="1"
   title="The Terminal Sees Reality"
-  subtitle="Plan Mode, reasoning models, and runtime context"
+  subtitle="Context lives where the problem is"
   :cards='[
-    { icon: "&#x1F3AF;", title: "Plan Mode", blurb: "Ask questions before writing code" },
-    { icon: "&#x1F9E0;", title: "Reasoning Models", blurb: "GPT-5.2-Codex with tunable depth" },
-    { icon: "&#x1F50D;", title: "Runtime Context", blurb: "Logs, env vars, network, processes" }
+    { icon: "📊", title: "68% Outside the IDE", blurb: "Most developer work happens in terminals, not editors" },
+    { icon: "🐳", title: "Docker & Infrastructure", blurb: "Container logs, env vars, process state — invisible to IDEs" },
+    { icon: "🔍", title: "Live System Context", blurb: "Runtime failures need runtime evidence, not source files" },
   ]'
-  :terminal='{ context: "Removing the intent distance", detail: "8 debugging attempts &#8594; 2 with Plan Mode" }'
+  :terminal='{ context: "The IDE only sees code", detail: "The terminal sees everything" }'
 />
 
 ---
 
-<!-- SLIDE: Plan Mode: The Fundamental Shift -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: Why the Terminal Matters -->
+<HeroStatSlide
+  :partNumber="1"
+  pillIcon="📊"
+  pillLabel="The Terminal Sees Reality · Context Gap"
+  title="The IDE Only Sees Code"
+  subtitle="The terminal sees everything else"
+  :hero='{ value: "68%", label: "of developer time is spent outside the IDE", source: "Source: Stripe, The Developer Coefficient (2018)" }'
+  :supporting='[
+    { icon: "🐳", title: "Container logs & process state", description: "Runtime diagnostics live in the terminal — not in source files" },
+    { icon: "🌐", title: "Network traffic & environment", description: "Connectivity checks, env vars, deployment artifacts" },
+    { icon: "📁", title: "File system & disk state", description: "Storage, permissions, actual running configuration" },
+    { icon: "⚙️", title: "CI/CD pipelines & deploys", description: "Build failures, test results, deployment validation" }
+  ]'
+  :insight='{ icon: "💡", text: "When debugging a failure, the information that matters is not in your source files — it is in what is running." }'
+  :progressDots='{ current: 1, total: 7, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Traditional Workflow vs Plan Mode -->
+<WorkflowShowdownStepsSlide
   :partNumber="1"
   pillIcon="🎯"
-  pillLabel="The Terminal Sees Reality"
-  title="Traditional vs Plan Mode Workflow"
-  :before='{ header: "Traditional Workflow", items: ["Make request — describe what you need", "AI generates solution — assumes intent, picks one interpretation", "You review and fix — discover wrong assumptions", "Repeat ×8 — average attempts before success"] }'
-  :after='{ header: "Plan Mode (Shift+Tab)", items: ["Make request — describe what you need", "AI asks questions — clarifies intent before acting", "Collaborate on plan — review strategy before any code", "Done in ~2 attempts — ambiguity caught before code"] }'
-  :progressDots='{ current: 1, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-  insight="From trial-and-error to collaborative strategy — 8 debugging attempts → 2 with Plan Mode"
+  pillLabel="The Terminal Sees Reality · Plan Mode"
+  title="Traditional Workflow vs. Plan Mode"
+  subtitle="From trial-and-error to collaborative strategy"
+  leftLabel="Traditional Workflow"
+  rightLabel="With Plan Mode"
+  :steps='[
+    { left: { label: "Make request", note: "Describe what you need" }, right: { label: "Make request", note: "Describe what you need" } },
+    { left: { label: "AI generates solution", note: "Assumes intent, picks one interpretation" }, right: { label: "AI asks questions", note: "Clarifies intent before acting" } },
+    { left: { label: "You review and fix", note: "Discover wrong assumptions" }, right: { label: "Collaborate on plan", note: "Review strategy before any code" } },
+    { left: { label: "Repeat until it works", note: "Average: 8 attempts" }, right: { label: "Execute with confidence", note: "Ambiguity resolved upfront" } }
+  ]'
+  :outcomeLeft='{ icon: "🔄", label: "Repeat ×8 — average attempts before success" }'
+  :outcomeRight='{ icon: "✓", label: "Done in ~2 attempts" }'
+  summaryMetric="8 debugging attempts → 2 with Plan Mode"
+  :progressDots='{ current: 2, total: 7, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Docker Debugging Demo -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F3AF; The Terminal Sees Reality</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 6</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Plan Mode in Action: Docker Debugging</div>
-<div class="text-xs text-white/50">Root cause in 8 minutes instead of 45</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="font-mono text-xs bg-gray-950/60 rounded-xl border border-cyan-500/20 p-4 space-y-2 overflow-y-auto max-h-72">
-<div class="text-green-400">$ copilot</div>
-<div class="text-cyan-300">&gt; "Debug why the backend container won&#39;t start"</div>
-<div class="text-yellow-300/80 mt-2">&#x1F914; Copilot (Plan Mode):</div>
-<div class="text-white/70 pl-4">Before I start, a few questions:</div>
-<div class="text-white/70 pl-4">1. Check docker-compose config, logs, or both?</div>
-<div class="text-white/70 pl-4">2. Include environment variable analysis?</div>
-<div class="text-white/70 pl-4">3. Any recent changes to services or network?</div>
-<div class="text-cyan-300 mt-2">&gt; "Start with logs, then check config if needed"</div>
-<div class="text-yellow-300/80 mt-2">&#x1F914; Copilot:</div>
-<div class="text-white/70 pl-4">Here&#39;s my plan:</div>
-<div class="text-white/70 pl-4">1. Retrieve container logs for backend service</div>
-<div class="text-white/70 pl-4">2. Analyze error patterns and stack traces</div>
-<div class="text-white/70 pl-4">3. Inspect docker-compose.yml if logs suggest config issue</div>
-<div class="text-white/70 pl-4">4. Check environment variables if auth errors found</div>
-<div class="border-t border-cyan-500/20 my-2"></div>
-<div class="text-green-400">&#x2705; Found: Port 5000 mapped to 5001 in docker-compose.yml</div>
-<div class="text-green-400">&#x2705; Fix applied. Container starts successfully.</div>
-</div>
-</div>
-</div>
+<AITerminalTranscriptSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="The Terminal Sees Reality"
+  title="Plan Mode in Action: Docker Debugging"
+  subtitle="Root cause in 8 minutes instead of 45"
+  :transcript='[
+    { "type": "prompt", "text": "copilot" },
+    { "type": "user", "text": "Debug why the backend container won&#39;t start" },
+    { "type": "thinking", "label": "🤔 Copilot (Plan Mode):" },
+    { "type": "response", "lines": ["Before I start, a few questions:", "1. Check docker-compose config, logs, or both?", "2. Include environment variable analysis?", "3. Any recent changes to services or network?"] },
+    { "type": "user", "text": "Start with logs, then check config if needed" },
+    { "type": "thinking" },
+    { "type": "response", "lines": ["Here&#39;s my plan:", "1. Retrieve container logs for backend service", "2. Analyze error patterns and stack traces", "3. Inspect docker-compose.yml if logs suggest config issue", "4. Check environment variables if auth errors found"] },
+    { "type": "divider" },
+    { "type": "outcome", "text": "Found: Port 5000 mapped to 5001 in docker-compose.yml" },
+    { "type": "outcome", "text": "Fix applied. Container starts successfully." }
+  ]'
+  footerMetric="45 min → 8 min · 8 attempts → 2"
+  :progressDots='{ current: 2, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
@@ -252,65 +177,20 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 ---
 
 <!-- SLIDE: Reasoning Models -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F3AF; The Terminal Sees Reality</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 6</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Configurable Reasoning Depth</div>
-<div class="text-xs text-white/50">GPT-5.2-Codex with tunable effort &#183; Ctrl+T to reveal thinking</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-4 gap-3 mb-4 text-xs">
-<div class="p-3 bg-gradient-to-b from-green-500/15 to-green-500/5 rounded-lg border border-green-500/30 text-center">
-<div class="text-lg mb-1">&#x26A1;</div>
-<div class="font-bold text-green-300">Low</div>
-<div class="text-white/60 mt-1">Fast queries</div>
-<div class="text-white/40 mt-1">Simple lookups</div>
-</div>
-<div class="p-3 bg-gradient-to-b from-blue-500/15 to-blue-500/5 rounded-lg border border-blue-500/30 text-center">
-<div class="text-lg mb-1">&#x2696;&#xFE0F;</div>
-<div class="font-bold text-blue-300">Medium</div>
-<div class="text-white/60 mt-1">Default</div>
-<div class="text-white/40 mt-1">Balanced speed/depth</div>
-</div>
-<div class="p-3 bg-gradient-to-b from-purple-500/15 to-purple-500/5 rounded-lg border border-purple-500/30 text-center">
-<div class="text-lg mb-1">&#x1F9E0;</div>
-<div class="font-bold text-purple-300">High</div>
-<div class="text-white/60 mt-1">Complex problems</div>
-<div class="text-white/40 mt-1">Multi-service debugging</div>
-</div>
-<div class="p-3 bg-gradient-to-b from-pink-500/15 to-pink-500/5 rounded-lg border border-pink-500/30 text-center">
-<div class="text-lg mb-1">&#x1F525;</div>
-<div class="font-bold text-pink-300">Extra High</div>
-<div class="text-white/60 mt-1">Critical decisions</div>
-<div class="text-white/40 mt-1">Architecture, security</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-3 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20">
-<div class="font-semibold text-cyan-300 mb-1">&#x1F50D; Ctrl+T: Show Reasoning</div>
-<div class="text-white/70">See the model&#39;s thought process step-by-step. Persists across sessions. Great for learning prompting patterns.</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20">
-<div class="font-semibold text-blue-300 mb-1">&#x1F4B0; /model: Cost Control</div>
-<div class="text-white/70">Each model shows a multiplier (1x, 2x, etc.) indicating premium request cost. Pick the right tradeoff for your task.</div>
-</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="The Terminal Sees Reality"
+  title="Configurable Reasoning Depth"
+  :cards='[
+    { icon: "⚡", title: "Low", description: "Fast queries and simple lookups — minimal compute, instant responses" },
+    { icon: "⚖️", title: "Medium", description: "Default level — balanced speed and depth for everyday problem-solving" },
+    { icon: "🧠", title: "High", description: "Complex problems and multi-service debugging — deeper analysis for hard tasks" },
+    { icon: "🔥", title: "Extra High", description: "Architecture and security decisions — maximum reasoning for critical choices" }
+  ]'
+  insight="Ctrl+T reveals the model&#39;s thinking step-by-step · /model shows cost multipliers — pick the right tradeoff"
+  :progressDots='{ current: 4, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
@@ -332,56 +212,28 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 ---
 
 <!-- SLIDE: CI/CD Automation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F3AF; The Terminal Sees Reality</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">6 of 6</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Programmatic Mode in CI/CD</div>
-<div class="text-xs text-white/50">Build failure analysis in GitHub Actions &#183; 25 min &#8594; 5 min</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="font-mono text-xs bg-gray-950/60 rounded-xl border border-cyan-500/20 p-4 space-y-1 overflow-y-auto max-h-72">
-<div class="text-purple-300"># .github/workflows/build.yml</div>
-<div class="text-white/70">- name: Analyze build failure</div>
-<div class="text-white/70">  if: failure()</div>
-<div class="text-white/70">  run: |</div>
-<div class="text-cyan-300 pl-4">copilot -p "Analyze build failure. \</div>
-<div class="text-cyan-300 pl-6">Check recent commits, dependencies, \</div>
-<div class="text-cyan-300 pl-6">and error patterns. Suggest fixes." \</div>
-<div class="text-amber-300 pl-6">&#45;&#45;allow-tool &#39;shell(gh)&#39; \</div>
-<div class="text-amber-300 pl-6">&#45;&#45;allow-tool &#39;shell(git)&#39; \</div>
-<div class="text-white/70 pl-6">&gt; failure-analysis.txt</div>
-<div class="border-t border-cyan-500/20 my-2"></div>
-<div class="text-white/70">- name: Post analysis as PR comment</div>
-<div class="text-white/70">  if: failure()</div>
-<div class="text-white/70">  run: |</div>
-<div class="text-cyan-300 pl-4">gh pr comment $&#123;&#123; github.event.pull_request.number &#125;&#125; \</div>
-<div class="text-cyan-300 pl-6">&#45;&#45;body-file failure-analysis.txt</div>
-</div>
-<div class="mt-3 text-xs text-white/50 text-center">Zero human intervention for known failure types &#183; Pattern recognition across historical failures</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="The Terminal Sees Reality"
+  title="Programmatic Mode in CI/CD"
+  codePosition="left"
+  :code='{ language: "yaml", content: "# .github/workflows/build.yml\n- name: Analyze build failure\n  if: failure()\n  run: |\n    copilot -p \"Analyze build failure.\n      Check recent commits,\n      deps, and patterns.\n      Suggest a fix.\"\n    --allow-tool shell(gh)\n    > failure-analysis.txt\n- name: Post PR comment\n  if: failure()\n  run: |\n    gh pr comment\n    --body-file failure-analysis.txt" }'
+  :features='[
+    { icon: "⚡", title: "Auto-Triggered", description: "Fires on any CI/CD pipeline failure — no manual intervention required" },
+    { icon: "🔍", title: "Pattern Recognition", description: "Analyzes recent commits, dependency changes, and historical failure patterns across the project" },
+    { icon: "💬", title: "Instant PR Feedback", description: "Analysis posted as PR comment — root cause visible to all reviewers without digging through logs" }
+  ]'
+  :progressDots='{ current: 6, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Part 2 &#8212; Scaling the Reach -->
+<!-- SLIDE: Part 2 &#8212; Range and Delegation -->
 
 <SectionOpenerSlide
   :partNumber="2"
-  title="Scaling the Reach"
+  title="Range and Delegation"
   subtitle="Built-in agents, /fleet fan-out, cloud delegation, and infinite context"
   :cards='[
     { icon: "&#x1F916;", title: "Built-in Agents", blurb: "Explore, Task, Plan, Code-review" },
@@ -397,7 +249,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <FourCardGridSlide
   :partNumber="2"
   pillIcon="⚡"
-  pillLabel="Scaling the Reach"
+  pillLabel="Range and Delegation"
   title="Four Specialized Agents"
   :cards='[
     { icon: "🔍", title: "Explore Agent", description: "Fast codebase analysis without cluttering main context — returns focused answers under 300 words" },
@@ -415,7 +267,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <CodeWithFeaturesSlide
   :partNumber="2"
   pillIcon="⚡"
-  pillLabel="Scaling the Reach"
+  pillLabel="Range and Delegation"
   title="/fleet: Explicit Parallel Orchestration"
   codePosition="left"
   :code='{ language: "bash", content: "$ copilot\n> /fleet implement all phases of\n  this auth refactor plan\n─────────────────────\n🤖 Orchestrator: 4 subtasks\n  → Subagent 1: Update user model\n  → Subagent 2: Migrate auth routes\n  → Subagent 3: Update test suite\n  → Subagent 4: Update docs\n✅ All subtasks complete." }'
@@ -435,7 +287,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <CodeWithFeaturesSlide
   :partNumber="2"
   pillIcon="⚡"
-  pillLabel="Scaling the Reach"
+  pillLabel="Range and Delegation"
   title="Cloud Delegation: Work Outlives Your Attention"
   codePosition="left"
   :code='{ language: "bash", content: "$ copilot\n> &\"Analyze entire codebase for\n  security vulnerabilities\"\n─────────────────────\n✅ Task delegated to cloud agent.\nCommits unstaged changes,\ncreates branch.\nPR arrives when complete.\n\n[Terminal is free for other work]" }'
@@ -450,56 +302,16 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 ---
 
 <!-- SLIDE: Context Management -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x26A1; Scaling the Reach</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 6</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Infinite Sessions &amp; Repository Memory</div>
-<div class="text-xs text-white/50">The foundation that makes sessions worth reconnecting to</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="grid grid-cols-2 gap-4 text-xs">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20">
-<div class="font-semibold text-blue-300 mb-1">&#x267E;&#xFE0F; Auto-Compaction at 95%</div>
-<div class="text-white/70">When context approaches token limit, history is automatically compressed. Important decisions persist. Verbose output pruned.</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-lg border border-indigo-500/20">
-<div class="font-semibold text-indigo-300 mb-1">&#x1F9E0; Repository Memory</div>
-<div class="text-white/70">Copilot learns your conventions, patterns, and preferred approaches. Applied automatically in future sessions.</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-lg border border-blue-500/20">
-<div class="font-semibold text-blue-300 mb-1">&#x1F4CA; Monitoring Tools</div>
-<div class="font-mono text-white/50">/context &#8212; visual token breakdown</div>
-<div class="font-mono text-white/50">/usage &#8212; session statistics</div>
-<div class="font-mono text-white/50">/compact &#8212; manual compression</div>
-</div>
-</div>
-<div class="flex flex-col justify-center">
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/20 rounded-xl border border-blue-500/30 text-center">
-<div class="text-3xl mb-2">&#x1F517;</div>
-<div class="font-bold text-white mb-2">Sessions Are Durable</div>
-<div class="text-white/70 mb-3">Think tmux or Jupyter &#8212; persistent state you connect to, not ephemeral chat you restart</div>
-<div class="text-blue-300/80 font-mono text-xs">copilot &#45;&#45;resume</div>
-<div class="text-white/40 mt-1">Reconnect from any device. Context travels with the session.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="⚡"
+  pillLabel="Range and Delegation"
+  title="Infinite Sessions & Repository Memory"
+  :left='{ header: "Context Control", items: ["♾️ Auto-Compaction at 95% — history compressed at token limit; key decisions persist, verbose output pruned", "🧠 Repository Memory — Copilot learns conventions and patterns; applied automatically next session", "📊 /context for token breakdown · /usage for stats · /compact for manual compression"] }'
+  :right='{ header: "Session Durability", items: ["🔗 Sessions Are Durable — persistent state you connect to, not ephemeral chat you restart", "📱 copilot --resume — reconnect from any device; context and memory travel with the session", "⏳ Think tmux or Jupyter — work outlives the shell; start on workstation, steer from phone"] }'
+  insight="The session is a durable artifact — start anywhere, steer anywhere, resume anywhere"
+  :progressDots='{ current: 4, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
@@ -507,7 +319,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <ThreeColumnCardSlide
   :partNumber="2"
   pillIcon="⚡"
-  pillLabel="Scaling the Reach"
+  pillLabel="Range and Delegation"
   title="Custom Agents, Plugins & /ide Bridge"
   :columns='[
     { icon: "🤖", title: "Custom Agents", description: "Specialized agents for your team workflows", items: ["~/.copilot/agents/", ".github/agents/", ".github-private/agents/"] },
@@ -523,7 +335,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <BeforeAfterPanelsSlide
   :partNumber="2"
   pillIcon="⚡"
-  pillLabel="Scaling the Reach"
+  pillLabel="Range and Delegation"
   title="Mental Model Shift"
   :before='{ header: "🛑 Move Against", items: ["Pasting secrets into prompts — use env vars; credentials are prompt content", "--yolo outside sandboxed environments — blanket permissions = prod access if authenticated", "Skipping Plan Mode when rushing — most valuable precisely when in a hurry", "--remote + --yolo on production — always scope permissions; use Copilot Hooks"] }'
   :after='{ header: "✅ Move Toward", items: ["AI as thought partner for greenfield — 90 min library research → 15 min with scaffold", "Plan before you build (Shift+Tab) — 8 attempts → 2; catch ambiguity early", "Delegate with & — IDE and terminal stay completely free", "Sessions as durable work — start on workstation, steer from phone, review from laptop"] }'
@@ -533,12 +345,12 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 
 ---
 
-<!-- SLIDE: Part 3 &#8212; Anywhere -->
+<!-- SLIDE: Part 3 &#8212; Work Where the Problem Is -->
 
 <SectionOpenerSlide
   :partNumber="3"
-  title="Anywhere"
-  subtitle="Remote sessions and the last distance falls"
+  title="Work Where the Problem Is"
+  subtitle="Remote sessions &#8212; the last distance falls"
   :cards='[
     { icon: "&#x1F310;", title: "&#45;&#45;remote Flag", blurb: "Start on any machine, steer from any device" },
     { icon: "&#x1F4F1;", title: "Mobile Steering", blurb: "URL/QR code to GitHub.com or Mobile" },
@@ -553,7 +365,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <CodeWithFeaturesSlide
   :partNumber="3"
   pillIcon="🌐"
-  pillLabel="Anywhere"
+  pillLabel="Work Where the Problem Is"
   title="Remote Sessions: The Last Distance Falls"
   codePosition="left"
   :code='{ language: "bash", content: "# SSH into production\n$ ssh ops@prod-server-3\n$ copilot --remote\n─────────────────────\n🔗 Remote session started.\nMonitor and steer from:\n  github.com/copilot/sessions/abc123\n  [QR CODE]\n─────────────────────\n# Or start mid-session:\n> /remote" }'
@@ -571,7 +383,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <ThreeColumnCardSlide
   :partNumber="3"
   pillIcon="🌐"
-  pillLabel="Anywhere"
+  pillLabel="Work Where the Problem Is"
   title="The Session Becomes Portable, Not the Machine"
   :columns='[
     { icon: "💾", title: "Work stays where it lives", description: "Logs never leave the production boundary. No scp, no rsync, no uploading to third-party tools. Compliance-friendly by default." },
@@ -585,118 +397,64 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 ---
 
 <!-- SLIDE: Combination Patterns -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F310; Anywhere</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">&#45;&#45;remote Composes with Everything</div>
-<div class="text-xs text-white/50">The flag that multiplies every other capability</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="space-y-2.5 text-xs">
-<div class="p-3 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-lg border border-indigo-500/20 flex items-center gap-4">
-<div class="w-40 shrink-0 font-bold text-indigo-300">Plan Mode + &#45;&#45;remote</div>
-<div class="flex-1 text-white/70">Safer live-system ops &#8212; AI asks questions before touching production. Critical when approving from a phone.</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg border border-purple-500/20 flex items-center gap-4">
-<div class="w-40 shrink-0 font-bold text-purple-300">/fleet + &#45;&#45;remote</div>
-<div class="flex-1 text-white/70">Coordinate across multiple environments simultaneously. One prompt, five servers, parallel execution.</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-lg border border-indigo-500/20 flex items-center gap-4">
-<div class="w-40 shrink-0 font-bold text-indigo-300">Cloud + &#45;&#45;remote</div>
-<div class="flex-1 text-white/70">Persistent infra patrol &#8212; agent watches, investigates anomalies, reports findings. Review from any device.</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg border border-purple-500/20 flex items-center gap-4">
-<div class="w-40 shrink-0 font-bold text-purple-300">Memory + &#45;&#45;remote</div>
-<div class="flex-1 text-white/70">When you /resume from a new device, repo memory and context travel with it &#8212; no re-explaining.</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-lg border border-indigo-500/20 flex items-center gap-4">
-<div class="w-40 shrink-0 font-bold text-indigo-300">tmux + &#45;&#45;remote</div>
-<div class="flex-1 text-white/70">Sessions survive SSH disconnects. Combine with tmux or screen for true persistence.</div>
-</div>
-</div>
-</div>
-</div>
+<FrameworkMappingRowsSlide
+  :partNumber="3"
+  pillIcon="🌐"
+  pillLabel="Work Where the Problem Is"
+  title="--remote Composes with Everything"
+  subtitle="The flag that multiplies every other capability"
+  :rows='[
+    { "label": "Plan + --remote", "description": "Safer live-system ops — AI asks before touching production. Critical when approving from a phone.", "tag": "safer ops" },
+    { "label": "/fleet + --remote", "description": "Coordinate across multiple environments simultaneously. One prompt, five servers, parallel execution.", "tag": "parallel" },
+    { "label": "Cloud + --remote", "description": "Persistent infra patrol — agent watches, investigates anomalies, reports findings. Review from any device.", "tag": "24/7 watch" },
+    { "label": "Memory + --remote", "description": "When you /resume from a new device, repo memory and context travel with it — no re-explaining.", "tag": "/resume" },
+    { "label": "tmux + --remote", "description": "Sessions survive SSH disconnects. Combine with tmux or screen for true persistence.", "tag": "persistent" }
+  ]'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Walking-to-Meeting Demo -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">&#x1F310; Anywhere</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">The Walking-to-Meeting Debug</div>
-<div class="text-xs text-white/50">Alert fires 3 min before standup. You start and finish without stopping.</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 overflow-hidden">
-<div class="font-mono text-xs bg-gray-950/60 rounded-xl border border-indigo-500/20 p-4 space-y-1 overflow-y-auto max-h-64">
-<div class="text-purple-300"># 9:02 AM &#8212; Alert fires. SSH into staging.</div>
-<div class="text-green-400">$ ssh ops@staging-auth-01</div>
-<div class="text-green-400">$ copilot &#45;&#45;remote</div>
-<div class="text-indigo-300">&gt; "The auth service is returning 503. Debug it."</div>
-<div class="border-t border-indigo-500/20 my-1.5"></div>
-<div class="text-purple-300"># 9:05 AM &#8212; Scan QR code. Grab your bag.</div>
-<div class="text-purple-300"># 9:07 AM &#8212; Walking to standup. Phone shows:</div>
-<div class="text-green-400">"Found: JWT_SECRET missing from staging env."</div>
-<div class="border-t border-indigo-500/20 my-1.5"></div>
-<div class="text-purple-300"># From phone:</div>
-<div class="text-indigo-300">&gt; "Check if other services depend on that secret"</div>
-<div class="text-green-400">Copilot: 2 more services affected. Proposing fix.</div>
-<div class="border-t border-indigo-500/20 my-1.5"></div>
-<div class="text-purple-300"># 9:12 AM &#8212; Walk into standup:</div>
-<div class="text-white/90">"Staging auth is fixed. 3 services were affected."</div>
-</div>
-<div class="mt-3 grid grid-cols-3 gap-2 text-xs text-center">
-<div class="p-2 bg-indigo-500/10 rounded-lg border border-indigo-500/20">
-<div class="font-bold text-indigo-300">No restart</div>
-<div class="text-white/50">Same session, new device</div>
-</div>
-<div class="p-2 bg-purple-500/10 rounded-lg border border-purple-500/20">
-<div class="font-bold text-purple-300">No sacrifice</div>
-<div class="text-white/50">Meeting + debug, not or</div>
-</div>
-<div class="p-2 bg-indigo-500/10 rounded-lg border border-indigo-500/20">
-<div class="font-bold text-indigo-300">10 minutes</div>
-<div class="text-white/50">Alert to resolution</div>
-</div>
-</div>
-</div>
-</div>
+<AITerminalTranscriptSlide
+  :partNumber="3"
+  pillIcon="🌐"
+  pillLabel="Work Where the Problem Is"
+  title="The Walking-to-Meeting Debug"
+  subtitle="Alert fires 3 min before standup. You start and finish without stopping."
+  :transcript='[
+    { "type": "thinking", "label": "# 9:02 AM — Alert fires. SSH into staging." },
+    { "type": "prompt", "text": "ssh ops@staging-auth-01" },
+    { "type": "prompt", "text": "copilot --remote" },
+    { "type": "user", "text": "The auth service is returning 503. Debug it." },
+    { "type": "divider" },
+    { "type": "thinking", "label": "# 9:05 AM — Scan QR code. Grab your bag." },
+    { "type": "thinking", "label": "# 9:07 AM — Walking to standup. Phone shows:" },
+    { "type": "outcome", "text": "Found: JWT_SECRET missing from staging env." },
+    { "type": "divider" },
+    { "type": "thinking", "label": "# From phone:" },
+    { "type": "user", "text": "Check if other services depend on that secret" },
+    { "type": "outcome", "text": "Copilot: 2 more services affected. Proposing fix." },
+    { "type": "divider" },
+    { "type": "thinking", "label": "# 9:12 AM — Walk into standup:" },
+    { "type": "response", "lines": ["Staging auth is fixed. 3 services were affected."] }
+  ]'
+  footerMetric="No restart · No sacrifice · Alert to resolution: 10 minutes"
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Part 4 &#8212; Real-World Patterns -->
+<!-- SLIDE: Part 4 &#8212; Patterns That Actually Stick -->
 
 <SectionOpenerSlide
   :partNumber="4"
-  title="Real-World Patterns"
-  subtitle="Use cases and what you can do today"
+  title="Patterns That Actually Stick"
+  subtitle="Use cases that survive contact with reality"
   :cards='[
     { icon: "&#x1F50D;", title: "Log Forensics", blurb: "12GB of logs, zero data transfer" },
     { icon: "&#x1F6E1;&#xFE0F;", title: "Infra Patrol", blurb: "Persistent monitoring with reasoning" },
-    { icon: "&#x1F310;", title: "Multi-Machine", blurb: "Five servers, one prompt" }
+    { icon: "&#x1F310;", title: "GitHub Integration", blurb: "Issues, PRs, workflows from terminal" }
   ]'
   :terminal='{ context: "Bring reasoning to the data", detail: "instead of moving the data to the reasoning" }'
 />
@@ -707,7 +465,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <CodeWithFeaturesSlide
   :partNumber="4"
   pillIcon="🚀"
-  pillLabel="Real-World Patterns"
+  pillLabel="Patterns That Actually Stick"
   title="Log Forensics Without Data Transfer"
   codePosition="left"
   :code='{ language: "bash", content: "# On the server where logs live\n$ ssh analytics@log-server\n$ copilot --remote\n─────────────────────\n> \"Analyze access logs from the\n  last 24 hours. Find top IPs\n  with 401s on /api/auth.\n  Check for credential stuffing.\"\n─────────────────────\n[runs: grep, awk, sort, uniq]\nFound: 3 IPs with >10K attempts.\nPattern: sequential usernames.\nFix: Block at WAF." }'
@@ -725,7 +483,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <TwoColPairedConceptsSlide
   :partNumber="4"
   pillIcon="🚀"
-  pillLabel="Real-World Patterns"
+  pillLabel="Patterns That Actually Stick"
   title="Infrastructure Patrol & Multi-Machine Orchestration"
   :left='{ header: "🛡️ Persistent Infra Patrol", items: ["Start with: tmux new -s copilot-patrol && copilot --remote --allow-tool shell(kubectl)", "Prompt: Monitor K8s cluster, check pod health every 5 min, alert if abnormal", "Monitoring says CPU at 92% — AI patrol says why and proposes a fix"] }'
   :right='{ header: "🌐 Multi-Machine Orchestration", items: ["Open copilot --remote on prod-db-1, prod-api-3, and prod-worker-7 simultaneously", "Single prompt: check disk, validate SSL, compare deployed versions", "Results merged into one report — your browser becomes a console for distributed AI ops"] }'
@@ -739,7 +497,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 <FourCardGridSlide
   :partNumber="4"
   pillIcon="🚀"
-  pillLabel="Real-World Patterns"
+  pillLabel="Patterns That Actually Stick"
   title="GitHub.com from Your Terminal"
   :cards='[
     { icon: "📋", title: "Issues", description: "List open issues assigned to you, start working on one, or raise an issue — all from the terminal" },
