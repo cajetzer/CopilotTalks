@@ -14,7 +14,7 @@ A repeatable playbook for converting raw inline HTML slides in any tech-talk dec
 | `agentic-journey` | 🔵 Cataloged | 11 | [plan-decks/agentic-journey.md](plan-decks/agentic-journey.md) |
 | `agentic-sdlc` | 🔵 Cataloged | 16 | [plan-decks/agentic-sdlc.md](plan-decks/agentic-sdlc.md) |
 | `agentic-workflows` | � Conformed | 7 | [plan-decks/agentic-workflows.md](plan-decks/agentic-workflows.md) |
-| `copilot-acp` | 🔵 Cataloged | 10 | [plan-decks/copilot-acp.md](plan-decks/copilot-acp.md) |
+| `copilot-acp` | � Conformed | 2 | [plan-decks/copilot-acp.md](plan-decks/copilot-acp.md) |
 | `copilot-azure-mcp` | 🔵 Cataloged | 11 | [plan-decks/copilot-azure-mcp.md](plan-decks/copilot-azure-mcp.md) |
 | `copilot-chat-internals` | 🔵 Cataloged | 10 | [plan-decks/copilot-chat-internals.md](plan-decks/copilot-chat-internals.md) |
 | `copilot-code-review` | 🔵 Cataloged | 14 | [plan-decks/copilot-code-review.md](plan-decks/copilot-code-review.md) |

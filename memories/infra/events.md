@@ -4,6 +4,22 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## copilot-acp conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-acp.md` promoted to 🟢 Conformed status.
+
+- **Slide 18** (CI/CD Code Review Dashboard) → `<ProblemSolutionOutcomeSlide>` partNumber=4, `solution.code` used for the Python ACP session snippet
+- **Slide 19** (Polyrepo Development) → `<ProblemSolutionOutcomeSlide>` partNumber=4, `solution.code` used for the bash workspace session snippet
+- **Slides 8, 9, 10, 12, 13, 14, 16, 20** kept raw HTML — bidirectional sequence diagram, 4-col comparison table, numbered step sequences (1→4 across two slides), permission flow diagram, and multi-panel mixed-content orchestrator slide
+
+Note: this deck already had `ProblemSolutionOutcomeSlide` imported and used (slide 17 — Zed Editor Integration). Slides 18/19 followed the same partNumber=4 pattern.
+
+**Build:** ✓ 2.71s, no errors.
+
+---
+
 ## agentic-workflows conformed (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

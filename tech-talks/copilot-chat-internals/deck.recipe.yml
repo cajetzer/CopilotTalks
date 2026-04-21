@@ -10,8 +10,47 @@ deck:
   intro:
     mode: core-question
 
+  # Narrative arc: Reveal (real-time observability hook) → Inspect (deep request pipeline)
+  #   → Configure (diagnostics & validation for the most common failure mode)
+  #   → Systematize (repeatable troubleshooting patterns practitioners take home)
+  sectionOrder:
+    - "Agent Debug Panel: Real-Time Event Stream (v1.110)"
+    - "Chat Debug View: Complete Request Inspection"
+    - "Customization Diagnostics: Configuration Validation"
+    - "Systematic Troubleshooting Patterns"
+
+  sectionModes:
+    "Agent Debug Panel: Real-Time Event Stream (v1.110)":
+      emphasis: high
+      note: >
+        The entry wow-moment — live event stream and chart visualization immediately reframes
+        Copilot from black box to observable system, setting the credibility foundation.
+    "Chat Debug View: Complete Request Inspection":
+      emphasis: high
+      note: >
+        Densest technical payload — unifies Chat Debug View, Thinking Tokens, and Context
+        Management into one pipeline mental model most likely to change how engineers debug.
+    "Customization Diagnostics: Configuration Validation":
+      emphasis: medium
+      note: >
+        Addresses the #1 failure mode (misconfigured custom instructions) and covers
+        MCP/extension log infrastructure; narrower applicability, paced efficiently.
+    "Systematic Troubleshooting Patterns":
+      emphasis: medium-high
+      note: >
+        The practical payoff — repeatable workflows and Before/After frame give practitioners
+        a concrete checklist to apply the same day.
+
   highlightMoments:
-    - Agent Debug Panel (v1.110) gives real-time event monitoring and chart visualization
-    - Configuration errors diagnosed in 4 min instead of 45 min with debug view
-    - Thinking tokens reveal model reasoning steps before response is generated
-    - Chat Debug View exposes every file, instruction, and tool call sent to the model
+    - "Agent Debug Panel (v1.110) gives real-time event monitoring and chart visualization"
+    - "Chat Debug View exposes every file, instruction, and tool call sent to the model"
+    - "Thinking tokens reveal model reasoning steps before the response is generated"
+    - "Configuration errors diagnosed in 4 min instead of 45 min with the debug view"
+    - "Context compaction and window controls give agents measurably more effective context"
+
+# OPEN DECISION: Part 3 slides cover both 'Customization Diagnostics' and 'Deep Debugging'
+# (Extension Logs + MCP Servers) in a single section opener. The recipe anchors on
+# 'Customization Diagnostics' because misconfigured instructions are the dominant failure
+# mode — but if the audience skews toward platform/infra engineers, consider swapping the
+# anchor to 'Deep Debugging: Extension Logs and MCP Servers' to foreground the lower-level
+# tooling. Both headings are valid README matches.

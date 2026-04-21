@@ -9,6 +9,46 @@ deck:
     mode: core-question
 
   highlightMoments:
-    - Prototype loop compression: 45 minutes → 8 minutes with live Azure context
-    - Live Azure context directly in terminal conversations (no manual pasting)
-    - Permission guardrails and trust boundaries for organizational safety
+    - Live Azure context directly in terminal conversations — no portal tab-switching or manual config pasting
+    - Prototype loop compression: 45 minutes of portal clicks → 8 minutes of conversational deployment
+    - Plan Mode + Azure MCP combination: AI asks clarifying questions against live resources before generating a single line of infrastructure code
+    - Environment cloning in one conversation — exact replica with validated parameters, any region
+    - Permission guardrails enforce read-only boundaries so teams can explore safely before granting write access
+
+  # Narrative arc: Hook with live context magic (wow) → demonstrate speed compression (value) →
+  # show how to set it up (adoption) → close on organizational trust (confidence to ship).
+  # Config before Guardrails is deliberate: practitioners need the "how" before they sell the "safe".
+  sectionOrder:
+    - Live Azure Context in Terminal Conversations
+    - The Prototype Loop: Plan → Generate → Deploy
+    - Configuration and Setup
+    - Guardrails and Trust Boundaries
+
+  sectionModes:
+    "Live Azure Context in Terminal Conversations":
+      emphasis: high
+      note: >
+        The wow-moment hook — live subscription context in the terminal reframes AI from
+        generic assistant to an agent that knows your infrastructure.
+    "The Prototype Loop: Plan → Generate → Deploy":
+      emphasis: high
+      note: >
+        The core value demonstration — 45-minute portal workflow compressed to 8-minute
+        conversational deployment with Plan Mode clarifying questions against live resources.
+    "Configuration and Setup":
+      emphasis: medium
+      note: >
+        Adoption enabler — shows exactly how to install and scope the MCP server so
+        practitioners can replicate the demo before the next standup.
+    "Guardrails and Trust Boundaries":
+      emphasis: medium-high
+      note: >
+        The enterprise trust close — read-only service principal pattern and permission
+        escalation path give teams a safe on-ramp before granting write access.
+
+# OPEN DECISION: Should "Configuration and Setup" (only 2 content slides) be merged into
+# "Guardrails and Trust Boundaries" to produce a single "Setup & Safety" section?
+# Arguments for merge: tighter 3-section arc; setup details feel thin standalone.
+# Arguments against: setup is a distinct audience action (adopt) vs guardrails (trust) —
+# collapsing them muddies the call-to-action. Current 4-section structure is preferred
+# unless the talk runs long and a cut is needed.

@@ -10,8 +10,48 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Foundation → Trust → Catalog → Proof
+  # "The Opportunity" framing is absorbed into Core Architecture's opening movement;
+  # its vacated slot goes to Real-World Use Cases so demos anchor the pattern catalog.
+  sectionOrder:
+    - "Core Architecture & Compilation"
+    - "Safe Outputs Deep Dive"
+    - "The Agent Factory Pattern"
+    - "Real-World Use Cases"
+
+  sectionModes:
+    "Core Architecture & Compilation":
+      emphasis: medium
+      note: >
+        Opens by absorbing The Opportunity's intent-vs-YAML framing as a short primer,
+        then teaches the Markdown → compilation → sandboxed execution pipeline as the
+        mental model everything else builds on.
+    "Safe Outputs Deep Dive":
+      emphasis: high
+      note: >
+        The enterprise trust unlock — threat model, read-only default, the three
+        validated-write config archetypes (project, PR, issue), and why
+        compiler-as-policy beats ad-hoc YAML guardrails; this section converts skeptics.
+    "The Agent Factory Pattern":
+      emphasis: high
+      note: >
+        Generalizes from concrete use cases to a composable catalog of 100+ specialized
+        patterns, from reactive triage to multi-agent orchestrator compositions — the
+        conceptual payoff.
+    "Real-World Use Cases":
+      emphasis: medium-high
+      note: >
+        End-to-end walkthroughs (issue triage → CI diagnostic → daily status synthesis
+        → agent council) that make the pattern catalog concrete and feed directly into
+        the What You Can Do Today close.
+
   highlightMoments:
-    - Intent-driven automation replaces brittle YAML with AI that adapts to context
-    - 100+ proven workflow patterns specializing repository tasks out of the box
-    - Markdown → secure YAML compilation with sandboxed agent execution
-    - Read-only AI + validated write operations maintains enterprise security posture
+    - "Write Markdown, get secure CI/CD — intent replaces implementation, compilation replaces convention"
+    - "Read-only AI + validated writes: the compiler enforces the security posture, not the author's discipline"
+    - "100+ proven patterns from issue triage to agent councils — specialization without prompt engineering"
+    - "Declare what success looks like; let AI navigate the path and compound value over time"
+
+  # OPEN DECISION: Real-World Use Cases demo format
+  # A — single "hero" scenario built live from zero: maximum depth, one peak aha moment, risk of overrun
+  # B — three rapid vignettes (triage / CI diagnostic / status synthesis): validates breadth, safer on time, shallower per example
+  # Option A creates a memorable centerpiece demo; Option B validates the pattern catalog's breadth.

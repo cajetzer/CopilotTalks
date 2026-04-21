@@ -10,8 +10,48 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Diagnose the N×M fragmentation crisis → internalize the four-layer protocol model →
+  # connect live with a single flag and TypeScript SDK → prove production readiness through
+  # the permission model, real-world patterns, and the multi-agent orchestrator.
+  # Audience moves from "I didn't know this existed" to "I know exactly how to integrate this."
+  sectionOrder:
+    - "The Problem"
+    - "Protocol Architecture: Four Layers of Standardization"
+    - "Getting Started: From Zero to Connected in 5 Minutes"
+    - "Permissions & Security: Trust Without Blind Faith"
+
+  sectionModes:
+    "The Problem":
+      emphasis: high
+      note: >
+        Land the N×M → N+M shift using the LSP analogy as the hook — this is the central
+        cognitive unlock that makes ACP feel inevitable rather than optional for editor teams.
+    "Protocol Architecture: Four Layers of Standardization":
+      emphasis: medium
+      note: >
+        Walk the four-layer model (Transport → Protocol → Session → Application) and the
+        message-flow diagram; audiences need this mental model before the SDK code lands.
+    "Getting Started: From Zero to Connected in 5 Minutes":
+      emphasis: high
+      note: >
+        The experiential peak — live startup of `copilot --acp --stdio` followed by a
+        TypeScript client that streams a real response; if one slide makes the audience
+        reach for their terminal, it's this section.
+    "Permissions & Security: Trust Without Blind Faith":
+      emphasis: medium-high
+      note: >
+        Show the permission-callback pattern (interactive vs policy-based), then anchor
+        it with the Zed, CI/CD, and polyrepo use cases; close on the ACP Agent Orchestrator
+        as proof that the protocol composes into production multi-agent systems.
+
   highlightMoments:
-    - N×M integration problem solved to N+M via standard protocol (like LSP for AI agents)
-    - Universal editor support — Zed, JetBrains, Neovim, Emacs — not just VS Code
-    - Bidirectional streaming with real-time response chunks and permission mediation
-    - TypeScript, Python, Rust, Kotlin SDKs officially supported from day one
+    - "N×M integration chaos collapses to N+M via one protocol — exactly what LSP did for language servers"
+    - "Live `copilot --acp --stdio` startup: the server is running before the next slide loads"
+    - "First streaming response in the TypeScript SDK demo — agent output appears chunk by chunk in the terminal"
+    - "Side-by-side permission strategies: interactive approval vs policy-based auto-approve for reads, block for deletes"
+    - "ACP Agent Orchestrator: one broadcast prompt drives four worker agents across repos and synthesizes a cross-repo result"
+
+  # OPEN DECISION: Should 'Permissions & Security' and 'Real-World Use Cases' be split into
+  # two separate sections (currently consolidated as section 4's 8-slide block) —
+  # clear security-first narrative with dedicated enterprise trust time vs maintaining the
+  # 4-section cap by keeping permission patterns and use-case proof together as one movement?

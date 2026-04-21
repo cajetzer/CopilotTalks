@@ -1,8 +1,8 @@
 # Deck: copilot-acp
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — build verified ✓
 **Deck file:** `slides/tech-talks/copilot-acp.md`
-**Raw HTML slides:** 10 (out of 25 total)
+**Raw HTML slides converted:** 2 of 10 (slides 18, 19 → ProblemSolutionOutcomeSlide; slides 8,9,10,12,13,14,16,20 kept raw HTML)
 
 ---
 

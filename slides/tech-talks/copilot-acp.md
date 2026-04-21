@@ -695,122 +695,70 @@ Also available: Python, Rust, Kotlin SDKs
 ---
 
 <!-- SLIDE: Use Case — CI/CD Code Review Dashboard -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Use Case: CI/CD Code Review Dashboard</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">3 of 6</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<h2 class="text-xl font-bold text-white">Reviews That Remember. Feedback That Compounds.</h2>
-<p class="text-sm text-blue-300/80 mt-1">Using ACP sessions to give CI/CD dashboards the multi-turn review conversations that REST APIs can't provide.</p>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-3 gap-2 text-xs flex-1">
-<div class="p-2 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30 flex flex-col">
-<div class="text-lg mb-1">🚧</div>
-<div class="font-bold text-red-300 mb-1">Problem</div>
-<div class="text-xs opacity-90 flex-1">Custom dashboard needed multi-turn reviews. REST calls lost context — every call started fresh. Reviewers re-explained context for each follow-up.</div>
-<div class="mt-2 pt-2 border-t border-red-500/20 text-xs text-red-300/70">60% of PRs reviewed, follow-ups abandoned</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/30 flex flex-col">
-<div class="text-lg mb-1">✅</div>
-<div class="font-bold text-blue-300 mb-1">Solution</div>
-<div class="text-xs opacity-90 mb-1 flex-1">ACP session per PR. Diff, context, and history persist across rounds. Authors ask follow-ups without losing thread.</div>
-<div class="font-mono text-xs bg-black/40 p-1 rounded space-y-0">
-<div class="text-gray-400">session = acp.create(cwd=repo)</div>
-<div class="text-green-400">session.send(pr_diff)</div>
-<div class="text-cyan-300">session.stream()  # in context</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30 flex flex-col">
-<div class="text-lg mb-1">🎉</div>
-<div class="font-bold text-green-300 mb-1">Outcome</div>
-<div class="text-xs opacity-90 space-y-1 flex-1">
-<div>✅ Coverage: 60% → 100% of PRs</div>
-<div>✅ Iterative feedback from context</div>
-<div>✅ Follow-up questions in same session</div>
-<div>✅ Quality improves across rounds</div>
-</div>
-<div class="mt-2 pt-2 border-t border-green-500/20 text-xs text-green-300/70">40% gained review coverage</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/20 flex items-center gap-2">
-<div class="text-blue-400 text-lg shrink-0">💡</div>
-<div class="text-xs text-blue-200/90"><span class="font-semibold text-blue-300">ACP insight:</span> Stateful sessions turn one-shot commands into iterative conversations — like a good human reviewer vs. a linter.</div>
-</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="4"
+  pillIcon="🎯"
+  pillLabel="Use Case: CI/CD Code Review Dashboard"
+  title="Reviews That Remember. Feedback That Compounds."
+  :problem='{
+    header: "Problem",
+    items: [
+      { title: "Multi-turn reviews lost context", detail: "REST calls started fresh each time — reviewers re-explained context for every follow-up" },
+      { title: "60% of PRs reviewed", detail: "Follow-up questions abandoned when context was lost" }
+    ]
+  }'
+  :solution='{
+    header: "Solution",
+    items: [
+      { title: "ACP session per PR", detail: "Diff, context, and review history persist across rounds" },
+      { title: "Authors ask follow-ups without losing thread", detail: "Same session, same context, iterative conversation" }
+    ],
+    code: { language: "python", content: "session = acp.create(cwd=repo)\nsession.send(pr_diff)\nsession.stream()  # in context" }
+  }'
+  :outcome='{
+    header: "Outcome",
+    items: [
+      { title: "Coverage: 60% → 100% of PRs", detail: "40% gained review coverage from stateful sessions" },
+      { title: "Iterative feedback from context", detail: "Follow-up questions answered in same session" },
+      { title: "Quality improves across rounds", detail: "Reviewer context compounds with each exchange" }
+    ]
+  }'
+  :insight='{ icon: "💡", text: "ACP insight: Stateful sessions turn one-shot commands into iterative conversations — like a good human reviewer vs. a linter." }'
+/>
 
 ---
 
 <!-- SLIDE: Use Case — Polyrepo Development -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Use Case: Polyrepo Development</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">4 of 6</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<h2 class="text-xl font-bold text-white">Cross-Repo Intelligence. Zero Context Switching.</h2>
-<p class="text-sm text-blue-300/80 mt-1">ACP sessions scoped to a parent workspace with per-repo MCP servers — context spans repository boundaries as naturally as reading the same codebase.</p>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-3 gap-2 text-xs flex-1">
-<div class="p-2 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30 flex flex-col">
-<div class="text-lg mb-1">🚧</div>
-<div class="font-bold text-red-300 mb-1">Problem</div>
-<div class="text-xs opacity-90 flex-1">Teams across 5-10 repos lose context with each switch. Each repo is separate session — references across boundaries require manual copy-paste. Onboarding: 2 weeks of repo archaeology.</div>
-<div class="mt-2 pt-2 border-t border-red-500/20 text-xs text-red-300/70">Every boundary resets context</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/30 flex flex-col">
-<div class="text-lg mb-1">✅</div>
-<div class="font-bold text-blue-300 mb-1">Solution</div>
-<div class="text-xs opacity-90 mb-1 flex-1">One ACP session at workspace root. MCP servers give targeted access to each repo. AI navigates repos in single conversation.</div>
-<div class="font-mono text-xs bg-black/40 p-1 rounded space-y-0">
-<div class="text-gray-400"># Workspace session</div>
-<div class="text-green-400">copilot --acp --stdio --cwd /workspace</div>
-<div class="text-cyan-300">"filesystem-api": ./api</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30 flex flex-col">
-<div class="text-lg mb-1">🎉</div>
-<div class="font-bold text-green-300 mb-1">Outcome</div>
-<div class="text-xs opacity-90 space-y-1 flex-1">
-<div>✅ Onboarding: 2 weeks → 3 days</div>
-<div>✅ Traces calls API → web → infra</div>
-<div>✅ "How does X work?" answered</div>
-<div>✅ MCP scoping keeps focused</div>
-</div>
-<div class="mt-2 pt-2 border-t border-green-500/20 text-xs text-green-300/70">Persists across boundaries</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg border border-blue-500/20 flex items-center gap-2">
-<div class="text-blue-400 text-lg shrink-0">💡</div>
-<div class="text-xs text-blue-200/90"><span class="font-semibold text-blue-300">ACP insight:</span> Session-scoped context + MCP servers turns polyrepo into navigable codebase — without merging repos.</div>
-</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="4"
+  pillIcon="🎯"
+  pillLabel="Use Case: Polyrepo Development"
+  title="Cross-Repo Intelligence. Zero Context Switching."
+  :problem='{
+    header: "Problem",
+    items: [
+      { title: "5-10 repos, context lost every switch", detail: "Each repo is a separate session — cross-boundary references require manual copy-paste" },
+      { title: "Onboarding takes 2 weeks", detail: "Every boundary resets context; new devs do weeks of repo archaeology" }
+    ]
+  }'
+  :solution='{
+    header: "Solution",
+    items: [
+      { title: "One ACP session at workspace root", detail: "MCP servers give targeted access to each repo without merging them" },
+      { title: "AI navigates repos in single conversation", detail: "Context spans repository boundaries as naturally as reading one codebase" }
+    ],
+    code: { language: "bash", content: "# Workspace session\ncopilot --acp --stdio --cwd /workspace\n\"filesystem-api\": ./api" }
+  }'
+  :outcome='{
+    header: "Outcome",
+    items: [
+      { title: "Onboarding: 2 weeks → 3 days", detail: "Context persists across boundaries — no more repo archaeology" },
+      { title: "Traces calls API → web → infra", detail: "How does X work? answered across all repos in one session" },
+      { title: "MCP scoping keeps context focused", detail: "Targeted per-repo access without losing workspace-level thread" }
+    ]
+  }'
+  :insight='{ icon: "💡", text: "ACP insight: Session-scoped context + MCP servers turns polyrepo into a navigable codebase — without merging repos." }'
+/>
 
 ---
 

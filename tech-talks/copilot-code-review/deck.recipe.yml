@@ -10,15 +10,27 @@ deck:
   intro:
     mode: core-question
 
+  # Narrative arc: Configure fast → Master the signal → Prove the value → Scale to enterprise
+  # Opens with a 5-minute setup win, builds capability understanding, lands ROI proof before
+  # introducing compliance depth — so the audience is already convinced before complexity arrives.
+  sectionOrder:
+    - Configuration and Quick Start           # Part 1: 4 slides — zero-to-first-review in 5 min
+    - Best Practices and Team Adoption        # Part 2: 3 slides — six capabilities + hybrid analysis
+    - Measuring ROI and Business Impact       # Part 3: 3 slides — interactive calculator + metrics
+    - Advanced Patterns: Compliance and Regulatory Guidance  # Part 4: 4 slides — HIPAA, PCI-DSS, audit trail
+
+  sectionModes:
+    Configuration and Quick Start: demo            # live setup walk-through anchors credibility
+    Best Practices and Team Adoption: lecture      # concept-heavy; presenter drives the six categories
+    Measuring ROI and Business Impact: interactive # calculator slide invites audience participation
+    Advanced Patterns: Compliance and Regulatory Guidance: lecture  # compliance examples; pace deliberately
+
   highlightMoments:
-    - Code review bottleneck → accelerator with focused feedback on substance not style
-    - Six capability categories for actionable, high-signal review feedback
-    - Enterprise compliance integration and measurable ROI tracking
-    - Scaling review quality across teams without context switching
-  highlightMoments:
-    - 40-60% reduction in PR review cycle time
-    - 90%+ reduction in security violations reaching production
-    - Complete ROI calculation with interactive calculator
+    - Code review shifts from bottleneck to accelerator — AI handles style so humans focus on substance
+    - Six capability categories deliver comprehensive, high-signal review feedback on every PR automatically
+    - 40-60% reduction in PR review cycle time with an interactive calculator that generates exec-ready savings
+    - 90%+ reduction in security violations reaching production via automated detection and inline remediation
+    - Custom instruction files enforce HIPAA, PCI-DSS, and SOC2 requirements with a full audit trail
 
   # Closing / supporting slides
   references:
@@ -28,3 +40,22 @@ deck:
   thankYou:
     enabled: true
     variant: standard # Standard closing slide
+
+# ── OPEN DECISION ────────────────────────────────────────────────────────────
+# Should "The Solution: GitHub Copilot Code Review" replace
+# "Best Practices and Team Adoption" as section 2?
+#
+# FOR: That README section owns the six-capability framework — the conceptual
+#      anchor for the whole talk — and its title signals what Copilot *is*,
+#      not just how to adopt it. Slides "Six Capability Categories" and
+#      "The Hybrid Analysis Approach" map more naturally to it.
+#
+# AGAINST: "Best Practices and Team Adoption" frames the same content from the
+#           audience's action perspective ("what do I do with this?"), which is
+#           more useful for practitioners who will own rollout. It also sets up
+#           the ROI section naturally: adopt → measure.
+#
+# Resolve when: presenter profile is confirmed (practitioner vs. decision-maker
+# majority). Practitioner → keep "Best Practices"; decision-maker → swap to
+# "The Solution: GitHub Copilot Code Review".
+# ─────────────────────────────────────────────────────────────────────────────
