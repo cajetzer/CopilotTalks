@@ -164,6 +164,7 @@ highlight="DevTools for AI closes this gap."
     items: ["Deep response inspection", "Full system prompt", "Complete context", "Per-exchange details", "Static snapshots only"]
   }'
   :insight='{ icon: "💡", text: "Keep Agent Debug Panel open during dev sessions, switch to Chat Debug View for specific deep-dives." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -290,6 +291,7 @@ highlight="DevTools for AI closes this gap."
       { title: "/fork", detail: "Branch conversation to explore alternatives without losing the main thread" }
     ]
   }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -371,6 +373,7 @@ highlight="DevTools for AI closes this gap."
     ]
   }'
   :insight='{ icon: "🔍", text: "Agent not available? YAML error. Instructions ignored? Wrong location. Skills not triggering? Glob mismatch. Copilot not responding? Network/auth." }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -401,6 +404,7 @@ highlight="DevTools for AI closes this gap."
     ]
   }'
   :insight='{ icon: "💡", text: "Real-world win: MCP server timeout raised from 5s to 15s over VPN boosted reliability from 60% to 99% — saving a team of 4 up to 1.5 hr/day." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

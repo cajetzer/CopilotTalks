@@ -1,6 +1,6 @@
 # Deck: agentic-journey
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — build verified 2026-04-21
 **Deck file:** `slides/tech-talks/agentic-journey.md`
 **Raw HTML slides:** 11 (all body content slides; structural slots already correct)
 

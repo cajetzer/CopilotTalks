@@ -1,6 +1,6 @@
 # Deck: copilot-azure-mcp
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — build verified 2026-04-21
 **Deck file:** `slides/tech-talks/copilot-azure-mcp.md`
 **Raw HTML slides:** 11 (out of 22 total)
 

@@ -94,6 +94,7 @@ highlight="Memory breaks this cycle by making preferences persist."
   title="Store and Retrieve Operations"
   :left='{ header: "💾 Store Operation", items: [], code: { language: "text", content: "User: \u201cFrom now on, always ask\nclarifying questions when\nrequirements seem ambiguous.\u201d\nAgent: \u201cI\u2019ll remember this.\u201d\n[Memory Tool: Save]\nContent: \u201cAsk clarifying questions\nwhen requirements seem ambiguous\ninstead of making assumptions\u201d\nScope: All future sessions" } }'
   :right='{ header: "🔍 Retrieve Operation", items: [], code: { language: "text", content: "[New chat session starts]\nUser: \u201cHelp me implement\nuser authentication\u201d\n[Memory Tool: Retrieve]\nFound: \u201cAlways include rollback strategy\u201d\nFound: \u201cPrefer TypeScript strict mode\u201d\nFound: \u201cFormat: bullet points + code examples\u201d\nAgent: [Applies automatically]" } }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 
@@ -133,6 +134,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { title: "Example", detail: "Stored \u201cprefer functional components\u201d applies to React discussions without the word \u2018functional\u2019" }
   ] }'
   :right='{ header: "🔄 Cross-Environment Sync", items: [], code: { language: "text", content: "Store in VS Code Chat\n  \u2193\n[GitHub Account Storage]\n  \u2193\nAvailable in:\n  \u2022 VS Code (all machines)\n  \u2022 GitHub.com Copilot Chat\n  \u2022 GitHub CLI (gh copilot)\nEncrypted at rest & in transit\nAuto-sync (no manual action)" } }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -183,6 +185,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { title: "Export", detail: "Download JSON for backup or audit" }
   ] }'
   :insight='{ icon: "⏱️", text: "28-Day Auto-Expiration: Memories expire automatically to prevent stale preferences. Review monthly, delete obsolete, refresh important ones." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -255,6 +258,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     "Version controlled and reviewed"
   ], code: { language: "text", content: "\u201cUse TypeScript strict mode\u201d\n\u201cFollow Airbnb style guide\u201d" } }'
   :insight='{ icon: "🎯", text: "Layered Customization: [Custom Instructions] Team standards → [Memory] Personal preferences → [Result] Team consistency + individual customization" }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

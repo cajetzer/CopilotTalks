@@ -992,6 +992,7 @@ Different models have different blind spots. Claude is good at nuance but may ov
     ]
   }'
   :insight='{ icon: "🎯", text: "Mode auto-detected from prompt verbs: council:/brainstorm: → collaborative; debate:/stress-test:/vs → adversarial." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

@@ -33,7 +33,7 @@ const props = defineProps({
   hero:         { type: Object, required: true },  // { value, label, source }
   supporting:   { type: Array,  required: true },  // 2–4: { icon, title, description }
   insight:      { type: Object, required: true },  // { icon, text }
-  progressDots: { type: Object, required: true },  // { current, total }
+  progressDots: { type: Object, required: true },  // { current, total, activeColor } — activeColor is a Tailwind class string, e.g. 'bg-cyan-400 shadow-lg shadow-cyan-500/50'
 })
 
 validatePartNumber(props.partNumber, 'HeroStatSlide')
@@ -44,7 +44,6 @@ if (props.supporting.length < 2 || props.supporting.length > 4) {
 const chrome    = useSectionChrome(() => props.partNumber)
 const cardStyle = useSectionCards(() => props.partNumber)
 
-// Hero number gradient follows section color progression
 const HERO_GRADIENTS_DARK  = ['from-cyan-400 to-blue-400', 'from-blue-400 to-indigo-400', 'from-indigo-400 to-purple-400', 'from-purple-400 to-pink-400']
 const HERO_GRADIENTS_LIGHT = ['from-cyan-600 to-blue-600', 'from-blue-600 to-indigo-600', 'from-indigo-600 to-purple-600', 'from-purple-600 to-pink-600']
 
@@ -60,8 +59,6 @@ const DARK = {
   heroSource: 'text-white/40',
   cardDesc:   'text-white/70',
   insight:    'bg-gray-900/50 border-gray-700/50 text-gray-200',
-  dotInactive: 'bg-white/30',
-  dotActive:   'bg-white',
 }
 const LIGHT = {
   title:      'text-gray-900',
@@ -70,8 +67,6 @@ const LIGHT = {
   heroSource: 'text-gray-400',
   cardDesc:   'text-gray-700',
   insight:    'bg-gray-100/80 border-gray-200 text-gray-800',
-  dotInactive: 'bg-gray-400/50',
-  dotActive:   'bg-gray-700',
 }
 const t = computed(() => isDark.value ? DARK : LIGHT)
 </script>
@@ -81,12 +76,20 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
     <div class="absolute inset-0 bg-gradient-to-br" :class="chrome.ambientBg"></div>
     <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="chrome.orb"></div>
 
-    <!-- Pill breadcrumb + divider -->
+    <!-- Pill breadcrumb + dots (top right) -->
     <div class="relative z-10 flex items-center gap-3 mb-4">
       <span class="px-4 py-1 bg-gradient-to-r border rounded-full text-xs font-semibold tracking-wide shadow-lg" :class="[chrome.pill, chrome.pillText]">
         {{ pillIcon }} {{ pillLabel }}
       </span>
       <div class="flex-1 h-px bg-gradient-to-r from-transparent to-transparent" :class="chrome.divider"></div>
+      <div class="flex items-center gap-2">
+        <div
+          v-for="n in progressDots.total" :key="n"
+          class="w-2 h-2 rounded-full"
+          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'"
+        ></div>
+        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+      </div>
     </div>
 
     <!-- Title + subtitle -->
@@ -126,15 +129,6 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
       <!-- Insight bar -->
       <div class="rounded-lg border px-4 py-2 text-sm" :class="t.insight">
         <span class="mr-2">{{ insight.icon }}</span>{{ insight.text }}
-      </div>
-
-      <!-- Progress dots -->
-      <div class="flex justify-center gap-2 pb-1">
-        <div
-          v-for="n in progressDots.total" :key="n"
-          class="w-2 h-2 rounded-full transition-all"
-          :class="n === progressDots.current ? t.dotActive : t.dotInactive"
-        ></div>
       </div>
     </div>
   </div>

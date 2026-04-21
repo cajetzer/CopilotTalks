@@ -26,6 +26,10 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -273,68 +277,19 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 ---
 
 <!-- SLIDE: Deployment Patterns -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Setup & Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Phased Rollout Strategy</div>
-<div class="text-xs text-white/50">Build confidence through pilot → tune → expand → standardize</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-2.5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Phase 1: Pilot (Week 1-2)</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Enable on 1-2 low-risk repositories</div>
-<div>• Start informational (not blocking merges)</div>
-<div>• Gather daily feedback via Slack/standup</div>
-<div>• Document common questions</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Phase 2: Tune (Week 3-4)</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Review feedback, adjust focus areas</div>
-<div>• Create custom instruction files</div>
-<div>• Train pilot team on @mentions</div>
-<div>• Measure baseline ROI metrics</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">Phase 3: Expand (Week 5-8)</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Roll out to 50% of repositories</div>
-<div>• Convert to required status check</div>
-<div>• Create internal documentation</div>
-<div>• Host "Lunch & Learn" session</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Phase 4: Standardize (Week 9-12)</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Deploy organization-wide</div>
-<div>• Integrate metrics into reviews</div>
-<div>• Establish feedback loop (monthly)</div>
-<div>• Celebrate wins, share data</div>
-</div>
-</div>
-</div>
-<div class="mt-3 p-2.5 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30">
-<div class="text-xs text-green-300 font-semibold">✅ Best Practice: This phased approach builds confidence and allows iteration before locking in standards</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="⚙️"
+  pillLabel="Setup & Configuration"
+  title="Phased Rollout Strategy"
+  :cards='[
+    { icon: "🔭", title: "Phase 1: Pilot (Week 1-2)", description: "Enable on 1-2 low-risk repositories. Start informational (not blocking merges). Gather daily feedback via Slack/standup. Document common questions." },
+    { icon: "🎯", title: "Phase 2: Tune (Week 3-4)", description: "Review feedback, adjust focus areas. Create custom instruction files. Train pilot team on @mentions. Measure baseline ROI metrics." },
+    { icon: "🚀", title: "Phase 3: Expand (Week 5-8)", description: "Roll out to 50% of repositories. Convert to required status check. Create internal documentation. Host Lunch & Learn session." },
+    { icon: "✅", title: "Phase 4: Standardize (Week 9-12)", description: "Deploy organization-wide. Integrate metrics into reviews. Establish feedback loop (monthly). Celebrate wins, share data." }
+  ]'
+  :insight='{ icon: "✅", text: "This phased approach builds confidence and allows iteration before locking in standards." }'
+/>
 
 ---
 
@@ -512,67 +467,16 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 ---
 
 <!-- SLIDE: Balancing Automation and Human Review -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Understanding Review Feedback</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Balancing Automation and Human Review</div>
-<div class="text-xs text-white/50">Strategic division of labor between AI and human expertise</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-3">
-<div class="space-y-2 text-xs">
-<div class="font-semibold text-green-300 mb-1">✅ Copilot Handles:</div>
-<div class="p-2 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30">
-<div class="opacity-80 space-y-0.5">
-<div>• Security vulnerability pattern matching</div>
-<div>• Code quality standards enforcement</div>
-<div>• Performance anti-patterns detection</div>
-<div>• Compliance rule enforcement</div>
-<div>• Test coverage gap identification</div>
-<div>• Consistency with existing patterns</div>
-</div>
-</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="font-semibold text-blue-300 mb-1">👤 Humans Handle:</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="opacity-80 space-y-0.5">
-<div>• Business logic correctness</div>
-<div>• Architectural decisions</div>
-<div>• Product tradeoffs</div>
-<div>• Domain-specific expertise</div>
-<div>• UX implications</div>
-<div>• Strategic technical direction</div>
-</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1.5 text-sm">Effective Workflow</div>
-<div class="text-xs opacity-80 space-y-1">
-<div><span class="text-cyan-400">1.</span> Copilot reviews PR automatically within 2 minutes</div>
-<div><span class="text-cyan-400">2.</span> Developer addresses Copilot findings (critical and high severity)</div>
-<div><span class="text-cyan-400">3.</span> Developer requests human review once Copilot shows ✅ no critical issues</div>
-<div><span class="text-cyan-400">4.</span> Human reviewer focuses on business logic, architecture, UX</div>
-<div><span class="text-cyan-400">5.</span> PR merges faster with higher quality than either approach alone</div>
-</div>
-</div>
-<div class="mt-2 p-2 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="text-xs text-purple-300">💡 Senior developers spend 60% less time on mechanical review, redirecting time to strategic leadership</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="💬"
+  pillLabel="Understanding Review Feedback"
+  title="Balancing Automation and Human Review"
+  :left='{ header: "✅ Copilot Handles", icon: "🤖", items: ["Security vulnerability pattern matching", "Code quality standards enforcement", "Performance anti-patterns detection", "Compliance rule enforcement", "Test coverage gap identification", "Consistency with existing patterns"] }'
+  :right='{ header: "👤 Humans Handle", icon: "👤", items: ["Business logic correctness", "Architectural decisions", "Product tradeoffs", "Domain-specific expertise", "UX implications", "Strategic technical direction"] }'
+  :insight='{ icon: "💡", text: "Effective workflow: Copilot reviews automatically (2 min) → developer resolves critical findings → human reviewer focuses on business logic and architecture. Senior developers spend 60% less time on mechanical review." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
@@ -659,63 +563,18 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 ---
 
 <!-- SLIDE: Quality Metrics — Beyond Time Savings -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Measuring ROI</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Quality Metrics — Beyond Time Savings</div>
-<div class="text-xs text-white/50">Measurable improvements in production incidents, revert rate, security, and onboarding</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-2.5 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30">
-<div class="font-semibold text-red-300 mb-1">1. Production Incidents Reduction</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Baseline: <span class="text-red-400">12 incidents/month</span> from code quality issues</div>
-<div>• With Copilot: <span class="text-green-400">2 incidents/month</span> (83% reduction)</div>
-<div>• Cost avoidance: <span class="text-green-400">$12,000/month</span></div>
-<div class="text-gray-400 text-xs mt-1">(10 incidents × 8 hours × $150/hr)</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-orange-900/30 to-amber-900/30 rounded-lg border border-orange-500/30">
-<div class="font-semibold text-orange-300 mb-1">2. Revert Rate Decrease</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Baseline revert rate: <span class="text-orange-400">8%</span> of PRs</div>
-<div>• With Copilot: <span class="text-green-400">3%</span> of PRs (62% improvement)</div>
-<div>• Avoided rework: <span class="text-green-400">$2,250/month</span></div>
-<div class="text-gray-400 text-xs mt-1">(5% × 100 PRs × 3 hours × $150/hr)</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">3. Security Vulnerability Reduction</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Baseline: <span class="text-purple-400">8 vulnerabilities/quarter</span></div>
-<div>• With Copilot: <span class="text-green-400">&lt;1 vulnerability/quarter</span> (90%+ reduction)</div>
-<div>• Risk avoidance: Prevented data breach, compliance fines, brand damage</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-indigo-900/30 to-blue-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">4. Faster Onboarding</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Baseline: <span class="text-indigo-400">6-8 weeks</span> to first productive PR</div>
-<div>• With Copilot: <span class="text-green-400">3-4 weeks</span> (50% faster)</div>
-<div>• Savings per hire: <span class="text-green-400">$16,000</span></div>
-<div class="text-gray-400 text-xs mt-1">(4 weeks × 40 hours × $100/hr)</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="3"
+  pillIcon="📊"
+  pillLabel="Measuring ROI"
+  title="Quality Metrics — Beyond Time Savings"
+  :cards='[
+    { icon: "🚨", title: "Production Incidents", description: "Baseline: 12 incidents/month. With Copilot: 2/month (83% reduction). Cost avoidance: $12,000/month." },
+    { icon: "🔄", title: "Revert Rate", description: "Baseline revert rate: 8% of PRs. With Copilot: 3% (62% improvement). Avoided rework: $2,250/month." },
+    { icon: "🔐", title: "Security Vulnerabilities", description: "Baseline: 8 vulnerabilities/quarter. With Copilot: <1/quarter (90%+ reduction). Risk avoidance: prevents data breach, compliance fines." },
+    { icon: "🚀", title: "Faster Onboarding", description: "Baseline: 6-8 weeks to first productive PR. With Copilot: 3-4 weeks (50% faster). Savings per hire: $16,000." }
+  ]'
+/>
 
 ---
 
@@ -808,219 +667,52 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 ---
 
 <!-- SLIDE: Compliance Through Instruction Files -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏛️ Enterprise Compliance</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Encoding Compliance in Instruction Files</div>
-<div class="text-xs text-white/50">Turn regulatory requirements into automated code review guidance</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="p-3 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30 mb-3">
-<div class="text-xs text-amber-300 font-semibold mb-1">⚠️ Important Caveat</div>
-<div class="text-xs opacity-80">Copilot Code Review is an <span class="text-amber-400">assistive tool</span>, not a complete compliance solution. Compliance always requires human oversight, policy enforcement, and organizational discipline alongside tooling.</div>
-</div>
-<div class="grid grid-cols-2 gap-3 text-xs flex-1 min-h-0 max-h-[280px]">
-<div class="flex flex-col">
-<div class="font-mono text-xs bg-gray-950/80 border border-purple-700/50 rounded-lg px-3 py-2 flex-1 min-h-0 overflow-y-auto">
-<div class="text-purple-400 mb-1"># .github/instructions/compliance.instructions.md</div>
-<div class="text-gray-300 space-y-0.5">
-<div class="text-yellow-400">---</div>
-<div>applyTo: "**/*.{js,ts,py,java}"</div>
-<div class="text-yellow-400">---</div>
-<div class="mt-1">## Security Standards</div>
-<div class="pl-2 opacity-80">- Flag hardcoded secrets, API keys</div>
-<div class="pl-2 opacity-80">- Require parameterized queries</div>
-<div class="pl-2 opacity-80">- Check input validation</div>
-<div class="pl-2 opacity-80">- HTTPS for all external API calls</div>
-<div class="mt-1">## Data Protection (GDPR, CCPA)</div>
-<div class="pl-2 opacity-80">- Flag storage without encryption</div>
-<div class="pl-2 opacity-80">- Check data retention policies</div>
-<div class="pl-2 opacity-80">- Require audit logging for PII access</div>
-</div>
-</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">Benefits</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Consistent enforcement across all PRs</div>
-<div>• Automated audit trail generation</div>
-<div>• Catch violations before production</div>
-<div>• Reduce compliance risk exposure</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-1">Best Practices</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Keep instructions concise (~4000 chars)</div>
-<div>• Make rules actionable with examples</div>
-<div>• Explain "why" each rule matters</div>
-<div>• Link to internal policy docs</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="4"
+  pillIcon="🏛️"
+  pillLabel="Enterprise Compliance"
+  title="Encoding Compliance in Instruction Files"
+  codePosition="left"
+  :code='{ language: "markdown", filename: ".github/instructions/compliance.instructions.md", content: "---\napplyTo: \"**/*.{js,ts,py,java}\"\n---\n\n## Security Standards\n- Flag hardcoded secrets, API keys\n- Require parameterized queries\n- Check input validation\n- HTTPS for all external API calls\n\n## Data Protection (GDPR, CCPA)\n- Flag storage without encryption\n- Check data retention policies\n- Require audit logging for PII access" }'
+  :features='[
+    { icon: "⚠️", title: "Important Caveat", description: "Copilot Code Review is an assistive tool, not a complete compliance solution. Compliance always requires human oversight, policy enforcement, and organizational discipline." },
+    { icon: "✅", title: "Benefits", description: "Consistent enforcement across all PRs, automated audit trail generation, catch violations before production, reduce compliance risk exposure" },
+    { icon: "📝", title: "Best Practices", description: "Keep instructions concise (~4000 chars), make rules actionable with examples, explain why each rule matters, link to internal policy docs" }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: HIPAA Compliance Example -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏛️ Enterprise Compliance</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Healthcare (HIPAA) Compliance</div>
-<div class="text-xs text-white/50">Protected Health Information (PHI) handling requirements</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="grid grid-cols-2 gap-3 text-xs mb-3 flex-1 min-h-0 max-h-[340px]">
-<div class="flex flex-col">
-<div class="font-mono text-xs bg-gray-950/80 border border-purple-700/50 rounded-lg px-3 py-2 flex-1 min-h-0 overflow-y-auto">
-<div class="text-purple-400 mb-1"># .github/instructions/hipaa.instructions.md</div>
-<div class="text-gray-300 space-y-0.5">
-<div class="text-yellow-400">---</div>
-<div>applyTo: "**/*.{js,ts,py,java}"</div>
-<div>description: "HIPAA compliance for health data"</div>
-<div class="text-yellow-400">---</div>
-<div class="mt-1">## HIPAA Requirements</div>
-<div class="pl-2 opacity-80">- All PHI must be encrypted at rest</div>
-<div class="pl-2 opacity-80">- Require AES-256 encryption</div>
-<div class="pl-2 opacity-80">- Flag any code exposing PHI in logs</div>
-<div class="pl-2 opacity-80">- Ensure audit logging captures access</div>
-<div class="pl-2 opacity-80">- Require role-based access controls</div>
-<div class="mt-1">## Transmission Security</div>
-<div class="pl-2 opacity-80">- Require TLS 1.2+ for PHI communication</div>
-<div class="pl-2 opacity-80">- Flag hardcoded encryption keys</div>
-<div class="pl-2 opacity-80">- Validate encrypted data in transit</div>
-<div class="mt-1">## Audit Compliance</div>
-<div class="pl-2 opacity-80">- Audit trail for all PHI read/write ops</div>
-<div class="pl-2 opacity-80">- Require request ID tracking</div>
-<div class="pl-2 opacity-80">- Validate 6-year audit log retention</div>
-</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-green-900/30 rounded-lg border border-emerald-500/30">
-<div class="font-semibold text-emerald-300 mb-1">✅ Real-World Impact</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Healthcare SaaS provider case study:</div>
-<div class="pl-2 text-emerald-400">- 25 violations/quarter → 1/quarter (96% reduction)</div>
-<div class="pl-2 text-emerald-400">- Audit prep: 200 hrs → 40 hrs (80% reduction)</div>
-<div class="pl-2 text-emerald-400">- $500K potential fines → $50K (90% reduction)</div>
-<div class="pl-2 text-emerald-400">- Developer awareness: 40% → 95%</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">Key Patterns</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Automated detection of PHI exposure</div>
-<div>• Consistent encryption enforcement</div>
-<div>• Access control validation</div>
-<div>• Audit trail generation for compliance reporting</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="4"
+  pillIcon="🏥"
+  pillLabel="Enterprise Compliance"
+  title="Healthcare (HIPAA) Compliance"
+  codePosition="left"
+  :code='{ language: "markdown", filename: ".github/instructions/hipaa.instructions.md", content: "---\napplyTo: \"**/*.{js,ts,py,java}\"\ndescription: \"HIPAA compliance for health data\"\n---\n\n## HIPAA Requirements\n- All PHI must be encrypted at rest\n- Require AES-256 encryption\n- Flag any code exposing PHI in logs\n- Ensure audit logging captures access\n- Require role-based access controls\n\n## Transmission Security\n- Require TLS 1.2+ for PHI communication\n- Flag hardcoded encryption keys\n\n## Audit Compliance\n- Audit trail for all PHI read/write ops\n- Validate 6-year audit log retention" }'
+  :features='[
+    { icon: "✅", title: "Real-World Impact", description: "Healthcare SaaS: violations 25/quarter → 1/quarter (96% reduction). Audit prep: 200 hrs → 40 hrs. Potential fines: $500K → $50K. Developer awareness: 40% → 95%." },
+    { icon: "🔑", title: "Key Patterns", description: "Automated detection of PHI exposure, consistent encryption enforcement, access control validation, audit trail generation for compliance reporting" }
+  ]'
+/>
+
 
 ---
 
 <!-- SLIDE: PCI-DSS Payment Security -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏛️ Enterprise Compliance</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Payment Processing (PCI-DSS)</div>
-<div class="text-xs text-white/50">E-commerce and payment platform security requirements</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="grid grid-cols-2 gap-3 text-xs mb-3 flex-1 min-h-0 max-h-[340px]">
-<div class="flex flex-col">
-<div class="font-mono text-xs bg-gray-950/80 border border-pink-700/50 rounded-lg px-3 py-2 flex-1 min-h-0 overflow-y-auto">
-<div class="text-pink-400 mb-1"># .github/instructions/pci-dss.instructions.md</div>
-<div class="text-gray-300 space-y-0.5">
-<div class="text-yellow-400">---</div>
-<div>applyTo: "**/*.{js,ts,py,java}"</div>
-<div>description: "PCI-DSS compliance for payment data"</div>
-<div class="text-yellow-400">---</div>
-<div class="mt-1">## Card Data Handling</div>
-<div class="pl-2 opacity-80">- Never store complete payment card data</div>
-<div class="pl-2 opacity-80">- Flag any code storing card numbers, CVV</div>
-<div class="pl-2 opacity-80">- Require tokenization via compliant gateway</div>
-<div class="pl-2 opacity-80">- No card data in logs or error messages</div>
-<div class="mt-1">## Access Control</div>
-<div class="pl-2 opacity-80">- Require auth on all payment APIs</div>
-<div class="pl-2 opacity-80">- Limit access to payment processors only</div>
-<div class="pl-2 opacity-80">- Flag hardcoded payment credentials</div>
-<div class="pl-2 opacity-80">- Require role-based access control</div>
-<div class="mt-1">## Encryption and Security</div>
-<div class="pl-2 opacity-80">- Require TLS 1.2+ for all payment comms</div>
-<div class="pl-2 opacity-80">- Validate secure authentication methods</div>
-<div class="pl-2 opacity-80">- Check webhook signature handling</div>
-<div class="pl-2 opacity-80">- Ensure payment data encrypted in DB</div>
-</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="p-2 bg-gradient-to-br from-emerald-900/30 to-green-900/30 rounded-lg border border-emerald-500/30">
-<div class="font-semibold text-emerald-300 mb-1">✅ E-Commerce Case Study</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Mid-sized platform (10K+ daily transactions):</div>
-<div class="pl-2 text-emerald-400">- Security review: 30% → 100% of PRs</div>
-<div class="pl-2 text-emerald-400">- Critical vulnerabilities: 8/quarter → 0/quarter</div>
-<div class="pl-2 text-emerald-400">- PR delays: 3 days → same-day feedback</div>
-<div class="pl-2 text-emerald-400">- Security team time freed: 60 hrs/month</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-1">Key Enforcement</div>
-<div class="opacity-80 space-y-0.5">
-<div>• No storing raw payment card data</div>
-<div>• Tokenization enforcement</div>
-<div>• Audit logging for all payment operations</div>
-<div>• Required status check blocks merge on violations</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="4"
+  pillIcon="💳"
+  pillLabel="Enterprise Compliance"
+  title="Payment Processing (PCI-DSS)"
+  codePosition="left"
+  :code='{ language: "markdown", filename: ".github/instructions/pci-dss.instructions.md", content: "---\napplyTo: \"**/*.{js,ts,py,java}\"\ndescription: \"PCI-DSS compliance for payment data\"\n---\n\n## Card Data Handling\n- Never store complete payment card data\n- Flag any code storing card numbers, CVV\n- Require tokenization via compliant gateway\n- No card data in logs or error messages\n\n## Access Control\n- Require auth on all payment APIs\n- Flag hardcoded payment credentials\n\n## Encryption and Security\n- Require TLS 1.2+ for all payment comms\n- Check webhook signature handling\n- Ensure payment data encrypted in DB" }'
+  :features='[
+    { icon: "✅", title: "E-Commerce Case Study", description: "Mid-sized platform (10K+ daily transactions): security review 30% → 100% of PRs, critical vulnerabilities 8/quarter → 0, PR delays 3 days → same-day, security team time freed: 60 hrs/month" },
+    { icon: "🔒", title: "Key Enforcement", description: "No storing raw payment card data, tokenization enforcement, audit logging for all payment operations, required status check blocks merge on violations" }
+  ]'
+/>
 
 ---
 

@@ -466,14 +466,14 @@ One oversized statistic on the left (section-tinted gradient, `text-8xl`) with 2
     { icon: "⚙️", title: "CI/CD pipelines & deploys", description: "Build failures, test results, deployment validation" }
   ]'
   :insight='{ icon: "💡", text: "The key insight goes here." }'
-  :progressDots='{ current: 1, total: 3 }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 ```
 
 - `hero`: `{ value, label, source }` — all three fields always rendered; use empty string for `source` if no citation.
 - `supporting`: exactly 2–4 items; each needs `icon`, `title`, `description`.
 - `insight`: `{ icon, text }` — always rendered; use an empty string icon (`""`) if no icon needed.
-- `progressDots`: `{ current, total }` — always rendered; set both to the correct slide position within the section.
+- `progressDots`: `{ current, total, activeColor }` — `activeColor` is the Tailwind class for the active dot; match the section color (e.g. Part 1 = `"bg-cyan-400 shadow-lg shadow-cyan-500/50"`, Part 2 = `"bg-blue-400 shadow-lg shadow-blue-500/50"`, Part 3 = `"bg-indigo-400 shadow-lg shadow-indigo-500/50"`, Part 4 = `"bg-purple-400 shadow-lg shadow-purple-500/50"`).
 - Hero gradient follows section color: Part 1 = cyan→blue, 2 = blue→indigo, 3 = indigo→purple, 4 = purple→pink.
 
 ### When NOT to use a Tier-1 component

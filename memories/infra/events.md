@@ -4,7 +4,28 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
-## copilot-web conformed (2026-04-21)
+## copilot-azure-mcp conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-azure-mcp.md` promoted to 🟢 Conformed status. 7 slides converted, 4 kept raw HTML.
+
+- **Slide 7** (Mental Model Shift) → `<TwoColPairedConceptsSlide>` partNumber=1; left=Move Away From (3 items), right=Move Toward (3 items); insight about conversational infrastructure
+- **Slide 10** (The Compression Effect) → `<BeforeAfterMetricsSlide>` partNumber=2; before=Traditional Prototype Loop 4 steps / after=Plan Mode + Azure MCP 4 steps; metrics: 45 min / 8 min / 5.6×
+- **Slide 11** (Rapid Environment Cloning) → `<BeforeAfterMetricsSlide>` partNumber=2; before=Manual Process (~2 hours) 4 string items / after=With Azure MCP (15 min) 4 string items; metrics: 8× / 2 hrs→15 min / 85%
+- **Slide 14** (Service Selection and Verification) → `<FourCardGridSlide>` partNumber=3; 4 cards: Service Selection / Restart After Config / Verification Test / Key Points
+- **Slide 16** (Understanding RBAC Inheritance) → `<TwoColPairedConceptsSlide>` partNumber=4; left=RBAC Scoping 4 `{ title, detail }` items (Reader/Contributor/Owner/Recommendation) / right=What MCP Can See 6 string items; insight about server-side enforcement
+- **Slide 17** (Read-Only Mode) → `<CodeWithFeaturesSlide>` partNumber=4, codePosition=left; bash code for `az ad sp create-for-rbac`; 3 features: Verify Read-Only / Benefits / Upgrade to Write
+- **Slide 18** (Subscription Boundaries) → `<CodeWithFeaturesSlide>` partNumber=4, codePosition=left; JSON `mcp-servers.json` with 2 server entries; 2 features: Trust Building Path / What to Resist
+- **Slides 5, 6, 9, 13** kept raw HTML — bespoke layouts: query showcase, nested workflow cards, 4-step irregular grid, heterogeneous install/config/auth layout
+
+**Orphan HTML issue on slide 17:** My `replace_string_in_file` oldString only captured the outer container + pill header — the title div and content grid remained as orphaned raw HTML after the component invocation. Required a second targeted removal of the orphan block. Future slide 17-style conversions: always include enough of the raw HTML in oldString to avoid leaving orphans.
+
+**Double-backslash in JSON code prop:** Used `\\"` (two backslashes + quote) in file instead of `\"` (single backslash + quote) for inner quotes in the JSON content string. This caused Vue parser error "Expecting Unicode escape \uXXXX". Fixed by rewriting the `:code` prop with correct `\"` escaping. For JSON code props with inner quotes: use `\"` in the file, which means `\\\"` in the newString JSON parameter (not `\\\\\"`).
+
+---
+
+
 
 `schema_version: 1` | `date: 2026-04-21`
 
@@ -131,6 +152,46 @@ Note: this deck already had `ProblemSolutionOutcomeSlide` imported and used (sli
 **Build gotcha hit:** apostrophe in `team's standards` inside a single-quoted `:code='...'` binding caused `Unterminated string constant`. Fixed by rewriting without possessive. Confirms the existing discoveries rule: bare `'` terminates a single-quoted prop attribute.
 
 **3 raw HTML slides remain** in this deck (10, 15, 16) — candidates for new component creation if ≥2 other decks share the same gap.
+
+---
+
+## agentic-journey conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/agentic-journey.md` promoted to 🟢 Conformed status. 6 slides converted, 5 kept raw HTML.
+
+- **Slide 6** (Agentic Shift) → `<BeforeAfterPanelsSlide>` partNumber=1; before=Traditional AI Assistance (5 items) / after=Agentic AI (5 items); no metrics
+- **Slide 8** (Planning Phase) → `<FourCardGridSlide>` partNumber=2; 4 cards: Clarification / Constraint Analysis / Task Decomposition / Execution Plan
+- **Slide 12** (The Context Window Problem) → `<BeforeAfterMetricsSlide>` partNumber=3; before=Context Overload 4 items / after=Intelligent Context Management 4 items; 3 metrics
+- **Slide 13** (Context Strategies) → `<ThreeColumnCardSlide>` partNumber=3; 3 columns: Scoped Instructions / Memory-Aided / Context Compression; each with `items` arrays
+- **Slide 15** (Team Coordination) → `<TwoColPairedConceptsSlide>` partNumber=4; left=Parallel Agents 5 items / right=Validation Chain 5 items; insight about 40% productivity gain
+- **Slide 16** (The Agentic Journey) → `<FourCardGridSlide>` partNumber=4; 4 milestone cards: First Experiment / First Win / First Workflow / First Team Adoption
+- **Slides 5, 9, 11, 17, 18** kept raw HTML — 6-step horizontal sequence flow, 4-phase vertical execution with nested details, multi-panel execution transparency with progress bars, 5-phase numbered journey map, 3-tier adoption pyramid
+
+**Build:** ✓ 2.58s, no errors.
+
+---
+
+## copilot-code-review conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-code-review.md` promoted to 🟢 Conformed status. 7 slides converted, 7 kept raw HTML.
+
+- **Slide 8** (Phased Rollout Strategy) → `<FourCardGridSlide>` partNumber=1; 4 cards: Pilot / Tune / Expand / Standardize; insight about phased approach reducing risk
+- **Slide 12** (Balancing Automation and Human Review) → `<TwoColPairedConceptsSlide>` partNumber=2; left=Copilot Handles 6 string items / right=Humans Handle 6 string items; insight about 60% less mechanical review
+- **Slide 15** (Quality Metrics — Beyond Time Savings) → `<FourCardGridSlide>` partNumber=3; 4 cards: Production Incidents / Revert Rate / Security Vulnerabilities / Faster Onboarding
+- **Slide 18** (Compliance Through Instruction Files) → `<CodeWithFeaturesSlide>` partNumber=4, codePosition=left; markdown compliance.instructions.md with Security Standards + Data Protection sections; 3 features: Important Caveat / Benefits / Best Practices
+- **Slide 19** (HIPAA Compliance Example) → `<CodeWithFeaturesSlide>` partNumber=4, codePosition=left; markdown hipaa.instructions.md with HIPAA Requirements / Transmission Security / Audit Compliance; 2 features: Real-World Impact / Key Patterns
+- **Slide 20** (PCI-DSS Payment Security) → `<CodeWithFeaturesSlide>` partNumber=4, codePosition=left; markdown pci-dss.instructions.md with Card Data Handling / Access Control / Encryption; 2 features: E-Commerce Case Study / Key Enforcement
+- **Slides 5, 6, 7, 10, 11, 14, 16, 21** kept raw HTML — security selector grid, inline diff with violation markers, 4-step numbered trigger flow, PR summary overlay, severity rubric table, live terminal output simulation, enterprise team stats panel, and SOC2 audit trail generation layout
+
+**Slide 18 replacement failure:** Initial `oldString` was cut off at the amber caveat div opening — did not extend far enough into the unique content to match. Required re-reading the file at shifted line numbers (slide 15 removal caused ~50-line offset) then constructing a matching `oldString` from actual file content.
+
+**Slide 19 orphan HTML:** Partial `oldString` (cut at pill badge line) left the remaining slide body as orphaned raw HTML after the `<CodeWithFeaturesSlide />` invocation. Cleared with a single targeted replacement of the orphan block (from `<span class="...">2 of 4</span>` through `</div>`) combined with the slide 20 replacement.
+
+**Build:** ✓ 2.83s, no errors.
 
 ---
 

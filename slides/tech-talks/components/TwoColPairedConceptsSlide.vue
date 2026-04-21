@@ -20,8 +20,9 @@ const props = defineProps({
   pillLabel:  { type: String, required: true },
   title:      { type: String, required: true },
   left:       { type: Object, required: true }, // { header, icon?, items: Array<string | { title, detail }>, code?: { language, content } }
-  right:      { type: Object, required: true },
-  insight:    { type: Object, required: false, default: null },
+  right:        { type: Object, required: true },
+  insight:      { type: Object, required: false, default: null },
+  progressDots: { type: Object, required: true }, // { current, total, activeColor }
 })
 
 validatePartNumber(props.partNumber, 'TwoColPairedConceptsSlide')
@@ -59,6 +60,14 @@ const itemDetail = (it) => typeof it === 'string' ? null : it.detail
         {{ pillIcon }} {{ pillLabel }}
       </span>
       <div class="flex-1 h-px bg-gradient-to-r from-transparent to-transparent" :class="chrome.divider"></div>
+      <div class="flex items-center gap-2">
+        <div
+          v-for="n in progressDots.total" :key="n"
+          class="w-2 h-2 rounded-full"
+          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'"
+        ></div>
+        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+      </div>
     </div>
 
     <div class="relative z-10 mb-4">

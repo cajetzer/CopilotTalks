@@ -67,6 +67,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     { icon: "🤖", title: "Custom Agents", subtitle: "Specialized AI personas", blurb: "Constrained tools + guided handoffs", slide: 13 },
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — Instructions -->
@@ -82,6 +83,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
   ]'
   :terminal='{ context: "One file = team-aware Copilot", detail: "encode conventions once, apply everywhere" }'
 />
+
 ---
 
 <!-- SLIDE: Instructions — Three Selectors -->
@@ -189,6 +191,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     ]
   }'
   :insight='{ icon: "🧩", text: "SKILL.md tells Copilot: Run scripts/run-tests.sh to execute · Run scripts/coverage-report.sh for coverage." }'
+  :progressDots='{ current: 5, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -285,6 +288,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
   ]'
   :terminal='{ context: "Turn frequent tasks into /commands", detail: "standardize workflows across the team" }'
 />
+
 ---
 
 <!-- SLIDE: Custom Prompts — Component Generator Example -->
@@ -320,6 +324,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
   ]'
   :terminal='{ context: "Different tasks need different capabilities", detail: "constrain tools to prevent accidental edits" }'
 />
+
 ---
 
 <!-- SLIDE: Custom Agents — Planner Example with Handoffs -->
@@ -517,6 +522,7 @@ header="Repeated Context to Encoded Conventions"
     ] }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->

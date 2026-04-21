@@ -318,6 +318,7 @@ highlight="The transition from pilot success to organizational capability requir
     { title: "Code review \u2192 Task-appropriate auto-selection", detail: "Right model, right task, every time" }
   ] }'
   :insight='{ icon: "⚖️", text: "Teams access appropriate AI power without manual model selection \u2014 leadership retains budget control and compliance visibility. 4 model tiers, 30% cost reduction." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -451,6 +452,7 @@ highlight="The transition from pilot success to organizational capability requir
     { title: "Share learnings in community", detail: "Accelerates every other team" }
   ], code: { language: "text", content: "Returns: 2,900+ hours saved" } }'
   :insight='{ icon: "📈", text: "The Compounding Effect: 180 hrs invested \u2192 2,900+ dev hours saved \u2192 16\u00d7 ROI. One-to-many deployment + automatic inheritance = knowledge stops fragmenting, starts compounding." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

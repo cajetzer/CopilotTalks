@@ -180,6 +180,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     ]
   }'
   :insight='{ icon: "🔄", text: "Same result: Installing via CLI makes the plugin appear in VS Code UI instantly — they are synchronized." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---

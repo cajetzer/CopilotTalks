@@ -11,13 +11,13 @@ A repeatable playbook for converting raw inline HTML slides in any tech-talk dec
 |---|---|---|---|
 | `copilot-cli` | 🔵 Cataloged | 25 | [plan-decks/copilot-cli.md](plan-decks/copilot-cli.md) |
 | `agent-teams` | � Cataloged | 14 | [plan-decks/agent-teams.md](plan-decks/agent-teams.md) |
-| `agentic-journey` | 🔵 Cataloged | 11 | [plan-decks/agentic-journey.md](plan-decks/agentic-journey.md) |
+| `agentic-journey` | � Conformed | 11 | [plan-decks/agentic-journey.md](plan-decks/agentic-journey.md) |
 | `agentic-sdlc` | 🔵 Cataloged | 16 | [plan-decks/agentic-sdlc.md](plan-decks/agentic-sdlc.md) |
 | `agentic-workflows` | � Conformed | 7 | [plan-decks/agentic-workflows.md](plan-decks/agentic-workflows.md) |
 | `copilot-acp` | � Conformed | 2 | [plan-decks/copilot-acp.md](plan-decks/copilot-acp.md) |
-| `copilot-azure-mcp` | 🔵 Cataloged | 11 | [plan-decks/copilot-azure-mcp.md](plan-decks/copilot-azure-mcp.md) |
+| `copilot-azure-mcp` | � Conformed | 11 | [plan-decks/copilot-azure-mcp.md](plan-decks/copilot-azure-mcp.md) |
 | `copilot-chat-internals` | � Conformed | 7 | [plan-decks/copilot-chat-internals.md](plan-decks/copilot-chat-internals.md) |
-| `copilot-code-review` | 🔵 Cataloged | 14 | [plan-decks/copilot-code-review.md](plan-decks/copilot-code-review.md) |
+| `copilot-code-review` | � Conformed | 14 | [plan-decks/copilot-code-review.md](plan-decks/copilot-code-review.md) |
 | `copilot-hooks` | 🔵 Cataloged | 15 | [plan-decks/copilot-hooks.md](plan-decks/copilot-hooks.md) |
 | `copilot-memory` | � Conformed | 13 | [plan-decks/copilot-memory.md](plan-decks/copilot-memory.md) |
 | `copilot-plugins` | � Conformed | 7 | [plan-decks/copilot-plugins.md](plan-decks/copilot-plugins.md) |

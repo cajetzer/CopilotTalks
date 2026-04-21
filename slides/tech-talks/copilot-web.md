@@ -324,6 +324,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
   :left='{ header: "Default Allowlist", icon: "🛡️", items: ["npm, PyPI, Maven, RubyGems, NuGet, Go modules", "apt, yum, apk (OS package managers)", "Docker Hub, ghcr.io, gcr.io (container registries)", "GitHub APIs + raw.githubusercontent.com", "SSL certificate authorities + Playwright browsers", "Most repos work immediately — no custom config needed"] }'
   :right='{ header: "Blocked Connection Log", icon: "🚨", code: { language: "text", content: "⚠️ Firewall blocked connection\nTarget: unauthorized-domain.com:443\nCommand: curl https://...\nTime: 2026-04-06T14:32:17Z\n\nAppears in the PR evidence bundle —\nalways investigate before merging." } }'
   :insight='{ icon: "⚠️", text: "Firewall only applies to agent bash processes — not MCP servers, setup steps, or self-hosted runners." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -337,6 +338,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
   :left='{ header: "Organization Level", icon: "🏢", items: [{ title: "Enable/Disable Firewall", detail: "Enabled · Disabled · Let repositories decide (default)" }, { title: "Recommended Allowlist", detail: "Toggle the default package registry list on/off" }, { title: "Custom Allowlist", detail: "Add domains or URLs — applies to all repos in the org" }, { title: "Repo Custom Rules", detail: "Allow or prevent repos from adding their own rules" }] }'
   :right='{ header: "Repository Level", icon: "📁", items: [{ title: "Enable/Disable Firewall", detail: "Only if org is set to Let repositories decide" }, { title: "Recommended Allowlist", detail: "Toggle on/off if org allows repository decisions" }, { title: "Custom Allowlist", detail: "Add domains or URLs — combined with org-level rules" }, { title: "Note", detail: "Org-level rules lock repo overrides when set to Enabled or Disabled" }] }'
   :insight='{ icon: "💡", text: "Org settings: Settings → Code, planning & automation → Copilot → Cloud agent. Repo settings: Repository Settings → Code & automation → Copilot → Cloud agent." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

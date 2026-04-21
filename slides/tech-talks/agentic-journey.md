@@ -26,6 +26,10 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -164,53 +168,15 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
 ---
 
 <!-- SLIDE: Use Case — Duplicate Elimination -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📥 Agentic Intake</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-xs text-white/50">Real-world team: 50 issues/month with 15% duplicate rate</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
-<div class="text-sm font-bold text-red-300 mb-3">❌ The Problem</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="p-2 bg-red-900/30 rounded">Developers spend <span class="text-red-400 font-mono">45 minutes</span> per duplicate researching before realizing already fixed</div>
-<div class="p-2 bg-red-900/30 rounded">Context-switch cost pulls developers away from feature work</div>
-<div class="p-2 bg-red-900/30 rounded">Manual duplicate search only catches <span class="text-red-400 font-mono">60%</span> — others discovered mid-implementation</div>
-</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-3">✅ The Solution</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="p-2 bg-green-900/30 rounded">Phase 1 agent searches open + closed issues, calculates similarity</div>
-<div class="p-2 bg-green-900/30 rounded">Auto-labels duplicates with references to original fix</div>
-<div class="p-2 bg-green-900/30 rounded">Detection rate: <span class="text-green-400 font-mono">&gt;90%</span> — catches duplicates in <span class="text-green-400 font-mono">3 minutes</span></div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
-<div class="text-sm font-bold text-cyan-300 mb-2">Outcome</div>
-<div class="text-xs text-gray-300">
-Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class="text-green-400">&lt;3%</span>. Saved <span class="text-cyan-400 font-mono">7 × 40 minutes = 4.7 hours/month</span> on duplicates alone.
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50 text-xs text-gray-300">
-<span class="font-bold text-gray-400 uppercase tracking-wider text-[10px]">Example: </span>Issue #4821 matched #4203 at 88% similarity — auto-labeled in 3 min, saving 45 min of duplicate work.
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="1"
+  pillIcon="📥"
+  pillLabel="Agentic Intake"
+  title="Use Case — Duplicate Elimination"
+  :before='{ header: "❌ The Problem", items: ["Developers spend 45 minutes per duplicate researching before realizing it was already fixed", "Context-switch cost pulls developers away from feature work", "Manual duplicate search only catches 60% — others discovered mid-implementation"] }'
+  :after='{ header: "✅ The Solution", items: ["Agent searches open + closed issues and calculates similarity", "Auto-labels duplicates with references to the original fix", "Detection rate: >90% — catches duplicates in 3 minutes"] }'
+  :insight='{ icon: "📊", text: "Duplicate rate dropped from 15% to <3%. Saved 4.7 hours/month on duplicates alone. Example: Issue #4821 matched #4203 at 88% similarity — auto-labeled in 3 min, saving 45 min of duplicate work." }'
+/>
 
 ---
 
@@ -231,64 +197,15 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 ---
 
 <!-- SLIDE: Historical Context Innovation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Agentic Planning</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">The Key Innovation: Learning From History</div>
-<div class="text-xs text-white/50">Don't plan from scratch — research similar past implementations first</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 mb-2">
-<div class="text-sm font-bold text-blue-300 mb-2">Example: Adding Microsoft OAuth Support</div>
-<div class="text-xs text-gray-300">
-<div class="p-3 bg-blue-900/30 rounded-lg mb-2">
-<div class="font-mono text-blue-400 mb-1">Agent searches for similar past issues and PRs:</div>
-<div class="ml-3 space-y-1.5">
-<div>• <strong>"Add Google OAuth"</strong> (#2847) → PR #2851: 6 hours, 8 files</div>
-<div class="ml-3 text-cyan-400">Lesson: Token refresh edge case required extra test</div>
-<div>• <strong>"Add GitHub OAuth"</strong> (#3104) → PR #3109: 5 hours, 7 files</div>
-<div class="ml-3 text-cyan-400">Lesson: Multi-tenant config needed for enterprise users</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-4">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-sm font-bold text-red-300 mb-2">❌ Without Historical Context</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-<div>• Plan from scratch every time</div>
-<div>• Miss edge cases from previous work</div>
-<div>• <span class="text-red-400 font-mono">±50%</span> estimate accuracy</div>
-<div>• Mid-implementation surprises</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-2">✅ With Historical Context</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-<div>• Learn patterns from similar issues</div>
-<div>• Surface edge cases before coding</div>
-<div>• <span class="text-green-400 font-mono">±20%</span> estimate accuracy</div>
-<div>• <span class="text-green-400">60% fewer</span> mid-implementation surprises</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-xl border border-blue-500/30 text-center">
-<div class="text-xs font-semibold text-blue-300">Result: Planning time 4 hours → 15 minutes — and more accurate plans · ROI: $7,000/month</div>
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="2"
+  pillIcon="📋"
+  pillLabel="Agentic Planning"
+  title="The Key Innovation: Learning From History"
+  :before='{ header: "❌ Without Historical Context", items: ["Plan from scratch every time", "Miss edge cases from previous work", "±50% estimate accuracy", "Mid-implementation surprises"] }'
+  :after='{ header: "✅ With Historical Context", items: ["Learn patterns from similar issues", "Surface edge cases before coding", "±20% estimate accuracy", "60% fewer mid-implementation surprises"] }'
+  :insight='{ icon: "💡", text: "Planning time 4 hours → 15 minutes with more accurate plans. Example: adding Microsoft OAuth found token refresh and multi-tenant lessons from Google (#2847) and GitHub (#3104) OAuth work. ROI: $7,000/month." }'
+/>
 
 ---
 
@@ -454,158 +371,34 @@ Duplicate rate dropped from <span class="text-red-400">15%</span> to <span class
 ---
 
 <!-- SLIDE: Assigning the Copilot Agent -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💻 Agentic Coding</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Two Ways to Assign: Manual & Automated</div>
-<div class="text-xs text-white/50">Start with manual to build confidence, then automate the trigger</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-xl border border-blue-500/30">
-<div class="text-sm font-bold text-blue-300 mb-2">🖱️ Path 1: Manual Assignment</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="p-2 bg-blue-900/30 rounded-lg">
-<div class="text-blue-400 font-semibold mb-1">On GitHub.com</div>
-<div class="space-y-0.5 opacity-90">
-<div>1. Open the issue</div>
-<div>2. Assignees → <span class="font-mono text-blue-300">copilot</span></div>
-<div>3. Agent starts immediately</div>
-</div>
-</div>
-<div class="p-2 bg-blue-900/20 rounded text-blue-300/70 italic text-xs">
-Best for: ad-hoc tasks, exploring capabilities, issues without formal plans
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-2">⚡ Path 2: Automated Trigger</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="p-2 bg-indigo-900/30 rounded-lg font-mono">
-<div class="text-indigo-400 mb-1"># Comment on the issue:</div>
-<div class="text-white">/approve-plan</div>
-<div class="text-gray-400 text-xs mt-1">↳ workflow assigns copilot, injects plan</div>
-</div>
-<div class="p-2 bg-indigo-900/20 rounded text-indigo-300/70 italic text-xs">
-Best for: structured workflow, plan-driven implementation, audit trail
-</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-gray-900/60 to-gray-800/40 rounded-xl border border-gray-600/30">
-<div class="text-sm font-bold text-gray-300 mb-2">📋 What the Agent Receives (Phase 3 workflow injects this)</div>
-<div class="grid grid-cols-3 gap-2 text-xs text-gray-300">
-<div class="p-2 bg-gray-800/40 rounded">
-<div class="text-indigo-300 font-semibold mb-1">Issue Context</div>
-<div class="opacity-80">Original requirements, labels, linked issues</div>
-</div>
-<div class="p-2 bg-gray-800/40 rounded">
-<div class="text-purple-300 font-semibold mb-1">Approved Plan</div>
-<div class="opacity-80">Files to change, estimate, historical lessons</div>
-</div>
-<div class="p-2 bg-gray-800/40 rounded">
-<div class="text-pink-300 font-semibold mb-1">Quality Rules</div>
-<div class="opacity-80">Code style, test requirements, commit format</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="💻"
+  pillLabel="Agentic Coding"
+  title="Two Ways to Assign: Manual & Automated"
+  :left='{ header: "🖱️ Manual Assignment", icon: "🖱️", items: [{ title: "On GitHub.com", detail: "Open the issue, go to Assignees, select copilot — agent starts immediately" }, "Best for: ad-hoc tasks, exploring capabilities, issues without formal plans"] }'
+  :right='{ header: "⚡ Automated Trigger", icon: "⚡", items: [{ title: "Comment on the issue", detail: "Type /approve-plan — workflow assigns copilot and injects the approved plan automatically" }, "Best for: structured workflow, plan-driven implementation, full audit trail"] }'
+  :insight='{ icon: "📋", text: "The agent receives: issue context (requirements, labels, linked issues), approved plan (files to change, estimate, historical lessons), and quality rules (code style, test requirements, commit format)." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Coding Metrics -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💻 Agentic Coding</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Implementation Quality & Speed</div>
-<div class="text-xs text-white/50">Phase 3 connects approved plans to GitHub Copilot SWE agent</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-2">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
-<div class="text-sm font-bold text-red-300 mb-1">Before Agents</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
-<span>Implementation time</span>
-<span class="text-red-400 font-mono">8-12 hours</span>
-</div>
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
-<span>Time to first PR</span>
-<span class="text-red-400 font-mono">1-2 days</span>
-</div>
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
-<span>Initial test pass rate</span>
-<span class="text-red-400 font-mono">70%</span>
-</div>
-<div class="flex justify-between p-1.5 bg-red-900/20 rounded">
-<span>PRs requiring rework</span>
-<span class="text-red-400 font-mono">30%</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-1">After Automation</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
-<span>Implementation time</span>
-<span class="text-green-400 font-mono">1-2 hours</span>
-</div>
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
-<span>Time to first PR</span>
-<span class="text-green-400 font-mono">2-4 hours</span>
-</div>
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
-<span>Initial test pass rate</span>
-<span class="text-green-400 font-mono">&gt;90%</span>
-</div>
-<div class="flex justify-between p-1.5 bg-green-900/20 rounded">
-<span>PRs requiring rework</span>
-<span class="text-green-400 font-mono">&lt;15%</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-2">Implementation Guidelines (from prompt template)</div>
-<div class="text-xs text-gray-300 grid grid-cols-2 gap-2">
-<div class="p-1.5 bg-indigo-900/30 rounded">✓ Follow existing code style and patterns</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">✓ Write tests for all new functionality</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">✓ Make small, atomic commits</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">✓ Keep functions focused and single-purpose</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">✓ Ensure proper error handling</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">✓ Add descriptive commit messages</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-500/30 text-center">
-<div class="text-xs font-semibold text-purple-300">Result: 6-10x faster implementation with higher quality · ROI: $17,000/month</div>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="3"
+  pillIcon="💻"
+  pillLabel="Agentic Coding"
+  title="Implementation Quality & Speed"
+  :before='{ header: "Before Agents", items: ["Implementation time: 8-12 hours", "Time to first PR: 1-2 days", "Initial test pass rate: 70%", "PRs requiring rework: 30%"] }'
+  :after='{ header: "After Automation", items: ["Implementation time: 1-2 hours", "Time to first PR: 2-4 hours", "Initial test pass rate: >90%", "PRs requiring rework: <15%"] }'
+  :metrics='[
+    { value: "6-10×", label: "Faster" },
+    { value: "70% → 90%+", label: "Test pass rate" },
+    { value: "30% → 15%", label: "Rework reduced" }
+  ]'
+  :insight='{ icon: "💡", text: "Guidelines enforced automatically: follow existing patterns, write tests, atomic commits, single-purpose functions, error handling, descriptive commit messages. ROI: $17,000/month." }'
+/>
 
 ---
 
@@ -626,154 +419,38 @@ Best for: structured workflow, plan-driven implementation, audit trail
 ---
 
 <!-- SLIDE: Review Focus Areas -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔍 Code Review</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">What the Agent Reviews: 4 Focus Areas</div>
-<div class="text-xs text-white/50">Complete automated analysis in ~6 minutes — structured output for human validation</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mb-2">
-<div class="p-2 bg-gradient-to-br from-red-900/40 to-red-800/40 rounded-lg border border-red-500/30">
-<div class="flex items-center justify-between mb-1">
-<div class="font-bold text-red-300 text-sm">🔒 Security</div>
-<div class="text-xs text-red-400 font-mono">~2 min</div>
-</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• SQL injection patterns</div>
-<div>• XSS vulnerabilities</div>
-<div>• Auth bypass risks</div>
-<div>• Hardcoded secrets</div>
-<div>• Unsafe dependencies</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-orange-900/40 to-orange-800/40 rounded-lg border border-orange-500/30">
-<div class="flex items-center justify-between mb-1">
-<div class="font-bold text-orange-300 text-sm">⚙️ Logic</div>
-<div class="text-xs text-orange-400 font-mono">~2 min</div>
-</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Error handling completeness</div>
-<div>• Edge case coverage</div>
-<div>• Race conditions</div>
-<div>• Resource leaks</div>
-<div>• State management bugs</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30">
-<div class="flex items-center justify-between mb-1">
-<div class="font-bold text-purple-300 text-sm">⚡ Performance</div>
-<div class="text-xs text-purple-400 font-mono">~1 min</div>
-</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• O(n²) algorithms</div>
-<div>• N+1 query patterns</div>
-<div>• Blocking operations</div>
-<div>• Caching opportunities</div>
-<div>• Memory inefficiencies</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/40 to-pink-800/40 rounded-lg border border-pink-500/30">
-<div class="flex items-center justify-between mb-1">
-<div class="font-bold text-pink-300 text-sm">🧪 Tests</div>
-<div class="text-xs text-pink-400 font-mono">~1 min</div>
-</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Coverage on new code</div>
-<div>• Edge case test presence</div>
-<div>• Integration test quality</div>
-<div>• Flaky test detection</div>
-<div>• Test maintainability</div>
-</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-1">The Paradigm Shift</div>
-<div class="text-xs text-gray-300">
-Human review shifts from <span class="text-red-400">"read every line"</span> to <span class="text-green-400">"validate outcomes against intent"</span> — does the implementation match the approved plan? Agent catches 95% of technical issues; humans validate strategic alignment.
-</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="4"
+  pillIcon="🔍"
+  pillLabel="Code Review"
+  title="What the Agent Reviews: 4 Focus Areas"
+  :cards='[
+    { icon: "🔒", title: "Security (~2 min)", description: "SQL injection patterns, XSS vulnerabilities, auth bypass risks, hardcoded secrets, unsafe dependencies" },
+    { icon: "⚙️", title: "Logic (~2 min)", description: "Error handling completeness, edge case coverage, race conditions, resource leaks, state management bugs" },
+    { icon: "⚡", title: "Performance (~1 min)", description: "O(n²) algorithms, N+1 query patterns, blocking operations, caching opportunities, memory inefficiencies" },
+    { icon: "🧪", title: "Tests (~1 min)", description: "Coverage on new code, edge case test presence, integration test quality, flaky test detection, test maintainability" }
+  ]'
+  :insight='{ icon: "💡", text: "Human review shifts from reading every line to validating outcomes against intent — does the implementation match the approved plan? Agent catches 95% of technical issues; humans validate strategic alignment." }'
+/>
 
 ---
 
 <!-- SLIDE: Review Metrics & Security Impact -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔍 Code Review</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Impact: Security Review at Scale</div>
-<div class="text-xs text-white/50">Real-world example: 40 PRs/month team generating agent code</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-4">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
-<div class="text-sm font-bold text-red-300 mb-3">❌ The Problem</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="p-2 bg-red-900/30 rounded"><span class="text-red-400 font-mono">2-4 hours</span> per PR review</div>
-<div class="p-2 bg-red-900/30 rounded">Race condition in token refresh logic slipped through manual review</div>
-<div class="p-2 bg-red-900/30 rounded">Caused production incident — 45 min downtime</div>
-<div class="p-2 bg-red-900/30 rounded">Review capacity bottleneck blocking velocity</div>
-</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-3">✅ The Solution</div>
-<div class="text-xs text-gray-300 space-y-2">
-<div class="p-2 bg-green-900/30 rounded">Agent analyzes security, logic, performance in <span class="text-green-400 font-mono">6 minutes</span></div>
-<div class="p-2 bg-green-900/30 rounded">Race condition pattern flagged automatically</div>
-<div class="p-2 bg-green-900/30 rounded">Human reads agent analysis in <span class="text-green-400 font-mono">15 min</span> vs entire diff in 3 hours</div>
-<div class="p-2 bg-green-900/30 rounded">Same pattern caught in next PR before merge</div>
-</div>
-</div>
-</div>
-
-<div class="grid grid-cols-4 gap-3 mb-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30 text-center">
-<div class="text-lg font-bold text-purple-300">3h → 20m</div>
-<div class="text-xs opacity-70 mt-1">Review time per PR</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-lg border border-pink-500/30 text-center">
-<div class="text-lg font-bold text-pink-300">&gt;95%</div>
-<div class="text-xs opacity-70 mt-1">Critical bugs caught</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-rose-900/30 to-rose-800/20 rounded-lg border border-rose-500/30 text-center">
-<div class="text-lg font-bold text-rose-300">0/quarter</div>
-<div class="text-xs opacity-70 mt-1">Security incidents</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-lg border border-purple-500/30 text-center">
-<div class="text-lg font-bold text-purple-300">8-12x</div>
-<div class="text-xs opacity-70 mt-1">Review capacity</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl border border-purple-500/30 text-center">
-<div class="text-xs font-semibold text-purple-300">Outcome: Review bottleneck eliminated · Security improved · ROI: $10,000/month</div>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="🔍"
+  pillLabel="Code Review"
+  title="Impact: Security Review at Scale"
+  :before='{ header: "❌ The Problem", items: ["2-4 hours per PR review", "Race condition in token refresh logic slipped through manual review", "Caused production incident — 45 min downtime", "Review capacity bottleneck blocking velocity"] }'
+  :after='{ header: "✅ The Solution", items: ["Agent analyzes security, logic, performance in 6 minutes", "Race condition pattern flagged automatically", "Human reads agent analysis in 15 min vs entire diff in 3 hours", "Same pattern caught in next PR before merge"] }'
+  :metrics='[
+    { value: "3h → 20m", label: "Review time" },
+    { value: ">95%", label: "Critical bugs caught" },
+    { value: "0/quarter", label: "Security incidents" },
+    { value: "8-12×", label: "Review capacity" }
+  ]'
+  :insight='{ icon: "💡", text: "Review bottleneck eliminated. Security improved. ROI: $10,000/month." }'
+/>
 
 ---
 

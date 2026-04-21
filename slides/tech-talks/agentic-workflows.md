@@ -217,6 +217,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     ]
   }'
   :insight='{ icon: "🔒", text: "Zero write access for the agent — only validated handlers touch the repository." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
