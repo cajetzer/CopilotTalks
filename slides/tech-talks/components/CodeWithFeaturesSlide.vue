@@ -25,6 +25,7 @@ const props = defineProps({
   codePosition: { type: String, required: true, validator: (v) => ['left', 'top'].includes(v) },
   features:     { type: Array,  required: true }, // 2–4: { icon?, title, description }
   insight:      { type: Object, required: false, default: null },
+  progressDots: { type: Object, required: true }, // { current: N, total: M, activeColor: 'bg-...' }
 })
 
 validatePartNumber(props.partNumber, 'CodeWithFeaturesSlide')
@@ -65,6 +66,13 @@ const featuresGrid = computed(() => GRID_COLS[props.features.length] || 'grid-co
         {{ pillIcon }} {{ pillLabel }}
       </span>
       <div class="flex-1 h-px bg-gradient-to-r from-transparent to-transparent" :class="chrome.divider"></div>
+      <div class="flex items-center gap-2">
+        <div v-for="n in progressDots.total" :key="n"
+          class="w-2 h-2 rounded-full"
+          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'">
+        </div>
+        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+      </div>
     </div>
 
     <div class="relative z-10 mb-4">

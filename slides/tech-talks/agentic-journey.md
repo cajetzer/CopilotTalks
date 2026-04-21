@@ -176,6 +176,7 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
   :before='{ header: "❌ The Problem", items: ["Developers spend 45 minutes per duplicate researching before realizing it was already fixed", "Context-switch cost pulls developers away from feature work", "Manual duplicate search only catches 60% — others discovered mid-implementation"] }'
   :after='{ header: "✅ The Solution", items: ["Agent searches open + closed issues and calculates similarity", "Auto-labels duplicates with references to the original fix", "Detection rate: >90% — catches duplicates in 3 minutes"] }'
   :insight='{ icon: "📊", text: "Duplicate rate dropped from 15% to <3%. Saved 4.7 hours/month on duplicates alone. Example: Issue #4821 matched #4203 at 88% similarity — auto-labeled in 3 min, saving 45 min of duplicate work." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -205,6 +206,7 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
   :before='{ header: "❌ Without Historical Context", items: ["Plan from scratch every time", "Miss edge cases from previous work", "±50% estimate accuracy", "Mid-implementation surprises"] }'
   :after='{ header: "✅ With Historical Context", items: ["Learn patterns from similar issues", "Surface edge cases before coding", "±20% estimate accuracy", "60% fewer mid-implementation surprises"] }'
   :insight='{ icon: "💡", text: "Planning time 4 hours → 15 minutes with more accurate plans. Example: adding Microsoft OAuth found token refresh and multi-tenant lessons from Google (#2847) and GitHub (#3104) OAuth work. ROI: $7,000/month." }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---

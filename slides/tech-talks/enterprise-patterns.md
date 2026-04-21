@@ -143,6 +143,7 @@ highlight="The transition from pilot success to organizational capability requir
     { icon: "📁", title: "Directory Selector", description: "Nearest AGENTS.md applies to that subdirectory — frontend/backend/infra each have their own playbook" }
   ]'
   :insight='{ icon: "💡", text: "Rule of thumb: Copilot-specific standards in .github/ hierarchy, portable agent playbooks in AGENTS.md files" }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -366,6 +367,7 @@ highlight="The transition from pilot success to organizational capability requir
     { icon: "📋", title: "Data Governance", description: "Training opt-out, data residency controls, and retention policies enforced automatically" }
   ]'
   :insight='{ icon: "⚠️", text: "For regulated industries: Healthcare, finance, government \u2014 governance frameworks are prerequisites for AI adoption, not optional afterthoughts. HIPAA \u00b7 SOC 2 \u00b7 FedRAMP" }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -431,6 +433,7 @@ highlight="The transition from pilot success to organizational capability requir
     { icon: "✅", title: "Complete Exercise (10 min)", description: "Validate setup with a real task using the sample repository and good-prompts guide" }
   ]'
   :insight='{ icon: "🎯", text: "Success metrics: 30 min to productive, under 2 support tickets per team, 90%+ satisfaction. Enables 50 teams to onboard simultaneously." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

@@ -100,7 +100,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     { icon: "🔎", title: "Keyword Search", description: "Find plugins matching your workflow needs" },
     { icon: "✅", title: "Installation Status", description: "See active plugins and their versions instantly" }
   ]'
-  :progressDots='{ current: 1, total: 4 }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -215,7 +215,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     { icon: "🔒", title: "Lockfile Generated", description: "apm install creates apm-lock.yml with exact versions" },
     { icon: "✅", title: "Instant Validation", description: "Team members run apm install to sync" }
   ]'
-  :progressDots='{ current: 1, total: 4 }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -234,7 +234,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     { icon: "🔌", title: "MCP Servers", description: "Live integrations (GitHub APIs, AWS docs, databases)" },
     { icon: "🌲", title: "One Command", description: "apm install orchestrates the entire stack" }
   ]'
-  :progressDots='{ current: 2, total: 4 }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -393,7 +393,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     ]
   }'
   :insight='{ icon: "🎯", text: "Treat lockfile changes like dependency updates — review them in PRs, validate in CI." }'
-  :progressDots='{ current: 2, total: 4 }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -483,6 +483,7 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
     { icon: "🔄", title: "Fix Pattern", description: "Run apm install locally, commit updated lockfile, push again" }
   ]'
   :insight='{ icon: "🎯", text: "Configuration drift is caught in CI, not production — automatic enforcement of lockfile discipline." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

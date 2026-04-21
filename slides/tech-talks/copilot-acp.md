@@ -108,6 +108,7 @@ highlight="ACP is the LSP for AI agents — a standard protocol for editor commu
       { title: "Universal Integration", detail: "CI/CD, custom tools, and dashboards connect through standard SDKs in TypeScript, Python, Rust, Kotlin" }
     ]
   }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---

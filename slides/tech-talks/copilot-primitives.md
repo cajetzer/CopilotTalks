@@ -119,6 +119,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     { icon: "✅", title: "Before vs After", description: "Generic Express boilerplate becomes a TypeScript endpoint with Prisma, custom errors, JSDoc, and co-located tests — all from one file." },
     { icon: "📊", title: "Real Impact", description: "40% reduction in style review comments. 5 minutes to implement. Zero training required — instant team-wide effect." }
   ]'
+  :progressDots='{ current: 2, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -140,6 +141,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     { icon: "🔄", title: "Combines", description: "Merges with repo-wide instructions when both match the file path." },
     { icon: "🗂️", title: "Examples", description: "src/web/** for React, src/api/** for Express, tests/** for test rules." }
   ]'
+  :progressDots='{ current: 3, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -161,6 +163,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     { icon: "🔁", title: "Monorepo-Friendly", description: "frontend/, infra/, api/ each get their own rules without collision." },
     { icon: "🤝", title: "Open Format", description: "Works across GitHub Copilot, Claude, and other coding agents that read AGENTS.md." }
   ]'
+  :progressDots='{ current: 4, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -308,6 +311,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     { icon: "💬", title: "Usage", description: "Type /component MyButton in chat — generates the full folder structure automatically" },
     { icon: "🔁", title: "Consistency", description: "Same structure every time, across every developer on the team" }
   ]'
+  :progressDots='{ current: 1, total: 1, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -345,6 +349,7 @@ highlight="Copilot's response quality is directly proportional to how much it kn
     { icon: "🤝", title: "Handoff Workflow", description: "1: Planner creates plan → 2: Click Start Implementation → 3: Agent switches with context → 4: Optional security handoff" }
   ]'
   :insight='{ icon: "📈", text: "Real Impact: DB admin agent = zero production migration rollbacks in 6 months, 60% faster schema review." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

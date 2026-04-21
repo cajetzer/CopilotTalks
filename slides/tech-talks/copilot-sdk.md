@@ -198,6 +198,7 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
     { icon: "✅", title: "Prerequisites", description: "Copilot CLI installed & authenticated, GitHub Copilot subscription, Python 3.8+ / Node 18+ / Go 1.20+ / .NET 6+" },
     { icon: "⚡", title: "First Run", description: "Client spawns CLI in server mode automatically — no separate server process needed" }
   ]'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -278,6 +279,7 @@ highlight="the SDK provides production-tested agent runtime as a programmable li
     { icon: "🔒", title: "Security", description: "Restricted to read-only tools, sandboxed to /tmp/pr-diffs working directory — no write access" },
     { icon: "🔗", title: "Integration", description: "Expose via webhooks, plug into CI/CD pipelines, or connect to internal dashboards" }
   ]'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---

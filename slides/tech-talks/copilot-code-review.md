@@ -679,6 +679,7 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
     { icon: "✅", title: "Benefits", description: "Consistent enforcement across all PRs, automated audit trail generation, catch violations before production, reduce compliance risk exposure" },
     { icon: "📝", title: "Best Practices", description: "Keep instructions concise (~4000 chars), make rules actionable with examples, explain why each rule matters, link to internal policy docs" }
   ]'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -695,6 +696,7 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
     { icon: "✅", title: "Real-World Impact", description: "Healthcare SaaS: violations 25/quarter → 1/quarter (96% reduction). Audit prep: 200 hrs → 40 hrs. Potential fines: $500K → $50K. Developer awareness: 40% → 95%." },
     { icon: "🔑", title: "Key Patterns", description: "Automated detection of PHI exposure, consistent encryption enforcement, access control validation, audit trail generation for compliance reporting" }
   ]'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 
@@ -712,6 +714,7 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
     { icon: "✅", title: "E-Commerce Case Study", description: "Mid-sized platform (10K+ daily transactions): security review 30% → 100% of PRs, critical vulnerabilities 8/quarter → 0, PR delays 3 days → same-day, security team time freed: 60 hrs/month" },
     { icon: "🔒", title: "Key Enforcement", description: "No storing raw payment card data, tokenization enforcement, audit logging for all payment operations, required status check blocks merge on violations" }
   ]'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

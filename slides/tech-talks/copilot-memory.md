@@ -167,6 +167,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { icon: "🌐", title: "Multi-Environment", description: "VS Code: settings.json · GitHub.com: Settings page · CLI: Inherits from account" },
     { icon: "⚙️", title: "Zero Configuration After", description: "Memory syncs automatically, no per-project setup, works across all repositories" }
   ]'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -314,6 +315,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { title: "Data portability", detail: "Export memories anytime as JSON" }
   ] }'
   :insight='{ icon: "🏢", text: "Enterprise Governance: Org policy can disable memory for all users. Individuals can delete individual memories or clear all with one click." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -335,6 +337,7 @@ highlight="Memory breaks this cycle by making preferences persist."
     { title: "Functions under 20 lines with single responsibility", detail: "Specific and measurable" }
   ] }'
   :insight='{ icon: "🧹", text: "Monthly Memory Hygiene: (1) Audit stored memories, (2) Delete obsolete preferences, (3) Update evolved conventions, (4) Reconfirm critical ones" }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 

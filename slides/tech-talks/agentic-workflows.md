@@ -132,6 +132,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     ]
   }'
   :insight='{ icon: "💡", text: "Write what, not how — AI figures out the path within safe, sandboxed boundaries." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -185,6 +186,7 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
     { icon: "🔒", title: "Security", description: "Read-only access by default, add-labels safe output with max 3 limit" },
     { icon: "📝", title: "Intent", description: "Natural language instructions: read issue, identify type, apply labels" }
   ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---

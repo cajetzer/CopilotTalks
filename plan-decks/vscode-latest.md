@@ -1,6 +1,6 @@
 # Deck: vscode-latest
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — build verified 2026-04-21
 **Deck file:** `slides/tech-talks/vscode-latest.md`
 **Raw HTML slides:** 14 (out of 25 total)
 

@@ -26,6 +26,9 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
@@ -82,207 +85,83 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
 ---
 
 <!-- SLIDE: Four Agent Types -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Agent Sessions & Orchestration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Four Agent Types</div>
-<div class="text-xs text-white/50">Choose the right agent for each workflow phase</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-lg">💬</div>
-<div class="font-bold text-cyan-300 text-sm">Local</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="text-gray-300">Real-time in Chat view</div>
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="text-cyan-400">✓</span> Interactive planning</div>
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="text-cyan-400">✓</span> Quick explorations</div>
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="text-cyan-400">✓</span> Fastest feedback loop</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-lg">🌳</div>
-<div class="font-bold text-blue-300 text-sm">Background</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="text-gray-300">Isolated Git worktree</div>
-<div class="p-1.5 bg-blue-900/30 rounded"><span class="text-blue-400">✓</span> Multi-file autonomous tasks</div>
-<div class="p-1.5 bg-blue-900/30 rounded"><span class="text-blue-400">✓</span> No workspace conflicts</div>
-<div class="p-1.5 bg-blue-900/30 rounded"><span class="text-blue-400">✓</span> Review via diff before merge</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-lg">☁️</div>
-<div class="font-bold text-indigo-300 text-sm">Cloud</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="text-gray-300">GitHub-hosted infrastructure</div>
-<div class="p-1.5 bg-indigo-900/30 rounded"><span class="text-indigo-400">✓</span> Cross-repo operations</div>
-<div class="p-1.5 bg-indigo-900/30 rounded"><span class="text-indigo-400">✓</span> Scale beyond local resources</div>
-<div class="p-1.5 bg-indigo-900/30 rounded"><span class="text-indigo-400">✓</span> Org-level indexing</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-lg">🧠</div>
-<div class="font-bold text-purple-300 text-sm">Claude</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="text-gray-300">Anthropic SDK with thinking tokens</div>
-<div class="p-1.5 bg-purple-900/30 rounded"><span class="text-purple-400">✓</span> Complex reasoning tasks</div>
-<div class="p-1.5 bg-purple-900/30 rounded"><span class="text-purple-400">✓</span> Architectural decisions</div>
-<div class="p-1.5 bg-purple-900/30 rounded"><span class="text-purple-400">✓</span> Visible hypothesis formation</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🤖"
+  pillLabel="Agent Sessions & Orchestration"
+  title="Four Agent Types"
+  :cards='[
+    { icon: "💬", title: "Local", description: "Real-time in Chat view. Interactive planning, quick explorations, fastest feedback loop." },
+    { icon: "🌳", title: "Background", description: "Isolated Git worktree. Multi-file autonomous tasks, no workspace conflicts, review via diff before merge." },
+    { icon: "☁️", title: "Cloud", description: "GitHub-hosted infrastructure. Cross-repo operations, scale beyond local resources, org-level indexing." },
+    { icon: "🧠", title: "Claude", description: "Anthropic SDK with thinking tokens. Complex reasoning tasks, architectural decisions, visible hypothesis formation." }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: Background Agents & Git Worktrees -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Agent Sessions & Orchestration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Background Agents with Git Worktree Isolation</div>
-<div class="text-xs text-white/50">Autonomous work without workspace conflicts</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">✅</div>
-<div class="font-bold text-green-300 text-sm">How It Works</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-green-900/30 rounded">Agent creates new worktree automatically</div>
-<div class="p-1.5 bg-green-900/30 rounded">Changes committed per turn in worktree</div>
-<div class="p-1.5 bg-green-900/30 rounded">Your main workspace stays untouched</div>
-<div class="p-1.5 bg-green-900/30 rounded">Multiple agents run in parallel</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">🔍</div>
-<div class="font-bold text-blue-300 text-sm">Review & Merge</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-blue-900/30 rounded">Diff view when agent completes</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Apply all changes at once</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Cherry-pick specific files</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Discard if not satisfactory</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">git.worktreeIncludeFiles</div>
-<pre class="overflow-y-auto max-h-24 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "git.worktreeIncludeFiles": [
-    "config/local.json",
-    ".env.local"
-  ]
-}</code></pre>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="1"
+  pillIcon="🌳"
+  pillLabel="Agent Sessions & Orchestration"
+  title="Background Agents with Git Worktree Isolation"
+  :left='{
+    header: "How It Works",
+    icon: "✅",
+    items: [
+      "Agent creates new worktree automatically",
+      "Changes committed per turn in worktree",
+      "Your main workspace stays untouched",
+      "Multiple agents run in parallel"
+    ],
+    code: { language: "json", content: "{\n  \"git.worktreeIncludeFiles\": [\n    \"config/local.json\",\n    \".env.local\"\n  ]\n}" }
+  }'
+  :right='{
+    header: "Review & Merge",
+    icon: "🔍",
+    items: [
+      "Diff view when agent completes",
+      "Apply all changes at once",
+      "Cherry-pick specific files",
+      "Discard if not satisfactory"
+    ]
+  }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Subagents & Explore -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Agent Sessions & Orchestration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Parallel Subagents & Explore</div>
-<div class="text-xs text-white/50">Delegate subtasks to specialized agents that run independently</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">🤝</div>
-<div class="font-bold text-cyan-300 text-sm">Subagents</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-cyan-900/30 rounded">Run in their own context windows</div>
-<div class="p-1.5 bg-cyan-900/30 rounded">Operate in parallel for speed</div>
-<div class="p-1.5 bg-cyan-900/30 rounded">Split independent tasks efficiently</div>
-<div class="p-1.5 bg-cyan-900/30 rounded">Return results to parent agent</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">🔍</div>
-<div class="font-bold text-blue-300 text-sm">Explore Subagent (v1.110)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-blue-900/30 rounded">Dedicated codebase research agent</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Read-only: search + file read tools only</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Fast models (Claude Haiku, Gemini Flash)</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Offloads all Plan agent research</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">chat.exploreAgent.defaultModel</div>
-<pre class="overflow-y-auto max-h-32 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "chat.exploreAgent.defaultModel": "claude-haiku-4-5"
-}</code></pre>
-</div>
-
-<div class="mt-2 grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-red-900/30 rounded">
-<div class="font-bold text-red-300">Before — Sequential</div>
-<div class="text-gray-400">Research → Plan → Implement (serial)</div>
-</div>
-<div class="p-2 bg-green-900/30 rounded">
-<div class="font-bold text-green-300">After — Parallel</div>
-<div class="text-gray-400">Explore (parallel) → Plan + Implement</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="1"
+  pillIcon="🤝"
+  pillLabel="Agent Sessions & Orchestration"
+  title="Parallel Subagents & Explore"
+  :left='{
+    header: "Subagents",
+    icon: "🤝",
+    items: [
+      "Run in their own context windows",
+      "Operate in parallel for speed",
+      "Split independent tasks efficiently",
+      "Return results to parent agent"
+    ]
+  }'
+  :right='{
+    header: "Explore Subagent (v1.110)",
+    icon: "🔍",
+    items: [
+      "Dedicated codebase research agent",
+      "Read-only: search + file read tools only",
+      "Fast models (Claude Haiku, Gemini Flash)",
+      "Offloads all Plan agent research"
+    ],
+    code: { language: "json", content: "{\n  \"chat.exploreAgent.defaultModel\": \"claude-haiku-4-5\"\n}" }
+  }'
+  :insight='{ icon: "⚡", text: "Before: Research → Plan → Implement (serial). After: Explore runs in parallel → Plan + Implement simultaneously." }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
@@ -376,127 +255,66 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
 ---
 
 <!-- SLIDE: Agent Skills — Now GA -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Agent Customization</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Agent Skills — From Experimental to GA</div>
-<div class="text-xs text-white/50">v1.108 experimental → v1.109 generally available and enabled by default</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">📁</div>
-<div class="font-bold text-blue-300 text-sm">Structure</div>
-</div>
-<div class="text-xs font-mono text-gray-300 bg-gray-900/50 p-2 rounded">
-.github/skills/<br />
-&nbsp;&nbsp;api-design/<br />
-&nbsp;&nbsp;&nbsp;&nbsp;SKILL.md<br />
-&nbsp;&nbsp;security-review/<br />
-&nbsp;&nbsp;&nbsp;&nbsp;SKILL.md
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">⚙️</div>
-<div class="font-bold text-indigo-300 text-sm">Settings</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-indigo-900/30 rounded">Enabled by default in v1.109+</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Add custom skill locations</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Extensions can package skills</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">On-demand loading per task</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">chat.useAgentSkills & chat.agentSkillsLocations</div>
-<pre class="overflow-y-auto max-h-16 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "chat.useAgentSkills": true,
-  "chat.agentSkillsLocations": {
-    "~/.copilot/skills": true,
-    "shared/team-skills": true
-  }
-}</code></pre>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="🧩"
+  pillLabel="Agent Customization"
+  title="Agent Skills \u2014 From Experimental to GA"
+  :left='{
+    header: "Structure",
+    icon: "📁",
+    items: [
+      ".github/skills/api-design/SKILL.md",
+      ".github/skills/security-review/SKILL.md",
+      "Extensions can package skills",
+      "On-demand loading per task"
+    ]
+  }'
+  :right='{
+    header: "Settings",
+    icon: "⚙️",
+    items: [
+      "Enabled by default in v1.109+",
+      "Add custom skill locations",
+      "Extensions can package skills",
+      "On-demand loading per task"
+    ],
+    code: { language: "json", content: "{\n  \"chat.useAgentSkills\": true,\n  \"chat.agentSkillsLocations\": {\n    \"~/.copilot/skills\": true,\n    \"shared/team-skills\": true\n  }\n}" }
+  }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Agent Plugins -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Agent Customization</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Agent Plugins (Experimental, v1.110)</div>
-<div class="text-xs text-white/50">Prepackaged bundles of skills, commands, agents, MCP servers, and hooks</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">📦</div>
-<div class="font-bold text-indigo-300 text-sm">What's in a Plugin</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-indigo-900/30 rounded">Skills (domain expertise)</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Custom agents (.agent.md)</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Slash commands + MCP servers</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Lifecycle hooks</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">🔌</div>
-<div class="font-bold text-purple-300 text-sm">How to Install</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-purple-900/30 rounded">Search @agentPlugins in Extensions view</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Or use Chat: Plugins command</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Add custom plugin marketplaces</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Register local plugin directories</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">chat.plugins.enabled, marketplaces, paths</div>
-<pre class="overflow-y-auto max-h-24 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "chat.plugins.enabled": true,
-  "chat.plugins.marketplaces": ["copilot-plugins", "awesome-copilot"],
-  "chat.plugins.paths": {
-    "/path/to/local/plugin": true
-  }
-}</code></pre>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="🧩"
+  pillLabel="Agent Customization"
+  title="Agent Plugins (Experimental, v1.110)"
+  :left='{
+    header: "What&#39;s in a Plugin",
+    icon: "📦",
+    items: [
+      "Skills (domain expertise)",
+      "Custom agents (.agent.md)",
+      "Slash commands + MCP servers",
+      "Lifecycle hooks"
+    ]
+  }'
+  :right='{
+    header: "How to Install",
+    icon: "🔌",
+    items: [
+      "Search @agentPlugins in Extensions view",
+      "Or use Chat: Plugins command",
+      "Add custom plugin marketplaces",
+      "Register local plugin directories"
+    ],
+    code: { language: "json", content: "{\n  \"chat.plugins.enabled\": true,\n  \"chat.plugins.marketplaces\": [\"copilot-plugins\", \"awesome-copilot\"],\n  \"chat.plugins.paths\": {\n    \"/path/to/local/plugin\": true\n  }\n}" }
+  }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
@@ -652,176 +470,97 @@ user-invokable: true
 ---
 
 <!-- SLIDE: Thinking Tokens -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 Claude & Anthropic Integration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Thinking Tokens</div>
-<div class="text-xs text-white/50">Visible reasoning shows hypothesis formation, tool selection, error recovery</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">💭</div>
-<div class="font-bold text-indigo-300 text-sm">Visible Reasoning</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-indigo-900/30 rounded">Hypothesis formation in real-time</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Tool selection reasoning</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Error recovery strategies</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Interleaved thinking between tool calls</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">⚙️</div>
-<div class="font-bold text-purple-300 text-sm">Configuration</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-purple-900/30 rounded">Default: 4000 tokens budget</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Set 0 to disable thinking</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Detailed or compact style</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Collapse noisy tool sections</div>
-</div>
-</div>
-</div>
-<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">Thinking token settings</div>
-<pre class="overflow-y-auto max-h-20 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "github.copilot.chat.anthropic.thinking.budgetTokens": 10000,
-  "chat.thinking.style": "detailed",
-  "chat.agent.thinking.collapsedTools": ["terminal", "search"],
-  "chat.tools.autoExpandFailures": true
-}</code></pre>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="🧠"
+  pillLabel="Claude & Anthropic Integration"
+  title="Thinking Tokens"
+  :left='{
+    header: "Visible Reasoning",
+    icon: "💭",
+    items: [
+      "Hypothesis formation in real-time",
+      "Tool selection reasoning",
+      "Error recovery strategies",
+      "Interleaved thinking between tool calls"
+    ]
+  }'
+  :right='{
+    header: "Configuration",
+    icon: "⚙️",
+    items: [
+      "Default: 4000 tokens budget",
+      "Set 0 to disable thinking",
+      "Detailed or compact style",
+      "Collapse noisy tool sections"
+    ],
+    code: { language: "json", content: "{\n  \"github.copilot.chat.anthropic.thinking.budgetTokens\": 10000,\n  \"chat.thinking.style\": \"detailed\",\n  \"chat.agent.thinking.collapsedTools\": [\"terminal\", \"search\"],\n  \"chat.tools.autoExpandFailures\": true\n}" }
+  }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Claude Agent SDK -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 Claude & Anthropic Integration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Claude Agent SDK</div>
-<div class="text-xs text-white/50">Anthropic agent harness with models from your GitHub Copilot subscription</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-1 text-sm">Available (v1.109 → v1.110)</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-indigo-900/30 rounded">Appears as session type in picker</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Uses Copilot subscription models</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Steering and queuing (v1.110)</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Session renaming</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Context window with compaction</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2 text-sm">Additional Features (v1.110)</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-purple-900/30 rounded">/compact, /agents, /hooks slash commands</div>
-<div class="p-1.5 bg-purple-900/30 rounded">getDiagnostics tool access</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Custom thinking phrases</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Tool search tool for large pools</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Performance improvements</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">Custom thinking phrases (v1.110)</div>
-<pre class="overflow-y-auto max-h-32 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "chat.agent.thinking.phrases": {
-    "mode": "replace",
-    "phrases": [
-      "Analyzing architecture...",
-      "Evaluating patterns..."
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="🧠"
+  pillLabel="Claude & Anthropic Integration"
+  title="Claude Agent SDK"
+  :left='{
+    header: "Available (v1.109 \u2192 v1.110)",
+    items: [
+      "Appears as session type in picker",
+      "Uses Copilot subscription models",
+      "Steering and queuing (v1.110)",
+      "Session renaming",
+      "Context window with compaction"
     ]
-  }
-}</code></pre>
-</div>
-</div>
-</div>
+  }'
+  :right='{
+    header: "Additional Features (v1.110)",
+    items: [
+      "/compact, /agents, /hooks slash commands",
+      "getDiagnostics tool access",
+      "Custom thinking phrases",
+      "Tool search tool for large pools",
+      "Performance improvements"
+    ],
+    code: { language: "json", content: "{\n  \"chat.agent.thinking.phrases\": {\n    \"mode\": \"replace\",\n    \"phrases\": [\n      \"Analyzing architecture...\",\n      \"Evaluating patterns...\"\n    ]\n  }\n}" }
+  }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Copilot Memory -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 Claude & Anthropic Integration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Copilot Memory (Preview, v1.109)</div>
-<div class="text-xs text-white/50">Persistent context across sessions</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">🧠</div>
-<div class="font-bold text-purple-300 text-sm">What It Stores</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-purple-900/30 rounded">Preferences and conventions</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Project context</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Important decisions</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Available across sessions</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">📝</div>
-<div class="font-bold text-indigo-300 text-sm">v1.110 Enhancement</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-indigo-900/30 rounded">Plans from Plan agent persist to session memory</div>
-<div class="p-2 bg-indigo-900/30 rounded">Survive context compaction</div>
-<div class="p-2 bg-indigo-900/30 rounded">Remain available across turns</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">Enable Copilot Memory</div>
-<pre class="overflow-y-auto max-h-24 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "github.copilot.chat.copilotMemory.enabled": true
-}</code></pre>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="🧠"
+  pillLabel="Claude & Anthropic Integration"
+  title="Copilot Memory (Preview, v1.109)"
+  :left='{
+    header: "What It Stores",
+    icon: "🧠",
+    items: [
+      "Preferences and conventions",
+      "Project context",
+      "Important decisions",
+      "Available across sessions"
+    ]
+  }'
+  :right='{
+    header: "v1.110 Enhancement",
+    icon: "📝",
+    items: [
+      "Plans from Plan agent persist to session memory",
+      "Survive context compaction",
+      "Remain available across turns"
+    ],
+    code: { language: "json", content: "{\n  \"github.copilot.chat.copilotMemory.enabled\": true\n}" }
+  }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
@@ -841,187 +580,67 @@ user-invokable: true
 ---
 
 <!-- SLIDE: Terminal Sandboxing & Auto-Approval -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Security & UX</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Terminal Sandboxing & Auto-Approval</div>
-<div class="text-xs text-white/50">OS-level sandboxing + progressive auto-approval expansion</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">🔒</div>
-<div class="font-bold text-purple-300 text-sm">Terminal Sandboxing (v1.109+)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-purple-900/30 rounded">File system: workspace directory only</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Network: blocked by default</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Allowlist specific domains</div>
-<div class="p-1.5 bg-purple-900/30 rounded">macOS (sandbox-exec) & Linux (Landlock)</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-xl border border-pink-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">⚡</div>
-<div class="font-bold text-pink-300 text-sm">YOLO Mode (v1.110)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-pink-900/30 rounded">/yolo or /autoApprove to enable</div>
-<div class="p-1.5 bg-pink-900/30 rounded">/disableYolo to turn off</div>
-<div class="p-1.5 bg-pink-900/30 rounded">Global auto-approve toggle</div>
-<div class="p-1.5 bg-pink-900/30 rounded">Workspace npm scripts auto-approved</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">Sandboxing & auto-approve settings</div>
-<pre class="overflow-y-auto max-h-24 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
-  "chat.tools.terminal.sandbox.enabled": true,
-  "chat.tools.terminal.sandbox.network": ["github.com", "npmjs.com"],
-  "chat.tools.terminal.enableAutoApprove": true,
-  "chat.tools.terminal.autoApproveWorkspaceNpmScripts": true
-}</code></pre>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="4"
+  pillIcon="🔒"
+  pillLabel="Security & UX"
+  title="Terminal Sandboxing & Auto-Approval"
+  :left='{
+    header: "Terminal Sandboxing (v1.109+)",
+    icon: "🔒",
+    items: [
+      "File system: workspace directory only",
+      "Network: blocked by default",
+      "Allowlist specific domains",
+      "macOS (sandbox-exec) & Linux (Landlock)"
+    ]
+  }'
+  :right='{
+    header: "YOLO Mode (v1.110)",
+    icon: "⚡",
+    items: [
+      "/yolo or /autoApprove to enable",
+      "/disableYolo to turn off",
+      "Global auto-approve toggle",
+      "Workspace npm scripts auto-approved"
+    ],
+    code: { language: "json", content: "{\n  \"chat.tools.terminal.sandbox.enabled\": true,\n  \"chat.tools.terminal.sandbox.network\": [\"github.com\", \"npmjs.com\"],\n  \"chat.tools.terminal.enableAutoApprove\": true,\n  \"chat.tools.terminal.autoApproveWorkspaceNpmScripts\": true\n}" }
+  }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Agentic Browser Tools -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Security & UX</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Agentic Browser Tools (Experimental, v1.110)</div>
-<div class="text-xs text-white/50">Agents autonomously interact with the integrated browser to validate web apps</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-2 text-sm">Page Navigation</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-cyan-900/30 rounded font-mono">openBrowserPage</div>
-<div class="p-1.5 bg-cyan-900/30 rounded font-mono">navigatePage</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2 text-sm">Page Content</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-blue-900/30 rounded font-mono">readPage</div>
-<div class="p-1.5 bg-blue-900/30 rounded font-mono">screenshotPage</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-2 text-sm">User Interaction</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-indigo-900/30 rounded font-mono">clickElement</div>
-<div class="p-1.5 bg-indigo-900/30 rounded font-mono">typeInPage</div>
-<div class="p-1.5 bg-indigo-900/30 rounded font-mono">handleDialog</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2 text-sm">🎯 Use Case: Build + Validate in One Loop</div>
-<div class="grid grid-cols-3 gap-2 text-xs">
-<div class="p-2 bg-purple-900/30 rounded text-center">
-<div class="font-bold text-purple-400 mb-1">1. Build</div>
-<div class="text-gray-300">Agent writes React component</div>
-</div>
-<div class="p-2 bg-purple-900/30 rounded text-center">
-<div class="font-bold text-purple-400 mb-1">2. Validate</div>
-<div class="text-gray-300">Agent opens browser, tests interaction</div>
-</div>
-<div class="p-2 bg-purple-900/30 rounded text-center">
-<div class="font-bold text-purple-400 mb-1">3. Iterate</div>
-<div class="text-gray-300">Fix → re-test autonomously</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="4"
+  pillIcon="🌐"
+  pillLabel="Security & UX"
+  title="Agentic Browser Tools (Experimental, v1.110)"
+  :columns='[
+    { icon: "🗺️", title: "Page Navigation", items: ["openBrowserPage", "navigatePage"] },
+    { icon: "📄", title: "Page Content", items: ["readPage", "screenshotPage"] },
+    { icon: "👆", title: "User Interaction", items: ["clickElement", "typeInPage", "handleDialog"] }
+  ]'
+  :insight='{ icon: "🎯", text: "Build + Validate in One Loop: Agent writes component → opens browser → tests interaction → fixes → re-tests autonomously." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Chat UX Improvements -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Security & UX</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Chat UX & Productivity Improvements</div>
-<div class="text-xs text-white/50">Model picker, contextual tips, integrated browser, external indexing</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-pink-800/20 rounded-xl border border-pink-500/30">
-<div class="font-bold text-pink-300 mb-2 text-sm">Model Picker Redesign (v1.110)</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-pink-900/30 rounded">Organized sections (Auto, Featured, Recent, Other)</div>
-<div class="p-1.5 bg-pink-900/30 rounded">Search box for large lists</div>
-<div class="p-1.5 bg-pink-900/30 rounded">Rich hover with model capabilities</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2 text-sm">Contextual Tips (v1.110)</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-purple-900/30 rounded">Feature discovery suggestions</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Based on your usage patterns</div>
-<div class="p-1.5 bg-purple-900/30 rounded">chat.tips.enabled</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
-<div class="font-bold text-indigo-300 mb-2 text-sm">Integrated Browser (v1.109)</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-indigo-900/30 rounded">Replaces limited Simple Browser</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Sign into websites</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Use DevTools</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Send elements to chat for AI assistance</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2 text-sm">External Indexing (v1.109)</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-blue-900/30 rounded">Non-GitHub workspaces can be remotely indexed</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Fast semantic search (#codebase)</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Same experience as GitHub repos</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="4"
+  pillIcon="🔒"
+  pillLabel="Security & UX"
+  title="Chat UX & Productivity Improvements"
+  :cards='[
+    { icon: "🔍", title: "Model Picker Redesign", description: "Organized sections (Auto, Featured, Recent, Other), search box for large lists, rich hover with model capabilities (v1.110)" },
+    { icon: "💡", title: "Contextual Tips", description: "Feature discovery suggestions based on your usage patterns. Toggle via chat.tips.enabled (v1.110)" },
+    { icon: "🌐", title: "Integrated Browser", description: "Replaces limited Simple Browser. Sign into websites, use DevTools, send elements to chat for AI assistance (v1.109)" },
+    { icon: "🔎", title: "External Indexing", description: "Non-GitHub workspaces can be remotely indexed. Fast semantic search via #codebase, same experience as GitHub repos (v1.109)" }
+  ]'
+/>
 
 ---
 

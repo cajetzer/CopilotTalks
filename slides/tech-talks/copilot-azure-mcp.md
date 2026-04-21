@@ -559,6 +559,7 @@ copilot /tools
     { icon: "🔒", title: "Benefits of Read-Only Mode", description: "Safe for production exploration, no risk of accidental deletion, ideal for team-wide enablement without governance concerns" },
     { icon: "⬆️", title: "Upgrade to Write", description: "Grant Contributor only on dev/staging subscriptions with cost guardrails — never on production" }
   ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -575,6 +576,7 @@ copilot /tools
     { icon: "🛣️", title: "Trust Building Path", description: "Stage 1: Reader on production. Stage 2: Contributor on dev. Stage 3: Contributor with peer review on staging. Stage 4: Production after governance setup." },
     { icon: "⚠️", title: "What to Resist", description: "Unrestricted production access without RBAC scoping, and deploying untrusted configs without peer review." }
   ]'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---

@@ -266,6 +266,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
   :before='{ header: "Weak — Inconsistent Results", items: ["No acceptance criteria — agent guesses done", "No scope — may change unintended files", "No context links — broad code search, missed files"] }'
   :after='{ header: "Effective — Consistent PRs", items: ["Testable acceptance criteria — pass/fail checkboxes", "Explicit scope sections: In and Out", "Context links + key files referenced", "Constraints naming patterns to follow"] }'
   :insight='{ icon: "💡", text: "4 elements of an effective issue: Criteria, Scope, Context, Constraints — each shapes the quality of the agent PR." }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
@@ -312,6 +313,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
     { icon: "📋", title: "Logs Visible", description: "Setup step logs appear in the Copilot session UI — environment debugging is straightforward" },
     { icon: "⚡", title: "Failure-Resilient", description: "If setup fails, agent continues and reports the failure in session log — setup errors do not silently block all work" }
   ]'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -385,6 +387,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
     { icon: "🤖", title: "Custom Review Agent", description: "Place in .github/agents/review-enforcer.md — returns mobile-optimized findings in under 300 words" },
     { icon: "⚡", title: "4 hr → 30 min", description: "Average PR wait time with mobile-enabled async reviews — no laptop required" }
   ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -398,6 +401,7 @@ highlight="The coding agent closes the gap between knowing and getting it done."
   :before='{ header: "Keep Human", items: ["Novel feature design requiring creative judgment", "Complex debugging (local environment required)", "Multi-repository coordination", "Architecture decisions and design exploration", "Windows-only tooling (agent runs Ubuntu)"] }'
   :after='{ header: "Delegate to Coding Agent", items: ["Dependency upgrades with clear migration path", "CRUD endpoint scaffolding from established patterns", "Documentation sync after refactoring", "Test coverage for flagged gaps", "Lint and style cleanup across files"] }'
   :insight='{ icon: "💡", text: "The core shift: developers handle work requiring design judgment; the agent handles well-understood, bounded, repeatable backlog tasks." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
