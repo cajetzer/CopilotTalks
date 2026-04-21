@@ -4,6 +4,25 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## agentic-workflows conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/agentic-workflows.md` promoted to 🟢 Conformed status.
+
+- **Slide 5** (Intent-Driven Automation) → `<FourCardGridSlide>` partNumber=1
+- **Slide 6** (The Shift) → `<BeforeAfterPanelsSlide>` partNumber=1
+- **Slide 8** (Three-Phase Architecture) → `<ThreeColumnCardSlide>` partNumber=2
+- **Slide 9** (Markdown to YAML Example) → `<CodeWithFeaturesSlide>` partNumber=2, codePosition=top, 3 metric chips as features
+- **Slide 10** (Execution Flow) → `<TwoColPairedConceptsSlide>` partNumber=2, 5-step items each side
+- **Slide 15** (Use Case — Issue Triage) → `<FourCardGridSlide>` partNumber=4
+- **Slide 16** (Mental Model Shift) → `<ThreeColumnCardSlide>` partNumber=4, string item arrays (8/6/5 items)
+- **Slides 12 & 14** kept raw HTML — 8 cards and 6 cards respectively; FourCardGridSlide limit is exactly 4
+
+**Build:** ✓ 2.65s, no errors.
+
+---
+
 ## copilot-plugins conformed (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

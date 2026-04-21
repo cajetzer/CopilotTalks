@@ -1,8 +1,8 @@
 # Deck: agentic-workflows
 
-**Status:** 🔵 Cataloged — conversion not yet started
+**Status:** � Conformed — build verified ✓
 **Deck file:** `slides/tech-talks/agentic-workflows.md`
-**Raw HTML slides:** 9 (out of 20 total)
+**Raw HTML slides converted:** 7 of 9 (slides 12, 14 kept raw — 8 and 6 cards respectively, exceed FourCardGridSlide limit of 4)
 
 ---
 

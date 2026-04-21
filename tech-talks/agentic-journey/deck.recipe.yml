@@ -10,8 +10,49 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Credibility → Insight → Payoff → Trust
+  # Dual-peak structure: Planning = intellectual peak (novel capability + approval gate anxiety-reducer);
+  # Coding = emotional peak (chain fires, issue → PR in 2 hours).
+  # Label state machine is the talk's visual spine — introduced in Intake, referenced at every section.
+  sectionOrder:
+    - "Agentic Intake"
+    - "Agentic Planning"
+    - "Agentic Coding"
+    - "Code Review"
+
+  sectionModes:
+    "Agentic Intake":
+      emphasis: medium
+      note: >
+        Introduce the label state machine as the talk's visual spine — shown once here,
+        referenced in every section — and land the low-risk entry ROI (20-30 min → 3 min)
+        to establish credibility fast.
+    "Agentic Planning":
+      emphasis: high
+      note: >
+        The intellectual peak: historical context mining is the capability audiences don't
+        expect; ±20% estimate accuracy is the talk's best ROI claim; the /approve-plan gate
+        is the anxiety-reduction moment for every skeptical manager in the room.
+    "Agentic Coding":
+      emphasis: high
+      note: >
+        The emotional climax: the chain fires — label state machine cascades from approved
+        plan to open PR in ~2 hours — this is the visceral payoff developers came for.
+    "Code Review":
+      emphasis: medium-high
+      note: >
+        The trust close — security, quality, and coverage gates answer "but is the code any
+        good?"; strip the Graduation subsection to a single forward-pointer slide so this
+        section lands cleanly without dilution.
+
   highlightMoments:
-    - Issue triage compresses 20-30 min → 3 min per issue (88% duplicate detection accuracy)
-    - Historical context planning compresses 2-4 hours → 15 min with ±20% estimate accuracy
-    - Implementation: 8-12 hours → 1-2 hours to PR from approved plans
-    - $7,000/month ROI from planning automation; $2,000/month from triage alone
+    - "Historical context search: planning agent mines similar past issues/PRs → ±20% estimate accuracy (vs ±50% without) — $7,000/month impact for 50-issue teams"
+    - "\"Chain fires\" timing: triage → approved plan → PR open in ~2 hours total vs 3-4 days manual — shown as the label state machine completing its full arc"
+    - "/approve-plan gate as safety valve: human approval required before any code is written — a feature, not a limitation; answers the \"handing over control\" concern directly"
+    - "85% of issue lifecycle automated when all 4 phases run — the full-stack ROI number for the manager audience"
+
+# OPEN DECISION: "Chain fires" placement —
+# (A) Standalone bridge slide between Coding and Code Review: maximum emotional impact,
+#     but risks Code Review feeling like a post-climax epilogue needing a re-engagement hook.
+# (B) Final slide of Agentic Coding section: cleaner structure, Code Review retains weight
+#     as a genuine trust-close, but the chain-fires moment competes for visual prominence.

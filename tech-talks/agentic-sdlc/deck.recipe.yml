@@ -10,8 +10,52 @@ deck:
   intro:
     mode: core-question
 
+  # Arc: Orient → Restructure → Govern → Trust
+  # AgentRC establishes shared language; three infrastructure sections deliver the
+  # "how to get there" blueprint. Implementation Roadmap surfaces inside Trust Manufacturing
+  # as a mini 3-phase close (L3→L4→L5) rather than a separate section.
+  sectionOrder:
+    - "AgentRC Maturity Model"
+    - "Repository Topology"
+    - "PR Workflows"
+    - "Trust Manufacturing"
+
+  sectionModes:
+    "AgentRC Maturity Model":
+      emphasis: medium
+      note: >
+        Compress to 3-4 slides: overview table + L3→L5 breakpoint only — the 5 individual
+        level slides replace insight with taxonomy; the breakpoint (where review habits
+        designed for 300 lines/day collapse at 15,000 lines/day) is the only slide that matters.
+    "Repository Topology":
+      emphasis: high
+      note: >
+        The coordination tax arithmetic is the talk's most concrete "whoa" moment — 3 repos
+        × 45-min CI = 3 days vs. monorepo's 45 min; give it a dedicated before/after slide
+        with the math front and center.
+    "PR Workflows":
+      emphasis: high
+      note: >
+        The governance pyramid inversion (22 manual gates → 4 human checkpoints + 90%
+        automated) is the architectural insight leaders need; ensure it lands before Trust
+        Manufacturing so it's not overshadowed by CI mechanics.
+    "Trust Manufacturing":
+      emphasis: medium-high
+      note: >
+        Expand "What You Can Do Today" into a mini Implementation Roadmap (Phase 1: reach
+        L3, Phase 2: reach L4, Phase 3: operate at L5) — the 3-phase rollout is what
+        architects take back to their teams and deserves more structure than a bullet list.
+
   highlightMoments:
-    - AgentRC maturity model (Levels 1-5) shows what each stage unlocks for automation and safety
-    - Level 5 breakpoint where PR systems fail when agent volume meets review limitations
-    - CI as a trust factory (sub-10-min checks, near-zero flake) enables autonomous delivery
-    - 100x throughput scaling from standardized delivery patterns to autonomous execution
+    - "Level 5 breakpoint: review habits designed for 300 lines/day collapse at 15,000 lines/day — scarcity shifts from writing code to trusting it at velocity"
+    - "Coordination tax arithmetic: 3 repos × (45-min CI + 4-hr review) = 3 days to production; monorepo makes it 45 minutes — same agent work, radically different wall time"
+    - "10-minute CI threshold: agents sit idle 80% of the time with 60-min CI, productive 95% with 8-min CI — the difference between 3 features/day and 15"
+    - "Governance pyramid inversion: 22 manual approval gates → 4 human checkpoints with 90% automated enforcement — review capacity scales from 300 to 15,000 lines/day per reviewer"
+    - "100x throughput result: 150 features/year → 3,600 — compounding effect of repo topology, PR governance, and CI trust manufacturing working together"
+
+# OPEN DECISION: Implementation Roadmap placement —
+# (A) Keep AgentRC as Section 1, surface Implementation Roadmap inside Trust Manufacturing's
+#     closing slides: architects get the rollout plan but it never gets named slide real estate.
+# (B) Swap Section 4 to "Implementation Roadmap," move AgentRC context to pre-ToC intro slides:
+#     talk ends on a planning frame (stronger for leaders), slightly weaker for engineers who
+#     want to see the infrastructure answer before the rollout plan.

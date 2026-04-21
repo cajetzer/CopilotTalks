@@ -26,6 +26,11 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -84,139 +89,50 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 ---
 
 <!-- SLIDE: Intent-Driven Automation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 The Opportunity</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="text-lg font-bold text-white mb-0.5">What's Now Possible</div>
-<div class="text-xs text-white/50">AI-powered repository automation that adapts to context</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mb-3">
-<div class="space-y-3">
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-lg font-bold text-cyan-300 mb-2">Intent-Driven Automation</div>
-<div class="text-sm text-gray-300">Describe desired outcomes in Markdown, not implementation steps</div>
-<div class="text-xs text-cyan-400/70 mt-2 font-mono">"Triage new issues based on content"</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-lg font-bold text-blue-300 mb-2">Security-First Design</div>
-<div class="text-sm text-gray-300">Sandboxed agents with read-only access by default</div>
-<div class="text-xs text-blue-400/70 mt-2">Write operations require explicit "safe outputs"</div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-lg font-bold text-indigo-300 mb-2">Adaptive Intelligence</div>
-<div class="text-sm text-gray-300">Make decisions based on repository state and context</div>
-<div class="text-xs text-indigo-400/70 mt-2">Understand code structure, issue context, PR relationships</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
-<div class="text-lg font-bold text-purple-300 mb-2">Continuous Improvement</div>
-<div class="text-sm text-gray-300">Daily automated enhancements that compound over time</div>
-<div class="text-xs text-purple-400/70 mt-2">Code simplifications, docs updates, metric tracking</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30">
-<div class="text-xs"><span class="font-bold text-cyan-300">🎯 Key Insight:</span> <span class="text-white/80">Agentic workflows let you describe what you want, not how to do it — AI handles the implementation within safe, sandboxed boundaries</span></div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🎯"
+  pillLabel="The Opportunity"
+  title="What's Now Possible"
+  :cards='[
+    { icon: "📝", title: "Intent-Driven Automation", description: "Describe desired outcomes in Markdown, not implementation steps" },
+    { icon: "🔐", title: "Security-First Design", description: "Sandboxed agents with read-only access by default — write requires explicit declaration" },
+    { icon: "🎯", title: "Adaptive Intelligence", description: "Make decisions based on repository state: code structure, issue context, PR relationships" },
+    { icon: "🔄", title: "Continuous Improvement", description: "Daily automated enhancements that compound over time — code simplifications, docs updates" }
+  ]'
+  :insight='{ icon: "🎯", text: "Agentic workflows let you describe what you want, not how to do it — AI handles the implementation within safe, sandboxed boundaries." }'
+/>
 
 ---
 
 <!-- SLIDE: The Shift -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 The Shift</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-8 h-full">
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30 flex-1">
-<div class="text-xl font-bold text-red-300 mb-3">❌ Prescriptive Automation</div>
-<div class="space-y-2 text-sm text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Write exact steps in YAML</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Account for every branch and edge case</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Update workflow when requirements change</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Deterministic: same input → same output</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Can't adapt to context or make judgments</div>
-</div>
-</div>
-<div class="mt-4 p-3 bg-red-950/50 rounded-lg border border-red-500/20">
-<div class="text-xs font-mono text-red-300">Complex YAML, brittle logic, constant maintenance</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30 flex-1">
-<div class="text-xl font-bold text-green-300 mb-3">✅ Intent-Driven Automation</div>
-<div class="space-y-2 text-sm text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Describe desired outcome in natural language</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>AI adapts to repository context</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Workflow learns from repository state</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Context-sensitive: AI decides best path</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Judgment calls based on code, issues, PRs</div>
-</div>
-</div>
-<div class="mt-4 p-3 bg-green-950/50 rounded-lg border border-green-500/20">
-<div class="text-xs font-mono text-green-300">Write what, not how — AI figures out the path</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="1"
+  pillIcon="🔄"
+  pillLabel="The Shift"
+  title="From Prescriptive to Intent-Driven Automation"
+  :before='{
+    header: "Prescriptive Automation",
+    items: [
+      "Write exact steps in YAML",
+      "Account for every branch and edge case",
+      "Update workflow when requirements change",
+      "Deterministic: same input, same output",
+      "Cannot adapt to context or make judgments"
+    ]
+  }'
+  :after='{
+    header: "Intent-Driven Automation",
+    items: [
+      "Describe desired outcome in natural language",
+      "AI adapts to repository context",
+      "Workflow learns from repository state",
+      "Context-sensitive: AI decides best path",
+      "Judgment calls based on code, issues, PRs"
+    ]
+  }'
+  :insight='{ icon: "💡", text: "Write what, not how — AI figures out the path within safe, sandboxed boundaries." }'
+/>
 
 ---
 
@@ -237,272 +153,71 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 ---
 
 <!-- SLIDE: Three-Phase Architecture -->
-
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Core Architecture</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="text-lg font-bold text-white mb-0.5">How Agentic Workflows Execute</div>
-<div class="text-xs text-white/50">Three distinct phases from authoring to execution</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-4 h-full">
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30 flex-1">
-<div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-300 font-bold">1</div>
-<div class="text-lg font-bold text-cyan-300">Authoring</div>
-</div>
-<div class="space-y-2 text-sm text-gray-300">
-<div class="text-xs text-cyan-400 font-semibold mb-1">Markdown + Frontmatter</div>
-<div class="flex items-start gap-2">
-<div class="text-cyan-400 mt-0.5">•</div>
-<div>Triggers (schedule, events)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-cyan-400 mt-0.5">•</div>
-<div>Read-only permissions</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-cyan-400 mt-0.5">•</div>
-<div>Safe-output declarations</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-cyan-400 mt-0.5">•</div>
-<div>Natural language instructions</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-cyan-950/50 rounded border border-cyan-500/20">
-<div class="text-xs font-mono text-cyan-300">.github/workflows/triage.md</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 flex-1">
-<div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">2</div>
-<div class="text-lg font-bold text-blue-300">Compilation</div>
-</div>
-<div class="space-y-2 text-sm text-gray-300">
-<div class="text-xs text-blue-400 font-semibold mb-1">gh aw compile</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">•</div>
-<div>Parse frontmatter & body</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">•</div>
-<div>Generate secure YAML</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">•</div>
-<div>Agent job (read-only)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">•</div>
-<div>Handler jobs (minimal write)</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-blue-950/50 rounded border border-blue-500/20">
-<div class="text-xs font-mono text-blue-300">triage.lock.yml</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30 flex-1">
-<div class="flex items-center gap-2 mb-3">
-<div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-300 font-bold">3</div>
-<div class="text-lg font-bold text-indigo-300">Execution</div>
-</div>
-<div class="space-y-2 text-sm text-gray-300">
-<div class="text-xs text-indigo-400 font-semibold mb-1">When triggered</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">•</div>
-<div>Agent explores repo</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">•</div>
-<div>Produces JSON output</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">•</div>
-<div>Handlers validate & sanitize</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">•</div>
-<div>Execute approved ops</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-indigo-950/50 rounded border border-indigo-500/20">
-<div class="text-xs font-mono text-indigo-300">Audit trail markers</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="2"
+  pillIcon="🏗️"
+  pillLabel="Core Architecture"
+  title="How Agentic Workflows Execute"
+  :columns='[
+    { icon: "1️⃣", title: "Authoring", description: "Define workflows in Markdown with frontmatter triggers and safe-output declarations", items: ["Triggers: schedule, events", "Read-only permissions", "Safe-output declarations", "Natural language instructions"] },
+    { icon: "2️⃣", title: "Compilation", description: "gh aw compile parses the Markdown and generates a secure YAML lock file", items: ["Parse frontmatter & body", "Generate secure YAML", "Agent job (read-only)", "Handler jobs (minimal write)"] },
+    { icon: "3️⃣", title: "Execution", description: "Agent explores repo context, outputs JSON, handlers validate and execute", items: ["Agent explores repo", "Produces JSON output", "Handlers validate & sanitize", "Execute approved ops"] }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: Markdown to YAML Example -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Core Architecture</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Workflow Example</div>
-<div class="text-xs text-white/50">Simple issue triage workflow in Markdown</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30 flex flex-col flex-1 min-h-0">
-<div class="bg-gray-950/80 border border-gray-700/50 rounded-lg p-3 font-mono text-xs leading-relaxed flex-1 min-h-0 overflow-y-auto">
-<div class="text-gray-500">&#45;&#45;&#45;</div>
-<div><span class="text-blue-400">on</span><span class="text-gray-300">:</span></div>
-<div class="ml-4"><span class="text-blue-300">issues</span><span class="text-gray-300">:</span></div>
-<div class="ml-8 text-gray-300">types: [opened]</div>
-<div><span class="text-blue-400">permissions</span><span class="text-gray-300">:</span></div>
-<div class="ml-4 text-gray-300">contents: read</div>
-<div class="ml-4 text-gray-300">issues: write</div>
-<div><span class="text-blue-400">safe-outputs</span><span class="text-gray-300">:</span></div>
-<div class="ml-4"><span class="text-blue-300">add-labels</span><span class="text-gray-300">:</span></div>
-<div class="ml-8 text-gray-300">allowed: [bug, feature, docs]</div>
-<div class="ml-8 text-gray-300">max: 3</div>
-<div class="text-gray-500">&#45;&#45;&#45;</div>
-<div class="mt-2 text-purple-400 font-semibold">## Issue Triage Workflow</div>
-<div class="text-gray-400">Analyze new issues and apply appropriate labels.</div>
-<div class="mt-1 text-cyan-400">### Instructions</div>
-<div class="text-gray-300">1. Read the issue title and body</div>
-<div class="text-gray-300">2. Identify the issue type</div>
-<div class="text-gray-300">3. Apply 1-3 relevant labels</div>
-<div class="text-gray-300">4. If unclear, ask for clarification</div>
-</div>
-<div class="mt-2 grid grid-cols-3 gap-3 text-xs">
-<div class="p-2 bg-cyan-950/50 rounded border border-cyan-500/20">
-<div class="text-cyan-300 font-semibold mb-1">Trigger</div>
-<div class="text-gray-300">New issues only</div>
-</div>
-<div class="p-2 bg-blue-950/50 rounded border border-blue-500/20">
-<div class="text-blue-300 font-semibold mb-1">Security</div>
-<div class="text-gray-300">Read-only + labels</div>
-</div>
-<div class="p-2 bg-indigo-950/50 rounded border border-indigo-500/20">
-<div class="text-indigo-300 font-semibold mb-1">Intent</div>
-<div class="text-gray-300">Natural language</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="2"
+  pillIcon="🏗️"
+  pillLabel="Core Architecture"
+  title="Workflow Example: Simple Issue Triage in Markdown"
+  codePosition="top"
+  :code='{
+    language: "yaml",
+    filename: ".github/workflows/triage.md",
+    content: "---\non:\n  issues:\n    types: [opened]\npermissions:\n  contents: read\n  issues: write\nsafe-outputs:\n  add-labels:\n    allowed: [bug, feature, docs]\n    max: 3\n---\n\n## Issue Triage Workflow\nAnalyze new issues and apply appropriate labels.\n\n### Instructions\n1. Read the issue title and body\n2. Identify the issue type\n3. Apply 1-3 relevant labels\n4. If unclear, ask for clarification"
+  }'
+  :features='[
+    { icon: "⚡", title: "Trigger", description: "Fires on issues: [opened] — new issues only" },
+    { icon: "🔒", title: "Security", description: "Read-only access by default, add-labels safe output with max 3 limit" },
+    { icon: "📝", title: "Intent", description: "Natural language instructions: read issue, identify type, apply labels" }
+  ]'
+/>
 
 ---
 
 <!-- SLIDE: Execution Flow -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ Execution Flow</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Secure Execution Model</div>
-<div class="text-xs text-white/50">Separation of concerns: AI decides, handlers execute</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-base font-bold text-blue-300 mb-2">🤖 Agent Job (Read-Only)</div>
-<div class="space-y-1.5 text-sm text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">1.</div>
-<div>Spin up isolated container</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">2.</div>
-<div>Load AI agent (Copilot, Claude, etc.)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">3.</div>
-<div>Provide instructions & read-only tools</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">4.</div>
-<div>Agent explores repository context</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400 mt-0.5">5.</div>
-<div>Produces structured JSON output</div>
-</div>
-</div>
-<div class="mt-2 p-2 bg-blue-950/50 rounded border border-blue-500/20">
-<div class="text-xs font-mono text-blue-300">Zero write access</div>
-</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-base font-bold text-indigo-300 mb-2">✅ Safe-Output Handlers</div>
-<div class="space-y-1.5 text-sm text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">1.</div>
-<div>Receive agent's JSON output</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">2.</div>
-<div>Validate schema & permissions</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">3.</div>
-<div>Sanitize inputs (escape XML, validate URLs)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">4.</div>
-<div>Enforce limits (max ops, expiration)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-indigo-400 mt-0.5">5.</div>
-<div>Execute approved operations & log</div>
-</div>
-</div>
-<div class="mt-2 p-2 bg-indigo-950/50 rounded border border-indigo-500/20">
-<div class="text-xs font-mono text-indigo-300">Minimal write permissions</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="⚡"
+  pillLabel="Execution Flow"
+  title="Secure Execution Model: AI Decides, Handlers Execute"
+  :left='{
+    header: "Agent Job (Read-Only)",
+    icon: "🤖",
+    items: [
+      { title: "1. Spin up isolated container", detail: "Sandboxed environment, no write access" },
+      { title: "2. Load AI agent", detail: "Copilot, Claude, or compatible model" },
+      { title: "3. Provide read-only tools", detail: "Repository exploration only" },
+      { title: "4. Agent explores repo context", detail: "Code, issues, PRs, history" },
+      { title: "5. Produces structured JSON output", detail: "Decision handed to handlers" }
+    ]
+  }'
+  :right='{
+    header: "Safe-Output Handlers",
+    icon: "✅",
+    items: [
+      { title: "1. Receive agent JSON output", detail: "Structured decision from read-only agent" },
+      { title: "2. Validate schema & permissions", detail: "Schema check before any action" },
+      { title: "3. Sanitize inputs", detail: "Escape XML, validate URLs, check domains" },
+      { title: "4. Enforce limits", detail: "Max operations, expiration, rate limits" },
+      { title: "5. Execute approved operations", detail: "Log every action with audit markers" }
+    ]
+  }'
+  :insight='{ icon: "🔒", text: "Zero write access for the agent — only validated handlers touch the repository." }'
+/>
 
 ---
 
@@ -677,238 +392,35 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 ---
 
 <!-- SLIDE: Use Case — Issue Triage -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💡 Real-World Use Case</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="text-lg font-bold text-white mb-0.5">Issue Triage Automation</div>
-<div class="text-xs text-white/50">Automatic consistent labeling based on content analysis</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-3">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
-<div class="text-base font-bold text-red-300 mb-2">❌ The Problem</div>
-<div class="space-y-1.5 text-sm text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Dozens of new issues weekly</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Manual labeling is tedious</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Inconsistent categorization</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Maintainers waste time on admin</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
-<div class="text-base font-bold text-purple-300 mb-2">📝 The Workflow</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-purple-400 font-mono">on:</div>
-<div>issues: [opened]</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-purple-400 font-mono">safe-outputs:</div>
-<div>add-labels (max: 3)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-purple-400 font-mono">instructions:</div>
-<div>Read issue, identify type, apply labels</div>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="text-base font-bold text-green-300 mb-2">✅ The Value</div>
-<div class="space-y-1.5 text-sm text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Instant triage on every issue</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Consistent labeling patterns</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Maintainers focus on substance</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Context-aware decisions</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-base font-bold text-blue-300 mb-2">🔍 Example Decisions</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex items-start gap-2">
-<div class="text-blue-400">→</div>
-<div>"App crashes on startup" → <span class="text-red-400">bug</span></div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400">→</div>
-<div>"Add dark mode" → <span class="text-green-400">feature</span></div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400">→</div>
-<div>"How do I configure X?" → <span class="text-yellow-400">question</span>, <span class="text-purple-400">docs</span></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-xs"><span class="font-bold text-purple-300">🎯 Key Insight:</span> <span class="text-white/80">Agentic workflows turn tedious admin into instant, consistent automation — maintainers focus on substance while AI handles categorization</span></div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="4"
+  pillIcon="💡"
+  pillLabel="Real-World Use Case"
+  title="Issue Triage Automation"
+  :cards='[
+    { icon: "❌", title: "The Problem", description: "Dozens of new issues weekly, manual labeling is tedious, inconsistent categorization wastes maintainer time" },
+    { icon: "📝", title: "The Workflow", description: "Trigger: issues opened. Safe-outputs: add-labels (max 3). Natural language instructions to read issue and apply labels" },
+    { icon: "✅", title: "The Value", description: "Instant triage on every issue, consistent labeling patterns, maintainers focus on substance not admin" },
+    { icon: "🔍", title: "Example Decisions", description: "App crashes on startup → bug. Add dark mode → feature. How do I configure X? → question, docs" }
+  ]'
+  :insight='{ icon: "🎯", text: "Agentic workflows turn tedious admin into instant, consistent automation — maintainers focus on substance while AI handles categorization." }'
+/>
 
 ---
 
 <!-- SLIDE: Mental Model Shift -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 Mental Model Shift</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="text-lg font-bold text-white mb-0.5">Core Insight</div>
-<div class="text-xs text-white/50">From scripted steps to adaptive intent</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 mb-5">
-<div class="text-xl font-bold text-cyan-300 mb-3 text-center">
-Express intent without implementation details — AI adapts to repository context
-</div>
-</div>
-
-<div class="grid grid-cols-3 gap-4">
-<div>
-<div class="text-sm font-bold text-green-400 mb-2">✅ Move Toward</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Natural language instructions</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Context-aware decisions</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Read-only by default</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Safe-output validation</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Human-in-the-loop (draft PRs)</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Specialized workflows</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Continuous improvement</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-green-400 mt-0.5">•</div>
-<div>Meta-workflows</div>
-</div>
-</div>
-</div>
-<div>
-<div class="text-sm font-bold text-yellow-400 mb-2">⚠️ Move Away From</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex items-start gap-1.5">
-<div class="text-yellow-400 mt-0.5">•</div>
-<div>Complex YAML workflows</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-yellow-400 mt-0.5">•</div>
-<div>Deterministic-only logic</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-yellow-400 mt-0.5">•</div>
-<div>Manual triage & coordination</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-yellow-400 mt-0.5">•</div>
-<div>One-size-fits-all agents</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-yellow-400 mt-0.5">•</div>
-<div>Unlimited agent permissions</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-yellow-400 mt-0.5">•</div>
-<div>Set-and-forget automation</div>
-</div>
-</div>
-</div>
-<div>
-<div class="text-sm font-bold text-red-400 mb-2">🛑 Stop Doing</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="flex items-start gap-1.5">
-<div class="text-red-400 mt-0.5">•</div>
-<div>AI direct write access</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Ignoring noop pattern</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Skipping lock file compilation</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Manually editing lock files</div>
-</div>
-<div class="flex items-start gap-1.5">
-<div class="text-red-400 mt-0.5">•</div>
-<div>Triggering on every commit</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="4"
+  pillIcon="🧠"
+  pillLabel="Mental Model Shift"
+  title="Core Insight: Express Intent, Let AI Adapt"
+  :columns='[
+    { icon: "✅", title: "Move Toward", items: ["Natural language instructions", "Context-aware decisions", "Read-only by default", "Safe-output validation", "Human-in-the-loop (draft PRs)", "Specialized workflows", "Continuous improvement", "Meta-workflows"] },
+    { icon: "⚠️", title: "Move Away From", items: ["Complex YAML workflows", "Deterministic-only logic", "Manual triage & coordination", "One-size-fits-all agents", "Unlimited agent permissions", "Set-and-forget automation"] },
+    { icon: "🛑", title: "Stop Doing", items: ["AI direct write access", "Ignoring noop pattern", "Skipping lock file compilation", "Manually editing lock files", "Triggering on every commit"] }
+  ]'
+  :insight='{ icon: "💡", text: "Express intent without implementation details — AI adapts to repository context." }'
+/>
 
 ---
 

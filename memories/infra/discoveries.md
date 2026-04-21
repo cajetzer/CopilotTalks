@@ -4,6 +4,20 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## YAML `---` frontmatter delimiters are safe inside JS string prop bindings (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+When a code slide contains YAML with `---` frontmatter delimiters (e.g. a Markdown workflow file with `---`/`---` wrapping), those are **safe inside a `:code='...'` JS string binding** because they are within quotes, not bare lines in the Markdown document.
+
+Only bare `---` lines on their own line in the Markdown file act as Slidev slide separators. Once wrapped in a JS string (e.g. `content: "---\non:\n  issues:..."`) the dashes are just string content.
+
+**No `&#45;&#45;&#45;` escaping needed** when the `---` appears inside a prop value string. `&#45;&#45;&#45;` is only needed when `---` appears as raw Markdown content in a slide body that would otherwise be parsed as a separator.
+
+**Confirmed in:** `agentic-workflows.md` slide 9 (Markdown to YAML Example — triage workflow with YAML frontmatter block).
+
+---
+
 ## `&#34;` and `&quot;` are forbidden inside ANY prop value, not just single-quoted arrays (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`
