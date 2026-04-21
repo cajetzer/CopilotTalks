@@ -9,7 +9,7 @@ A repeatable playbook for converting raw inline HTML slides in any tech-talk dec
 
 | Deck | Status | Raw slides | Working file |
 |---|---|---|---|
-| `copilot-cli` | 🔵 Cataloged | 25 | [plan-decks/copilot-cli.md](plan-decks/copilot-cli.md) |
+| `copilot-cli` | � Conformed | 25 | [plan-decks/copilot-cli.md](plan-decks/copilot-cli.md) |
 | `agent-teams` | � Cataloged | 14 | [plan-decks/agent-teams.md](plan-decks/agent-teams.md) |
 | `agentic-journey` | � Conformed | 11 | [plan-decks/agentic-journey.md](plan-decks/agentic-journey.md) |
 | `agentic-sdlc` | � Conformed | 16 | [plan-decks/agentic-sdlc.md](plan-decks/agentic-sdlc.md) |

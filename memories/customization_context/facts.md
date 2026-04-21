@@ -68,6 +68,44 @@ Slides 15 and 16 are genuinely bespoke; do not attempt to force them into existi
 
 ---
 
+## copilot-cli deck: conformance state as of 2026-04-22
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`slides/tech-talks/copilot-cli.md` is 🟢 Conformed. Build verified exit code 0.
+
+13 slides converted; 8 kept raw HTML by design.
+
+| Slide | Name | Component | progressDots |
+|---|---|---|---|
+| 7 | Plan Mode: The Fundamental Shift | `BeforeAfterPanelsSlide` | 1/6 cyan |
+| 9 | Real-Time Steering | `TwoColPairedConceptsSlide` | 3/6 cyan |
+| 11 | Operating Modes | `FourCardGridSlide` | 5/6 cyan |
+| 14 | Built-in Agents | `FourCardGridSlide` | 1/6 blue |
+| 15 | /fleet Fan-Out | `CodeWithFeaturesSlide` (left) | 2/6 blue |
+| 16 | Cloud Delegation | `CodeWithFeaturesSlide` (left) | 3/6 blue |
+| 18 | Extensibility | `ThreeColumnCardSlide` | 5/6 blue |
+| 19 | Mental Model Shift | `BeforeAfterPanelsSlide` | 6/6 blue |
+| 21 | How --remote Works | `CodeWithFeaturesSlide` (left) | 1/4 indigo |
+| 22 | Why --remote Matters | `ThreeColumnCardSlide` | 2/4 indigo |
+| 26 | Log Forensics | `CodeWithFeaturesSlide` (left) | 1/3 purple |
+| 27 | Infra Patrol & Multi-Machine | `TwoColPairedConceptsSlide` | 2/3 purple |
+| 28 | GitHub.com Integration | `FourCardGridSlide` | 3/3 purple |
+
+**Kept raw HTML (8 slides):**
+- Slide 4: Distance Model — `ConceptStackSlide` not yet built
+- Slide 5: The 84% Problem — hero stat variant, no matching component
+- Slide 8: Docker Debugging Demo — terminal block demo slide
+- Slide 10: Reasoning Models — 4-tier header layout, bespoke
+- Slide 12: CI/CD Automation — terminal block demo slide
+- Slide 17: Context Management — asymmetric layout, no matching component
+- Slide 23: Combination Patterns — `ConceptStackSlide` not yet built
+- Slide 24: Walking-to-Meeting Demo — terminal block demo slide
+
+**Do NOT touch:** ReferencesSlide (user constraint), ThankYouSlide, BeforeAfterSlide, WhatYouCanDoTodaySlide — all already use components.
+
+---
+
 ## copilot-plugins framing: CLI-first, personal vs team infrastructure distinction (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`

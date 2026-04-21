@@ -4,7 +4,28 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
-## copilot-azure-mcp conformed (2026-04-21)
+## copilot-cli conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-cli.md` promoted to 🟢 Conformed status. 13 slides converted, 8 kept raw HTML. Build: ✓ 2.89s, exit 0.
+
+**Converted:**
+- Slides 7, 19 → `<BeforeAfterPanelsSlide>` (Parts 1, 2)
+- Slides 9, 27 → `<TwoColPairedConceptsSlide>` (Parts 1, 4)
+- Slides 11, 14, 28 → `<FourCardGridSlide>` (Parts 1, 2, 4)
+- Slides 15, 16, 21, 26 → `<CodeWithFeaturesSlide>` codePosition=left (Parts 2, 2, 3, 4)
+- Slides 18, 22 → `<ThreeColumnCardSlide>` (Parts 2, 3)
+
+**Kept raw HTML (8 slides):** Slides 4 (Distance Model — stacked rows, ConceptStackSlide needed), 5 (84% Problem — hero-stat layout), 8 (Docker Demo — terminal block), 10 (Reasoning Models — 4-tier header), 12 (CI/CD Demo — terminal block), 17 (Context Management — asymmetric layout), 23 (Combination Patterns — ConceptStackSlide needed), 24 (Walking-to-Meeting Demo — terminal block).
+
+**User constraint:** ReferencesSlide must not be touched — leave as-is.
+
+**No new conversion gotchas** — all replacements matched cleanly. This deck had no orphan HTML issues. Adjacent-slide rule observed throughout.
+
+---
+
+
 
 `schema_version: 1` | `date: 2026-04-21`
 
