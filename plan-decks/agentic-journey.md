@@ -1,7 +1,7 @@
 # Deck: agentic-journey
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/agentic-journey.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/agentic-journey.md`
 **Raw HTML slides:** 11 (all body content slides; structural slots already correct)
 
 ---

@@ -1,7 +1,7 @@
 # Deck: copilot-hooks
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/copilot-hooks.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/copilot-hooks.md`
 **Raw HTML slides:** 15 (out of 26 total)
 
 ---

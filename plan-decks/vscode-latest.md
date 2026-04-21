@@ -1,7 +1,7 @@
 # Deck: vscode-latest
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/vscode-latest.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/vscode-latest.md`
 **Raw HTML slides:** 14 (out of 25 total)
 
 ---

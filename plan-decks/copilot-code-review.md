@@ -1,7 +1,7 @@
 # Deck: copilot-code-review
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/copilot-code-review.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/copilot-code-review.md`
 **Raw HTML slides:** 14 (out of 25 total)
 
 ---

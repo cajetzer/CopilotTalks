@@ -1,7 +1,7 @@
 # Deck: copilot-azure-mcp
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/copilot-azure-mcp.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/copilot-azure-mcp.md`
 **Raw HTML slides:** 11 (out of 22 total)
 
 ---

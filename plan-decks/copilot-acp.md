@@ -1,7 +1,7 @@
 # Deck: copilot-acp
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/copilot-acp.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/copilot-acp.md`
 **Raw HTML slides:** 10 (out of 25 total)
 
 ---

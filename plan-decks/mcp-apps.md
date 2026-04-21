@@ -1,7 +1,7 @@
 # Deck: mcp-apps
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/mcp-apps.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/mcp-apps.md`
 **Raw HTML slides:** 15 (out of 26 total)
 
 ---

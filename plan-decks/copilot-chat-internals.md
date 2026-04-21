@@ -1,7 +1,7 @@
 # Deck: copilot-chat-internals
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/copilot-chat-internals.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/copilot-chat-internals.md`
 **Raw HTML slides:** 10 (out of 20 total)
 
 ---

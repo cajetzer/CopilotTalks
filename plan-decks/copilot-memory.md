@@ -1,7 +1,7 @@
 # Deck: copilot-memory
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/copilot-memory.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/copilot-memory.md`
 **Raw HTML slides:** 13 (out of 24 total)
 
 ---

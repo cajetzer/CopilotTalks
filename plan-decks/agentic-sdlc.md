@@ -1,7 +1,7 @@
 # Deck: agentic-sdlc
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/agentic-sdlc.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/agentic-sdlc.md`
 **Raw HTML slides:** 16 (out of 27 total)
 
 ---

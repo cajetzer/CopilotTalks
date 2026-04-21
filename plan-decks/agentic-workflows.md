@@ -1,7 +1,7 @@
 # Deck: agentic-workflows
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/agentic-workflows.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/agentic-workflows.md`
 **Raw HTML slides:** 9 (out of 20 total)
 
 ---

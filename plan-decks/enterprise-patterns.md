@@ -1,7 +1,7 @@
 # Deck: enterprise-patterns
 
-**Status:** 🔵 Cataloged — conversion not yet started  
-**Deck file:** `slides/tech-talks/enterprise-patterns.md`  
+**Status:** 🔵 Cataloged — conversion not yet started
+**Deck file:** `slides/tech-talks/enterprise-patterns.md`
 **Raw HTML slides:** 11 (out of 22 total)
 
 ---
