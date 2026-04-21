@@ -26,6 +26,10 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -425,113 +429,30 @@ highlight="The bottleneck shifts from writing to reviewing — and your infrastr
 ---
 
 <!-- SLIDE: Monorepo Default for Agent Velocity -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Repository Topology</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">🏗️ Monorepo: Default for Agent Velocity</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border-2 border-green-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">✅</div>
-<div class="font-bold text-green-300 text-sm">Monorepo Benefits</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-green-900/30 rounded"><span class="font-bold text-green-400">Atomic changes:</span> API + 7 call sites in 1 PR, not 8</div>
-<div class="p-1.5 bg-green-900/30 rounded"><span class="font-bold text-green-400">Agent navigation:</span> grep instead of GitHub search</div>
-<div class="p-1.5 bg-green-900/30 rounded"><span class="font-bold text-green-400">Shared patterns:</span> Local imports, no "which version?"</div>
-<div class="p-1.5 bg-green-900/30 rounded"><span class="font-bold text-green-400">Unified CI:</span> Consistent standards, shared cache</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-orange-900/30 to-orange-800/20 rounded-xl border-2 border-orange-500/30">
-<div class="text-center mb-2">
-<div class="text-xl">⚡</div>
-<div class="font-bold text-orange-300 text-sm">Multi-Repo: Only When Needed</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="p-1.5 bg-orange-900/30 rounded">Hard access boundaries (PCI-regulated payment)</div>
-<div class="p-1.5 bg-orange-900/30 rounded">Independent lifecycles (mobile vs web, truly separate)</div>
-<div class="p-1.5 bg-orange-900/30 rounded">Regulatory mandates (physical separation required)</div>
-<div class="p-1.5 bg-orange-900/30 rounded">Organizational constraints (acquired company, temporary)</div>
-</div>
-</div>
-</div>
-<div class="mt-2 p-3 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-lg text-center">
-<span class="text-white font-bold text-sm">🎯 Decision Rule: If agents touch >1 repo for >30% of features → consolidate to monorepo</span>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="🏗️"
+  pillLabel="Repository Topology"
+  title="Monorepo: Default for Agent Velocity"
+  :left='{ header: "✅ Monorepo Benefits", items: ["Atomic changes: API + 7 call sites in 1 PR, not 8", "Agent navigation: grep instead of GitHub search", "Shared patterns: local imports, no \"which version?\"", "Unified CI: consistent standards, shared cache"] }'
+  :right='{ header: "⚡ Multi-Repo: Only When Needed", items: ["Hard access boundaries (PCI-regulated payment)", "Independent lifecycles (mobile vs web, truly separate)", "Regulatory mandates (physical separation required)", "Organizational constraints (acquired company, temporary)"] }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  insight="🎯 Decision Rule: If agents touch >1 repo for >30% of features → consolidate to monorepo"
+/>
 
 ---
 
 <!-- SLIDE: The Coordination Tax -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Repository Topology</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">💸 The Coordination Tax</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-4">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
-<div class="font-bold text-red-300 mb-2 text-sm">❌ Before — Polyrepo</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="p-1.5 bg-red-900/20 rounded">Feature touches 3 repos</div>
-<div class="p-1.5 bg-red-900/20 rounded">45-minute CI in each repo</div>
-<div class="p-1.5 bg-red-900/20 rounded">Reviews happen in sequence, not parallel</div>
-<div class="p-1.5 bg-red-900/20 rounded">Contract mismatch discovered late</div>
-<div class="p-1.5 bg-red-900/20 rounded">Deploy ordering becomes a coordination meeting</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-xl border border-emerald-500/30">
-<div class="font-bold text-emerald-300 mb-2 text-sm">✅ After — Monorepo</div>
-<div class="space-y-1.5 text-xs text-gray-300">
-<div class="p-1.5 bg-emerald-900/20 rounded">One atomic PR across all modules</div>
-<div class="p-1.5 bg-emerald-900/20 rounded">8-minute affected-only CI</div>
-<div class="p-1.5 bg-emerald-900/20 rounded">20-minute outcome review</div>
-<div class="p-1.5 bg-emerald-900/20 rounded">One deployment path</div>
-<div class="p-1.5 bg-emerald-900/20 rounded">Rollback is a single motion</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-3 gap-3 text-center">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-400 font-bold text-xl">3-5 days → 4-6 hrs</div>
-<div class="text-xs text-white/50 mt-1">Time to production</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-400 font-bold text-xl">60 min → 8 min</div>
-<div class="text-xs text-white/50 mt-1">CI on affected paths</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-400 font-bold text-xl">40% → 5%</div>
-<div class="text-xs text-white/50 mt-1">Developer coordination time</div>
-</div>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="2"
+  pillIcon="🏗️"
+  pillLabel="Repository Topology"
+  title="The Coordination Tax"
+  :before='{ header: "Before — Polyrepo", items: ["Feature touches 3 repos", "45-minute CI in each repo", "Reviews happen in sequence, not parallel", "Contract mismatch discovered late", "Deploy ordering becomes a coordination meeting"] }'
+  :after='{ header: "After — Monorepo", items: ["One atomic PR across all modules", "8-minute affected-only CI", "20-minute outcome review", "One deployment path", "Rollback is a single motion"] }'
+  :metrics='[{ value: "3-5 days → 4-6 hrs", label: "Time to production" }, { value: "60 min → 8 min", label: "CI on affected paths" }, { value: "40% → 5%", label: "Coordination time" }]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 ---
 
 <!-- SLIDE: Enforced Module Boundaries -->
@@ -606,55 +527,16 @@ export class PaymentProcessor {}
 ---
 
 <!-- SLIDE: The Economic Shift -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 PR Workflows</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">💰 The Economic Shift</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border-2 border-red-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">⚠️</div>
-<div class="font-bold text-red-300">Level 3 Scarcity</div>
-</div>
-<div class="space-y-2 text-sm">
-<div class="p-2 bg-red-900/30 rounded">Developer time to write code</div>
-<div class="p-2 bg-red-900/30 rounded">Code quality (bugs in implementation)</div>
-<div class="p-2 bg-red-900/30 rounded">Implementation speed</div>
-<div class="p-2 bg-red-900/30 rounded">Review thoroughness</div>
-</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-xl border-2 border-emerald-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">✨</div>
-<div class="font-bold text-emerald-300">Level 5 Scarcity</div>
-</div>
-<div class="space-y-2 text-sm">
-<div class="p-2 bg-emerald-900/30 rounded">Governance capacity to review</div>
-<div class="p-2 bg-emerald-900/30 rounded">Trust at scale (can we ship this velocity?)</div>
-<div class="p-2 bg-emerald-900/30 rounded">Architectural coherence</div>
-<div class="p-2 bg-emerald-900/30 rounded">Compliance verification speed</div>
-</div>
-</div>
-</div>
-
-<div class="mt-4 p-4 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-lg text-center">
-<span class="text-white font-bold">💡 The Shift: From "can we write it fast enough?" to "can we trust it at this velocity?"</span>
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="3"
+  pillIcon="📋"
+  pillLabel="PR Workflows"
+  title="The Economic Shift"
+  :before='{ header: "Level 3 Scarcity", items: ["Developer time to write code", "Code quality (bugs in implementation)", "Implementation speed", "Review thoroughness"] }'
+  :after='{ header: "Level 5 Scarcity", items: ["Governance capacity to review", "Trust at scale (can we ship this velocity?)", "Architectural coherence", "Compliance verification speed"] }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  insight="💡 The Shift: From 'can we write it fast enough?' to 'can we trust it at this velocity?'"
+/>
 
 ---
 
@@ -782,55 +664,16 @@ export class PaymentProcessor {}
 ---
 
 <!-- SLIDE: The 10-Minute Rule -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">⏱️ The 10-Minute Rule</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border-2 border-red-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">⏱️</div>
-<div class="font-bold text-red-300">If CI Takes 60 Minutes</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-red-900/30 rounded">Generate code (5 min) → Wait CI (60 min) → Fix → Repeat</div>
-<div class="p-2 bg-red-900/30 rounded">4 iterations = 4 hours total</div>
-<div class="p-2 bg-red-900/30 rounded">Agent sits idle 80% of the time</div>
-</div>
-<div class="mt-3 text-center text-sm font-bold text-red-300">Effective velocity: 2-3 features/day</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-xl border-2 border-emerald-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">⚡</div>
-<div class="font-bold text-emerald-300">If CI Takes 8 Minutes</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-emerald-900/30 rounded">Generate code (5 min) → Wait CI (8 min) → Fix → Repeat</div>
-<div class="p-2 bg-emerald-900/30 rounded">4 iterations = 52 minutes total</div>
-<div class="p-2 bg-emerald-900/30 rounded">Agent productive 95% of the time</div>
-</div>
-<div class="mt-3 text-center text-sm font-bold text-emerald-300">Effective velocity: 10-15 features/day</div>
-</div>
-</div>
-
-<div class="mt-4 p-4 bg-gradient-to-r from-green-600/80 to-blue-600/80 rounded-lg text-center">
-<span class="text-white font-bold">🎯 Target: &lt;10 minutes for PR checks, &lt;30 minutes for full pipeline</span>
-</div>
-</div>
-</div>
+<BeforeAfterPanelsSlide
+  :partNumber="4"
+  pillIcon="🏭"
+  pillLabel="Trust Manufacturing"
+  title="The 10-Minute Rule"
+  :before='{ header: "If CI Takes 60 Minutes", items: ["Generate code (5 min) → Wait CI (60 min) → Fix → Repeat", "4 iterations = 4 hours total", "Agent sits idle 80% of the time", "Effective velocity: 2-3 features/day"] }'
+  :after='{ header: "If CI Takes 8 Minutes", items: ["Generate code (5 min) → Wait CI (8 min) → Fix → Repeat", "4 iterations = 52 minutes total", "Agent productive 95% of the time", "Effective velocity: 10-15 features/day"] }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  insight="🎯 Target: &lt;10 minutes for PR checks, &lt;30 minutes for full pipeline"
+/>
 
 ---
 
@@ -952,61 +795,19 @@ export class PaymentProcessor {}
 ---
 
 <!-- SLIDE: Key Takeaways -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Key Takeaways</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mt-4 max-w-4xl mx-auto">
-<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="flex items-center gap-3">
-<div class="text-2xl font-bold text-cyan-400">1</div>
-<div>
-<div class="font-semibold text-cyan-300">AgentRC Level 5 is a maturity target</div>
-<div class="text-sm opacity-80">Autonomous delivery only works if Levels 1-4 foundations are solid</div>
-</div>
-</div>
-</div>
-
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="flex items-center gap-3">
-<div class="text-2xl font-bold text-blue-400">2</div>
-<div>
-<div class="font-semibold text-blue-300">Monorepo eliminates coordination overhead</div>
-<div class="text-sm opacity-80">Default for 80% of product teams when agents touch 2+ repos frequently</div>
-</div>
-</div>
-</div>
-
-<div class="p-4 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-3">
-<div class="text-2xl font-bold text-indigo-400">3</div>
-<div>
-<div class="font-semibold text-indigo-300">PR review shifts to outcome validation</div>
-<div class="text-sm opacity-80">Evidence bundles + automated gates + human judgment on intent match</div>
-</div>
-</div>
-</div>
-
-<div class="p-4 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-3">
-<div class="text-2xl font-bold text-purple-400">4</div>
-<div>
-<div class="font-semibold text-purple-300">CI becomes a trust factory</div>
-<div class="text-sm opacity-80">&lt;10 min PR checks, &lt;2% flake rate, automated attestations at scale</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-6 p-4 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30 text-center">
-<div class="text-lg font-semibold text-green-300">Result: 100x throughput scaling — 150 features/year → 3,600 features/year with maintained quality</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="4"
+  pillIcon="✅"
+  pillLabel="Key Takeaways"
+  title="Key Takeaways"
+  :cards='[
+    { icon: "📐", title: "AgentRC Level 5 is a maturity target", description: "Autonomous delivery only works if Levels 1-4 foundations are solid" },
+    { icon: "🏗️", title: "Monorepo eliminates coordination overhead", description: "Default for 80% of product teams when agents touch 2+ repos frequently" },
+    { icon: "📋", title: "PR review shifts to outcome validation", description: "Evidence bundles + automated gates + human judgment on intent match" },
+    { icon: "🏭", title: "CI becomes a trust factory", description: "&lt;10 min PR checks, &lt;2% flake rate, automated attestations at scale" }
+  ]'
+  :progressDots='{ current: 1, total: 1, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
