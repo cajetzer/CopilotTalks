@@ -24,7 +24,7 @@ A repeatable playbook for converting raw inline HTML slides in any tech-talk dec
 | `copilot-primitives` | 🔵 Cataloged | 5 | [plan-decks/copilot-primitives.md](plan-decks/copilot-primitives.md) |
 | `copilot-sdk` | 🔵 Cataloged | 10 | [plan-decks/copilot-sdk.md](plan-decks/copilot-sdk.md) |
 | `copilot-web` | 🔵 Cataloged | 11 | [plan-decks/copilot-web.md](plan-decks/copilot-web.md) |
-| `enterprise-patterns` | 🔵 Cataloged | 11 | [plan-decks/enterprise-patterns.md](plan-decks/enterprise-patterns.md) |
+| `enterprise-patterns` | � Conformed | 11 | [plan-decks/enterprise-patterns.md](plan-decks/enterprise-patterns.md) |
 | `mcp-apps` | 🔵 Cataloged | 15 | [plan-decks/mcp-apps.md](plan-decks/mcp-apps.md) |
 | `vscode-latest` | 🔵 Cataloged | 14 | [plan-decks/vscode-latest.md](plan-decks/vscode-latest.md) |
 

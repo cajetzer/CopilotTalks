@@ -26,6 +26,11 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -82,246 +87,63 @@ highlight="The transition from pilot success to organizational capability requir
 ---
 
 <!-- SLIDE: The Traditional Problem -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Organization-Wide Standards</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">The Traditional Polyrepo Chaos</div>
-<div class="text-xs text-white/50">50 teams independently configuring same standards</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">😩</span>
-<div class="text-sm font-semibold text-red-300">Before: Fragmented Standards</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-red-400 mt-0.5">❌</span>
-<span class="opacity-80">repo-1: Team A's security patterns</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-red-400 mt-0.5">❌</span>
-<span class="opacity-80">repo-2: Team B's different approach</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-red-400 mt-0.5">❌</span>
-<span class="opacity-80">repo-3: Team C's interpretation</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-red-900/40 rounded border border-red-500/40 text-center">
-<div class="text-xl font-bold text-red-300">2,000 hrs</div>
-<div class="text-xs text-red-400/80">50 repos × 40 hours wasted</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🚀</span>
-<div class="text-sm font-semibold text-cyan-300">After: Organization-Level</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">✓</span>
-<span class="opacity-80">Security baseline defined once at org level</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">✓</span>
-<span class="opacity-80">Auto-applied to all 500+ developers</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">✓</span>
-<span class="opacity-80">Repos add domain-specific overrides only</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-cyan-900/40 rounded border border-cyan-500/40 text-center">
-<div class="text-xl font-bold text-cyan-300">16x ROI</div>
-<div class="text-xs text-cyan-400/80">180 hrs invested → 2,900+ hrs saved</div>
-</div>
-</div>
-</div>
-<div class="mt-3 p-2 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20">
-<div class="text-xs text-cyan-300/90">
-<strong>The Insight:</strong> Define security, frameworks, and quality requirements once at org level → every team inherits automatically
-</div>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="1"
+  pillIcon="🏢"
+  pillLabel="Organization-Wide Standards"
+  title="The Traditional Polyrepo Chaos"
+  :before='{ header: "😩 Before: Fragmented Standards", items: [
+    { title: "repo-1: Team A\u2019s security patterns", detail: "Each team interprets standards independently" },
+    { title: "repo-2: Team B\u2019s different approach", detail: "No shared baseline, no consistency" },
+    { title: "repo-3: Team C\u2019s interpretation", detail: "50 repos × 40 hours wasted = 2,000 hrs" }
+  ] }'
+  :after='{ header: "🚀 After: Organization-Level", items: [
+    { title: "Security baseline defined once at org level", detail: "One change propagates everywhere" },
+    { title: "Auto-applied to all 500+ developers", detail: "Zero per-repo configuration needed" },
+    { title: "Repos add domain-specific overrides only", detail: "180 hrs invested \u2192 2,900+ hrs saved" }
+  ] }'
+  :metrics='[
+    { value: "2,000 hrs", label: "Wasted on fragmented per-repo standards" },
+    { value: "16\u00d7", label: "ROI on org-level investment" },
+    { value: "500+", label: "Developers aligned automatically" }
+  ]'
+  :insight='{ icon: "💡", text: "Define security, frameworks, and quality requirements once at org level \u2192 every team inherits automatically" }'
+/>
 
 ---
 
 <!-- SLIDE: What to Standardize -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Organization-Wide Standards</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Organization Custom Instructions Template</div>
-<div class="text-xs text-white/50">Security, frameworks, quality, and compliance baselines</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🔒</span>
-<div class="text-sm font-semibold text-cyan-300">Security & Compliance</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">OAuth 2.0 with PKCE for all web apps</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">AES-256 encryption for all PII at rest</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Azure Key Vault for secrets, never hardcode</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Parameterized queries exclusively</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">⚙️</span>
-<div class="text-sm font-semibold text-blue-300">Framework Preferences</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80">React 18+ with TypeScript, functional components</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80">Node.js 20 LTS, Express.js for REST APIs</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80">Jest + Playwright, minimum 80% coverage</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80">Prettier + ESLint with org config</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-3 grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-1">
-<span class="text-lg">♿</span>
-<div class="text-xs font-semibold text-indigo-300">Quality Standards</div>
-</div>
-<div class="space-y-0.5 text-xs">
-<div class="flex items-start gap-1.5"><span class="text-indigo-400">•</span><span class="opacity-80">WCAG 2.1 AA compliance</span></div>
-<div class="flex items-start gap-1.5"><span class="text-indigo-400">•</span><span class="opacity-80">Keyboard nav + screen reader support</span></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-2 mb-1">
-<span class="text-lg">⚡</span>
-<div class="text-xs font-semibold text-purple-300">Performance Budgets</div>
-</div>
-<div class="space-y-0.5 text-xs">
-<div class="flex items-start gap-1.5"><span class="text-purple-400">•</span><span class="opacity-80">&lt;2s load on 3G, Lighthouse &gt;90</span></div>
-<div class="flex items-start gap-1.5"><span class="text-purple-400">•</span><span class="opacity-80">200KB gzipped bundle budget</span></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🏢"
+  pillLabel="Organization-Wide Standards"
+  title="Organization Custom Instructions Template"
+  :cards='[
+    { icon: "🔒", title: "Security & Compliance", description: "OAuth 2.0 with PKCE, AES-256 for PII at rest, Azure Key Vault for secrets, parameterized queries exclusively" },
+    { icon: "⚙️", title: "Framework Preferences", description: "React 18+ with TypeScript, Node.js 20 LTS, Jest + Playwright (80% coverage), Prettier + ESLint org config" },
+    { icon: "♿", title: "Quality Standards", description: "WCAG 2.1 AA compliance, keyboard navigation, screen reader support across all UI" },
+    { icon: "⚡", title: "Performance Budgets", description: "Under 2s load on 3G, Lighthouse score above 90, 200KB gzipped bundle budget" }
+  ]'
+  :insight='{ icon: "💡", text: "These four domains cover 90%+ of what teams reinvent independently. Define once in org instructions \u2192 every repo inherits automatically." }'
+/>
 
 ---
 
 <!-- SLIDE: Monorepo Nested Playbooks -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏢 Organization-Wide Standards</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Monorepo Pattern: Nested AGENTS.md Playbooks</div>
-<div class="text-xs text-white/50">Shared repo standards + directory-local agent commands</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="text-sm font-semibold text-cyan-300 mb-2">Repository Structure</div>
-<pre class="text-xs bg-gray-950/50 p-2 rounded border border-cyan-500/20 overflow-y-auto max-h-48"><code>repo/
-├── .github/
-│   ├── copilot-instructions.md   ← Repo constitution
-│   └── instructions/
-│       ├── api.instructions.md   ← Additive, glob-based
-│       └── infra.instructions.md
-├── AGENTS.md                      ← Global guardrails
-├── frontend/
-│   └── AGENTS.md                  ← Frontend playbook
-├── backend/
-│   └── AGENTS.md                  ← Backend playbook
-└── infra/
-    └── AGENTS.md                  ← Infra playbook</code></pre>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="text-sm font-semibold text-blue-300 mb-2">Decision Matrix</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80"><strong>Repository selector:</strong> Org/repo instructions</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80"><strong>File pattern selector:</strong> .instructions.md</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80"><strong>Directory selector:</strong> Nearest AGENTS.md</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-indigo-900/30 rounded border border-indigo-500/30">
-<div class="text-xs text-indigo-300"><strong>Result:</strong> Shared standards centralized, subproject commands stay local</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/20">
-<div class="text-xs text-cyan-300/90">
-<strong>Rule of thumb:</strong> Copilot-specific standards in .github/ hierarchy, portable agent playbooks in AGENTS.md files
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="🏢"
+  pillLabel="Organization-Wide Standards"
+  title="Monorepo Pattern: Nested AGENTS.md Playbooks"
+  :code='{ language: "text", filename: "repo/", content: "repo/\n\u251c\u2500\u2500 .github/\n\u2502   \u251c\u2500\u2500 copilot-instructions.md   \u2190 Repo constitution\n\u2502   \u2514\u2500\u2500 instructions/\n\u2502       \u251c\u2500\u2500 api.instructions.md   \u2190 Additive, glob-based\n\u2502       \u2514\u2500\u2500 infra.instructions.md\n\u251c\u2500\u2500 AGENTS.md                      \u2190 Global guardrails\n\u251c\u2500\u2500 frontend/\n\u2502   \u2514\u2500\u2500 AGENTS.md                  \u2190 Frontend playbook\n\u251c\u2500\u2500 backend/\n\u2502   \u2514\u2500\u2500 AGENTS.md                  \u2190 Backend playbook\n\u2514\u2500\u2500 infra/\n    \u2514\u2500\u2500 AGENTS.md                  \u2190 Infra playbook" }'
+  codePosition="left"
+  :features='[
+    { icon: "🏛️", title: "Repository Selector", description: "Org/repo instructions apply globally — standards that every developer in the repo inherits" },
+    { icon: "📄", title: "File Pattern Selector", description: ".instructions.md files activate by glob pattern — only when editing matching file types" },
+    { icon: "📁", title: "Directory Selector", description: "Nearest AGENTS.md applies to that subdirectory — frontend/backend/infra each have their own playbook" }
+  ]'
+  :insight='{ icon: "💡", text: "Rule of thumb: Copilot-specific standards in .github/ hierarchy, portable agent playbooks in AGENTS.md files" }'
+/>
 
 ---
 
@@ -437,82 +259,28 @@ highlight="The transition from pilot success to organizational capability requir
 ---
 
 <!-- SLIDE: Copilot Knowledge Bases -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 Skills & Knowledge Bases</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Knowledge Bases: Multi-Repo Context (Enterprise)</div>
-<div class="text-xs text-white/50">Query across 10-50 repositories for microservices architectures</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🔍</span>
-<div class="text-sm font-semibold text-red-300">The Problem</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">❌</span><span class="opacity-80">Microservices split across 10-50 repos</span></div>
-<div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">❌</span><span class="opacity-80">Copilot in single repo lacks system context</span></div>
-<div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">❌</span><span class="opacity-80">Manual reference of 5-10 dependency repos</span></div>
-<div class="flex items-start gap-2"><span class="text-red-400 mt-0.5">❌</span><span class="opacity-80">Documentation scattered across locations</span></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">📚</span>
-<div class="text-sm font-semibold text-blue-300">Knowledge Base Solution</div>
-</div>
-<div class="font-mono text-xs bg-gray-950/50 p-2 rounded border border-blue-500/20 overflow-y-auto max-h-32">
-<div class="text-blue-300 font-semibold mb-1">Knowledge Base: "Payment Platform"</div>
-<div>├── payment-api <span class="text-gray-500">(REST contracts)</span></div>
-<div>├── payment-processor <span class="text-gray-500">(business logic)</span></div>
-<div>├── fraud-detection <span class="text-gray-500">(ML models)</span></div>
-<div>├── compliance-rules <span class="text-gray-500">(regulatory logic)</span></div>
-<div class="mb-1">└── platform-docs <span class="text-gray-500">(architecture guides)</span></div>
-<div class="border-t border-blue-500/20 my-1"></div>
-<div class="text-amber-300">Developer: "How does fraud detection</div>
-<div class="text-amber-300 mb-1">integrate with payment flow?"</div>
-<div class="text-green-300">↳ Copilot answers with context from all 5 repos</div>
-</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-blue-900/20 rounded-lg border border-blue-500/20 text-center">
-<div class="text-xl font-bold text-blue-300">50 repos</div>
-<div class="text-xs text-blue-400/70">max per KB</div>
-</div>
-<div class="p-2 bg-indigo-900/20 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-xl font-bold text-indigo-300">Enterprise</div>
-<div class="text-xs text-indigo-400/70">tier required</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/20 text-center">
-<div class="text-xl font-bold text-purple-300">@kb</div>
-<div class="text-xs text-purple-400/70">invoke anywhere</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-blue-900/20 to-indigo-900/20 rounded-lg border border-blue-500/20">
-<div class="text-xs font-semibold text-blue-300 mb-1">💬 Sample cross-repo queries</div>
-<div class="grid grid-cols-2 gap-1 text-xs text-white/60">
-<div>→ "How does fraud detection integrate with payment flow?"</div>
-<div>→ "Where is auth handled across our microservices?"</div>
-<div>→ "What compliance rules apply to user data storage?"</div>
-<div>→ "Which services depend on the pricing engine?"</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="2"
+  pillIcon="🧠"
+  pillLabel="Skills & Knowledge Bases"
+  title="Knowledge Bases: Multi-Repo Context (Enterprise)"
+  :before='{ header: "🔍 The Problem", items: [
+    { title: "Microservices split across 10\u201350 repos", detail: "Copilot in a single repo lacks cross-service context" },
+    { title: "Manual reference of 5\u201310 dependency repos", detail: "Developers context-switch constantly for answers" },
+    { title: "Documentation scattered across locations", detail: "Architecture knowledge is inaccessible during coding" }
+  ] }'
+  :after='{ header: "📚 Knowledge Base Solution", items: [
+    { title: "Payment Platform KB spans 5 repos", detail: "payment-api, payment-processor, fraud-detection, compliance-rules, platform-docs" },
+    { title: "Query across all repos simultaneously", detail: "\u201cHow does fraud detection integrate with payment flow?\u201d \u2014 answered with full cross-repo context" },
+    { title: "Invoke from any repo with @kb", detail: "Zero per-repo configuration, automatic cross-reference" }
+  ] }'
+  :metrics='[
+    { value: "50 repos", label: "Max per knowledge base" },
+    { value: "Enterprise", label: "Tier required" },
+    { value: "@kb", label: "Invoke from anywhere" }
+  ]'
+  :insight='{ icon: "💬", text: "Sample queries: \u201cWhere is auth handled across our microservices?\u201d \u201cWhat compliance rules apply to user data?\u201d \u201cWhich services depend on the pricing engine?\u201d" }'
+/>
 
 ---
 
@@ -532,288 +300,71 @@ highlight="The transition from pilot success to organizational capability requir
 ---
 
 <!-- SLIDE: Model Governance & Auto Selection -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔐 Governance & Licensing</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Model Governance & Auto Selection</div>
-<div class="text-xs text-white/50">Control AI models, optimize cost vs. capability automatically</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🔒</span>
-<div class="text-sm font-semibold text-indigo-300">Policy Framework</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Restrict high-cost models to approved use cases</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Enforce compliance (data residency, audit trails)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Set budget controls on premium model requests</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Track model usage org-wide for cost analysis</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">💰</span>
-<div class="text-sm font-semibold text-purple-300">Cost Optimization</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">✓</span>
-<span class="opacity-80"><strong>Routine completion:</strong> Fast, cost-effective models</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">✓</span>
-<span class="opacity-80"><strong>Documentation:</strong> Balanced models (Sonnet)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">✓</span>
-<span class="opacity-80"><strong>Architecture analysis:</strong> Premium (Opus) w/ budget</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">✓</span>
-<span class="opacity-80"><strong>Code review:</strong> Task-appropriate auto-selection</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-indigo-900/20 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-xl font-bold text-indigo-300">4</div>
-<div class="text-xs text-indigo-400/70">model tiers</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/20 text-center">
-<div class="text-xl font-bold text-purple-300">Auto</div>
-<div class="text-xs text-purple-400/70">task routing</div>
-</div>
-<div class="p-2 bg-pink-900/20 rounded-lg border border-pink-500/20 text-center">
-<div class="text-xl font-bold text-pink-300">30%</div>
-<div class="text-xs text-pink-400/70">cost reduction</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-indigo-900/20 to-purple-900/20 rounded-lg border border-indigo-500/20">
-<div class="text-xs text-indigo-300/90"><strong>The Balance:</strong> Teams access appropriate AI power without manual model selection — leadership retains budget control and full compliance visibility</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="🔐"
+  pillLabel="Governance & Licensing"
+  title="Model Governance & Auto Selection"
+  :left='{ header: "🔒 Policy Framework", items: [
+    { title: "Restrict high-cost models to approved use cases", detail: "Leadership retains budget control" },
+    { title: "Enforce compliance — data residency, audit trails", detail: "Regulatory requirements automatically met" },
+    { title: "Set budget controls on premium model requests", detail: "Cost predictability across the org" },
+    { title: "Track model usage org-wide for cost analysis", detail: "Full visibility into AI spend" }
+  ] }'
+  :right='{ header: "💰 Cost Optimization", items: [
+    { title: "Routine completion \u2192 Fast, cost-effective models", detail: "Auto-routed to smallest capable model" },
+    { title: "Documentation \u2192 Balanced models (Sonnet)", detail: "Quality without premium cost" },
+    { title: "Architecture analysis \u2192 Premium (Opus) with budget", detail: "Reserved for high-value tasks" },
+    { title: "Code review \u2192 Task-appropriate auto-selection", detail: "Right model, right task, every time" }
+  ] }'
+  :insight='{ icon: "⚖️", text: "Teams access appropriate AI power without manual model selection \u2014 leadership retains budget control and compliance visibility. 4 model tiers, 30% cost reduction." }'
+/>
 
 ---
 
 <!-- SLIDE: Flexible Licensing Strategies -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔐 Governance & Licensing</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Flexible Licensing: 30-40% Cost Reduction</div>
-<div class="text-xs text-white/50">Match licensing to actual usage patterns</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-1">
-<span class="text-xl">👩‍💻</span>
-<div class="text-sm font-semibold text-cyan-300">Full Seats</div>
-</div>
-<div class="text-xs opacity-60 mb-2">Heavy users with daily coding</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Core engineering teams</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Platform engineers</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Architects</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-1">
-<span class="text-xl">⚡</span>
-<div class="text-sm font-semibold text-indigo-300">Usage-Based</div>
-</div>
-<div class="text-xs opacity-60 mb-2">Occasional users, pay per use</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Contractors (temp projects)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Security reviewers</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Technical writers</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-2 mb-1">
-<span class="text-xl">👁️</span>
-<div class="text-sm font-semibold text-purple-300">Review-Only</div>
-</div>
-<div class="text-xs opacity-60 mb-2">Unlicensed, read-only access</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">•</span>
-<span class="opacity-80">Product managers</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">•</span>
-<span class="opacity-80">Design team</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">•</span>
-<span class="opacity-80">QA engineers</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-cyan-900/20 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-lg font-bold text-cyan-300">80 seats</div>
-<div class="text-xs text-cyan-400/70">full — daily coders</div>
-</div>
-<div class="p-2 bg-indigo-900/20 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-lg font-bold text-indigo-300">40 seats</div>
-<div class="text-xs text-indigo-400/70">usage-based — occasional</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/20 text-center">
-<div class="text-lg font-bold text-purple-300">80 seats</div>
-<div class="text-xs text-purple-400/70">review-only — free</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-indigo-900/20 to-purple-900/20 rounded-lg border border-indigo-500/20">
-<div class="text-xs text-indigo-300/90"><strong>200-person org example:</strong> This split delivers <strong class="text-indigo-200">30–40% cost savings</strong> vs. provisioning all-full seats — without restricting access for any team</div>
-</div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="3"
+  pillIcon="🔐"
+  pillLabel="Governance & Licensing"
+  title="Flexible Licensing: 30-40% Cost Reduction"
+  :columns='[
+    { icon: "👩‍💻", title: "Full Seats", items: [
+      { title: "Core engineering teams", detail: "Heavy daily coding users" },
+      { title: "Platform engineers", detail: "Daily AI-assisted work" },
+      { title: "Architects", detail: "Constant code generation" }
+    ] },
+    { icon: "⚡", title: "Usage-Based", items: [
+      { title: "Contractors", detail: "Temporary projects, pay per use" },
+      { title: "Security reviewers", detail: "Occasional deep analysis" },
+      { title: "Technical writers", detail: "Periodic documentation work" }
+    ] },
+    { icon: "👁️", title: "Review-Only", items: [
+      { title: "Product managers", detail: "Read access, no generation" },
+      { title: "Design team", detail: "Context review only" },
+      { title: "QA engineers", detail: "Test review, no authoring" }
+    ] }
+  ]'
+  :insight='{ icon: "💰", text: "200-person org example: 80 full + 40 usage-based + 80 review-only = 30\u201340% cost savings vs. all-full seats, without restricting any team\u2019s access" }'
+/>
 
 ---
 
 <!-- SLIDE: Compliance Automation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔐 Governance & Licensing</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Compliance Automation</div>
-<div class="text-xs text-white/50">From manual checklist to automated enforcement</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🛡️</span>
-<div class="text-sm font-semibold text-indigo-300">Enterprise Control Points</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80"><strong>Access governance:</strong> Org policies, model access, audit logs</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80"><strong>Content filtering:</strong> Block vulnerable patterns, copyrighted code</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80"><strong>Data governance:</strong> Training opt-out, residency, retention</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🤖</span>
-<div class="text-sm font-semibold text-purple-300">Automated Validation</div>
-</div>
-<div class="font-mono text-xs bg-gray-950/50 p-2 rounded border border-purple-500/20 mt-2 overflow-y-auto max-h-32">
-<div class="text-purple-300 font-semibold mb-1">Custom Agent: <span class="text-cyan-300">@security-validator</span></div>
-<div class="text-gray-300">• OWASP Top 10 vulnerabilities</div>
-<div class="text-gray-300">• Hardcoded secrets/credentials</div>
-<div class="text-gray-300">• Unapproved dependencies</div>
-<div class="text-gray-300 mb-1">• Data exposure risks</div>
-<div class="border-t border-purple-500/20 my-1"></div>
-<div class="text-purple-300 font-semibold mb-1">Agent Skill: <span class="text-cyan-300">hipaa-compliance-check</span></div>
-<div class="text-gray-300">• PHI encryption (AES-256)</div>
-<div class="text-gray-300">• Audit logging completeness</div>
-<div class="text-gray-300">• Access control enforcement</div>
-<div class="text-gray-300">• Data retention policies</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-indigo-900/20 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-sm font-bold text-indigo-300">HIPAA</div>
-<div class="text-xs text-indigo-400/70">Healthcare PHI</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/20 text-center">
-<div class="text-sm font-bold text-purple-300">SOC 2</div>
-<div class="text-xs text-purple-400/70">Security controls</div>
-</div>
-<div class="p-2 bg-pink-900/20 rounded-lg border border-pink-500/20 text-center">
-<div class="text-sm font-bold text-pink-300">FedRAMP</div>
-<div class="text-xs text-pink-400/70">Gov't compliance</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-indigo-900/20 to-purple-900/20 rounded-lg border border-indigo-500/20">
-<div class="text-xs text-indigo-300/90"><strong>For regulated industries:</strong> Healthcare, finance, government — governance frameworks are <em>prerequisites</em> for AI adoption, not optional afterthoughts</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="🔐"
+  pillLabel="Governance & Licensing"
+  title="Compliance Automation"
+  :code='{ language: "text", filename: "@security-validator + hipaa-compliance-check", content: "Custom Agent: @security-validator\n\u2022 OWASP Top 10 vulnerabilities\n\u2022 Hardcoded secrets/credentials\n\u2022 Unapproved dependencies\n\u2022 Data exposure risks\n\nAgent Skill: hipaa-compliance-check\n\u2022 PHI encryption (AES-256)\n\u2022 Audit logging completeness\n\u2022 Access control enforcement\n\u2022 Data retention policies" }'
+  codePosition="left"
+  :features='[
+    { icon: "🛡️", title: "Access Governance", description: "Org policies, model access restrictions, and full audit logs baked into every workflow" },
+    { icon: "🚫", title: "Content Filtering", description: "Block vulnerable patterns and copyrighted code before they reach pull requests" },
+    { icon: "📋", title: "Data Governance", description: "Training opt-out, data residency controls, and retention policies enforced automatically" }
+  ]'
+  :insight='{ icon: "⚠️", text: "For regulated industries: Healthcare, finance, government \u2014 governance frameworks are prerequisites for AI adoption, not optional afterthoughts. HIPAA \u00b7 SOC 2 \u00b7 FedRAMP" }'
+/>
 
 ---
 
@@ -833,301 +384,74 @@ highlight="The transition from pilot success to organizational capability requir
 ---
 
 <!-- SLIDE: Metrics Framework -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Scaling & Measurement</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Adoption Metrics & ROI Measurement</div>
-<div class="text-xs text-white/50">Leading, intermediate, and lagging indicators for data-driven justification</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-3 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">📊</span>
-<div class="text-sm font-semibold text-cyan-300">Leading (Adoption Health)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Acceptance rate: 55-65% target</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Active users: 80%+ utilization</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Code lines (AI): % of total</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-cyan-400 mt-0.5">•</span>
-<span class="opacity-80">Feature adoption: Chat, Skills, Agents</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">⚡</span>
-<div class="text-sm font-semibold text-indigo-300">Intermediate (Efficiency)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">PR velocity: PRs/week</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Review time: PR open to merge</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Bug fix time: issue to resolution</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80">Documentation coverage</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🏆</span>
-<div class="text-sm font-semibold text-purple-300">Lagging (Business Impact)</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">•</span>
-<span class="opacity-80">Time to market: feature delivery</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">•</span>
-<span class="opacity-80">Developer satisfaction: 7.8 → 8.4</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">•</span>
-<span class="opacity-80">Onboarding time: 45d → 28d</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-purple-400 mt-0.5">•</span>
-<span class="opacity-80">Cost per feature: -31%</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-cyan-900/20 rounded-lg border border-cyan-500/20 text-center">
-<div class="text-xl font-bold text-cyan-300">55-65%</div>
-<div class="text-xs text-cyan-400/70">acceptance rate target</div>
-</div>
-<div class="p-2 bg-indigo-900/20 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-xl font-bold text-indigo-300">7.8→8.4</div>
-<div class="text-xs text-indigo-400/70">dev satisfaction</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/20 text-center">
-<div class="text-xl font-bold text-purple-300">-31%</div>
-<div class="text-xs text-purple-400/70">cost per feature</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/20">
-<div class="text-xs text-purple-300/90"><strong>Key:</strong> Track acceptance rate first (predicts everything else) → act on it → watch intermediate & lagging metrics improve</div>
-</div>
-</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="4"
+  pillIcon="📊"
+  pillLabel="Scaling & Measurement"
+  title="Adoption Metrics & ROI Measurement"
+  :columns='[
+    { icon: "📊", title: "Leading (Adoption Health)", items: [
+      { title: "Acceptance rate", detail: "55\u201365% target" },
+      { title: "Active users", detail: "80%+ utilization" },
+      { title: "AI code lines", detail: "% of total output" },
+      { title: "Feature adoption", detail: "Chat, Skills, Agents" }
+    ] },
+    { icon: "⚡", title: "Intermediate (Efficiency)", items: [
+      { title: "PR velocity", detail: "PRs per week trend" },
+      { title: "Review time", detail: "PR open to merge duration" },
+      { title: "Bug fix time", detail: "Issue to resolution" },
+      { title: "Documentation", detail: "Coverage improvement" }
+    ] },
+    { icon: "🏆", title: "Lagging (Business Impact)", items: [
+      { title: "Time to market", detail: "Feature delivery speed" },
+      { title: "Dev satisfaction", detail: "7.8 \u2192 8.4 average" },
+      { title: "Onboarding time", detail: "45 days \u2192 28 days" },
+      { title: "Cost per feature", detail: "\u221231% reduction" }
+    ] }
+  ]'
+  :insight='{ icon: "💡", text: "Track acceptance rate first (predicts everything else) \u2192 act on it \u2192 watch intermediate & lagging metrics improve. Target: 55\u201365% acceptance, \u221231% cost per feature." }'
+/>
 
 ---
 
 <!-- SLIDE: Self-Service Onboarding -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Scaling & Measurement</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Self-Service Onboarding Kit</div>
-<div class="text-xs text-white/50">30-minute quick start enables teams without platform bottleneck</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">📦</span>
-<div class="text-sm font-semibold text-purple-300">Kit Components</div>
-</div>
-<pre class="text-xs bg-gray-950/50 p-2 rounded border border-purple-500/20 overflow-y-auto max-h-32"><code>team-onboarding/
-├── README.md              ← 30-min quick start
-├── repository-setup.md    ← Config guide
-├── custom-instructions.md ← Org standards
-├── skills-catalog.md      ← Available skills
-├── review-checklist.md    ← AI code review
-└── examples/
-    ├── good-prompts.md
-    ├── custom-agent-template/
-    └── sample-repository/</code></pre>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">⏱️</span>
-<div class="text-sm font-semibold text-pink-300">30-Minute Onboarding Flow</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">1.</span>
-<span class="opacity-80"><strong>Read quick start (10 min):</strong> Org standards overview</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">2.</span>
-<span class="opacity-80"><strong>Configure repo (10 min):</strong> Copy/paste templates</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">3.</span>
-<span class="opacity-80"><strong>Complete exercise (10 min):</strong> Validate with real task</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">4.</span>
-<span class="opacity-80"><strong>Reference materials:</strong> Ongoing learning available</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/20 text-center">
-<div class="text-xl font-bold text-purple-300">30 min</div>
-<div class="text-xs text-purple-400/70">to productive</div>
-</div>
-<div class="p-2 bg-pink-900/20 rounded-lg border border-pink-500/20 text-center">
-<div class="text-xl font-bold text-pink-300">&lt;2</div>
-<div class="text-xs text-pink-400/70">support tickets/team</div>
-</div>
-<div class="p-2 bg-rose-900/20 rounded-lg border border-rose-500/20 text-center">
-<div class="text-xl font-bold text-rose-300">90%+</div>
-<div class="text-xs text-rose-400/70">satisfaction rate</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/20">
-<div class="text-xs text-purple-300/90"><strong>Success metrics:</strong> Teams productive in 30 min, &lt;2 support tickets/team, 90%+ satisfaction → 50 teams onboard simultaneously</div>
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="4"
+  pillIcon="📊"
+  pillLabel="Scaling & Measurement"
+  title="Self-Service Onboarding Kit"
+  :code='{ language: "text", filename: "team-onboarding/", content: "team-onboarding/\n\u251c\u2500\u2500 README.md              \u2190 30-min quick start\n\u251c\u2500\u2500 repository-setup.md    \u2190 Config guide\n\u251c\u2500\u2500 custom-instructions.md \u2190 Org standards\n\u251c\u2500\u2500 skills-catalog.md      \u2190 Available skills\n\u251c\u2500\u2500 review-checklist.md    \u2190 AI code review\n\u2514\u2500\u2500 examples/\n    \u251c\u2500\u2500 good-prompts.md\n    \u251c\u2500\u2500 custom-agent-template/\n    \u2514\u2500\u2500 sample-repository/" }'
+  codePosition="left"
+  :features='[
+    { icon: "📖", title: "Read Quick Start (10 min)", description: "Org standards overview — what\u2019s enabled, what\u2019s available, what\u2019s expected" },
+    { icon: "⚙️", title: "Configure Repo (10 min)", description: "Copy/paste templates from the kit — instructions, skills, AGENTS.md" },
+    { icon: "✅", title: "Complete Exercise (10 min)", description: "Validate setup with a real task using the sample repository and good-prompts guide" }
+  ]'
+  :insight='{ icon: "🎯", text: "Success metrics: 30 min to productive, under 2 support tickets per team, 90%+ satisfaction. Enables 50 teams to onboard simultaneously." }'
+/>
 
 ---
 
 <!-- SLIDE: Federated Governance Model & ROI -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Scaling & Measurement</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Federated Model & Knowledge Multiplication</div>
-<div class="text-xs text-white/50">180-hour platform investment delivers 2,900+ hours saved (16x ROI)</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🏗️</span>
-<div class="text-sm font-semibold text-pink-300">Platform Team Owns</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">•</span>
-<span class="opacity-80">Org-wide standards (40 hrs)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">•</span>
-<span class="opacity-80">Shared skill library (60 hrs)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">•</span>
-<span class="opacity-80">Onboarding kit (80 hrs)</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-pink-400 mt-0.5">•</span>
-<span class="opacity-80">Metrics & ROI tracking</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-rose-900/30 rounded border border-rose-500/30">
-<div class="text-xs font-semibold text-rose-300">Investment: 180 hours total</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-rose-900/30 to-orange-900/30 rounded-lg border border-rose-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🌿</span>
-<div class="text-sm font-semibold text-rose-300">Teams Own</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-rose-400 mt-0.5">•</span>
-<span class="opacity-80">Domain-specific customization</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-rose-400 mt-0.5">•</span>
-<span class="opacity-80">Team-specific agent skills</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-rose-400 mt-0.5">•</span>
-<span class="opacity-80">Contribute winning patterns back</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-rose-400 mt-0.5">•</span>
-<span class="opacity-80">Share learnings in community</span>
-</div>
-</div>
-<div class="mt-2 p-2 bg-orange-900/30 rounded border border-orange-500/30">
-<div class="text-xs font-semibold text-orange-300">Returns: 2,900+ hours saved</div>
-</div>
-</div>
-</div>
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-pink-900/20 rounded-lg border border-pink-500/20 text-center">
-<div class="text-xl font-bold text-pink-300">180 hrs</div>
-<div class="text-xs text-pink-400/70">platform investment</div>
-</div>
-<div class="p-2 bg-rose-900/20 rounded-lg border border-rose-500/20 text-center">
-<div class="text-xl font-bold text-rose-300">2,900+</div>
-<div class="text-xs text-rose-400/70">dev hours saved</div>
-</div>
-<div class="p-2 bg-orange-900/20 rounded-lg border border-orange-500/20 text-center">
-<div class="text-xl font-bold text-orange-300">16×</div>
-<div class="text-xs text-orange-400/70">knowledge ROI</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-pink-900/20 to-rose-900/20 rounded-lg border border-pink-500/20">
-<div class="text-xs text-pink-300/90"><strong>The Compounding Effect:</strong> One-to-many deployment + automatic inheritance + centralized updates = knowledge stops fragmenting, starts compounding at scale</div>
-</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="4"
+  pillIcon="📊"
+  pillLabel="Scaling & Measurement"
+  title="Federated Model & Knowledge Multiplication"
+  :left='{ header: "🏗️ Platform Team Owns", items: [
+    { title: "Org-wide standards", detail: "40 hrs — security, frameworks, quality baselines" },
+    { title: "Shared skill library", detail: "60 hrs — domain expertise encoded once" },
+    { title: "Onboarding kit", detail: "80 hrs — self-service for all 50+ teams" },
+    { title: "Metrics & ROI tracking", detail: "Data-driven governance dashboard" }
+  ], code: { language: "text", content: "Investment: 180 hours total" } }'
+  :right='{ header: "🌿 Teams Own", items: [
+    { title: "Domain-specific customization", detail: "Team agents, local AGENTS.md overrides" },
+    { title: "Team-specific agent skills", detail: "Contribute back to shared library" },
+    { title: "Contribute winning patterns back", detail: "Knowledge compounds across the org" },
+    { title: "Share learnings in community", detail: "Accelerates every other team" }
+  ], code: { language: "text", content: "Returns: 2,900+ hours saved" } }'
+  :insight='{ icon: "📈", text: "The Compounding Effect: 180 hrs invested \u2192 2,900+ dev hours saved \u2192 16\u00d7 ROI. One-to-many deployment + automatic inheritance = knowledge stops fragmenting, starts compounding." }'
+/>
 
 ---
 
