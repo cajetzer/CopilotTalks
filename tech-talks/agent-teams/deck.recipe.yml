@@ -10,8 +10,37 @@ deck:
   intro:
     mode: core-question
 
+  # Conceptual ladder: primitive → composition → autonomy → quality gate.
+  # Autonomy (section 3) lands hardest after the audience understands the team
+  # structure enabling it — Teams before Autonomy is the correct emotional order.
+  sectionOrder:
+    - "Subagents: The Building Block"
+    - "Agent Teams: Organized Specialists"
+    - "Autonomous Execution: Background Agents + Worktrees"
+    - "Agent Council: When Different Models Think Differently"
+
+  sectionModes:
+    - section: "Subagents: The Building Block"
+      emphasis: medium
+      note: "Establish the primitive fast — live parallel subagent demo proves the mechanism; exit with the decision tree as the navigation spine returned at every section boundary."
+    - section: "Agent Teams: Organized Specialists"
+      emphasis: high
+      note: "The intellectual centerpiece — Squad in 10 minutes, compounding history.md, role-enforced tool constraints; the moment the audience sees a catalog of agents become a system."
+    - section: "Autonomous Execution: Background Agents + Worktrees"
+      emphasis: high
+      note: "ROI payoff enabled by Teams — 85 active minutes to 27 minutes lands hardest after the audience understands the team structure executing autonomously; Engineering Manager dashboard moment."
+    - section: "Agent Council: When Different Models Think Differently"
+      emphasis: medium-low
+      note: "Quality gate finale — Claude+GPT+Gemini catch the subtle flaw the team missed; 2-3 slides max, closes the auth case study with a concrete before/after."
+
   highlightMoments:
-    - 3 parallel subagents deliver 2.75x faster execution with 4-6x token reduction
-    - Context isolation per subagent improves quality 30-40% vs single-agent runs
-    - Squad enables persistent AI team with role-based coordination and shared memory
-    - Supervision time reduced 65-82% through background agent autonomy
+    - "3 parallel subagents cut analysis time 2.75x (22 min → 8 min) with 4-6x token reduction — visible live in the VS Code subagent panel"
+    - "Squad installed in 10 minutes: specialists with history.md make week-2 output 30-40% better than week-1 on the same task class — compounding knowledge ROI for Architects"
+    - "Background agent handoff reduces active supervision 65-82% (85 min → 27 min on the auth case study) — the single number Engineering Managers take back to their teams"
+    - "Full-stack composition: one coordinator, three Squad specialists, autonomous worktree execution, AgentCouncil deliberation — all four patterns against the same auth task shows the complete system"
+
+# OPEN DECISION: Live demo vs scripted walkthrough —
+# (A) Live terminal demo (background agent completes PR while presenter talks): maximum impact,
+#     highest timing risk, requires pre-staged repo and rehearsed fallback for every section.
+# (B) Scripted walkthrough (annotated screenshots/output): 95% of impact, zero timing risk,
+#     slides carry the story alone. This choice sets information density for all sections.

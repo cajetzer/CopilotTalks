@@ -106,45 +106,18 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 ---
 
 <!-- SLIDE: Installing and Managing Plugins -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ CLI-First: Plugin Management</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Install, Update, Remove — All from the CLI</div>
-<div class="text-sm text-gray-400">Individual plugin management for fast exploration</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 grid grid-cols-3 gap-3">
-<div class="flex flex-col p-3 bg-gradient-to-br from-emerald-900/40 to-gray-900/60 rounded-xl border border-emerald-500/30">
-<div class="text-emerald-400 text-xl mb-2">✓ Install</div>
-<div class="text-sm font-mono text-emerald-300 mb-2 bg-black/30 px-2 py-1 rounded">copilot plugin install code-review-assistant</div>
-<div class="text-xs text-gray-300 leading-relaxed flex-1">Plugin is immediately available in Copilot Chat, CLI, and any ACP-compatible client. No restart required.</div>
-</div>
-<div class="flex flex-col p-3 bg-gradient-to-br from-blue-900/40 to-gray-900/60 rounded-xl border border-blue-500/30">
-<div class="text-blue-400 text-xl mb-2">↻ Update</div>
-<div class="text-sm font-mono text-blue-300 mb-2 bg-black/30 px-2 py-1 rounded">copilot plugin update code-review-assistant</div>
-<div class="text-xs text-gray-300 leading-relaxed flex-1">Fetch the latest version. Changes take effect immediately — existing chat sessions adapt.</div>
-</div>
-<div class="flex flex-col p-3 bg-gradient-to-br from-red-900/40 to-gray-900/60 rounded-xl border border-red-500/30">
-<div class="text-red-400 text-xl mb-2">✗ Remove</div>
-<div class="text-sm font-mono text-red-300 mb-2 bg-black/30 px-2 py-1 rounded">copilot plugin uninstall code-review-assistant</div>
-<div class="text-xs text-gray-300 leading-relaxed flex-1">Clean removal. Plugin disappears from chat suggestions and CLI help output.</div>
-</div>
-</div>
-<div class="relative z-10 mt-3 p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/20 rounded-xl border border-cyan-500/30">
-<div class="text-sm text-cyan-200"><span class="font-bold text-cyan-300">🎯 Key Insight:</span> These commands manage your personal Copilot setup — perfect for trying new capabilities. When configuration becomes team infrastructure, use APM.</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="1"
+  pillIcon="⚡"
+  pillLabel="CLI-First: Plugin Management"
+  title="Install, Update, Remove — All from the CLI"
+  :columns='[
+    { icon: "✓", title: "Install", description: "Add capabilities with a single command, no restart required", items: [{ title: "copilot plugin install code-review-assistant", detail: "Immediately available in Copilot Chat, CLI, and ACP clients" }] },
+    { icon: "↻", title: "Update", description: "Fetch the latest version, changes take effect immediately", items: [{ title: "copilot plugin update code-review-assistant", detail: "Existing chat sessions adapt without restart" }] },
+    { icon: "✗", title: "Remove", description: "Clean removal, plugin disappears from all Copilot interfaces", items: [{ title: "copilot plugin uninstall code-review-assistant", detail: "Disappears from chat suggestions and CLI help output" }] }
+  ]'
+  :insight='{ icon: "🎯", text: "These commands manage your personal Copilot setup — perfect for trying new capabilities. When configuration becomes team infrastructure, use APM." }'
+/>
 
 ---
 
@@ -181,50 +154,33 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 ---
 
 <!-- SLIDE: CLI vs VS Code UI -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚡ CLI-First: UI Equivalent</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">VS Code Extension Panel — Same Registry, Different Interface</div>
-<div class="text-sm text-gray-400">CLI and UI share the same plugin backend</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-3 flex-1">
-<div class="flex flex-col p-3 bg-gradient-to-br from-cyan-900/40 to-gray-900/60 rounded-xl border border-cyan-500/30">
-<div class="text-cyan-400 font-bold mb-2">CLI Workflow</div>
-<div class="text-xs text-gray-300 space-y-2 flex-1">
-<div>• <span class="font-mono text-cyan-300">apm marketplace browse</span> — list plugins</div>
-<div>• <span class="font-mono text-cyan-300">copilot plugin install &lt;name&gt;</span> — add capability</div>
-<div>• <span class="font-mono text-cyan-300">copilot plugin list</span> — see what&#39;s active</div>
-<div>• Fastest for developers already in the terminal</div>
-</div>
-</div>
-<div class="flex flex-col p-3 bg-gradient-to-br from-blue-900/40 to-gray-900/60 rounded-xl border border-blue-500/30">
-<div class="text-blue-400 font-bold mb-2">VS Code UI Workflow</div>
-<div class="text-xs text-gray-300 space-y-2 flex-1">
-<div>• <span class="text-blue-300">Ctrl+Shift+P → Copilot: Focus on Copilot View</span></div>
-<div>• Navigate to <span class="text-blue-300">Plugins</span> section</div>
-<div>• Browse, install, remove via point-and-click</div>
-<div>• Best for visual exploration and GUI preference</div>
-</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-blue-900/20 rounded-xl border border-cyan-500/30 text-center">
-<div class="text-sm text-cyan-200"><span class="font-bold text-cyan-300">Same result:</span> Installing via CLI makes the plugin appear in VS Code UI instantly — they&#39;re synchronized.</div>
-</div>
-</div>
-</div>
+<TwoColPairedConceptsSlide
+  :partNumber="1"
+  pillIcon="⚡"
+  pillLabel="CLI-First: UI Equivalent"
+  title="VS Code Extension Panel — Same Registry, Different Interface"
+  :left='{
+    header: "CLI Workflow",
+    icon: "💻",
+    items: [
+      { title: "apm marketplace browse", detail: "list available plugins" },
+      { title: "copilot plugin install", detail: "add a named plugin capability" },
+      { title: "copilot plugin list", detail: "see what is active" },
+      { title: "Fastest for terminal-first developers", detail: "no context switching required" }
+    ]
+  }'
+  :right='{
+    header: "VS Code UI Workflow",
+    icon: "🖥️",
+    items: [
+      { title: "Ctrl+Shift+P", detail: "Copilot: Focus on Copilot View" },
+      { title: "Navigate to Plugins section", detail: "browse the extension panel" },
+      { title: "Browse, install, remove", detail: "via point-and-click interface" },
+      { title: "Best for visual exploration", detail: "and GUI preference" }
+    ]
+  }'
+  :insight='{ icon: "🔄", text: "Same result: Installing via CLI makes the plugin appear in VS Code UI instantly — they are synchronized." }'
+/>
 
 ---
 
@@ -347,45 +303,18 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 ---
 
 <!-- SLIDE: Per-Repository Configuration -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📦 APM Manifest: Scoped Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Different Projects, Different Agent Capabilities</div>
-<div class="text-sm text-gray-400">Repository-scoped manifests adapt Copilot to project context</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 grid grid-cols-3 gap-3">
-<div class="flex flex-col p-2.5 bg-gradient-to-br from-cyan-900/40 to-gray-900/60 rounded-xl border border-cyan-500/30">
-<div class="text-cyan-400 font-bold mb-1.5 text-sm">🐍 data-pipeline/</div>
-<div class="text-xs font-mono text-cyan-300 mb-2 bg-black/40 px-2 py-1 rounded leading-tight">plugins:<br/>  - pandas-assistant<br/>  - sql-query-optimizer</div>
-<div class="text-xs text-gray-300 leading-snug flex-1">Python data engineering tools — DataFrame transformations, query optimization</div>
-</div>
-<div class="flex flex-col p-2.5 bg-gradient-to-br from-blue-900/40 to-gray-900/60 rounded-xl border border-blue-500/30">
-<div class="text-blue-400 font-bold mb-1.5 text-sm">⚛️ web-app/</div>
-<div class="text-xs font-mono text-blue-300 mb-2 bg-black/40 px-2 py-1 rounded leading-tight">plugins:<br/>  - react-component-generator<br/>  - accessibility-checker</div>
-<div class="text-xs text-gray-300 leading-snug flex-1">Frontend tooling — UI patterns, ARIA compliance, responsive design</div>
-</div>
-<div class="flex flex-col p-2.5 bg-gradient-to-br from-indigo-900/40 to-gray-900/60 rounded-xl border border-indigo-500/30">
-<div class="text-indigo-400 font-bold mb-1.5 text-sm">⚙️ microservice/</div>
-<div class="text-xs font-mono text-indigo-300 mb-2 bg-black/40 px-2 py-1 rounded leading-tight">plugins:<br/>  - go-concurrency-analyzer<br/>  - performance-profiler</div>
-<div class="text-xs text-gray-300 leading-snug flex-1">Backend performance tools — goroutine analysis, profiling, optimization</div>
-</div>
-</div>
-<div class="relative z-10 mt-3 p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/20 rounded-xl border border-blue-500/30">
-<div class="text-sm text-blue-200"><span class="font-bold text-blue-300">🎯 Key Insight:</span> No global plugin sprawl. Switch directories with <span class="font-mono text-blue-300">cd</span> and run <span class="font-mono text-blue-300">apm install</span> — Copilot adapts to project context automatically.</div>
-</div>
-</div>
+<ThreeColumnCardSlide
+  :partNumber="2"
+  pillIcon="📦"
+  pillLabel="APM Manifest: Scoped Configuration"
+  title="Different Projects, Different Agent Capabilities"
+  :columns='[
+    { icon: "🐍", title: "data-pipeline/", description: "Python data engineering tools — DataFrame transformations, query optimization", items: ["pandas-assistant", "sql-query-optimizer"] },
+    { icon: "⚛️", title: "web-app/", description: "Frontend tooling — UI patterns, ARIA compliance, responsive design", items: ["react-component-generator", "accessibility-checker"] },
+    { icon: "⚙️", title: "microservice/", description: "Backend performance tools — goroutine analysis, profiling, optimization", items: ["go-concurrency-analyzer", "performance-profiler"] }
+  ]'
+  :insight='{ icon: "🎯", text: "No global plugin sprawl. Switch directories with cd and run apm install — Copilot adapts to project context automatically." }'
+/>
 
 ---
 
@@ -534,59 +463,24 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 ---
 
 <!-- SLIDE: CI Integration -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Lockfile: CI Enforcement</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Lockfile Validation in CI — Prevent Drift at Merge Time</div>
-<div class="text-sm text-gray-400">Use --frozen-lockfile to enforce that apm.yml and apm-lock.yml stay synchronized</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 grid grid-cols-2 gap-3">
-<div class="flex flex-col p-3 bg-gradient-to-br from-indigo-900/40 to-gray-900/60 rounded-xl border border-indigo-500/30">
-<div class="text-indigo-400 font-bold mb-2">GitHub Actions Workflow</div>
-<div class="text-xs font-mono text-indigo-300 bg-black/40 px-2 py-2 rounded mb-2 leading-relaxed overflow-auto flex-1">
-name: Validate APM Lockfile<br/>
-on: [pull_request]<br/>
-<br/>
-jobs:<br/>
-&nbsp;&nbsp;validate:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;steps:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v3<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: npm install -g @microsoft/apm<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: apm install --frozen-lockfile
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<div class="p-2.5 bg-gradient-to-br from-emerald-900/40 to-gray-900/60 rounded-xl border border-emerald-500/30">
-<div class="text-emerald-400 font-bold mb-1 text-sm">✅ Success Case</div>
-<div class="text-xs text-gray-300">Lockfile matches manifest — CI passes, PR can merge.</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-red-900/40 to-gray-900/60 rounded-xl border border-red-500/30">
-<div class="text-red-400 font-bold mb-1 text-sm">❌ Failure Case</div>
-<div class="text-xs text-gray-300">Developer updated apm.yml but didn&#39;t regenerate lockfile — CI fails, PR blocked.</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-indigo-900/40 to-gray-900/60 rounded-xl border border-indigo-500/30">
-<div class="text-indigo-400 font-bold mb-1 text-sm">🔄 Fix Pattern</div>
-<div class="text-xs text-gray-300">Run <span class="font-mono text-indigo-300">apm install</span> locally, commit updated lockfile, push again.</div>
-</div>
-</div>
-</div>
-<div class="relative z-10 mt-3 p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/20 rounded-xl border border-indigo-500/30">
-<div class="text-sm text-indigo-200"><span class="font-bold text-indigo-300">🎯 Key Insight:</span> Configuration drift is caught in CI, not production — automatic enforcement of lockfile discipline.</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="🔒"
+  pillLabel="Lockfile: CI Enforcement"
+  title="Lockfile Validation in CI — Prevent Drift at Merge Time"
+  codePosition="left"
+  :code='{
+    language: "yaml",
+    filename: ".github/workflows/validate-apm.yml",
+    content: "name: Validate APM Lockfile\non: [pull_request]\n\njobs:\n  validate:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: npm install -g @microsoft/apm\n      - run: apm install --frozen-lockfile"
+  }'
+  :features='[
+    { icon: "✅", title: "Success Case", description: "Lockfile matches manifest — CI passes, PR can merge" },
+    { icon: "❌", title: "Failure Case", description: "Developer updated apm.yml but forgot to regenerate lockfile — CI fails, PR blocked" },
+    { icon: "🔄", title: "Fix Pattern", description: "Run apm install locally, commit updated lockfile, push again" }
+  ]'
+  :insight='{ icon: "🎯", text: "Configuration drift is caught in CI, not production — automatic enforcement of lockfile discipline." }'
+/>
 
 ---
 

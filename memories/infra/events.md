@@ -4,6 +4,22 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## copilot-plugins conformed (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-plugins.md` promoted to 🟢 Conformed status.
+
+- **Slide 6** (Installing and Managing Plugins) → `<ThreeColumnCardSlide>` partNumber=1, 3 columns (Install/Update/Remove)
+- **Slide 8** (CLI vs VS Code UI) → `<TwoColPairedConceptsSlide>` partNumber=1, insight for sync note
+- **Slide 13** (Per-Repository Configuration) → `<ThreeColumnCardSlide>` partNumber=2, string items (plugin names)
+- **Slide 18** (CI Integration) → `<CodeWithFeaturesSlide>` partNumber=3, codePosition=left, 3 features
+- **Slides 12, 17, 21** kept as raw HTML — asymmetric 2-col+principles, 4-col horizontal lifecycle, and mixed prose+code+3-step workflow
+
+**Build:** ✓ 2.64s, no errors.
+
+---
+
 ## copilot-primitives conformed (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

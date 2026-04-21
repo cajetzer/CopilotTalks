@@ -4,6 +4,24 @@ Confirmed facts about Copilot customization topics: primitives, hooks, memory, S
 
 ---
 
+## copilot-plugins deck: conformance state as of 2026-04-21
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/copilot-plugins.md` is 🟢 Conformed. 3 raw HTML slides remain by design.
+
+| Slide | Name | Status | Notes |
+|---|---|---|---|
+| 6 | Installing and Managing Plugins | `ThreeColumnCardSlide` (partNumber=1) | ✅ converted 2026-04-21 |
+| 8 | CLI vs VS Code UI | `TwoColPairedConceptsSlide` (partNumber=1) | ✅ converted 2026-04-21 |
+| 12 | Configuration as Code Benefits | Raw HTML | Asymmetric 2-col: stacked before/after left + tall principles card right |
+| 13 | Per-Repository Configuration | `ThreeColumnCardSlide` (partNumber=2) | ✅ converted 2026-04-21; items are plain strings (plugin names) |
+| 17 | Lockfile Workflow | Raw HTML | 4-col horizontal lifecycle with big numbers — no component covers horizontal step sequences |
+| 18 | CI Integration | `CodeWithFeaturesSlide` (partNumber=3, left) | ✅ converted 2026-04-21 |
+| 21 | Use Case — Standardized Code Review | Raw HTML | Mixed layout: prose+YAML code top, full-width 3-step workflow below |
+
+---
+
 ## copilot-primitives deck: conformance state as of 2026-04-21
 
 `schema_version: 1` | `date: 2026-04-21`
