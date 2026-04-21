@@ -262,6 +262,11 @@ Freeform inline HTML is still allowed when the content doesn't fit any of these 
 - `pillIcon` (string, required) — emoji or short glyph for the pill
 - `pillLabel` (string, required) — breadcrumb text (e.g., `"Subagents: Core Mechanism"`)
 - `title` (string, required) — slide headline (≤ 80 chars)
+- `progressDots` (object, required) — `{ current, total, activeColor }`. `activeColor` is a Tailwind class; match the section color:
+  - Part 1 (cyan): `"bg-cyan-400 shadow-lg shadow-cyan-500/50"`
+  - Part 2 (blue): `"bg-blue-400 shadow-lg shadow-blue-500/50"`
+  - Part 3 (indigo): `"bg-indigo-400 shadow-lg shadow-indigo-500/50"`
+  - Part 4 (purple): `"bg-purple-400 shadow-lg shadow-purple-500/50"`
 - `insight` (optional object `{ icon, text }`) — optional bottom insight bar
 
 ### `BeforeAfterMetricsSlide`
@@ -294,6 +299,7 @@ Freeform inline HTML is still allowed when the content doesn't fit any of these 
     { value: "0", label: "post-merge security bugs" }
   ]'
   :insight='{ icon: "🎯", text: "Key Insight: reviewers shift from gatekeepers to architects." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 ```
 
@@ -312,6 +318,7 @@ Same prop shape as `BeforeAfterMetricsSlide` but **no `metrics` prop**. Use when
   title="Implicit vs Explicit Invocation"
   :before='{ header: "Implicit (chat hints)", items: ["Auto-triggered", "Harder to debug"] }'
   :after='{ header: "Explicit (@agent)", items: ["Deterministic", "Visible in transcript"] }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 ```
 
@@ -342,6 +349,7 @@ Same prop shape as `BeforeAfterMetricsSlide` but **no `metrics` prop**. Use when
     items: ["Cross-repo context flows automatically"],
     metrics: [{ value: "4×", label: "faster polyrepo tasks" }]
   }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 ```
 
@@ -372,6 +380,7 @@ Two equal columns in the section's **cool palette** — no red/green opposition.
     items: ["Agents debate", "Best for stress-testing"],
     code: { language: "bash", content: "@council --mode adversarial \"...\"" }
   }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 ```
 
@@ -393,6 +402,7 @@ Exactly 3 cards. Each card can be description-only or include an `items` sub-lis
     { icon: "👥", title: "Team", description: "apm.yml in repo — versioned, shared", items: ["Lock file", "CI install"] },
     { icon: "🏢", title: "Org", description: "Private marketplace + signing policy" }
   ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 ```
 
@@ -415,6 +425,7 @@ Exactly 4 cards in a 2×2 grid with the full section card palette (each card get
     { icon: "🔌", title: "Plugins & MCP", description: "External capabilities wired via CLI or MCP server" }
   ]'
   :insight='{ icon: "💡", text: "Start small: instructions before agents, agents before plugins." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 ```
 
@@ -440,6 +451,7 @@ Code block + 2–4 feature cards. Two layouts via `codePosition`:
     { icon: "🌲", title: "Composable", description: "Agents, instructions, plugins — one manifest" },
     { icon: "🔁", title: "Reproducible", description: "apm install hydrates a fresh clone" }
   ]'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 ```
 
@@ -473,8 +485,7 @@ One oversized statistic on the left (section-tinted gradient, `text-8xl`) with 2
 - `hero`: `{ value, label, source }` — all three fields always rendered; use empty string for `source` if no citation.
 - `supporting`: exactly 2–4 items; each needs `icon`, `title`, `description`.
 - `insight`: `{ icon, text }` — always rendered; use an empty string icon (`""`) if no icon needed.
-- `progressDots`: `{ current, total, activeColor }` — `activeColor` is the Tailwind class for the active dot; match the section color (e.g. Part 1 = `"bg-cyan-400 shadow-lg shadow-cyan-500/50"`, Part 2 = `"bg-blue-400 shadow-lg shadow-blue-500/50"`, Part 3 = `"bg-indigo-400 shadow-lg shadow-indigo-500/50"`, Part 4 = `"bg-purple-400 shadow-lg shadow-purple-500/50"`).
-- Hero gradient follows section color: Part 1 = cyan→blue, 2 = blue→indigo, 3 = indigo→purple, 4 = purple→pink.
+- `progressDots`: see universal props above.
 
 ### When NOT to use a Tier-1 component
 

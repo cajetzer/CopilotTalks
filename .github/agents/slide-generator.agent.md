@@ -128,7 +128,7 @@ Every Part N slide must use `SectionOpenerSlide` from `./components/structure/Se
 
 #### Tech-talk Tier-1 Body Components (PREFERRED, not required)
 
-For body slides between section openers, **prefer a Tier-1 component when an archetype matches** rather than hand-rolling inline Tailwind. The catalog lives in `slides/tech-talks/template.md` under "Tier-1 Body-Content Components," with a selection quick-reference table and full prop schemas. Covered archetypes include: before/after (with or without metrics), problem→solution→outcome narrative, paired concepts, 3-card row, 4-card grid, and code-with-features layouts.
+For body slides between section openers, **prefer a Tier-1 component when an archetype matches** rather than hand-rolling inline Tailwind. The catalog lives in `slides/tech-talks/template.md` under "Tier-1 Body-Content Components," with a selection quick-reference table and full prop schemas. Covered archetypes include: before/after (with or without metrics), problem→solution→outcome narrative, paired concepts, 3-card row, 4-card grid, code-with-features, and hero-stat layouts.
 
 Inline HTML is still welcome for one-of-a-kind layouts, sequence diagrams, terminal transcripts, and anything that doesn't match an archetype. Treat Tier-1 components as shortcuts, not a straitjacket — creativity on unique slides is encouraged. All body slides (component or inline) must still include progress dots and follow the cockpit wrapper from `slides/TEMPLATE.md`.
 

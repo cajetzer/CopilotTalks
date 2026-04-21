@@ -25,6 +25,8 @@ export interface SectionChrome {
     pill: string
     pillText: string
     divider: string
+    accent: string  // headline accent text color
+    h1: string      // gradient text for section title (SectionOpenerSlide)
     arrow: string   // terminal arrow color (SectionOpenerSlide)
 }
 
@@ -43,6 +45,8 @@ const DARK_CHROME: SectionChrome[] = [
         pillText: 'text-cyan-300',
         divider: 'via-cyan-400',
         accent: 'text-cyan-300',
+        h1: 'from-cyan-400 via-blue-300 to-indigo-400',
+        arrow: 'text-cyan-300',
     },
     {
         ambientBg: 'from-blue-900/25 via-indigo-900/15 to-purple-900/20',
@@ -51,6 +55,8 @@ const DARK_CHROME: SectionChrome[] = [
         pillText: 'text-blue-300',
         divider: 'via-blue-400',
         accent: 'text-blue-300',
+        h1: 'from-blue-400 via-indigo-300 to-purple-400',
+        arrow: 'text-blue-300',
     },
     {
         ambientBg: 'from-indigo-900/25 via-purple-900/15 to-pink-900/20',
@@ -59,6 +65,8 @@ const DARK_CHROME: SectionChrome[] = [
         pillText: 'text-indigo-300',
         divider: 'via-indigo-400',
         accent: 'text-indigo-300',
+        h1: 'from-indigo-400 via-purple-300 to-pink-400',
+        arrow: 'text-indigo-300',
     },
     {
         ambientBg: 'from-purple-900/25 via-pink-900/15 to-rose-900/20',
@@ -67,6 +75,8 @@ const DARK_CHROME: SectionChrome[] = [
         pillText: 'text-purple-300',
         divider: 'via-purple-400',
         accent: 'text-purple-300',
+        h1: 'from-purple-400 via-pink-300 to-rose-400',
+        arrow: 'text-purple-300',
     },
 ]
 
@@ -78,6 +88,8 @@ const LIGHT_CHROME: SectionChrome[] = [
         pillText: 'text-cyan-700',
         divider: 'via-cyan-500',
         accent: 'text-cyan-700',
+        h1: 'from-cyan-600 via-blue-600 to-indigo-600',
+        arrow: 'text-cyan-700',
     },
     {
         ambientBg: 'from-blue-100/40 via-indigo-100/20 to-purple-100/20',
@@ -86,6 +98,8 @@ const LIGHT_CHROME: SectionChrome[] = [
         pillText: 'text-blue-700',
         divider: 'via-blue-500',
         accent: 'text-blue-700',
+        h1: 'from-blue-600 via-indigo-600 to-purple-600',
+        arrow: 'text-blue-700',
     },
     {
         ambientBg: 'from-indigo-100/40 via-purple-100/20 to-pink-100/20',
@@ -94,6 +108,8 @@ const LIGHT_CHROME: SectionChrome[] = [
         pillText: 'text-indigo-700',
         divider: 'via-indigo-500',
         accent: 'text-indigo-700',
+        h1: 'from-indigo-600 via-purple-600 to-pink-600',
+        arrow: 'text-indigo-700',
     },
     {
         ambientBg: 'from-purple-100/40 via-pink-100/20 to-rose-100/20',
@@ -102,6 +118,8 @@ const LIGHT_CHROME: SectionChrome[] = [
         pillText: 'text-purple-700',
         divider: 'via-purple-500',
         accent: 'text-purple-700',
+        h1: 'from-purple-600 via-pink-600 to-rose-600',
+        arrow: 'text-purple-700',
     },
 ]
 

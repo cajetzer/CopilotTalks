@@ -4,6 +4,34 @@ Confirmed facts about Copilot customization topics: primitives, hooks, memory, S
 
 ---
 
+## mcp-apps deck: conformance state as of 2026-04-21
+
+`schema_version: 1` | `date: 2026-04-21`
+
+`slides/tech-talks/mcp-apps.md` is 🟢 Conformed. 1 raw HTML slide remains by design.
+
+| Slide | Name | Status | Notes |
+|---|---|---|---|
+| 5 | Charts Component | `CodeWithFeaturesSlide` (partNumber=1, left, 4 features) | ✅ converted 2026-04-21 |
+| 6 | Tables Component | `CodeWithFeaturesSlide` (partNumber=1, left, 4 features) | ✅ converted 2026-04-21 |
+| 7 | Forms Component | `CodeWithFeaturesSlide` (partNumber=1, left, 2 features) | ✅ converted 2026-04-21; combined Forms+Trees+Cards into single slide (was two-panel left side) |
+| 8 | Custom Components | `CodeWithFeaturesSlide` (partNumber=1, left, 2 features) | ✅ converted 2026-04-21; no insight (sandboxed custom component) |
+| 9 | Component Decision Tree | Raw HTML | 2×2 decision grid + full-width "Don't Use When" callout — bespoke decision-tree layout |
+| 11 | MCP Server Structure | `CodeWithFeaturesSlide` (partNumber=2, left, 3 features) | ✅ converted 2026-04-21 |
+| 12 | Callback Handling | `CodeWithFeaturesSlide` (partNumber=2, left, 2 features) | ✅ converted 2026-04-21 |
+| 13 | Configuration and Testing | `CodeWithFeaturesSlide` (partNumber=2, left, 2 features) | ✅ converted 2026-04-21 |
+| 15 | Dashboard Pattern | `CodeWithFeaturesSlide` (partNumber=3, left, 2 features) | ✅ converted 2026-04-21 |
+| 16 | Progressive Drill-Down | `CodeWithFeaturesSlide` (partNumber=3, left, 2 features) | ✅ converted 2026-04-21 |
+| 17 | Form-Driven Workflow | `CodeWithFeaturesSlide` (partNumber=3, left, 2 features) | ✅ converted 2026-04-21 |
+| 18 | Hierarchical Navigation | `CodeWithFeaturesSlide` (partNumber=3, left, 2 features) | ✅ converted 2026-04-21 |
+| 20 | Use Case 1: System Metrics Dashboard | `BeforeAfterMetricsSlide` (partNumber=4, 3 metrics) | ✅ converted 2026-04-21 |
+| 21 | Use Case 2: Database Query Results | `BeforeAfterMetricsSlide` (partNumber=4, 3 metrics) | ✅ converted 2026-04-21 |
+| 22 | Use Case 3: Project Scaffolding Forms | `BeforeAfterMetricsSlide` (partNumber=4, 3 metrics) | ✅ converted 2026-04-21 |
+
+Slide 9 is genuinely bespoke (2×2 decision grid + full-width warning callout) — do not attempt to force into existing components.
+
+---
+
 ## copilot-plugins deck: conformance state as of 2026-04-21
 
 `schema_version: 1` | `date: 2026-04-21`

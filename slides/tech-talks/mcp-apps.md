@@ -26,6 +26,8 @@ import TocSlide from './components/structure/TocSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 </script>
 
 <!-- SLIDE: Title Slide -->
@@ -82,262 +84,77 @@ highlight="MCP Apps turn static responses into interactive experiences."
 ---
 
 <!-- SLIDE: Charts Component -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Component Types</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 5</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Charts: Interactive Data Visualization</div>
-<div class="text-xs text-white/50">Bar, line, pie, scatter, area charts with hover, zoom, and drill-down</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3 flex-1 min-h-0">
-<div class="flex-1 p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 flex flex-col">
-<div class="text-sm font-semibold text-cyan-300 mb-1">Capabilities</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Hover details with exact values</div>
-<div>• Multiple chart types (bar, line, pie, scatter, area)</div>
-<div>• Custom color palettes</div>
-<div>• Responsive sizing with chat panel</div>
-</div>
-</div>
-<div class="flex-1 flex flex-col overflow-hidden">
-<div class="text-xs font-semibold text-gray-400 mb-1">Component Spec (TypeScript)</div>
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50">
-<div class="text-xs p-2 leading-relaxed font-mono">
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chartType: <span class="text-amber-300">"bar"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Monthly Revenue"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"Jan"</span>, value: <span class="text-cyan-300">45000</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"Feb"</span>, value: <span class="text-cyan-300">52000</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"Mar"</span>, value: <span class="text-cyan-300">61000</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; interactive: <span class="text-purple-400">true</span>, colors: [<span class="text-amber-300">"#4CAF50"</span>] &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&#125;]<br/>
-&#125;;
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs text-gray-300">
-<strong class="text-green-300">Use when:</strong> Presenting time-series data, comparisons, distributions, trends
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="🧩"
+  pillLabel="Component Types"
+  title="Charts: Interactive Data Visualization"
+  codePosition="left"
+  :code='{ language: "typescript", filename: "chart-tool.ts", content: "return {\n  content: [{\n    type: \"component\",\n    component: {\n      type: \"chart\",\n      chartType: \"bar\",\n      title: \"Monthly Revenue\",\n      data: [\n        { label: \"Jan\", value: 45000 },\n        { label: \"Feb\", value: 52000 },\n        { label: \"Mar\", value: 61000 }\n      ],\n      options: { interactive: true, colors: [\"#4CAF50\"] }\n    }\n  }]\n};" }'
+  :features='[
+    { icon: "📊", title: "Chart Types", description: "Bar, line, pie, scatter, area — full range of chart types" },
+    { icon: "🖱️", title: "Hover & Interactivity", description: "Hover details with exact values; zoom and drill-down support" },
+    { icon: "🎨", title: "Custom Colors", description: "Custom color palettes per chart and series" },
+    { icon: "📐", title: "Responsive Layout", description: "Responsive sizing adapts to chat panel width automatically" }
+  ]'
+  :insight='{ icon: "✅", text: "Use when: Presenting time-series data, comparisons, distributions, trends" }'
+  :progressDots='{ current: 1, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Tables Component -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Component Types</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 5</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Tables: Interactive Data Grids</div>
-<div class="text-xs text-white/50">Sortable, filterable tables with pagination, search, and CSV export</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3 flex-1 min-h-0">
-<div class="flex-1 p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30 flex flex-col">
-<div class="text-sm font-semibold text-blue-300 mb-1">Capabilities</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Click column headers to sort ascending/descending</div>
-<div>• Dropdown filters for filterable columns</div>
-<div>• Full-text search across all columns</div>
-<div>• Pagination (10/25/50/100 per page), CSV export</div>
-</div>
-</div>
-<div class="flex-1 flex flex-col overflow-hidden">
-<div class="text-xs font-semibold text-gray-400 mb-1">Component Spec (TypeScript)</div>
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50">
-<div class="text-xs p-2 leading-relaxed font-mono">
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Active Users"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"name"</span>, label: <span class="text-amber-300">"Name"</span>, sortable: <span class="text-purple-400">true</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"role"</span>, label: <span class="text-amber-300">"Role"</span>, filterable: <span class="text-purple-400">true</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"lastActive"</span>, label: <span class="text-amber-300">"Last Active"</span>, sortable: <span class="text-purple-400">true</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: [&#123; name: <span class="text-amber-300">"Alice"</span>, role: <span class="text-amber-300">"Admin"</span> &#125;, ...],<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; pagination: <span class="text-purple-400">true</span>, searchable: <span class="text-purple-400">true</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&#125;]<br/>
-&#125;;
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs text-gray-300">
-<strong class="text-green-300">Use when:</strong> Displaying >20 rows where users need to find, sort, or filter records
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="🧩"
+  pillLabel="Component Types"
+  title="Tables: Interactive Data Grids"
+  codePosition="left"
+  :code='{ language: "typescript", filename: "table-tool.ts", content: "return {\n  content: [{\n    type: \"component\",\n    component: {\n      type: \"table\",\n      title: \"Active Users\",\n      columns: [\n        { key: \"name\", label: \"Name\", sortable: true },\n        { key: \"role\", label: \"Role\", filterable: true },\n        { key: \"lastActive\", label: \"Last Active\", sortable: true }\n      ],\n      data: [{ name: \"Alice\", role: \"Admin\" }, ...],\n      options: { pagination: true, searchable: true }\n    }\n  }]\n};" }'
+  :features='[
+    { icon: "↕️", title: "Sort & Filter", description: "Click column headers to sort; dropdown filters for filterable columns" },
+    { icon: "🔍", title: "Full-Text Search", description: "Search across all columns simultaneously" },
+    { icon: "📄", title: "Pagination", description: "Configurable rows per page: 10, 25, 50, or 100" },
+    { icon: "📤", title: "CSV Export", description: "One-click export of current view or full dataset" }
+  ]'
+  :insight='{ icon: "✅", text: "Use when: Displaying >20 rows where users need to find, sort, or filter records" }'
+  :progressDots='{ current: 2, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Forms Component -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Component Types</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">3 of 5</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Forms: Structured Input Collection</div>
-<div class="text-xs text-white/50">Type-aware fields with validation, dropdowns, checkboxes, and submit callbacks</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-semibold text-indigo-300 mb-1">Capabilities</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Validation: required fields, pattern matching, type validation</div>
-<div>• Field types: text, email, number, select, checkbox, radio, textarea</div>
-<div>• Submit callback sends data to specified MCP tool</div>
-</div>
-</div>
-<div class="flex-1 p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-sm font-semibold text-purple-300 mb-1">Trees & Cards</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• <strong>Trees:</strong> Expandable hierarchical views (file systems, org charts)</div>
-<div>• <strong>Cards:</strong> Grid/list/carousel layouts with images and actions</div>
-</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Form example</span><br/>
-&#123; type: <span class="text-amber-300">"form"</span>, title: <span class="text-amber-300">"Create User"</span>,<br/>
-&nbsp;&nbsp;fields: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"username"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"role"</span>, type: <span class="text-amber-300">"select"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: [<span class="text-amber-300">"Admin"</span>, <span class="text-amber-300">"Editor"</span>, <span class="text-amber-300">"Viewer"</span>] &#125;<br/>
-&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"process-user-creation"</span> <span class="text-green-400">// Callback tool</span><br/>
-&#125;<br/>
-<br/>
-<span class="text-green-400">// Tree example</span><br/>
-&#123; type: <span class="text-amber-300">"tree"</span>, title: <span class="text-amber-300">"Project Files"</span>,<br/>
-&nbsp;&nbsp;data: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; label: <span class="text-amber-300">"src/"</span>, icon: <span class="text-amber-300">"folder"</span>, expandable: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children: [&#123; label: <span class="text-amber-300">"index.ts"</span> &#125;] &#125;<br/>
-&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;options: &#123; selectable: <span class="text-purple-400">true</span>, onSelect: <span class="text-amber-300">"open-file"</span> &#125;<br/>
-&#125;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs text-gray-300">
-<strong class="text-green-300">Use when:</strong> Forms—collecting multi-field input with validation; Trees—navigating hierarchies; Cards—presenting options or galleries
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="🧩"
+  pillLabel="Component Types"
+  title="Forms, Trees & Cards: Structured Input and Navigation"
+  codePosition="left"
+  :code='{ language: "typescript", content: "// Form example\n{ type: \"form\", title: \"Create User\",\n  fields: [\n    { name: \"username\", type: \"text\", required: true },\n    { name: \"role\", type: \"select\",\n      options: [\"Admin\", \"Editor\", \"Viewer\"] }\n  ],\n  onSubmit: \"process-user-creation\"\n}\n\n// Tree example\n{ type: \"tree\", title: \"Project Files\",\n  data: [\n    { label: \"src/\", icon: \"folder\", expandable: true,\n      children: [{ label: \"index.ts\" }] }\n  ],\n  options: { selectable: true, onSelect: \"open-file\" }\n}" }'
+  :features='[
+    { icon: "📝", title: "Forms: Structured Input", description: "Type-aware fields with validation. Types: text, email, number, select, checkbox, radio. Submit callback triggers MCP tool." },
+    { icon: "🌳", title: "Trees & Cards", description: "Trees: expandable hierarchical views for file systems and org charts. Cards: grid, list, carousel layouts with images and actions." }
+  ]'
+  :insight='{ icon: "✅", text: "Forms — multi-field input with validation; Trees — navigating hierarchies; Cards — presenting options or galleries" }'
+  :progressDots='{ current: 3, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Custom Components -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Component Types</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">4 of 5</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Custom Components: Maximum Flexibility</div>
-<div class="text-xs text-white/50">Sandboxed HTML/CSS/JavaScript for specialized visualizations</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-sm font-semibold text-purple-300 mb-1">Security Constraints</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Sandboxed iframe execution</div>
-<div>• No access to VS Code APIs</div>
-<div>• CSP restrictions apply</div>
-<div>• Use VS Code CSS variables for theme consistency</div>
-</div>
-</div>
-<div class="flex-1 p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-xl border border-pink-500/30">
-<div class="text-sm font-semibold text-pink-300 mb-1">When to Use</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Built-in components don't meet specialized needs</div>
-<div>• Flame graphs, network diagrams, custom D3 visualizations</div>
-<div>• Require canvas rendering or advanced interactions</div>
-</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"custom"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html: <span class="text-amber-300">`&lt;div class="flame-graph"&gt;...&lt;/div&gt;`</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css: <span class="text-amber-300">`.flame-graph &#123; padding: 16px; &#125;`</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script: <span class="text-amber-300">`drawFlameGraph(ctx, data);`</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sandbox: <span class="text-purple-400">true</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&#125;]<br/>
-&#125;;
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="🧩"
+  pillLabel="Component Types"
+  title="Custom Components: Maximum Flexibility"
+  codePosition="left"
+  :code='{ language: "typescript", filename: "custom-tool.ts", content: "return {\n  content: [{\n    type: \"component\",\n    component: {\n      type: \"custom\",\n      html: \"<div class=flame-graph>...</div>\",\n      css: \".flame-graph { padding: 16px; }\",\n      script: \"drawFlameGraph(ctx, data);\",\n      sandbox: true\n    }\n  }]\n};" }'
+  :features='[
+    { icon: "🔒", title: "Security Constraints", description: "Sandboxed iframe execution. No VS Code API access. CSP restrictions apply. Use VS Code CSS variables for theme consistency." },
+    { icon: "⚡", title: "When to Use", description: "Built-in components do not cover specialized needs: flame graphs, network diagrams, custom D3 visualizations, canvas rendering." }
+  ]'
+  :progressDots='{ current: 4, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
@@ -414,190 +231,54 @@ highlight="MCP Apps turn static responses into interactive experiences."
 ---
 
 <!-- SLIDE: MCP Server Structure -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Building MCP Apps</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Basic MCP Server Structure</div>
-<div class="text-xs text-white/50">MCP server with tools that return component specifications</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-500/30">
-<div class="text-sm font-semibold text-blue-300 mb-1">Key Points</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Return <code>type: "component"</code> in content array</div>
-<div>• Component spec includes type, title, data, options</div>
-<div>• VS Code detects component type and renders accordingly</div>
-</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// src/index.ts</span><br/>
-<span class="text-purple-400">import</span> &#123; Server &#125; <span class="text-purple-400">from</span> <span class="text-amber-300">"@modelcontextprotocol/sdk/server/index.js"</span>;<br/>
-<span class="text-purple-400">import</span> &#123; StdioServerTransport &#125; <span class="text-purple-400">from</span> <span class="text-amber-300">"@modelcontextprotocol/sdk/server/stdio.js"</span>;<br/>
-<br/>
-<span class="text-purple-400">const</span> server = <span class="text-purple-400">new</span> <span class="text-cyan-400">Server</span>(&#123;<br/>
-&nbsp;&nbsp;name: <span class="text-amber-300">"my-mcp-app"</span>,<br/>
-&nbsp;&nbsp;version: <span class="text-amber-300">"1.0.0"</span><br/>
-&#125;, &#123; capabilities: &#123; tools: &#123;&#125; &#125; &#125;);<br/>
-<br/>
-<span class="text-green-400">// Define tools</span><br/>
-server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-amber-300">"tools/list"</span>, <span class="text-purple-400">async</span> () => (&#123;<br/>
-&nbsp;&nbsp;tools: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;name: <span class="text-amber-300">"show-metrics"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;description: <span class="text-amber-300">"Display project metrics as interactive charts"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;inputSchema: &#123; type: <span class="text-amber-300">"object"</span>, properties: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timeRange: &#123; type: <span class="text-amber-300">"string"</span>, enum: [<span class="text-amber-300">"day"</span>, <span class="text-amber-300">"week"</span>, <span class="text-amber-300">"month"</span>] &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125; &#125;<br/>
-&nbsp;&nbsp;&#125;]<br/>
-&#125;));<br/>
-<br/>
-<span class="text-green-400">// Handle tool calls - return component</span><br/>
-server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-amber-300">"tools/call"</span>, <span class="text-purple-400">async</span> (request) => &#123;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> data = <span class="text-purple-400">await</span> <span class="text-cyan-400">fetchMetrics</span>(request.params.arguments.timeRange);<br/>
-&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123; content: [&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>, chartType: <span class="text-amber-300">"line"</span>, data, options: &#123; interactive: <span class="text-purple-400">true</span> &#125;<br/>
-&nbsp;&nbsp;&#125; &#125;] &#125;;<br/>
-&#125;);<br/>
-<br/>
-<span class="text-purple-400">await</span> server.<span class="text-cyan-400">connect</span>(<span class="text-purple-400">new</span> <span class="text-cyan-400">StdioServerTransport</span>());
-</div>
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="2"
+  pillIcon="🏗️"
+  pillLabel="Building MCP Apps"
+  title="Basic MCP Server Structure"
+  codePosition="left"
+  :code='{ language: "typescript", filename: "src/index.ts", content: "import { Server } from \"@modelcontextprotocol/sdk/server/index.js\";\nimport { StdioServerTransport } from \"@modelcontextprotocol/sdk/server/stdio.js\";\n\nconst server = new Server({\n  name: \"my-mcp-app\", version: \"1.0.0\"\n}, { capabilities: { tools: {} } });\n\n// Define tools\nserver.setRequestHandler(\"tools/list\", async () => ({\n  tools: [{\n    name: \"show-metrics\",\n    description: \"Display metrics as interactive charts\",\n    inputSchema: { type: \"object\", properties: {\n      timeRange: { type: \"string\", enum: [\"day\", \"week\", \"month\"] }\n    } }\n  }]\n}));\n\n// Return component\nserver.setRequestHandler(\"tools/call\", async (request) => {\n  const data = await fetchMetrics(request.params.arguments.timeRange);\n  return { content: [{ type: \"component\", component: {\n    type: \"chart\", chartType: \"line\", data,\n    options: { interactive: true }\n  } }] };\n});\n\nawait server.connect(new StdioServerTransport());" }'
+  :features='[
+    { icon: "📤", title: "Return Component Type", description: "Return type: component in content array to signal VS Code to render a widget" },
+    { icon: "🔧", title: "Component Spec", description: "Each spec includes type, title, data, and options — VS Code detects component type and renders accordingly" },
+    { icon: "🔌", title: "Standard MCP Pattern", description: "tools/list declares tools; tools/call handler returns component specs alongside regular text responses" }
+  ]'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Callback Handling -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Building MCP Apps</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Callback Handling for Interactive Elements</div>
-<div class="text-xs text-white/50">Forms and trees trigger MCP tool calls on user interaction</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-semibold text-indigo-300 mb-1">Callback Workflow</div>
-<div class="text-xs text-gray-300">
-Tool returns form component with <code>onSubmit</code> callback → User fills form and clicks submit → VS Code calls specified MCP tool with form data → Tool processes and returns confirmation
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Form tool response</span><br/>
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"form"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Create New User"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"username"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"email"</span>, type: <span class="text-amber-300">"email"</span>, required: <span class="text-purple-400">true</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;submitLabel: <span class="text-amber-300">"Create"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"process-user-creation"</span>  <span class="text-green-400">// Callback tool</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&#125;]<br/>
-&#125;;<br/>
-<br/>
-<span class="text-green-400">// Callback handler (different tool)</span><br/>
-server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-amber-300">"tools/call"</span>, <span class="text-purple-400">async</span> (request) => &#123;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"process-user-creation"</span>) &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; username, email &#125; = request.params.arguments;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">await</span> <span class="text-cyan-400">createUser</span>(username, email);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123; content: [&#123; type: <span class="text-amber-300">"text"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: <span class="text-amber-300">`✅ User $&#123;username&#125; created!`</span> &#125;] &#125;;<br/>
-&nbsp;&nbsp;&#125;<br/>
-&#125;);
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
-<strong class="text-green-300">Pattern:</strong> Separate tools for initial display and callback processing—keeps logic modular and testable
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="2"
+  pillIcon="🏗️"
+  pillLabel="Building MCP Apps"
+  title="Callback Handling for Interactive Elements"
+  codePosition="left"
+  :code='{ language: "typescript", content: "// Form tool response\nreturn {\n  content: [{\n    type: \"component\",\n    component: {\n      type: \"form\",\n      title: \"Create New User\",\n      fields: [\n        { name: \"username\", type: \"text\", required: true },\n        { name: \"email\", type: \"email\", required: true }\n      ],\n      submitLabel: \"Create\",\n      onSubmit: \"process-user-creation\"\n    }\n  }]\n};\n\n// Callback handler\nif (request.params.name === \"process-user-creation\") {\n  const { username, email } = request.params.arguments;\n  await createUser(username, email);\n  return { content: [{ type: \"text\",\n    text: \"User \" + username + \" created!\" }] };\n}" }'
+  :features='[
+    { icon: "🔄", title: "Callback Workflow", description: "Tool returns form with onSubmit callback. User fills and submits. VS Code calls the callback tool with form data. Tool processes and responds." },
+    { icon: "🧩", title: "Modular Design", description: "Separate tools for initial display and callback processing — keeps logic modular and testable" }
+  ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Configuration and Testing -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Building MCP Apps</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Configuration in VS Code</div>
-<div class="text-xs text-white/50">Add MCP App server to .vscode/mcp.json and test in chat</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-sm font-semibold text-purple-300 mb-1">Testing Steps</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>1. Build MCP server: <code>npm run build</code></div>
-<div>2. Restart VS Code or run <code>MCP: Restart Server</code></div>
-<div>3. In chat: <code>#my-app show-metrics --timeRange month</code></div>
-<div>4. Component renders inline</div>
-</div>
-</div>
-<div class="flex-1 flex flex-col overflow-hidden">
-<div class="text-xs font-semibold text-gray-400 mb-1">mcp.json Configuration</div>
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50">
-<div class="text-xs p-2 leading-relaxed font-mono">
-&#123;<br/>
-&nbsp;&nbsp;<span class="text-cyan-400">"servers"</span>: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"my-metrics-app"</span>: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"type"</span>: <span class="text-amber-300">"stdio"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"command"</span>: <span class="text-amber-300">"node"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-cyan-400">"args"</span>: [<span class="text-amber-300">"$&#123;workspaceFolder&#125;/mcp-apps/dist/index.js"</span>]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&#125;<br/>
-&#125;
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 rounded-lg border border-amber-500/30 text-xs">
-<strong class="text-amber-300">Best Practices:</strong> Paginate large datasets, lazy load images, cache queries, use <code>sandbox: true</code> for custom HTML, validate form inputs
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="2"
+  pillIcon="🏗️"
+  pillLabel="Building MCP Apps"
+  title="Configuration in VS Code"
+  codePosition="left"
+  :code='{ language: "json", filename: ".vscode/mcp.json", content: "{\n  \"servers\": {\n    \"my-metrics-app\": {\n      \"type\": \"stdio\",\n      \"command\": \"node\",\n      \"args\": [\"${workspaceFolder}/mcp-apps/dist/index.js\"]\n    }\n  }\n}" }'
+  :features='[
+    { icon: "🔧", title: "Testing Steps", description: "1. Build: npm run build  2. Restart VS Code or run MCP: Restart Server  3. In chat: #my-app show-metrics  4. Component renders inline" },
+    { icon: "⚡", title: "Best Practices", description: "Paginate large datasets, lazy-load images, cache queries, use sandbox: true for custom HTML, validate all form inputs" }
+  ]'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
@@ -617,278 +298,73 @@ server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-am
 ---
 
 <!-- SLIDE: Dashboard Pattern -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💡 Real-World Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Data Exploration Dashboard</div>
-<div class="text-xs text-white/50">Single query returns multi-component comprehensive view</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-semibold text-indigo-300 mb-1">Pattern</div>
-<div class="text-xs text-gray-300">Return multiple components in single response—chart + table + summary card—eliminating context-switch</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Tool returns multiple components</span><br/>
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chartType: <span class="text-amber-300">"bar"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Commits by Author"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: authorStats<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Recent Pull Requests"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"title"</span>, label: <span class="text-amber-300">"Title"</span>, sortable: <span class="text-purple-400">true</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"status"</span>, label: <span class="text-amber-300">"Status"</span>, filterable: <span class="text-purple-400">true</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: recentPRs,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; pagination: <span class="text-purple-400">true</span>, pageSize: <span class="text-cyan-300">10</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;]<br/>
-&#125;;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
-<strong class="text-green-300">Benefit:</strong> Comprehensive view in single response, no context-switch
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="💡"
+  pillLabel="Real-World Patterns"
+  title="Data Exploration Dashboard"
+  codePosition="left"
+  :code='{ language: "typescript", content: "// Tool returns multiple components\nreturn {\n  content: [\n    {\n      type: \"component\",\n      component: {\n        type: \"chart\",\n        chartType: \"bar\",\n        title: \"Commits by Author\",\n        data: authorStats\n      }\n    },\n    {\n      type: \"component\",\n      component: {\n        type: \"table\",\n        title: \"Recent Pull Requests\",\n        columns: [\n          { key: \"title\", label: \"Title\", sortable: true },\n          { key: \"status\", label: \"Status\", filterable: true }\n        ],\n        data: recentPRs,\n        options: { pagination: true, pageSize: 10 }\n      }\n    }\n  ]\n};" }'
+  :features='[
+    { icon: "🗄️", title: "Multi-Component Response", description: "Return multiple components in a single tool response — chart + table + summary card" },
+    { icon: "🚀", title: "No Context Switch", description: "Comprehensive view in a single response — no external dashboards or tab-switching required" }
+  ]'
+  :insight='{ icon: "💡", text: "Single query → comprehensive dashboard. No context-switch to external tools." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Progressive Drill-Down Pattern -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💡 Real-World Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Progressive Drill-Down</div>
-<div class="text-xs text-white/50">Chart with callback to show detailed table on interaction</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-500/30">
-<div class="text-sm font-semibold text-purple-300 mb-1">Pattern</div>
-<div class="text-xs text-gray-300">Initial chart with <code>onClick</code> callback—clicking bar/region triggers MCP tool that returns detailed table</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Initial chart with callback</span><br/>
-&#123;<br/>
-&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>,<br/>
-&nbsp;&nbsp;chartType: <span class="text-amber-300">"bar"</span>,<br/>
-&nbsp;&nbsp;title: <span class="text-amber-300">"Sales by Region"</span>,<br/>
-&nbsp;&nbsp;data: regionSales,<br/>
-&nbsp;&nbsp;options: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;interactive: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;onClick: <span class="text-amber-300">"show-region-details"</span>  <span class="text-green-400">// Callback tool</span><br/>
-&nbsp;&nbsp;&#125;<br/>
-&#125;<br/>
-<br/>
-<span class="text-green-400">// Callback returns detailed table</span><br/>
-<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"show-region-details"</span>) &#123;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; region &#125; = request.params.arguments;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> details = <span class="text-purple-400">await</span> <span class="text-cyan-400">fetchRegionDetails</span>(region);<br/>
-<br/>
-&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">`$&#123;region&#125; Sales Details`</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"product"</span>, label: <span class="text-amber-300">"Product"</span>, sortable: <span class="text-purple-400">true</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; key: <span class="text-amber-300">"revenue"</span>, label: <span class="text-amber-300">"Revenue"</span>, type: <span class="text-amber-300">"currency"</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: details,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123; sortable: <span class="text-purple-400">true</span>, exportable: <span class="text-purple-400">true</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;]<br/>
-&nbsp;&nbsp;&#125;;<br/>
-&#125;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
-<strong class="text-green-300">Benefit:</strong> Summary → Details without new prompt, preserves context
-</div>
-</div>
-</div>
-
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="💡"
+  pillLabel="Real-World Patterns"
+  title="Progressive Drill-Down"
+  codePosition="left"
+  :code='{ language: "typescript", content: "// Initial chart with callback\n{\n  type: \"chart\",\n  chartType: \"bar\",\n  title: \"Sales by Region\",\n  data: regionSales,\n  options: {\n    interactive: true,\n    onClick: \"show-region-details\"\n  }\n}\n\n// Callback returns detailed table\nif (request.params.name === \"show-region-details\") {\n  const { region } = request.params.arguments;\n  const details = await fetchRegionDetails(region);\n  return {\n    content: [{\n      type: \"component\",\n      component: {\n        type: \"table\",\n        title: region + \" Sales Details\",\n        columns: [\n          { key: \"product\", label: \"Product\", sortable: true },\n          { key: \"revenue\", label: \"Revenue\", type: \"currency\" }\n        ],\n        data: details,\n        options: { sortable: true, exportable: true }\n      }\n    }]\n  };\n}" }'
+  :features='[
+    { icon: "📊", title: "Interactive Callbacks", description: "Chart with onClick callback — clicking a bar or region triggers an MCP tool call" },
+    { icon: "🔍", title: "Drill-Down Pattern", description: "Callback returns detailed table for the selected region — summary to details without a new prompt" }
+  ]'
+  :insight='{ icon: "💡", text: "Summary to details without a new prompt — preserves context and enables faster iteration" }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 ---
 
 <!-- SLIDE: Form-Driven Workflow Pattern -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💡 Real-World Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Form-Driven Workflows</div>
-<div class="text-xs text-white/50">Multi-step guided processes with structured input collection</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-xl border border-pink-500/30">
-<div class="text-sm font-semibold text-pink-300 mb-1">Pattern</div>
-<div class="text-xs text-gray-300">Form collects configuration → Submit callback generates code/scaffold → Response shows result or next form</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Step 1: Collect configuration</span><br/>
-&#123;<br/>
-&nbsp;&nbsp;type: <span class="text-amber-300">"form"</span>,<br/>
-&nbsp;&nbsp;title: <span class="text-amber-300">"Configure New API Endpoint"</span>,<br/>
-&nbsp;&nbsp;fields: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"path"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"method"</span>, type: <span class="text-amber-300">"select"</span>, options: [<span class="text-amber-300">"GET"</span>, <span class="text-amber-300">"POST"</span>, <span class="text-amber-300">"PUT"</span>] &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"auth"</span>, type: <span class="text-amber-300">"checkbox"</span>, label: <span class="text-amber-300">"Require authentication"</span> &#125;<br/>
-&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"generate-endpoint-code"</span><br/>
-&#125;<br/>
-<br/>
-<span class="text-green-400">// Step 2: Generate and show code</span><br/>
-<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"generate-endpoint-code"</span>) &#123;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; path, method, auth &#125; = request.params.arguments;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> code = <span class="text-cyan-400">generateEndpointCode</span>(path, method, auth);<br/>
-<br/>
-&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"text"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: <span class="text-amber-300">`\`\`\`typescript\n$&#123;code&#125;\n\`\`\``</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;]<br/>
-&nbsp;&nbsp;&#125;;<br/>
-&#125;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
-<strong class="text-green-300">Benefit:</strong> Structured input collection, guided workflows, validation—100% configuration accuracy
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="💡"
+  pillLabel="Real-World Patterns"
+  title="Form-Driven Workflows"
+  codePosition="left"
+  :code='{ language: "typescript", content: "// Step 1: Collect configuration\n{\n  type: \"form\",\n  title: \"Configure New API Endpoint\",\n  fields: [\n    { name: \"path\", type: \"text\", required: true },\n    { name: \"method\", type: \"select\", options: [\"GET\", \"POST\", \"PUT\"] },\n    { name: \"auth\", type: \"checkbox\", label: \"Require authentication\" }\n  ],\n  onSubmit: \"generate-endpoint-code\"\n}\n\n// Step 2: Generate and show code\nif (request.params.name === \"generate-endpoint-code\") {\n  const { path, method, auth } = request.params.arguments;\n  const code = generateEndpointCode(path, method, auth);\n  return {\n    content: [{ type: \"text\",\n      text: \"Generated code returned as markdown\" }]\n  };\n}" }'
+  :features='[
+    { icon: "📝", title: "Multi-Step Form Flow", description: "Form collects configuration — submit callback generates code or scaffold — response shows result or next form" },
+    { icon: "✅", title: "Structured Accuracy", description: "Validated input collection with 100% configuration accuracy — eliminates typos from free-text prompts" }
+  ]'
+  :insight='{ icon: "💡", text: "Structured input collection with validation — 100% configuration accuracy" }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Hierarchical Navigation Pattern -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💡 Real-World Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Hierarchical Navigation</div>
-<div class="text-xs text-white/50">Tree for file/data navigation with selection actions</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="flex gap-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-rose-900/30 to-pink-900/30 rounded-xl border border-rose-500/30">
-<div class="text-sm font-semibold text-rose-300 mb-1">Pattern</div>
-<div class="text-xs text-gray-300">Tree component for file/org structure → Node selection triggers callback → Returns file metadata or preview</div>
-</div>
-<div class="flex-1 p-3 bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded-xl border border-pink-500/30">
-<div class="text-sm font-semibold text-pink-300 mb-1">Integration Patterns</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• <strong>Custom Agents:</strong> Use MCP Apps for visualization in agent workflows</div>
-<div>• <strong>Agent Skills:</strong> Include MCP Apps tools in skill definitions</div>
-<div>• <strong>Memory:</strong> Store dashboard preferences for future queries</div>
-</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-&#123;<br/>
-&nbsp;&nbsp;type: <span class="text-amber-300">"tree"</span>,<br/>
-&nbsp;&nbsp;title: <span class="text-amber-300">"Project Files"</span>,<br/>
-&nbsp;&nbsp;data: <span class="text-cyan-400">buildFileTree</span>(workspace),<br/>
-&nbsp;&nbsp;options: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;expandable: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;selectable: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;onSelect: <span class="text-amber-300">"open-file-details"</span><br/>
-&nbsp;&nbsp;&#125;<br/>
-&#125;<br/>
-<br/>
-<span class="text-green-400">// Callback shows file metadata</span><br/>
-<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"open-file-details"</span>) &#123;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> &#123; path &#125; = request.params.arguments;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> stats = <span class="text-purple-400">await</span> fs.<span class="text-cyan-400">stat</span>(path);<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> preview = <span class="text-purple-400">await</span> fs.<span class="text-cyan-400">readFile</span>(path, <span class="text-amber-300">'utf8'</span>);<br/>
-<br/>
-&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;content: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"text"</span>, text: <span class="text-amber-300">`**File:** $&#123;path&#125;\n**Size:** $&#123;stats.size&#125; bytes`</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"text"</span>, text: <span class="text-amber-300">`\`\`\`\n$&#123;preview.slice(0, 500)&#125;\n\`\`\``</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;]<br/>
-&nbsp;&nbsp;&#125;;<br/>
-&#125;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg border border-green-500/30 text-xs">
-<strong class="text-green-300">Benefit:</strong> Natural file system navigation, inline previews—no external file manager needed
-</div>
-</div>
-</div>
+<CodeWithFeaturesSlide
+  :partNumber="3"
+  pillIcon="💡"
+  pillLabel="Real-World Patterns"
+  title="Hierarchical Navigation"
+  codePosition="left"
+  :code='{ language: "typescript", content: "{\n  type: \"tree\",\n  title: \"Project Files\",\n  data: buildFileTree(workspace),\n  options: {\n    expandable: true,\n    selectable: true,\n    onSelect: \"open-file-details\"\n  }\n}\n\n// Callback shows file metadata\nif (request.params.name === \"open-file-details\") {\n  const { path } = request.params.arguments;\n  const stats = await fs.stat(path);\n  const preview = await fs.readFile(path, \"utf8\");\n  return {\n    content: [\n      { type: \"text\", text: \"File: \" + path },\n      { type: \"text\", text: preview.slice(0, 500) }\n    ]\n  };\n}" }'
+  :features='[
+    { icon: "🌳", title: "Tree Navigation Pattern", description: "Tree component for file or org structure. Node selection triggers callback that returns file metadata or preview." },
+    { icon: "🔗", title: "Integration Patterns", description: "Custom agents use MCP Apps for visualization; agent skills include MCP Apps tools; memory stores dashboard preferences." }
+  ]'
+  :insight='{ icon: "✅", text: "Natural file system navigation and inline previews — no external file manager needed" }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
@@ -908,225 +384,59 @@ server.<span class="text-cyan-400">setRequestHandler</span>(<span class="text-am
 ---
 
 <!-- SLIDE: Use Case 1 System Metrics Dashboard -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Real-World Impact</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Use Case 1: System Metrics Dashboard</div>
-<div class="text-xs text-white/50">DevOps team analyzing system metrics across 12 microservices</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
-<div class="text-sm font-semibold text-red-300 mb-1">❌ Before</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Query Prometheus → Export CSV</div>
-<div>• Import to Grafana → Customize charts</div>
-<div>• Share screenshot</div>
-<div>• <strong>15-20 minutes per analysis</strong></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="text-sm font-semibold text-green-300 mb-1">✅ After</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• MCP App queries Prometheus</div>
-<div>• Returns interactive dashboard inline</div>
-<div>• CPU/memory charts + error logs table</div>
-<div>• <strong>90 seconds per analysis</strong></div>
-</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Multi-component dashboard</span><br/>
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>, chartType: <span class="text-amber-300">"line"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"CPU Usage"</span>, data: cpuData<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;&#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"chart"</span>, chartType: <span class="text-amber-300">"area"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Memory Usage"</span>, data: memData<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;&#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123; type: <span class="text-amber-300">"component"</span>, component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>, title: <span class="text-amber-300">"Error Logs"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: [...], data: errors<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;&#125;<br/>
-&nbsp;&nbsp;]<br/>
-&#125;;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg border border-blue-500/30 text-xs">
-<strong class="text-blue-300">Outcome:</strong> 15-20 min → 90 sec. Team analyzes metrics 8x more frequently, catches issues 40% faster
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="🔧"
+  pillLabel="Real-World Impact"
+  title="Use Case 1: System Metrics Dashboard"
+  :before='{ header: "Before", items: ["Query Prometheus → Export CSV", "Import to Grafana → Customize charts", "Share screenshot link", "15-20 minutes per analysis"] }'
+  :after='{ header: "After", items: ["MCP App queries Prometheus directly", "Returns interactive dashboard inline", "CPU/memory charts + error logs table", "90 seconds per analysis"] }'
+  :metrics='[
+    { value: "15-20 min → 90 sec", label: "Analysis time" },
+    { value: "8×", label: "More frequent analysis" },
+    { value: "40%", label: "Faster issue detection" }
+  ]'
+  :insight='{ icon: "💡", text: "DevOps team analyzing metrics across 12 microservices — catches issues faster without leaving VS Code" }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Use Case 2 Database Query Results -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Real-World Impact</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Use Case 2: Database Query Results</div>
-<div class="text-xs text-white/50">Data analysts querying production database with 500-row result sets</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
-<div class="text-sm font-semibold text-red-300 mb-1">❌ Before</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Query database → 500-row text result</div>
-<div>• Copy to Excel for sorting/filtering</div>
-<div>• <strong>10 minutes per query</strong></div>
-<div>• 30+ queries per day</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="text-sm font-semibold text-green-300 mb-1">✅ After</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• MCP App executes SQL query</div>
-<div>• Returns sortable, filterable, exportable table</div>
-<div>• <strong>2 minutes per query</strong></div>
-<div>• Explore data inline, export only final results</div>
-</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Interactive table with all features</span><br/>
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"table"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"Query Results"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns: resultColumns,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: resultRows,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searchable: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exportable: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pageSize: <span class="text-cyan-300">50</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&#125;]<br/>
-&#125;;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg border border-blue-500/30 text-xs">
-<strong class="text-blue-300">Outcome:</strong> 10 min → 2 min per query. 240 minutes saved per day across 3-person team
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="🔧"
+  pillLabel="Real-World Impact"
+  title="Use Case 2: Database Query Results"
+  :before='{ header: "Before", items: ["Query database → 500-row text result", "Copy to Excel for sorting and filtering", "10 minutes per query", "30+ queries per day"] }'
+  :after='{ header: "After", items: ["MCP App executes SQL query directly", "Returns sortable, filterable, exportable table", "2 minutes per query", "Explore data inline, export only final results"] }'
+  :metrics='[
+    { value: "10 min → 2 min", label: "Per query" },
+    { value: "240 min/day", label: "Saved across 3-person team" },
+    { value: "30+ queries", label: "Per day explored inline" }
+  ]'
+  :insight='{ icon: "💡", text: "Data analysts querying production database with 500-row result sets — no more Excel copy-paste" }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Use Case 3 Project Scaffolding Forms -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Real-World Impact</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Use Case 3: Project Scaffolding Forms</div>
-<div class="text-xs text-white/50">Developers creating new microservices with configuration questions</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-500/30">
-<div class="text-sm font-semibold text-red-300 mb-1">❌ Before</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• 20-minute Slack thread with infra team</div>
-<div>• Manual setup → Review config</div>
-<div>• Configuration typos common</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-500/30">
-<div class="text-sm font-semibold text-green-300 mb-1">✅ After</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• Form collects structured input with validation</div>
-<div>• Callback generates scaffold automatically</div>
-<div>• <strong>3-minute form submission</strong></div>
-<div>• 100% configuration accuracy</div>
-</div>
-</div>
-</div>
-
-<div class="flex-1 min-h-0 overflow-y-auto max-h-48 bg-gray-950/80 rounded-lg border border-gray-700/50 p-2 text-xs">
-<div class="font-mono leading-relaxed">
-<span class="text-green-400">// Scaffolding form</span><br/>
-<span class="text-purple-400">return</span> &#123;<br/>
-&nbsp;&nbsp;content: [&#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"component"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;component: &#123;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: <span class="text-amber-300">"form"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="text-amber-300">"New Microservice Configuration"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields: [<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"serviceName"</span>, type: <span class="text-amber-300">"text"</span>, required: <span class="text-purple-400">true</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pattern: <span class="text-amber-300">"^[a-z-]+$"</span> &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"language"</span>, type: <span class="text-amber-300">"select"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: [<span class="text-amber-300">"TypeScript"</span>, <span class="text-amber-300">"Python"</span>, <span class="text-amber-300">"Go"</span>] &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"database"</span>, type: <span class="text-amber-300">"select"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: [<span class="text-amber-300">"PostgreSQL"</span>, <span class="text-amber-300">"MongoDB"</span>, <span class="text-amber-300">"None"</span>] &#125;,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; name: <span class="text-amber-300">"auth"</span>, type: <span class="text-amber-300">"checkbox"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label: <span class="text-amber-300">"Requires authentication"</span> &#125;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSubmit: <span class="text-amber-300">"generate-scaffold"</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br/>
-&nbsp;&nbsp;&#125;]<br/>
-&#125;;<br/>
-<br/>
-<span class="text-green-400">// Callback generates repo</span><br/>
-<span class="text-purple-400">if</span> (request.params.name === <span class="text-amber-300">"generate-scaffold"</span>) &#123;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">const</span> config = request.params.arguments;<br/>
-&nbsp;&nbsp;<span class="text-purple-400">await</span> <span class="text-cyan-400">generateScaffold</span>(config);<br/>
-&nbsp;&nbsp;<span class="text-purple-400">return</span> &#123; content: [&#123; type: <span class="text-amber-300">"text"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;text: <span class="text-amber-300">`✅ Service $&#123;config.serviceName&#125; created!`</span> &#125;] &#125;;<br/>
-&#125;
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg border border-blue-500/30 text-xs">
-<strong class="text-blue-300">Outcome:</strong> 20-min Slack thread → 3-min form. 100% accuracy. Developers self-serve without infra bottleneck
-</div>
-</div>
-</div>
+<BeforeAfterMetricsSlide
+  :partNumber="4"
+  pillIcon="🔧"
+  pillLabel="Real-World Impact"
+  title="Use Case 3: Project Scaffolding Forms"
+  :before='{ header: "Before", items: ["20-minute Slack thread with infra team", "Manual setup → Review config", "Configuration typos common"] }'
+  :after='{ header: "After", items: ["Form collects structured input with validation", "Callback generates scaffold automatically", "3-minute form submission", "100% configuration accuracy"] }'
+  :metrics='[
+    { value: "20 min → 3 min", label: "Setup time" },
+    { value: "100%", label: "Configuration accuracy" },
+    { value: "0", label: "Infra team bottlenecks" }
+  ]'
+  :insight='{ icon: "💡", text: "Developers self-serve without infra bottleneck — validated forms eliminate configuration errors" }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
