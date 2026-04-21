@@ -4,6 +4,25 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## Phase 1 catalog complete: all 18 tech-talk decks cataloged (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+All 18 raw HTML slides cataloged across all tech-talk decks. Working files created in `plan-decks/<deck>.md` for every deck. Progress table in `plan-component-conversion.md` fully populated.
+
+**Totals:** ~185 raw HTML slides across 18 decks
+**Direct maps (existing components):** ~110 slides
+**Conditional:** ~40 slides
+**Keep raw HTML (genuinely bespoke):** ~35 slides
+
+**Best decks to start Phase 2 (most direct maps, no new components needed):**
+1. `copilot-memory` — 12/13 direct maps, 0 keep raw
+2. `enterprise-patterns` — 10/11 direct maps, 0 keep raw
+3. `mcp-apps` — 13/15 direct maps (CodeWithFeaturesSlide dominates)
+4. `agentic-workflows` — 8/9 direct maps, 0 keep raw
+
+---
+
 ## copilot-plugins tech-talk created (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`

@@ -4,6 +4,31 @@ Patterns that consistently work for Slidev slide authoring and editing.
 
 ---
 
+## Cross-deck component frequency after full 18-deck catalog (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+After cataloging all 18 tech-talk decks, the actual component demand ranking is:
+
+| Component | Deck count | Notes |
+|---|---|---|
+| `CodeWithFeaturesSlide` | 8+ decks | mcp-apps uses it 12× alone |
+| `BeforeAfterMetricsSlide` | 7 decks | — |
+| `TwoColPairedConceptsSlide` | 5 decks | vscode-latest alone has 8 instances (2-col + JSON pattern) |
+| `FourCardGridSlide` | 7 decks | — |
+| `BeforeAfterPanelsSlide` | 4 decks | copilot-memory uses it 4× |
+| `ThreeColumnCardSlide` | 4 decks | — |
+| `ConceptStackSlide` (planned) | 6 decks | copilot-cli, agent-teams, agentic-journey, copilot-chat-internals, copilot-web, agentic-sdlc |
+| `TerminalDemoSlide` (planned) | 2–3 decks | copilot-cli, copilot-sdk; conditional in copilot-memory |
+
+**Key insight — `ConceptStackSlide` is now the blocking new component:** it appears as a conditional or direct-map need in 6 decks. Building it unlocks ~10 previously-conditional slides across copilot-cli, agent-teams, agentic-journey, copilot-chat-internals, copilot-web, and agentic-sdlc.
+
+**vscode-latest batch decision:** 8 raw slides in that deck follow a "2-col paired concepts + embedded JSON settings block below" pattern. If `TwoColPairedConceptsSlide` is extended to accept an optional `code` prop (or `codeBlock` slot), all 8 convert in one pass. If not, all 8 stay raw. Worth deciding before touching that deck.
+
+**Decks with highest structural component ratio (already well-converted):** `copilot-plugins` (72%), `copilot-primitives` (75%) — these will be fast to complete.
+
+---
+
 ## Tier-1 components adopted in first real deck (copilot-plugins): 6 of 12 body slides (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`
