@@ -55,6 +55,17 @@ const heroGradient = computed(() => {
   return (isDark.value ? HERO_GRADIENTS_DARK : HERO_GRADIENTS_LIGHT)[idx]
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const CARD_TITLE_MAX = 40
+const DESC_MAX = 100
+props.supporting?.forEach((s, i) => {
+  if (s.title?.length > CARD_TITLE_MAX)
+    console.warn(`[HeroStatSlide] supporting[${i}].title is ${s.title.length} chars (max ${CARD_TITLE_MAX}): "${s.title}"`)
+  if (s.description?.length > DESC_MAX)
+    console.warn(`[HeroStatSlide] supporting[${i}].description is ${s.description.length} chars (max ${DESC_MAX}): "${s.description.slice(0, 50)}…"`)
+})
+
 const DARK = {
   title:      'text-white',
   subtitle:   'text-gray-400',

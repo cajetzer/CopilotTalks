@@ -55,15 +55,24 @@ props.rows?.forEach((r, i) => {
     console.warn(`[FrameworkMappingRowsSlide] row[${i}] label is ${r.label.length} chars (max ${LABEL_MAX}): "${r.label}"`)
 })
 
-// Enforce row count
-if (!props.rows || props.rows.length < 2 || props.rows.length > 6)
-  console.warn(`[FrameworkMappingRowsSlide] rows must have 2–6 items (got ${props.rows?.length ?? 'none'})`)
+// Enforce row count — hard cap at 6 (overflow causes slide content to run off-screen)
+const ROW_MAX = 6
+const ROW_MIN = 2
+if (!props.rows || props.rows.length < ROW_MIN)
+  console.warn(`[FrameworkMappingRowsSlide] rows must have at least ${ROW_MIN} items (got ${props.rows?.length ?? 'none'})`)
+if (props.rows && props.rows.length > ROW_MAX)
+  console.warn(`[FrameworkMappingRowsSlide] rows exceeds max ${ROW_MAX} (got ${props.rows.length}) — extra rows will be hidden`)
+
+const safeRows = computed(() => (props.rows ?? []).slice(0, ROW_MAX))
 
 const chrome = useSectionChrome(() => props.partNumber)
 const cards  = useSectionCards(() => props.partNumber)
 
 // Cycle through section card palette for row colors
 const rowColor = (i) => cards.value[i % cards.value.length]
+
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
 
 const DARK = {
   title:       'text-white',
@@ -111,7 +120,7 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
     <div class="relative z-10 flex-1 min-h-0 flex flex-col justify-center">
       <div class="space-y-2">
         <div
-          v-for="(row, i) in rows" :key="'row-' + i"
+          v-for="(row, i) in safeRows" :key="'row-' + i"
           class="p-3 rounded-lg border flex items-center gap-4 text-sm"
           :class="[rowColor(i).bg, rowColor(i).border]"
         >

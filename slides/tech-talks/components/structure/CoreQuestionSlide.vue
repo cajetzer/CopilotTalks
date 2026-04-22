@@ -59,10 +59,21 @@ const props = defineProps({
   },
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const CARD_TITLE_MAX = 40
+const DESC_MAX       = 90
+
 const validationError = computed(() => {
   if (!props.cards || props.cards.length !== 6)
     return `[CoreQuestionSlide] ❌ cards must contain exactly 6 items (got ${props.cards?.length ?? 'none'})`
   return null
+})
+
+props.cards?.forEach((c, i) => {
+  if (c.title?.length > CARD_TITLE_MAX)
+    console.warn(`[CoreQuestionSlide] cards[${i}].title too long (${c.title.length} chars, max ${CARD_TITLE_MAX}): "${c.title}"`)
+  if (c.description?.length > DESC_MAX)
+    console.warn(`[CoreQuestionSlide] cards[${i}].description too long (${c.description.length} chars, max ${DESC_MAX}): "${c.description.slice(0, 50)}…"`)
 })
 
 // Card styles (row 1: prominent /30, row 2: muted /20)

@@ -53,6 +53,16 @@ validatePartNumber(props.partNumber, 'MaturityLevelDrilldownSlide')
 
 const chrome = useSectionChrome(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const ITEMS_MAX = 5
+if (props.lossItems && props.lossItems.length > ITEMS_MAX)
+  console.warn(`[MaturityLevelDrilldownSlide] lossItems has ${props.lossItems.length} items (max ${ITEMS_MAX})`)
+if (props.changeItems && props.changeItems.length > ITEMS_MAX)
+  console.warn(`[MaturityLevelDrilldownSlide] changeItems has ${props.changeItems.length} items (max ${ITEMS_MAX})`)
+if (props.checkItems && props.checkItems.length > ITEMS_MAX)
+  console.warn(`[MaturityLevelDrilldownSlide] checkItems has ${props.checkItems.length} items (max ${ITEMS_MAX})`)
+
 const DARK = {
   title:       'text-white',
   subtitle:    'text-white/60',

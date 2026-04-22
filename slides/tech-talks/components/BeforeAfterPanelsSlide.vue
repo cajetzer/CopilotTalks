@@ -29,6 +29,14 @@ validatePartNumber(props.partNumber, 'BeforeAfterPanelsSlide')
 
 const chrome = useSectionChrome(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const ITEMS_MAX = 5
+if (props.before?.items && props.before.items.length > ITEMS_MAX)
+  console.warn(`[BeforeAfterPanelsSlide] before.items has ${props.before.items.length} items (max ${ITEMS_MAX})`)
+if (props.after?.items && props.after.items.length > ITEMS_MAX)
+  console.warn(`[BeforeAfterPanelsSlide] after.items has ${props.after.items.length} items (max ${ITEMS_MAX})`)
+
 const DARK_SEMANTIC = {
   beforeBg: 'bg-gradient-to-br from-red-900/30 to-red-800/20',
   beforeBorder: 'border-red-500/30',

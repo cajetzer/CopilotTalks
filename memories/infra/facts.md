@@ -78,6 +78,23 @@ This affected both `copilot-cli.md` and `copilot-chat-internals.md` before being
 
 ---
 
+## Apostrophes and contractions in single-quoted props always break builds (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+Any `'` character inside a single-quoted HTML attribute (`:prop='[...]'`) terminates the attribute — HTML parsing happens before Vue template compilation. There is no valid escape: `\'` passes the `\` as literal but the `'` still ends the attribute; `&#39;` works for display text but causes attribute-name parse errors inside JS expressions (`:cards='[{"k": "can&#39;t"}]'` fails).
+
+**Rule: rewrite to avoid apostrophes entirely.** Contractions → full words (`don't` → `do not`, `can't` → `cannot`, `won't` → `will not`). For possessives, rephrase (`the agent's context` → `the agent context`).
+
+**Known failure patterns:**
+- `description: "Concurrent writes don\'t corrupt"` — `\'` does NOT escape the single quote in HTML
+- `description: "can&#39;t access"` — HTML entity inside a JS expression causes attribute-name parse error
+- `blurb: "User's workspace"` — bare `'` terminates the single-quoted outer attribute
+
+**Safe pattern:** use double-quoted outer attribute only when `:cards` must contain apostrophes — but then inner strings must use single quotes, making the apostrophe problem worse. Avoid both by rewriting the text.
+
+---
+
 ## Commas in `tag` prop values break UnoCSS CSS generation (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`
@@ -508,6 +525,70 @@ const cardStyles = computed(() => isDark.value ? DARK_CARD_STYLES : LIGHT_CARD_S
 - `text-gray-400` desc → `text-gray-600`
 
 **Build verified:** `npm run build -- tech-talks/copilot-acp.md` ✅ (April 2026)
+
+---
+
+## Component input guards: required when creating or editing any component (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+**Every component — new or edited — must guard all inputs.** This is a two-part requirement:
+
+### 1. Component-side: `console.warn` + `*_MAX` constants
+
+For each prop that has a layout impact, add:
+
+```ts
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX    = 80    // or whatever the layout-tested limit is
+const CARD_TITLE_MAX = 40
+const DESC_MAX     = 100
+const ITEMS_MAX    = 5
+```
+
+Then add runtime warnings immediately after:
+
+```ts
+props.cards?.forEach((c, i) => {
+  if (c.title?.length > CARD_TITLE_MAX)
+    console.warn(`[MySlide] cards[${i}].title is ${c.title.length} chars (max ${CARD_TITLE_MAX}): "${c.title}"`)
+  if (c.description?.length > DESC_MAX)
+    console.warn(`[MySlide] cards[${i}].description is ${c.description.length} chars (max ${DESC_MAX}): "${c.description.slice(0, 50)}…"`)
+})
+```
+
+For array counts, use count guards with `const ITEMS_MAX = N`:
+
+```ts
+if (props.items && props.items.length > ITEMS_MAX)
+  console.warn(`[MySlide] items has ${props.items.length} items (max ${ITEMS_MAX})`)
+```
+
+The `console.warn` fires in the browser dev server. The `const *_MAX = N` constants are the source of truth picked up by `build-all.ps1` at build time.
+
+### 2. `build-all.ps1`: add extractor entry if using a new constant name
+
+`scripts/build-all.ps1` scans all `.vue` files for `const *_MAX = N` patterns at startup (the `$COMPONENT_LIMITS` block). It cross-references against `$PROP_EXTRACTORS` to know how to extract that value from deck markdown for static lint.
+
+**Current `$PROP_EXTRACTORS` keys** (add new ones when introducing new constant names):
+
+| Constant name | Extraction type | Pattern |
+|---|---|---|
+| `TITLE_MAX` | `attr` | `title="([^"]+)"` |
+| `SUBTITLE_MAX` | `attr` | `subtitle="([^"]+)"` |
+| `LABEL_MAX` | `match` | `label:\s*"([^"]+)"` |
+| `DESC_MAX` | `match` | `description:\s*"([^"]+)"` |
+| `CARD_TITLE_MAX` | `match` | `title:\s*"([^"]+)"` |
+| `CARD_BLURB_MAX` | `match` | `blurb:\s*"([^"]+)"` |
+| `ROW_MAX` | `count` | `label:\s*"[^"]+"` |
+| `HEADER_MAX` | `attr` | `header="([^"]+)"` |
+| `PROMPT_MAX` | `attr` | `prompt="([^"]+)"` |
+| `FOOTER_MAX` | `attr` | `footer="([^"]+)"` |
+| `TAGLINE_MAX` | `attr` | `tagline="([^"]+)"` |
+
+If you add a new `*_MAX` constant (e.g. `STEP_LABEL_MAX`) that doesn't match any existing extractor, add a new entry to `$PROP_EXTRACTORS` in `build-all.ps1`. Otherwise the static linter silently skips that constant (the component warns at runtime only).
+
+**Rule:** any constant name in `$PROP_EXTRACTORS` is automatically enforced at build time across all decks — no per-component code needed in the build script.
 
 ---
 

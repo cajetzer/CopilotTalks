@@ -59,6 +59,18 @@ const validationError = computed(() => {
   return null
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const ITEMS_MAX  = 5
+const FOOTER_MAX = 160
+if (props.today?.length > ITEMS_MAX)
+  console.warn(`[WhatYouCanDoTodaySlide] today has ${props.today.length} items (max ${ITEMS_MAX})`)
+if (props.thisWeek?.length > ITEMS_MAX)
+  console.warn(`[WhatYouCanDoTodaySlide] thisWeek has ${props.thisWeek.length} items (max ${ITEMS_MAX})`)
+if (props.thisMonth?.length > ITEMS_MAX)
+  console.warn(`[WhatYouCanDoTodaySlide] thisMonth has ${props.thisMonth.length} items (max ${ITEMS_MAX})`)
+if (props.footer?.length > FOOTER_MAX)
+  console.warn(`[WhatYouCanDoTodaySlide] footer is ${props.footer.length} chars (max ${FOOTER_MAX})`)
+
 const itemSets = computed(() => [props.today, props.thisWeek, props.thisMonth])
 
 // Fixed 3-column color scheme (enforced — not configurable per deck)

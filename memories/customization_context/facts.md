@@ -68,7 +68,29 @@ Slides 15 and 16 are genuinely bespoke; do not attempt to force them into existi
 
 ---
 
-## copilot-cli deck: conformance state as of 2026-04-22
+## copilot-hooks deck: structure and section mapping (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+**Slide count:** 23 slides. Section opener slide numbers: Part 1=4, Part 2=7, Part 3=12, Part 4=16.
+
+**Section arc (recipe-driven):**
+- Part 1 "Phase 1: Lifecycle Control" (cyan, 2 body): FrameworkMappingRows (8 lifecycle events — label ≤13, description ≤70, tag shows "⚡ Prevents" for PreToolUse only) → CodeWithFeatures (JSON hook config format + 3 config fields)
+- Part 2 "Phase 2: PreToolUse Enforcement" (blue, 4 body): HeroStat (<2s, the only preventive hook — 4 supporting cards for deny/ask/updatedInput/additionalContext) → CodeWithFeatures (deny response JSON format + updatedInput shape) → AITerminalTranscript (security denial demo: rm -rf blocked in 1.8s) → TwoColPaired (deny+ask vs allow+updatedInput — three risk tiers)
+- Part 3 "Phase 3: Observability & Audit" (indigo, 3 body): CodeWithFeatures (JSON Lines audit.jsonl + jq queries) → FourCardGrid (4 compliance benefits: 100% coverage, jq, append-only, SIEM) → TwoColPaired (SessionStart context injection vs PostToolUse quality gates)
+- Part 4 "Phase 4: Real-World Patterns" (purple, 3 body): ThreeColumnCard (HIPAA/SOC2/Code Quality configs) → FrameworkMappingRows (4 patterns: Multi-Layer/Quality Gate/Env Policies/Ctx Injection) → WorkflowShowdown (manual governance vs hooks)
+
+**Key framing decisions:**
+- Central insight is the "PreToolUse is the only hook that prevents" distinction — this lands in the HeroStat (Part 2 slide 1) and drives the entire Part 2 narrative
+- The AITerminalTranscript in Part 2 shows the actual developer experience of a security denial — keeps the section concrete after the config-heavy slide before it
+- Part 3 is labeled "Observability & Audit" (shortened from recipe name for SectionOpenerSlide title ≤40 chars) — recipe name is "Phase 3: Observability & Audit Trail"
+- Part 4 ThreeColumnCard groups HIPAA, SOC2, and Code Quality as the three deployable compliance patterns — each has 4 concrete bullet items
+
+**Build gotcha:** `don't` written as `don\'t` inside single-quoted `:features='[...]'` prop terminates the HTML attribute at the apostrophe — backslash is not an escape in HTML attribute parsing. Fix: always rewrite contractions to full words (`do not`, `cannot`, `will not`) in single-quoted prop values. This is a variant of the general apostrophe rule.
+
+**Section value:** `Customization & Context`
+
+**Source:** `slides/tech-talks/copilot-hooks.md`, `tech-talks/copilot-hooks/deck.recipe.yml`
 
 `schema_version: 1` | `date: 2026-04-22`
 

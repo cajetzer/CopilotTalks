@@ -30,6 +30,16 @@ validatePartNumber(props.partNumber, 'ProblemSolutionOutcomeSlide')
 
 const chrome = useSectionChrome(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const ITEMS_MAX = 5
+if (props.problem?.items && props.problem.items.length > ITEMS_MAX)
+  console.warn(`[ProblemSolutionOutcomeSlide] problem.items has ${props.problem.items.length} items (max ${ITEMS_MAX})`)
+if (props.solution?.items && props.solution.items.length > ITEMS_MAX)
+  console.warn(`[ProblemSolutionOutcomeSlide] solution.items has ${props.solution.items.length} items (max ${ITEMS_MAX})`)
+if (props.outcome?.items && props.outcome.items.length > ITEMS_MAX)
+  console.warn(`[ProblemSolutionOutcomeSlide] outcome.items has ${props.outcome.items.length} items (max ${ITEMS_MAX})`)
+
 const DARK_SEMANTIC = {
   problemBg: 'bg-gradient-to-br from-red-900/30 to-red-800/20',
   problemBorder: 'border-red-500/30',

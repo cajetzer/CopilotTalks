@@ -30,6 +30,14 @@ validatePartNumber(props.partNumber, 'TwoColPairedConceptsSlide')
 const chrome = useSectionChrome(() => props.partNumber)
 const cards  = useSectionCards(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const ITEMS_MAX = 5
+if (props.left?.items && props.left.items.length > ITEMS_MAX)
+  console.warn(`[TwoColPairedConceptsSlide] left.items has ${props.left.items.length} items (max ${ITEMS_MAX})`)
+if (props.right?.items && props.right.items.length > ITEMS_MAX)
+  console.warn(`[TwoColPairedConceptsSlide] right.items has ${props.right.items.length} items (max ${ITEMS_MAX})`)
+
 const DARK = {
   title: 'text-white',
   itemBg: 'bg-gray-900/40',

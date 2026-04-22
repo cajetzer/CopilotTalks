@@ -35,9 +35,40 @@ param(
 # ── Static prop validation ────────────────────────────────────────────────────
 # Parses .md source for known component prop limit violations and emits yellow
 # [WARN] line N: messages after each successful build. Non-blocking — Slidev
-# build still reports [OK]. Limits sourced from slides/tech-talks/template.md.
-# NOTE: regex uses (?s)<Component\b.*?/> (non-greedy) to avoid stopping at
-# '/' chars inside prop values like "pull-requests: write".
+# build still reports [OK].
+# Limits are read directly from the *_MAX constants in each .vue component —
+# components are the single source of truth. The extractor table below maps
+# constant names to markdown extraction patterns; numbers come from the components.
+
+# ── Extraction grammar: const name → how to find the value in markdown ───────
+# Each entry: type = 'attr' (top-level prop="..."), 'match' (key: "..." in arrays),
+#             or 'count' (count occurrences of pattern — value must be ≤ MAX)
+$PROP_EXTRACTORS = @{
+    'TITLE_MAX'      = @{ type = 'attr';  pattern = 'title="([^"]+)"' }
+    'SUBTITLE_MAX'   = @{ type = 'attr';  pattern = 'subtitle="([^"]+)"' }
+    'LABEL_MAX'      = @{ type = 'match'; pattern = 'label:\s*"([^"]+)"' }
+    'DESC_MAX'       = @{ type = 'match'; pattern = 'description:\s*"([^"]+)"' }
+    'CARD_TITLE_MAX' = @{ type = 'match'; pattern = 'title:\s*"([^"]+)"' }
+    'CARD_BLURB_MAX' = @{ type = 'match'; pattern = 'blurb:\s*"([^"]+)"' }
+    'ROW_MAX'        = @{ type = 'count'; pattern = 'label:\s*"[^"]+"' }
+    'HEADER_MAX'     = @{ type = 'attr';  pattern = 'header="([^"]+)"' }
+    'PROMPT_MAX'     = @{ type = 'attr';  pattern = 'prompt="([^"]+)"' }
+    'FOOTER_MAX'     = @{ type = 'attr';  pattern = 'footer="([^"]+)"' }
+    'TAGLINE_MAX'    = @{ type = 'attr';  pattern = 'tagline="([^"]+)"' }
+}
+
+# ── Scan all .vue component files and build per-component limit tables ─────────
+$COMPONENT_LIMITS = @{}
+$ComponentDir = Join-Path (Split-Path -Parent $PSScriptRoot) "tech-talks/components"
+Get-ChildItem -Path $ComponentDir -Recurse -Filter "*.vue" | ForEach-Object {
+    $src   = [System.IO.File]::ReadAllText($_.FullName)
+    $name  = $_.BaseName
+    $found = @{}
+    [regex]::Matches($src, 'const\s+(\w+_MAX)\s*=\s*(\d+)') | ForEach-Object {
+        $found[$_.Groups[1].Value] = [int]$_.Groups[2].Value
+    }
+    if ($found.Count -gt 0) { $COMPONENT_LIMITS[$name] = $found }
+}
 
 function Invoke-PropLint {
     param([string]$FilePath, [string]$Category, [string]$BaseName)
@@ -78,70 +109,43 @@ function Invoke-PropLint {
         }
     }
 
-    # ── FrameworkMappingRowsSlide: label ≤13, description ≤70 ───────────────
-    foreach ($m in [regex]::Matches($content, '(?s)<FrameworkMappingRowsSlide\b.*?/>')) {
-        $block = $m.Value; $off = $m.Index
-        $title = if ($m.Value -match 'title="([^"]+)"') { $matches[1] } else { '(unknown)' }
-        foreach ($r in [regex]::Matches($block, '\{\s*label:\s*"([^"]+)"[^}]*description:\s*"([^"]+)"')) {
-            & $checkLen 'FrameworkMappingRowsSlide' $title 'label'       $r.Groups[1].Value 13 ($off + $r.Index)
-            & $checkLen 'FrameworkMappingRowsSlide' $title 'description' $r.Groups[2].Value 70 ($off + $r.Index)
-        }
-    }
+    # ── Dynamic enforcement: iterate all components with known limits ─────────
+    foreach ($compName in $COMPONENT_LIMITS.Keys) {
+        $limits = $COMPONENT_LIMITS[$compName]
+        foreach ($m in [regex]::Matches($content, "(?s)<$compName\b.*?/>")) {
+            $block = $m.Value; $off = $m.Index
+            $slideTitle = if ($block -match 'title="([^"]+)"') { $matches[1] } else { '(unknown)' }
 
-    # ── SectionOpenerSlide: title ≤40, subtitle ≤120, cards.title ≤30, cards.blurb ≤75 ──
-    foreach ($m in [regex]::Matches($content, '(?s)<SectionOpenerSlide\b.*?/>')) {
-        $block = $m.Value; $off = $m.Index
-        $title = if ($m.Value -match 'title="([^"]+)"') { $matches[1] } else { '(unknown)' }
-        # title= and subtitle= prop-level checks
-        if ($block -match 'title="([^"]+)"') {
-            & $checkLen 'SectionOpenerSlide' $title 'title' $matches[1] 40 $off
-        }
-        if ($block -match 'subtitle="([^"]+)"') {
-            & $checkLen 'SectionOpenerSlide' $title 'subtitle' $matches[1] 120 $off
-        }
-        foreach ($r in [regex]::Matches($block, '\{[^}]*title:\s*"([^"]+)"[^}]*blurb:\s*"([^"]+)"')) {
-            & $checkLen 'SectionOpenerSlide' $title 'card.title' $r.Groups[1].Value 30 ($off + $r.Index)
-            & $checkLen 'SectionOpenerSlide' $title 'card.blurb' $r.Groups[2].Value 75 ($off + $r.Index)
-        }
-    }
+            foreach ($constName in $limits.Keys) {
+                if (-not $PROP_EXTRACTORS.ContainsKey($constName)) { continue }
+                $ex  = $PROP_EXTRACTORS[$constName]
+                $max = $limits[$constName]
 
-    # ── CoreQuestionSlide: cards.title ≤40, cards.description ≤90 ──────────
-    foreach ($m in [regex]::Matches($content, '(?s)<CoreQuestionSlide\b.*?/>')) {
-        $block = $m.Value; $off = $m.Index
-        foreach ($r in [regex]::Matches($block, '\{[^}]*title:\s*"([^"]+)"[^}]*description:\s*"([^"]+)"')) {
-            & $checkLen 'CoreQuestionSlide' 'Core Question' 'card.title'       $r.Groups[1].Value 40 ($off + $r.Index)
-            & $checkLen 'CoreQuestionSlide' 'Core Question' 'card.description' $r.Groups[2].Value 90 ($off + $r.Index)
-        }
-    }
-
-    # ── TocSlide: sections.title ≤40, sections.blurb ≤100 ─────────────────
-    foreach ($m in [regex]::Matches($content, '(?s)<TocSlide\b.*?/>')) {
-        $block = $m.Value; $off = $m.Index
-        foreach ($r in [regex]::Matches($block, '\{[^}]*title:\s*"([^"]+)"[^}]*blurb:\s*"([^"]+)"')) {
-            & $checkLen 'TocSlide' 'Table of Contents' 'section.title' $r.Groups[1].Value  49 ($off + $r.Index)
-            & $checkLen 'TocSlide' 'Table of Contents' 'section.blurb' $r.Groups[2].Value 100 ($off + $r.Index)
-        }
-    }
-
-    # ── All Tier-1 body components: title ≤80 ────────────────────────────────
-    $bodyComponents = @(
-        'BeforeAfterMetricsSlide', 'BeforeAfterPanelsSlide', 'ProblemSolutionOutcomeSlide',
-        'TwoColPairedConceptsSlide', 'ThreeColumnCardSlide', 'FourCardGridSlide',
-        'CodeWithFeaturesSlide', 'HeroStatSlide', 'WorkflowShowdownStepsSlide',
-        'MaturityJourneyRoadmapSlide', 'AITerminalTranscriptSlide',
-        'MaturityLevelDrilldownSlide', 'FrameworkMappingRowsSlide'
-    )
-    foreach ($comp in $bodyComponents) {
-        foreach ($m in [regex]::Matches($content, "(?s)<$comp\\b.*?/>")) {
-            $off = $m.Index
-            if ($m.Value -match 'title="([^"]+)"') {
-                & $checkLen $comp $matches[1] 'title' $matches[1] 80 $off
+                switch ($ex.type) {
+                    'attr' {
+                        if ($block -match $ex.pattern) {
+                            & $checkLen $compName $slideTitle $constName $matches[1] $max $off
+                        }
+                    }
+                    'match' {
+                        foreach ($r in [regex]::Matches($block, $ex.pattern)) {
+                            & $checkLen $compName $slideTitle $constName $r.Groups[1].Value $max ($off + $r.Index)
+                        }
+                    }
+                    'count' {
+                        $cnt = [regex]::Matches($block, $ex.pattern).Count
+                        if ($cnt -gt $max) {
+                            & $warn $off "$compName '$slideTitle': $constName exceeded ($cnt items, max $max)"
+                        }
+                    }
+                }
             }
         }
     }
 
     return $lintWarnings
 }
+
 
 # expressions ($deck.Category) to avoid npx.ps1 shim parsing issues.
 # Using "Continue" to allow build to proceed despite shim warnings.

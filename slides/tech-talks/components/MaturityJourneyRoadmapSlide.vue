@@ -67,6 +67,17 @@ const stageColors = computed(() => {
   return props.stages.map((_, i) => STAGE_PALETTE[Math.round(i * step)])
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const CARD_TITLE_MAX = 30
+const DESC_MAX = 100
+props.stages?.forEach((s, i) => {
+  if (s.name?.length > CARD_TITLE_MAX)
+    console.warn(`[MaturityJourneyRoadmapSlide] stages[${i}].name is ${s.name.length} chars (max ${CARD_TITLE_MAX}): "${s.name}"`)
+  if (s.description?.length > DESC_MAX)
+    console.warn(`[MaturityJourneyRoadmapSlide] stages[${i}].description is ${s.description.length} chars (max ${DESC_MAX}): "${s.description.slice(0, 50)}…"`)
+})
+
 const DARK = {
   title:   'text-white',
   subtitle: 'text-white/60',

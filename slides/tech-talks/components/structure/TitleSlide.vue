@@ -106,6 +106,17 @@ const validationError = computed(() => {
   return null
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX    = 80
+const SUBTITLE_MAX = 120
+const TAGLINE_MAX  = 120
+if (props.title?.length > TITLE_MAX)
+  console.warn(`[TitleSlide] title is ${props.title.length} chars (max ${TITLE_MAX})`)
+if (props.subtitle?.length > SUBTITLE_MAX)
+  console.warn(`[TitleSlide] subtitle is ${props.subtitle.length} chars (max ${SUBTITLE_MAX})`)
+if (props.tagline?.length > TAGLINE_MAX)
+  console.warn(`[TitleSlide] tagline is ${props.tagline.length} chars (max ${TAGLINE_MAX})`)
+
 const DARK_THEME = {
   bg:      'from-cyan-900/20 via-blue-900/10 to-indigo-900/20',
   orb:     'from-cyan-500/20 via-blue-500/20 to-indigo-500/20',

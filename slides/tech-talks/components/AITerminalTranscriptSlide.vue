@@ -54,6 +54,12 @@ validatePartNumber(props.partNumber, 'AITerminalTranscriptSlide')
 
 const chrome = useSectionChrome(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const TRANSCRIPT_MAX = 12
+if (props.transcript && props.transcript.length > TRANSCRIPT_MAX)
+  console.warn(`[AITerminalTranscriptSlide] transcript has ${props.transcript.length} turns (max ${TRANSCRIPT_MAX})`)
+
 const DARK = {
   title:    'text-white',
   subtitle: 'text-white/60',

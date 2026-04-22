@@ -47,6 +47,10 @@ const props = defineProps({
   },
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const CARD_TITLE_MAX = 49
+const CARD_BLURB_MAX = 100
+
 const validationError = computed(() => {
   if (!props.sections || props.sections.length !== 4)
     return `[TocSlide] ❌ sections must contain exactly 4 items (got ${props.sections?.length ?? 'none'})`
@@ -55,6 +59,13 @@ const validationError = computed(() => {
     if (!props.sections[i].blurb) return `[TocSlide] ❌ sections[${i}].blurb is required`
   }
   return null
+})
+
+props.sections?.forEach((s, i) => {
+  if (s.title?.length > CARD_TITLE_MAX)
+    console.warn(`[TocSlide] sections[${i}].title too long (${s.title.length} chars, max ${CARD_TITLE_MAX}): "${s.title}"`)
+  if (s.blurb?.length > CARD_BLURB_MAX)
+    console.warn(`[TocSlide] sections[${i}].blurb too long (${s.blurb.length} chars, max ${CARD_BLURB_MAX}): "${s.blurb.slice(0, 50)}…"`)
 })
 
 // Card styles: cyan → blue → indigo → purple

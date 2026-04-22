@@ -51,6 +51,16 @@ const validationError = computed(() => {
   return null
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const ITEMS_MAX  = 4
+const HEADER_MAX = 80
+if (props.header?.length > HEADER_MAX)
+  console.warn(`[BeforeAfterSlide] header is ${props.header.length} chars (max ${HEADER_MAX})`)
+if (props.leftItems && props.leftItems.length > ITEMS_MAX)
+  console.warn(`[BeforeAfterSlide] leftItems has ${props.leftItems.length} items (max ${ITEMS_MAX})`)
+if (props.rightItems && props.rightItems.length > ITEMS_MAX)
+  console.warn(`[BeforeAfterSlide] rightItems has ${props.rightItems.length} items (max ${ITEMS_MAX})`)
+
 const DARK_THEME = {
   ambientBg: 'from-blue-900/20 via-indigo-900/10 to-transparent',
   orb: 'from-blue-500/10 to-transparent',

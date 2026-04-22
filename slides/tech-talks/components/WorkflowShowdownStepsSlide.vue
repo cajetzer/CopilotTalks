@@ -51,6 +51,15 @@ validatePartNumber(props.partNumber, 'WorkflowShowdownStepsSlide')
 
 const chrome = useSectionChrome(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const STEPS_MAX = 5
+const STEPS_MIN = 2
+if (!props.steps || props.steps.length < STEPS_MIN)
+  console.warn(`[WorkflowShowdownStepsSlide] steps must have at least ${STEPS_MIN} items (got ${props.steps?.length ?? 'none'})`)
+if (props.steps && props.steps.length > STEPS_MAX)
+  console.warn(`[WorkflowShowdownStepsSlide] steps has ${props.steps.length} items (max ${STEPS_MAX})`)
+
 const DARK = {
   title:    'text-white',
   subtitle: 'text-white/60',

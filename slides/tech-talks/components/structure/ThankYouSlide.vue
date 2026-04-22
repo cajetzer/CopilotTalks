@@ -50,6 +50,17 @@ const validationError = computed(() => {
   return null
 })
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX    = 80
+const SUBTITLE_MAX = 120
+const PROMPT_MAX   = 160
+if (props.title?.length > TITLE_MAX)
+  console.warn(`[ThankYouSlide] title is ${props.title.length} chars (max ${TITLE_MAX})`)
+if (props.subtitle?.length > SUBTITLE_MAX)
+  console.warn(`[ThankYouSlide] subtitle is ${props.subtitle.length} chars (max ${SUBTITLE_MAX})`)
+if (props.prompt?.length > PROMPT_MAX)
+  console.warn(`[ThankYouSlide] prompt is ${props.prompt.length} chars (max ${PROMPT_MAX})`)
+
 const gridColsClass = computed(() => {
   if (props.cards.length === 4) return "grid-cols-4";
   if (props.cards.length === 2) return "grid-cols-2";

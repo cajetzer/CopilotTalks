@@ -34,6 +34,20 @@ const validationError = computed(() => {
 const chrome = useSectionChrome(() => props.partNumber)
 const cards  = useSectionCards(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const CARD_TITLE_MAX = 40
+const DESC_MAX = 100
+const ITEMS_MAX = 5
+props.columns?.forEach((col, i) => {
+  if (col.title?.length > CARD_TITLE_MAX)
+    console.warn(`[ThreeColumnCardSlide] columns[${i}].title is ${col.title.length} chars (max ${CARD_TITLE_MAX}): "${col.title}"`)
+  if (col.description?.length > DESC_MAX)
+    console.warn(`[ThreeColumnCardSlide] columns[${i}].description is ${col.description.length} chars (max ${DESC_MAX}): "${col.description.slice(0, 50)}…"`)
+  if (col.items && col.items.length > ITEMS_MAX)
+    console.warn(`[ThreeColumnCardSlide] columns[${i}].items has ${col.items.length} items (max ${ITEMS_MAX})`)
+})
+
 const DARK = {
   title: 'text-white',
   description: 'text-white/80',

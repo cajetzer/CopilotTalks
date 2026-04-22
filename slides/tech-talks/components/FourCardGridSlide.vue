@@ -34,6 +34,17 @@ const validationError = computed(() => {
 const chrome    = useSectionChrome(() => props.partNumber)
 const cardStyle = useSectionCards(() => props.partNumber)
 
+// Prop length limits — read by build-all.ps1 for static lint enforcement
+const TITLE_MAX = 80
+const CARD_TITLE_MAX = 40
+const DESC_MAX = 100
+props.cards?.forEach((c, i) => {
+  if (c.title?.length > CARD_TITLE_MAX)
+    console.warn(`[FourCardGridSlide] cards[${i}].title is ${c.title.length} chars (max ${CARD_TITLE_MAX}): "${c.title}"`)
+  if (c.description?.length > DESC_MAX)
+    console.warn(`[FourCardGridSlide] cards[${i}].description is ${c.description.length} chars (max ${DESC_MAX}): "${c.description.slice(0, 50)}…"`)
+})
+
 const DARK = {
   title: 'text-white',
   description: 'text-white/80',
