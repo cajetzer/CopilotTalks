@@ -2,7 +2,7 @@
 theme: default
 class: text-center
 highlighter: shiki
-lineNumbers: falseok -
+lineNumbers: false
 info: |
   ## Agent Teams: Subagents, Teams, and Autonomous Execution
   CopilotTraining Tech Talk
@@ -14,44 +14,52 @@ module: tech-talks/agent-teams
 mdc: true
 section: Agentic Engineering
 status: active
-updated: 2026-04-13
+updated: 2026-04-21
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
+// Required scaffold (all decks)
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
+
+// Tier-1 body-content components
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 </script>
 
-<!-- SLIDE: Title Slide -->
+<!-- SLIDE: Title -->
 <TitleSlide
-title="Agent Teams"
-subtitle="Subagents, Teams, and Autonomous Execution"
-tagline="Mechanisms for composing multi-agent AI systems that handle complex tasks"
-meta="Tech Talk · 60 minutes "
+  title="Agent Teams"
+  subtitle="Subagents, Teams, and Autonomous Execution"
+  tagline="Mechanisms for composing multi-agent AI systems that handle complex tasks"
+  meta="Tech Talk · 60 minutes"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="What mechanisms make multi-agent AI work — and how do I compose them into systems?"
-subtext="Systems that handle complex tasks, run autonomously, and improve over time."
-highlight="Beyond single-agent limits to coordinated AI teams."
-:cards='[
-  { icon: "🏗️", title: "Platform Engineers Building Systems", description: "Orchestrating multiple AI agents across complex, long-running tasks" },
-  { icon: "👔", title: "Engineering Managers Scaling Output", description: "Parallelizing work across background agents and git worktrees" },
-  { icon: "🔬", title: "Staff Engineers Tackling Big Refactors", description: "Decomposing 5,000+ LOC challenges into isolated parallel workstreams" },
-  { title: "Single Agent Ceiling", description: "Context windows hit 300-500 LOC limits — teams and worktrees break through" },
-  { title: "Supervision Bottleneck", description: "Background agents and squads free you from watching every step" },
-  { title: "Workspace Collisions", description: "Git worktrees eliminate merge conflicts across parallel agent work" }
-]'
+  question="What are the mechanisms that make multi-agent AI work—and how do I compose them into systems that handle complex tasks, run autonomously, and improve over time?"
+  subtext="Single agents hit a hard ceiling around 300-500 LOC or 3-4 hours of work. Context accumulates, supervision becomes the bottleneck, and quality degrades."
+  highlight="The solution is not a smarter single agent—it is composing agents the way you would compose a team."
+  :cards='[
+    { icon: "🔧", title: "Developers Building Agent Systems", description: "From single-agent workflows to coordinated multi-agent execution" },
+    { icon: "🏗️", title: "Architects Scaling AI Capacity", description: "Parallel execution, role specialization, autonomous background work" },
+    { icon: "👔", title: "Engineering Managers", description: "Reducing supervision overhead from continuous to review-only" },
+    { title: "Context Pollution", description: "Single agent juggling research + planning + implementation accumulates 50-80% irrelevant context" },
+    { title: "Supervision Bottleneck", description: "Cannot parallelize when you cannot look away—traditional workflows demand continuous guidance" },
+    { title: "Quality Degradation", description: "Output quality drops 30-40% as context window fills with dead-end explorations" }
+  ]'
 />
 
 ---
@@ -59,251 +67,137 @@ highlight="Beyond single-agent limits to coordinated AI teams."
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "🧱", title: "Subagents: The Building Block", subtitle: "Isolated context windows for delegation", blurb: "The primitive behind all multi-agent patterns", slide: 4 },
-    { icon: "👥", title: "Agent Teams", subtitle: "Organized specialists via Squad", blurb: "Role-based coordination with persistent memory", slide: 9 },
-    { icon: "🚀", title: "Autonomous Execution", subtitle: "Background agents + worktrees", blurb: "85 active min → 27: supervision-free execution", slide: 13 },
-    { icon: "🎭", title: "Multi-Model Deliberation", subtitle: "AgentCouncil collaborative & adversarial", blurb: "Claude + GPT + Gemini debate to stress-test answers", slide: 17 },
+    { icon: "🧱", title: "Subagents: The Building Block", subtitle: "The primitive mechanism", blurb: "Isolated context windows, parallel execution, summary-only returns", slide: 4 },
+    { icon: "👥", title: "Agent Teams: Organized Specialists", subtitle: "Role-based coordination", blurb: "Squad gives you persistent specialists that compound knowledge", slide: 9 },
+    { icon: "🚀", title: "Autonomous Execution", subtitle: "Background agents + worktrees", blurb: "Hand off to background agents—85 active minutes become 27", slide: 14 },
+    { icon: "🎭", title: "Agent Council", subtitle: "Multi-model deliberation", blurb: "Claude + GPT + Gemini in collaborative or adversarial modes", slide: 18 },
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — Subagents: The Building Block -->
-
 <SectionOpenerSlide
   :partNumber="1"
   title="Subagents: The Building Block"
   subtitle="The primitive mechanism that makes all multi-agent patterns possible"
   :cards='[
-    { icon: "🔒", title: "Context Isolation", blurb: "Each subagent runs in its own window" },
-    { icon: "⚡", title: "Parallel Execution", blurb: "3 research subagents = 3x throughput" },
-    { icon: "📊", title: "Summary-Only Returns", blurb: "500 tokens back vs. 20K exploration" },
+    { icon: "🧱", title: "Isolated Context", blurb: "Each subagent runs in its own 200K window" },
+    { icon: "⚡", title: "Parallel Execution", blurb: "3 independent tasks = 3× throughput, 0 extra supervision" },
+    { icon: "📦", title: "Summary Returns", blurb: "4-6× token reduction—only findings come back" },
   ]'
-  :terminal='{ context: "Research + dead-ends stay isolated", detail: "main context stays clean" }'
+  :terminal='{ context: "The main agent delegates a task—VS Code spawns a subagent with its own context", detail: "All intermediate exploration stays isolated; only the final summary returns" }'
 />
 
 ---
 
 <!-- SLIDE: Core Mechanism -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧱 Subagents: Core Mechanism</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Isolated Context Windows</div>
-<div class="text-xs text-white/50">Each subagent runs in its own 200K context — only summaries return</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="font-mono text-xs bg-gray-950/80 border border-cyan-500/30 rounded-lg p-3 mb-3">
-<div class="text-cyan-400 font-bold mb-1">MAIN AGENT (coordinates)</div>
-<div class="ml-2 text-gray-300">
-<div class="mb-1">├── <span class="text-green-400">SubAgent A: research auth patterns</span>  ← own 200K context</div>
-<div class="ml-4 text-gray-500">│   reads 30 files, explores 5 approaches  ← never pollutes main</div>
-<div class="ml-4 mb-1 text-blue-300">│   returns: 500-token structured summary  ──→ main receives this only</div>
-<div class="mb-1">├── <span class="text-green-400">SubAgent B: analyze test coverage</span>  ← own 200K context</div>
-<div class="ml-4 text-gray-500">│   runs coverage tools, finds gaps  ← independent execution</div>
-<div class="ml-4 mb-1 text-blue-300">│   returns: 300-token findings  ──→ main receives this only</div>
-<div>└── <span class="text-green-400">SubAgent C: security audit</span>  ← own 200K context (parallel)</div>
-<div class="ml-4 text-gray-500">    checks OWASP patterns  ← no shared state</div>
-<div class="ml-4 text-blue-300">    returns: 400-token risk report  ──→ main receives this only</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">✅ Key Characteristics</div>
-<div class="text-xs opacity-90 space-y-0.5">
-<div>• Own context window per subagent</div>
-<div>• Multiple run simultaneously when independent</div>
-<div>• Only final result passes back (100-500 tokens)</div>
-<div>• Inherit main session's agent by default</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">📊 Impact</div>
-<div class="text-xs opacity-90 space-y-0.5">
-<div>• 4-6x token reduction from summary returns</div>
-<div>• 2.75x faster with 3 parallel subagents</div>
-<div>• 30-40% quality improvement from isolation</div>
-<div>• Research never pollutes implementation</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<HeroStatSlide
+  :partNumber="1"
+  pillIcon="🧱"
+  pillLabel="Subagents: Core Mechanism"
+  title="The Core Mechanism"
+  subtitle="Subagents run in isolated context windows separate from the main chat session"
+  :hero='{ value: "200K", label: "tokens per subagent window—independent of main context", source: "Each subagent reads 30 files, explores 5 approaches—returns only a 500-token summary" }'
+  :supporting='[
+    { icon: "🔍", title: "Delegation with Isolation", description: "Main agent delegates—subagent works autonomously in its own context" },
+    { icon: "🚫", title: "No Context Pollution", description: "Research, dead-ends, and exploration never accumulate in the main session" },
+    { icon: "⚙️", title: "Parallel by Default", description: "Multiple subagents run simultaneously when tasks are independent" },
+    { icon: "📋", title: "Structured Summaries", description: "Typically 100-500 tokens vs. 5K-20K if done in main context" }
+  ]'
+  :insight='{ icon: "💡", text: "Key Insight: Subagents inherit the main session&#39;s agent and model by default—override with custom agents for specialized behavior." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Two Invocation Patterns -->
 <TwoColPairedConceptsSlide
   :partNumber="1"
-  pillIcon="🧱"
-  pillLabel="Two Invocation Patterns"
-  title="Two Patterns for Subagent Invocation"
+  pillIcon="🔧"
+  pillLabel="Subagents: Invocation"
+  title="Two Invocation Patterns"
   :left='{
-    header: "Pattern 1: Implicit (Chat Hints)",
+    header: "Implicit (Chat Hints)",
     icon: "💬",
     items: [
-      "Describe the delegation in natural language — no special syntax",
-      { title: "Best For", detail: "Exploratory research · Ad-hoc delegation · Quick investigative subtasks" }
-    ],
-    code: { language: "text", content: "Run a subagent to research OAuth2 implementation patterns in Node.js, focusing on token storage best practices and refresh rotation strategies. Return a structured summary with: recommended libraries, tradeoffs, and risks." }
+      { title: "Natural language delegation", detail: "Run a subagent to research OAuth2 patterns..." },
+      "Main agent interprets intent and spawns subagent",
+      "Best for exploratory research and ad-hoc delegation",
+      { title: "Zero setup", detail: "Just describe the delegation in chat" }
+    ]
   }'
   :right='{
-    header: "Pattern 2: Explicit (Prompt Files)",
+    header: "Explicit (Prompt Files)",
     icon: "📄",
     items: [
-      "Define multi-phase workflows in versioned .md files",
-      { title: "Best For", detail: "Reproducible workflows · Version-controlled procedures · Team-wide consistency" }
+      { title: "Multi-phase workflows in .md files", detail: "frontmatter declares tools and phases" },
+      "Reproducible procedures, version-controlled",
+      "Best for team-wide consistency",
+      { title: "Phase separation", detail: "Research → Industry patterns → Implementation" }
     ],
-    code: { language: "yaml", content: "---\nname: feature-research\ntools: [\"agent\",\"read\",\"search\"]\n---\n## Phase 1: Codebase Research\n## Phase 2: Industry Practices\n## Phase 3: Implementation" }
+    code: { language: "yaml", content: "---\nname: feature-workflow\ntools: [&#39;agent&#39;, &#39;read&#39;, &#39;edit&#39;]\n---" }
   }'
+  :insight='{ icon: "🎯", text: "Parallel subagents: 3 independent tasks run simultaneously—22 min serial becomes 8 min parallel (2.75× faster)." }'
   :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Parallel Subagents -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-10 pt-1">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧱 Parallel Subagents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Independent Tasks Run Simultaneously</div>
-<div class="text-xs text-white/50">2.75x faster with isolated, independent analysis from each agent</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl border border-cyan-500/30 mb-3">
-<div class="font-mono text-sm text-cyan-300 mb-2">Example Prompt:</div>
-<div class="text-sm opacity-90">
-Analyze this authentication module using three parallel subagents:
-</div>
-<div class="grid grid-cols-3 gap-3 mt-2 text-xs">
-<div class="p-2 bg-red-900/30 rounded border border-red-500/30">
-<div class="font-semibold text-red-300">1. Security</div>
-<div class="opacity-80">Vulnerabilities, auth bypass, token handling</div>
-</div>
-<div class="p-2 bg-amber-900/30 rounded border border-amber-500/30">
-<div class="font-semibold text-amber-300">2. Performance</div>
-<div class="opacity-80">N+1 queries, validation overhead, memory</div>
-</div>
-<div class="p-2 bg-green-900/30 rounded border border-green-500/30">
-<div class="font-semibold text-green-300">3. Testing</div>
-<div class="opacity-80">Coverage gaps, edge cases, test utilities</div>
-</div>
-</div>
-<div class="text-sm opacity-90 mt-2">
-Synthesize findings into prioritized action items with severity levels.
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-2">⏱️ Timing Comparison</div>
-<div class="text-xs opacity-90 space-y-1.5">
-<div class="flex justify-between"><span>Serial time:</span><span class="text-amber-300">~22 minutes</span></div>
-<div class="flex justify-between"><span>Parallel time:</span><span class="text-green-300">~8 minutes</span></div>
-<div class="flex justify-between font-bold"><span>Speedup:</span><span class="text-cyan-300">2.75x faster</span></div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-2">🎯 Custom Agents as Subagents</div>
-<div class="text-xs opacity-90">
-<div class="mb-1">Use specialized agents with restricted tools:</div>
-<div class="font-mono bg-gray-950/60 p-2 rounded">
-<div class="text-gray-400">user-invokable: false</div>
-<div class="text-gray-300">↳ hidden, internal only</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Parallel Subagents in Action -->
+<ProblemSolutionOutcomeSlide
+  :partNumber="1"
+  pillIcon="⚡"
+  pillLabel="Subagents: Parallel Execution"
+  title="Parallel Subagents in Action"
+  :problem='{
+    items: [
+      "Single agent analyzes auth module sequentially",
+      "Security → Performance → Testing: 22 minutes total",
+      "Each phase pollutes context for the next",
+      { title: "Serial bottleneck", detail: "Cannot parallelize supervision" }
+    ]
+  }'
+  :solution='{
+    items: [
+      "3 parallel subagents: Security, Performance, Testing",
+      "Each works in own context simultaneously",
+      "Main agent receives 3 structured summaries"
+    ],
+    code: { language: "markdown", content: "Analyze auth module using 3 parallel subagents:\n1. Security: vulnerabilities, token handling\n2. Performance: N+1 queries, memory leaks  \n3. Testing: coverage gaps, edge cases\n\nSynthesize into prioritized action items." }
+  }'
+  :outcome='{
+    items: [
+      "All 3 finish in ~8 minutes (parallel)",
+      "Independent analysis from each specialist",
+      "Main context stays clean for synthesis"
+    ],
+    metrics: [
+      { value: "2.75×", label: "faster" },
+      { value: "6×", label: "token reduction" }
+    ]
+  }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Mental Model Shift -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Mental Model Shift</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/40 max-w-3xl mx-auto">
-<div class="text-lg font-bold text-cyan-300 italic">
-"From 'one smart agent handles everything' to 'the right agent for the right task, with the right isolation, at the right time'"
-</div>
-</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div class="flex flex-col gap-3">
-<div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30">
-<div class="font-bold text-green-300 mb-2 flex items-center gap-2">
-<span>✅</span> <span>Move Toward</span>
-</div>
-<div class="text-xs opacity-90 space-y-2">
-<div><span class="font-semibold">Delegation with Isolation</span> — Focused phases, clean coordinator context</div>
-<div><span class="font-semibold">Summary-Only Returns</span> — 4-6x token reduction, cleaner decisions</div>
-<div><span class="font-semibold">Tool Constraints = Role Enforcement</span> — System-enforced boundaries</div>
-<div><span class="font-semibold">Hand-Off Over Supervision</span> — 65-82% reduction in active time</div>
-<div><span class="font-semibold">Knowledge Compounding</span> — Agents write history, start smarter</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Control Frontmatter Properties -->
+<ThreeColumnCardSlide
+  :partNumber="1"
+  pillIcon="⚙️"
+  pillLabel="Subagents: Advanced Controls"
+  title="Control Frontmatter Properties"
+  :columns='[
+    { icon: "🔒", title: "user-invokable: false", description: "Hide from agent dropdown—internal helper only; available as subagent but not user-selectable" },
+    { icon: "🚫", title: "disable-model-invocation: true", description: "Prevent AI from spawning this as subagent—use for root orchestrators only" },
+    { icon: "📋", title: "agents: [&#39;Red&#39;, &#39;Green&#39;]", description: "Restrict which subagents this agent can spawn—enforce valid delegation paths" }
+  ]'
+  :insight='{ icon: "💡", text: "Custom agents as subagents: security-focused analysis, strict TDD enforcement—specialized behavior via agent definitions." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
-<div class="flex flex-col gap-3">
-<div class="p-4 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-<div class="font-bold text-amber-300 mb-2 flex items-center gap-2">
-<span>⚠️</span> <span>Move Away From</span>
-</div>
-<div class="text-xs opacity-90 space-y-2">
-<div><span class="font-semibold">Everything in Main Context</span> — Context bloat prevents parallelization</div>
-<div><span class="font-semibold">Supervised Execution</span> — Supervision is the bottleneck</div>
-<div><span class="font-semibold">General Tools for All Roles</span> — Accidental cross-role work</div>
-</div>
-</div>
 
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-rose-900/30 rounded-lg border border-red-500/30">
-<div class="font-bold text-red-300 mb-2 flex items-center gap-2">
-<span>🛑</span> <span>Move Against</span>
-</div>
-<div class="text-xs opacity-90 space-y-2">
-<div><span class="font-semibold">Vague Subagent Tasks</span> — Unusable summaries, wasted overhead</div>
-<div><span class="font-semibold">Sequencing Parallelizable Work</span> — 3x longer with no benefit</div>
-<div><span class="font-semibold">Raw Returns from Subagents</span> — Explodes context, defeats isolation</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 ---
 
@@ -1083,10 +977,10 @@ header="Breaking the Single-Agent Ceiling"
         { href: "https://github.com/bradygaster/squad/blob/main/docs/guide.md", label: "Squad Product Guide", description: "Comprehensive usage guide" },
         { href: "https://github.com/bradygaster/squad/blob/main/docs/features/ralph.md", label: "Ralph Work Monitor", description: "Autonomous backlog processing" },
         { href: "https://github.com/Sentry01/AgentCouncil", label: "AgentCouncil Repository", description: "Multi-model deliberation for Copilot CLI" },
-        { label: "Agentic SDLC", description: "Repo/CI/CD patterns for agent volume at scale" },
-        { label: "Agentic Workflows", description: "GitHub-native automation patterns" },
-        { label: "Custom Agents Workshop", description: "Hands-on creation and testing" },
-        { label: "Copilot Primitives", description: "Instructions, prompts, skills, agents" }
+        { href: "https://github.com/bradygaster/squad/blob/main/docs/features/ralph.md", label: "Agentic SDLC", description: "Repo/CI/CD patterns for agent volume at scale" },
+        { href: "https://code.visualstudio.com/docs/copilot/agents", label: "Agentic Workflows", description: "GitHub-native automation patterns" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-agents", label: "Custom Agents Workshop", description: "Hands-on creation and testing" },
+        { href: "https://code.visualstudio.com/docs/copilot/prompt-crafting", label: "Copilot Primitives", description: "Instructions, prompts, skills, agents" }
     ] }
   ]'
 />

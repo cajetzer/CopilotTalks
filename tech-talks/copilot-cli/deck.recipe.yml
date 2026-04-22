@@ -7,19 +7,7 @@ deck:
   subtitle: AI at the Point of Work
   tagline: Start Anywhere. Steer Anywhere. Resume Anywhere.
 
-  intro:
-    mode: core-question
 
-  # Arc: Problem → Foundation → Geography → Practice
-  # Each section closes one dimension of the Distance Model:
-  #   S1 (Intent): Plan Mode closes the gap between requirement and implementation
-  #   S2 (Scale):  Range & delegation multiplies what one session can reach
-  #   S3 (Geography): --remote eliminates the physical constraint
-  #   S4 (Practice):  Proof that the model survives real production workflows
-  #
-  # SECTION NAMES: The current deck uses older names in the SectionOpenerSlide components
-  # ("Scaling the Reach", "Anywhere", "Real-World Patterns"). When regenerating slides
-  # from this recipe, update those three section openers to match the names below.
   sectionOrder:
     - "The Terminal Sees Reality"
     - "Range and Delegation"

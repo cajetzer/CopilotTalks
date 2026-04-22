@@ -5,10 +5,7 @@ deck:
   subtitle: Making AI Understand Your Codebase
   tagline: Four building blocks that transform Copilot from generic to team-aware partner
 
-  intro:
-    mode: core-question
 
-  # Arc: Always-on foundation → on-demand expertise → invoked workflows → orchestrated personas
   sectionOrder:
     - "Instructions: The Foundation"
     - "Skills: On-Demand Expertise"

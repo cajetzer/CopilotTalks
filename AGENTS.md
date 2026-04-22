@@ -53,7 +53,14 @@ Keep subagent prompts minimal — agents already have this file and their own `.
 
 ## Slide Generation
 
-Use the `slide-generator` agent. Full rules in `.github/agents/slide-generator.agent.md` and `slides/TEMPLATE.md`. Key invariants:
+Two agents — pick by category:
+
+| Category | Agent |
+|---|---|
+| `tech-talks/` | **Tech Talk Slide Generator** — Vue components, no raw HTML |
+| `workshop/` or `exec-talks/` | **Slide Generator** — cockpit HTML templates |
+
+Key invariants (all categories):
 
 - `---` separator always on its own line — never `---<!-- SLIDE:` on same line
 - No per-slide frontmatter (`layout:`, `class:`, `transition:`) — use CSS

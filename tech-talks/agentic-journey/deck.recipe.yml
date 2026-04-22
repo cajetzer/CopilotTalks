@@ -6,14 +6,9 @@ deck:
   title: "The Agentic Journey"
   subtitle: "Incremental Path from Issue to PR Automation"
   tagline: "4-workflow issue lifecycle with historical context planning"
+  arc: "Credibility → Insight → Payoff → Trust"
 
-  intro:
-    mode: core-question
 
-  # Arc: Credibility → Insight → Payoff → Trust
-  # Dual-peak structure: Planning = intellectual peak (novel capability + approval gate anxiety-reducer);
-  # Coding = emotional peak (chain fires, issue → PR in 2 hours).
-  # Label state machine is the talk's visual spine — introduced in Intake, referenced at every section.
   sectionOrder:
     - "Agentic Intake"
     - "Agentic Planning"

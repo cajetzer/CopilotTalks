@@ -7,12 +7,12 @@ deck:
   subtitle: "Stateful AI That Remembers Your Preferences"
   tagline: "Stop re-explaining your coding style every session"
 
-  intro:
-    mode: core-question
 
-  # Narrative arc: hook (stateless pain) → mechanism (how memory works) → activation (enable + manage) →
-  # decision framework (what to store) → guardrails + CTA (privacy, hygiene, and first actions).
-  # Peak engagement lands in "What to Store" — that's where developers make the behavioral shift.
+  arcToc: "Hook (stateless pain) → Mechanism → Activation → Decision framework"
+  arcNarrative: >
+    Hook (stateless pain) → mechanism (how memory works) → activation (enable + manage) →
+    decision framework (what to store) → guardrails + CTA (privacy, hygiene, and first actions).
+    Peak engagement lands in "What to Store" — that's where developers make the behavioral shift.
   sectionOrder:
     - "How Copilot Memory Works"
     - "Enabling and Managing Copilot Memory"

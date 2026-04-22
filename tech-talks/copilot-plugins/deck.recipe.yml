@@ -9,17 +9,17 @@ deck:
   tagline: "Install once, configure everywhere"
 
   # How the opening slides frame the talk
-  intro:
-    mode: core-question  # Lead with the question: "How do I extend Copilot..."
 
   # Table of contents
   toc:
     enabled: true
 
-  # Narrative arc: WHY the shift matters → HOW to explore the ecosystem → CODIFY as team
-  # infrastructure (manifest + lockfile together) → ACT with concrete next steps.
-  # "The Opportunity" earns audience attention before any CLI syntax appears.
-  # "What You Can Do Today" closes on action, not theory — a reading list cannot compete.
+  arcToc: "WHY the shift matters → HOW to explore the ecosystem → CODIFY as team infrastructure → ACT with concrete next steps"
+  arcNarrative: >
+    WHY the shift matters → HOW to explore the ecosystem → CODIFY as team
+    infrastructure (manifest + lockfile together) → ACT with concrete next steps.
+    "The Opportunity" earns audience attention before any CLI syntax appears.
+    "What You Can Do Today" closes on action, not theory — a reading list cannot compete.
   # "The Lockfile Pattern" folds into "Building an APM Manifest" as its natural conclusion.
   sectionOrder:
     - "The Opportunity"

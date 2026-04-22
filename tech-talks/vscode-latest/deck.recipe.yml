@@ -6,12 +6,9 @@ deck:
   title: "What's New in Copilot for VS Code"
   subtitle: "v1.108 – v1.115: Eight Releases of AI Innovation"
   tagline: "From assistant to autonomous agent team"
+  arc: "assistant → autonomous agent → enterprise agent fleet — each section adds a capability layer, ending with trust controls"
 
-  intro:
-    mode: core-question
 
-  # Arc: assistant → autonomous agent → enterprise agent fleet — each section adds a
-  # capability layer, ending with the trust controls that make autonomy safe to ship.
   sectionOrder:
     - "Agent Sessions & Orchestration"
     - "Agent Customization"

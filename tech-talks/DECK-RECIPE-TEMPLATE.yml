@@ -1,28 +1,68 @@
-# deck.recipe.yml — lightweight talk generation guidance
+# deck.recipe.yml — talk generation guidance
 #
-# This recipe guides slide generation from a README.md while letting the template.md
-# structure and generator handle slide organization. Use this file to emphasize what
-# matters most — not to control which slides appear.
-#
-# Keep this file minimal. Complex structure should be in README.md via <!-- 🎬 MAJOR SECTION: -->
-# markers and in template.md's strategic content outline.
+# Guides slide generation from README.md. Use this file to name and order sections,
+# set the slide budget per section, and surface authoring priorities the generator
+# should follow. Complex narrative content belongs in README.md; structural editorial
+# intent belongs here.
 
 version: 1
 
-# Metadata for the deck
 deck:
-  # Title, subtitle, tagline (e.g., from template frontmatter)
   title: "[Feature/Capability Name]"
   subtitle: "[Compelling Subtitle]"
   tagline: "[One-line promise or focus]"
 
-  # How the opening slides frame the talk
-  intro:
-    mode: core-question  # core-question | opportunity
+  # arcToc: short → chain displayed as the TocSlide subtitle. One line, ≤ 80 chars.
+  arcToc: "[Section 1] → [Section 2] → [Section 3] → [Section 4]"
 
-  # What to emphasize most (3-5 key points readers/audiences should remember)
-  # The generator uses these to shape slide emphasis and ordering
+  # arcNarrative: prose rationale explaining WHY the sections are ordered this way —
+  # what each section establishes, structural decisions, and where peak engagement lands.
+  # Used by the generator as authoring guidance; never displayed on a slide.
+  arcNarrative: >
+    [Explain the sequencing logic: what each section sets up for the next, where the
+    "whoa" moment lands, any deliberate ordering decisions and why alternatives were rejected.]
+
+  # Ordered list of the 4 section names (must match sectionModes keys below).
+  # These become the TocSlide entries and SectionOpenerSlide titles.
+  sectionOrder:
+    - "[Section 1 Name]"
+    - "[Section 2 Name]"
+    - "[Section 3 Name]"
+    - "[Section 4 Name]"
+
+  # Per-section editorial guidance for the slide generator.
+  sectionModes:
+    "[Section 1 Name]":
+      # Slide budget hint: high = 4–5 slides, medium = 2–3, medium-low = 1–2
+      emphasis: medium
+      # note: authoring priority — what must land, what to cut, what the "whoa" moment is.
+      # Written as a free-form directive to the generator. Be specific.
+      note: >
+        [Describe what the generator must prioritize for this section. Name the single
+        most important insight, what to cut, and any structural constraint (e.g., "compress
+        to one overview slide + one before/after — skip the taxonomy deep-dive").]
+    "[Section 2 Name]":
+      emphasis: high
+      note: >
+        [Describe the centerpiece moment for this section — the concrete "whoa" metric,
+        the architectural insight, or the capability that earns a dedicated slide.]
+    "[Section 3 Name]":
+      emphasis: high
+      note: >
+        [What is the single architectural or workflow insight leaders need from this section?
+        Name it explicitly so the generator knows what earns slide real estate.]
+    "[Section 4 Name]":
+      emphasis: medium
+      note: >
+        [Any special structure for the closing section — e.g., embed a mini roadmap,
+        surface a 3-phase rollout, or tie back to the arc's opening frame.]
+
+  # 3–5 high-signal moments the generator must surface in the deck.
+  # Used for: BeforeAfterSlide items, ThankYouSlide cards, WhatYouCanDoTodaySlide actions.
+  # Write each as a complete sentence with a quantified metric where possible.
   highlightMoments:
-    - "[Most important insight or capability]"
-    - "[Second key differentiator or outcome]"
-    - "[Third critical point for the audience]"
+    - "[Most dramatic before/after comparison with a concrete metric]"
+    - "[Second key differentiator or outcome — name the number]"
+    - "[Third critical point — what the audience takes back to their team]"
+    - "[Optional: fourth moment if warranted]"
+    - "[Optional: fifth moment if warranted]"

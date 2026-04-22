@@ -6,11 +6,9 @@ deck:
   title: "GitHub Copilot SDK"
   subtitle: "Build AI-Powered Tools for Your Workflows"
   tagline: "Transform repetitive analysis into automated intelligence"
+  arc: "Understand the engine → Install and run it → Build real patterns → See it proved in production"
 
-  intro:
-    mode: core-question
 
-  # Arc: Understand the engine → Install and run it → Build real patterns → See it proved in production
   sectionOrder:
     - "How the SDK Works"
     - "Installing and Using the SDK"

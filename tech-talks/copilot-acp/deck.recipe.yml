@@ -6,14 +6,9 @@ deck:
   title: "GitHub Copilot ACP"
   subtitle: "The Agent Client Protocol"
   tagline: "Universal AI integration for any editor, tool, or workflow"
+  arc: "Diagnose the N×M fragmentation crisis → internalize the four-layer protocol model → connect live with a single flag → prove production readiness"
 
-  intro:
-    mode: core-question
 
-  # Arc: Diagnose the N×M fragmentation crisis → internalize the four-layer protocol model →
-  # connect live with a single flag and TypeScript SDK → prove production readiness through
-  # the permission model, real-world patterns, and the multi-agent orchestrator.
-  # Audience moves from "I didn't know this existed" to "I know exactly how to integrate this."
   sectionOrder:
     - "The Problem"
     - "Protocol Architecture: Four Layers of Standardization"

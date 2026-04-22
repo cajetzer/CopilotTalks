@@ -6,13 +6,9 @@ deck:
   title: "GitHub Agentic Workflows"
   subtitle: "Repository Automation with AI Agents"
   tagline: "Write repository automation in natural language, execute with security-first AI agents"
+  arc: "Foundation → Trust → Catalog → Proof"
 
-  intro:
-    mode: core-question
 
-  # Arc: Foundation → Trust → Catalog → Proof
-  # "The Opportunity" framing is absorbed into Core Architecture's opening movement;
-  # its vacated slot goes to Real-World Use Cases so demos anchor the pattern catalog.
   sectionOrder:
     - "Core Architecture & Compilation"
     - "Safe Outputs Deep Dive"

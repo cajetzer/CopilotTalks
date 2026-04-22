@@ -14,7 +14,7 @@ Diagnose structural problems in a tech-talk's section order, surface coverage ga
 
 **Key Constraints:**
 - **Max 4 sections** — Council should consolidate, not expand. Each section gets ~12-15 slides in 60-min talks.
-- **Slide generator ensures consistency** — Once you commit a recipe, the [Slide Generator agent](../../agents/slide-generator.agent.md) applies [TEMPLATE.md](../../slides/TEMPLATE.md) to generate all slides with uniform structure (title, toc, section openers, closers, references). Focus the council on *narrative logic and audience fit*, not slide-level details.
+- **Slide generator ensures consistency** — Once you commit a recipe, the [Tech Talk Slide Generator agent](../../agents/tech-talk-slide-generator.agent.md) generates all slides using the Vue component system with uniform structure (title, toc, section openers, closers, references). Focus the council on *narrative logic and audience fit*, not slide-level details.
 
 ---
 
@@ -67,7 +67,7 @@ CURRENT SECTIONS (with slide counts):
 
 CONSTRAINTS:
 - Max 4 sections (no exceptions — consolidate, don't expand)
-- Slide generator will apply TEMPLATE.md for structural consistency
+- Slide generator will apply the component system for structural consistency
 
 USER CONCERN: [Exact concern — what's taking too much space / what's missing]
 
@@ -188,8 +188,8 @@ highlightMoments:
 
 **Post-Recipe Workflow:**
 1. Commit updated `deck.recipe.yml`
-2. Invoke [Slide Generator agent](../../agents/slide-generator.agent.md) with the talk path
-3. Slide Generator uses TEMPLATE.md to create consistent slides for all sections
+2. Invoke [Tech Talk Slide Generator agent](../../agents/tech-talk-slide-generator.agent.md) with the talk path
+3. Slide Generator uses the Vue component system to create consistent slides for all sections
 4. No manual slide editing needed — the template ensures title slides, TOCs, section openers, closers, and references are auto-generated
 
 ---
@@ -202,7 +202,7 @@ highlightMoments:
 - [ ] The narrative arc is explicit in a comment above `sectionOrder`
 - [ ] The open decision is documented in the file — don't silently absorb it
 - [ ] `highlightMoments` list is 3-5 items (not more — dilutes focus)
-- [ ] **After approval**: Slide Generator agent will regenerate all slides using TEMPLATE.md — you don't need to update individual slides
+- [ ] **After approval**: Tech Talk Slide Generator agent will regenerate all slides using the Vue component system — you don't need to update individual slides
 
 ---
 

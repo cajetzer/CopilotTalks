@@ -7,12 +7,11 @@ deck:
   subtitle: From Bottleneck to Accelerator
   tagline: Reduce PR review time while maintaining code quality and compliance
 
-  intro:
-    mode: core-question
 
-  # Narrative arc: Configure fast → Master the signal → Prove the value → Scale to enterprise
-  # Opens with a 5-minute setup win, builds capability understanding, lands ROI proof before
-  # introducing compliance depth — so the audience is already convinced before complexity arrives.
+  arcToc: "Configure fast → Master the signal → Prove the value → Scale to enterprise"
+  arcNarrative: >
+    Opens with a 5-minute setup win, builds capability understanding, lands ROI proof before
+    introducing compliance depth — so the audience is already convinced before complexity arrives.
   sectionOrder:
     - Configuration and Quick Start           # Part 1: 4 slides — zero-to-first-review in 5 min
     - Best Practices and Team Adoption        # Part 2: 3 slides — six capabilities + hybrid analysis

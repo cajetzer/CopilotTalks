@@ -7,8 +7,6 @@ deck:
   subtitle: "Subagents, Teams, and Autonomous Execution"
   tagline: "Mechanisms for composing multi-agent AI systems that handle complex tasks"
 
-  intro:
-    mode: core-question
 
   # Conceptual ladder: primitive → composition → autonomy → quality gate.
   # Autonomy (section 3) lands hardest after the audience understands the team

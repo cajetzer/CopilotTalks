@@ -4,57 +4,63 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## Agentic SDLC: Infrastructure for AI Velocity
+  ## Agentic SDLC
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: Agentic SDLC - Level 5 Infrastructure for AI Velocity
+title: Agentic SDLC
 module: tech-talks/agentic-sdlc
 mdc: true
 section: Agentic Engineering
 status: active
-updated: 2026-04-02
+updated: 2026-04-21
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
-import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
+import MaturityLevelDrilldownSlide from './components/MaturityLevelDrilldownSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 </script>
 
-<!-- SLIDE: Title Slide -->
+<!-- SLIDE: Title -->
 <TitleSlide
-title="Agentic SDLC"
-subtitle="Level 5 Infrastructure for AI Velocity"
-tagline="Progress from standardized engineering to autonomous delivery without losing trust"
-meta="Tech Talk · 30 minutes"
+  title="Agentic SDLC"
+  subtitle="Level 5 Infrastructure for AI Velocity"
+  tagline="Autonomous delivery infrastructure that grows with agent throughput"
+  meta="Tech Talk · Architects · Platform Engineers · Engineering Leaders"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="How do I rewire repositories and workflows to scale from 2-3 features/week to 10-15/day?"
-subtext="AI agents produce code 10-15x faster than humans can review it."
-highlight="The bottleneck shifts from writing to reviewing — and your infrastructure must shift with it."
-:cards='[
-  { icon: "🏗️", title: "Platform Engineers Building AgentRC", description: "Repo structure, CI pipelines, and test coverage optimized for AI agents" },
-  { icon: "👔", title: "Engineering Managers at Scale", description: "Moving from sprint planning to autonomous PR queues shipping 10-15 features daily" },
-  { icon: "🔬", title: "Tech Leads Redesigning Code Review", description: "Transitioning from line-by-line review to evidence-based governance at scale" },
-  { title: "Code Volume", description: "500-2000 LOC in 15 min — human review capacity cannot keep up" },
-  { title: "Review Capacity", description: "Review does not scale linearly with agent output — new patterns required" },
-  { title: "CI Critical Path", description: "Flaky tests block agents — fast, reliable CI becomes a critical dependency" }
-]'
+  question="How do I rewire repositories, PR workflows, and CI/CD to scale from 2–3 features/week to 10–15 features/day?"
+  subtext="Traditional SDLC infrastructure collapses at agent velocity."
+  highlight="Level 5 requires rebuilding three foundational layers — repo, governance, and trust manufacturing."
+  :cards='[
+    { icon: "🏗️", title: "Platform Engineers", description: "Build the monorepo, CI pipeline, and policy enforcement that agents rely on" },
+    { icon: "🔬", title: "Architects", description: "Design module boundaries and governance that scale to 15,000 lines/day" },
+    { icon: "🎯", title: "Engineering Leaders", description: "Get the 100× throughput blueprint and 3-phase implementation roadmap" },
+    { title: "300 → 15,000 lines/day", description: "Review habits designed for 300 lines/day collapse under Level 5 agent throughput" },
+    { title: "3 days → 45 minutes", description: "3 repos × 45-min CI = 3 days to production; monorepo makes it 45 minutes" },
+    { title: "150 → 3,600 features/year", description: "Compounding effect of topology, governance, and CI trust manufacturing" }
+  ]'
 />
 
 ---
@@ -62,27 +68,28 @@ highlight="The bottleneck shifts from writing to reviewing — and your infrastr
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "📐", title: "AgentRC Maturity Model", subtitle: "5 levels from functional to autonomous", blurb: "What each level unlocks for speed, automation, and safety", slide: 4 },
-    { icon: "🏗️", title: "Repository Topology", subtitle: "Agent-native monorepo patterns", blurb: "Eliminate coordination overhead, enable atomic changes", slide: 11 },
-    { icon: "📋", title: "PR Workflows", subtitle: "Outcome validation at scale", blurb: "From line-by-line review to evidence-based governance", slide: 15 },
-    { icon: "🏭", title: "Trust Manufacturing", subtitle: "CI as a trust factory", blurb: "<10 min PR checks, zero-flake tolerance, attestations", slide: 19 },
+    { icon: "📐", title: "AgentRC Maturity Model", subtitle: "The L5 breakpoint", blurb: "Where review habits collapse and what changes at autonomous velocity", slide: 4 },
+    { icon: "🗂️", title: "Repository Topology",   subtitle: "Eliminate coordination tax", blurb: "Monorepo, enforced boundaries, and hermetic builds for agents", slide: 7 },
+    { icon: "🔀", title: "PR Workflows",           subtitle: "Outcome-based governance", blurb: "Evidence bundles, policy gates, and 50× review capacity", slide: 11 },
+    { icon: "🏭", title: "Trust Manufacturing",    subtitle: "CI as trust factory", blurb: "10-minute feedback loops, zero flake, and attestation at velocity", slide: 15 }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — AgentRC Maturity Model -->
-
 <SectionOpenerSlide
   :partNumber="1"
   title="AgentRC Maturity Model"
-  subtitle="5 levels from functional to autonomous"
+  subtitle="Five levels of repository readiness — and the breakpoint that changes everything"
   :cards='[
-    { icon: "📐", title: "AgentRC Levels", blurb: "5 stages from functional to autonomous" },
-    { icon: "⚡", title: "The Breakpoint", blurb: "Where Level 3 habits fail at Level 5 volume" },
-    { icon: "🔄", title: "New Operating Model", blurb: "Evidence-based trust at machine velocity" },
+    { icon: "📐", title: "Five Levels", blurb: "Functional → Documented → Standardized → Optimized → Autonomous" },
+    { icon: "⚡", title: "The Breakpoint", blurb: "L3 review habits collapse when agents produce 15,000 lines/day" },
+    { icon: "🎯", title: "L5 Target", blurb: "Agents as primary producers, humans govern outcomes not lines" }
   ]'
-  :terminal='{ context: "Level 5 requires Level 5 infrastructure", detail: "not just more agents" }'
+  :terminal='{ context: "AgentRC measures repository AI-readiness at five maturity levels", detail: "L3 → L4 → L5: automation, speed, and safety compound at each step" }'
 />
+
 ---
 
 <!-- SLIDE: The AgentRC Levels -->

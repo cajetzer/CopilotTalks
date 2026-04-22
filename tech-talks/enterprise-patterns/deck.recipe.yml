@@ -5,10 +5,7 @@ deck:
   subtitle: Enterprise Patterns for AI Adoption
   tagline: Transform individual team success into organizational capability with consistent standards and governance
 
-  intro:
-    mode: core-question
 
-  # Arc: Fragmented silos → org-wide standards → shared institutional knowledge → governed scale → measurable ROI
   sectionOrder:
     - "Organization-Wide Standards: Custom Instructions at Scale"
     - "Organizational Skills & Knowledge Bases: Institutional Knowledge That Scales"

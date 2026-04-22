@@ -7,13 +7,12 @@ deck:
   subtitle: Level 5 Infrastructure for AI Velocity
   tagline: Autonomous delivery infrastructure that grows with agent throughput
 
-  intro:
-    mode: core-question
 
-  # Arc: Orient → Restructure → Govern → Trust
-  # AgentRC establishes shared language; three infrastructure sections deliver the
-  # "how to get there" blueprint. Implementation Roadmap surfaces inside Trust Manufacturing
-  # as a mini 3-phase close (L3→L4→L5) rather than a separate section.
+  arcToc: "Orient → Restructure → Govern → Trust"
+  arcNarrative: >
+    AgentRC establishes shared language; three infrastructure sections deliver the
+    "how to get there" blueprint. Implementation Roadmap surfaces inside Trust Manufacturing
+    as a mini 3-phase close (L3→L4→L5) rather than a separate section.
   sectionOrder:
     - "AgentRC Maturity Model"
     - "Repository Topology"

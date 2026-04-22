@@ -114,7 +114,19 @@ mdc: true
 
 ---
 
-## Title Slide (REQUIRED — use for every deck)
+## ⛔ Tech-Talk Decks: Stop Here
+
+**If you are generating a `slides/tech-talks/*.md` deck, stop reading this file.**
+
+Tech-talk decks use Vue components for every slide — Title, CoreQuestion, ToC, SectionOpeners, all 13 body archetypes, BeforeAfter, WhatYouCanDoToday, References, and ThankYou. The raw HTML patterns below this line do not apply. They will produce incorrect output if used in a tech-talk deck.
+
+👉 **Go to `slides/tech-talks/template.md`** — it has the full component catalog, prop schemas, import block, and usage examples for every required slide.
+
+The sections below apply only to **workshop** and **exec-talk** decks, which still use inline HTML.
+
+---
+
+## Title Slide (workshop / exec-talk only)
 
 Do not choose the title-slide pattern from this file alone. Resolve the deck category first, then load the matching category profile and use its title-slide pattern.
 
@@ -237,34 +249,11 @@ Use this **rich section opener** (no `layout:` frontmatter — CSS only). The la
 
 ---
 
-## Thank You Slide (REQUIRED)
+## Thank You Slide
 
-Resolve the deck category first, then use the matching category profile for the final-slide archetype. For tech talks, use the shared `ThankYouSlide` component from `slides/components/ThankYouSlide.vue` instead of inlining raw HTML.
+**Tech-talk decks:** use `ThankYouSlide` component — props are `title`, `subtitle`, `cards`, `prompt`. See `slides/tech-talks/template.md`.
 
-Shared content contract:
-
-- Optional pill text
-- Optional tagline
-- 3-4 summary cards
-- Optional chips row
-- Optional prompt or CTA code block
-
-```html
-<script setup>
-import ThankYouSlide from '../components/ThankYouSlide.vue'
-</script>
-
-<!-- SLIDE: Thank You -->
-<ThankYouSlide
-pill-text="{TITLE}: {SUBTITLE}"
-:cards="[
-  { value: '{CALL_OUT_1}', detail: '{DETAIL_1}' },
-  { value: '{CALL_OUT_2}', detail: '{DETAIL_2}' },
-  { value: '{CALL_OUT_3}', detail: '{DETAIL_3}' },
-]"
-prompt="{DISCUSSION_PROMPT}"
-/>
-```
+**Workshop / exec-talk decks:** see *End / Thank You Slide* section below for raw HTML in the category color scheme.
 
 ---
 
@@ -510,82 +499,19 @@ Wrap in the Standard Content Slide cockpit template.
 
 ---
 
-## What You Can Do Today Slide (REQUIRED — first slide of Close section)
+## What You Can Do Today Slide
 
-Use the Standard Content Slide cockpit wrapper. Present 3–5 concrete, immediately actionable steps — not abstract recommendations. Each step should be something a practitioner can start within a week without waiting for approvals or infrastructure.
+**Tech-talk decks:** use `WhatYouCanDoTodaySlide` component — see `slides/tech-talks/template.md`.
 
-```html
-<!-- SLIDE: What You Can Do Today -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 What You Can Do Today</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Start here. This week.</div>
-<div class="text-sm text-gray-400">No approvals required. No infrastructure needed.</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-1 gap-3 max-w-3xl">
-<div class="flex items-start gap-4 p-3 bg-gradient-to-r from-purple-900/30 to-pink-900/20 rounded-xl border border-purple-500/30">
-<div class="text-2xl font-bold text-purple-400 mt-0.5 w-8 shrink-0">1</div>
-<div>
-<div class="font-semibold text-purple-300">{Action Title}</div>
-<div class="text-sm text-gray-300 mt-0.5">{One-sentence description of what to do and what to look for}</div>
-</div>
-</div>
-<div class="flex items-start gap-4 p-3 bg-gradient-to-r from-pink-900/30 to-rose-900/20 rounded-xl border border-pink-500/30">
-<div class="text-2xl font-bold text-pink-400 mt-0.5 w-8 shrink-0">2</div>
-<div>
-<div class="font-semibold text-pink-300">{Action Title}</div>
-<div class="text-sm text-gray-300 mt-0.5">{One-sentence description}</div>
-</div>
-</div>
-<div class="flex items-start gap-4 p-3 bg-gradient-to-r from-rose-900/30 to-purple-900/20 rounded-xl border border-rose-500/30">
-<div class="text-2xl font-bold text-rose-400 mt-0.5 w-8 shrink-0">3</div>
-<div>
-<div class="font-semibold text-rose-300">{Action Title}</div>
-<div class="text-sm text-gray-300 mt-0.5">{One-sentence description}</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-```
+**Workshop / exec-talk decks:** this label is tech-talk specific. Use your category profile's closing pattern (workshop: Key Takeaways → What to Practice Next; exec-talk: What Leaders Can Do Next).
 
 ---
 
-## References Slide (REQUIRED — second slide of Close section)
+## References Slide
 
-Use the Standard Content Slide cockpit wrapper. List only authoritative sources used in the talk — official docs, GitHub announcements, research. No blog posts or secondary sources unless there is no primary alternative.
+**Tech-talk decks:** use `ReferencesSlide` component — see `slides/tech-talks/template.md`.
 
-```html
-<!-- SLIDE: References -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-rose-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-pink-600/80 to-rose-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📚 References</span>
-<div class="flex-1 h-px bg-gradient-to-r from-pink-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mt-2">
-<div class="p-3 bg-gradient-to-br from-pink-900/30 to-rose-900/20 rounded-lg border border-pink-500/20">
-<div class="text-xs text-pink-300 font-semibold mb-0.5">{Category}</div>
-<div class="text-sm text-white">{Title}</div>
-<div class="text-xs text-gray-400 mt-0.5 font-mono">{URL or short path}</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-rose-900/30 to-pink-900/20 rounded-lg border border-rose-500/20">
-<div class="text-xs text-rose-300 font-semibold mb-0.5">{Category}</div>
-<div class="text-sm text-white">{Title}</div>
-<div class="text-xs text-gray-400 mt-0.5 font-mono">{URL or short path}</div>
-</div>
-</div>
-</div>
-</div>
-```
+**Workshop / exec-talk decks:** include a brief sources list if applicable, or omit.
 
 ---
 

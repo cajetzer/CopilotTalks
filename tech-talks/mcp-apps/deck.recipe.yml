@@ -6,11 +6,9 @@ deck:
   title: "MCP Apps"
   subtitle: "Rich Interactive UI in Chat"
   tagline: "Transform chat from text stream to visual workspace with inline charts, tables, and forms"
+  arc: "See the palette → Build the server → Apply the patterns → Prove the value"
 
-  intro:
-    mode: core-question
 
-  # Arc: See the palette → Build the server → Apply the patterns → Prove the value
   sectionOrder:
     - "Component Types Deep-Dive"
     - "Building MCP Apps"

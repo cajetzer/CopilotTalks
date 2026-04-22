@@ -7,12 +7,12 @@ deck:
   subtitle: "Debugging AI Interactions"
   tagline: "Transform AI debugging from guesswork into systematic investigation"
 
-  intro:
-    mode: core-question
 
-  # Narrative arc: Reveal (real-time observability hook) → Inspect (deep request pipeline)
-  #   → Configure (diagnostics & validation for the most common failure mode)
-  #   → Systematize (repeatable troubleshooting patterns practitioners take home)
+  arcToc: "Reveal → Inspect → Configure → Systematize"
+  arcNarrative: >
+    Reveal (real-time observability hook) → Inspect (deep request pipeline)
+    → Configure (diagnostics & validation for the most common failure mode)
+    → Systematize (repeatable troubleshooting patterns practitioners take home).
   sectionOrder:
     - "Agent Debug Panel: Real-Time Event Stream (v1.110)"
     - "Chat Debug View: Complete Request Inspection"

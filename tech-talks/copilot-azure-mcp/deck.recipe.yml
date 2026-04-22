@@ -5,8 +5,6 @@ deck:
   subtitle: "Rapid Azure Prototyping and Deployment"
   tagline: "Infrastructure becomes conversational — AI that knows what's running in your subscriptions"
 
-  intro:
-    mode: core-question
 
   highlightMoments:
     - Live Azure context directly in terminal conversations — no portal tab-switching or manual config pasting
@@ -15,9 +13,11 @@ deck:
     - Environment cloning in one conversation — exact replica with validated parameters, any region
     - Permission guardrails enforce read-only boundaries so teams can explore safely before granting write access
 
-  # Narrative arc: Hook with live context magic (wow) → demonstrate speed compression (value) →
-  # show how to set it up (adoption) → close on organizational trust (confidence to ship).
-  # Config before Guardrails is deliberate: practitioners need the "how" before they sell the "safe".
+  arcToc: "Hook with live context magic → demonstrate speed compression → show how to set it up → close on organizational trust"
+  arcNarrative: >
+    Hook with live context magic (wow) → demonstrate speed compression (value) →
+    show how to set it up (adoption) → close on organizational trust (confidence to ship).
+    Config before Guardrails is deliberate: practitioners need the "how" before they sell the "safe".
   sectionOrder:
     - Live Azure Context in Terminal Conversations
     - The Prototype Loop: Plan → Generate → Deploy

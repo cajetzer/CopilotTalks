@@ -4,14 +4,9 @@ deck:
   title: "From Issue to Pull Request"
   subtitle: "GitHub Copilot's Coding Agent in Practice"
   tagline: "What if filing an issue was the same as fixing it?"
+  arc: "Hook with the delegation loop → Master the skill → Govern safely → Close confidently"
 
-  intro:
-    mode: core-question
 
-  # Arc: Hook with the delegation loop (what if your backlog could clear itself?) →
-  #      Master the skill (write the issue that produces a real PR) →
-  #      Govern safely (trust-by-design via environment setup and the firewall) →
-  #      Close confidently (review as a human checkpoint, not a bottleneck).
   sectionOrder:
     - "The Delegation Loop: From Issue Assignment to Draft PR"
     - "Writing Issues That Work"

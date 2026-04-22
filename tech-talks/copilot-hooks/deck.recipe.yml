@@ -7,11 +7,11 @@ deck:
   subtitle: "Programmable Governance for Agent Workflows"
   tagline: "Real-time control and compliance at every agent lifecycle moment"
 
-  intro:
-    mode: core-question
 
-  # Narrative arc: establish the mechanism → show the one hook that prevents vs. observes →
-  # prove the audit trail for compliance → land real regulated-industry patterns audiences can deploy today
+  arcToc: "Establish the mechanism → show the hook that prevents vs. observes → prove the audit trail → land real patterns"
+  arcNarrative: >
+    Establish the mechanism → show the one hook that prevents vs. observes →
+    prove the audit trail for compliance → land real regulated-industry patterns audiences can deploy today.
   sectionOrder:
     - "Phase 1: Lifecycle Control"
     - "Phase 2: Preventive Enforcement with `PreToolUse`"
