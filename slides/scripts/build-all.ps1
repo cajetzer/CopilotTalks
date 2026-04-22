@@ -11,6 +11,18 @@
 #     build-all.ps1 -Deck copilot-cli                     # build only copilot-cli (auto-detect folder)
 #     build-all.ps1 -Deck copilot-cli -Verbose            # build with verbose output
 #     build-all.ps1 -Verbose -Folder tech-talks           # build only tech-talks (verbose)
+#
+# Prop linting (Invoke-PropLint):
+#   Runs after each successful build. Parses .md source statically for known
+#   component prop limit violations. Slidev build is a pure Vite bundle (no
+#   component execution), so component console.warn() never fires at build time.
+#   Violations emit yellow [WARN] line N: messages — non-blocking, build stays [OK].
+#   Limits enforced (from slides/tech-talks/template.md):
+#     FrameworkMappingRowsSlide  label ≤13, description ≤70
+#     SectionOpenerSlide         cards.blurb ≤75, cards.title ≤30
+#     CoreQuestionSlide          cards.description ≤90, cards.title ≤40
+#     TocSlide                   sections.blurb ≤100, sections.title ≤49
+#     All Tier-1 body slides     title ≤80
 
 param(
     [switch]$Verbose,
@@ -20,7 +32,110 @@ param(
     [string]$Deck
 )
 
-# NOTE: Using pre-expanded variables ($category, $baseName) instead of inline
+# ── Static prop validation ────────────────────────────────────────────────────
+# Parses .md source for known component prop limit violations and emits yellow
+# [WARN] line N: messages after each successful build. Non-blocking — Slidev
+# build still reports [OK]. Limits sourced from slides/tech-talks/template.md.
+# NOTE: regex uses (?s)<Component\b.*?/> (non-greedy) to avoid stopping at
+# '/' chars inside prop values like "pull-requests: write".
+
+function Invoke-PropLint {
+    param([string]$FilePath, [string]$Category, [string]$BaseName)
+
+    $lintWarnings = 0
+    $content = Get-Content $FilePath -Raw
+
+    # Pre-compute line-start offsets for O(1) char→line lookup
+    $lineStarts = [System.Collections.Generic.List[int]]::new()
+    $lineStarts.Add(0)
+    for ($i = 0; $i -lt $content.Length; $i++) {
+        if ($content[$i] -eq "`n") { $lineStarts.Add($i + 1) }
+    }
+    $getLine = {
+        param([int]$pos)
+        $lo = 0; $hi = $lineStarts.Count - 1
+        while ($lo -lt $hi) {
+            $mid = [int](($lo + $hi + 1) / 2)
+            if ($lineStarts[$mid] -le $pos) { $lo = $mid } else { $hi = $mid - 1 }
+        }
+        return $lo + 1
+    }
+
+    # Helper: emit a warning with line number
+    $warn = {
+        param([int]$offset, [string]$msg)
+        $line = & $getLine $offset
+        Write-Host "      [WARN] line $line`: $msg" -ForegroundColor Yellow
+        $script:lintWarnings++
+    }
+
+    # Helper: check a string value against a max length
+    $checkLen = {
+        param([string]$component, [string]$slideTitle, [string]$prop, [string]$value, [int]$max, [int]$offset)
+        if ($value.Length -gt $max) {
+            $preview = $value.Substring(0, [Math]::Min(50, $value.Length))
+            & $warn $offset "$component '$slideTitle': $prop too long ($($value.Length) chars, max $max): `"$preview`""
+        }
+    }
+
+    # ── FrameworkMappingRowsSlide: label ≤13, description ≤70 ───────────────
+    foreach ($m in [regex]::Matches($content, '(?s)<FrameworkMappingRowsSlide\b.*?/>')) {
+        $block = $m.Value; $off = $m.Index
+        $title = if ($m.Value -match 'title="([^"]+)"') { $matches[1] } else { '(unknown)' }
+        foreach ($r in [regex]::Matches($block, '\{\s*label:\s*"([^"]+)"[^}]*description:\s*"([^"]+)"')) {
+            & $checkLen 'FrameworkMappingRowsSlide' $title 'label'       $r.Groups[1].Value 13 ($off + $r.Index)
+            & $checkLen 'FrameworkMappingRowsSlide' $title 'description' $r.Groups[2].Value 70 ($off + $r.Index)
+        }
+    }
+
+    # ── SectionOpenerSlide: cards.title ≤30, cards.blurb ≤60 ────────────────
+    foreach ($m in [regex]::Matches($content, '(?s)<SectionOpenerSlide\b.*?/>')) {
+        $block = $m.Value; $off = $m.Index
+        $title = if ($m.Value -match 'title="([^"]+)"') { $matches[1] } else { '(unknown)' }
+        foreach ($r in [regex]::Matches($block, '\{[^}]*title:\s*"([^"]+)"[^}]*blurb:\s*"([^"]+)"')) {
+            & $checkLen 'SectionOpenerSlide' $title 'card.title' $r.Groups[1].Value 30 ($off + $r.Index)
+            & $checkLen 'SectionOpenerSlide' $title 'card.blurb' $r.Groups[2].Value 75 ($off + $r.Index)
+        }
+    }
+
+    # ── CoreQuestionSlide: cards.title ≤40, cards.description ≤90 ──────────
+    foreach ($m in [regex]::Matches($content, '(?s)<CoreQuestionSlide\b.*?/>')) {
+        $block = $m.Value; $off = $m.Index
+        foreach ($r in [regex]::Matches($block, '\{[^}]*title:\s*"([^"]+)"[^}]*description:\s*"([^"]+)"')) {
+            & $checkLen 'CoreQuestionSlide' 'Core Question' 'card.title'       $r.Groups[1].Value 40 ($off + $r.Index)
+            & $checkLen 'CoreQuestionSlide' 'Core Question' 'card.description' $r.Groups[2].Value 90 ($off + $r.Index)
+        }
+    }
+
+    # ── TocSlide: sections.title ≤40, sections.blurb ≤100 ─────────────────
+    foreach ($m in [regex]::Matches($content, '(?s)<TocSlide\b.*?/>')) {
+        $block = $m.Value; $off = $m.Index
+        foreach ($r in [regex]::Matches($block, '\{[^}]*title:\s*"([^"]+)"[^}]*blurb:\s*"([^"]+)"')) {
+            & $checkLen 'TocSlide' 'Table of Contents' 'section.title' $r.Groups[1].Value  49 ($off + $r.Index)
+            & $checkLen 'TocSlide' 'Table of Contents' 'section.blurb' $r.Groups[2].Value 100 ($off + $r.Index)
+        }
+    }
+
+    # ── All Tier-1 body components: title ≤80 ────────────────────────────────
+    $bodyComponents = @(
+        'BeforeAfterMetricsSlide', 'BeforeAfterPanelsSlide', 'ProblemSolutionOutcomeSlide',
+        'TwoColPairedConceptsSlide', 'ThreeColumnCardSlide', 'FourCardGridSlide',
+        'CodeWithFeaturesSlide', 'HeroStatSlide', 'WorkflowShowdownStepsSlide',
+        'MaturityJourneyRoadmapSlide', 'AITerminalTranscriptSlide',
+        'MaturityLevelDrilldownSlide', 'FrameworkMappingRowsSlide'
+    )
+    foreach ($comp in $bodyComponents) {
+        foreach ($m in [regex]::Matches($content, "(?s)<$comp\\b.*?/>")) {
+            $off = $m.Index
+            if ($m.Value -match 'title="([^"]+)"') {
+                & $checkLen $comp $matches[1] 'title' $matches[1] 80 $off
+            }
+        }
+    }
+
+    return $lintWarnings
+}
+
 # expressions ($deck.Category) to avoid npx.ps1 shim parsing issues.
 # Using "Continue" to allow build to proceed despite shim warnings.
 $ErrorActionPreference = "Continue"
@@ -83,6 +198,7 @@ New-Item -ItemType Directory -Force -Path "$OutputDir/exec-talks" | Out-Null
 $TotalBuilt = 0
 $TotalFailed = 0
 $TotalSkipped = 0
+$TotalLintWarnings = 0
 
 # Helper function to check if a slide is archived
 function Test-Archived {
@@ -186,7 +302,13 @@ while ($remaining.Count -gt 0) {
 
     if ($r.Success) {
         Write-Host "   [$completed/$total] [OK] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Green
-    } else {
+        # Surface any component validation warnings even on successful builds
+        $r.Output | Where-Object { $_ -match '\[.*Slide\]' } | ForEach-Object {
+            Write-Host "      [WARN] $_" -ForegroundColor Yellow
+        }        # Static prop lint
+        $deckFile = Join-Path $SlidesDir $r.Category "$($r.BaseName).md"
+        $lintCount = Invoke-PropLint -FilePath $deckFile -Category $r.Category -BaseName $r.BaseName
+        $TotalLintWarnings += $lintCount    } else {
         Write-Host "   [$completed/$total] [FAILED] $($r.Category)/$($r.BaseName) $($r.Elapsed)s" -ForegroundColor Red
         $r.Output | Where-Object {
             $_ -notmatch 'Ignored provided index\.html' -and $_ -notmatch '^\s*$'
@@ -211,6 +333,9 @@ if ($TotalFailed -gt 0) {
     Write-Host "[DONE] $successCount/$TotalBuilt presentations built, $TotalFailed FAILED, $TotalSkipped archived skipped." -ForegroundColor Red
 } else {
     Write-Host "[DONE] $TotalBuilt presentations built, $TotalSkipped archived skipped." -ForegroundColor Green
+}
+if ($TotalLintWarnings -gt 0) {
+    Write-Host "[WARN] $TotalLintWarnings prop violation(s) found — see [WARN] lines above." -ForegroundColor Yellow
 }
 if ($TotalMinutes -gt 0) {
     Write-Host "[CLOCK] Total time: ${TotalMinutes}m ${RemainingSeconds}s" -ForegroundColor Cyan

@@ -4,58 +4,64 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## GitHub Agentic Workflows: Repository Automation with AI Agents
+  ## GitHub Agentic Workflows
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: GitHub Agentic Workflows - Repository Automation with AI Agents
+title: GitHub Agentic Workflows
 module: tech-talks/agentic-workflows
 mdc: true
 section: Agentic Engineering
 status: active
-updated: 2026-03-05
+updated: 2026-04-22
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
-import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
 import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 </script>
 
-<!-- SLIDE: Title Slide -->
+<!-- SLIDE: Title -->
 <TitleSlide
-title="GitHub Agentic Workflows"
-subtitle="Repository Automation with AI Agents"
-tagline="Write repository automation in natural language, execute with security-first AI agents"
-meta="Tech Talk · 45-60 minutes"
+  title="GitHub Agentic Workflows"
+  subtitle="Repository Automation with AI Agents"
+  tagline="Write repository automation in natural language, execute with security-first AI agents."
+  meta="CopilotTraining Tech Talk"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="How can I automate repository tasks that require judgment and context?"
-subtext="Triage, code review, progress reports — tasks needing judgment, not just triggers."
-highlight="Agentic workflows replace brittle YAML with AI that adapts to context."
-:cards='[
-  { icon: "🔧", title: "DevOps Engineers Automating Repo Tasks", description: "GitHub Actions triggering AI agents on push, PR, and issue events" },
-  { icon: "📝", title: "Team Leads Eliminating Manual Reviews", description: "Auto-triage issues, synthesize progress reports, and review PRs without blocking" },
-  { icon: "⚡", title: "Platform Engineers Building Safe Agents", description: "Markdown intent compiled to secure, sandboxed, validated YAML workflows" },
-  { title: "Beyond YAML", description: "No brittle conditionals — AI adapts to repository state and context dynamically" },
-  { title: "Context-Aware", description: "Agents understand issues, code history, and project state — not just event payloads" },
-  { title: "Secure by Design", description: "Managed permissions and validated write operations keep agent actions safe" }
-]'
+  question="What if repository automation could adapt to context instead of breaking on it?"
+  subtext="YAML workflows are deterministic and brittle — they execute steps, not intent."
+  highlight="Agentic Workflows compile natural-language Markdown into security-enforced GitHub Actions."
+  :cards='[
+    { icon: "🔧", title: "Platform Engineer", description: "Ship workflow automation without hardcoding every edge case in YAML" },
+    { icon: "🛡️", title: "Security Lead", description: "Every agentic action runs in a read-only sandbox with compiler-enforced permissions" },
+    { icon: "👥", title: "Engineering Manager", description: "100+ production-validated workflow patterns available on day one" },
+    { title: "30 lines → 8 lines", description: "YAML workflow reduced to natural-language Markdown intent — compile gets you the rest" },
+    { title: "Zero direct writes", description: "AI runs read-only; all mutations flow through validated safe-output handlers" },
+    { title: "100+ patterns in production", description: "Peli de Halleux&#39;s Agent Factory: validated reality, not demo-ware" }
+  ]'
 />
 
 ---
@@ -63,413 +69,434 @@ highlight="Agentic workflows replace brittle YAML with AI that adapts to context
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "🎯", title: "The Opportunity", subtitle: "Intent-driven automation with AI agents", blurb: "Write what you want to happen, AI figures out how", slide: 4 },
-    { icon: "🏗️", title: "Core Architecture", subtitle: "Markdown → Secure YAML compilation", blurb: "Sandboxed agents, validated write operations", slide: 7 },
-    { icon: "🔒", title: "Safe Outputs", subtitle: "Security-first write operations", blurb: "AI decides, sanitized handlers execute", slide: 11 },
-    { icon: "🏭", title: "Agent Factory Patterns", subtitle: "100+ proven workflow patterns", blurb: "Specialization reveals possibilities", slide: 13 },
+    { icon: "🎯", title: "The Opportunity",   subtitle: "Intent-driven vs. stepwise automation", blurb: "30-line YAML reduced to 8-line Markdown intent", slide: 4 },
+    { icon: "⚙️", title: "Core Architecture", subtitle: "Markdown → compile → lock.yml pipeline", blurb: "The lock file is generated — you never touch it", slide: 7 },
+    { icon: "🛡️", title: "Safe Outputs",      subtitle: "Compiler-enforced security, not author discipline", blurb: "Seven output types, read-only AI sandbox, validation pipeline", slide: 12 },
+    { icon: "🏭", title: "Agent Factory",      subtitle: "100+ patterns running in production", blurb: "Issue triage, CI diagnostics, daily status, AgentCouncil", slide: 16 }
   ]'
 />
 
 ---
 
 <!-- SLIDE: Part 1 — The Opportunity -->
-
 <SectionOpenerSlide
   :partNumber="1"
   title="The Opportunity"
-  subtitle="Intent-driven automation with AI agents"
+  subtitle="YAML workflows execute steps. Agentic Workflows execute intent — and adapt when context demands it."
   :cards='[
-    { icon: "📝", title: "Markdown Workflows", blurb: "Natural language instructions, not YAML" },
-    { icon: "🔐", title: "Security-First", blurb: "Read-only AI + validated write operations" },
-    { icon: "🎯", title: "Context-Aware", blurb: "AI adapts decisions to repository state" },
+    { icon: "🔗", title: "YAML Brittle Points", blurb: "Edge cases require new conditionals, not judgment" },
+    { icon: "✍️", title: "Write Intent, Not Steps", blurb: "Natural-language Markdown replaces imperative YAML" },
+    { icon: "⚡", title: "30 → 8 Lines",           blurb: "Same automation, fraction of the code" }
   ]'
-  :terminal='{ context: "From scripting \"how\" to declaring \"what\"", detail: "AI navigates the path" }'
+  :terminal='{ context: "Setup time: install extension, write first workflow, push to Actions", detail: "gh extension install github/gh-aw — minutes to first run" }'
 />
 
 ---
 
-<!-- SLIDE: Intent-Driven Automation -->
-<FourCardGridSlide
+<!-- SLIDE: YAML vs Markdown Intent -->
+<WorkflowShowdownStepsSlide
   :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="The Opportunity"
-  title="What's Now Possible"
-  :cards='[
-    { icon: "📝", title: "Intent-Driven Automation", description: "Describe desired outcomes in Markdown, not implementation steps" },
-    { icon: "🔐", title: "Security-First Design", description: "Sandboxed agents with read-only access by default — write requires explicit declaration" },
-    { icon: "🎯", title: "Adaptive Intelligence", description: "Make decisions based on repository state: code structure, issue context, PR relationships" },
-    { icon: "🔄", title: "Continuous Improvement", description: "Daily automated enhancements that compound over time — code simplifications, docs updates" }
+  pillIcon="🔄"
+  pillLabel="The Opportunity · The Shift"
+  title="YAML Automation vs. Intent-Driven Agentic Workflows"
+  subtitle="Same outcome, fundamentally different authoring model"
+  leftLabel="Traditional YAML Workflow"
+  rightLabel="Agentic Workflow"
+  :steps='[
+    { left: { label: "Define every step explicitly", note: "if/else for each edge case the author anticipated" }, right: { label: "Write what success looks like", note: "AI agent interprets context and decides the path" } },
+    { left: { label: "Code conditionals for context", note: "Bug? Feature? Docs? Needs a conditional per type" }, right: { label: "Agent reads the issue", note: "Classifies, labels, responds — no explicit branching" } },
+    { left: { label: "30 lines of YAML", note: "Plus secrets, permissions, conditionals, error handling" }, right: { label: "8 lines of Markdown", note: "Frontmatter + natural-language instructions" } },
+    { left: { label: "Breaks on unhandled cases", note: "Anything outside the script fails silently or errors" }, right: { label: "Adapts to repository context", note: "AI makes judgment calls — novel cases handled gracefully" } }
   ]'
-  :insight='{ icon: "🎯", text: "Agentic workflows let you describe what you want, not how to do it — AI handles the implementation within safe, sandboxed boundaries." }'
+  :outcomeLeft='{ icon: "🔄", label: "Maintenance burden grows with every new edge case" }'
+  :outcomeRight='{ icon: "✓", label: "Same 8-line workflow handles new cases automatically" }'
+  summaryMetric="Write intent, not steps — 30-line YAML → 8-line Markdown"
   :progressDots='{ current: 1, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Shift -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: When to Use Agentic vs Traditional -->
+<TwoColPairedConceptsSlide
   :partNumber="1"
-  pillIcon="🔄"
-  pillLabel="The Shift"
-  title="From Prescriptive to Intent-Driven Automation"
-  :before='{
-    header: "Prescriptive Automation",
+  pillIcon="🎯"
+  pillLabel="The Opportunity · Decision"
+  title="Agentic vs. Traditional Workflows: The Right Tool"
+  :left='{
+    header: "Use Agentic Workflows",
+    icon: "✅",
     items: [
-      "Write exact steps in YAML",
-      "Account for every branch and edge case",
-      "Update workflow when requirements change",
-      "Deterministic: same input, same output",
-      "Cannot adapt to context or make judgments"
+      { title: "Requires judgment or context", detail: "Issue triage, code quality review, progress synthesis" },
+      { title: "Adaptive decision-making", detail: "Recommendations that vary based on what the agent finds" },
+      { title: "Natural language input/output", detail: "Converting issue comments to labels, generating reports" },
+      "Complements traditional CI/CD — not a replacement"
     ]
   }'
-  :after='{
-    header: "Intent-Driven Automation",
+  :right='{
+    header: "Use Traditional Actions",
+    icon: "⚙️",
     items: [
-      "Describe desired outcome in natural language",
-      "AI adapts to repository context",
-      "Workflow learns from repository state",
-      "Context-sensitive: AI decides best path",
-      "Judgment calls based on code, issues, PRs"
+      { title: "Deterministic, repeatable steps", detail: "Build, test, deploy, static analysis" },
+      { title: "No context-awareness needed", detail: "Run test suite — same steps every time" },
+      { title: "High-volume, low-cost operations", detail: "Lint checks, format verification, compilation" },
+      "Use both: CI/CD in Actions, &#39;Continuous AI&#39; in agentic workflows"
     ]
   }'
-  :insight='{ icon: "💡", text: "Write what, not how — AI figures out the path within safe, sandboxed boundaries." }'
   :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Part 2 — Core Architecture -->
-
 <SectionOpenerSlide
   :partNumber="2"
   title="Core Architecture"
-  subtitle="Markdown → Secure YAML compilation"
+  subtitle="Three phases: author Markdown, compile to lock.yml, execute in sandboxed runner."
   :cards='[
-    { icon: "📝", title: "Author in Markdown", blurb: "Natural language workflow definitions" },
-    { icon: "🔒", title: "Compile to YAML", blurb: "Secure lock files with isolation" },
-    { icon: "⚡", title: "Execute Safely", blurb: "Read-only AI + validated handlers" },
+    { icon: "✍️", title: "Author", blurb: "Markdown with frontmatter: triggers, permissions, tools, safe-outputs" },
+    { icon: "🔨", title: "Compile", blurb: "gh aw compile transforms Markdown into a security-enforced lock.yml" },
+    { icon: "🚀", title: "Execute", blurb: "Read-only AI sandbox → structured JSON → validation → safe-output handlers" }
   ]'
-  :terminal='{ context: "Three-phase workflow execution", detail: "authoring → compilation → execution" }'
+  :terminal='{ context: "The lock file is a generated artifact — the compiler enforces security", detail: "gh aw compile my-workflow.md → .github/workflows/my-workflow.lock.yml" }'
 />
 
 ---
 
-<!-- SLIDE: Three-Phase Architecture -->
+<!-- SLIDE: The Three-Phase Pipeline -->
 <ThreeColumnCardSlide
   :partNumber="2"
-  pillIcon="🏗️"
-  pillLabel="Core Architecture"
-  title="How Agentic Workflows Execute"
+  pillIcon="🔄"
+  pillLabel="Core Architecture · Pipeline"
+  title="Three-Phase Pipeline: Author → Compile → Execute"
   :columns='[
-    { icon: "1️⃣", title: "Authoring", description: "Define workflows in Markdown with frontmatter triggers and safe-output declarations", items: ["Triggers: schedule, events", "Read-only permissions", "Safe-output declarations", "Natural language instructions"] },
-    { icon: "2️⃣", title: "Compilation", description: "gh aw compile parses the Markdown and generates a secure YAML lock file", items: ["Parse frontmatter & body", "Generate secure YAML", "Agent job (read-only)", "Handler jobs (minimal write)"] },
-    { icon: "3️⃣", title: "Execution", description: "Agent explores repo context, outputs JSON, handlers validate and execute", items: ["Agent explores repo", "Produces JSON output", "Handlers validate & sanitize", "Execute approved ops"] }
+    { icon: "✍️", title: "Author", description: "Write a Markdown file with YAML frontmatter for triggers, permissions, tools, and safe-outputs declarations", items: ["Triggers: issues, schedule, manual", "Minimal permissions declared", "Natural-language instructions in body"] },
+    { icon: "🔨", title: "Compile", description: "gh aw compile transforms your Markdown into a security-enforced .lock.yml — a generated artifact you never edit", items: ["Agent job: read-only sandbox", "Handler jobs: minimal write permissions", "Audit trail markers injected"] },
+    { icon: "🚀", title: "Execute", description: "AI runs in isolated container, produces structured JSON, validation pipeline fires, safe-output handlers execute", items: ["AI has zero write access", "Every output validated before execution", "workflow-id markers on all outputs"] }
   ]'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Markdown to YAML Example -->
+<!-- SLIDE: Workflow Authoring in Markdown -->
 <CodeWithFeaturesSlide
   :partNumber="2"
-  pillIcon="🏗️"
-  pillLabel="Core Architecture"
-  title="Workflow Example: Simple Issue Triage in Markdown"
-  codePosition="top"
-  :code='{
-    language: "yaml",
-    filename: ".github/workflows/triage.md",
-    content: "---\non:\n  issues:\n    types: [opened]\npermissions:\n  contents: read\n  issues: write\nsafe-outputs:\n  add-labels:\n    allowed: [bug, feature, docs]\n    max: 3\n---\n\n## Issue Triage Workflow\nAnalyze new issues and apply appropriate labels.\n\n### Instructions\n1. Read the issue title and body\n2. Identify the issue type\n3. Apply 1-3 relevant labels\n4. If unclear, ask for clarification"
-  }'
+  pillIcon="✍️"
+  pillLabel="Core Architecture · Authoring"
+  title="A Workflow Definition: Frontmatter + Natural Language"
+  codePosition="left"
+  :code='{ language: "markdown", filename: ".github/workflows/issue-triage.md", content: "---\non:\n  issues:\n    types: [opened]\npermissions:\n  contents: read\n  issues: write\ntools:\n  github:\n    toolsets: [issues, labels]\nsafe-outputs:\n  add-labels:\n    allowed: [bug, feature, docs]\n    max: 3\n  add-comment:\n    max: 1\n---\n\nAnalyze new issues and apply labels.\nIf no action needed, call noop." }'
   :features='[
-    { icon: "⚡", title: "Trigger", description: "Fires on issues: [opened] — new issues only" },
-    { icon: "🔒", title: "Security", description: "Read-only access by default, add-labels safe output with max 3 limit" },
-    { icon: "📝", title: "Intent", description: "Natural language instructions: read issue, identify type, apply labels" }
+    { icon: "📥", title: "Event triggers", description: "issues, schedule, workflow_dispatch, or any GitHub event" },
+    { icon: "🔒", title: "Minimal permissions", description: "Declare only what handlers need — AI gets read-only regardless" },
+    { icon: "✅", title: "Safe-outputs declared", description: "Only declared output types can be called — compiler enforces at compile time" }
   ]'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Execution Flow -->
+<!-- SLIDE: The Lock File Reveal -->
 <TwoColPairedConceptsSlide
   :partNumber="2"
-  pillIcon="⚡"
-  pillLabel="Execution Flow"
-  title="Secure Execution Model: AI Decides, Handlers Execute"
+  pillIcon="🔐"
+  pillLabel="Core Architecture · The Lock File"
+  title="The Lock File: Security Enforced by the Compiler"
   :left='{
-    header: "Agent Job (Read-Only)",
-    icon: "🤖",
+    header: "Your Markdown Source",
+    icon: "✍️",
     items: [
-      { title: "1. Spin up isolated container", detail: "Sandboxed environment, no write access" },
-      { title: "2. Load AI agent", detail: "Copilot, Claude, or compatible model" },
-      { title: "3. Provide read-only tools", detail: "Repository exploration only" },
-      { title: "4. Agent explores repo context", detail: "Code, issues, PRs, history" },
-      { title: "5. Produces structured JSON output", detail: "Decision handed to handlers" }
+      "8 lines of intent",
+      "Triggers, permissions, safe-outputs",
+      "Natural-language instructions",
+      { title: "You edit this", detail: "Human-readable, version-controlled" }
     ]
   }'
   :right='{
-    header: "Safe-Output Handlers",
-    icon: "✅",
+    header: "Generated Lock File",
+    icon: "🔨",
     items: [
-      { title: "1. Receive agent JSON output", detail: "Structured decision from read-only agent" },
-      { title: "2. Validate schema & permissions", detail: "Schema check before any action" },
-      { title: "3. Sanitize inputs", detail: "Escape XML, validate URLs, check domains" },
-      { title: "4. Enforce limits", detail: "Max operations, expiration, rate limits" },
-      { title: "5. Execute approved operations", detail: "Log every action with audit markers" }
-    ]
+      "Full GitHub Actions YAML",
+      "Agent job: read-only sandbox container",
+      "Handler jobs: scoped write permissions per safe-output",
+      { title: "Never edit this", detail: "Generated artifact — linguist-generated=true, merge=ours" }
+    ],
+    code: { language: "bash", content: "gh aw compile issue-triage" }
   }'
-  :insight='{ icon: "🔒", text: "Zero write access for the agent — only validated handlers touch the repository." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — Safe Outputs -->
+<!-- SLIDE: Execution & Audit Trail -->
+<FourCardGridSlide
+  :partNumber="2"
+  pillIcon="🚀"
+  pillLabel="Core Architecture · Execution"
+  title="Execution Guarantees: Sandbox, Validate, Execute, Audit"
+  :cards='[
+    { icon: "📦", title: "Isolated Sandbox",     description: "AI runs in Ubuntu slim container with read-only GitHub API access — zero write capability" },
+    { icon: "✅", title: "Validation Pipeline",   description: "Schema check → sanitize inputs → permission check → rate limit → execute — every output inspected" },
+    { icon: "📝", title: "Minimal Handler Scope", description: "Each safe-output handler has only the permission it needs — create-issue gets issues:write, nothing else" },
+    { icon: "🔍", title: "Audit Trail",           description: "Hidden workflow-id markers in every output — searchable across issues, PRs, comments" }
+  ]'
+  :insight='{ icon: "💡", text: "Security is enforced by the compiler — not by the author&#39;s discipline or code review." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+---
 
 <SectionOpenerSlide
   :partNumber="3"
   title="Safe Outputs"
-  subtitle="Security-first write operations"
+  subtitle="Security enforced by the compiler, not author discipline — the enterprise trust unlock."
   :cards='[
-    { icon: "🔒", title: "Declared Operations", blurb: "Pre-approved write operations" },
-    { icon: "🛡️", title: "Validation Pipeline", blurb: "Sanitize, rate-limit, domain-check" },
-    { icon: "📝", title: "Audit Trail", blurb: "Every action logged with markers" },
+    { icon: "🔒", title: "Read-Only Sandbox",   blurb: "AI agent has zero write permissions — structured JSON only" },
+    { icon: "✅", title: "Validation Pipeline", blurb: "Schema check → sanitization → rate limiting → permission check" },
+    { icon: "📋", title: "Seven Output Types",  blurb: "Issues, PRs, Comments, Labels, Projects, Code Review, Security Advisories" }
   ]'
-  :terminal='{ context: "AI decides, validated handlers execute", detail: "security through separation of concerns" }'
+  :terminal='{ context: "Every agentic action is auditable — workflow-id markers on all outputs", detail: "Zero direct writes from AI \u2014 every mutation is validated and scoped" }'
 />
 
 ---
 
-<!-- SLIDE: Safe Output Types -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔒 Safe Outputs</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 1</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Available Operations</div>
-<div class="text-xs text-white/50">Pre-approved write operations with configurable guardrails</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
-<div class="text-base font-bold text-indigo-300 mb-1">Issues</div>
-<div class="text-xs text-gray-300">Create, update, close, link sub-issues</div>
-<div class="mt-1 text-xs font-mono text-indigo-400">Auto-expiration, grouping, cross-repo</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-lg border border-purple-500/30">
-<div class="text-base font-bold text-purple-300 mb-1">Pull Requests</div>
-<div class="text-xs text-gray-300">Create, update, push commits, request reviews</div>
-<div class="mt-1 text-xs font-mono text-purple-400">Draft mode, base branch, CI triggering</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-rose-900/40 rounded-lg border border-pink-500/30">
-<div class="text-base font-bold text-pink-300 mb-1">Comments</div>
-<div class="text-xs text-gray-300">Add comments, hide spam</div>
-<div class="mt-1 text-xs font-mono text-pink-400">Max limits, workflow markers</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-rose-900/40 to-red-900/40 rounded-lg border border-rose-500/30">
-<div class="text-base font-bold text-rose-300 mb-1">Labels & Assignments</div>
-<div class="text-xs text-gray-300">Add/remove labels, assign reviewers, milestones</div>
-<div class="mt-1 text-xs font-mono text-rose-400">Allowed lists, max operations</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-lg border border-blue-500/30">
-<div class="text-base font-bold text-blue-300 mb-1">Code Review</div>
-<div class="text-xs text-gray-300">Add review comments, submit reviews, resolve threads</div>
-<div class="mt-1 text-xs font-mono text-blue-400">APPROVE, REQUEST_CHANGES, COMMENT</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
-<div class="text-base font-bold text-indigo-300 mb-1">Projects</div>
-<div class="text-xs text-gray-300">Create projects, update items, post status updates</div>
-<div class="mt-1 text-xs font-mono text-indigo-400">Requires PAT token, v2 projects only</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-lg border border-purple-500/30">
-<div class="text-base font-bold text-purple-300 mb-1">Workflow Orchestration</div>
-<div class="text-xs text-gray-300">Dispatch other workflows</div>
-<div class="mt-1 text-xs font-mono text-purple-400">Orchestrator-worker pattern, no loops</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-fuchsia-900/40 rounded-lg border border-pink-500/30">
-<div class="text-base font-bold text-pink-300 mb-1">Noop (Critical!)</div>
-<div class="text-xs text-gray-300">Signal "no action needed"</div>
-<div class="mt-1 text-xs font-mono text-pink-400">#1 failure mode: always include noop</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: The Safe Output Lifecycle -->
+<ProblemSolutionOutcomeSlide
+  :partNumber="3"
+  pillIcon="🔄"
+  pillLabel="Safe Outputs · How It Works"
+  title="The Safe Output Lifecycle: Declare, Request, Validate, Execute"
+  :problem='{
+    header: "The Tension",
+    items: [
+      "AI agents need to act on repository state",
+      { title: "But AI can be manipulated", detail: "Prompt injection, scope creep, unintended mutations" },
+      "Unconstrained write access means unconstrained risk"
+    ]
+  }'
+  :solution='{
+    header: "Separation of Concerns",
+    items: [
+      "AI runs read-only — produces structured JSON requests only",
+      "Validation pipeline: schema → sanitize → permission check → rate limit",
+      { title: "Handler executes with minimal scope", detail: "create-issue handler has issues:write only, nothing else" }
+    ]
+  }'
+  :outcome='{
+    header: "Compiler-Enforced Security",
+    items: [
+      "Only declared safe-output types can be called at runtime",
+      "All inputs XML-escaped, URLs domain-filtered, title-prefix enforced",
+      "Audit trail on every output — zero untracked mutations"
+    ],
+    metrics: [{ value: "0", label: "direct AI writes to repository" }]
+  }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Part 4 — Agent Factory Patterns -->
+<!-- SLIDE: Seven Safe Output Types -->
+<FrameworkMappingRowsSlide
+  :partNumber="3"
+  pillIcon="📊"
+  pillLabel="Safe Outputs · Type Matrix"
+  title="Safe Output Types: Full GitHub Surface, Zero Unscoped Writes"
+  subtitle="Six rows covering all seven output types — each with max, expiry, and guardrail options"
+  :rows='[
+    { label: "Issues",               description: "Create/update/close — title-prefix, labels, expiry, cross-repo",  tag: "issues: write" },
+    { label: "Pull Requests",        description: "Create, push commits — draft mode, base-branch, auto-expiry",      tag: "pull-requests: write" },
+    { label: "Comments",             description: "Add or hide — rate-limited, sanitized, workflow-id stamped",        tag: "issues: write" },
+    { label: "Labels & Assign",      description: "Add/remove labels, assign reviewers — allowed list enforced",       tag: "issues: write" },
+    { label: "Projects",             description: "Create Projects v2, update items, post status updates",             tag: "projects: write" },
+    { label: "Code Review",          description: "Submit reviews + create/autofix code scanning alerts",              tag: "security-events: write" }
+  ]'
+  footnote="noop is always available: call it when no action is needed — the #1 fix for silent workflow failures"
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
+---
+
+<!-- SLIDE: The Noop Pattern -->
+<ProblemSolutionOutcomeSlide
+  :partNumber="3"
+  pillIcon="🚫"
+  pillLabel="Safe Outputs · Noop Pattern"
+  title="The Noop Pattern: The #1 Runtime Failure Mode and Its Fix"
+  :problem='{
+    header: "Silent Failure",
+    items: [
+      { title: "Agent finishes analysis", detail: "No issues found — no action warranted" },
+      "Agent doesn&#39;t call any safe-output — workflow job has no output",
+      { title: "Workflow fails silently", detail: "No error, no log entry, no indication of what happened" }
+    ]
+  }'
+  :solution='{
+    header: "Always Call Noop",
+    items: [
+      "noop is auto-enabled — always available without declaration",
+      { title: "Instruct the agent explicitly", detail: "\"If no action is needed, call noop with an explanation\"" },
+      "Agent produces: { \"noop\": { \"message\": \"No issues found: analysis complete\" } }"
+    ]
+  }'
+  :outcome='{
+    header: "Full Observability",
+    items: [
+      "Every run produces an output — no silent completions",
+      "noop message captured in workflow logs",
+      "Monitoring and alerting can distinguish noop from failure"
+    ],
+    metrics: [{ value: "100%", label: "of runs produce observable output" }]
+  }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Part 4 — Agent Factory -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="Agent Factory Patterns"
-  subtitle="100+ proven workflow patterns"
+  title="Agent Factory"
+  subtitle="100+ workflow patterns running continuously in production — validated reality, not demo-ware."
   :cards='[
-    { icon: "🏭", title: "Peli’s Factory", blurb: "100+ specialized workflows tested continuously" },
-    { icon: "🎯", title: "Specialization Wins", blurb: "Many focused agents > one monolithic agent" },
-    { icon: "🔄", title: "Continuous Patterns", blurb: "Daily improvements that compound over time" },
+    { icon: "🏭", title: "Peli&#39;s Factory",       blurb: "100+ workflows on github/gh-aw — reactive, scheduled, orchestrator" },
+    { icon: "🎬", title: "Three Vignettes",     blurb: "Issue triage, CI diagnostic, daily status — one per persona" },
+    { icon: "🏛️", title: "AgentCouncil",        blurb: "Consensus mechanism for high-stakes multi-AI decisions" }
   ]'
-  :terminal='{ context: "Repository-level AI automation is transformative", detail: "embedded agents have outsized impact" }'
+  :terminal='{ context: "Pattern types: reactive → scheduled → orchestrator", detail: "Every pattern type has 10+ production examples in github/gh-aw" }'
 />
 
 ---
 
-<!-- SLIDE: Proven Patterns -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Agent Factory Patterns</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2 text-xs">
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="text-lg font-bold text-white mb-0.5">Proven Patterns from the Factory</div>
-<div class="text-xs text-white/50">Real patterns tested continuously in github/gh-aw repository</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-lg border border-purple-500/30">
-<div class="text-base font-bold text-purple-300 mb-2">🔄 Continuous Simplicity</div>
-<div class="text-xs text-gray-300 mb-2">Daily scan for code simplification opportunities</div>
-<div class="text-xs text-purple-400/70">→ Create PR with suggestions</div>
-<div class="text-xs text-purple-400/70">→ Small daily improvements compound</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-rose-900/40 rounded-lg border border-pink-500/30">
-<div class="text-base font-bold text-pink-300 mb-2">📚 Continuous Documentation</div>
-<div class="text-xs text-gray-300 mb-2">Detect outdated docs when code changes</div>
-<div class="text-xs text-pink-400/70">→ PR updating docs to match code</div>
-<div class="text-xs text-pink-400/70">→ Maintains code-docs consistency</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-rose-900/40 to-red-900/40 rounded-lg border border-rose-500/30">
-<div class="text-base font-bold text-rose-300 mb-2">🎯 Issue Group Management</div>
-<div class="text-xs text-gray-300 mb-2">Parent issue with linked sub-issue tasks</div>
-<div class="text-xs text-rose-400/70">→ Track sub-issue completion</div>
-<div class="text-xs text-rose-400/70">→ Auto-close parent when all resolved</div>
-</div>
-</div>
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-lg border border-indigo-500/30">
-<div class="text-base font-bold text-indigo-300 mb-2">🔀 Orchestrator-Worker</div>
-<div class="text-xs text-gray-300 mb-2">Coordinator dispatches specialized workers</div>
-<div class="text-xs text-indigo-400/70">→ Workers run tasks in parallel</div>
-<div class="text-xs text-indigo-400/70">→ Orchestrator synthesizes results</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-fuchsia-900/40 rounded-lg border border-purple-500/30">
-<div class="text-base font-bold text-purple-300 mb-2">🔍 Meta-Workflows</div>
-<div class="text-xs text-gray-300 mb-2">Workflows that monitor other workflows</div>
-<div class="text-xs text-purple-400/70">→ Analyze logs, performance, failures</div>
-<div class="text-xs text-purple-400/70">→ Self-optimizing automation system</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-fuchsia-900/40 to-pink-900/40 rounded-lg border border-fuchsia-500/30">
-<div class="text-base font-bold text-fuchsia-300 mb-2">📊 Analytics & Reports</div>
-<div class="text-xs text-gray-300 mb-2">Read-only monitoring and insights</div>
-<div class="text-xs text-fuchsia-400/70">→ Daily/weekly repository reports</div>
-<div class="text-xs text-fuchsia-400/70">→ Trend analysis, contributor stats</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: The Agent Factory Origin -->
+<HeroStatSlide
+  :partNumber="4"
+  pillIcon="🏭"
+  pillLabel="Agent Factory · Origin"
+  title="Peli&#39;s Agent Factory: Validated Reality, Not Demo-Ware"
+  subtitle="100+ specialized workflows running continuously in github/gh-aw production"
+  :hero='{ value: "100+", label: "workflows running continuously in production — Peli de Halleux&#39;s Agent Factory on github/gh-aw", source: "" }'
+  :supporting='[
+    { icon: "⚛️", title: "Reactive workflows", description: "Issue triage, PR review, label application — triggered by repository events" },
+    { icon: "🕒", title: "Scheduled workflows", description: "Daily status reports, dependency updates, code simplification runs" },
+    { icon: "🎼", title: "Orchestrator workflows", description: "Multi-agent dispatch, CI diagnostic synthesis, cross-repo coordination" },
+    { icon: "🤖", title: "Meta-workflows", description: "Agents monitoring other agents — workflow health, performance, self-optimization loops" }
+  ]'
+  :insight='{ icon: "💡", text: "Key insight: many focused workflows beat one monolithic agent — each excels at a specific task." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Use Case — Issue Triage -->
-<FourCardGridSlide
+<!-- SLIDE: Issue Triage Vignette -->
+<AITerminalTranscriptSlide
   :partNumber="4"
-  pillIcon="💡"
-  pillLabel="Real-World Use Case"
-  title="Issue Triage Automation"
-  :cards='[
-    { icon: "❌", title: "The Problem", description: "Dozens of new issues weekly, manual labeling is tedious, inconsistent categorization wastes maintainer time" },
-    { icon: "📝", title: "The Workflow", description: "Trigger: issues opened. Safe-outputs: add-labels (max 3). Natural language instructions to read issue and apply labels" },
-    { icon: "✅", title: "The Value", description: "Instant triage on every issue, consistent labeling patterns, maintainers focus on substance not admin" },
-    { icon: "🔍", title: "Example Decisions", description: "App crashes on startup → bug. Add dark mode → feature. How do I configure X? → question, docs" }
+  pillIcon="🎫"
+  pillLabel="Agent Factory · Vignette 1"
+  title="Issue Triage: Reactive Workflow in Action"
+  subtitle="New issue opened — agent classifies, labels, and responds in under 2 minutes"
+  :transcript='[
+    { type: "prompt",   text: "github-actions[bot] (issue-triage.lock.yml)" },
+    { type: "user",     text: "New issue #847: Login button unresponsive on Safari 17" },
+    { type: "thinking", label: "🤔 Agent (read-only sandbox):" },
+    { type: "response", lines: ["Reading issue body and repository labels...", "Checking for similar open issues...", "Classifying: browser-specific UI bug, priority: medium"] },
+    { type: "divider" },
+    { type: "response", lines: ["Safe-output request: add-labels [\"bug\", \"safari\", \"ui\"]", "Safe-output request: add-comment with triage summary"] },
+    { type: "divider" },
+    { type: "outcome",  text: "Labels applied: bug, safari, ui" },
+    { type: "outcome",  text: "Comment posted: triage summary with reproduction steps requested" }
   ]'
-  :insight='{ icon: "🎯", text: "Agentic workflows turn tedious admin into instant, consistent automation — maintainers focus on substance while AI handles categorization." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  footerMetric="Event triggered → classified → labeled → commented: 8-line Markdown workflow"
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: CI Diagnostic + Daily Status Vignettes -->
+<ThreeColumnCardSlide
+  :partNumber="4"
+  pillIcon="🎬"
+  pillLabel="Agent Factory · Vignettes 2 + 3"
+  title="Two More Patterns: CI Diagnostic and Daily Status Report"
+  :columns='[
+    { icon: "🔧", title: "CI Failure Diagnostic", description: "Triggered on failed CI run — agent reads logs, synthesizes root cause, creates structured issue", items: ["Reads workflow run logs", "Identifies failure pattern", "Creates labeled issue with analysis", "Links to failing run for human follow-up"] },
+    { icon: "📅", title: "Daily Status Report", description: "Scheduled daily — agent synthesizes recent activity into an upbeat team-facing GitHub Issue", items: ["Reads issues, PRs, discussions", "Highlights progress and blockers", "Creates dated status issue", "Auto-expires after 7 days"] },
+    { icon: "🏛️", title: "AgentCouncil Integration", description: "High-stakes decisions dispatched to multiple AI agents — consensus required before action is taken", items: ["Orchestrator dispatches workers", "Each agent reasons independently", "Results synthesized to consensus", "Used for security or architectural calls"] }
+  ]'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Mental Model Shift -->
-<ThreeColumnCardSlide
+<BeforeAfterMetricsSlide
   :partNumber="4"
   pillIcon="🧠"
-  pillLabel="Mental Model Shift"
-  title="Core Insight: Express Intent, Let AI Adapt"
-  :columns='[
-    { icon: "✅", title: "Move Toward", items: ["Natural language instructions", "Context-aware decisions", "Read-only by default", "Safe-output validation", "Human-in-the-loop (draft PRs)", "Specialized workflows", "Continuous improvement", "Meta-workflows"] },
-    { icon: "⚠️", title: "Move Away From", items: ["Complex YAML workflows", "Deterministic-only logic", "Manual triage & coordination", "One-size-fits-all agents", "Unlimited agent permissions", "Set-and-forget automation"] },
-    { icon: "🛑", title: "Stop Doing", items: ["AI direct write access", "Ignoring noop pattern", "Skipping lock file compilation", "Manually editing lock files", "Triggering on every commit"] }
+  pillLabel="Agent Factory · Mental Model"
+  title="Describe Outcomes, Not Steps"
+  :before='{
+    header: "Stepwise Thinking",
+    items: [
+      { title: "What steps should the workflow run?", detail: "if/else branches, explicit API calls, error handling" },
+      "Maintenance: add a new step for every new case",
+      "Breaks on edge cases the author did not anticipate",
+      { title: "Scales with author discipline", detail: "Quality bounded by who wrote the YAML" }
+    ]
+  }'
+  :after='{
+    header: "Outcome Thinking",
+    items: [
+      { title: "What should success look like?", detail: "Triage this issue and apply appropriate labels" },
+      "Maintenance: refine the intent description if results drift",
+      "Adapts to novel cases with AI judgment",
+      { title: "Scales with the model", detail: "Quality improves as underlying AI improves" }
+    ]
+  }'
+  :metrics='[
+    { value: "8 lines", label: "Markdown intent vs. 30-line YAML" },
+    { value: "0", label: "conditionals authored for edge cases" },
+    { value: "100+", label: "patterns proven in production" }
   ]'
-  :insight='{ icon: "💡", text: "Express intent without implementation details — AI adapts to repository context." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :insight='{ icon: "🎯", text: "The shift: from how do I script this? to what outcome do I want?" }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Before/After -->
 <BeforeAfterSlide
-header="From YAML to Intent-Driven Automation"
-:leftItems='["Manual YAML authoring", "Complexity: 50%+", "Deployment: hours", "Audit trail: incomplete"]'
-:rightItems='["Natural language intent", "Complexity: 50% reduction", "Deployment: minutes", "Audit trail: comprehensive"]'
-:metrics='[
-  { value: "50%+", detail: "Complexity reduction" },
-  { value: "hours → min", detail: "Deployment acceleration" },
-  { value: "Full coverage", detail: "Audit trail" }
-]'
+  header="From Brittle YAML Automation to Intent-Driven Agent Workflows"
+  :leftItems='["30-line YAML with hardcoded conditionals for every edge case", "Workflow breaks when repository context shifts unexpectedly", "Manual write permissions scattered across workflow steps", "No audit trail linking actions to the AI reasoning that caused them"]'
+  :rightItems='["8-line Markdown expressing intent — compiler generates the secure YAML", "AI agent adapts to context at runtime, handles edge cases with judgment", "Compiler-enforced permissions: AI read-only, handlers minimal-scoped", "Every output stamped with workflow-id — full audit trail included"]'
+  :metrics='[
+    { value: "75%", detail: "less workflow code to author and maintain" },
+    { value: "0", detail: "direct AI writes — all actions validated before execution" },
+    { value: "100+", detail: "production-validated patterns available on day one" }
+  ]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Install gh-aw CLI extension", "Create your first workflow", "Add instructions and safe-outputs", "Compile and deploy"]'
-  :thisWeek='["Explore Peli&#39;s Agent Factory", "Study Safe Outputs reference", "Review example workflows", "Understand the security model"]'
-  :thisMonth='["Create 3-5 specialized workflows", "Implement orchestrator pattern", "Build continuous improvement loop", "Try AgentCouncil for multi-agent decisions"]'
-  footer="From installation to first workflow in 15 minutes — master Safe Outputs and the Noop pattern first, then build specialized agents and orchestrators for production-ready automation."
+  :today='["Run: gh extension install github/gh-aw", "Browse the 100+ pattern catalog at github/gh-aw", "Pick one reactive workflow that matches a current manual task"]'
+  :thisWeek='["Write your first workflow in Markdown, compile with gh aw compile", "Test locally with gh aw run before pushing to Actions", "Ship one automated triage or status workflow to production"]'
+  :thisMonth='["Build a scheduled workflow for daily repo health reporting", "Add a CI diagnostic workflow that creates structured issues on failure", "Evaluate AgentCouncil patterns for high-stakes decisions in your repo"]'
+  footer="Start with gh extension install github/gh-aw — your first agentic workflow runs in minutes, not days."
 />
-
 
 ---
 
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "Official Documentation", color: "cyan", items: [
-        { href: "https://github.github.com/gh-aw/introduction/overview/", label: "Introduction & Overview", description: "Overview of GitHub Agentic Workflows" },
-        { href: "https://github.github.com/gh-aw/introduction/architecture/", label: "Security Architecture", description: "Sandboxed agents, validated write operations" },
-        { href: "https://github.github.io/gh-aw/reference/safe-outputs/", label: "Safe Outputs Reference", description: "Pre-approved write operations and guardrails" },
-        { href: "https://github.github.com/gh-aw/setup/quick-start/", label: "Quick Start Guide", description: "From installation to first workflow" }
+    { title: "📖 Official Resources", color: "cyan", items: [
+      { href: "https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/", label: "GitHub Blog: Agentic Workflows announcement", description: "Official introduction to the agentic workflows system and design principles" },
+      { href: "https://github.com/github/gh-aw", label: "github/gh-aw — extension and pattern catalog", description: "Install the extension and browse 100+ production workflow patterns" }
     ] },
-    { title: "Key Resources", color: "purple", items: [
-        { href: "https://github.github.com/gh-aw/blog/2026-01-12-agent-factory/", label: "Peli&#39;s Agent Factory Blog", description: "100+ proven workflow patterns tested continuously" },
-        { href: "https://github.github.com/gh-aw/blog/2026-01-13-meet-the-workflows/", label: "Meet the Workflows", description: "Walkthrough of real production patterns" },
-        { href: "https://github.blog/ai-and-ml/automate-repository-tasks-with-agentic-workflows/", label: "GitHub Blog Announcement", description: "Official announcement and overview" },
-        { href: "https://josh-ops.com/posts/github-agentic-workflows/", label: "Community Examples", description: "Community-contributed workflow examples" }
+    { title: "🛠️ Related Talks", color: "purple", items: [
+      { label: "Agentic Journey", description: "4-workflow issue-to-PR pipeline using label-driven GitHub Actions" },
+      { label: "Agentic SDLC", description: "Level 5 infrastructure: repo topology, PR governance, CI trust manufacturing" },
+      { label: "Agent Teams", description: "Multi-agent orchestration with AgentCouncil deliberation patterns" }
     ] }
   ]'
 />
@@ -478,14 +505,12 @@ header="From YAML to Intent-Driven Automation"
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="GitHub Agentic Workflows: Repository Automation with AI Agents"
-:cards="[
-  { icon: '📝', value: 'Intent-Driven', detail: 'Markdown → Automation', subdetail: 'Natural language workflow definition' },
-  { icon: '🔒', value: 'Security-First', detail: 'Sandboxed + Validated', subdetail: 'Hook system enforces guardrails' },
-  { icon: '🏭', value: '100+ Patterns', detail: 'Proven at Scale', subdetail: 'Production-ready templates' },
-]"
-prompt="Questions? Let's discuss how to bring agent capabilities to your workflows"
-codeLabel="Start with"
-codeSnippet="gh extension install github/gh-aw"
+  title="GitHub Agentic Workflows"
+  subtitle="Repository Automation with AI Agents"
+  :cards="[
+    { value: '8 lines', detail: 'Write intent in Markdown \u2014 the compiler generates the 30-line secure YAML' },
+    { value: '0 writes', detail: 'AI runs read-only \u2014 compiler enforces security, not author discipline' },
+    { value: '100+', detail: 'Production-validated patterns in github/gh-aw \u2014 start today' },
+  ]"
+  prompt="Which repeated manual task in your repository would you automate first with an agentic workflow?"
 />

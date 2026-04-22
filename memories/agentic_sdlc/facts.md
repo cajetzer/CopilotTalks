@@ -4,6 +4,18 @@ Confirmed facts about agentic SDLC tech-talk decks: agentic-sdlc, agentic-workfl
 
 ---
 
+## agentic-workflows deck: prop lint status as of 2026-04-22
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`slides/tech-talks/agentic-workflows.md` — 24 slides, builds `[OK]`. One known prop lint warning that is intentional/accepted:
+
+- **line 307**: `FrameworkMappingRowsSlide` — label `"Labels & Assign"` (15 chars, max 13). The label wraps slightly in the `w-28` column but the slide is still readable. Accepted as-is by author.
+
+All other prop limits pass: no description overflows, no blurb overflows, no title overflows.
+
+---
+
 ## agentic-sdlc deck: conformance state as of 2026-04-21
 
 `schema_version: 1` | `date: 2026-04-21`

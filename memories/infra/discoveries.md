@@ -4,6 +4,31 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## Static prop linting in build-all.ps1 replaces runtime overlays for content limits (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`slidev build` is a pure Vite bundle — **component code never executes at build time**. `console.warn()` inside `<script setup>` is completely silent during builds, and `console.error()` (the original BeforeAfterSlide pattern) is equally silent. Only the browser dev console receives these signals.
+
+**The breakthrough:** static regex parsing of `.md` source in `build-all.ps1` via `Invoke-PropLint`. This fires before Slidev runs and emits yellow `[WARN] line N:` messages for any prop violations, with a summary count at the end. The Slidev build still reports `[OK]` — warnings are non-blocking — but the violation is surfaced with filename, line number, slide title, and char count.
+
+**The pattern (PowerShell function in `scripts/build-all.ps1`):**
+```powershell
+# Regex: match component invocation block (non-greedy, handles '/' in content)
+$slideMatches = [regex]::Matches($content, '(?s)<FrameworkMappingRowsSlide\b.*?/>')
+# Binary search char offset → line number via pre-computed $lineStarts list
+$getLine = { param([int]$pos) ... binary search ... return $lo + 1 }
+# Emit: [WARN] line N: ComponentName 'SlideTitle': label too long (15 chars, max 13): "Labels & Assign"
+```
+
+**When to use this vs. the ⛔ overlay:**
+- `⛔ overlay` — use for hard constraints that make a slide unusable (wrong partNumber, wrong item count). Renders as a visible error block in the browser.
+- `Invoke-PropLint` — use for layout limits (label/description character counts) where the slide still renders but may look wrong. Keeps the slide usable; build script catches it.
+
+**Key regex gotcha:** `<Component[^/]*/>` stops at the first `/` inside the block (e.g. `"pull-requests: write"`). Use `<Component\b.*?/>` with `(?s)` flag instead.
+
+---
+
 ## Visual prop error guard: ⛔ overlay replaces `throw` for authoring feedback (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

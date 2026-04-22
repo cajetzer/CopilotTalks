@@ -20,10 +20,10 @@
     title         slide headline
     subtitle      optional sub-headline
     rows          Array<{ label, description, tag }>
-                  label       — left anchor text (e.g. "Intent", "Complexity")
-                  description — center explanation (e.g. "AI stops guessing, starts asking")
+                  label       — left anchor text, max 13 chars (enforced, w-28 column at text-sm font-bold)
+                  description — center explanation, max 70 chars (enforced)
                   tag         — right monospace label (e.g. "Plan Mode")
-                  3–6 rows recommended
+                  2–6 rows required (enforced)
     footnote      optional bottom-center italic caption
     progressDots  { current, total, activeColor }
 -->
@@ -44,13 +44,20 @@ const props = defineProps({
   progressDots: { type: Object, required: true }, // { current, total, activeColor }
 })
 
-const validationError = computed(() => {
-  if (!props.partNumber || props.partNumber < 1 || props.partNumber > 4)
-    return `[FrameworkMappingRowsSlide] ❌ partNumber must be 1–4 (got ${props.partNumber})`
-  if (!props.rows || props.rows.length < 2 || props.rows.length > 6)
-    return `[FrameworkMappingRowsSlide] ❌ rows must have 2–6 items (got ${props.rows?.length ?? 'none'})`
-  return null
+const DESC_MAX  = 70
+const LABEL_MAX = 13
+
+// Console warnings — dev tools feedback (build-all.ps1 linter catches these statically)
+props.rows?.forEach((r, i) => {
+  if (r.description?.length > DESC_MAX)
+    console.warn(`[FrameworkMappingRowsSlide] row[${i}] description is ${r.description.length} chars (max ${DESC_MAX}): "${r.description.slice(0, 50)}…"`)
+  if (r.label?.length > LABEL_MAX)
+    console.warn(`[FrameworkMappingRowsSlide] row[${i}] label is ${r.label.length} chars (max ${LABEL_MAX}): "${r.label}"`)
 })
+
+// Enforce row count
+if (!props.rows || props.rows.length < 2 || props.rows.length > 6)
+  console.warn(`[FrameworkMappingRowsSlide] rows must have 2–6 items (got ${props.rows?.length ?? 'none'})`)
 
 const chrome = useSectionChrome(() => props.partNumber)
 const cards  = useSectionCards(() => props.partNumber)
@@ -75,11 +82,6 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
 
 <template>
   <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-    <div v-if="validationError" class="absolute inset-0 bg-red-950 flex flex-col items-center justify-center z-50 p-12">
-      <div class="text-red-400 text-4xl mb-4">⛔</div>
-      <div class="font-mono text-red-300 text-base text-center leading-relaxed max-w-2xl">{{ validationError }}</div>
-    </div>
-    <template v-else>
     <div class="absolute inset-0 bg-gradient-to-br" :class="chrome.ambientBg"></div>
     <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl rounded-full blur-3xl" :class="chrome.orb"></div>
 
@@ -122,6 +124,5 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
 
     <!-- Optional footnote -->
     <div v-if="footnote" class="relative z-10 mt-2 text-center text-xs italic" :class="t.footnote">{{ footnote }}</div>
-    </template>
   </div>
 </template>

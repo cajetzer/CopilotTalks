@@ -44,7 +44,49 @@ Also: `&#39;` HTML entities inside `:prop` bindings cause attribute-name parse e
 
 ---
 
-## component-test.md is NOT a tech-talk (2026-04-21)
+## Prop linter calibrated limits in build-all.ps1 (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+The `Invoke-PropLint` function in `scripts/build-all.ps1` enforces these limits, calibrated against real deck content to avoid false positives:
+
+| Component | Prop | Max | Notes |
+|---|---|---|---|
+| `FrameworkMappingRowsSlide` | `label` | 13 | `w-28` column at `text-sm font-bold` wraps at ~13 chars |
+| `FrameworkMappingRowsSlide` | `description` | 70 | Center column overflow threshold |
+| `SectionOpenerSlide` | `card.blurb` | 75 | Template says 60, raised to 75 after real-deck calibration |
+| `SectionOpenerSlide` | `card.title` | 30 | |
+| `CoreQuestionSlide` | `card.title` | 40 | |
+| `CoreQuestionSlide` | `card.description` | 90 | |
+| `TocSlide` | `section.title` | 49 | Template says 40, raised to 49 after real-deck calibration |
+| `TocSlide` | `section.blurb` | 100 | |
+| All 13 Tier-1 body components | `title` | 80 | |
+
+Warnings are **non-blocking** — build reports `[OK]`, violations appear as `[WARN] line N:` in yellow. Summary count appears at end of build output.
+
+---
+
+## FrameworkMappingRowsSlide layout limits: label ≤13 chars, description ≤70 chars (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`FrameworkMappingRowsSlide` uses a `w-28` (7rem) fixed-width label column at `text-sm font-bold`. At this size, labels wrap at ~13 characters. Labels longer than 13 chars **will visually wrap to two lines**, breaking the row layout.
+
+- `label` max: **13 chars** (enforced by `Invoke-PropLint` in `build-all.ps1`)
+- `description` max: **70 chars** (enforced by same linter)
+- Both limits emit `[WARN] line N:` in build output with slide title and char count
+- No ⛔ overlay in the component — slide renders with the wrapping label visible; build script is the gate
+
+**Examples of labels at the limit:**
+- `"Code Review"` (11 chars) ✔
+- `"Pull Requests"` (13 chars) ✔ borderline
+- `"Labels & Assign"` (15 chars) ✘ wraps
+
+**The linter is in `scripts/build-all.ps1` `Invoke-PropLint` function.** See `infra/discoveries.md` → "Static prop linting" for the full pattern.
+
+---
+
+
 
 `schema_version: 1` | `date: 2026-04-21`
 

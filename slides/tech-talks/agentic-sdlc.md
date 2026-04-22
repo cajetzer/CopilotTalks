@@ -426,11 +426,11 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
   title="Manufacturing Principles Applied to CI"
   subtitle="From quality gate to trust evidence production at agent velocity"
   :rows='[
-    { label: "Repeatable",   description: "Same checks, same order, every time — zero variation creates reliable trust signals",                         tag: "Deterministic" },
-    { label: "Automated",    description: "327 tests in 8 minutes, 10,000 security patterns in 45 seconds — machines inspect, not humans",              tag: "At Scale" },
-    { label: "Evidence",     description: "Every check produces attestations — auditable, reproducible, tamper-evident supply chain records",            tag: "SLSA" },
-    { label: "Fast",         description: "<10 min PR checks: agents idle 80% at 60-min CI, productive 95% at 8-min CI — speed is throughput",          tag: "<10 min" },
-    { label: "Zero Flake",   description: "Quarantine on first flake, fix within 2 days or disable — green builds must be trustworthy signals",         tag: "100% Signal" }
+    { label: "Repeatable",  description: "Same checks, same order, every time — reliable trust signals",              tag: "Deterministic" },
+    { label: "Automated",   description: "327 tests in 8 min, 10,000 security patterns in 45 sec",                   tag: "At Scale" },
+    { label: "Evidence",    description: "Every check produces auditable, tamper-evident attestations",               tag: "SLSA" },
+    { label: "Fast",        description: "Agents idle 80% at 60-min CI, productive 95% at 8-min CI",                 tag: "<10 min" },
+    { label: "Zero Flake",  description: "Quarantine on first flake, fix in 2 days — green = trustworthy",           tag: "100% Signal" }
   ]'
   footnote="The goal: trust that scales linearly with agent output, not quadratically with human review time"
   :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
