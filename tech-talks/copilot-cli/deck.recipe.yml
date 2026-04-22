@@ -1,9 +1,10 @@
-# VERDICT: Four sections at alternating emphasis (high → medium → high → medium) give the
-# 45-minute talk a sustainable energy envelope — two live demos land at S1 and S3, the
-# natural peaks, while S2 is the deliberate breath between them. The Distance Model
-# (Intent, Complexity, Context, Time, Geography) is the conceptual spine; each section
-# closes at least one new dimension, and S4 synthesizes all five through real-world
-# patterns that each name the failure mode they prevent.
+# VERDICT: The Distance Model — five named gaps between developer and working software — is the
+# structural spine; each of the four sections closes at least one new dimension, with S3 the
+# marquee collapse of Geography via --remote and the talk's strongest "AI at the point of work"
+# moment. Alternating emphasis (high → medium → high → medium) places live-demo peaks at S1 and
+# S3, holds S2 as the deliberate breath between them, and frames S4 as earned synthesis rather
+# than appendix — each scenario names the failure mode it prevents, which transforms feature
+# listing into practitioner guidance.
 
 # deck.recipe.yml — Copilot CLI talk guidance
 
@@ -14,18 +15,22 @@ deck:
   subtitle: "AI at the Point of Work"
   tagline: "Start Anywhere. Steer Anywhere. Resume Anywhere."
 
-  arcToc: "Terminal Sees Reality → Range & Delegation → Remote Work → Patterns That Stick"
+  arcToc: "Terminal Reality → Range & Delegation → Remote Work → Patterns That Stick"
 
   arcNarrative: >
-    S1 grounds the talk in why the terminal outranks the editor (the 84% problem) and
-    delivers the Plan Mode live demo — closing the Intent and Complexity distances in one
-    visceral debugging session (8 attempts → 2). S2 expands the capability surface through
-    four built-in agents, /fleet fan-out, cloud delegation, and session memory — closing
-    Context and Time. S3 is the marquee reveal: --remote collapses Geography, letting you
-    start work on a production server and steer it from your phone via QR code. S4 closes
-    the loop with four practitioner patterns (log forensics, infra patrol, GitHub.com
-    integration, CI/CD headless execution) that each demonstrate all five Distance Model
-    dimensions working together as a single coherent system.
+    S1 grounds the talk in why the terminal outranks the editor — the 84% problem (AI tools
+    target only 16% of dev time; the terminal owns the rest) — then delivers the Plan Mode
+    live demo, closing the Intent and Complexity distances in one visceral debugging moment
+    (8 attempts → 2, 45 min → 8 min). S2 expands the capability surface with /fleet fan-out,
+    cloud delegation, and session memory, closing Context and Time at medium emphasis — the
+    deliberate breath between two demo peaks; three consecutive high-emphasis sections cannot
+    be sustained across 45 minutes. S3 is the marquee reveal and the talk's title moment:
+    --remote collapses Geography (and Compliance simultaneously), letting the audience watch
+    an AI agent running on a production server get steered from a phone via QR code — the
+    most visceral demonstration of "AI at the point of work" possible. S4 closes as earned
+    synthesis, not appendix: four practitioner scenarios each name the failure mode they
+    prevent, demonstrating all five Distance Model dimensions working as a coherent system
+    and giving every audience persona a concrete starting point.
 
   sectionOrder:
     - "The Terminal Sees Reality"
@@ -37,66 +42,89 @@ deck:
     "The Terminal Sees Reality":
       emphasis: high
       note: >
-        Distances closed: Intent + Complexity. Open with the 84% problem (AI targets only
-        16% of dev time — the code-writing slice; the terminal owns the rest). One live
-        demo only: Docker container debug with Plan Mode (45 min → 8 min, 8 attempts → 2).
-        CI/CD Automation slide relocated to S4 — it is a real-world pattern, not a
-        foundational concept; removing it brings S1 to ~6 content slides and tightens
-        the terminal-first narrative. Ends with the 4-operating-mode reference slide and
-        real-time steering; pace the reasoning-model configuration slide quickly.
+        Distances closed: Intent + Complexity. Open with the 84% problem — AI tools target
+        only 16% of dev time (the code-writing slice); the terminal owns the other 84%
+        (deployments, debugging, log analysis, CI triage). This is the frame that makes
+        everything downstream feel necessary, not optional. One live demo only: Docker
+        container debug with Plan Mode (45 min → 8 min, 8 attempts → 2). The structured
+        Q&A before implementation is the "senior engineer asks questions first" moment —
+        land it slowly and let the contrast with naive code generation sink in before
+        moving on. CI/CD Automation has been relocated to S4 (it is a real-world pattern,
+        not a foundational concept); this relocation brings S1 to ~6 content slides and
+        tightens the terminal-first narrative. Close with the 4-operating-mode reference
+        slide to orient the audience before S2 expands the capability surface; pace the
+        reasoning-model configuration slide quickly — it supports the demo, it is not
+        the demo.
 
     "Range and Delegation":
       emphasis: medium
       note: >
-        Distances closed: Context + Time. Medium emphasis is deliberate — S2 is the breath
-        between S1's live demo peak and S3's marquee --remote reveal; three consecutive
-        high-emphasis sections is unsustainable across 45 minutes. Lead with /fleet fan-out
-        (the most architecturally novel capability — explicit parallelization across
-        subagents in separate context windows). Cloud delegation (& prefix) follows as the
-        Time-dimension demo (background execution while you do other work). Context
-        Management (auto-compaction at 95%, repository memory) closes the section — it
-        is the foundation that makes sessions worth reconnecting to. Mental Model Shift
-        slide stays here as a reframe before S3 delivers the Geography payoff; do not
-        move it to the outro.
+        Distances closed: Context + Time. NAMING DECISION AFFIRMED: "Range and Delegation"
+        beats "Context, Agents & Plugins" because it names capabilities through the Distance
+        Model frame — how far can the agent reach across repos and machines (Range), and what
+        can it accomplish while you sleep (Delegation) — rather than listing features. Medium
+        emphasis is the council's deliberate choice: S2 is the breath between S1's live demo
+        peak and S3's marquee --remote reveal; placing high emphasis here would exhaust the
+        audience before the Geography payoff. Lead with /fleet fan-out (the most
+        architecturally novel capability — explicit parallelization across subagents in
+        separate context windows, the clearest demonstration of Context distance closing).
+        Cloud delegation (& prefix) follows as the Time-dimension demonstration: hand off
+        long-running work to GitHub's coding agent so your terminal and IDE stay completely
+        free. Context Management (auto-compaction at 95%, repository memory,
+        .github/copilot-instructions.md additive merge) closes the section — it is the
+        foundation that makes sessions worth reconnecting to. Keep the Mental Model Shift
+        slide here as a reframe before S3 delivers the Geography payoff; do not migrate it
+        to the outro.
 
     "Work Where the Problem Is":
       emphasis: high
       note: >
-        Distance closed: Geography. --remote is the marquee capability and the strongest
-        second live-demo candidate. The walking-to-meeting scenario — start a session on
-        a production server, scan the QR code, steer from your phone en route to a
-        stand-up — is the most visceral and memorable moment in the deck; give it full
-        breathing room. Combination Patterns content (SSH + staging + production
-        multi-machine) compresses into the section opener or the demo setup slide rather
-        than a standalone slide.
+        Distances closed: Geography + Compliance (simultaneously). --remote is the marquee
+        capability and the strongest second live-demo candidate in the deck; it earns its
+        place as the literal demonstration of the talk's title. The walking-to-meeting
+        scenario — start a session on a production server, scan the QR code, steer from
+        your phone en route to stand-up — is the most visceral and memorable moment in
+        the entire talk; give it full breathing room. The public preview date (2026-04-13)
+        is a credibility anchor — call it out explicitly. Note that Geography and Compliance
+        distances close together here: the agent runs where the data lives, so logs and
+        sensitive state never leave the host — this is compliance by architecture, not
+        policy. SSH + staging + production multi-machine combination patterns compress into
+        the section opener or the demo setup slide rather than a standalone slide; keep the
+        demo as the section's center of gravity.
 
     "Patterns That Actually Stick":
       emphasis: medium
       note: >
-        All five distances demonstrated together. Four concrete scenarios, each naming
-        the failure mode it prevents: (1) Log forensics without data transfer — prevents
-        compliance violations when PII cannot leave the host; (2) Infra patrol +
-        multi-machine --remote — prevents blind spots in distributed system state;
-        (3) GitHub.com terminal integration — prevents context-switching loss when
-        switching between browser and CLI; (4) CI/CD headless execution (copilot -p,
-        relocated from S1) — prevents manual intervention in automated pipelines.
-        Deliver as narrative stories, not feature listings. The four scenarios bring
-        S4 to ~4 content slides, matching the four-scenario structural promise.
+        All five distances demonstrated together. This section is a synthesis closer, not
+        an appendix: each scenario names the failure mode it prevents, which is what
+        transforms a feature catalog into practitioner guidance. Four concrete scenarios:
+        (1) Log forensics without data transfer — prevents compliance violations when PII
+        cannot leave the host (Compliance distance; AI reasons where the data lives);
+        (2) Infra patrol + multi-machine --remote — prevents blind spots in distributed
+        system state (Geography distance; the agent goes to each machine, you observe the
+        aggregate); (3) GitHub.com terminal integration — prevents context-switching loss
+        when toggling between browser and CLI (Context distance; one session spans both);
+        (4) CI/CD headless execution (copilot -p, relocated from S1) — prevents manual
+        intervention in automated pipelines (Time distance; agent executes unattended).
+        Deliver as narrative stories with named failure modes, not feature listings.
+        Target ~4 content slides, one per scenario, with the failure mode as the slide
+        headline — this is what makes S4 feel earned rather than appended.
 
   highlightMoments:
     - "Plan Mode cuts debugging from 45 min → 8 min and 8 attempts → 2 (closes Intent + Complexity)"
     - "/fleet explicitly parallelizes subtasks across subagents in separate context windows (closes Context)"
-    - "Cloud delegation (& prefix) hands off long-running work so you can do something else (closes Time)"
-    - "--remote collapses Geography: start on a production server, steer from your phone via QR code"
-    - "Log forensics without data transfer: AI reasons where the data lives — compliance by design"
+    - "Cloud delegation (& prefix) hands off long-running work — terminal and IDE stay completely free (closes Time)"
+    - "--remote collapses Geography: start on a production server, steer from your phone via QR code (public preview 2026-04-13)"
+    - "Log forensics without data transfer: AI reasons where the data lives — compliance by architecture, not policy"
 
 # OPEN DECISION: Does the CI/CD Automation demo in S4 run live or as a narrated walkthrough?
 # - Live: "it works right now" credibility peaks, but a CI/CD trigger-to-result loop can
-#   exceed 3 minutes of wait time; a failure in the closing section breaks momentum.
-# - Narrated: reliable and repeatable; S4 keeps narrative pace across all four scenarios.
-# This choice cascades into whether S4 is a demo section or a storytelling section.
+#   exceed 3 minutes; a failure in the closing section breaks momentum for the whole talk.
+# - Narrated: reliable and repeatable; S4 keeps storytelling pace across all four scenarios.
+# This choice cascades into whether S4 is a demo section or a storytelling section — resolve
+# before the next scheduled delivery.
 #
-# SLIDE BUDGET NOTE: Current deck is 32 slides, intentionally exceeding the 25-slide TEMPLATE
-# ceiling. This is appropriate for a 45-minute practitioner talk with multiple embedded demos.
-# Do not cut to 25 when regenerating — preserve the current slide distribution.
-# After relocating CI/CD from S1 to S4: S1 ~6 content slides, S2 ~6, S3 ~4, S4 ~4.
+# SLIDE BUDGET NOTE: This is a 45-minute practitioner talk with multiple embedded demos;
+# the 25-slide TEMPLATE ceiling does not apply. After CI/CD relocation from S1 to S4,
+# the target distribution is: S1 ~6 content slides, S2 ~6, S3 ~4, S4 ~4 (~20 content
+# slides plus section openers). Do not cut to 25 when regenerating — preserve this distribution.

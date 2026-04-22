@@ -1,69 +1,95 @@
-# VERDICT: The 4-section arc (Problem → Protocol → Connect → Trust) is structurally sound
-# and requires no changes; S4's six slides form a single payoff movement whose momentum
-# depends on continuity — splitting would produce a thin security stub and kill proof-point flow.
+# VERDICT: Rename S1 to "N×M Problem" (precise mathematical framing that sets up the N+M payoff);
+# fold Getting Started into SDK Ecosystem as its experiential on-ramp — S3 earns high emphasis
+# for the demo peak, S4 earns medium-high as the production-trust close, not a second climax.
 
 version: 1
 
 deck:
   title: "GitHub Copilot ACP"
   subtitle: "The Agent Client Protocol"
-  tagline: "Universal AI integration for any editor, tool, or workflow"
-  arcToc: "The Problem → Protocol Architecture → Getting Started → Permissions & Security"
+  tagline: "One protocol. Any editor. Any tool. Any workflow."
+  arcToc: "N×M Problem → Protocol Architecture → SDK Ecosystem → Permissions & Security"
   arcNarrative: >
-    The talk opens by diagnosing the N×M editor-agent integration matrix — every editor
-    needs a custom plugin for every AI agent, a fragmentation crisis identical to the
-    pre-LSP era. The protocol section resolves the technical "how" through a four-layer
-    model (Transport → Protocol → Session → Application), closing with the ACP vs MCP vs
-    LSP comparison table that defuses objections before the demo begins. Getting Started
-    delivers the experiential peak: one flag starts the server, one SDK call streams a
-    real response, and developers leave section three ready to open a terminal. Permissions
-    & Security closes the arc by establishing production readiness — permission-mediated
-    trust boundaries, three concrete use cases, and the ACP Agent Orchestrator as proof
-    the protocol composes into real multi-agent systems.
+    The talk opens by naming the crisis precisely: the N×M integration matrix where every
+    editor builds custom glue for every AI agent — a fragmentation problem developers
+    recognize immediately from their own tooling history. Protocol Architecture delivers
+    the cognitive unlock: ACP is LSP for AI agents, collapsing N×M to N+M through the
+    same standardization move that transformed language tooling. The LSP Analogy is this
+    section's centerpiece; the ACP vs MCP vs LSP comparison table closes it by defusing
+    the "we already have MCP" objection before any code appears. SDK Ecosystem is the
+    experiential peak — one flag starts the server, fourteen lines of TypeScript produce
+    a live streaming agent response, and the ecosystem flywheel (four official languages,
+    growing community) makes the protocol feel inevitable rather than experimental;
+    developers leave this section ready to open a terminal. Permissions & Security closes
+    by answering the enterprise adoption gate question that platform engineers carry into
+    every vendor talk: "can I ship this?" — the permission-callback model with concrete
+    strategies (auto-approve reads, prompt writes, block deletes) converts interest into
+    deployment decisions. This ordering beats leading with protocol details (too technical
+    before the pain is felt) and beats ending with the demo (action before trust kills
+    enterprise adoption paths).
 
   sectionOrder:
-    - "The Problem"
-    - "Protocol Architecture: Four Layers of Standardization"
-    - "Getting Started: From Zero to Connected in 5 Minutes"
-    - "Permissions & Security: Trust Without Blind Faith"
+    - "N×M Problem"
+    - "Protocol Architecture"
+    - "SDK Ecosystem"
+    - "Permissions & Security"
 
   sectionModes:
-    "The Problem":
+    "N×M Problem":
       emphasis: high
       note: >
-        Land the N×M → N+M shift using the LSP analogy as the hook — this is the central
-        cognitive unlock that makes ACP feel inevitable rather than optional for editor teams.
-        The LSP Analogy is the mechanism; "The Problem" is the movement. Slide Part 1 header
-        should read "The Problem" to match this canonical section name.
-    "Protocol Architecture: Four Layers of Standardization":
-      emphasis: medium
-      note: >
-        Walk the four-layer model (Transport → Protocol → Session → Application) and the
-        message-flow diagram; close the section with the ACP vs MCP vs LSP comparison table —
-        platform engineers arrive with "we already have MCP" objections and this table defuses
-        them before the live demo begins. Full mental model before SDK code lands in S3.
-    "Getting Started: From Zero to Connected in 5 Minutes":
-      emphasis: high
-      note: >
-        The experiential peak — live startup of `copilot --acp --stdio` followed by a
-        TypeScript client that streams a real response; if one slide makes the audience
-        reach for their terminal, it is this section.
-    "Permissions & Security: Trust Without Blind Faith":
+        Open with the editor lock-in crisis: Zed, JetBrains, Neovim, Emacs users locked
+        out of Copilot's full agent experience. Visualize the N×M matrix (grid of editors
+        × agents = custom glue code at every intersection) — this is the "whoa" moment
+        that makes the pain visceral before any solution is mentioned. Foreshadow the LSP
+        shift without naming ACP yet: "we solved this exact problem before, for language
+        servers." Do NOT introduce ACP architecture here; leave the protocol reveal for S2.
+        Slide Part 1 header currently reads "The LSP Analogy" — rename to "N×M Problem"
+        to align with this recipe's canonical S1 name.
+    "Protocol Architecture":
       emphasis: medium-high
       note: >
-        Six slides is the right count — Permission Model → Zed → CI/CD → Polyrepo →
-        ACP Agent Orchestrator → SDK Ecosystem is a single cohesive movement, not two
-        separate stories; splitting would produce a thin 2-slide security stub and break
-        the proof-point momentum. Show the permission-callback pattern (interactive vs
-        policy-based), anchor with the three concrete use cases, and close on the ACP
-        Agent Orchestrator as proof the protocol composes into production multi-agent systems.
+        Deliver the central cognitive unlock: ACP is LSP for AI agents — the same N×M →
+        N+M collapse, the same protocol-over-custom-glue shift. The four-layer diagram
+        (Transport → Protocol → Session → Application) is the structural centerpiece; keep
+        it visual and scannable, not a bullet list. The LSP Analogy side-by-side table
+        (pre-ACP N×M grid vs post-ACP N+M model) is the "whoa" moment — make it a full
+        slide, not a callout box. Close with the ACP vs MCP vs LSP comparison table to
+        defuse the "we already have MCP" objection before any SDK code appears. Cut the
+        detailed message-flow sequence diagram if slides run long — the four-layer model
+        is the essential mental model; the sequence diagram is supporting detail.
+    "SDK Ecosystem":
+      emphasis: high
+      note: >
+        Open with the experiential peak: `copilot --acp --stdio` in the terminal, server
+        running before the next slide loads — this is the moment developers reach for their
+        own terminal. Follow immediately with the TypeScript SDK demo (fourteen lines, first
+        streaming agent response appearing chunk by chunk). Then pivot to ecosystem breadth:
+        four official SDKs (TypeScript, Python, Rust, Kotlin), REPL mode for interactive
+        exploration, MCP server integration through ACP sessions. Close on the flywheel
+        argument for platform engineers: more clients → more servers → more value — this
+        is why ACP becomes an open standard, not just a Copilot feature. The "whoa" moment
+        is the streaming response chunks arriving live in the demo terminal.
+    "Permissions & Security":
+      emphasis: medium-high
+      note: >
+        Frame every constraint as an adoption enabler, not a limitation — this section
+        answers "can I ship this?" not "what's restricted?" Lead with the permission-callback
+        pattern (agent proposes → client mediates → user/policy decides) as a diagram.
+        Show two concrete strategies side by side: interactive approval for editor sessions,
+        policy-based (auto-approve reads, prompt writes, block deletes) for CI/CD. Anchor
+        with the enterprise security table (unauthorized access → permission gates each op).
+        Do NOT try to cover all three use cases (Zed, CI/CD, polyrepo) at full depth —
+        pick one and name the other two. The "whoa" moment is the policy-based code block:
+        three lines that turn a dangerous automation into a compliance-friendly one.
 
   highlightMoments:
-    - "N×M integration chaos collapses to N+M via one protocol — exactly what LSP did for language servers"
-    - "Live `copilot --acp --stdio` startup: the server is running before the next slide loads"
-    - "First streaming response in the TypeScript SDK demo — agent output appears chunk by chunk in the terminal"
-    - "Side-by-side permission strategies: interactive approval vs policy-based auto-approve for reads, block for deletes"
-    - "ACP Agent Orchestrator: one broadcast prompt drives four worker agents across repos and synthesizes a cross-repo result"
+    - "N×M integration chaos collapses to N+M via one protocol — the identical math that made LSP the language tooling standard"
+    - "`copilot --acp --stdio` starts the server; the entire N×M problem is behind you in one flag before the next slide loads"
+    - "14 lines of TypeScript SDK code produce a live streaming Copilot agent response — zero to connected in under 5 minutes"
+    - "Permission policy in three lines: auto-approve reads, prompt writes, block deletes — CI/CD-safe without blind trust"
+    - "SDK flywheel: 4 official languages + growing community = ACP becomes an open standard, not a vendor-locked feature"
 
-# OPEN DECISION: none — S4 split is closed; S1 named "The Problem" per README heading (slides
-# currently label Part 1 "The LSP Analogy" — update slide header to align with this recipe).
+# OPEN DECISION: Slide Part 1 header currently reads "The LSP Analogy" — rename to "N×M Problem"
+# to match this recipe's S1 canonical name. The LSP Analogy remains the conceptual centerpiece
+# of S2 (Protocol Architecture) where the README places it; S1 plants the seed, S2 pays it off.

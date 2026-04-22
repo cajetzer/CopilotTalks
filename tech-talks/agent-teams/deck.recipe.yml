@@ -1,22 +1,29 @@
+# VERDICT: S3 reduced from `high` to `medium-high` (3–4 slides) to restore the emphasis
+# gradient — "Autonomous Execution" must build tension toward S4's climax, not compete with
+# it. Auth threading resolves to Option A (plant S1 → progress S2 → run unsupervised S3 →
+# council catches flaw S4); Option B (introduce at S3 only) is documented as a zero-surgery
+# fallback if rehearsal reveals the S1/S2 plants feel contrived.
+
 version: 1
 
 deck:
   title: "Building Agent Systems"
   subtitle: "Subagents, Teams, and Autonomous Execution"
   tagline: "Compose AI agents into systems that handle complex tasks, run autonomously, and improve over time"
-  arcToc: "Primitive → Grammar → Autonomy → Synthesis"
+  arcToc: "Primitive + Grammar → Composition → Autonomy → Deliberation"
   arcNarrative: >
-    The talk opens with a precise diagnosis: a single agent isn't failing because it's
-    unintelligent — it's failing because context is finite and the problem isn't. The answer
-    is architecture, and before the audience gets mechanisms, they get grammar: four named
-    patterns, a decision tree, and the vocabulary to think with. From there, composition
-    isn't demonstrated abstractly — it's recognized. The audience watches the auth case and
-    then hears the name for what they've been watching. By S3, the math has accumulated
-    quietly: 9.7 hours returned to the EM's week, not as a promise but as a line item. S4
-    closes the loop. A council deliberates. A squad executes. A decisions.md file persists —
-    the architecture now governs itself. The decision tree lights up completely, and the arrow
-    runs backward: council output feeds autonomous execution. The human approved the artifact.
-    They didn't attend the meeting.
+    S1 does two jobs at once: it diagnoses the single-agent ceiling (context pollution
+    degrades quality 30-40%) and gives the audience the grammar they'll need for the next
+    45 minutes — decision tree as navigation spine, four named patterns as vocabulary. The
+    auth scenario is planted here quietly; the audience won't know it matters yet. S2 pays
+    off the grammar immediately: the Squad demo names the patterns the audience just learned,
+    and 85 min → 27 min converts skeptics before S3 asks them to go further. S3 deliberately
+    holds back — it's mechanistic exposition, not a second climax. The EM math (9.7 hrs/week)
+    lands as a budget conversation, auth runs unsupervised in its worktree, and the section
+    closes with the audience knowing the flaw is somewhere in that branch — they just can't
+    see it yet. S4 earns its height. The council deliberates, the flaw surfaces, and
+    decisions.md opens on screen as proof that architecture can govern itself. The decision
+    tree lights up completely with a feedback arrow the audience couldn't have predicted in S1.
 
   sectionOrder:
     - "Subagents: The Building Block"
@@ -28,49 +35,59 @@ deck:
     "Subagents: The Building Block":
       emphasis: medium-high
       note: >
-        Establish the primitive and the grammar fast. Decision tree introduced as the talk's
-        navigation spine — one branch lights per section. Vocabulary card closes the section:
-        four named patterns, non-negotiable. Auth scenario planted here; audience won't know
-        it matters yet. Target 3-4 slides. Resist expansion — HIGH-everywhere dilutes the
-        emphasis gradient that makes S4 land.
+        Two slides, two jobs — keep them distinct. Slide 1: decision tree as navigation
+        spine, one branch lights per section, audience self-selects before a mechanism is
+        named. Slide 2: vocabulary card — four named patterns (Orchestrator-Worker, Pipeline,
+        Consensus, Hybrid) as grammar, not definitions; the audience will hear these names
+        again in S2 without re-teaching. Slide 3-4: the primitive mechanism — context
+        isolation diagram, parallel execution, 50-80% irrelevant context stat. Plant the auth
+        scenario last: a team gets assigned an auth task. Do not explain why it matters.
+        "Whoa" moment: the isolation diagram — research dead-ends that never reach the
+        coordinator. Target 3-4 slides. Resist expansion; HIGH-everywhere destroys the
+        gradient that makes S4 land.
     "Agent Teams: Organized Specialists":
       emphasis: high
       note: >
-        Pattern labels from S1 are recalled by name, not re-taught. The audience recognizes
-        what they're watching — composition, not introduction. Auth threading continues: the
-        team takes on the case. Decision tree gains the Teams branch. Target 4 slides; the
-        intellectual work was already done in S1.
+        Pattern labels from S1 are recalled by name, not re-taught — the audience
+        recognizes what they're watching. "Whoa" moment: `npx @bradygaster/squad` deploys a
+        full specialist team in 10 minutes; show the terminal, not the diagram. 85 min → 27
+        min is the section's headline metric — put it on its own slide before the mechanism.
+        Auth threading: the Squad orchestrator assigns the auth work to a specialized agent;
+        show the routing decision, not the implementation. Decision tree gains the Teams
+        branch on screen. Target 4-5 slides.
     "Autonomous Execution: Background Agents + Worktrees":
-      emphasis: high
+      emphasis: medium-high
       note: >
-        Business case before mechanism. 9.7 hrs/week is the headline slide — the EM math
-        that converts background agents from demo to budget conversation (10 tasks × 58
-        minutes saved each). Auth runs unsupervised; audience doesn't see the flaw yet.
-        Decision tree gains the Autonomy branch. Target 5-6 slides.
+        This section is setup for S4, not a second climax — hold it to 3-4 slides and
+        resist the temptation to demo everything. Open with business math: 9.7 hrs/week
+        returned to the EM (10 tasks × 58 minutes saved each) — this is the budget slide,
+        not the mechanism slide; put it first so EMs stop taking notes and start listening.
+        Mechanism: git worktrees = zero merge conflicts, show the branch topology not the
+        git commands. Auth threading: the background agent picks up the auth branch and runs
+        unsupervised — tell the audience the flaw is somewhere in that worktree and move on.
+        Do not resolve it. Decision tree gains the Autonomy branch. Target 3-4 slides.
     "Agent Council: When Different Models Think Differently":
       emphasis: high
       note: >
-        S4 closes the loop. Council catches the auth flaw that every prior layer missed —
-        the concrete payoff for threading the case study across all four sections.
-        decisions.md artifact opens on screen as the primary source: Pre-Run + Live Artifact
-        pattern — no live network call, run council before the talk, zero network dependency,
-        pre-recorded fallback available. Decision tree fully illuminated; feedback arrow added
-        — council output feeds autonomous execution. The human approved the artifact. They
-        didn't attend the meeting. Target 5 slides.
+        PRODUCTION CONSTRAINT FIRST: run AgentCouncil on the auth case before the talk;
+        decisions.md is the primary artifact — open it on screen rather than triggering a
+        live network call. Pre-recorded fallback required. "Whoa" moment: council catches
+        the JWT vulnerability the Squad agent missed — name the flaw explicitly (e.g.,
+        unsigned token accepted on one endpoint), show the decisions.md line that flagged it.
+        Close with the feedback arrow on the decision tree: council output → autonomous
+        execution → human approved the artifact and didn't attend the meeting. Decision tree
+        fully illuminated. Target 4-5 slides.
 
   highlightMoments:
     - "Decision tree opener (S1): audience self-selects their entry point before a single mechanism is named — the talk earns attention before it spends it"
-    - "Vocabulary card (S1 close): grammar before the tour — four named patterns give the audience the words to think with for the next 45 minutes"
-    - "9.7 hrs/week (S3): 10 tasks × 58 minutes saved each — the EM math that turns a demo into a budget conversation"
-    - "Auth flaw caught by council (S4): the flaw threaded silently through S1–S3 surfaces only under deliberation — concrete proof that model diversity is a quality mechanism, not a preference"
-    - "decisions.md artifact (S4 close): architecture governs itself; decision tree fully lit with feedback arrow — council output feeds autonomous execution, human approved the artifact and didn't attend the meeting"
+    - "npx @bradygaster/squad live terminal (S2): a full specialist team deployed in 10 minutes; 85 min → 27 min is on the next slide before anyone asks if it scales"
+    - "9.7 hrs/week (S3): 10 tasks × 58 minutes saved each — the EM math that converts background agents from demo to budget conversation"
+    - "Auth flaw caught by council (S4): the JWT vulnerability threaded silently through S1–S3 surfaces only under multi-model deliberation — concrete proof that model diversity is a quality mechanism, not a preference"
+    - "decisions.md + feedback arrow (S4 close): architecture governs itself; the decision tree lights up completely with the arrow nobody saw coming in S1 — council output feeds autonomous execution, human approved the artifact and didn't attend the meeting"
 
-# OPEN DECISION: Auth case study threading — whether threading the auth scenario across all
-# 4 sections is worth the coordination cost vs. a standalone S4 demo.
-# (A) Thread all 4 sections (planted S1 → progresses S2 → runs unsupervised S3 → flaw
-#     caught S4): maximum narrative payoff, "caught by council" lands with full dramatic
-#     weight, but requires tight slide coordination and risks feeling contrived in S1/S2.
-# (B) Introduce at S3, close at S4 only: cleaner pacing, lower coordination risk, council
-#     reveal still lands — audience watched the execution, council catches what they missed.
-# Consequence: if threading proves awkward in rehearsal, option B is the safe fallback with
-# no structural changes required to S1/S2.
+# OPEN DECISION: Auth case study threading — resolved as Option A (plant S1, progress S2,
+# run unsupervised S3, council catches flaw S4) for maximum narrative payoff.
+# Option B fallback (introduce at S3, close at S4 only) requires zero structural surgery
+# to S1/S2 and is the safe choice if rehearsal reveals the early plants feel contrived.
+# Consequence of staying with A: S1 and S2 slides must reference the auth scenario without
+# explaining its significance — if the presenter over-explains, the S4 reveal deflates.
