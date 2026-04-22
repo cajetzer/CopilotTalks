@@ -44,6 +44,40 @@ Also: `&#39;` HTML entities inside `:prop` bindings cause attribute-name parse e
 
 ---
 
+## Slide generator MUST emit blank line between --- and <!-- SLIDE: --> (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+Every `---` slide separator **must be followed by a blank line** before the `<!-- SLIDE: Name -->` comment. Writing `---\n<!-- SLIDE:` (no blank line) causes slides to render blank — Slidev's renderer requires `---\n\n<!-- SLIDE:`.
+
+**Broken (causes blank slides):**
+```
+/>
+
+---
+<!-- SLIDE: Core Question -->
+```
+
+**Correct:**
+```
+/>
+
+---
+
+<!-- SLIDE: Core Question -->
+```
+
+**Bulk fix in PowerShell:**
+```powershell
+$content = [System.IO.File]::ReadAllText($path)
+$fixed = $content -replace "---`n(<!-- SLIDE:)", "---`n`n`$1"
+[System.IO.File]::WriteAllText($path, $fixed, [System.Text.UTF8Encoding]::new($false))
+```
+
+This affected both `copilot-cli.md` and `copilot-chat-internals.md` before being fixed. When generating any new deck, always write `---\n\n<!-- SLIDE:` — never `---\n<!-- SLIDE:`.
+
+---
+
 ## SectionOpenerSlide prop limits: title ≤40 chars, subtitle ≤120 chars (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`

@@ -4,6 +4,38 @@ Confirmed facts about Copilot Tools tech-talk decks — framing, structure, and 
 
 ---
 
+## copilot-cli.md: Deck structure and section mapping (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+**Slide count:** 28 slides. The recipe explicitly states the 25-slide ceiling does not apply for this 45-minute talk. Section opener slide numbers: Part 1=4, Part 2=10, Part 3=15, Part 4=20.
+
+**Section arc (recipe-driven):**
+- Part 1 "The Terminal Sees Reality" (cyan, 5 body): HeroStat (84%/16% problem) → FrameworkMappingRows (Distance Model: Intent/Complexity/Context/Time/Geography) → AITerminalTranscript (Plan Mode Docker debug: 45min→8min) → BeforeAfterMetrics (8 attempts→2) → FourCardGrid (4 operating modes)
+- Part 2 "Range and Delegation" (blue, 4 body): AITerminalTranscript (/fleet fan-out: 3 workstreams in parallel) → BeforeAfterMetrics (sequential vs /fleet) → TwoColPaired (cloud delegation & vs blocking) → FourCardGrid (infinite sessions: auto-compact, repo memory, /compact, additive instructions)
+- Part 3 "Work Where the Problem Is" (indigo, 4 body): HeroStat (--remote intro, public preview 2026-04-13) → AITerminalTranscript (walking-to-meeting debug demo) → TwoColPaired (Geography + Compliance closing together) → FrameworkMappingRows (4 combination patterns)
+- Part 4 "Patterns That Actually Stick" (purple, 4 body): BeforeAfterPanels (log forensics — compliance violation prevented) → WorkflowShowdown (infra patrol vs traditional monitoring) → TwoColPaired (GitHub.com integration — context loss prevented) → CodeWithFeatures (CI/CD headless copilot -p)
+
+**Key framing decisions:**
+- "The Distance Model" (5 named gaps: Intent, Complexity, Context, Time, Geography) is the structural spine — each section closes at least one distance explicitly
+- S1 is the live-demo peak (Plan Mode Docker debug), S3 is the marquee reveal (--remote walking-to-meeting), S2 is the deliberate breath between them
+- Geography + Compliance close simultaneously in S3 — not separated; compliance is by architecture, not policy
+- S4 slides each headline a failure mode prevented, not a feature — transforms feature catalog into practitioner guidance
+- Recipe note preserved: DO NOT cut to 25 slides on regeneration — 28 is correct for a 45-minute talk
+
+**Required trailer — always append after ThankYouSlide:**
+The deck must end with a Slidev `src:` include that pulls in the reference slide file:
+```
+---
+src: ./copilot-cli-reference.md
+---
+```
+This must appear as the final block in the file, after `ThankYouSlide`. It is not a `<!-- SLIDE: -->` component — it is a raw Slidev frontmatter include. Do not omit it when regenerating.
+
+**Source:** `slides/tech-talks/copilot-cli.md`, `tech-talks/copilot-cli/deck.recipe.yml`
+
+---
+
 ## copilot-chat-internals.md: Deck structure and section mapping (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`

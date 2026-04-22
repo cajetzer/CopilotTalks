@@ -4,17 +4,17 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## GitHub Copilot CLI: AI at the Point of Work
+  ## GitHub Copilot CLI
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: GitHub Copilot CLI - AI at the Point of Work
+title: GitHub Copilot CLI
 module: tech-talks/copilot-cli
 mdc: true
 section: Copilot Tools
 status: active
-updated: 2026-04-21
+updated: 2026-04-22
 ---
 
 <script setup>
@@ -26,42 +26,39 @@ import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import ThankYouSlide from './components/structure/ThankYouSlide.vue'
-import HeroStatSlide from './components/HeroStatSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
-import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
-import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
-import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
-import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
-import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 </script>
-
-
 
 <!-- SLIDE: Title -->
 <TitleSlide
   title="GitHub Copilot CLI"
   subtitle="AI at the Point of Work"
   tagline="Start Anywhere. Steer Anywhere. Resume Anywhere."
-  meta="Tech Talk · 45 minutes"
+  meta="GitHub Copilot · AI at the Point of Work · CopilotTraining"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="How do I bring AI to where the work actually is — and keep steering it from wherever I am?"
-  subtext="Developers spend 68% of their time outside the IDE — deployments, debugging, log analysis, CI triage."
-  highlight="Most AI tools optimize the 16% you spend writing code and leave the rest untouched."
+  question="How do I bring AI to where the work actually is?"
+  subtext="Most AI tools optimize the 16% of your day spent writing code. The terminal owns"
+  highlight="the other 84% — and Copilot CLI lives there."
   :cards='[
-    { icon: "💻", title: "CLI Power Users", description: "Developers who live in terminals for Docker, git, infrastructure, and scripting" },
-    { icon: "🔧", title: "DevOps Engineers", description: "Engineers debugging production systems, analyzing logs, and managing infrastructure" },
-    { icon: "🚀", title: "Platform Teams", description: "Teams building CI/CD automation, deployment pipelines, and infrastructure as code" },
-    { title: "68% outside the IDE", description: "Most developer time is spent in terminals, not editors (Stripe Developer Coefficient)" },
-    { title: "8 debugging attempts avg", description: "Traditional workflow: request → generate → review → fix → repeat until it works" },
-    { title: "84% of work untouched", description: "Most AI tools target the 16% spent writing code — leave debugging, ops, CI untouched" }
+    { icon: "👩‍💻", title: "Developers", description: "Debug, scaffold, and explore codebases without leaving the terminal" },
+    { icon: "⚙️", title: "DevOps Engineers", description: "Debug live systems, automate CI triage, patrol infra from any device" },
+    { icon: "🏗️", title: "CLI Power Users", description: "Steer AI across machines, environments, and sessions from anywhere" },
+    { title: "84% of dev time", description: "Deployments, debugging, log analysis, CI triage — all in the terminal, not the editor" },
+    { title: "8 attempts → 2", description: "Plan Mode asks clarifying questions before implementation, cutting iteration cycles" },
+    { title: "--remote: April 2026", description: "Start a session on a production server, steer it from your phone via QR code" }
   ]'
 />
 
@@ -70,10 +67,10 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "👁️", title: "The Terminal Sees Reality",        subtitle: "Context lives where the problem lives", blurb: "The IDE sees code. The terminal sees everything else: logs, containers, processes, networks.", slide: 4  },
-    { icon: "⚡", title: "Range and Delegation",              subtitle: "Multiply what one session can reach",  blurb: "Plan Mode, /fleet fan-out, cloud delegation — from single tasks to orchestrated workflows.", slide: 11 },
-    { icon: "🌍", title: "Work Where the Problem Is",        subtitle: "Geography is no longer a constraint",  blurb: "Remote sessions put AI on the machine — steer from phone, browser, any device.", slide: 18 },
-    { icon: "🎯", title: "Patterns That Actually Stick",     subtitle: "Real-world production workflows",      blurb: "Log forensics, multi-machine patrol, GitHub integration, CI automation.", slide: 23 },
+    { icon: "🖥️", title: "The Terminal Sees Reality", subtitle: "Intent + Complexity distances", blurb: "Plan Mode, the 84% problem, and four operating modes", slide: 4 },
+    { icon: "🌐", title: "Range and Delegation", subtitle: "Context + Time distances", blurb: "/fleet fan-out, cloud delegation, and infinite sessions", slide: 10 },
+    { icon: "📡", title: "Work Where the Problem Is", subtitle: "Geography + Compliance", blurb: "--remote: AI runs on the machine, you steer from anywhere", slide: 15 },
+    { icon: "🎯", title: "Patterns That Actually Stick", subtitle: "All five distances together", blurb: "Four scenarios — four failure modes prevented", slide: 20 },
   ]'
 />
 
@@ -83,443 +80,490 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 <SectionOpenerSlide
   :partNumber="1"
   title="The Terminal Sees Reality"
-  subtitle="Context lives where the problem is"
+  subtitle="Closes Intent and Complexity — AI stops guessing and starts asking where the work actually lives"
   :cards='[
-    { icon: "📊", title: "68% Outside the IDE", blurb: "Most developer work happens in terminals, not editors" },
-    { icon: "🐳", title: "Docker & Infrastructure", blurb: "Container logs, env vars, process state — invisible to IDEs" },
-    { icon: "🔍", title: "Live System Context", blurb: "Runtime failures need runtime evidence, not source files" },
+    { icon: "🖥️", title: "84% of Your Day", blurb: "Debugging, deployments, logs — all in the terminal, not the editor" },
+    { icon: "🤔", title: "Plan Mode", blurb: "Clarifying questions before implementation — 8 attempts to 2" },
+    { icon: "⚙️", title: "Four Modes", blurb: "Interactive, Programmatic, Cloud, Remote — one tool for all of it" },
   ]'
-  :terminal='{ context: "The IDE only sees code", detail: "The terminal sees everything" }'
+  :terminal='{ context: "GitHub Copilot CLI — where the work actually is", detail: "45 min → 8 min · 8 attempts → 2" }'
 />
 
 ---
 
-<!-- SLIDE: Why the Terminal Matters -->
+<!-- SLIDE: AI Tools Optimize 16% of Your Workday -->
 <HeroStatSlide
   :partNumber="1"
   pillIcon="📊"
-  pillLabel="The Terminal Sees Reality · Context Gap"
-  title="The IDE Only Sees Code"
-  subtitle="The terminal sees everything else"
-  :hero='{ value: "68%", label: "of developer time is spent outside the IDE", source: "Source: Stripe, The Developer Coefficient (2018)" }'
+  pillLabel="Terminal Reality · The Problem"
+  title="AI Tools Optimize 16% of Your Workday"
+  subtitle="The terminal owns the other 84%"
+  :hero='{ value: "84%", label: "of developer time happens outside the code editor", source: "Bicameral AI: Developer Activity Research — deployments, debugging, log analysis, CI triage" }'
   :supporting='[
-    { icon: "🐳", title: "Container logs & process state", description: "Runtime diagnostics live in the terminal — not in source files" },
-    { icon: "🌐", title: "Network traffic & environment", description: "Connectivity checks, env vars, deployment artifacts" },
-    { icon: "📁", title: "File system & disk state", description: "Storage, permissions, actual running configuration" },
-    { icon: "⚙️", title: "CI/CD pipelines & deploys", description: "Build failures, test results, deployment validation" }
+    { icon: "🐳", title: "Container debugging", description: "Logs, process state, and network connectivity live in the runtime" },
+    { icon: "📊", title: "Log analysis and CI triage", description: "Build failures, production incidents, and performance investigations" },
+    { icon: "🚀", title: "Deployments and infra", description: "Staging, production, and environment setup all require the terminal" },
+    { icon: "❓", title: "Requirements and context", description: "Architectural decisions and library choices happen in conversation" }
   ]'
-  :insight='{ icon: "💡", text: "When debugging a failure, the information that matters is not in your source files — it is in what is running." }'
-  :progressDots='{ current: 1, total: 7, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "💡", text: "AI that lives in the terminal has access to all of it. AI in the editor is context-blind to most of what is actually wrong." }'
+  :progressDots='{ current: 1, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Traditional Workflow vs Plan Mode -->
-<WorkflowShowdownStepsSlide
+<!-- SLIDE: Five Distances Between You and the Work -->
+<FrameworkMappingRowsSlide
   :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="The Terminal Sees Reality · Plan Mode"
-  title="Traditional Workflow vs. Plan Mode"
-  subtitle="From trial-and-error to collaborative strategy"
-  leftLabel="Traditional Workflow"
-  rightLabel="With Plan Mode"
-  :steps='[
-    { left: { label: "Make request", note: "Describe what you need" }, right: { label: "Make request", note: "Describe what you need" } },
-    { left: { label: "AI generates solution", note: "Assumes intent, picks one interpretation" }, right: { label: "AI asks questions", note: "Clarifies intent before acting" } },
-    { left: { label: "You review and fix", note: "Discover wrong assumptions" }, right: { label: "Collaborate on plan", note: "Review strategy before any code" } },
-    { left: { label: "Repeat until it works", note: "Average: 8 attempts" }, right: { label: "Execute with confidence", note: "Ambiguity resolved upfront" } }
+  pillIcon="📐"
+  pillLabel="Terminal Reality · The Distance Model"
+  title="Five Distances Between You and the Work"
+  subtitle="Each capability in this talk removes a different kind of gap between you and working software"
+  :rows='[
+    { label: "Intent", description: "AI stops guessing and starts asking — Plan Mode clarifies first", tag: "Plan Mode" },
+    { label: "Complexity", description: "One task becomes many, run in parallel across independent subagents", tag: "/fleet" },
+    { label: "Context", description: "Session survives compaction and remembers decisions across sessions", tag: "Auto-compact" },
+    { label: "Time", description: "Work outlives your attention — delegation frees the terminal", tag: "& delegation" },
+    { label: "Geography", description: "AI meets the problem where it lives — remote crosses any gap", tag: "--remote" }
   ]'
-  :outcomeLeft='{ icon: "🔄", label: "Repeat ×8 — average attempts before success" }'
-  :outcomeRight='{ icon: "✓", label: "Done in ~2 attempts" }'
-  summaryMetric="8 debugging attempts → 2 with Plan Mode"
-  :progressDots='{ current: 2, total: 7, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  footnote="The session is the unit of work, not the shell"
+  :progressDots='{ current: 2, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Docker Debugging Demo -->
+<!-- SLIDE: Plan Mode in Action — Docker Container Debug -->
 <AITerminalTranscriptSlide
   :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="The Terminal Sees Reality"
-  title="Plan Mode in Action: Docker Debugging"
-  subtitle="Root cause in 8 minutes instead of 45"
+  pillIcon="🤔"
+  pillLabel="Terminal Reality · Plan Mode Demo"
+  title="Plan Mode in Action: Docker Container Debug"
+  subtitle="Root cause in 8 minutes — AI asks questions before running a single command"
   :transcript='[
-    { "type": "prompt", "text": "copilot" },
-    { "type": "user", "text": "Debug why the backend container won&#39;t start" },
-    { "type": "thinking", "label": "🤔 Copilot (Plan Mode):" },
-    { "type": "response", "lines": ["Before I start, a few questions:", "1. Check docker-compose config, logs, or both?", "2. Include environment variable analysis?", "3. Any recent changes to services or network?"] },
-    { "type": "user", "text": "Start with logs, then check config if needed" },
-    { "type": "thinking" },
-    { "type": "response", "lines": ["Here&#39;s my plan:", "1. Retrieve container logs for backend service", "2. Analyze error patterns and stack traces", "3. Inspect docker-compose.yml if logs suggest config issue", "4. Check environment variables if auth errors found"] },
-    { "type": "divider" },
-    { "type": "outcome", "text": "Found: Port 5000 mapped to 5001 in docker-compose.yml" },
-    { "type": "outcome", "text": "Fix applied. Container starts successfully." }
+    { type: "prompt", text: "copilot" },
+    { type: "user", text: "Debug why the backend container will not start" },
+    { type: "thinking", label: "🤔 Copilot (Plan Mode):" },
+    { type: "response", lines: ["Before I start, a few questions:", "1. Check docker-compose config, container logs, or both?", "2. Include environment variable analysis?", "3. Any recent changes to network or service config?"] },
+    { type: "user", text: "Start with logs, then config if needed" },
+    { type: "thinking", label: "🤔 Executing plan:" },
+    { type: "response", lines: ["docker logs backend --tail 50", "docker exec backend env | grep -E DB|PORT"] },
+    { type: "divider" },
+    { type: "outcome", text: "Found: port 5000 mapped to 5001 in docker-compose.yml" },
+    { type: "outcome", text: "Fix applied — container starts successfully" }
   ]'
   footerMetric="45 min → 8 min · 8 attempts → 2"
-  :progressDots='{ current: 2, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :progressDots='{ current: 3, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Real-Time Steering -->
-<TwoColPairedConceptsSlide
+<!-- SLIDE: What Structured Planning Actually Changes -->
+<BeforeAfterMetricsSlide
   :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="The Terminal Sees Reality"
-  title="Steer While the Agent Thinks"
-  :left='{ header: "Enqueue & Redirect", items: ["📨 Enqueue Messages — send follow-ups while Copilot is still working on a task", "🚫 Reject, Then Redirect — deny a tool call then steer with a follow-up message"] }'
-  :right='{ header: "Direction & Permissions", items: ["🔄 Change Direction — course-correct without starting over mid-task", "🎮 Permission Controls — pre-approve tools, paths, and URLs with --allow-tool"] }'
-  :progressDots='{ current: 3, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-  insight="Enqueue messages, reject with explanation, change direction mid-flight — without restarting"
+  pillIcon="📈"
+  pillLabel="Terminal Reality · Plan Mode Impact"
+  title="What Structured Planning Actually Changes"
+  :before='{
+    header: "Without Plan Mode",
+    items: [
+      "AI picks one interpretation and generates code",
+      { title: "8 average attempts", detail: "Until the debugging loop terminates" },
+      "Wrong assumptions surface in code review or testing",
+      "Context lost between failed attempts"
+    ]
+  }'
+  :after='{
+    header: "With Plan Mode (Shift+Tab)",
+    items: [
+      "AI asks clarifying questions before writing any code",
+      { title: "2 average attempts", detail: "Ambiguity resolved before the first line" },
+      "Edge cases resolved before implementation begins",
+      "Shared understanding of approach built upfront"
+    ]
+  }'
+  :metrics='[
+    { value: "8 → 2", label: "average attempts to solution" },
+    { value: "45 → 8 min", label: "Docker debug time" },
+    { value: "75 min", label: "saved per session on average" }
+  ]'
+  :insight='{ icon: "⚠️", text: "Plan Mode is most valuable when you are rushing. Sessions that spiral into 8 failed attempts almost always started with skipping it." }'
+  :progressDots='{ current: 4, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Reasoning Models -->
+<!-- SLIDE: Four Modes — One Tool -->
 <FourCardGridSlide
   :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="The Terminal Sees Reality"
-  title="Configurable Reasoning Depth"
+  pillIcon="⚙️"
+  pillLabel="Terminal Reality · Operating Modes"
+  title="Four Modes — One Tool"
   :cards='[
-    { icon: "⚡", title: "Low", description: "Fast queries and simple lookups — minimal compute, instant responses" },
-    { icon: "⚖️", title: "Medium", description: "Default level — balanced speed and depth for everyday problem-solving" },
-    { icon: "🧠", title: "High", description: "Complex problems and multi-service debugging — deeper analysis for hard tasks" },
-    { icon: "🔥", title: "Extra High", description: "Architecture and security decisions — maximum reasoning for critical choices" }
+    { icon: "💬", title: "Interactive", description: "Conversational sessions with persistent context — collaborative debugging and exploration" },
+    { icon: "🤖", title: "Programmatic (-p)", description: "Single-command headless execution for CI/CD pipelines and automated scripts" },
+    { icon: "☁️", title: "Cloud Delegation (&)", description: "Background execution in GitHub cloud — IDE and terminal stay completely free" },
+    { icon: "📡", title: "Remote (--remote)", description: "Start on any machine, steer from phone or browser — session lives where the problem is" }
   ]'
-  insight="Ctrl+T reveals the model&#39;s thinking step-by-step · /model shows cost multipliers — pick the right tradeoff"
-  :progressDots='{ current: 4, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "💡", text: "The session is the durable entity. Terminals are viewports that connect and disconnect from it." }'
+  :progressDots='{ current: 5, total: 5, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Operating Modes -->
-<FourCardGridSlide
-  :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="The Terminal Sees Reality"
-  title="Four Operating Modes"
-  :cards='[
-    { icon: "💬", title: "Interactive", description: "Conversational sessions for collaborative debugging and exploration — context maintained across commands" },
-    { icon: "⚙️", title: "Programmatic", description: "Single-command execution for scripts and CI/CD — structured output, no conversation history" },
-    { icon: "☁️", title: "Cloud Delegation", description: "Background execution frees terminal and IDE — PR created when agent finishes; best for 20+ min tasks" },
-    { icon: "🌐", title: "Remote", description: "Start on any machine, steer from GitHub.com or Mobile via URL/QR code — session lives where the problem is" }
-  ]'
-  :progressDots='{ current: 5, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: CI/CD Automation -->
-<CodeWithFeaturesSlide
-  :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="The Terminal Sees Reality"
-  title="Programmatic Mode in CI/CD"
-  codePosition="left"
-  :code='{ language: "yaml", content: "# .github/workflows/build.yml\n- name: Analyze build failure\n  if: failure()\n  run: |\n    copilot -p \"Analyze build failure.\n      Check recent commits,\n      deps, and patterns.\n      Suggest a fix.\"\n    --allow-tool shell(gh)\n    > failure-analysis.txt\n- name: Post PR comment\n  if: failure()\n  run: |\n    gh pr comment\n    --body-file failure-analysis.txt" }'
-  :features='[
-    { icon: "⚡", title: "Auto-Triggered", description: "Fires on any CI/CD pipeline failure — no manual intervention required" },
-    { icon: "🔍", title: "Pattern Recognition", description: "Analyzes recent commits, dependency changes, and historical failure patterns across the project" },
-    { icon: "💬", title: "Instant PR Feedback", description: "Analysis posted as PR comment — root cause visible to all reviewers without digging through logs" }
-  ]'
-  :progressDots='{ current: 6, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Part 2 &#8212; Range and Delegation -->
-
+<!-- SLIDE: Part 2 — Range and Delegation -->
 <SectionOpenerSlide
   :partNumber="2"
   title="Range and Delegation"
-  subtitle="Built-in agents, /fleet fan-out, cloud delegation, and infinite context"
+  subtitle="Closes Context and Time — /fleet fans work across subagents, & hands off long tasks to the cloud"
   :cards='[
-    { icon: "&#x1F916;", title: "Built-in Agents", blurb: "Explore, Task, Plan, Code-review" },
-    { icon: "&#x1F680;", title: "/fleet Fan-Out", blurb: "Parallel decomposition at scale" },
-    { icon: "&#x267E;&#xFE0F;", title: "Infinite Sessions", blurb: "Auto-compaction + repo memory" }
+    { icon: "🌐", title: "/fleet Fan-Out", blurb: "Parallel subtasks — each subagent in its own context window" },
+    { icon: "☁️", title: "Cloud Delegation", blurb: "& prefix: 20+ minute tasks run in GitHub cloud, PR arrives when done" },
+    { icon: "♾️", title: "Infinite Sessions", blurb: "Auto-compaction + repo memory — sessions worth reconnecting to" },
   ]'
-  :terminal='{ context: "Removing complexity, context, and time distance", detail: "One task becomes many &#8212; work outlives your attention" }'
+  :terminal='{ context: "Range: how far the agent reaches. Delegation: what it does while you sleep.", detail: "Context + Time distances closed" }'
 />
 
 ---
 
-<!-- SLIDE: Built-in Agents -->
-<FourCardGridSlide
+<!-- SLIDE: /fleet — One Prompt, Parallel Execution -->
+<AITerminalTranscriptSlide
+  :partNumber="2"
+  pillIcon="🌐"
+  pillLabel="Range and Delegation · /fleet"
+  title="/fleet: One Prompt, Parallel Execution"
+  subtitle="Orchestrator decomposes work across subagents — each in its own context window"
+  :transcript='[
+    { type: "prompt", text: "copilot" },
+    { type: "user", text: "/fleet create a complete test suite: unit tests for auth, integration tests for API, e2e for login" },
+    { type: "thinking", label: "🤔 Orchestrator:" },
+    { type: "response", lines: ["3 independent workstreams identified — running in parallel:", "  → Subagent 1: unit tests for auth module", "  → Subagent 2: integration tests for API endpoints", "  → Subagent 3: e2e tests for login flow"] },
+    { type: "divider" },
+    { type: "outcome", text: "All 3 workstreams complete — results merged" },
+    { type: "outcome", text: "158 tests generated in parallel in one session" }
+  ]'
+  footerMetric="3 tasks × parallel = time of the longest, not the sum"
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Sequential Tasks vs /fleet Fan-Out -->
+<BeforeAfterMetricsSlide
   :partNumber="2"
   pillIcon="⚡"
-  pillLabel="Range and Delegation"
-  title="Four Specialized Agents"
-  :cards='[
-    { icon: "🔍", title: "Explore Agent", description: "Fast codebase analysis without cluttering main context — returns focused answers under 300 words" },
-    { icon: "⚙️", title: "Task Agent", description: "Execute commands with smart output filtering — brief summary on success, full output on failure" },
-    { icon: "📋", title: "Plan Agent", description: "Analyze dependencies and create multi-step strategies you review before execution" },
-    { icon: "🔎", title: "Code-Review Agent", description: "High signal-to-noise review — only surfaces bugs, security issues, and logic errors; never style" }
+  pillLabel="Range and Delegation · /fleet Impact"
+  title="Sequential Tasks vs /fleet Fan-Out"
+  :before='{
+    header: "Sequential Execution",
+    items: [
+      "Task 1 completes before Task 2 begins",
+      "Context from Task 1 bleeds into Task 2",
+      "Total time: sum of all task durations",
+      "One context window carries all the noise"
+    ]
+  }'
+  :after='{
+    header: "With /fleet",
+    items: [
+      "All tasks start simultaneously",
+      { title: "Context isolation", detail: "Each subagent has its own window" },
+      "Total time: only the longest single task",
+      "Orchestrator merges results — you review the outcome"
+    ]
+  }'
+  :metrics='[
+    { value: "3×", label: "tasks in the same time" },
+    { value: "Zero", label: "context pollution between subagents" },
+    { value: "Auto", label: "model selection per subtask" }
   ]'
-  :progressDots='{ current: 1, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
-  insight="Multiple agents can work simultaneously — three operations in the time of one"
+  :insight='{ icon: "💡", text: "Pair with Plan Mode: Shift+Tab to build a plan, then accept with /fleet to execute all phases in parallel." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: /fleet Fan-Out -->
-<CodeWithFeaturesSlide
-  :partNumber="2"
-  pillIcon="⚡"
-  pillLabel="Range and Delegation"
-  title="/fleet: Explicit Parallel Orchestration"
-  codePosition="left"
-  :code='{ language: "bash", content: "$ copilot\n> /fleet implement all phases of\n  this auth refactor plan\n─────────────────────\n🤖 Orchestrator: 4 subtasks\n  → Subagent 1: Update user model\n  → Subagent 2: Migrate auth routes\n  → Subagent 3: Update test suite\n  → Subagent 4: Update docs\n✅ All subtasks complete." }'
-  :features='[
-    { icon: "⚡", title: "Speed", description: "Parallel subtasks complete in the time of the longest, not the sum" },
-    { icon: "🔒", title: "Context Isolation", description: "Each subagent gets its own context window — no pollution between tasks" },
-    { icon: "🎯", title: "Specialization", description: "Custom agents matched to subtasks — @test-writer, @security-reviewer" },
-    { icon: "💰", title: "Model Selection", description: "Subagents default to low-cost models; override per-subtask for critical work" }
-  ]'
-  :progressDots='{ current: 2, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
-  insight="Plan with Shift+Tab, then /fleet to execute — decompose, delegate, merge"
-/>
-
----
-
-<!-- SLIDE: Cloud Delegation -->
-<CodeWithFeaturesSlide
-  :partNumber="2"
-  pillIcon="⚡"
-  pillLabel="Range and Delegation"
-  title="Cloud Delegation: Work Outlives Your Attention"
-  codePosition="left"
-  :code='{ language: "bash", content: "$ copilot\n> &\"Analyze entire codebase for\n  security vulnerabilities\"\n─────────────────────\n✅ Task delegated to cloud agent.\nCommits unstaged changes,\ncreates branch.\nPR arrives when complete.\n\n[Terminal is free for other work]" }'
-  :features='[
-    { icon: "⏱️", title: "Best for 20+ minute tasks", description: "Security audits, large refactors, test scaffolding, doc generation" },
-    { icon: "🚀", title: "Fully independent execution", description: "Runs on GitHub infrastructure — both IDE and terminal stay free; PR created when done" },
-    { icon: "⏳", title: "Removes the time distance", description: "Work continues while you sleep, eat, or meet — the session outlives your attention" }
-  ]'
-  :progressDots='{ current: 3, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Context Management -->
+<!-- SLIDE: Cloud Delegation — Work That Outlives Your Attention -->
 <TwoColPairedConceptsSlide
   :partNumber="2"
-  pillIcon="⚡"
-  pillLabel="Range and Delegation"
-  title="Infinite Sessions & Repository Memory"
-  :left='{ header: "Context Control", items: ["♾️ Auto-Compaction at 95% — history compressed at token limit; key decisions persist, verbose output pruned", "🧠 Repository Memory — Copilot learns conventions and patterns; applied automatically next session", "📊 /context for token breakdown · /usage for stats · /compact for manual compression"] }'
-  :right='{ header: "Session Durability", items: ["🔗 Sessions Are Durable — persistent state you connect to, not ephemeral chat you restart", "📱 copilot --resume — reconnect from any device; context and memory travel with the session", "⏳ Think tmux or Jupyter — work outlives the shell; start on workstation, steer from phone"] }'
-  insight="The session is a durable artifact — start anywhere, steer anywhere, resume anywhere"
-  :progressDots='{ current: 4, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  pillIcon="☁️"
+  pillLabel="Range and Delegation · Cloud Delegation"
+  title="Cloud Delegation: Work That Outlives Your Attention"
+  :left='{
+    header: "Blocking Work",
+    icon: "⏳",
+    items: [
+      { title: "IDE occupied", detail: "Full task duration consumed by the agent" },
+      { title: "Terminal blocked", detail: "Cannot run other commands while agent works" },
+      "20+ minute tasks halt your flow entirely",
+      "You wait — agent works; you cannot do both"
+    ]
+  }'
+  :right='{
+    header: "Delegated with & Prefix",
+    icon: "☁️",
+    items: [
+      { title: "& delegates to GitHub cloud", detail: "Agent runs independently of your machine" },
+      { title: "IDE and terminal both free", detail: "Completely unblocked the moment you delegate" },
+      "PR created automatically when the agent finishes",
+      "You work — agent works — both in parallel"
+    ]
+  }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Extensibility -->
-<ThreeColumnCardSlide
+<!-- SLIDE: Virtually Infinite Sessions -->
+<FourCardGridSlide
   :partNumber="2"
-  pillIcon="⚡"
-  pillLabel="Range and Delegation"
-  title="Custom Agents, Plugins & /ide Bridge"
-  :columns='[
-    { icon: "🤖", title: "Custom Agents", description: "Specialized agents for your team workflows", items: ["~/.copilot/agents/", ".github/agents/", ".github-private/agents/"] },
-    { icon: "🧩", title: "Plugins", description: "Community and team-created extensions from marketplaces", items: ["copilot plugin install", "copilot plugin marketplace"] },
-    { icon: "💻", title: "/ide Bridge", description: "Connect to a running IDE — edits open as diffs, IDE shares diagnostics and selection", items: ["> /ide  # connect", "# auto-connects by default", "# diffs open in IDE for approval"] }
+  pillIcon="♾️"
+  pillLabel="Range and Delegation · Session Continuity"
+  title="Virtually Infinite Sessions"
+  :cards='[
+    { icon: "♾️", title: "Auto-Compaction", description: "At 95% token limit, Copilot compresses history — key decisions and context preserved automatically" },
+    { icon: "🧠", title: "Repository Memory", description: "Team conventions, patterns, and preferences remembered and applied in future sessions" },
+    { icon: "📏", title: "/compact + /usage", description: "Manual control: compress anytime, monitor tokens with /context and /usage" },
+    { icon: "🔀", title: "Additive Instructions", description: "User + repo + org instructions all combine — no priority fallback, all applied together" }
   ]'
-  :progressDots='{ current: 5, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :insight='{ icon: "💡", text: "Think of a session like a tmux session — persistent state you connect to, not ephemeral chat you restart." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Mental Model Shift -->
-<BeforeAfterPanelsSlide
-  :partNumber="2"
-  pillIcon="⚡"
-  pillLabel="Range and Delegation"
-  title="Mental Model Shift"
-  :before='{ header: "🛑 Move Against", items: ["Pasting secrets into prompts — use env vars; credentials are prompt content", "--yolo outside sandboxed environments — blanket permissions = prod access if authenticated", "Skipping Plan Mode when rushing — most valuable precisely when in a hurry", "--remote + --yolo on production — always scope permissions; use Copilot Hooks"] }'
-  :after='{ header: "✅ Move Toward", items: ["AI as thought partner for greenfield — 90 min library research → 15 min with scaffold", "Plan before you build (Shift+Tab) — 8 attempts → 2; catch ambiguity early", "Delegate with & — IDE and terminal stay completely free", "Sessions as durable work — start on workstation, steer from phone, review from laptop"] }'
-  :progressDots='{ current: 6, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
-  insight="The session is the unit of work, not the shell — start anywhere, steer anywhere, resume anywhere"
-/>
-
----
-
-<!-- SLIDE: Part 3 &#8212; Work Where the Problem Is -->
-
+<!-- SLIDE: Part 3 — Work Where the Problem Is -->
 <SectionOpenerSlide
   :partNumber="3"
   title="Work Where the Problem Is"
-  subtitle="Remote sessions &#8212; the last distance falls"
+  subtitle="Closes Geography and Compliance — AI runs on the machine, you steer from phone or browser"
   :cards='[
-    { icon: "&#x1F310;", title: "&#45;&#45;remote Flag", blurb: "Start on any machine, steer from any device" },
-    { icon: "&#x1F4F1;", title: "Mobile Steering", blurb: "URL/QR code to GitHub.com or Mobile" },
-    { icon: "&#x1F517;", title: "Session Portability", blurb: "Devices are viewports, not anchors" }
+    { icon: "📡", title: "--remote", blurb: "One flag: URL + QR code, steer from any device (public preview 2026-04-13)" },
+    { icon: "🔒", title: "Compliance by Design", blurb: "Data never leaves the host — AI reasons where the data lives" },
+    { icon: "▶️", title: "Session Portability", blurb: "SSH moves keystrokes. --remote moves a reasoning session." },
   ]'
-  :terminal='{ context: "SSH moves your keystrokes", detail: "&#45;&#45;remote moves a reasoning session" }'
+  :terminal='{ context: "copilot --remote — on the server where the problem lives", detail: "Geography and Compliance distances closed simultaneously" }'
 />
 
 ---
 
-<!-- SLIDE: How --remote Works -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: The Last Distance Falls — Geography -->
+<HeroStatSlide
   :partNumber="3"
-  pillIcon="🌐"
-  pillLabel="Work Where the Problem Is"
-  title="Remote Sessions: The Last Distance Falls"
-  codePosition="left"
-  :code='{ language: "bash", content: "# SSH into production\n$ ssh ops@prod-server-3\n$ copilot --remote\n─────────────────────\n🔗 Remote session started.\nMonitor and steer from:\n  github.com/copilot/sessions/abc123\n  [QR CODE]\n─────────────────────\n# Or start mid-session:\n> /remote" }'
-  :features='[
-    { icon: "👀", title: "See what Copilot is doing", description: "Real-time visibility from phone, tablet, or any browser" },
-    { icon: "🎮", title: "Approve and steer", description: "Approve permissions, send steering messages, inject new prompts from any device" },
-    { icon: "🔄", title: "Resume anywhere", description: "copilot --resume from a completely different machine — context travels with the session" }
+  pillIcon="📡"
+  pillLabel="Work Where the Problem Is · --remote"
+  title="The Last Distance Falls: Geography"
+  subtitle="The session lives on the machine. You steer from wherever you are."
+  :hero='{ value: "--remote", label: "Start on any server. Steer from browser or phone. Public preview: April 13, 2026.", source: "github.com/changelog — Remote control CLI sessions on web and mobile (2026-04-13)" }'
+  :supporting='[
+    { icon: "🔗", title: "QR Code Access", description: "One flag generates a URL and QR code — scan from any device to connect" },
+    { icon: "📱", title: "GitHub Mobile", description: "Steer, approve tool permissions, and inject prompts from your phone" },
+    { icon: "🔒", title: "Compliance by Architecture", description: "Logs and sensitive data never leave the host — AI reasons where the data lives" },
+    { icon: "▶️", title: "/resume Anywhere", description: "Reconnect to the same live session from a completely different machine" }
   ]'
+  :insight='{ icon: "🌍", text: "SSH moves your keystrokes. --remote moves a reasoning session." }'
   :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Why --remote Matters -->
-<ThreeColumnCardSlide
+<!-- SLIDE: The Walking-to-Meeting Debug -->
+<AITerminalTranscriptSlide
   :partNumber="3"
-  pillIcon="🌐"
-  pillLabel="Work Where the Problem Is"
-  title="The Session Becomes Portable, Not the Machine"
-  :columns='[
-    { icon: "💾", title: "Work stays where it lives", description: "Logs never leave the production boundary. No scp, no rsync, no uploading to third-party tools. Compliance-friendly by default." },
-    { icon: "🏃", title: "Momentum survives context changes", description: "Walking to a meeting, switching devices, paged at 2 AM — the session is continuous. You do not restart; you reconnect." },
-    { icon: "📱", title: "Devices are interchangeable viewports", description: "Your laptop, phone, and tablet all connect to the same durable AI work session. The session is the entity; devices just display it." }
+  pillIcon="🚶"
+  pillLabel="Work Where the Problem Is · --remote Demo"
+  title="The Walking-to-Meeting Debug"
+  subtitle="Alert fires 3 minutes before standup — resolved before the meeting ends"
+  :transcript='[
+    { type: "prompt", text: "ssh ops@staging-auth-01" },
+    { type: "prompt", text: "copilot --remote" },
+    { type: "response", lines: ["Remote session started. Steer from:", "  https://github.com/copilot/sessions/abc123  [QR CODE]"] },
+    { type: "user", text: "The auth service is returning 503. Debug it." },
+    { type: "thinking", label: "🤔 Copilot — running on the staging server:" },
+    { type: "response", lines: ["docker logs auth-service --tail 50", "docker exec auth-service env | grep -E REDIS|JWT"] },
+    { type: "divider" },
+    { type: "outcome", text: "JWT_SECRET missing from staging container env" },
+    { type: "outcome", text: "Fix approved from phone — auth service restored" }
   ]'
+  footerMetric="Incident resolved before standup ended"
   :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
-  insight="SSH moves your keystrokes. --remote moves a reasoning session."
 />
 
 ---
 
-<!-- SLIDE: Combination Patterns -->
-<FrameworkMappingRowsSlide
+<!-- SLIDE: Two Distances Close Together -->
+<TwoColPairedConceptsSlide
   :partNumber="3"
-  pillIcon="🌐"
-  pillLabel="Work Where the Problem Is"
-  title="--remote Composes with Everything"
-  subtitle="The flag that multiplies every other capability"
-  :rows='[
-    { "label": "Plan + --remote", "description": "Safer live-system ops — AI asks before touching production. Critical when approving from a phone.", "tag": "safer ops" },
-    { "label": "/fleet + --remote", "description": "Coordinate across multiple environments simultaneously. One prompt, five servers, parallel execution.", "tag": "parallel" },
-    { "label": "Cloud + --remote", "description": "Persistent infra patrol — agent watches, investigates anomalies, reports findings. Review from any device.", "tag": "24/7 watch" },
-    { "label": "Memory + --remote", "description": "When you /resume from a new device, repo memory and context travel with it — no re-explaining.", "tag": "/resume" },
-    { "label": "tmux + --remote", "description": "Sessions survive SSH disconnects. Combine with tmux or screen for true persistence.", "tag": "persistent" }
-  ]'
+  pillIcon="🔒"
+  pillLabel="Work Where the Problem Is · Two Distances"
+  title="Two Distances Close Simultaneously"
+  :left='{
+    header: "Geography Closed",
+    icon: "🌍",
+    items: [
+      { title: "Start on any server via SSH", detail: "Session lives where the problem lives" },
+      { title: "Steer from any device", detail: "Phone, browser, or any laptop" },
+      "/resume reconnects to the same session anywhere",
+      "No context restart — session is the durable entity"
+    ]
+  }'
+  :right='{
+    header: "Compliance by Architecture",
+    icon: "🔒",
+    items: [
+      { title: "Logs never leave the host", detail: "No scp, no upload, no third-party tools" },
+      { title: "AI reasons where data lives", detail: "12GB of logs analyzed without downloading" },
+      "PII stays on the host — policy enforced by design",
+      "Not a compliance workaround — the architecture is the control"
+    ]
+  }'
   :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Walking-to-Meeting Demo -->
-<AITerminalTranscriptSlide
+<!-- SLIDE: Combinations That Unlock New Capabilities -->
+<FrameworkMappingRowsSlide
   :partNumber="3"
-  pillIcon="🌐"
-  pillLabel="Work Where the Problem Is"
-  title="The Walking-to-Meeting Debug"
-  subtitle="Alert fires 3 min before standup. You start and finish without stopping."
-  :transcript='[
-    { "type": "thinking", "label": "# 9:02 AM — Alert fires. SSH into staging." },
-    { "type": "prompt", "text": "ssh ops@staging-auth-01" },
-    { "type": "prompt", "text": "copilot --remote" },
-    { "type": "user", "text": "The auth service is returning 503. Debug it." },
-    { "type": "divider" },
-    { "type": "thinking", "label": "# 9:05 AM — Scan QR code. Grab your bag." },
-    { "type": "thinking", "label": "# 9:07 AM — Walking to standup. Phone shows:" },
-    { "type": "outcome", "text": "Found: JWT_SECRET missing from staging env." },
-    { "type": "divider" },
-    { "type": "thinking", "label": "# From phone:" },
-    { "type": "user", "text": "Check if other services depend on that secret" },
-    { "type": "outcome", "text": "Copilot: 2 more services affected. Proposing fix." },
-    { "type": "divider" },
-    { "type": "thinking", "label": "# 9:12 AM — Walk into standup:" },
-    { "type": "response", "lines": ["Staging auth is fixed. 3 services were affected."] }
+  pillIcon="🔗"
+  pillLabel="Work Where the Problem Is · Combinations"
+  title="Combinations That Unlock New Capabilities"
+  subtitle="--remote composes with every other capability in this talk"
+  :rows='[
+    { label: "Plan + Remote", description: "AI asks questions before touching production — safer live-system ops", tag: "Safer ops" },
+    { label: "Fleet+Remote", description: "One prompt runs parallel investigation across multiple machines", tag: "Multi-server" },
+    { label: "Cloud+Remote", description: "Persistent infra patrol — agent watches and reports to your phone", tag: "AI patrol" },
+    { label: "Memory+Remote", description: "When you /resume from a new device, repo context travels with it", tag: "Zero re-setup" }
   ]'
-  footerMetric="No restart · No sacrifice · Alert to resolution: 10 minutes"
+  footnote="--remote is a multiplier, not just a feature"
   :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 4 &#8212; Patterns That Actually Stick -->
-
+<!-- SLIDE: Part 4 — Patterns That Actually Stick -->
 <SectionOpenerSlide
   :partNumber="4"
   title="Patterns That Actually Stick"
-  subtitle="Use cases that survive contact with reality"
+  subtitle="All five distances working together — four scenarios, four failure modes prevented"
   :cards='[
-    { icon: "&#x1F50D;", title: "Log Forensics", blurb: "12GB of logs, zero data transfer" },
-    { icon: "&#x1F6E1;&#xFE0F;", title: "Infra Patrol", blurb: "Persistent monitoring with reasoning" },
-    { icon: "&#x1F310;", title: "GitHub Integration", blurb: "Issues, PRs, workflows from terminal" }
+    { icon: "🔬", title: "Log Forensics", blurb: "Compliance violation prevented — AI reasons where the data lives" },
+    { icon: "🗺️", title: "Infra Patrol", blurb: "Blind spots eliminated — distributed state monitored by AI" },
+    { icon: "💻", title: "GitHub Integration", blurb: "Context loss prevented — issues and PRs from the terminal" },
   ]'
-  :terminal='{ context: "Bring reasoning to the data", detail: "instead of moving the data to the reasoning" }'
+  :terminal='{ context: "Each scenario names the failure mode it prevents", detail: "Feature catalog → practitioner guidance" }'
 />
 
 ---
 
-<!-- SLIDE: Log Forensics -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: Failure Prevented — Compliance Violation from Data Transfer -->
+<BeforeAfterPanelsSlide
   :partNumber="4"
-  pillIcon="🚀"
-  pillLabel="Patterns That Actually Stick"
-  title="Log Forensics Without Data Transfer"
-  codePosition="left"
-  :code='{ language: "bash", content: "# On the server where logs live\n$ ssh analytics@log-server\n$ copilot --remote\n─────────────────────\n> \"Analyze access logs from the\n  last 24 hours. Find top IPs\n  with 401s on /api/auth.\n  Check for credential stuffing.\"\n─────────────────────\n[runs: grep, awk, sort, uniq]\nFound: 3 IPs with >10K attempts.\nPattern: sequential usernames.\nFix: Block at WAF." }'
-  :features='[
-    { icon: "🔒", title: "Logs never leave the machine", description: "No scp, no rsync, no uploading to third-party tools — PII stays in the production boundary" },
-    { icon: "⚡", title: "Speed at scale", description: "Analyzing locally is orders of magnitude faster than transferring 12GB — some logs are too big to download" },
-    { icon: "🧠", title: "AI reasons, not just greps", description: "Detects patterns like credential stuffing and sequential usernames that grep alone would miss" }
-  ]'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  pillIcon="🔬"
+  pillLabel="Patterns · Log Forensics"
+  title="Failure Prevented: Compliance Violation from Data Transfer"
+  :before='{
+    header: "Traditional Log Analysis",
+    items: [
+      "scp 12GB log file to local machine",
+      "Sensitive data crosses the production boundary",
+      "Grep a subset, lose context, repeat the cycle",
+      "Compliance review required for every analysis session"
+    ]
+  }'
+  :after='{
+    header: "copilot --remote on the Log Server",
+    items: [
+      "AI analyzes logs where they live — data never moves",
+      "No scp, no upload, no third-party analysis tools",
+      "12GB can be analyzed without downloading a single byte",
+      "Compliance by architecture — PII stays on the host"
+    ]
+  }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Infra Patrol & Multi-Machine -->
+<!-- SLIDE: Failure Prevented — Blind Spots in Distributed State -->
+<WorkflowShowdownStepsSlide
+  :partNumber="4"
+  pillIcon="🗺️"
+  pillLabel="Patterns · Infra Patrol"
+  title="Failure Prevented: Blind Spots in Distributed State"
+  subtitle="Traditional monitoring says what happened. AI patrol says why and proposes the fix."
+  leftLabel="Traditional Monitoring"
+  rightLabel="AI Infrastructure Patrol"
+  :steps='[
+    { left: { label: "Alert fires", note: "CPU at 92% on auth-7b" }, right: { label: "Alert fires", note: "CPU at 92% on auth-7b" } },
+    { left: { label: "SSH in manually", note: "One server at a time" }, right: { label: "copilot --remote on cluster", note: "AI has access to all nodes" } },
+    { left: { label: "Raw kubectl output", note: "Data without analysis" }, right: { label: "Root cause traced", note: "Crash loop from memory limit change in last deploy" } },
+    { left: { label: "Search runbook", note: "15–30 min to understand" }, right: { label: "Propose rollback", note: "Approve from phone in one tap" } }
+  ]'
+  :outcomeLeft='{ icon: "⏱️", label: "15–30 min to diagnose — then manually fix" }'
+  :outcomeRight='{ icon: "✓", label: "Root cause found automatically — you approve from any device" }'
+  summaryMetric="Monitoring tells you what. AI patrol tells you why."
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Failure Prevented — Context Loss Between Terminal and Browser -->
 <TwoColPairedConceptsSlide
   :partNumber="4"
-  pillIcon="🚀"
-  pillLabel="Patterns That Actually Stick"
-  title="Infrastructure Patrol & Multi-Machine Orchestration"
-  :left='{ header: "🛡️ Persistent Infra Patrol", items: ["Start with: tmux new -s copilot-patrol && copilot --remote --allow-tool shell(kubectl)", "Prompt: Monitor K8s cluster, check pod health every 5 min, alert if abnormal", "Monitoring says CPU at 92% — AI patrol says why and proposes a fix"] }'
-  :right='{ header: "🌐 Multi-Machine Orchestration", items: ["Open copilot --remote on prod-db-1, prod-api-3, and prod-worker-7 simultaneously", "Single prompt: check disk, validate SSL, compare deployed versions", "Results merged into one report — your browser becomes a console for distributed AI ops"] }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
-  insight="Persistent monitoring that reasons — not just checks health, but investigates anomalies"
+  pillIcon="💻"
+  pillLabel="Patterns · GitHub Integration"
+  title="Failure Prevented: Context Loss Switching to the Browser"
+  :left='{
+    header: "Context-Switching Loop",
+    icon: "🔄",
+    items: [
+      "Open browser to check an issue",
+      "Re-explain context to Copilot in chat",
+      "Copy PR URL back to the terminal",
+      "Repeat every time you switch tools"
+    ]
+  }'
+  :right='{
+    header: "GitHub.com in the Terminal",
+    icon: "💻",
+    items: [
+      { title: "List and triage open issues", detail: "No browser required — full GitHub context in CLI" },
+      { title: "Start work on an issue", detail: "Branch created automatically" },
+      "Create workflows and review PRs in one session",
+      "Zero re-explanation — one session spans both"
+    ]
+  }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: GitHub.com Integration -->
-<FourCardGridSlide
+<!-- SLIDE: Failure Prevented — Manual CI Intervention -->
+<CodeWithFeaturesSlide
   :partNumber="4"
-  pillIcon="🚀"
-  pillLabel="Patterns That Actually Stick"
-  title="GitHub.com from Your Terminal"
-  :cards='[
-    { icon: "📋", title: "Issues", description: "List open issues assigned to you, start working on one, or raise an issue — all from the terminal" },
-    { icon: "🔄", title: "Pull Requests", description: "List open PRs, check changes in a PR, merge all open PRs — without context-switching to the browser" },
-    { icon: "⚙️", title: "Actions Workflows", description: "Create a workflow that runs eslint on PRs, push and open a PR — described in English, executed by Copilot" },
-    { icon: "💡", title: "Key Insight", description: "GitHub.com becomes an extension of your terminal — describe a change in English, end up with a PR on GitHub.com" }
+  pillIcon="🤖"
+  pillLabel="Patterns · CI/CD Headless"
+  title="Failure Prevented: Manual CI Intervention at 2 AM"
+  codePosition="left"
+  :code='{ language: "yaml", filename: ".github/workflows/build.yml", content: "- name: Analyze build failure\n  if: failure()\n  run: |\n    copilot -p \"Analyze the build failure.\n    Check recent commits and error patterns.\n    Suggest specific fixes.\"\n    --allow-tool shell(gh) > analysis.txt\n\n- name: Post analysis as PR comment\n  if: failure()\n  run: gh pr comment --body-file analysis.txt" }'
+  :features='[
+    { icon: "⚙️", title: "Programmatic mode (-p)", description: "Single-command headless execution — zero human intervention in the loop" },
+    { icon: "🔍", title: "Pattern recognition", description: "Analyzes recent commits, deps, and error patterns across historical failures" },
+    { icon: "💬", title: "PR comment output", description: "Team wakes to a diagnosis and fix suggestion — not raw log output" }
   ]'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
-  insight="The gap between terminal work and GitHub workflows disappears — describe once, ship everywhere"
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Before/After -->
+<!-- SLIDE: Before After -->
 <BeforeAfterSlide
-  header="From Manual Commands to AI at the Point of Work"
-  :leftItems='["SSH in, run commands, copy-paste output into chat", "8 trial-and-error debugging attempts", "Download logs, analyze locally, lose compliance", "Wait until you are at your desk to respond"]'
-  :rightItems='["AI runs where the problem is, steers from anywhere", "2 attempts with Plan Mode clarifying intent", "Log forensics on-server, zero data transfer", "Steer from phone, resolve during the walk"]'
+  header="From Terminal Friction to AI at the Point of Work"
+  :leftItems='["AI tools target 16% of your day — code editing only", "Debugging requires 8 trial-and-error attempts on average", "Log forensics means moving sensitive data off the server", "Production incidents wait until you are at your desk"]'
+  :rightItems='["Copilot CLI covers the full 84% — terminal-native AI", "Plan Mode cuts iteration from 8 attempts to 2 with upfront questions", "copilot --remote brings AI to the log server — data never moves", "--remote lets you steer from phone or browser, wherever you are"]'
   :metrics='[
-    { value: "84% &#8594; covered", detail: "Terminal-native AI for the non-coding majority" },
-    { value: "8 &#8594; 2 attempts", detail: "Plan Mode catches ambiguity before code" },
-    { value: "0 bytes transferred", detail: "Log forensics stays on the server" }
+    { value: "8 → 2", detail: "debugging attempts with Plan Mode" },
+    { value: "45 → 8 min", detail: "Docker debug time with clarifying questions" },
+    { value: "84%", detail: "of dev time now covered — not just the 16% IDE slice" }
   ]'
 />
 
@@ -527,10 +571,10 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Install CLI and run your first plan mode task", "Try /ide to open a file in VS Code mid-session", "Run &#45;&#45;remote on a staging server and scan the QR code", "Explore built-in agents: ask a debug question"]'
-  :thisWeek='["Write .github/copilot-instructions.md for your repo", "Add copilot -p to one CI/CD pipeline for failure analysis", "Run a /fleet task across parallel workstreams", "Delegate a long task with &amp; and verify IDE stays free"]'
-  :thisMonth='["Automate a repetitive GitHub workflow end-to-end", "Build a multi-step fleet pipeline for your project", "Try log forensics on a server with &#45;&#45;remote", "Create team-wide custom instructions and share them"]'
-  footer="Run plan mode on a task you do daily &#8212; it shows exactly what the agent will do before acting."
+  :today='["Install Copilot CLI and run your first interactive session", "Toggle Plan Mode (Shift+Tab) on your next debugging task", "Try copilot --remote on a staging server and scan the QR code"]'
+  :thisWeek='["Replace one manual CI failure investigation with copilot -p", "Use /fleet to decompose a large task into parallel subtasks", "Set up repository memory with .github/copilot-instructions.md"]'
+  :thisMonth='["Automate build failure analysis with copilot -p in GitHub Actions", "Run a persistent infra patrol session with --remote and cloud delegation", "Teach your team the Distance Model as a shared vocabulary for AI workflows"]'
+  footer="The terminal is where the work actually is — and now AI lives there too."
 />
 
 ---
@@ -538,22 +582,19 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "Official Documentation", color: "cyan", items: [
-        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli", label: "About GitHub Copilot CLI", description: "Core concepts and capabilities" },
-        { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/steer-remotely", label: "Remote Control Sessions", description: "Monitor and steer sessions from web and mobile" },
-        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-remote-access", label: "Remote Access Administration", description: "Administering remote access for Copilot Business/Enterprise" },
-        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet", label: "Running tasks in parallel with /fleet", description: "Parallel orchestration documentation" },
-        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli", label: "Use Copilot CLI", description: "Command syntax and workflows" },
-        { href: "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli", label: "Install Copilot CLI", description: "Setup for all platforms" },
-        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions", label: "Custom instructions", description: "Repository-specific behavior configuration" }
+    { title: "📖 Official Documentation", color: "cyan", items: [
+        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli", label: "About GitHub Copilot CLI", description: "Core concepts, capabilities, and architecture overview" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli", label: "Use Copilot CLI", description: "Command syntax, Plan Mode, operating modes, and workflows" },
+        { href: "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli", label: "Install Copilot CLI", description: "Setup instructions for all platforms" },
+        { href: "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet", label: "Running tasks in parallel with /fleet", description: "Fan-out orchestration and subagent model selection" },
+        { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/steer-remotely", label: "Steering a CLI session from another device", description: "Remote session setup, QR codes, and /resume" }
     ] },
-    { title: "Latest Features &amp; Community", color: "purple", items: [
-        { href: "https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/", label: "Remote control CLI on web &amp; mobile", description: "April 2026 announcement &#8212; public preview" },
-        { href: "https://github.blog/changelog/2026-01-21-github-copilot-cli-plan-before-you-build-steer-as-you-go/", label: "Plan Mode announcement", description: "Plan before you build &#8212; steer as you go" },
-        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server", label: "Add an MCP server", description: "Extending with external tools" },
-        { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing", label: "Finding and installing plugins", description: "Plugin ecosystem and marketplaces" },
-        { href: "https://github.com/github/copilot-cli", label: "Public repository", description: "Issue tracking and community discussions" },
-        { href: "https://github.com/orgs/community/discussions/191814", label: "Community discussion", description: "Share your favorite use cases and locations" }
+    { title: "📣 What&#39;s New", color: "indigo", items: [
+        { href: "https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/", label: "Remote control CLI sessions (public preview)", description: "April 13, 2026 — steer from web and mobile" }
+    ] },
+    { title: "🛠️ Related Content", color: "purple", items: [
+        { label: "Copilot Memory", description: "Repository memory and cross-session context in depth" },
+        { label: "MCP Apps", description: "Extending Copilot CLI with MCP server integrations" }
     ] }
   ]'
 />
@@ -562,15 +603,16 @@ import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-  title="Thank You"
-  subtitle="GitHub Copilot CLI: AI at the Point of Work"
+  title="GitHub Copilot CLI"
+  subtitle="AI at the Point of Work"
   :cards="[
-    { icon: '&#x1F3AF;', value: 'Plan First', detail: 'Shift+Tab before building', subdetail: '8 attempts &#8594; 2 with upfront planning' },
-    { icon: '&#x1F310;', value: 'Start Anywhere', detail: '&#45;&#45;remote puts AI where the problem is', subdetail: 'Steer from phone, laptop, or browser' },
-    { icon: '&#x1F680;', value: 'Resume Anywhere', detail: 'Sessions are durable work, not ephemeral chat', subdetail: 'The terminal was never the destination' },
+    { value: 'Plan Mode', detail: '8 attempts → 2 · 45 min → 8 min — questions before commands' },
+    { value: '/fleet', detail: 'N tasks in the time of 1 — parallel subagents, merged results' },
+    { value: '--remote', detail: 'Geography closed — steer from phone, data never leaves the host' },
   ]"
-  prompt="Start anywhere. Steer anywhere. Resume anywhere."
+  prompt="What&#39;s the biggest gap between where you work and where your AI tools live?"
 />
+
 
 ---
 src: ./copilot-cli-reference.md
