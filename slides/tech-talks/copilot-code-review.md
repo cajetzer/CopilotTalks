@@ -9,52 +9,57 @@ info: |
 drawings:
   persist: false
 transition: slide-left
-title: GitHub Copilot Code Review - From Bottleneck to Accelerator
+title: GitHub Copilot Code Review
 module: tech-talks/copilot-code-review
 mdc: true
 section: Copilot Tools
 status: active
-updated: 2026-04-10
+updated: 2026-04-22
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
 import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
 <TitleSlide
-title="GitHub Copilot Code Review"
-subtitle="From Bottleneck to Accelerator"
-tagline="Reduce PR review time while maintaining code quality and compliance"
-meta="Tech Talk · 35-40 minutes"
+  title="GitHub Copilot Code Review"
+  subtitle="From Bottleneck to Accelerator"
+  tagline="Reduce PR review time while maintaining code quality and compliance"
+  meta="GitHub Copilot · Code Review · CopilotTraining"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="How can Copilot Code Review reduce PR review time while improving quality?"
-subtext="Every team struggles with the same tradeoff — faster reviews or better quality."
-highlight="AI review breaks this tradeoff — catching systematic issues humans often miss."
-:cards='[
-  { icon: "👥", title: "Teams with PR Review Backlogs", description: "Cut 3-4 day wait times with automated first-pass review on every pull request" },
-  { icon: "🔐", title: "Security-Conscious Organizations", description: "Systematic vulnerability checks on every PR — OWASP-style, automatically" },
-  { icon: "🎓", title: "Orgs Onboarding New Developers", description: "Standards enforcement that teaches conventions while reviewing code in context" },
-  { title: "Capacity Bottleneck", description: "3-4 day wait times slow delivery — AI handles the first-pass review instantly" },
-  { title: "Quality Gaps", description: "40-60% of issues missed in manual review — AI catches systematic defects" },
-  { title: "Onboarding Friction", description: "6-8 weeks to learn standards — AI enforces them automatically from day one" }
-]'
+  question="Why does code review block delivery instead of enabling it?"
+  subtext="PRs wait days, senior engineers spend 30% of their time reviewing, and quality still varies. Copilot turns"
+  highlight="review from a bottleneck into a continuous accelerator."
+  :cards='[
+    { icon: "👩‍💼", title: "Eng Managers", description: "Reduce cycle time by 40-60% and generate exec-ready ROI reports automatically" },
+    { icon: "🔒", title: "DevOps Leads", description: "Enforce security and compliance rules on every PR — no manual audit sampling" },
+    { icon: "👩‍💻", title: "Dev Teams", description: "Get immediate inline feedback and learn team standards faster" },
+    { title: "3.2 days average", description: "Time a PR sits before first review — not complex code, but overwhelmed reviewers" },
+    { title: "40-60% faster", description: "PR review cycle time reduction with Copilot Code Review enabled" },
+    { title: "90%+ reduction", description: "Security violations reaching production when automated detection is active" }
+  ]'
 />
 
 ---
@@ -62,744 +67,363 @@ highlight="AI review breaks this tradeoff — catching systematic issues humans 
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "⚙️", title: "Setup & Configuration", subtitle: "From enablement to first review in 15 minutes", blurb: "Rulesets UI + custom instruction files", slide: 4 },
-    { icon: "💬", title: "Understanding Review Feedback", subtitle: "Six capability categories with examples", blurb: "Security, quality, tests, performance, compliance, architecture", slide: 9 },
-    { icon: "📊", title: "Measuring ROI", subtitle: "Calculator + optional automation", blurb: "40-60% cycle time reduction, 90%+ security improvement", slide: 12 },
-    { icon: "🏛️", title: "Enterprise Compliance", subtitle: "HIPAA, PCI-DSS, SOC2 guidance patterns", blurb: "Custom instruction files for regulatory standards", slide: 16 },
+    { icon: "⚡", title: "Configuration and Quick Start", subtitle: "Zero to first review in 5 min", blurb: "Rulesets setup, custom instructions, branch protection", slide: 4 },
+    { icon: "🏅", title: "Best Practices and Team Adoption", subtitle: "Six capabilities + phased rollout", blurb: "Hybrid analysis, adoption strategy, developer training", slide: 8 },
+    { icon: "📈", title: "Measuring ROI and Business Impact", subtitle: "Interactive calculator + metrics", blurb: "40-60% cycle time, exec-ready savings summary", slide: 12 },
+    { icon: "🔒", title: "Compliance and Regulatory Guidance", subtitle: "HIPAA, PCI-DSS, SOC2 patterns", blurb: "Custom instruction files + audit trail", slide: 16 },
   ]'
 />
+
 ---
 
-<!-- SLIDE: Part 1 — Setup & Configuration -->
-
+<!-- SLIDE: Part 1 — Configuration and Quick Start -->
 <SectionOpenerSlide
   :partNumber="1"
-  title="Setup & Configuration"
-  subtitle="From enablement to first review in 15 minutes"
+  title="Configuration and Quick Start"
+  subtitle="Zero to first automated review in 5 minutes — Rulesets UI, no config files required"
   :cards='[
-    { icon: "⚙️", title: "Rulesets UI", blurb: "Visual configuration dashboard" },
-    { icon: "📝", title: "Custom Instructions", blurb: "Team-specific patterns and standards" },
-    { icon: "🎯", title: "Language-Specific", blurb: "TypeScript, Python, Go support" },
+    { icon: "⚡", title: "5-Minute Setup", blurb: "Enable via Rulesets in GitHub Settings — no YAML, no CLI" },
+    { icon: "📄", title: "Custom Instructions", blurb: ".github/copilot-instructions.md shapes review focus" },
+    { icon: "🚦", title: "Branch Protection", blurb: "Block merges on critical findings as a required status check" },
   ]'
-  :terminal='{ context: "No YAML config files, no complex setup", detail: "UI-driven configuration in 15 minutes" }'
+  :terminal='{ context: "Settings → Rules → Rulesets → New ruleset → Enable Copilot Code Review", detail: "5 minutes from zero to first automated review" }'
 />
----
-
-<!-- SLIDE: Basic Setup — 5 Minutes to First Review -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Setup & Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Basic Setup — 5 Minutes to First Review</div>
-<div class="text-xs text-white/50">Enable automatic reviews through GitHub Rulesets UI</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Step 1: Navigate to Rulesets</div>
-<div class="text-xs opacity-80">Settings → Code and automation → Rules → Rulesets</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Step 2: Create New Ruleset</div>
-<div class="text-xs opacity-80">Name it (e.g., "Copilot Code Review"), set status to "Active"</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Step 3: Target Branches</div>
-<div class="text-xs opacity-80">Select branches where you want reviews (e.g., main)</div>
-</div>
-</div>
-
-<div class="space-y-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">Step 4: Enable Enforcement</div>
-<div class="text-xs opacity-80 space-y-1">
-<div>✅ Automatically request Copilot code review</div>
-<div>✅ Review new pushes</div>
-<div>✅ Review draft pull requests (optional)</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Step 5: Create and Done!</div>
-<div class="text-xs opacity-80">Copilot now reviews all PRs targeting selected branches automatically</div>
-</div>
-<div class="mt-3 p-2 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30">
-<div class="text-xs text-green-300">⚡ That's it! No YAML config files, no complex setup</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 ---
 
-<!-- SLIDE: Custom Guidance with Instruction Files -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Setup & Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Custom Guidance with Instruction Files</div>
-<div class="text-xs text-white/50">Tailor Copilot's review behavior to your team's standards</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="grid grid-cols-2 gap-4 mb-3 flex-1 min-h-0 max-h-[380px]">
-<div class="flex flex-col">
-<div class="font-mono text-xs bg-gray-950/80 border border-cyan-700/50 rounded-lg px-3 py-2 flex-1 min-h-0 overflow-y-auto">
-<div class="text-cyan-400 mb-1"># .github/copilot-instructions.md</div>
-<div class="text-gray-300 text-xs space-y-1">
-<div>## Security Standards</div>
-<div class="pl-2 opacity-80">- Flag hardcoded secrets, API keys</div>
-<div class="pl-2 opacity-80">- Require parameterized queries</div>
-<div class="pl-2 opacity-80">- Check input validation</div>
-<div class="pl-2 opacity-80">- No sensitive data in error messages</div>
-<div class="mt-2">## Code Quality</div>
-<div class="pl-2 opacity-80">- Refactor functions > 50 lines</div>
-<div class="pl-2 opacity-80">- Flag unclear variable names</div>
-<div class="pl-2 opacity-80">- Require error handling</div>
-<div class="mt-2">## Performance</div>
-<div class="pl-2 opacity-80">- Identify N+1 query problems</div>
-<div class="pl-2 opacity-80">- Suggest caching opportunities</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="font-mono text-xs bg-gray-950/80 border border-blue-700/50 rounded-lg px-3 py-2 flex-1 min-h-0 overflow-y-auto">
-<div class="text-blue-400 mb-1"># .github/instructions/python.instructions.md</div>
-<div class="text-gray-300 text-xs space-y-1">
-<div class="text-yellow-400">---</div>
-<div>applyTo: "**/*.py"</div>
-<div class="text-yellow-400">---</div>
-<div class="mt-1">## Python-Specific Guidelines</div>
-<div class="pl-2 opacity-80">- Enforce PEP 8 naming</div>
-<div class="pl-2 opacity-80">- Require type hints</div>
-<div class="pl-2 opacity-80">- Flag bare except: clauses</div>
-<div class="pl-2 opacity-80">- Use logging module, not print()</div>
-<div class="pl-2 opacity-80">- Validate async/await patterns</div>
-</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300">Repository-level</div>
-<div class="opacity-80">Start with 1-2 pilot repos, refine based on feedback</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300">Organization-level</div>
-<div class="opacity-80">Standardize after pilot, each repo can add language-specific guidance</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Branch Protection Integration -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">⚙️ Setup & Configuration</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Branch Protection Integration</div>
-<div class="text-xs text-white/50">Make Copilot Review a required status check to block merges on critical issues</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="text-xs text-cyan-400 mb-1">STEP 1</div>
-<div class="font-semibold text-white mb-1">Navigate to Branch Protection</div>
-<div class="text-xs opacity-80">Settings → Branches → Edit your main branch protection rule</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="text-xs text-cyan-400 mb-1">STEP 2</div>
-<div class="font-semibold text-white mb-1">Enable Status Checks</div>
-<div class="text-xs opacity-80">Check "Require status checks to pass before merging"</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="text-xs text-cyan-400 mb-1">STEP 3</div>
-<div class="font-semibold text-white mb-1">Add Copilot Check</div>
-<div class="text-xs opacity-80">Search for and select "Copilot Code Review" in the required checks list</div>
-</div>
-</div>
-
-<div class="space-y-3 text-sm">
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-2">Result: Enforcement Gate</div>
-<div class="text-xs opacity-80 space-y-1.5">
-<div>🔒 Developers must address critical findings before merging</div>
-<div>✅ No human vigilance required—automated enforcement</div>
-<div>📊 Audit trail automatically created in PR timeline</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">Manual Review Requests</div>
-<div class="text-xs opacity-80 mb-2">Request focused analysis anytime:</div>
-<div class="font-mono text-xs bg-gray-950/80 px-2 py-1 rounded">@github-copilot review for security vulnerabilities</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Deployment Patterns -->
-<FourCardGridSlide
+<!-- SLIDE: Setup in Five Steps -->
+<WorkflowShowdownStepsSlide
   :partNumber="1"
-  pillIcon="⚙️"
-  pillLabel="Setup & Configuration"
-  title="Phased Rollout Strategy"
-  :cards='[
-    { icon: "🔭", title: "Phase 1: Pilot (Week 1-2)", description: "Enable on 1-2 low-risk repositories. Start informational (not blocking merges). Gather daily feedback via Slack/standup. Document common questions." },
-    { icon: "🎯", title: "Phase 2: Tune (Week 3-4)", description: "Review feedback, adjust focus areas. Create custom instruction files. Train pilot team on @mentions. Measure baseline ROI metrics." },
-    { icon: "🚀", title: "Phase 3: Expand (Week 5-8)", description: "Roll out to 50% of repositories. Convert to required status check. Create internal documentation. Host Lunch & Learn session." },
-    { icon: "✅", title: "Phase 4: Standardize (Week 9-12)", description: "Deploy organization-wide. Integrate metrics into reviews. Establish feedback loop (monthly). Celebrate wins, share data." }
+  pillIcon="⚡"
+  pillLabel="Quick Start · Setup"
+  title="From Zero to First Review in 5 Minutes"
+  subtitle="All configuration happens in the GitHub UI — no YAML or CLI required"
+  leftLabel="Manual Review Only"
+  rightLabel="With Copilot Code Review"
+  :steps='[
+    { left: { label: "PR created", note: "Enters the review queue" }, right: { label: "PR created", note: "Enters the review queue" } },
+    { left: { label: "Wait for reviewer", note: "Average 3.2 days to first review" }, right: { label: "Settings → Rules → Rulesets", note: "Enable: Automatically request Copilot review" } },
+    { left: { label: "Review starts", note: "Reviewer must rebuild context" }, right: { label: "Instant analysis", note: "Copilot reviews within 1-2 minutes of PR creation" } },
+    { left: { label: "Feedback posted", note: "Days after PR opened" }, right: { label: "Inline comments", note: "Severity, explanation, suggested fix — immediate" } }
   ]'
-  :insight='{ icon: "✅", text: "This phased approach builds confidence and allows iteration before locking in standards." }'
-  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :outcomeLeft='{ icon: "⏱️", label: "3.2 days average wait — reviewers overwhelmed" }'
+  :outcomeRight='{ icon: "✓", label: "1-2 min automated review — human reviewer focuses on substance" }'
+  summaryMetric="5-minute setup unlocks immediate review coverage on every PR"
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 2 — Understanding Review Feedback -->
+<!-- SLIDE: Custom Instructions — Shape the Review -->
+<CodeWithFeaturesSlide
+  :partNumber="1"
+  pillIcon="📄"
+  pillLabel="Quick Start · Custom Instructions"
+  title="Custom Instructions: Shape What Copilot Reviews"
+  codePosition="left"
+  :code='{ language: "markdown", filename: ".github/copilot-instructions.md", content: "## Security Standards\n- Flag hardcoded secrets, API keys, credentials\n- Require parameterized queries (no SQL concatenation)\n- Check input validation on user-facing code\n- Ensure errors do not expose sensitive info\n\n## Code Quality\n- Suggest refactoring for functions > 50 lines\n- Flag missing error handling in critical paths\n\n## Testing\n- Note missing unit tests for new functions\n- Flag assertions that do not validate logic" }'
+  :features='[
+    { icon: "📁", title: "Repository-level", description: ".github/copilot-instructions.md applies to all PRs in the repo" },
+    { icon: "🎯", title: "Language-specific", description: ".github/instructions/python.instructions.md with applyTo: **/*.py glob" },
+    { icon: "🏢", title: "Org-level", description: "Organization default instructions apply across all repositories" }
+  ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
+---
+
+<!-- SLIDE: Branch Protection and Manual Requests -->
+<TwoColPairedConceptsSlide
+  :partNumber="1"
+  pillIcon="🚦"
+  pillLabel="Quick Start · Gates and Controls"
+  title="Two More Controls: Gate Merges and Request Reviews"
+  :left='{
+    header: "Branch Protection Gate",
+    icon: "🚦",
+    items: [
+      { title: "Settings → Branches", detail: "Edit protection rule for main" },
+      { title: "Require status checks", detail: "Add Copilot Code Review as required" },
+      "Critical findings now block merge",
+      "Developers must resolve before shipping"
+    ]
+  }'
+  :right='{
+    header: "@github-copilot Mentions",
+    icon: "💬",
+    items: [
+      { title: "Request focused review", detail: "@github-copilot review for security issues" },
+      { title: "Ask follow-up questions", detail: "@github-copilot why is this more performant?" },
+      "Available at any time — not just on PR creation",
+      "Conversational and educational"
+    ]
+  }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Part 2 — Best Practices and Team Adoption -->
 <SectionOpenerSlide
   :partNumber="2"
-  title="Understanding Review Feedback"
-  subtitle="Six capability categories with examples"
+  title="Best Practices and Team Adoption"
+  subtitle="Six capability categories and a phased rollout — equip teams to own the transition"
   :cards='[
-    { icon: "🔒", title: "Security", blurb: "Vulnerability detection and injection risks" },
-    { icon: "✨", title: "Quality", blurb: "Code standards and patterns" },
-    { icon: "⚡", title: "Performance", blurb: "Optimization opportunities" },
+    { icon: "🏅", title: "Six Capabilities", blurb: "Security, quality, tests, performance, compliance, architecture" },
+    { icon: "🔬", title: "Hybrid Analysis", blurb: "Static analysis precision + LLM context = 73% fewer false positives" },
+    { icon: "📅", title: "Phased Rollout", blurb: "Pilot → Tune → Expand → Standardize in 12 weeks" },
   ]'
-  :terminal='{ context: "Hybrid analysis: Fast static layer → AST → LLM contextual", detail: "multi-layered review approach" }'
+  :terminal='{ context: "AI handles mechanical checks — humans focus on substance", detail: "Comprehensive coverage · consistent quality · every PR" }'
 />
+
 ---
 
 <!-- SLIDE: Six Capability Categories -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Understanding Review Feedback</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">What Copilot Code Review Detects</div>
-<div class="text-xs text-white/50">Six capability categories covering the full review spectrum</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-2.5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">🔒 Security Detection</div>
-<div class="opacity-80 space-y-0.5">
-<div>• SQL injection & XSS vulnerabilities</div>
-<div>• Hardcoded secrets & API keys</div>
-<div>• Insecure dependencies & auth flaws</div>
-<div>• Immediate remediation code provided</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="font-semibold text-blue-300 mb-1">✨ Code Quality Analysis</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Complexity issues & naming problems</div>
-<div>• Code duplication detection</div>
-<div>• Maintainability concerns</div>
-<div>• Refactoring suggestions</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">🧪 Test Coverage Assessment</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Missing tests for new functions</div>
-<div>• Edge cases to test</div>
-<div>• Weak assertions identified</div>
-<div>• Improves code confidence</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="font-semibold text-indigo-300 mb-1">⚡ Performance Optimization</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Inefficient algorithms spotted</div>
-<div>• N+1 query problems</div>
-<div>• Memory leaks & scalability issues</div>
-<div>• Catch issues before production</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">🏛️ Compliance Enforcement</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Custom organizational rulesets</div>
-<div>• GDPR, HIPAA, SOC2 checks</div>
-<div>• Automated audit trails</div>
-<div>• Regulatory requirement alignment</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">🏗️ Architecture Consistency</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Ensures code aligns with patterns</div>
-<div>• Prevents fragmentation</div>
-<div>• Reduces technical debt</div>
-<div>• Cross-repository pattern analysis</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: The Hybrid Analysis Approach -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💬 Understanding Review Feedback</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">The Hybrid Analysis Approach</div>
-<div class="text-xs text-white/50">Combining static analysis + AST parsing + LLM contextual analysis</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="flex items-center gap-4 mb-3">
-<div class="flex-1 p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="text-xs text-blue-400 mb-1">LAYER 1: &lt; 1 second</div>
-<div class="font-semibold text-white mb-1.5 text-sm">Fast Static Analysis</div>
-<div class="text-xs opacity-80 space-y-0.5">
-<div>• Pattern matching & linting</div>
-<div>• Catches 60% of issues deterministically</div>
-<div>• No LLM cost</div>
-<div>• Example: function complexity > 15</div>
-</div>
-</div>
-<div class="text-2xl text-gray-500">→</div>
-<div class="flex-1 p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="text-xs text-indigo-400 mb-1">LAYER 2: 1-5 seconds</div>
-<div class="font-semibold text-white mb-1.5 text-sm">AST Semantic Parsing</div>
-<div class="text-xs opacity-80 space-y-0.5">
-<div>• Understands code structure</div>
-<div>• Variable scope, call graphs, data flow</div>
-<div>• Detects logical errors</div>
-<div>• Example: unreachable code after return</div>
-</div>
-</div>
-<div class="text-2xl text-gray-500">→</div>
-<div class="flex-1 p-3 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="text-xs text-purple-400 mb-1">LAYER 3: 10-30 seconds</div>
-<div class="font-semibold text-white mb-1.5 text-sm">LLM Contextual Analysis</div>
-<div class="text-xs opacity-80 space-y-0.5">
-<div>• Full repository context</div>
-<div>• Semantic correctness</div>
-<div>• Architectural consistency</div>
-<div>• Educational feedback with "why"</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-2.5 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-500/30">
-<div class="font-semibold text-green-300 mb-1">✅ Benefit: Best of Both Worlds</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Deterministic accuracy for known patterns (zero false positives on syntax)</div>
-<div>• Contextual understanding for semantic issues</div>
-<div>• 73% reduction in false positives vs. traditional static analysis</div>
-<div>• 84% improvement in vulnerability detection coverage</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">⚡ Speed & Efficiency</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Most PRs reviewed in under 2 minutes</div>
-<div>• Fast static layer handles simple issues without AI cost</div>
-<div>• LLM only invoked for contextual analysis</div>
-<div>• Developers get immediate feedback without waiting</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Balancing Automation and Human Review -->
-<TwoColPairedConceptsSlide
+<FourCardGridSlide
   :partNumber="2"
-  pillIcon="💬"
-  pillLabel="Understanding Review Feedback"
-  title="Balancing Automation and Human Review"
-  :left='{ header: "✅ Copilot Handles", icon: "🤖", items: ["Security vulnerability pattern matching", "Code quality standards enforcement", "Performance anti-patterns detection", "Compliance rule enforcement", "Test coverage gap identification", "Consistency with existing patterns"] }'
-  :right='{ header: "👤 Humans Handle", icon: "👤", items: ["Business logic correctness", "Architectural decisions", "Product tradeoffs", "Domain-specific expertise", "UX implications", "Strategic technical direction"] }'
-  :insight='{ icon: "💡", text: "Effective workflow: Copilot reviews automatically (2 min) → developer resolves critical findings → human reviewer focuses on business logic and architecture. Senior developers spend 60% less time on mechanical review." }'
+  pillIcon="🏅"
+  pillLabel="Best Practices · Capabilities"
+  title="Six Categories — One Automated Review"
+  :cards='[
+    { icon: "🔒", title: "Security Detection", description: "SQL injection, XSS, hardcoded secrets, insecure dependencies — with remediation code" },
+    { icon: "✨", title: "Code Quality", description: "Complexity, naming, duplication, and maintainability with refactoring suggestions" },
+    { icon: "🧪", title: "Test Coverage", description: "Missing tests, edge cases, and weak assertions identified before merge" },
+    { icon: "⚡", title: "Performance", description: "N+1 queries, memory leaks, and inefficient algorithms caught before production" }
+  ]'
+  :insight='{ icon: "💡", text: "Plus: Compliance enforcement and architecture consistency — six categories on every PR, automatically." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Hybrid Analysis — Static + LLM -->
+<BeforeAfterMetricsSlide
+  :partNumber="2"
+  pillIcon="🔬"
+  pillLabel="Best Practices · Hybrid Analysis"
+  title="Hybrid Analysis: Why It Outperforms Either Alone"
+  :before='{
+    header: "Traditional Static Analysis",
+    items: [
+      "Fast and deterministic — catches syntax and patterns",
+      { title: "High false positive rate", detail: "Flags valid code that matches a pattern" },
+      "No semantic understanding of context",
+      "Same warning regardless of surrounding code"
+    ]
+  }'
+  :after='{
+    header: "Copilot Hybrid Approach",
+    items: [
+      "Static analysis for deterministic syntax and pattern checks",
+      { title: "LLM layer for semantic context", detail: "Understands how code fits the architecture" },
+      "73% reduction in false positives",
+      "84% improvement in vulnerability detection coverage"
+    ]
+  }'
+  :metrics='[
+    { value: "73%", label: "fewer false positives" },
+    { value: "84%", label: "better vulnerability coverage" },
+    { value: "1-2 min", label: "feedback latency per PR" }
+  ]'
+  :insight='{ icon: "💡", text: "The agent has full repository context — commit history, file relationships, test suites — enabling architectural awareness." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Phased Rollout -->
+<FrameworkMappingRowsSlide
+  :partNumber="2"
+  pillIcon="📅"
+  pillLabel="Best Practices · Rollout"
+  title="12-Week Rollout: Pilot to Organization"
+  subtitle="Build confidence before locking in org-wide standards — each phase has a gate"
+  :rows='[
+    { label: "Wk 1-2 Pilot", description: "Enable on 1-2 low-risk repos, informational only, daily feedback", tag: "No blocking" },
+    { label: "Wk 3-4 Tune", description: "Add custom instructions, train pilot team, measure baseline metrics", tag: "Refine rules" },
+    { label: "Wk 5-8 Expand", description: "Roll out to 50% of repos, enable required status check on pilots", tag: "50% coverage" },
+    { label: "Wk 9-12 Scale", description: "Org-wide deployment, quarterly rule reviews, share ROI with leadership", tag: "Standardized" }
+  ]'
+  footnote="Phased approach reduces resistance and allows iteration before org-wide standards are locked"
   :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — Measuring ROI -->
-
+<!-- SLIDE: Part 3 — Measuring ROI and Business Impact -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="Measuring ROI"
-  subtitle="Calculator + optional automation"
+  title="Measuring ROI and Business Impact"
+  subtitle="Interactive calculator turns PR analytics into exec-ready savings — without a spreadsheet"
   :cards='[
-    { icon: "📊", title: "Time-Savings", blurb: "PR review cycle acceleration" },
-    { icon: "🔐", title: "Quality", blurb: "90%+ security improvement metrics" },
-    { icon: "💰", title: "Calculator", blurb: "ROI dashboard for leadership" },
+    { icon: "🧮", title: "Live Calculator", blurb: "Input PR data, get cycle-time improvement + labor savings in minutes" },
+    { icon: "📊", title: "Quality Metrics", blurb: "Incidents, revert rate, security violations — all measurable" },
+    { icon: "📋", title: "Exec Summary", blurb: "Pre-written narrative ready to copy into stakeholder follow-up" },
   ]'
-  :terminal='{ context: "40-60% cycle time reduction", detail: "90%+ security improvement" }'
+  :terminal='{ context: "Copilot Code Review Time Savings Calculator — live customer conversation", detail: "$88K current savings · $491K incremental upside (March 2026 example)" }'
 />
----
-
-<!-- SLIDE: The Interactive Time-Savings Calculator -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Measuring ROI</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">The Interactive Time-Savings Calculator</div>
-<div class="text-xs text-white/50">Turn PR analytics and customer assumptions into executive-ready savings summaries</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-3">
-<div class="space-y-2 text-xs">
-<div class="font-semibold text-indigo-300 mb-1">Workflow</div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="opacity-80 space-y-1">
-<div><span class="text-indigo-400">1.</span> Input customer PR data from operational analytics</div>
-<div><span class="text-indigo-400">2.</span> Define model parameters (review minutes, developer cost)</div>
-<div><span class="text-indigo-400">3.</span> Review generated results for cycle-time improvement</div>
-<div><span class="text-indigo-400">4.</span> Copy executive summary for stakeholder follow-up</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">What It Captures</div>
-<div class="opacity-80 space-y-0.5">
-<div>• PR cycle time with/without Copilot</div>
-<div>• Review effort (minutes per PR)</div>
-<div>• Current adoption rate</div>
-<div>• Hours saved & cost savings</div>
-<div>• Incremental upside if adoption expands</div>
-</div>
-</div>
-</div>
-<div class="space-y-2 text-xs">
-<div class="p-2.5 bg-gradient-to-br from-emerald-900/30 to-green-900/30 rounded-lg border border-emerald-500/30">
-<div class="font-semibold text-emerald-300 mb-1">Example: March 2026 Results</div>
-<div class="opacity-80 space-y-0.5">
-<div>• <span class="text-emerald-400">19.0 days</span> without CCR → <span class="text-emerald-400">4.0 days</span> with CCR</div>
-<div>• <span class="text-emerald-400">15.0 days faster</span>, <span class="text-emerald-400">78.9%</span> improvement</div>
-<div>• <span class="text-emerald-400">32,196 total PRs</span> with <span class="text-emerald-400">15.3%</span> adoption</div>
-<div>• <span class="text-emerald-400">1,229 current hours saved</span></div>
-<div>• <span class="text-emerald-400">$88,594 current savings</span></div>
-<div>• <span class="text-emerald-400">$491,863 incremental upside</span> at full adoption</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Key Distinction</div>
-<div class="opacity-80">The calculator separates <span class="text-cyan-400">PR cycle time</span> (days PR stays open) from <span class="text-cyan-400">review effort</span> (minutes humans spend). Labor-savings model is based on review effort, not just open duration.</div>
-</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="text-xs text-purple-300">🔗 Calculator: https://copilot-code-review--clee1211.github.app/</div>
-</div>
-</div>
-</div>
 
 ---
 
-<!-- SLIDE: Quality Metrics — Beyond Time Savings -->
-<FourCardGridSlide
+<!-- SLIDE: The ROI Calculator -->
+<TwoColPairedConceptsSlide
   :partNumber="3"
-  pillIcon="📊"
-  pillLabel="Measuring ROI"
-  title="Quality Metrics — Beyond Time Savings"
-  :cards='[
-    { icon: "🚨", title: "Production Incidents", description: "Baseline: 12 incidents/month. With Copilot: 2/month (83% reduction). Cost avoidance: $12,000/month." },
-    { icon: "🔄", title: "Revert Rate", description: "Baseline revert rate: 8% of PRs. With Copilot: 3% (62% improvement). Avoided rework: $2,250/month." },
-    { icon: "🔐", title: "Security Vulnerabilities", description: "Baseline: 8 vulnerabilities/quarter. With Copilot: <1/quarter (90%+ reduction). Risk avoidance: prevents data breach, compliance fines." },
-    { icon: "🚀", title: "Faster Onboarding", description: "Baseline: 6-8 weeks to first productive PR. With Copilot: 3-4 weeks (50% faster). Savings per hire: $16,000." }
+  pillIcon="🧮"
+  pillLabel="ROI · Calculator"
+  title="Live Calculator: From PR Data to Executive Summary"
+  :left='{
+    header: "What You Put In",
+    icon: "📥",
+    items: [
+      { title: "Customer PR analytics", detail: "Month/quarter of actual PR cycle time data" },
+      { title: "Baseline review minutes", detail: "Avg time per PR review with and without Copilot" },
+      { title: "Developer cost", detail: "Fully loaded annual cost + work hours per year" },
+      "Monthly vs. yearly view toggle"
+    ]
+  }'
+  :right='{
+    header: "What Comes Out",
+    icon: "📤",
+    items: [
+      { title: "Cycle-time improvement", detail: "Days saved per PR and percentage reduction" },
+      { title: "Hours saved", detail: "Current adoption savings + incremental upside" },
+      { title: "Cost savings", detail: "Dollar figure ready for finance and leadership" },
+      "Pre-written exec summary — copy and send"
+    ]
+  }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: March 2026 Example Numbers -->
+<HeroStatSlide
+  :partNumber="3"
+  pillIcon="📈"
+  pillLabel="ROI · Example"
+  title="March 2026 Live Example"
+  subtitle="Real calculator output — assumptions visible, editable, and defensible"
+  :hero='{ value: "78.9%", label: "PR cycle-time improvement: 19.0 days without CCR → 4.0 days with CCR", source: "Copilot Code Review Time Savings Calculator — March 2026 customer example" }'
+  :supporting='[
+    { icon: "📊", title: "32,196 total PRs", description: "15.3% CCR adoption — 1,229 hours saved in current month" },
+    { icon: "📈", title: "6,821 hours incremental", description: "Upside if adoption expands to all PRs in the period" },
+    { icon: "💰", title: "$88,594 current savings", description: "Realized monthly savings at 15.3% adoption" },
+    { icon: "🚀", title: "$491,863 incremental", description: "Additional upside at full adoption — same monthly view" }
   ]'
+  :insight='{ icon: "⚠️", text: "These are not universal benchmarks — the calculator makes assumptions visible and editable per customer." }'
   :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Optional Reporting Automation -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📊 Measuring ROI</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Optional Reporting Automation</div>
-<div class="text-xs text-white/50">When you need recurring internal reporting beyond the live calculator</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col">
-<div class="grid grid-cols-2 gap-3 text-xs mb-3 flex-1 min-h-0 max-h-[300px]">
-<div class="flex flex-col">
-<div class="p-2.5 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30 mb-2">
-<div class="font-semibold text-indigo-300 mb-1">Use Cases for Automation</div>
-<div class="opacity-80 space-y-0.5">
-<div>• Monthly internal dashboards for platform teams</div>
-<div>• Warehouse validation when finance wants independent verification</div>
-<div>• Trend reporting for adoption, revert rate, findings volume</div>
-<div>• Persistent tracking over time without opening the app</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Recommended Approach</div>
-<div class="opacity-80">App is best for <span class="text-cyan-400">live value conversations</span>. SQL and workflow automation best for <span class="text-cyan-400">repeatable internal reporting</span>.</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="font-mono text-xs bg-gray-950/80 border border-purple-700/50 rounded-lg px-3 py-2 flex-1 min-h-0 overflow-y-auto">
-<div class="text-purple-400 mb-1"># GitHub Actions: Track Review Metrics</div>
-<div class="text-gray-300 space-y-0.5">
-<div class="text-yellow-400">on:</div>
-<div class="pl-2">pull_request:</div>
-<div class="pl-4">types: [opened, synchronize, closed]</div>
-<div class="mt-1 text-yellow-400">jobs:</div>
-<div class="pl-2">track-review-metrics:</div>
-<div class="pl-4">runs-on: ubuntu-latest</div>
-<div class="pl-4">steps:</div>
-<div class="pl-6">- name: Extract Review Metrics</div>
-<div class="pl-8">uses: actions/github-script@v7</div>
-<div class="pl-8 text-gray-500"># Filter copilot comments</div>
-<div class="pl-8 text-gray-500"># Categorize by severity</div>
-<div class="pl-8 text-gray-500"># Set outputs</div>
-<div class="pl-6 mt-1">- name: Block on Critical Issues</div>
-<div class="pl-8">if: critical_findings > 0</div>
-<div class="pl-8">exit 1</div>
-</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-3 text-xs">
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-0.5">Focus on Four Views</div>
-<div class="opacity-80">PR cycle time trend, cumulative savings, quality outcomes, adoption rate</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-0.5">Use Existing BI Stack</div>
-<div class="opacity-80">Integrate with your warehouse and BI tools for dashboards</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Quality Metrics Beyond Time -->
+<FrameworkMappingRowsSlide
+  :partNumber="3"
+  pillIcon="📊"
+  pillLabel="ROI · Quality Metrics"
+  title="Four Quality Metrics to Track Alongside Time"
+  subtitle="Time savings is the headline — quality outcomes are the proof that it sticks"
+  :rows='[
+    { label: "Incidents", description: "Code quality incidents: 12/mo baseline → 2/mo with Copilot (83% drop)", tag: "$12K/mo saved" },
+    { label: "Revert rate", description: "PRs merged then reverted due to bugs: 8% → 3% (62% improvement)", tag: "$2.25K/mo" },
+    { label: "Security", description: "Critical vulns reaching production: 8/quarter → under 1 (90%+)", tag: "90%+ reduction" },
+    { label: "Onboarding", description: "Time to first productive PR for new hires: 6-8 weeks → 3-4 weeks", tag: "$16K per hire" }
+  ]'
+  footnote="Track these quarterly — they build the internal business case for sustaining adoption"
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Part 4 — Enterprise Compliance -->
-
+<!-- SLIDE: Part 4 — Compliance and Regulatory Guidance -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="Enterprise Compliance"
-  subtitle="HIPAA, PCI-DSS, SOC2 guidance patterns"
+  title="Compliance and Regulatory Guidance"
+  subtitle="HIPAA, PCI-DSS, and SOC2 patterns — policy as code, audit trail built in"
   :cards='[
-    { icon: "🏥", title: "HIPAA", blurb: "Healthcare compliance patterns" },
-    { icon: "💳", title: "PCI-DSS", blurb: "Payment card compliance" },
-    { icon: "🛡️", title: "SOC2", blurb: "Security control compliance" },
+    { icon: "🏥", title: "HIPAA", blurb: "PHI encryption, audit logging, and TLS enforcement on every PR" },
+    { icon: "💳", title: "PCI-DSS", blurb: "Card data patterns blocked, tokenization enforced, no credentials in code" },
+    { icon: "📋", title: "Audit Trail", blurb: "Every finding and resolution recorded in PR timeline automatically" },
   ]'
-  :terminal='{ context: "Custom instruction files for regulatory standards", detail: "automation + human judgment for compliance" }'
+  :terminal='{ context: ".github/instructions/hipaa.instructions.md — applied on every PR to *.py, *.ts, *.java", detail: "Compliance by code review, not by sampling" }'
 />
+
 ---
 
-<!-- SLIDE: Compliance Through Instruction Files -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: Compliance Instruction Files -->
+<ThreeColumnCardSlide
   :partNumber="4"
-  pillIcon="🏛️"
-  pillLabel="Enterprise Compliance"
-  title="Encoding Compliance in Instruction Files"
-  codePosition="left"
-  :code='{ language: "markdown", filename: ".github/instructions/compliance.instructions.md", content: "---\napplyTo: \"**/*.{js,ts,py,java}\"\n---\n\n## Security Standards\n- Flag hardcoded secrets, API keys\n- Require parameterized queries\n- Check input validation\n- HTTPS for all external API calls\n\n## Data Protection (GDPR, CCPA)\n- Flag storage without encryption\n- Check data retention policies\n- Require audit logging for PII access" }'
-  :features='[
-    { icon: "⚠️", title: "Important Caveat", description: "Copilot Code Review is an assistive tool, not a complete compliance solution. Compliance always requires human oversight, policy enforcement, and organizational discipline." },
-    { icon: "✅", title: "Benefits", description: "Consistent enforcement across all PRs, automated audit trail generation, catch violations before production, reduce compliance risk exposure" },
-    { icon: "📝", title: "Best Practices", description: "Keep instructions concise (~4000 chars), make rules actionable with examples, explain why each rule matters, link to internal policy docs" }
+  pillIcon="📄"
+  pillLabel="Compliance · Instruction Files"
+  title="Three Regulatory Instruction Patterns"
+  :columns='[
+    { icon: "🏥", title: "HIPAA", description: "Healthcare PHI protection", items: ["AES-256 for sensitive data storage", "TLS 1.2+ on all PHI transmission", "Audit logs retained 6+ years", "Access controls on PHI read/write"] },
+    { icon: "💳", title: "PCI-DSS", description: "Payment card data", items: ["Never store PAN, CVV, or mag-stripe", "Require tokenization via payment gateway", "Flag hardcoded payment credentials", "TLS on all payment communications"] },
+    { icon: "🔐", title: "SOC2 / General", description: "Security and data protection", items: ["Parameterized queries — no SQL concat", "Input validation on all user-facing APIs", "Errors must not expose system details", "Structured logging — no console.log in prod"] }
   ]'
-  :progressDots='{ current: 1, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: HIPAA Compliance Example -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: Deploy Compliance Instructions — Five Steps -->
+<FrameworkMappingRowsSlide
   :partNumber="4"
-  pillIcon="🏥"
-  pillLabel="Enterprise Compliance"
-  title="Healthcare (HIPAA) Compliance"
-  codePosition="left"
-  :code='{ language: "markdown", filename: ".github/instructions/hipaa.instructions.md", content: "---\napplyTo: \"**/*.{js,ts,py,java}\"\ndescription: \"HIPAA compliance for health data\"\n---\n\n## HIPAA Requirements\n- All PHI must be encrypted at rest\n- Require AES-256 encryption\n- Flag any code exposing PHI in logs\n- Ensure audit logging captures access\n- Require role-based access controls\n\n## Transmission Security\n- Require TLS 1.2+ for PHI communication\n- Flag hardcoded encryption keys\n\n## Audit Compliance\n- Audit trail for all PHI read/write ops\n- Validate 6-year audit log retention" }'
-  :features='[
-    { icon: "✅", title: "Real-World Impact", description: "Healthcare SaaS: violations 25/quarter → 1/quarter (96% reduction). Audit prep: 200 hrs → 40 hrs. Potential fines: $500K → $50K. Developer awareness: 40% → 95%." },
-    { icon: "🔑", title: "Key Patterns", description: "Automated detection of PHI exposure, consistent encryption enforcement, access control validation, audit trail generation for compliance reporting" }
+  pillIcon="⚙️"
+  pillLabel="Compliance · Deploy Pattern"
+  title="Five Steps to Deploy Compliance Instructions"
+  subtitle="From policy documents to enforced code review rules — a repeatable process"
+  :rows='[
+    { label: "1. Audit", description: "Identify regulatory obligations and prior audit violation patterns", tag: "Scope" },
+    { label: "2. Translate", description: "Convert policies to code: encrypt PHI → flag PII field names", tag: "Rules" },
+    { label: "3. Severity", description: "Critical blocks merge; High requires acknowledgment; Medium informs", tag: "Enforce" },
+    { label: "4. Educate", description: "Each rule must explain why it matters and link to policy or docs", tag: "Teach" },
+    { label: "5. Iterate", description: "Start at medium severity, promote to critical after false-pos review", tag: "Refine" }
   ]'
-  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  footnote="Policy as code: auditors see consistent enforcement, not sampling results"
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
-
 
 ---
 
-<!-- SLIDE: PCI-DSS Payment Security -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: The Audit Trail -->
+<FourCardGridSlide
   :partNumber="4"
-  pillIcon="💳"
-  pillLabel="Enterprise Compliance"
-  title="Payment Processing (PCI-DSS)"
-  codePosition="left"
-  :code='{ language: "markdown", filename: ".github/instructions/pci-dss.instructions.md", content: "---\napplyTo: \"**/*.{js,ts,py,java}\"\ndescription: \"PCI-DSS compliance for payment data\"\n---\n\n## Card Data Handling\n- Never store complete payment card data\n- Flag any code storing card numbers, CVV\n- Require tokenization via compliant gateway\n- No card data in logs or error messages\n\n## Access Control\n- Require auth on all payment APIs\n- Flag hardcoded payment credentials\n\n## Encryption and Security\n- Require TLS 1.2+ for all payment comms\n- Check webhook signature handling\n- Ensure payment data encrypted in DB" }'
-  :features='[
-    { icon: "✅", title: "E-Commerce Case Study", description: "Mid-sized platform (10K+ daily transactions): security review 30% → 100% of PRs, critical vulnerabilities 8/quarter → 0, PR delays 3 days → same-day, security team time freed: 60 hrs/month" },
-    { icon: "🔒", title: "Key Enforcement", description: "No storing raw payment card data, tokenization enforcement, audit logging for all payment operations, required status check blocks merge on violations" }
+  pillIcon="📋"
+  pillLabel="Compliance · Audit Trail"
+  title="Built-In Audit Trail — No Extra Tooling"
+  :cards='[
+    { icon: "🔍", title: "Finding Detected", description: "Timestamp and description of compliance violation recorded in PR timeline permanently" },
+    { icon: "💬", title: "Developer Response", description: "Comment thread shows acknowledgment and remediation approach — all captured" },
+    { icon: "✅", title: "Resolution Verified", description: "Final review confirms fix meets compliance requirement before approval" },
+    { icon: "🔒", title: "Merge Approved", description: "Audit record shows no critical issues at merge time — exportable via GitHub API" }
   ]'
-  :progressDots='{ current: 3, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :insight='{ icon: "📋", text: "Auditors get consistent enforcement evidence across all PRs — not sampling. Reduces audit prep from weeks to days." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Compliance Audit Trail -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏛️ Enterprise Compliance</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Compliance Audit Trail Generation</div>
-<div class="text-xs text-white/50">Automatic evidence collection for regulatory audits</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-2 text-xs">
-<div class="p-2.5 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="font-semibold text-purple-300 mb-1">Automatic Record Creation</div>
-<div class="opacity-80 space-y-0.5">
-<div>1. <span class="text-purple-400">Finding detection:</span> Timestamp and description of compliance violation</div>
-<div>2. <span class="text-purple-400">Developer response:</span> Comment thread showing acknowledgment</div>
-<div>3. <span class="text-purple-400">Resolution verification:</span> Final review confirming fix meets requirements</div>
-<div>4. <span class="text-purple-400">Merge approval:</span> Audit trail showing no critical issues at merge</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-pink-900/30 to-rose-900/30 rounded-lg border border-pink-500/30">
-<div class="font-semibold text-pink-300 mb-1">Export for Reporting</div>
-<div class="opacity-80">Use GitHub API or third-party tools (Jira, ServiceNow, custom dashboards) to export compliance data for audit reports</div>
-</div>
-</div>
-
-<div class="space-y-2 text-xs">
-<div class="p-2.5 bg-gradient-to-br from-emerald-900/30 to-green-900/30 rounded-lg border border-emerald-500/30">
-<div class="font-semibold text-emerald-300 mb-1">Weekly Compliance Summary Reports</div>
-<div class="opacity-80 space-y-0.5">
-<div>Configure Copilot to generate reports showing:</div>
-<div class="pl-2">• Total PRs reviewed</div>
-<div class="pl-2">• Compliance violations detected & resolved</div>
-<div class="pl-2">• Mean time to remediation</div>
-<div class="pl-2">• % of code changes meeting all compliance rules</div>
-</div>
-</div>
-<div class="p-2.5 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="font-semibold text-cyan-300 mb-1">Pro Tip for HIPAA/SOC2 Auditors</div>
-<div class="opacity-80">This data demonstrates proactive security controls and reduces audit preparation time from <span class="text-cyan-400">weeks to days</span></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Before/After -->
+<!-- SLIDE: Before After -->
 <BeforeAfterSlide
-header="PR Bottleneck to Automated First-Pass Review"
-:leftItems='["Wait time: 3–4 days", "Security: manual oversight", "False positives: baseline", "Review cycle: slow feedback"]'
-:rightItems='["Instant automated review", "Security: 90%+ improvement", "False positives: 73% reduction", "Fast AI feedback loop"]'
-:metrics='[
-  { value: "3–4 days → instant", detail: "Review time" },
-  { value: "90%+", detail: "Security improvement" },
-  { value: "73%", detail: "False positive reduction" }
-]'
+  header="From Manual Bottleneck to Automated Accelerator"
+  :leftItems='["PRs wait 3.2 days on average for first review", "Senior engineers spend 30% of time on mechanical checks", "Security violations caught inconsistently under deadline pressure", "Compliance audits require manual sampling across PRs"]'
+  :rightItems='["Copilot reviews within 1-2 minutes of PR creation", "Human reviewers focus on architecture, business logic, and strategy", "90%+ reduction in security violations reaching production", "Every PR creates a permanent compliance audit record automatically"]'
+  :metrics='[
+    { value: "40-60%", detail: "reduction in PR review cycle time" },
+    { value: "90%+", detail: "fewer security violations in production" },
+    { value: "5 min", detail: "from zero to first automated review" }
+  ]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Navigate to Settings → Rules → Rulesets", "Create a ruleset targeting main branch", "Enable automatic Copilot code review in rulesets", "Submit a test PR and observe feedback quality", "Review official documentation"]'
-  :thisWeek='["Create .github/copilot-instructions.md", "Set up required status check integration", "Train team on @github-copilot mentions", "Establish baseline metrics (PR review time, revert rate)"]'
-  :thisMonth='["Build custom language-specific instruction files", "Implement GitHub Actions for ROI tracking", "Run ROI workshop with time-savings calculator", "Deploy organization-wide with standardized rules", "Calculate and present ROI to leadership"]'
-  footer="Enable auto-review today, establish a 30-day metrics baseline tracking PR cycle time and finding categories, then expand org-wide once you have the ROI data — typical teams see 5-10x ROI in the first pilot."
+  :today='["Enable Copilot Code Review via Rulesets on one repository", "Create .github/copilot-instructions.md with your top 5 review rules", "Open the Time Savings Calculator with your last month of PR data"]'
+  :thisWeek='["Add language-specific instruction files for your primary stack", "Enable required status check on main — block merges on critical findings", "Share calculator output with engineering leadership as a conversation starter"]'
+  :thisMonth='["Roll out to 50% of repositories following the 12-week phased plan", "Add compliance instruction files if you have regulatory requirements", "Track the four quality metrics: incidents, revert rate, security, onboarding time"]'
+  footer="Code review becomes an accelerator the moment it stops waiting for a human to start."
 />
 
 ---
@@ -807,19 +431,14 @@ header="PR Bottleneck to Automated First-Pass Review"
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "Official Documentation", color: "cyan", items: [
-        { label: "GitHub Copilot Code Review - Concepts", description: "Core review architecture and model behavior" },
-        { label: "Configure Automatic Code Review", description: "Setting up auto-review triggers and scope" },
-        { label: "Using Copilot Code Review", description: "Requesting reviews, interpreting suggestions" },
-        { label: "Copilot Enterprise Documentation", description: "Enterprise deployment and governance options" }
+    { title: "📖 Official Documentation", color: "cyan", items: [
+        { href: "https://docs.github.com/en/copilot/concepts/agents/code-review", label: "GitHub Copilot Code Review — Concepts", description: "Core concepts and agent capabilities" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review", label: "Configure Automatic Code Review", description: "Rulesets setup and custom instruction guidance" },
+        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review", label: "Using Copilot Code Review", description: "Practical usage patterns and best practices" }
     ] },
-    { title: "Industry Research", color: "purple", items: [
-        { label: "GitHub Blog: Copilot Code Review Launch", description: "Announcement and key metrics" },
-        { label: "Microsoft DevBlogs: AI Code Review Best Practices", description: "Implementation guidance" },
-        { label: "Stack Overflow Developer Survey 2024", description: "Code review bottleneck statistics" },
-        { label: "OWASP Top 10 2024", description: "Vulnerability categories caught by AI review" },
-        { label: "GitHub Security Lab: AI in Application Security", description: "73% fewer false positives" },
-        { label: "Gartner: AI-Augmented Software Engineering", description: "Market analysis and adoption trends" }
+    { title: "🛠️ Related Content", color: "purple", items: [
+        { label: "Copilot Primitives", description: "Custom instructions, agents, and skills in depth" },
+        { label: "Enterprise Patterns", description: "Organization-wide governance and compliance controls" }
     ] }
   ]'
 />
@@ -828,12 +447,12 @@ header="PR Bottleneck to Automated First-Pass Review"
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="GitHub Copilot Code Review: From Bottleneck to Accelerator"
-:cards="[
-  { icon: '⚡', value: '40-60% Faster', detail: 'PR review cycle time reduction', subdetail: 'Automated reviews catch issues instantly' },
-  { icon: '🔒', value: '90%+ Reduction', detail: 'In security violations', subdetail: 'Catching issues before they reach production' },
-  { icon: '⏱️', value: '15 Minutes', detail: 'From enablement to first review', subdetail: 'Enable workspace setting and open a PR' },
-]"
-prompt="Questions? Ready to reduce your PR bottleneck?"
+  title="GitHub Copilot Code Review"
+  subtitle="From Bottleneck to Accelerator"
+  :cards="[
+    { value: '40-60%', detail: 'PR review cycle time reduction — from 3.2 days to hours' },
+    { value: '90%+', detail: 'Security violations caught before reaching production' },
+    { value: '5 min', detail: 'From zero configuration to first automated review' },
+  ]"
+  prompt="What&#39;s your current PR cycle time — and what would 40% faster mean for your team&#39;s delivery?"
 />

@@ -77,3 +77,28 @@ This must appear as the final block in the file, after `ThankYouSlide`. It is no
 - Part 3 (Setup) is intentionally short (2 slides) — it's the adoption enabler, not the value story
 
 **Source:** `slides/tech-talks/copilot-azure-mcp.md`, `tech-talks/copilot-azure-mcp/deck.recipe.yml`
+
+---
+
+## copilot-code-review.md: Deck structure and section mapping (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+**Slide count:** 22 slides. Section opener slide numbers: Part 1=4, Part 2=8, Part 3=12, Part 4=16.
+
+**Section arc (recipe-driven):**
+- Part 1 "Configuration and Quick Start" (cyan, 3 body): WorkflowShowdown (manual vs Copilot setup: 3.2-day wait → 1-2 min) → CodeWithFeatures (.github/copilot-instructions.md file contents + 3 scope levels) → TwoColPaired (branch protection gate + @github-copilot mentions)
+- Part 2 "Best Practices and Team Adoption" (blue, 3 body): FourCardGrid (6 capability categories, 4 shown + insight for remaining 2) → BeforeAfterMetrics (hybrid analysis: 73% fewer false positives, 84% better vulnerability coverage) → FrameworkMappingRows (12-week phased rollout: Pilot/Tune/Expand/Scale)
+- Part 3 "Measuring ROI and Business Impact" (indigo, 3 body): TwoColPaired (calculator: inputs vs outputs) → HeroStat (78.9% cycle-time improvement, March 2026 example: $88K current / $491K incremental) → FrameworkMappingRows (4 quality metrics: incidents/revert-rate/security/onboarding)
+- Part 4 "Compliance and Regulatory Guidance" (purple, 3 body): ThreeColumnCard (HIPAA/PCI-DSS/SOC2 instruction patterns) → FrameworkMappingRows (5-step deploy pattern: Audit/Translate/Severity/Educate/Iterate) → FourCardGrid (built-in audit trail: 4 stages)
+
+**Key framing decisions:**
+- Section value is `Copilot Tools` — README frontmatter says "Copilot Agents" which is stale; index-custom.html confirms the correct value
+- The calculator example (78.9% improvement, $88K/$491K) is a March 2026 live customer example — explicitly framed as illustrative with visible assumptions, not universal benchmarks
+- Compliance section is positioned last because practitioners need the "how" (Part 1) and proof (Parts 2-3) before they will engage with regulatory details
+- ThreeColumnCard chosen for Part 4 slide 1 because HIPAA/PCI-DSS/SOC2 are exactly 3 non-overlapping regulatory regimes — perfect fit
+- The audit trail FourCardGrid (Finding → Response → Resolution → Merge) is the take-home artifact — shows auditors get enforcement evidence, not sampling
+
+**Build gotcha encountered:** `tag` prop value `$2,250/mo` (with comma) caused UnoCSS to generate invalid CSS `[rows~="\$2\,250\/mo\\"]` with an unclosed bracket in PostCSS. Fixed to `$2.25K/mo`. Do not use commas in `tag` prop values — UnoCSS feeds them directly into CSS attribute selectors.
+
+**Source:** `slides/tech-talks/copilot-code-review.md`, `tech-talks/copilot-code-review/deck.recipe.yml`

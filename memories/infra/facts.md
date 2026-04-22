@@ -78,6 +78,26 @@ This affected both `copilot-cli.md` and `copilot-chat-internals.md` before being
 
 ---
 
+## Commas in `tag` prop values break UnoCSS CSS generation (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`FrameworkMappingRowsSlide` (and any component that uses a `tag` prop for UnoCSS attribute selectors) must **not have commas** in `tag` values. UnoCSS maps the value directly into a CSS attribute selector; a comma inside produces `[rows~="\$2\,250\/mo\\"]` which PostCSS cannot parse — it raises "Unclosed bracket" and crashes the Vite dev server.
+
+**Broken (crash at dev-server startup):**
+```
+{ label: "Revert rate", tag: "$2,250/mo" }
+```
+
+**Fixed:**
+```
+{ label: "Revert rate", tag: "$2.25K/mo" }
+```
+
+Rule: use `.` separators, abbreviate (K/M), or drop the number entirely. Never embed a bare comma in a `tag` prop value. This applies to any component whose props are mapped to UnoCSS attribute selectors.
+
+---
+
 ## SectionOpenerSlide prop limits: title ≤40 chars, subtitle ≤120 chars (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`
