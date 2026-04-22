@@ -16,7 +16,7 @@ Every slide uses a Vue component — no raw HTML. The component library handles 
 
 ## Pre-flight gates
 
-Three quick checks — then immediately start writing.
+Four quick checks — then immediately start writing.
 
 1. **README exists** — Confirm `tech-talks/{topic}/README.md` exists. If not, stop: "No README.md found. Generate it first via the Tech Talk Generator agent."
 2. **Not archived** — Read only the README frontmatter. If `status: archived`, stop. Also refuse if the existing slide file has `status: archived`.
@@ -24,20 +24,19 @@ Three quick checks — then immediately start writing.
    - **If it exists:** read it. It has everything needed for Phase A.
    - **If missing:** stop. Say: "No `deck.recipe.yml` found for this talk. Run the deck-recipe-review skill to create one, then re-invoke this agent."
    - Do **not** overwrite an existing recipe unless the user explicitly asks.
+4. **Clear the output file** — Before writing a single slide, run:
+   ```powershell
+   Set-Content "slides/tech-talks/{slug}.md" "<!-- generating -->" -Encoding UTF8NoBOM
+   ```
+   This must happen before Phase A. Do not write into an existing file.
 
-→ **Recipe in hand? Go directly to Phase A.** Do not read the README, template, or SECTIONS.md yet.
+→ **All gates passed? Go directly to Phase A.** Do not read the README, template, or SECTIONS.md yet.
 
 ---
 
 ## Phase A — Scaffold (recipe-driven)
 
 The recipe contains everything needed to write the full structural skeleton. Start immediately.
-
-**Clear the output file first:**
-
-```powershell
-Set-Content "slides/tech-talks/{slug}.md" "<!-- generating -->" -Encoding UTF8NoBOM
-```
 
 Write the scaffold in one pass:
 

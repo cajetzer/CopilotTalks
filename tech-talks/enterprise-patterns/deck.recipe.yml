@@ -1,63 +1,98 @@
-# VERDICT (3-agent council): "Adoption & Enablement" is the canonical S4 name — it frames the
-# organizational outcome, not just measurement; update slide section header to match. S2 earns
-# medium-high: Agent Skills (GA) and Knowledge Bases (Enterprise) are differentiating capabilities
-# that bridge the standards foundation to governance and warrant ~3 slides, not 2.
+# VERDICT (3-agent council): Four canonical sections in Standards → Knowledge → Governance →
+# Enablement order form the tightest problem-to-proof arc for this audience; S1 and S4 both
+# earn high emphasis as the talk's foundational organizing claim and 16x ROI payoff respectively,
+# while S2 (medium-high, ~3 slides) and S3 (medium-high, ~3 slides) sustain momentum through
+# enterprise differentiators and compliance control. One mandatory rename action: the slide Part 4
+# header "Scaling & Measurement" must become "Adoption & Enablement" to match this recipe and README.
 
 version: 1
 
 deck:
-  title: Scaling GitHub Copilot Across Organizations
-  subtitle: Enterprise Patterns for AI Adoption
-  tagline: Transform individual team success into organizational capability with consistent standards and governance
+  title: "Scaling GitHub Copilot Across Organizations"
+  subtitle: "Enterprise Patterns for AI Adoption at Scale"
+  tagline: "One change, all repos, instantly — from pilot teams to org-wide capability"
+  arcToc: "Standards → Skills & Knowledge → Governance & Licensing → Adoption & Enablement"
 
-  arc: >
-    Open with the scaling chaos problem — teams reinventing rules, tribal knowledge siloed in repos,
-    no consistent standards. Fix the foundation with org-wide instructions (S1). Amplify institutional
-    expertise through org skills and knowledge bases that compound across teams rather than fragment (S2).
-    Lock it down with model governance, compliance automation, and cost-optimized licensing (S3).
-    Close with the ROI proof: metrics that replace anecdotes, self-service onboarding with no
-    platform bottleneck, and a federated governance model ready to present to the CFO (S4).
-    Arc label: "From Pilot Chaos to Organizational Capability."
+  arcNarrative: >
+    Open with the organizing problem: 50 teams each reinventing the same security rules, coding
+    standards, and framework patterns — 40+ hours of waste per team, zero consistency, siloed
+    tribal knowledge that walks out the door. S1 resolves the fragmentation with org-wide custom
+    instructions that propagate to every repo in a single change, establishing the standards
+    foundation for everything that follows. S2 multiplies rather than fragments institutional
+    knowledge — Agent Skills encode domain expertise centrally (security validation, compliance
+    checks, architecture review) while Knowledge Bases index related services so the cross-repo
+    knowledge graph becomes the coordination mechanism; this is where the "50 reinventions" problem
+    compounds into compounding capability instead. S3 controls risk and proves compliance-readiness
+    to regulated-industry buyers: model governance policies, 30-40% cost reduction through
+    usage-based licensing, and audit trails that satisfy finance, healthcare, and government
+    requirements. S4 closes with the ROI proof that converts leaders from skeptics to sponsors —
+    metrics framework replacing anecdotes, 30-minute self-service onboarding removing platform
+    bottleneck, federated governance model, and the anchor number: 16x ROI from 180 hours of
+    platform investment into 2,900+ hours saved in year one. Peak engagement lands at the S1
+    "one change reaches 500+ developers" reveal and again at the S4 16x ROI close.
 
   sectionOrder:
-    - "Organization-Wide Standards: Custom Instructions at Scale"
-    - "Organizational Skills & Knowledge Bases: Institutional Knowledge That Scales"
-    - "Governance & Licensing: Control, Compliance, and Cost Optimization"
-    - "Adoption & Enablement: Scaling Without Bottlenecks"
+    - "Organization-Wide Standards"
+    - "Organizational Skills & Knowledge Bases"
+    - "Governance & Licensing"
+    - "Adoption & Enablement"
 
   sectionModes:
-    "Organization-Wide Standards: Custom Instructions at Scale":
+    "Organization-Wide Standards":
       emphasis: high
       note: >
-        The foundational fix — one instruction change reaches every repo instantly, ending team-by-team
-        reinvention of security, framework, and quality rules. Sets the stage for everything that follows.
+        The foundational fix and early climax moment — one org-level instruction change reaches
+        every repo instantly, ending the 50-teams × 40-hours reinvention tax. Cover what to
+        standardize (security requirements, framework patterns, quality standards), monorepo
+        nested playbooks, and the "50 teams = 50 reinventions without this" framing. This is the
+        talk's organizing claim and must land with force before S2 can build on it. The "whoa"
+        moment: one change propagates to 500+ developers with zero per-repo config.
 
-    "Organizational Skills & Knowledge Bases: Institutional Knowledge That Scales":
+    "Organizational Skills & Knowledge Bases":
       emphasis: medium-high
       note: >
-        Bumped from medium: Agent Skills (GA) and Knowledge Bases (Enterprise) are genuine differentiators
-        that encode domain expertise centrally — security validation, compliance checks, architecture review
-        compound across teams instead of fragmenting inside individual repos. Needs ~3 slides to land.
+        Agent Skills (GA) and Knowledge Bases (Enterprise Cloud only) are genuine enterprise
+        differentiators — encode domain expertise centrally for security validation, compliance
+        checks, and architecture review that all teams consume by reference. Needs ~3 slides to
+        cleanly separate GA capabilities (any Enterprise customer) from Enterprise Cloud-only
+        Knowledge Bases; audience segmentation matters here for credibility. IMPORTANT: the
+        README 🎬 "Multi-Team Coordination" section is fully absorbed into this section — the
+        shared knowledge graph linking related services across repos IS the coordination
+        mechanism; do not create a separate Multi-Team Coordination slide or section. The "whoa"
+        moment: knowledge compounds with use rather than fragmenting into individual repos.
 
-    "Governance & Licensing: Control, Compliance, and Cost Optimization":
+    "Governance & Licensing":
       emphasis: medium-high
       note: >
-        Critical for regulated industries and cost-conscious leaders — model policies, compliance automation,
-        and 30-40% cost reduction via flexible licensing and entitlements strategies.
+        Critical trust-builder for regulated industries and cost-conscious engineering leaders.
+        Cover model governance policies (which models teams access, auto-selection), flexible
+        licensing with 30-40% cost reduction via usage-based entitlements, and compliance
+        automation with audit trails, content filtering, and data residency. Must land before
+        the ROI section to explain the control layer that makes the investment defensible. The
+        "whoa" moment: 30-40% cost reduction versus seat-only licensing is a hard number that
+        CFOs and procurement teams respond to.
 
-    "Adoption & Enablement: Scaling Without Bottlenecks":
+    "Adoption & Enablement":
       emphasis: high
       note: >
-        The ROI payoff — metrics framework (55-65% acceptance rate target, 80%+ active users), self-service
-        30-minute onboarding, and federated governance model that converts adoption data into a CFO-ready
-        investment narrative. Canonical name for this section; slide header should match.
+        The ROI payoff and closing climax. Metrics framework (acceptance rate target 55-65%,
+        active users target 80%+, PR velocity, review time, cost per feature), self-service
+        30-minute quick start that removes platform as bottleneck, and the federated governance
+        model (platform team sets standards floor, domain teams customize ceiling, community
+        shares). Anchor on 16x ROI: 180 hours platform investment → 2,900+ hours saved year 1.
+        The "whoa" moment: 16x return is the number that converts skeptical engineering leaders.
+        MANDATORY RENAME ACTION: the slide Part 4 header currently reads "Scaling & Measurement"
+        — it must be renamed to "Adoption & Enablement" to match this recipe and the canonical
+        README 🎬 section name before this deck is published.
 
   highlightMoments:
-    - "16x ROI from knowledge multiplication across teams via shared org instructions"
-    - "One org instruction change propagates to all repos instantly — no per-repo updates needed"
-    - "30-40% cost reduction via flexible licensing and entitlements strategy"
-    - "Metrics framework replaces anecdotes with acceptance rates, PR velocity, and cost-per-feature data"
-    - "Federated governance: platform team sets standards, domain teams customize — self-service onboarding in 30 minutes, no platform bottleneck"
+    - "16x ROI: 180 hours platform investment → 2,900+ hours saved year 1 (50 teams × 40 hrs reinvention avoided)"
+    - "One org-wide instruction change reaches 500+ developers instantly — no per-repo config needed"
+    - "50 teams = 50 reinventions without org-wide standards — the organizing problem this talk solves"
+    - "Agent Skills (GA) vs Knowledge Bases (Enterprise Cloud only) — audience segmentation that matters"
+    - "Metrics replacing anecdotes: 55-65% acceptance rate target, 80%+ active users, cost-per-feature"
 
-  # RESOLVED: framing slides ("The Problem" / "The Solution") are embedded as the opening slide of
-  # Part 1 ("The Traditional Problem") — no promotion to named recipe sections needed.
+# OPEN DECISION: Should the S1 opening slide ("The Traditional Problem") be promoted to a
+# standalone framing slide before S1, or does it serve well as S1's entry slide? Current
+# structure embeds it inside Part 1 — acceptable if the hook lands within the first 60 seconds.
+# Promote only if live delivery shows the problem framing needs more breathing room.

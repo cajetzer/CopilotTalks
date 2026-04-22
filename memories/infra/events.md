@@ -4,6 +4,24 @@ Milestones, archival decisions, and major restructures.
 
 ---
 
+## Tech-talk pipeline restructured: 3-agent workflow with deck-recipe-review skill (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+The tech-talk authoring pipeline was redesigned into a strict 3-stage sequence:
+
+1. **Tech Talk Generator** — writes `README.md` (Phase 1-3 unchanged). No longer creates `deck.recipe.yml` itself. Final step invokes the deck-recipe-review skill.
+2. **Deck Recipe Review skill** — owns recipe creation entirely. Reads README + `DECK-RECIPE-TEMPLATE.yml` schema. Runs a 3-agent Agent Council (Phase 1 → Phase 2 improve → Phase 3 orchestrate). Produces a **complete, fresh** `deck.recipe.yml` with ALL fields: `version`, `title`, `subtitle`, `tagline` (from README), plus `arcToc`, `arcNarrative`, `sectionOrder`, `sectionModes`, `highlightMoments` (from council). Always overwrites — never patches.
+3. **Tech Talk Slide Generator** — reads `deck.recipe.yml` as the sole Phase A input. If recipe is missing, **hard stops**: "Run the deck-recipe-review skill first." No longer synthesizes a recipe from the README.
+
+**Other changes:**
+- `DECK-RECIPE-TEMPLATE.yml` moved from `tech-talks/` to `.github/skills/deck-recipe-review/` (skill artifact)
+- `arcToc` and `arcNarrative` added as explicit Phase 3 council outputs
+- File-clear gate (gate 4) promoted to pre-flight in slide generator: `Set-Content ... "<!-- generating -->"` runs BEFORE Phase A, not inside it
+- References to `@Slide Manager`, `@Slide Generator`, `@tech-talk-author` removed from `tech-talks/README.md` (obsolete agent names)
+
+---
+
 ## 5 new Tier-1 components added + inline HTML mandate (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

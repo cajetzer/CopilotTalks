@@ -1,59 +1,105 @@
 # deck.recipe.yml — Copilot SDK talk guidance
 #
-# VERDICT (3-agent council): Pattern 1 (CLI Tool) belongs in "Installing and Using the SDK" as the
-# "hello world" that proves the install worked — S3 should own only the two production-grade patterns
-# (web API, scheduled automation), so the arc earns its "install → first run → scale" shape.
-# Emphasis rebalanced to medium-high / medium / high / high: the architecture section is essential
-# but contained (2 dense slides, not long), and Real-World Use Cases must land with full weight
-# as the closing argument audiences take back to their managers; the "same SDK, different targets"
-# highlight moment was cut as the only one without a number or a genuine revelation.
+# VERDICT: S1 earns medium-high (trust anchor, not a runtime lecture); S3 and S4 both earn
+# high — S3 is the "I can ship this" peak for practitioners, S4 is the closing climax where
+# ROI numbers (2 h → ~15 min, 45 min → automated, 30 min/PR → zero) convert belief into
+# internal justification. ROI metrics thread through S2–S4: each section borrows one concrete
+# metric as a motivating hook before S4 delivers the full sweep.
 
 version: 1
 
 deck:
   title: "GitHub Copilot SDK"
   subtitle: "Build AI-Powered Tools for Your Workflows"
-  tagline: "Transform repetitive analysis into automated intelligence"
-  arc: "Understand the engine → Install and run your first tool → Scale to web APIs and automation → See it proved in production"
+  tagline: "Stop building AI infrastructure. Start building the thing that matters."
+  arcToc: "Architecture & Capabilities → Getting Started → Integration Patterns → Advanced Features"
+  arcNarrative: >
+    S1 earns credibility by revealing the SDK's core secret: it is not a new runtime but a
+    thin JSON-RPC façade over the same production-tested Copilot CLI agent runtime — months of
+    planning loops, tool orchestration, and context management already shipped with the import.
+    That trust-building is deliberately contained (medium-high) so the talk can accelerate into
+    S2, where 10 lines of code plus a live demo create the "this actually works" moment that
+    unlocks the audience for everything ahead; the release-notes metric (~15 min automated) is
+    introduced here as a taste of what S4 will quantify fully. Peak engagement lands in S3:
+    the Web API and Scheduled Automation patterns are the production artifacts practitioners
+    came for — the diff from stateless CLI tool to persistent HTTP service or autonomous cron
+    job is where "I could ship this next week" happens, and the CI test-analysis metric
+    (45 min per failed run → automated) grounds the scheduler pattern in real pain. S4 closes
+    as the climax, not an appendix: BYOK, streaming, model routing, and MCP integration are
+    not listed as features but proved through use cases with full ROI numbers. This ordering
+    beats alternatives (e.g., opening with use cases) because the architecture reveal in S1
+    is what makes every ROI claim in S4 believable — without it, the metrics sound like
+    marketing; with it, they sound like engineering.
 
   sectionOrder:
-    - "How the SDK Works"
-    - "Installing and Using the SDK"
-    - "Building Tools with the SDK"
-    - "Real-World Use Cases"
+    - "Architecture & Capabilities"
+    - "Getting Started"
+    - "Integration Patterns"
+    - "Advanced Features"
 
   sectionModes:
-    "How the SDK Works":
+    "Architecture & Capabilities":
       emphasis: medium-high
       note: >
-        This is the conceptual anchor — the JSON-RPC-over-stdio architecture diagram is the
-        "aha" moment that explains why the SDK is not just a thin wrapper but the full agent runtime.
-        Two slides, both dense; medium-high is honest here — essential but contained, not sprawling.
-    "Installing and Using the SDK":
+        The trust anchor — and the single most important conceptual frame in the talk. Lead
+        with the JSON-RPC-over-stdio architecture diagram: SDK spawns (or connects to) Copilot
+        CLI in server mode, manages the protocol, and streams results back. The "whoa" moment
+        is the reveal that this IS the production agent runtime (not a wrapper or simulation) —
+        the same planning loops, tool orchestration, multi-turn execution, MCP integration, and
+        BYOK that power Copilot CLI ship with the import statement. Do NOT rush past this point;
+        it is the credibility foundation that makes every later claim land. Cover language
+        support (Python, TypeScript/Node.js, Go, .NET) and full capability list, then stop.
+        Medium-high emphasis: 3–4 slides maximum — essential but not a lecture. Cut: billing
+        minutiae, per-language API diffs, tool-permission deep dive (that belongs in S3).
+    "Getting Started":
       emphasis: medium
       note: >
-        Move fast; practitioners can follow install steps on their own. Pattern 1 (CLI Tool) lives
-        here as the "hello world" that completes the install story — keep it brief but run it live
-        so the audience sees the SDK respond before S3 raises the stakes with production patterns.
-    "Building Tools with the SDK":
+        Brisk and confidence-building. Install (pip/npm/go get), create CopilotClient, call
+        run_agent — the whole hello-world in ~10 lines of code. Run it live if at all possible:
+        seeing the agent respond is the emotional permission slip that unlocks the audience for
+        S3's production patterns. Thread the first ROI hook here: "this is the same engine
+        that takes release notes from 2 hours to ~15 minutes — you just saw it in 10 lines."
+        Medium emphasis: 2–3 slides — necessary scaffolding but not the climax. Resist
+        expanding; every minute here is borrowed from S3 and S4 where the real value lands.
+        Cut: multi-language API comparisons beyond one example, streaming detail (that's S4).
+    "Integration Patterns":
       emphasis: high
       note: >
-        The highest-value section — two production-grade patterns (web API, scheduled automation)
-        are what practitioners came for; Pattern 1 has already been demoed in S2, so S3 can open
-        at full speed. Give each pattern its full 60 seconds of air and show the diff from S2.
-    "Real-World Use Cases":
+        Peak practitioner-value. Pattern 1 (CLI Tool) is already banked from S2 — open S3 at
+        full speed with Pattern 2 (Flask/Express Web API) and Pattern 3 (Scheduled Automation /
+        cron). The conceptual leap from stateless CLI call to persistent HTTP service or
+        autonomous scheduler is where the "I could ship this next week" moment lives; give each
+        pattern its full time. Thread the second ROI hook: "the scheduler pattern is how you
+        eliminate the 45-minute-per-failed-CI-run manual analysis your team does today."
+        Cover tool permission control (allowed_tools) and working-directory restriction as
+        production hygiene — not fine print, but a confidence signal that the SDK is
+        enterprise-safe. The "whoa" moment is the cron + SDK pairing: fully autonomous AI
+        that runs on schedule with zero human intervention. Cut: BYOK and streaming detail
+        (those close S4), MCP setup (too advanced for this section's pacing).
+    "Advanced Features":
       emphasis: high
       note: >
-        Close with proof and close hard — quantified before/after numbers (2 h → 10 min, 45 min →
-        5 min, 30 min/PR → auto) are the language the audience needs to justify the SDK internally.
-        This is the closing argument; high emphasis so it lands with weight, not as a rushed coda.
+        The closing climax — deliver as proven use cases, not feature bullets. Release
+        Engineering (2 hours → ~15 minutes, >85% reduction), Test Infrastructure (45 min per
+        failed CI run → automated pattern detection), Code Review Bot (30 min/PR standards
+        checking → zero manual time), Incident Response (30+ min log correlation → automated):
+        these are the ROI numbers the audience needs to justify SDK adoption internally. The
+        "whoa" moment is the full metrics sweep — by the time it lands, the audience has seen
+        the architecture (S1), run the code (S2), and understood the deployment patterns (S3),
+        so the numbers feel inevitable rather than speculative. Weave BYOK (cost control +
+        enterprise compliance), streaming (real-time UX for long-running agents), and model
+        routing (right model for right task) into the use-case narrative — they explain HOW
+        the numbers are achievable. Close hard with a call-to-action: Technical Preview since
+        January 2026, install in 15 minutes, first automation shipping this sprint.
 
   highlightMoments:
-    - "Release notes automation: 2 hours → 10 minutes per release (92% time reduction)"
-    - "Production-tested agent runtime as a library — no DIY agent infrastructure to build"
-    - "One SDK import gives you full planning loops, tool orchestration, and multi-turn conversations"
-    - "Test failure analysis: 45 minutes → 5 minutes per failed build (89% reduction)"
+    - "SDK wraps the same production-tested CLI agent runtime — planning, tools, and context management ship with the import"
+    - "10 lines of code: CopilotClient + run_agent gives you the full agentic execution loop, live demo included"
+    - "Integration Patterns: Web API + Scheduled Automation — fully autonomous AI running on cron with zero human intervention"
+    - "Release engineering: 2 hours manual → ~15 minutes automated (>85% reduction); test analysis: 45 min → automated"
+    - "BYOK + tool permission control + model routing: enterprise cost governance and security posture out of the box"
 
-# OPEN DECISION: 'When to Use This Pattern' (decision tree / CLI vs IDE vs SDK comparison table)
-# is intentionally excluded from sectionOrder — it fits better as a backup or facilitator reference
-# than as a primary section at this talk length. Still the right call at 45 minutes.
+# OPEN DECISION: S4 slide title visible to audience may read "Real-World Use Cases" rather
+# than "Advanced Features" — this is intentional (features proved by use cases, not listed
+# abstractly). README 🎬 marker and this recipe are the canonical section names; do not let
+# slide display labels drift back into the recipe yaml.

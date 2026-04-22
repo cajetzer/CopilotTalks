@@ -4,6 +4,30 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Multiline `:prop` array bindings break Vue template parser in Slidev (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+Writing a `:cards` (or any array prop) as a multiline attribute value causes `Error parsing JavaScript expression: Unexpected token, expected ","` in the Vite/Vue compiler. Slidev processes `.md` files as Vue SFCs — newlines inside a dynamic attribute value are invalid.
+
+**Broken:**
+```
+:cards="[
+  { icon: '⏱️', value: '...' },
+]"
+```
+
+**Fixed:** collapse to a single line:
+```
+:cards="[{ icon: '⏱️', value: '...' }, { icon: '🎯', value: '...' }]"
+```
+
+Also: `&#39;` HTML entities inside `:prop` bindings cause attribute-name parse errors. Use escaped single quotes (`\'`) instead, or rewrite to avoid apostrophes.
+
+**Applies to:** `ThankYouSlide :cards`, `CoreQuestionSlide :cards`, any component that takes an array prop. The slide generator must always write array props on a single line.
+
+---
+
 ## component-test.md is NOT a tech-talk (2026-04-21)
 
 `schema_version: 1` | `date: 2026-04-21`

@@ -1,8 +1,9 @@
 # deck.recipe.yml — VS Code Latest talk guidance
 #
-# VERDICT: S4 renamed "Security & UX" to match actual slide content (browser tools + Chat UX
-# already live in the deck); VS Code Agents companion app added as a highlight moment because
-# it is the architectural culmination of the arc — fleet-level parallel execution across repos.
+# VERDICT: The six candidate sections collapse to four because autopilot, parallel execution,
+# and the companion app share one autonomous-execution thesis that splinters if isolated.
+# S4's Security + Chat UX pairing holds because both answer the same developer objection —
+# "is this safe to run unsupervised, and pleasant enough to use every day?"
 
 version: 1
 
@@ -10,7 +11,23 @@ deck:
   title: "What's New in Copilot for VS Code"
   subtitle: "v1.108 – v1.115: Eight Releases of AI Innovation"
   tagline: "From assistant to autonomous agent team"
-  arc: "assistant → autonomous agent → enterprise agent fleet — each section adds a capability layer, ending with trust and UX controls"
+  arcToc: "Sessions & Orchestration → Customization → Claude Integration → Security & UX"
+  arcNarrative: >
+    The talk traces a single architectural shift across eight VS Code releases: Copilot
+    evolving from a conversational assistant into an orchestrated fleet of specialized agents.
+    S1 establishes the paradigm — four agent types, Autopilot mode, Git-worktree parallelism,
+    and the VS Code Agents companion app as the capstone showing fleet-scale execution across
+    repos; this is where peak engagement lands because the "leave the room" moment and the
+    companion app demo are viscerally concrete. S2 shifts register from marvel to ownership:
+    Skills GA, Plugins, org-level instructions, and the Chat Customizations editor give
+    organizations precise control over the fleet S1 introduced — this ordering means every
+    customization feature lands on an audience already sold on why they need it. S3 adds a
+    power-user tier for teams willing to trade latency for reasoning depth — configurable
+    thinking effort and nested subagents are credible only after S2 has established that
+    Copilot is already customizable. S4 closes the trust loop: sandboxing and auto-approval
+    rules answer the implied objection before anyone voices it, and Chat UX polish ensures
+    the final image is ergonomic confidence, not security anxiety. The arc lands as:
+    assistant → autonomous agent → customized fleet → trusted at scale.
 
   sectionOrder:
     - "Agent Sessions & Orchestration"
@@ -22,38 +39,66 @@ deck:
     "Agent Sessions & Orchestration":
       emphasis: high
       note: >
-        Lead with the four agent types and background agents with Git worktree isolation —
-        this is the biggest mindset shift and earns the audience's attention for everything
-        that follows. Close the section with the VS Code Agents companion app (v1.115) as the
-        capstone: it shows what fleet-level parallel execution across repos looks like in practice.
+        The paradigm-shift section — earn the audience's full attention before anything else.
+        Open with the four agent types (Local, Background, Cloud, Claude) as a taxonomy slide
+        that reframes what "Copilot" means. Follow immediately with Background agents plus Git
+        worktree isolation as the proof point for true parallel autonomous execution — show
+        two simultaneous sessions, not just describe them. Land Autopilot mode (v1.111) as the
+        "whoa" moment: auto-approve tool calls, auto-retry errors, continue until task_complete;
+        the phrase "leave the room" must appear on slide. Add the Explore subagent (read-only,
+        reduces Plan agent context contamination) and session forking as operational depth
+        without letting them steal the spotlight. Close the section with the VS Code Agents
+        companion app (v1.115) as the section capstone: parallelize tasks across multiple repos,
+        monitor all sessions from one dashboard, carry every customization forward — this is
+        fleet-scale execution made visible. Cut any slide that doesn't serve either the mental
+        model, Autopilot, or the companion app.
     "Agent Customization":
-      emphasis: high
+      emphasis: medium-high
       note: >
-        Skills (now GA), Plugins, and org-level instructions show how teams take control
-        of what agents know and can do — the "make it yours" beat. Two consecutive high-emphasis
-        sections is intentional: S1 establishes the paradigm shift, S2 shows how organizations
-        own it. The combined weight is appropriate for a 45-60 minute audience.
+        The ownership section — practitioners leave knowing exactly how to extend the fleet.
+        Lead with Agent Skills reaching GA (v1.109): the GA label is the signal that says
+        "build this for your team today." Follow with Agent Plugins (v1.110) as the richer
+        tool-surface option, then /create-* commands and /init for scaffolding custom
+        workflows quickly. Org-level instructions and custom agent controls are the enterprise
+        hook — show the YAML, not just describe it. The Chat Customizations editor (v1.113)
+        is the accessible on-ramp; monorepo customizations (v1.112) close with the message
+        that this scales from solo developer to org without friction. The "whoa" moment is
+        demonstrating that a team-wide agent skill requires no central infra — it ships as a
+        file. Cut implementation-detail slides; keep every slide answerable with "when would
+        I use this?"
     "Claude & Anthropic Integration":
       emphasis: medium-high
       note: >
-        Thinking tokens and the Claude Agent SDK unlock a new tier of reasoning; position
-        as the power-user layer for teams pushing beyond default capabilities. Configurable
-        thinking effort (v1.113) is the key new angle to land here.
+        The depth-unlock section — position as the power-user tier for reasoning-heavy tasks.
+        Open by explaining thinking tokens in one slide: what they are, why a variable
+        reasoning budget changes output quality on hard problems. Configurable thinking effort
+        (v1.113) is the section's "whoa" moment: show the slider, name the cost-vs-depth
+        tradeoff, give a concrete before/after on a multi-file refactor. The Claude Agent SDK
+        preview (v1.109) is the composability story — Claude as a first-class agent
+        participant, not a model swap. Nested subagents (v1.113) and Copilot Memory close as
+        advanced orchestration capabilities for teams who've absorbed the rest. Keep the
+        section grounded with one live reasoning-heavy demo or screenshot comparison; abstract
+        capability claims without evidence will not land after S1's concrete demonstrations.
     "Security & UX":
       emphasis: medium
       note: >
-        Terminal sandboxing, MCP server sandboxing, and auto-approval rules let organizations
-        safely delegate more work to autonomous agents. Fold in Chat UX improvements (Chat
-        Customizations editor, agentic browser tools) as the day-to-day polish beat — close
-        with confidence that the full stack is production-ready.
+        The trust-close section — answer the implicit objection ("agents sound powerful but
+        risky") before it becomes vocal, then pivot to daily ergonomics. Lead with terminal
+        sandboxing (v1.109) and MCP server sandboxing (v1.112) as deliberate safety rails —
+        name the threat they block, not just the feature name. Auto-approval rules are the
+        developer-controlled dial between safety and speed; show the config. Agentic browser
+        tools with security context (v1.110/v1.112) extend the trust model visibly to the
+        browser. Then pivot cleanly to Chat UX: video in chat (v1.114), Copy Final Response,
+        /troubleshoot previous sessions, and context compaction are the polish that makes
+        eight releases feel coherent rather than sprawling. The section merge holds because
+        "safe to run" and "pleasant to use" are the same production-readiness question asked
+        at different layers. Close the talk on ergonomic confidence, not a security checklist.
 
   highlightMoments:
-    - "Four agent types optimized for different tasks — Local, Background, Cloud, Claude"
-    - "Autopilot mode enables fully autonomous task execution with configurable tool permissions"
-    - "Background agents with Git worktree isolation enable true parallel autonomous execution"
-    - "VS Code Agents companion app (v1.115) parallelizes tasks across repos with full session monitoring"
-    - "Explore subagent dedicated to research reduces Plan agent context contamination"
+    - "Autopilot mode (v1.111): auto-approve tool calls, retry errors, continue until task_complete — the 'leave the room' feature"
+    - "Background agents with Git worktree isolation enable multiple simultaneous autonomous sessions across repos"
+    - "VS Code Agents companion app (v1.115): monitor and parallelize sessions across multiple repos from a single dashboard"
+    - "Agent Skills reach GA (v1.109) and Agent Plugins launch (v1.110) — the full customization stack is production-ready"
+    - "Configurable thinking effort (v1.113): the first Copilot control that exposes cost-vs-reasoning-depth as a developer dial"
 
-# RESOLVED: "Chat UX & Productivity" content (Chat Customizations editor, agentic browser
-# tools, Copy Final Response) is folded into S4 "Security & UX" as already implemented in
-# the slides. No further action needed — the 4-section cap is maintained.
+# OPEN DECISION: none

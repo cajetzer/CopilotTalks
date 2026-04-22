@@ -1,7 +1,8 @@
-# deck.recipe.yml — MCP Apps talk guidance
-# VERDICT: Section weights and arc are well-calibrated for a 40-minute practitioner audience; the naming
-# inconsistency is resolved by adopting "Real-World Impact" to match the slide section-opener, and the
-# custom-component highlight is replaced with the 12-min→45-sec benchmark — the talk's strongest proof point.
+# VERDICT: The emphasis ladder (medium-high → high → medium-high → medium) correctly maps the talk's
+# constructive arc — vocabulary primes the palette, the constructive core earns undivided attention,
+# four canonical patterns prove composition, and Integration elevates the model into agentic workflows.
+# arcToc is tightened to mnemonic shortforms; S3 note now names all four canonical patterns; the
+# 90-min/day and 12→45-sec metrics are unified into a single highlight moment for maximum punch.
 
 version: 1
 
@@ -9,40 +10,74 @@ deck:
   title: "MCP Apps"
   subtitle: "Rich Interactive UI in Chat"
   tagline: "Transform chat from text stream to visual workspace with inline charts, tables, and forms"
-  arc: "See the palette → Build the server → Apply the patterns → Prove the value"
+  arcToc: "Palette → Build → Patterns → Integrate"
+  arcNarrative: >
+    Open by establishing the visual vocabulary — six component types developers can reach for — so
+    the audience arrives at Building MCP Apps with a full mental palette, not a specification to
+    memorize. Shift into the constructive core: how to build an MCP server that returns component
+    specs instead of text strings and wires stateful callbacks — peak engagement lands here, where
+    the type: "component" moment reframes what chat can do. Real-World Patterns then proves
+    composition: four canonical scenarios (Dashboard, Drill-Down, Form Workflow, Tree Navigation)
+    ground abstractions in problems developers recognize from their own work, with the 12→45-second
+    benchmark landing as the section's payoff. Integration closes by extending the model upward —
+    Custom Agents, Agent Skills, and Copilot Memory make interactive visualization first-class in
+    every agentic workflow, leaving the audience with a coherent mental model of MCP Apps not as a
+    feature but as a platform. This ordering beats capability-first alternatives because vocabulary →
+    construction → application → elevation is how developers actually learn to build with a new API.
 
   sectionOrder:
-    - "Component Types Deep-Dive"
+    - "Component Types"
     - "Building MCP Apps"
     - "Real-World Patterns"
-    - "Real-World Impact"
+    - "Integration"
 
   sectionModes:
-    "Component Types Deep-Dive":
+    "Component Types":
       emphasis: medium-high
       note: >
-        Establish the visual vocabulary — six component types developers will reach for repeatedly;
-        move at pace (one slide per type plus the decision tree) so the audience arrives at
-        Building MCP Apps with a clear mental model of the full palette.
+        Establish the visual vocabulary — six component types (Charts, Tables, Forms, Trees,
+        Cards, Custom) that developers will reach for repeatedly. Move at pace (one slide per
+        type plus the Mental Model Shift slide) so the audience arrives at Building MCP Apps
+        with a full mental palette, not an exhaustive spec. The "whoa" moment is the decision
+        tree that maps use case to component type in seconds. Cut deep API options — leave
+        configuration details for the constructive core.
     "Building MCP Apps":
       emphasis: high
       note: >
-        The constructive core: server setup, returning component specs, and wiring callbacks for
-        stateful interactions — this is what the audience came to learn and where the most dwell time belongs.
+        The constructive core and the reason MCP server authors are in the room. Show the MCP
+        server structure, then the pivotal moment where tools return type: "component" specs
+        instead of text strings and VS Code intercepts to render in a sandboxed iframe. Slow
+        down on the full callback lifecycle (User prompt → Model → Server → Render → Interact
+        → Callback → Updated state) — this is the section's "whoa" moment. Cover security
+        (iframe sandboxing, CSP restrictions, explicit callback approval) here, not in
+        Integration. Show code. Do not rush this section.
     "Real-World Patterns":
       emphasis: medium-high
       note: >
-        Elevate the audience from "can build" to "builds well" by naming the four canonical patterns
-        (dashboard, drill-down, form-driven, hierarchical); keep it design-level, not line-by-line.
-    "Real-World Impact":
+        Move from "can build" to "builds well" across all four canonical patterns: Dashboard
+        (monitoring overview, multiple component types working in concert), Progressive
+        Drill-Down (table → chart → form master-detail flow), Form-Driven Workflow (multi-step
+        data collection with validation and state), and Hierarchical Navigation (file/folder/
+        tree exploration with selection callbacks). Land the 12-minute manual (copy→Excel→chart)
+        collapsing to 45 seconds inline as the section's punch line — let it resonate before
+        moving on. Mention the MCP Apps Playground here as the hands-on follow-up resource.
+    "Integration":
       emphasis: medium
       note: >
-        Three concrete before/after scenarios validate the investment and give developers language to
-        justify adoption; move at pace — the proof lands faster than the patterns did.
+        Extend the model upward: Custom Agents, Agent Skills, and Copilot Memory make MCP
+        Apps first-class in agentic workflows. Copilot Memory enabling persistent UI state
+        across sessions is the section's standout capability. Move at pace — this is elevation,
+        not instruction. Close with Best Practices as a summary frame, not a lecture. The
+        audience should leave feeling the full platform, not just the feature.
 
   highlightMoments:
-    - "Five built-in components (charts, tables, forms, trees, cards) cover 95% of visualization needs"
-    - "Interactive data visualization replaces static ASCII art and external tool exports"
-    - "Sortable, filterable tables with full-text search and CSV export — all inline in chat"
-    - "Callback-driven forms and trees trigger MCP tool calls on user interaction, enabling stateful multi-step workflows without leaving chat"
-    - "12 minutes of manual copy-export-chart work becomes 45 seconds inline in chat"
+    - "Tools return type: 'component' instead of text — VS Code detects and renders an interactive iframe in the chat panel"
+    - "Six component types (charts, tables, forms, trees, cards, custom) cover the full visualization surface — one decision tree maps any use case to the right type"
+    - "12 minutes of manual copy-export-chart work collapses to 45 seconds inline; in data-heavy workflows that's 90 minutes per day reclaimed"
+    - "Callback-driven interactions trigger MCP tool calls on user clicks, enabling stateful multi-step workflows — filter, drill down, submit forms — without leaving chat"
+    - "MCP Apps compose into agent workflows via Custom Agents and Agent Skills — interactive visualization becomes a first-class platform capability, not an afterthought"
+
+# OPEN DECISION: The Part 1 section-opener subtitle reads "5 built-in interactive components"
+# but the section teaches six distinct types (Hierarchical Trees count separately from Rich Cards,
+# and Custom Components is a sixth). Update the opener subtitle to "6 built-in interactive
+# components" for accuracy before the next delivery.

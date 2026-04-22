@@ -40,7 +40,7 @@ Before dispatching the council, read BOTH of these. The council prompt must incl
 2. .github/skills/deck-recipe-review/DECK-RECIPE-TEMPLATE.yml      — recipe schema (all valid fields)
 ```
 
-If a `slides/tech-talks/<topic>.md` already exists, also read it to extract slide counts per section.
+Do **not** read the existing `slides/tech-talks/<topic>.md`. The recipe is the authoritative spec for the slide generator — existing slides will be overwritten and should not constrain the council's reasoning.
 
 From these, extract:
 - The `<!-- 🎬 MAJOR SECTION: -->` markers from the README — these are the candidate sections
@@ -63,8 +63,8 @@ TASK: [One-sentence description of the structural question]
 TALK: [title], [duration], audience: [audience list]
 CORE QUESTION: "[the talk's stated core question]"
 
-CANDIDATE SECTIONS (from README 🎬 markers, with slide counts if deck exists):
-1. "[Section Name]" (~N slides if known, else "TBD") — [2-line description of what it covers]
+CANDIDATE SECTIONS (from README 🎬 markers):
+1. "[Section Name]" — [2-line description of what it covers]
 2. ...
 
 CONSTRAINTS:

@@ -1,73 +1,99 @@
-# VERDICT: Two structural defects must be fixed before this deck is complete — S2 Skills is missing
-# its Part 2 section opener (breaking the Part N cadence), and S3 Custom Prompts has only one content
-# slide for a named section, making it the weakest link in a 30-minute format where every minute counts.
-# The open decision on "Choosing the Right Primitive" is resolved: anchor it as S4's explicit synthesis
-# close rather than an unattributed tail slide, giving the talk a decisive landing point.
-
+# VERDICT: Four-section progressive stack is the right architecture — absorbing "Choosing the
+# Right Primitive" into S4 makes Agents the talk's earned climax, not a detached fifth wheel.
+# Two pre-build bugs must be resolved: S2 is missing a section opener slide (build-blocking),
+# and S3 needs an anatomy slide before the existing example slide or it reads as an orphan.
 version: 1
-
 deck:
-  title: Copilot Configuration Primitives
-  subtitle: Making AI Understand Your Codebase
-  tagline: Four building blocks that transform Copilot from generic to team-aware partner
-
-  arcToc: "Generic → Aware → Capable → Specialized → Decided"
+  title: "Copilot Configuration Primitives: Making AI Understand Your Codebase"
+  subtitle: "Instructions · Skills · Custom Prompts · Agents"
+  tagline: "Encode your codebase once. Every Copilot interaction inherits it."
+  arcToc: "Instructions → Skills → Custom Prompts → Agents"
   arcNarrative: >
-    Opens with the pain of a Copilot that doesn't know your codebase, then introduces each primitive
-    in ascending complexity and loading cost — Instructions (always-on foundation, highest ROI, where
-    80% of teams stop), Skills (on-demand capability packs, AI-selected), Custom Prompts
-    (developer-invoked slash commands for repeatable workflows), Agents (orchestrated specialists with
-    constrained tools). Closes with "Choosing the Right Primitive" as the synthesis beat: a decision
-    framework that prevents over-engineering and sends every attendee home knowing their next step.
-    Order matters — entry point first, ceiling last, decision framework as the landing.
-
+    Instructions open the talk with the fastest ROI in the stack: one file, five minutes,
+    immediate improvement — every attendee can do this today, which earns the trust needed
+    to spend the next 22 minutes going deeper. Skills shift the register from passive to
+    active, introducing AI relevance matching as the mechanism that makes specialized
+    expertise load without explicit invocation — this is where the talk pivots from
+    "configuration as text" to "configuration as capability." Custom Prompts arrives as
+    the team-sharing unlock: tribal knowledge crystallised into /commands that any
+    developer can invoke without re-explaining context, bridging the individual gains of
+    S1-S2 into collective workflow. Agents close as the synthesis peak, composing all
+    prior primitives into constrained personas where tool restrictions are the design, not
+    a workaround — and the decision tree that closes S4 lands as earned payoff, sending
+    every attendee home with a clear answer to "which primitive do I reach for next?"
+    Peak audience engagement arrives in S4 when the planner-to-implementer handoff makes
+    the composition model visceral. This ordering beats "decision tree first" because
+    attendees need to experience each primitive before the decision tree is meaningful.
   sectionOrder:
-    - "Instructions: The Foundation"
-    - "Skills: On-Demand Expertise"
-    - "Custom Prompts: Reusable Workflows"
-    - "Agents: Specialized AI Personas"
-
+    - "Instructions"
+    - "Skills"
+    - "Custom Prompts"
+    - "Agents"
   sectionModes:
-    "Instructions: The Foundation":
+    "Instructions":
       emphasis: high
-      slideTarget: 4
       note: >
-        The entry-level win — five minutes to a repo-aware Copilot. Covers all three instruction
-        surfaces: repo-wide (.github/copilot-instructions.md, injected every turn), path-specific
-        (.github/instructions/, scoped selectors), and AGENTS.md (agent-facing playbook). Four slides
-        at ~10 min is justified — this is the primitive every attendee will implement first.
-    "Skills: On-Demand Expertise":
+        Foundation section — the 5-minute setup hook must land in the first 30 seconds of this
+        section; delay kills momentum. Cover all three instruction surfaces in sequence: (1)
+        .github/copilot-instructions.md — always-on, whole-repo baseline; (2)
+        .github/instructions/*.instructions.md with applyTo glob — scoped to file patterns;
+        (3) AGENTS.md — nearest-directory agent playbook, cross-tool portable. Show the
+        architecture stack diagram here (Instructions → AGENTS.md → Skills → Prompts → Agents)
+        as it frames the entire rest of the talk. The "whoa" moment: VS Code surfaces which
+        instruction files were applied in the References panel — make this visible on screen so
+        attendees see the system is actually working. Do NOT compress below 4 slides; this is
+        the conceptual foundation everything else inherits.
+    "Skills":
       emphasis: medium
-      slideTarget: 3
       note: >
-        ⚠ REQUIRED FIX: Section opener slide (Part 2) is missing from the deck — add it to maintain
-        the Part 1 / Part 2 / Part 3 / Part 4 cadence. Two content slides (Scripts, Templates) are
-        the right depth; keep total section time to ~6 min. Scripts cover PowerShell/bash execution;
-        Templates cover markdown with variable substitution — both together show the two faces of
-        on-demand capability packs.
-    "Custom Prompts: Reusable Workflows":
+        ⚠ REQUIRED ACTION — MISSING SECTION OPENER SLIDE. The current deck jumps directly to
+        "Skills Scripts" with no Part 2 opener, breaking the section cadence established in S1.
+        A section opener slide MUST be added before this deck can build cleanly. The opener
+        must cover: Skills are GA as of v1.109 (production-ready, not experimental); AI relevance
+        matching loads the right skill without explicit invocation; skills encode specialized
+        expertise via scripts + resource templates. Key contrast to drive home: Instructions =
+        what Copilot knows (passive); Skills = what Copilot can do (active). The "whoa" moment
+        is AI relevance matching — the developer does nothing and the right capability pack
+        loads. Two content slides (Scripts, Templates) are the right depth once the opener
+        exists. Do not pad; 6 minutes is the correct budget for this section.
+    "Custom Prompts":
       emphasis: medium-low
-      slideTarget: 2
       note: >
-        ⚠ THIN SECTION: Only one content slide (component-generator example) exists for a named
-        section. Add a prompt-anatomy slide covering .github/prompts/*.prompt.md structure and
-        variable substitution before the example, so the example has context. Target ~5 min. If time
-        is cut, collapse to a single high-density slide and treat this as a bridge between Skills and
-        Agents rather than a standalone section beat.
-    "Agents: Specialized AI Personas":
-      emphasis: medium-high
-      slideTarget: 4
+        ⚠ THIN SECTION — one content slide (Component Generator example) exists for a named
+        section in a 30-min talk. An anatomy slide is required before the example: cover
+        .github/prompts/ file structure, frontmatter schema (description, mode, tools), /command
+        binding syntax, and variable interpolation. Two slides maximum given time budget. The
+        "whoa" moment is team sharing: one developer writes the prompt once, every developer on
+        the team gets the /command — tribal knowledge becomes a shared workflow. Lean into the
+        contrast with Skills: Skills load automatically by relevance; Prompts are explicitly
+        invoked by the developer. If time is severely constrained at rehearsal, collapse to one
+        high-density slide treating this section as a bridge beat — but prefer two slides so the
+        anatomy has a home separate from the example.
+    "Agents":
+      emphasis: high
       note: >
-        Orchestration peak — constrained tools, handoffs, user-invokable: false for subagents, and
-        advanced patterns. Two content slides (Planner Example, Advanced Patterns) are appropriate
-        at ~6 min. RESOLVED OPEN DECISION: promote "Choosing the Right Primitive" and "Before/After"
-        as the explicit synthesis close of this section (append as slides 3-4 here) rather than
-        leaving them as unattributed tail slides. This gives the talk a decisive landing point and
-        the decision framework the prominence it earns as the talk's core insight.
-
+        Synthesis peak and talk climax — the section where all prior primitives compose into
+        something greater. Cover Planner Agent (read-only tools, constrained to planning tasks)
+        and the handoff mechanism to an implementer agent; the key architectural insight is that
+        tool constraints enforce role separation by design — a read-only Planner cannot
+        accidentally edit files, making the constraint the architecture. Cover Advanced Patterns
+        (model selection per agent, multi-agent orchestration). Close this section with the
+        "Choosing the Right Primitive" synthesis beat as a dedicated slide: the decision tree
+        (Passive context → Instructions; Repeatable workflow → Custom Prompts; Active capability
+        → Skills; Full persona/tool set → Agents) plus the progressive-layering model diagram.
+        This closing beat absorbs the former standalone S5 and must feel earned — it lands
+        because the audience has just experienced all four primitives. The "whoa" moment: the
+        Planner-to-implementer handoff visualised — tool boundary as the architectural boundary.
+        Do not let this section run short; it carries the talk's payoff.
   highlightMoments:
-    - "Five minutes to a repo-aware Copilot — one instructions file is the highest-ROI first step for 80% of teams"
-    - "Three instruction surfaces: repo-wide (always-on), path-specific (scoped selectors), AGENTS.md (agent-facing playbook)"
-    - "Progressive loading model: Instructions injected every turn, Skills AI-selected on-demand, Prompts developer-invoked, Agents orchestrated with constrained tools"
-    - "Before/After: the same question answered generically vs. with full team context shows exactly what's at stake"
-    - "Choosing the right primitive prevents over-engineering — the decision framework is the takeaway every attendee brings back to their team"
+    - "5-minute setup in S1: one file at .github/copilot-instructions.md and every subsequent Copilot interaction inherits your team's conventions — zero ongoing maintenance."
+    - "AGENTS.md as cross-tool contract in S1: not a Copilot-specific format — any coding agent that reads AGENTS.md gets the same playbook, making it institutional knowledge that outlasts any single tool."
+    - "AI relevance matching in S2 (Skills GA, v1.109): Copilot loads the right capability pack without the developer doing anything — specialized expertise on demand with zero invocation friction."
+    - "Team /commands in S3: one developer writes a prompt file, every developer on the team gets the slash command with full context — tribal knowledge becomes shared infrastructure."
+    - "Planner-to-implementer handoff in S4: tool constraints enforcing role separation by design — the read-only boundary is the architecture, not a workaround, and the decision tree closes the talk with a durable next-step for every attendee."
+
+# OPEN DECISION: Whether the "Choosing the Right Primitive" closing beat in S4 warrants its own
+# dedicated slide or folds into an Advanced Patterns summary panel. Council recommendation:
+# dedicated slide — the decision tree needs visual isolation to function as the talk's takeaway
+# and the progressive-stack diagram deserves its own frame. Confirm with speaker at first
+# rehearsal before finalizing slide count.

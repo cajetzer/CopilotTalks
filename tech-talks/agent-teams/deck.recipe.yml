@@ -1,16 +1,23 @@
-# deck.recipe.yml — Agent Teams talk guidance
-
 version: 1
 
 deck:
-  title: "Agent Teams"
+  title: "Building Agent Systems"
   subtitle: "Subagents, Teams, and Autonomous Execution"
-  tagline: "Mechanisms for composing multi-agent AI systems that handle complex tasks"
-  arc: "Primitive → Composition → Autonomy → Quality Gate"
+  tagline: "Compose AI agents into systems that handle complex tasks, run autonomously, and improve over time"
+  arcToc: "Primitive → Grammar → Autonomy → Synthesis"
+  arcNarrative: >
+    The talk opens with a precise diagnosis: a single agent isn't failing because it's
+    unintelligent — it's failing because context is finite and the problem isn't. The answer
+    is architecture, and before the audience gets mechanisms, they get grammar: four named
+    patterns, a decision tree, and the vocabulary to think with. From there, composition
+    isn't demonstrated abstractly — it's recognized. The audience watches the auth case and
+    then hears the name for what they've been watching. By S3, the math has accumulated
+    quietly: 9.7 hours returned to the EM's week, not as a promise but as a line item. S4
+    closes the loop. A council deliberates. A squad executes. A decisions.md file persists —
+    the architecture now governs itself. The decision tree lights up completely, and the arrow
+    runs backward: council output feeds autonomous execution. The human approved the artifact.
+    They didn't attend the meeting.
 
-  # Conceptual ladder: primitive → composition → autonomy → quality gate.
-  # Decision tree introduced in S1, shown at every section boundary with one
-  # branch illuminated per section, fully lit on the S4 closing slide.
   sectionOrder:
     - "Subagents: The Building Block"
     - "Agent Teams: Organized Specialists"
@@ -18,29 +25,52 @@ deck:
     - "Agent Council: When Different Models Think Differently"
 
   sectionModes:
-    - section: "Subagents: The Building Block"
-      emphasis: medium
-      note: "Establish the primitive fast — live parallel subagent demo proves the mechanism; introduce the decision tree as the talk's navigation spine, one branch illuminated per section from here forward."
-    - section: "Agent Teams: Organized Specialists"
+    "Subagents: The Building Block":
+      emphasis: medium-high
+      note: >
+        Establish the primitive and the grammar fast. Decision tree introduced as the talk's
+        navigation spine — one branch lights per section. Vocabulary card closes the section:
+        four named patterns, non-negotiable. Auth scenario planted here; audience won't know
+        it matters yet. Target 3-4 slides. Resist expansion — HIGH-everywhere dilutes the
+        emphasis gradient that makes S4 land.
+    "Agent Teams: Organized Specialists":
       emphasis: high
-      note: "The intellectual centerpiece — Squad in 10 minutes, compounding history.md, role-enforced tool constraints; the moment a catalog of agents becomes a composable system; decision tree gains the Teams branch."
-    - section: "Autonomous Execution: Background Agents + Worktrees"
+      note: >
+        Pattern labels from S1 are recalled by name, not re-taught. The audience recognizes
+        what they're watching — composition, not introduction. Auth threading continues: the
+        team takes on the case. Decision tree gains the Teams branch. Target 4 slides; the
+        intellectual work was already done in S1.
+    "Autonomous Execution: Background Agents + Worktrees":
       emphasis: high
-      note: "ROI payoff enabled by Teams — background agents + worktrees collapse active supervision 65-82% (85 min → 27 min); name /fleet as the CLI fan-out equivalent; 9.7 hrs/week is the EM headline; decision tree gains the Autonomy branch. Target ~6 slides."
-    - section: "Agent Council: When Different Models Think Differently"
-      emphasis: medium
-      note: "Quality gate finale — 3 slides max; Claude+GPT+Gemini catch what the team missed; closes the auth case study with concrete before/after; decision tree fully illuminated on closing slide."
+      note: >
+        Business case before mechanism. 9.7 hrs/week is the headline slide — the EM math
+        that converts background agents from demo to budget conversation (10 tasks × 58
+        minutes saved each). Auth runs unsupervised; audience doesn't see the flaw yet.
+        Decision tree gains the Autonomy branch. Target 5-6 slides.
+    "Agent Council: When Different Models Think Differently":
+      emphasis: high
+      note: >
+        S4 closes the loop. Council catches the auth flaw that every prior layer missed —
+        the concrete payoff for threading the case study across all four sections.
+        decisions.md artifact opens on screen as the primary source: Pre-Run + Live Artifact
+        pattern — no live network call, run council before the talk, zero network dependency,
+        pre-recorded fallback available. Decision tree fully illuminated; feedback arrow added
+        — council output feeds autonomous execution. The human approved the artifact. They
+        didn't attend the meeting. Target 5 slides.
 
   highlightMoments:
-    - "3 parallel subagents cut analysis time 2.75x (22 min → 8 min) with 4-6x token reduction — visible live in the VS Code subagent panel"
-    - "Squad installed in 10 minutes: specialists with history.md make week-2 output 30-40% better than week-1 on the same task class — compounding knowledge ROI for Architects"
-    - "Background agent handoff reduces active supervision 65-82% (85 min → 27 min on the auth case study) — the single number Engineering Managers take back to their teams"
-    - "9.7 hours/week reclaimed: 10 tasks × 58 minutes saved each — the EM math that converts background agents from demo to budget conversation"
-    - "Full-stack composition: one coordinator, three Squad specialists, autonomous worktree execution, AgentCouncil deliberation — all four patterns against the same auth task shows the complete system"
+    - "Decision tree opener (S1): audience self-selects their entry point before a single mechanism is named — the talk earns attention before it spends it"
+    - "Vocabulary card (S1 close): grammar before the tour — four named patterns give the audience the words to think with for the next 45 minutes"
+    - "9.7 hrs/week (S3): 10 tasks × 58 minutes saved each — the EM math that turns a demo into a budget conversation"
+    - "Auth flaw caught by council (S4): the flaw threaded silently through S1–S3 surfaces only under deliberation — concrete proof that model diversity is a quality mechanism, not a preference"
+    - "decisions.md artifact (S4 close): architecture governs itself; decision tree fully lit with feedback arrow — council output feeds autonomous execution, human approved the artifact and didn't attend the meeting"
 
-# OPEN DECISION: Auth case study threading —
-# (A) Thread across all 4 sections (subagent research → Squad implements → background agent
-#     executes → AgentCouncil reviews): maximum narrative continuity and full-stack payoff,
-#     but requires tight slide coordination and risks feeling contrived in S1/S2.
-# (B) Introduce at S3, close at S4 only: cleaner pacing, lower coordination risk,
-#     AgentCouncil "catches the flaw" lands harder with a hot context the audience just watched.
+# OPEN DECISION: Auth case study threading — whether threading the auth scenario across all
+# 4 sections is worth the coordination cost vs. a standalone S4 demo.
+# (A) Thread all 4 sections (planted S1 → progresses S2 → runs unsupervised S3 → flaw
+#     caught S4): maximum narrative payoff, "caught by council" lands with full dramatic
+#     weight, but requires tight slide coordination and risks feeling contrived in S1/S2.
+# (B) Introduce at S3, close at S4 only: cleaner pacing, lower coordination risk, council
+#     reveal still lands — audience watched the execution, council catches what they missed.
+# Consequence: if threading proves awkward in rehearsal, option B is the safe fallback with
+# no structural changes required to S1/S2.

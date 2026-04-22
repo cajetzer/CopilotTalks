@@ -1,19 +1,35 @@
-# deck.recipe.yml — Agentic Journey talk guidance
+# deck.recipe.yml — The Agentic Journey
 #
-# VERDICT: The 4-section structure is sound and maps cleanly to the 4 workflow files;
-# "Chain fires" belongs as the FINAL slide of Agentic Coding (Option B resolved) so that
-# Code Review lands as a genuine trust-close rather than a post-climax epilogue.
-# Biggest structural risk is S1 and S2 carrying only 2 content slides each — both sections
-# need a third slide to give the label state machine introduction and the
-# historical-context + /approve-plan double-beat the space they require.
+# VERDICT: The label state machine (new-issue → intake-complete → plan-approved →
+# implementation-complete → review-complete) is the talk's single structural device —
+# introduce the full diagram in S1 and name each transition explicitly in S2, S3, and S4
+# so every section clicks as one advancing system, not four independent pitches.
+# S2 earns high emphasis because /approve-plan is the trust inflection point that gates
+# autonomous coding; S4's graduation close is the compounded-ROI payoff the audience has
+# earned by following the state machine to its final transition — reward, not appendix.
 
 version: 1
 
 deck:
   title: "The Agentic Journey"
   subtitle: "Incremental Path from Issue to PR Automation"
-  tagline: "Label state machine visual spine across 4 workflows — issue to PR in ~2 hours"
-  arc: "Credibility → Insight → Payoff → Trust"
+  tagline: "Start in 2-3 hours. Compound value at every phase. No SDLC rewire required."
+  arcToc: "Agentic Intake → Agentic Planning → Agentic Coding → Code Review"
+  arcNarrative: >
+    The talk is a trust-building journey structured as a single label-driven state machine
+    where each section advances exactly one transition. We open with Intake because it
+    proves the system earns its keep on noise reduction before touching any code — credibility
+    bought cheaply with a concrete duplicate-detection example that any developer recognizes.
+    Planning is the pivot: the /approve-plan gate is the moment humans explicitly assert
+    control, and it must land at full emphasis before the audience will accept autonomous
+    coding in the next section. Coding shows what a trusted plan unlocks — the emotional
+    payoff developers came for, delivered without any hedging. Code Review closes the loop
+    by demonstrating that automation amplifies human judgment rather than bypassing it, then
+    earns the right to surface the graduation signals as an exit ramp the audience has
+    already prepared for — not a warning, a reward. The ROI is multiplicative and sequentially
+    gated: 3-min triage enables 15-min plans, which enable 1-2 hour implementations, which
+    enable 20-min reviews; each phase's savings are structurally dependent on the previous
+    phase having run first, which is exactly why this ordering beats any alternative.
 
   sectionOrder:
     - "Agentic Intake"
@@ -25,59 +41,73 @@ deck:
     "Agentic Intake":
       emphasis: medium
       note: >
-        Open with the full label state machine (issue opened → status:triaged →
-        status:planned → /approve-plan → status:in-review → status:reviewed) as
-        the talk's visual spine — subsequent sections each advance one state transition,
-        so the audience tracks progress like a progress bar. Land the entry-point ROI
-        (20-30 min → 3 min triage) immediately to establish credibility and lower the
-        perceived risk of trying Phase 1. This section currently carries only 2 content
-        slides; a third is needed to hold both the state machine introduction and the
-        triage workflow detail without compressing either beat.
+        Open with the "adoption paralysis" framing — the "all in" trap and the "experiment
+        forever" trap — as the problem setup, then introduce the full label state machine
+        diagram (new-issue → intake-complete → plan-approved → implementation-complete →
+        review-complete) as the talk's visual spine; show it exactly once here so every
+        subsequent section feels like advancing one node on a known map. Land the triage
+        workflow anchored to the 20-30 min → 3 min metric. Whoa moment: the duplicate
+        detection example — agent identifies 88% similarity to a prior issue in 3 min,
+        auto-labels, posts fix version; audience should viscerally feel 40 min × 14
+        duplicates/month evaporating. The "copy 4 YAML files, configure secrets, create an
+        issue" 2-3 hour setup claim must appear here as the credibility hook that earns the
+        rest of the talk. Cut: prompt template internals (save for S3), any slide that
+        explains GitHub Actions mechanics the audience already knows.
     "Agentic Planning":
       emphasis: high
       note: >
-        The intellectual peak and the talk's strongest differentiator: historical context
-        mining (agent mines similar past issues/PRs) is the capability audiences don't
-        expect — give it its own dedicated slide. The ±20% vs ±50% estimate accuracy
-        stat ($7,000/month for 50-issue teams) is the single most persuasive ROI claim
-        for engineering managers and must not share a slide with the /approve-plan
-        explanation. The /approve-plan gate is the anxiety-reduction moment — frame it
-        explicitly as a feature ("human approval required before any code is written"),
-        not a limitation. This section currently carries only 2 content slides; a third
-        is needed to separate historical-context ROI and the /approve-plan gate.
+        This is the trust inflection point — the /approve-plan gate must be shown explicitly
+        as a workflow diagram or representative screenshot of the comment trigger, never
+        summarized as a bullet. Frame it as a deliberate label-state transition: the state
+        machine advances from intake-complete to plan-approved ONLY when a human types
+        /approve-plan; that single boundary is the complete answer to "what if it goes wrong?"
+        Must land as three distinct beats: (1) historical context research — agent mines
+        similar past issues and PRs for codebase-aware planning (60% better estimate accuracy,
+        40% fewer mid-implementation surprises); (2) structured execution plan generation;
+        (3) the human approval gate as an explicit opt-in, not a default bypass. The 2-4 hr →
+        15 min metric is secondary to the gate — managers need to see the control boundary
+        before they'll trust the metric. Do NOT compress to summary bullets; this section
+        earns slide real-estate proportional to its stakes. Whoa moment: the agent proposes
+        a structured plan; a human types /approve-plan in a comment; only then does any code
+        get written — the audience should feel that boundary as a physical click.
     "Agentic Coding":
-      emphasis: high
+      emphasis: medium-high
       note: >
-        The emotional climax: the label state machine visibly advances to status:in-review
-        as the PR opens. The "chain fires" moment (triage → approved plan → open PR in
-        ~2 hours vs 3-4 days manual) is the FINAL slide of this section — it completes
-        the coding payoff arc and delivers the visceral moment developers came for, while
-        leaving Code Review to land cleanly as the trust-close. One sentence on externalized
-        prompt templates in .github/prompts/ ("you can customize without touching YAML")
-        serves as the practical reassurance for skeptical engineers.
+        Open by showing the Copilot coding agent being assigned directly from the approved
+        plan — the visual handoff from the human gate to autonomous implementation is the
+        payoff S2 set up. Must land: agent assignment, test generation as a first-class
+        output (not an afterthought), PR creation, and the 8-12 hr → 1-2 hr metric. One
+        line on externalized prompt templates in .github/prompts/ ("update agent behavior
+        by editing markdown, not debugging YAML") is the reassurance beat for skeptical
+        engineers without burning slide time on internals. Explicitly name the label
+        transition: the state machine advances to implementation-complete as the PR opens —
+        the audience should see the node advancing on the diagram introduced in S1. Cut:
+        detailed test-writing mechanics, CI/CD pipeline internals, any YAML syntax deep
+        dive. Whoa moment: a PR appears with tests, a description, and zero human keystrokes
+        on the implementation — the plan from S2 became code without the developer touching
+        an editor.
     "Code Review":
       emphasis: medium-high
       note: >
-        The trust close — security, quality, and coverage gates answer "but is the code any
-        good?" for every skeptical manager in the room. Strip the Graduation subsection to a
-        single forward-pointer slide (one sentence + link to Agentic SDLC talk) so the
-        section lands on quality gates without dilution. Close the section — and the talk's
-        body — with the 85% automation stat as the capstone ROI number that earns the
-        "What You Can Do Today" call to action in the outro.
+        Frame automated review as trust amplification, not trust replacement — the answer
+        to "but is the code any good?" for every skeptical manager in the room. Must land:
+        security analysis, logic review, performance checks, test coverage gates, and the
+        2-4 hr → 20 min metric. Explicitly name the final label transition: review-complete
+        is the state machine's terminal node — show it advancing on the S1 diagram to close
+        the structural loop. Close with "Graduating to Full SDLC" as the section's earned
+        exit beat, not an appendix: surface the threshold signals (coordination overhead
+        exceeds automation gains, 5+ teams participating, cross-repo context required) as
+        proof that the audience has already won, and the next step is already within reach.
+        The compounded ROI ledger — 3 min + 15 min + 1-2 hr + 20 min across all four phases
+        — should appear as a single visual that makes a business case write itself. Cut: deep
+        AST/SAST tooling details, implementation specifics of the review workflow. Whoa
+        moment: the graduation slide is the reward for following the journey — the audience
+        sees the full ledger and understands they've already built the proof-of-value
+        executive sponsors need, without restructuring a single repo.
 
   highlightMoments:
-    - "Label state machine as sequential reveal: show the full arc once in S1 (issue opened → status:triaged → ... → status:reviewed), then advance one state per section — the audience always knows where they are in the journey"
-    - "Historical context search: planning agent mines similar past issues/PRs → ±20% estimate accuracy vs ±50% without — $7,000/month savings for 50-issue teams; the ROI claim managers still talk about after the talk"
-    - "/approve-plan gate as safety valve: human approval required before any code is written — frame explicitly as a feature, not a limitation; the single most effective answer to 'what if it goes wrong?'"
-    - "\"Chain fires\" timing: triage → approved plan → open PR in ~2 hours vs 3-4 days manual — final slide of Agentic Coding when the state machine reaches status:in-review"
-    - "Phase 1 deploys in 2-3 hours: incremental adoption means one workflow file at a time — the actionability hook that converts skeptics into starters before they leave the room"
-
-# RESOLVED: "Chain fires" → Option B (final slide of Agentic Coding).
-#   Rationale: Code Review retains its weight as a genuine trust-close; no re-engagement
-#   hook needed; the state machine arc completes naturally at the PR-open moment.
-#
-# OPEN DECISION: S1 and S2 slide count — both sections carry only 2 content slides,
-#   which is insufficient for the beats they own (state machine intro + triage ROI in S1;
-#   historical-context ROI + /approve-plan gate in S2). Options:
-#   (A) Add one slide to each section before build (recommended).
-#   (B) Accept compression and rely on speaker notes to carry the second beat per section.
+    - "Issue triage: 20-30 min → 3 min — agent detects 88% duplicate similarity in 3 min, auto-labels, posts fix version; 40 min × 14 duplicates/month recovered"
+    - "/approve-plan gate: state machine advances to plan-approved ONLY on explicit human comment — the single most effective answer to 'what if it goes wrong?'"
+    - "Planning: 2-4 hours → 15 min — historical context research delivers 60% better estimate accuracy and 40% fewer mid-implementation surprises"
+    - "Implementation: 8-12 hours → 1-2 hours — Copilot coding agent assigned from approved plan, PR with tests and description created with zero human keystrokes"
+    - "Code review: 2-4 hours → 20 min — security, logic, performance, and coverage gates run before any human reviewer opens the diff; compounded total saves days per feature"

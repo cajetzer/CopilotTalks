@@ -1,6 +1,8 @@
-# VERDICT: The high→high→medium-high→medium-high gradient is structurally sound for this arc and audience,
-# but S2 (Writing Issues) is slide-count thin for its "high" designation and needs a third content slide
-# — a Bad/Good issue comparison or reusable template walkthrough — to sustain the weight it's been given.
+# VERDICT: Four sections follow an earn-trust-then-delegate arc that peaks at S2 (the most
+# immediately actionable skill) and closes with S4's "What to Delegate" decision tree as
+# the durable take-home artifact — ordering is correct and complete.
+# S2 is slide-count thin at "high" emphasis; a third slide contrasting vague vs. structured
+# issues (with the 14-min/95% stat as headline) is required to justify the weight assigned.
 
 version: 1
 
@@ -8,56 +10,96 @@ deck:
   title: "From Issue to Pull Request"
   subtitle: "GitHub Copilot's Coding Agent in Practice"
   tagline: "What if filing an issue was the same as fixing it?"
-  arc: "Hook with the delegation loop → Master the skill → Govern safely → Close confidently"
+  arcToc: "Delegation Loop → Writing Issues → Trust and Configuration → Review Workflow"
+  arcNarrative: >
+    S1 establishes the three-layer mental model (Intelligence / Environment / Governance)
+    as shared vocabulary — every downstream section borrows it, so it must land completely
+    before S2 begins. S2 converts that model into the most immediately learnable skill
+    in the talk: writing issues that produce high-quality PRs, with image-based creation
+    as the "whoa" moment that makes the stat (14 min → 2 min, 95% detail) visceral.
+    S3 is the credibility bridge — it answers the "but is it safe?" objection that
+    surfaces after S1 and S2, then hands control back to the audience by showing the
+    governance dials they can actually turn. S4 closes the loop by proving that human
+    review is minutes not hours, and lands the "What to Delegate" decision tree as a
+    framework audiences can apply the next morning — ending on the lodash benchmark
+    (12 min, 23 files) makes the value concrete and quotable. This ordering beats
+    alternatives (e.g., trust-first) because credibility earns more weight once the
+    audience has already seen the loop work and wants to delegate.
 
   sectionOrder:
-    - "The Delegation Loop: From Issue Assignment to Draft PR"
-    - "Writing Issues That Work"
-    - "Trust and Configuration: Environment Setup and the Agent Firewall"
-    - "The Review Workflow: From Draft PR to Merge"
+    - "Delegation Loop"
+    - "Writing Issues"
+    - "Trust and Configuration"
+    - "Review Workflow"
 
   sectionModes:
-    "The Delegation Loop: From Issue Assignment to Draft PR":
+    "Delegation Loop":
       emphasis: high
       note: >
-        Establish the full loop end-to-end — trigger, sandbox execution, evidence bundle,
-        and the separation-of-duties constraint — so every subsequent section has a
-        concrete mental model to build on. For audiences unfamiliar with GitHub Actions or
-        async agent workflows, fold a brief "how the agent runs" orientation callout into the
-        first loop slide rather than adding a standalone orientation slide; this preserves
-        the hook momentum while grounding mixed audiences (devs, tech leads, PMs) before
-        the deeper mechanics land.
+        Establish the full loop end-to-end — trigger, ephemeral sandbox execution,
+        evidence bundle, draft PR, human review — so every subsequent section has a
+        concrete mental model to build on. The three-layer architecture (Intelligence:
+        model + instructions + skills; Environment: ephemeral GitHub Actions runner +
+        copilot-setup-steps.yml; Governance: Agent Firewall + branch protection) is the
+        structural backbone all other sections reference by name — introduce it here with
+        a visual diagram, not prose. For mixed audiences (devs, tech leads, PMs) fold a
+        brief orientation callout into the first loop slide rather than a standalone
+        slide, preserving hook momentum. The "whoa" moment: the agent opens a draft PR
+        and can never merge — and the person who filed the issue cannot approve it
+        (GitHub-enforced separation of duties). Cut any deep-dive into model internals;
+        the loop cycle and the draft-PR boundary are the only mechanics that must land.
 
-    "Writing Issues That Work":
+    "Writing Issues":
       emphasis: high
       note: >
-        The most learnable and immediately applicable skill in the talk; PR quality is
-        a direct reflection of issue quality, so this section is the practical unlock
-        that lets teams leave and delegate something today. At "high" emphasis, two slides
-        (Effective Issue Anatomy + Image-Based Issue Creation) are thin — add a third slide
-        contrasting a vague issue against a well-structured one, or walk through a reusable
-        issue template, so the emphasis weight is fully supported.
+        The most learnable and immediately applicable skill in the talk — PR quality is
+        a direct function of issue quality, making this the practical unlock that lets
+        audiences delegate something before end of day. At "high" emphasis, two slides
+        are thin: add a third slide that places a vague underspecified issue side-by-side
+        with a well-structured one (context / acceptance criteria / constraints) so the
+        quality gap is visible, not described. The "whoa" moment: the image-based issue
+        stat (14-min manual → 2-min visual, 95% detail capture) must be the headline of
+        its slide — not body text. Cut any discussion of prompt engineering theory;
+        every sentence should be a directive the audience can copy today.
 
-    "Trust and Configuration: Environment Setup and the Agent Firewall":
+    "Trust and Configuration":
+      emphasis: medium
+      note: >
+        This section answers the "but is it safe?" objection that builds during S1 and
+        S2 — keep it tight; it is the credibility bridge, not the climax. Lead with
+        copilot-setup-steps.yml as the CI parity guarantee (exact same tooling as the
+        team's pipeline, zero surprises). Then introduce the Agent Firewall as an
+        allowlist-based outbound restriction; its key proof point is that blocked
+        attempts are logged inside the evidence bundle — auditability is a design
+        feature, not an afterthought. Cover the three firewall configuration levels
+        (strict / moderate / permissive) so security-focused tech leads leave with a
+        concrete dial they can turn. Cut deep configuration syntax; trust the audience
+        to read docs. The "whoa" moment: showing a blocked outbound call in the actual
+        evidence bundle log.
+
+    "Review Workflow":
       emphasis: medium-high
       note: >
-        Necessary guardrails before teams scale delegation — copilot-setup-steps.yml
-        ensures consistent CI parity and the Agent Firewall provides the security model
-        that makes autonomous code generation safe on sensitive repositories.
-
-    "The Review Workflow: From Draft PR to Merge":
-      emphasis: medium-high
-      note: >
-        Closes the loop and builds long-term confidence — evidence-bundle-first review,
-        mobile PR approval, and custom review agents show that human oversight is a
-        fast, structured step rather than a bottleneck. The "What to Delegate" decision
-        tree slide is the durable take-home framework for this section: well-understood
-        and bounded tasks delegate; anything requiring design judgment stays human.
-        Treat it as the closing anchor that converts audience insight into day-one action.
+        Closes the loop and converts insight into lasting confidence. Lead with
+        evidence-bundle-first review (changes summary + agent reasoning + blocked
+        firewall calls) to show that the artifact anticipates reviewer skepticism by
+        design. Mobile PR approval and @review-enforcer demonstrate that senior
+        developer time cost is minutes, not hours. The "What to Delegate" decision
+        tree is the section's — and the talk's — durable closing artifact: foreground
+        it explicitly as the reusable framework (well-understood + bounded → delegate;
+        design judgment or novel architecture → keep human). End on the lodash upgrade
+        benchmark (12 min total human time, 23 files) immediately before the final
+        slide — make the number large on screen. Cut anything that re-explains the
+        loop; this section assumes S1 is fully loaded in the audience's working memory.
 
   highlightMoments:
-    - "End-to-end automation: file issue → agent PR → review → merge with human control at each gate"
-    - "Separation of duties enforced by GitHub — the person who assigned the issue cannot be the PR approver"
-    - "Image-based issue creation: 14-minute manual transcription becomes a 2-minute visual workflow with 95% detail capture"
-    - "Mobile review loop: senior developers read the evidence bundle, invoke @review-enforcer, and approve in under 3 minutes from a phone"
-    - "12 minutes total human time for a complete lodash upgrade across 23 files — the agent did the rest"
+    - "Separation of duties is GitHub-enforced: the person who filed the issue cannot approve the resulting PR — by platform constraint, not policy"
+    - "Image-based issue creation: 14-minute manual transcription → 2-minute visual workflow with 95% detail capture"
+    - "Agent Firewall blocked-call log is embedded in the evidence bundle — auditability is an artifact feature, not an audit step"
+    - "Mobile review loop: read evidence bundle, invoke @review-enforcer, approve in under 3 minutes from a phone"
+    - "12 minutes total human time for a complete lodash upgrade across 23 files — the agent handled the rest"
+
+# OPEN DECISION: Whether GitHub Spark warrants a dedicated slide in S4 or only a one-line
+# callout. If included, position it before "What to Delegate" as a complementary
+# validation step (validate what to build with Spark, then build it with the coding agent)
+# — not as a distraction from the review-workflow focus.
