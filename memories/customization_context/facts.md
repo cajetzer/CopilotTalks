@@ -106,6 +106,36 @@ Slides 15 and 16 are genuinely bespoke; do not attempt to force them into existi
 | 14 | Built-in Agents | `FourCardGridSlide` | 1/6 blue |
 | 15 | /fleet Fan-Out | `CodeWithFeaturesSlide` (left) | 2/6 blue |
 | 16 | Cloud Delegation | `CodeWithFeaturesSlide` (left) | 3/6 blue |
+
+---
+
+## copilot-memory deck: generated 2026-04-22
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`slides/tech-talks/copilot-memory.md` — 24 slides, 🟢 clean build, zero warnings.
+
+**Section:** `Customization & Context`
+
+**Arc:** Hook (stateless pain) → Mechanism → Activation → Decision framework
+
+**Structure:**
+
+| Part | Section | Emphasis | Slides | Components |
+|---|---|---|---|---|
+| 1 (cyan) | How Copilot Memory Works | high | 4 | FrameworkMappingRows, TwoColPaired, FourCardGrid, HeroStat |
+| 2 (blue) | Enabling and Managing Memory | medium | 2 | CodeWithFeatures, FourCardGrid |
+| 3 (indigo) | What to Store in Memory | high | 4 | FourCardGrid ×2, ThreeColumnCard, TwoColPaired |
+| 4 (purple) | Privacy, Security and Usage | medium-high | 3 | TwoColPaired, FourCardGrid, HeroStat |
+
+**TOC slide numbers:** Part 1=4, Part 2=9, Part 3=12, Part 4=17
+
+**Highlight moments encoded:**
+- Semantic retrieval: "prefer functional components" activates even when you never say "functional" → Part 1 HeroStat insight
+- One toggle = cross-session persistence across VS Code, GitHub.com, CLI → Part 2 CodeWithFeatures
+- 2-minute investment / permanent elimination of context warm-up → Part 4 HeroStat (99x ROI hero)
+- Memory (personal) + Custom Instructions (team) compose cleanly → Part 3 TwoColPaired, BeforeAfterSlide
+- 28-day auto-expiration → Part 1 HeroStat (hero value)
 | 18 | Extensibility | `ThreeColumnCardSlide` | 5/6 blue |
 | 19 | Mental Model Shift | `BeforeAfterPanelsSlide` | 6/6 blue |
 | 21 | How --remote Works | `CodeWithFeaturesSlide` (left) | 1/4 indigo |

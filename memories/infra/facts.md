@@ -528,7 +528,25 @@ const cardStyles = computed(() => isDark.value ? DARK_CARD_STYLES : LIGHT_CARD_S
 
 ---
 
-## Component input guards: required when creating or editing any component (2026-04-22)
+## ReferencesSlide uses :groups not :items (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`ReferencesSlide` prop is `:groups` (array of group objects), not `:items`. Using `:items` causes a visual error overlay.
+
+**Correct shape:**
+```
+:groups='[{"title":"📖 Official Documentation","color":"cyan","items":[{"label":"...","href":"https://...","description":"..."}]}]'
+```
+
+**Wrong (causes error):**
+```
+:items='[{"label":"...","href":"..."}]'
+```
+
+`color` accepts: `cyan`, `purple`, `blue`, `indigo`, `green`, `pink`, `orange`, `rose`, `amber`, `teal`. Omit `href` for cross-references (internal talks); include it for external URLs.
+
+---
 
 `schema_version: 1` | `date: 2026-04-22`
 

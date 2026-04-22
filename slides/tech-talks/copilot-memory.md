@@ -4,241 +4,216 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## Copilot Memory: Stateful AI That Remembers Your Preferences
+  ## Copilot Memory
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: Copilot Memory - Stateful AI That Remembers Your Preferences
+title: Copilot Memory
 module: tech-talks/copilot-memory
 mdc: true
 section: Customization & Context
 status: active
-updated: 2026-02-01
+updated: 2026-04-22
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
-import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
-import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
 <TitleSlide
-title="Copilot Memory"
-subtitle="Stateful AI That Remembers Your Preferences"
-tagline="Stop re-explaining your coding style every session"
-meta="Tech Talk · 40 minutes"
+  title="Copilot Memory"
+  subtitle="Stateful AI That Remembers Your Preferences"
+  tagline="Stop re-explaining your coding style every session"
+  meta="GitHub Copilot · Customization & Context"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="How do I stop re-explaining my coding style, workflow preferences, and project context every session?"
-subtext="The AI forgets everything between sessions — same explanations, same corrections, same context setup."
-highlight="Memory breaks this cycle by making preferences persist."
-:cards='[
-  { icon: "💡", title: "Developers with Established Conventions", description: "Persist code style, testing preferences, and doc patterns across all sessions" },
-  { icon: "🔁", title: "Power Users Who Train Copilot Daily", description: "Stop losing months of corrections when sessions end or devices change" },
-  { icon: "👥", title: "Teams Sharing Agent Best Practices", description: "Repo-scoped memories preserve codebase conventions for every developer on the team" },
-  { title: "Context Resets", description: "Every session starts fresh — memory makes preferences survive across all sessions" },
-  { title: "Wasted Time", description: "Same instructions and corrections every session — memory eliminates this entirely" },
-  { title: "Preferences Lost", description: "Months of training forgotten when conversations end — memory persists it all" }
-]'
+  question="How do I stop re-explaining my coding style every session?"
+  subtext="Every developer using Copilot hits the same wall:"
+  highlight="The AI forgets everything when you close the chat."
+  :cards='[{"icon":"👩‍💻","title":"Daily Copilot Users","description":"Developers who open VS Code every day and reset Copilot context from scratch each time — forfeiting continuity between sessions."},{"icon":"🧑‍🔧","title":"Team Leads and Architects","description":"Leads enforcing team patterns and style guides who want Copilot aligned by default — not just when someone remembers to re-explain it."},{"icon":"🏗️","title":"Platform and DevOps Engineers","description":"Engineers with strong tool and workflow preferences who want Copilot to adapt to their stack without manual prompting every session."},{"icon":"📊","title":"5–10 min","description":"Time spent re-establishing context per session for most developers who do not use persistent memory."},{"icon":"⚡","title":"2 minutes","description":"Time to write the preferences that eliminate that re-establishment cost permanently — a one-time investment."},{"icon":"🧠","title":"Semantic retrieval","description":"Memory activates by meaning — not keywords. Writing once covers every future session that shares the same intent."}]'
 />
 
 ---
 
 <!-- SLIDE: Table of Contents -->
 <TocSlide
-  :sections='[
-    { icon: "🧠", title: "How Memory Works", subtitle: "Agent-accessible memory tool and storage lifecycle", blurb: "Agent writes, reads, and manages files across sessions", slide: 4 },
-    { icon: "⚙️", title: "Enabling & Managing", subtitle: "Configuration, visibility, and control", blurb: "Settings, visibility controls, and manual editing", slide: 8 },
-    { icon: "💾", title: "What to Store", subtitle: "Persistence criteria and best practices", blurb: "What persists vs. what stays in conversation context", slide: 11 },
-    { icon: "🔐", title: "Privacy & Best Practices", subtitle: "Security model and effective usage", blurb: "No sensitive data, curate actively, review regularly", slide: 15 },
-  ]'
+  title="Copilot Memory"
+  subtitle="Hook (stateless pain) → Mechanism → Activation → Decision framework"
+  :sections='[{"icon":"🧠","title":"How Copilot Memory Works","blurb":"Tool architecture, storage logic, and semantic retrieval","slide":4},{"icon":"⚙️","title":"Enabling and Managing Memory","blurb":"One toggle, VS Code settings, and the management UI","slide":9},{"icon":"📝","title":"What to Store in Memory","blurb":"Persistence Test, ideal patterns, and anti-patterns","slide":12},{"icon":"🔐","title":"Privacy, Security and Usage","blurb":"Privacy model, guardrails, and your first actions","slide":17}]'
 />
+
 ---
 
-<!-- SLIDE: Part 1 — How Memory Works -->
-
+<!-- SLIDE: Part 1 Opener -->
 <SectionOpenerSlide
   :partNumber="1"
-  title="How Memory Works"
-  subtitle="Agent-accessible memory tool and storage lifecycle"
-  :cards='[
-    { icon: "💾", title: "Store Operation", blurb: "Agent writes memory to persistent store" },
-    { icon: "🔍", title: "Retrieve Operation", blurb: "Agents access prior context automatically" },
-    { icon: "🔄", title: "Cross-Environment", blurb: "Memory spans IDE, CLI, and web" },
-  ]'
-  :terminal='{ context: "Agent writes, reads, and manages files", detail: "across sessions automatically" }'
-/>
----
-
-<!-- SLIDE: Memory Tool Architecture -->
-<TwoColPairedConceptsSlide
-  :partNumber="1"
   pillIcon="🧠"
-  pillLabel="How Memory Works"
-  title="Store and Retrieve Operations"
-  :left='{ header: "💾 Store Operation", items: [], code: { language: "text", content: "User: \u201cFrom now on, always ask\nclarifying questions when\nrequirements seem ambiguous.\u201d\nAgent: \u201cI\u2019ll remember this.\u201d\n[Memory Tool: Save]\nContent: \u201cAsk clarifying questions\nwhen requirements seem ambiguous\ninstead of making assumptions\u201d\nScope: All future sessions" } }'
-  :right='{ header: "🔍 Retrieve Operation", items: [], code: { language: "text", content: "[New chat session starts]\nUser: \u201cHelp me implement\nuser authentication\u201d\n[Memory Tool: Retrieve]\nFound: \u201cAlways include rollback strategy\u201d\nFound: \u201cPrefer TypeScript strict mode\u201d\nFound: \u201cFormat: bullet points + code examples\u201d\nAgent: [Applies automatically]" } }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  pillLabel="How It Works"
+  title="How Copilot Memory Works"
+  subtitle="Tool architecture, storage decision logic, and semantic retrieval — the cognitive foundation everything else builds on."
+  :cards='[{"icon":"🗄️","title":"Persistent tool","blurb":"Memory is a first-class Copilot tool — not a prompt hack or a workaround."},{"icon":"🔍","title":"Semantic retrieval","blurb":"Activates by meaning, not keywords — one preference covers many contexts."},{"icon":"♻️","title":"28-day lifecycle","blurb":"Auto-expires stale memories to prevent silently degraded suggestions."}]'
+  :terminal='{"context":"$ copilot memory list","detail":"Viewing stored preferences across sessions"}'
 />
-
 
 ---
 
 <!-- SLIDE: Storage Decision Logic -->
-<BeforeAfterPanelsSlide
+<FrameworkMappingRowsSlide
   :partNumber="1"
   pillIcon="🧠"
-  pillLabel="How Memory Works"
-  title="What the Agent Stores vs. Ignores"
-  :before='{ header: "❌ Don\u2019t Store — Ephemeral or sensitive", items: [
-    { title: "\u201cFix bug on line 47\u201d", detail: "Session-specific, not future-relevant" },
-    { title: "\u201cAPI key: abc123\u201d", detail: "Security risk — use secret management" },
-    { title: "\u201cTry approach A first\u201d", detail: "Ephemeral experiment" }
-  ] }'
-  :after='{ header: "✅ Store — Future-relevant preferences", items: [
-    { title: "\u201cAlways use X pattern\u201d", detail: "Explicit future-tense instruction" },
-    { title: "\u201cI prefer Y format\u201d", detail: "Personal style preference" },
-    { title: "\u201cWe chose Z because...\u201d", detail: "Historical decision context" }
-  ] }'
-  :insight='{ icon: "💡", text: "Agent asks permission when ambiguous: \u2018Should I remember this for future sessions?\u2019" }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  pillLabel="How It Works"
+  title="What the Agent Stores — and What It Skips"
+  :rows='[{"label":"Explicit rule","description":"From now on, always... — direct future-tense instruction, stored every time.","tag":"✅ Store"},{"label":"Style pref","description":"I prefer early returns, functional components — lasting personal habit.","tag":"✅ Store"},{"label":"Architecture","description":"We use Redis because pub/sub was needed — decision context preserved.","tag":"✅ Store"},{"label":"Session task","description":"Fix the bug on line 47 — ephemeral task, irrelevant after this session.","tag":"⏭ Skip"},{"label":"Credentials","description":"API key: abc123 — memory syncs across machines; never store secrets.","tag":"🚫 Never"}]'
+  :progressDots='{"current":1,"total":4,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Semantic Retrieval & Sync -->
+<!-- SLIDE: Store vs Retrieve -->
 <TwoColPairedConceptsSlide
   :partNumber="1"
   pillIcon="🧠"
-  pillLabel="How Memory Works"
-  title="Contextual Retrieval and Environment Sync"
-  :left='{ header: "🎯 Semantic Retrieval", items: [
-    { title: "Working on auth", detail: "→ Security memories + OAuth decisions surface automatically" },
-    { title: "Writing validation", detail: "→ Coding style preference (early returns) applies" },
-    { title: "Explaining concepts", detail: "→ Communication format preference retrieved" },
-    { title: "Example", detail: "Stored \u201cprefer functional components\u201d applies to React discussions without the word \u2018functional\u2019" }
-  ] }'
-  :right='{ header: "🔄 Cross-Environment Sync", items: [], code: { language: "text", content: "Store in VS Code Chat\n  \u2193\n[GitHub Account Storage]\n  \u2193\nAvailable in:\n  \u2022 VS Code (all machines)\n  \u2022 GitHub.com Copilot Chat\n  \u2022 GitHub CLI (gh copilot)\nEncrypted at rest & in transit\nAuto-sync (no manual action)" } }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  pillLabel="How It Works"
+  title="Two Operations: Store and Retrieve"
+  :left='{"header":"🗃️ Store — Saving What Matters","items":["User: From now on, always ask clarifying questions","Agent evaluates persistence-worthiness of the request","Agent confirms: I will remember this preference","Saved encrypted to your GitHub account across environments"]}'
+  :right='{"header":"🔍 Retrieve — Applying in Context","items":["New session opens — blank chat, no injected context","Memory tool retrieves semantically relevant entries","Matches by meaning, not by exact keywords","Preferences applied automatically from the first response"]}'
+  :progressDots='{"current":2,"total":4,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Part 2 — Enabling & Managing -->
+<!-- SLIDE: Cross-Platform Sync -->
+<FourCardGridSlide
+  :partNumber="1"
+  pillIcon="🧠"
+  pillLabel="How It Works"
+  title="One Account. Every Environment."
+  :cards='[{"icon":"🖥️","title":"VS Code Chat","description":"Primary workspace — memory stored and recalled across all chat sessions automatically."},{"icon":"🌐","title":"GitHub.com","description":"Same memories on the web interface — identical behavior wherever you open a chat."},{"icon":"⌨️","title":"GitHub CLI","description":"gh copilot inherits your account memories — consistent preferences in the terminal."},{"icon":"🔗","title":"Account-linked","description":"Memories follow your GitHub identity, not a machine — switch computers seamlessly."}]'
+  :progressDots='{"current":3,"total":4,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
+/>
 
+---
+
+<!-- SLIDE: 28 Days and ROI -->
+<HeroStatSlide
+  :partNumber="1"
+  pillIcon="🧠"
+  pillLabel="How It Works"
+  title="Freshness Enforced. ROI Compounded."
+  subtitle="Stale preferences expire. Important ones survive because you keep using them."
+  :hero='{"value":"28 days","label":"Auto-expiration window — stale memories purge automatically","source":"GitHub Copilot Docs"}'
+  :supporting='[{"icon":"✏️","title":"Write once","description":"Store a preference in 2 minutes; benefit in every future session indefinitely."},{"icon":"🔄","title":"Auto-expires","description":"Stale memories expire to prevent silently degraded suggestions over time."},{"icon":"⚡","title":"Zero warm-up","description":"First session after enabling: preferences apply from the first token generated."}]'
+  :insight='{"icon":"💡","text":"Semantic retrieval matches by meaning — not keywords. Write once, benefit in every context."}'
+  :progressDots='{"current":4,"total":4,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
+/>
+
+---
+
+<!-- SLIDE: Part 2 Opener -->
 <SectionOpenerSlide
   :partNumber="2"
-  title="Enabling & Managing"
-  subtitle="Configuration, visibility, and control over stored memories"
-  :cards='[
-    { icon: "⚙️", title: "Single Setting", blurb: "One config line enables the memory tool" },
-    { icon: "👀", title: "Full Transparency", blurb: "View all stored memory files" },
-    { icon: "⏱️", title: "28-Day Expiration", blurb: "Automatic cleanup policy" },
-  ]'
-  :terminal='{ context: "One config line enables memory tool", detail: "default 28-day retention" }'
+  pillIcon="⚙️"
+  pillLabel="Enabling"
+  title="Enabling and Managing Copilot Memory"
+  subtitle="Setup is a single JSON toggle — keep this brisk and let the management UI be the main engagement point."
+  :cards='[{"icon":"🔛","title":"One toggle","blurb":"A single VS Code setting enables cross-session persistence everywhere."},{"icon":"🖥️","title":"Management UI","blurb":"View, edit, and delete stored memories from a dedicated panel."},{"icon":"🌐","title":"Cross-platform","blurb":"Active in VS Code, GitHub.com, and GitHub CLI simultaneously."}]'
+  :terminal='{"context":"$ code --open-settings","detail":"Enabling memory in VS Code settings JSON"}'
 />
+
 ---
 
-<!-- SLIDE: Enabling Memory -->
+<!-- SLIDE: Enable and Configure -->
 <CodeWithFeaturesSlide
   :partNumber="2"
   pillIcon="⚙️"
-  pillLabel="Enabling & Managing"
-  title="Enable Memory in 5 Minutes"
-  :code='{ language: "json", filename: "settings.json", content: "{\n  \u201cgithub.copilot.chat.copilotMemory.enabled\u201d: true\n}" }'
-  codePosition="top"
-  :features='[
-    { icon: "🔮", title: "What Happens When Enabled", description: "Agent gains memory tool access, can store persistent context, and auto-retrieves in future sessions" },
-    { icon: "🌐", title: "Multi-Environment", description: "VS Code: settings.json · GitHub.com: Settings page · CLI: Inherits from account" },
-    { icon: "⚙️", title: "Zero Configuration After", description: "Memory syncs automatically, no per-project setup, works across all repositories" }
-  ]'
-  :progressDots='{ current: 1, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  pillLabel="Enabling"
+  title="One Setting. Instant Cross-Session Memory."
+  :code='{"language":"json","content":"{\n  \"github.copilot.chat.copilotMemory.enabled\": true\n}","filename":".vscode/settings.json"}'
+  codePosition="left"
+  :features='[{"icon":"🔛","title":"One toggle","description":"A single JSON setting enables cross-session memory in VS Code immediately."},{"icon":"🌐","title":"Multi-platform","description":"VS Code, GitHub.com, and GitHub CLI all activate from the same account setting."},{"icon":"⚡","title":"Immediate effect","description":"Active in your next chat session — no restart or additional configuration needed."}]'
+  :progressDots='{"current":1,"total":2,"activeColor":"bg-blue-400 shadow-lg shadow-blue-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Viewing and Managing Memories -->
-<TwoColPairedConceptsSlide
+<!-- SLIDE: Memory Management -->
+<FourCardGridSlide
   :partNumber="2"
   pillIcon="⚙️"
-  pillLabel="Enabling & Managing"
-  title="Full Visibility and Control"
-  :left='{ header: "👀 Viewing Stored Memories", items: [{ title: "Navigate to github.com/settings/copilot", detail: "Shows each memory with date stored and source environment" }], code: { language: "text", content: "Memory: \u201cPrefer early returns\nover nested conditionals.\nCheck failure cases first.\u201d\nStored: 2026-01-15 · VS Code Chat\n---\nMemory: \u201cTechnical explanations\nformat: summary, why, code\nexample, gotchas.\u201d\nStored: 2026-01-20 · GitHub.com" } }'
-  :right='{ header: "🗑️ Managing Memories", items: [
-    { title: "Delete Individual", detail: "Click trash icon next to any memory" },
-    { title: "Bulk Delete", detail: "Select multiple, then click Delete Selected" },
-    { title: "Clear All", detail: "Reset completely for a fresh start" },
-    { title: "Export", detail: "Download JSON for backup or audit" }
-  ] }'
-  :insight='{ icon: "⏱️", text: "28-Day Auto-Expiration: Memories expire automatically to prevent stale preferences. Review monthly, delete obsolete, refresh important ones." }'
-  :progressDots='{ current: 2, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  pillLabel="Enabling"
+  title="Full Control Over What Persists"
+  :cards='[{"icon":"👁️","title":"View","description":"GitHub Settings > Copilot > Memory shows a timestamped list of all stored preferences."},{"icon":"✏️","title":"Edit and delete","description":"Remove individual memories when preferences evolve or you switch project context."},{"icon":"🗑️","title":"Bulk clear","description":"Select multiple or use Clear All to reset — useful after major project transitions."},{"icon":"📦","title":"Export JSON","description":"Download all memories as JSON for backup or audit before making bulk changes."}]'
+  :progressDots='{"current":2,"total":2,"activeColor":"bg-blue-400 shadow-lg shadow-blue-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — What to Store -->
-
+<!-- SLIDE: Part 3 Opener -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="What to Store"
-  subtitle="Persistence criteria and best practices"
-  :cards='[
-    { icon: "💾", title: "Ideal Candidates", blurb: "Preferences, patterns, project context" },
-    { icon: "🚫", title: "What NOT to Store", blurb: "Secrets, PII, or temporary state" },
-    { icon: "✅", title: "Persistence Test", blurb: "Is it useful weeks from now?" },
-  ]'
-  :terminal='{ context: "What persists vs. what stays in conversation context", detail: "strategic memory architecture" }'
+  pillIcon="📝"
+  pillLabel="What to Store"
+  title="What to Store in Memory"
+  subtitle="The decision framework and Persistence Test are the most actionable takeaway — map it to your own workflows."
+  :cards='[{"icon":"✅","title":"Ideal patterns","blurb":"Coding style, toolchain preferences, review standards — anything cross-session."},{"icon":"❌","title":"Anti-patterns","blurb":"File-specific fixes, temp context, secrets — these degrade quality over time."},{"icon":"🧪","title":"Persistence Test","blurb":"Three questions that determine if something belongs in memory."}]'
+  :terminal='{"context":"$ copilot memory add","detail":"Storing a new coding preference interactively"}'
 />
+
 ---
 
-<!-- SLIDE: Ideal Candidates for Memory -->
+<!-- SLIDE: Ideal Candidates -->
 <FourCardGridSlide
   :partNumber="3"
-  pillIcon="💾"
+  pillIcon="📝"
   pillLabel="What to Store"
   title="Persistence-Worthy Preferences"
-  :cards='[
-    { icon: "🎨", title: "Coding Style", description: "TypeScript strict mode, functional components, functions under 20 lines, JSDoc for public APIs" },
-    { icon: "🔄", title: "Workflow Preferences", description: "Ask clarifying questions first, show plan before changes, always include rollback strategy, estimate time per step" },
-    { icon: "💬", title: "Communication Style", description: "Concise bullet points over paragraphs, code examples in explanations, always mention tradeoffs" },
-    { icon: "🏗️", title: "Architectural Decisions", description: "Result type error handling, repository pattern for DB queries, Redis for pub/sub (ADR-047)" }
-  ]'
-  :insight='{ icon: "🎯", text: "The best memory candidates are preferences you repeat every session — coding style, communication habits, and architectural decisions that compound over time" }'
-  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  :cards='[{"icon":"🎨","title":"Coding style","description":"Early returns, TypeScript strict, functional components, JSDoc on public APIs."},{"icon":"⚙️","title":"Workflow habits","description":"Ask clarifying questions first, show plan before changes, include rollback strategy."},{"icon":"💬","title":"Communication","description":"Bullet points, concise summaries, code examples in explanations, one-sentence preview."},{"icon":"🏛️","title":"Arch decisions","description":"Redis for pub/sub, Result type for error handling, repository pattern for DB queries."}]'
+  :progressDots='{"current":1,"total":4,"activeColor":"bg-indigo-400 shadow-lg shadow-indigo-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: What Should NOT Be Stored -->
+<!-- SLIDE: What NOT to Store -->
 <FourCardGridSlide
   :partNumber="3"
-  pillIcon="💾"
+  pillIcon="📝"
   pillLabel="What to Store"
   title="What Should NOT Be Stored"
-  :cards='[
-    { icon: "❌", title: "Session-Specific Context", description: "Fix bugs on specific lines, current file contents, references to earlier discussion — ephemeral, relevant only now" },
-    { icon: "⚠️", title: "Temporary Debugging", description: "Skip tests for now, ignore linting errors, use console.log — bad habits that should not persist long-term" },
-    { icon: "🔒", title: "Sensitive Information", description: "Passwords, API keys, tokens, PII, connection strings with credentials — use secret management instead" },
-    { icon: "👥", title: "Team Standards", description: "Team-wide coding standards, mandatory architecture patterns, compliance requirements — use custom instructions instead" }
-  ]'
-  :insight='{ icon: "🎯", text: "Memory is personal and persistent — team standards belong in custom instructions, secrets in vaults, and ephemeral context stays in the session" }'
-  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  :cards='[{"icon":"📍","title":"Session tasks","description":"Fix bugs on specific lines, current file contents, or refactoring tasks in context."},{"icon":"🔑","title":"Sensitive data","description":"Passwords, API keys, tokens, connection strings — memory syncs; never store credentials."},{"icon":"🔧","title":"Temp shortcuts","description":"Skip tests for now, ignore linting errors — temporary compromises must not persist."},{"icon":"👥","title":"Team standards","description":"Conventions everyone must follow belong in custom instructions, not personal memory."}]'
+  :progressDots='{"current":2,"total":4,"activeColor":"bg-indigo-400 shadow-lg shadow-indigo-500/50"}'
+/>
+
+---
+
+<!-- SLIDE: The Persistence Test -->
+<ThreeColumnCardSlide
+  :partNumber="3"
+  pillIcon="📝"
+  pillLabel="What to Store"
+  title="The Persistence Test"
+  :columns='[{"icon":"🔁","title":"Future sessions?","description":"Will this apply to multiple future conversations?","items":["Yes → store in memory","No → use ephemeral context","Unsure → try and curate later"]},{"icon":"👤","title":"Personal or team?","description":"Is this your style, or a standard the whole team must follow?","items":["Just you → Memory","Whole team → Custom Instructions","Both → split the layers"]},{"icon":"🎯","title":"Specific enough?","description":"Can the AI apply this consistently and correctly?","items":["Early returns → yes","Write good code → no","Bullet-point explanations → yes"]}]'
+  :progressDots='{"current":3,"total":4,"activeColor":"bg-indigo-400 shadow-lg shadow-indigo-500/50"}'
 />
 
 ---
@@ -246,255 +221,100 @@ highlight="Memory breaks this cycle by making preferences persist."
 <!-- SLIDE: Memory vs Custom Instructions -->
 <TwoColPairedConceptsSlide
   :partNumber="3"
-  pillIcon="💾"
+  pillIcon="📝"
   pillLabel="What to Store"
   title="Memory vs. Custom Instructions"
-  :left='{ header: "💾 Use Memory When", items: [
-    "Personal preferences across all projects",
-    "Communication format (how AI talks to you)",
-    "Individual workflow (planning style)",
-    "Preferences that don\u2019t apply to teammates"
-  ], code: { language: "text", content: "\u201cPrefer early returns\u201d\n\u201cExplain with bullet points\u201d" } }'
-  :right='{ header: "📄 Use Instructions When", items: [
-    "Apply to entire team",
-    "Project architecture patterns",
-    "Security requirements",
-    "Version controlled and reviewed"
-  ], code: { language: "text", content: "\u201cUse TypeScript strict mode\u201d\n\u201cFollow Airbnb style guide\u201d" } }'
-  :insight='{ icon: "🎯", text: "Layered Customization: [Custom Instructions] Team standards → [Memory] Personal preferences → [Result] Team consistency + individual customization" }'
-  :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  :left='{"header":"🧠 Copilot Memory","items":["Personal preferences — follows your GitHub account, not the repo","Private to you — teammates cannot see your memories","Cross-project — same preferences on every codebase","One setting toggle, active in 5 minutes"]}'
+  :right='{"header":"📋 Custom Instructions","items":["Team standards — shared and version controlled in the repository","Visible to all contributors — enforces team consistency","Repo-scoped — applies within a specific path or project","Markdown file in .github — reviewed like any other code"]}'
+  :progressDots='{"current":4,"total":4,"activeColor":"bg-indigo-400 shadow-lg shadow-indigo-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: The Persistence Test -->
-<FourCardGridSlide
-  :partNumber="3"
-  pillIcon="💾"
-  pillLabel="What to Store"
-  title="The Persistence Test"
-  :cards='[
-    { icon: "❓", title: "Question 1", description: "Will this apply to multiple future sessions? If not, don\u2019t store — use ephemeral chat context instead" },
-    { icon: "❓", title: "Question 2", description: "Is this a personal preference or team requirement? Personal \u2192 Memory. Team \u2192 Custom Instructions" },
-    { icon: "❓", title: "Question 3", description: "Would I explain this to a new teammate? If no, probably not memory-worthy — too granular or ephemeral" },
-    { icon: "❓", title: "Question 4", description: "Is this sensitive or security-related? If yes, NEVER store in memory — use secret management systems" }
-  ]'
-  :insight='{ icon: "💡", text: "Start conservative — it\u2019s easier to add memories later than fix conflicting or stale ones. Curate to 10\u201320 most impactful preferences." }'
-  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Part 4 — Privacy & Best Practices -->
-
+<!-- SLIDE: Part 4 Opener -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="Privacy & Best Practices"
-  subtitle="Security model and effective usage"
-  :cards='[
-    { icon: "🔐", title: "Privacy-First", blurb: "No sensitive data in memory" },
-    { icon: "🧹", title: "Memory Hygiene", blurb: "Curate actively, review regularly" },
-    { icon: "📈", title: "Progressive Profiles", blurb: "Build understanding over time" },
-  ]'
-  :terminal='{ context: "No sensitive data, curate actively", detail: "review regularly" }'
+  pillIcon="🔐"
+  pillLabel="Privacy and Usage"
+  title="Privacy, Security, and Effective Usage"
+  subtitle="Front-load the privacy model briefly, then pivot hard into real-world impact and your first actions with memory."
+  :cards='[{"icon":"🛡️","title":"Privacy model","blurb":"Memories are scoped to you — not shared with teams or used for training."},{"icon":"📈","title":"Real-world impact","blurb":"Before/after workflow deltas from teams using persistent memory."},{"icon":"🚀","title":"First actions","blurb":"Three things you can do today, this week, and this month."}]'
+  :terminal='{"context":"$ copilot memory --help","detail":"Reviewing memory privacy and scope options"}'
 />
+
 ---
 
-<!-- SLIDE: Privacy and Security Model -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: Privacy Model -->
+<TwoColPairedConceptsSlide
   :partNumber="4"
   pillIcon="🔐"
-  pillLabel="Privacy & Best Practices"
-  title="Privacy-First Architecture"
-  :before='{ header: "🚫 What NEVER Gets Stored", items: [
-    "File contents or code snippets",
-    "Secrets, API keys, credentials, tokens",
-    "PII beyond GitHub account",
-    "Current workspace state or file paths"
-  ] }'
-  :after='{ header: "✅ What Gets Stored", items: [
-    { title: "Text summaries of preferences", detail: "e.g., \u201cPrefer early returns\u201d" },
-    { title: "Linked to your GitHub account identity", detail: "Encrypted at rest and in transit" },
-    { title: "Same protection as other GitHub data", detail: "Individual-private, not in audit logs" },
-    { title: "Data portability", detail: "Export memories anytime as JSON" }
-  ] }'
-  :insight='{ icon: "🏢", text: "Enterprise Governance: Org policy can disable memory for all users. Individuals can delete individual memories or clear all with one click." }'
-  :progressDots='{ current: 1, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  pillLabel="Privacy and Usage"
+  title="Encrypted, Private, and Under Your Control"
+  :left='{"header":"✅ What IS Stored","items":["Text summaries of preferences — not code snippets or file contents","Linked to your GitHub account — no PII beyond account identity","Encrypted at rest and in transit on GitHub infrastructure","28-day auto-expiration — stale preferences purge automatically"]}'
+  :right='{"header":"🚫 What Is NEVER Stored","items":["File contents, code snippets, or current workspace state","Secrets, API keys, passwords, or connection strings","Personal identifying information beyond your GitHub account","Session-specific paths, line numbers, or ephemeral task context"]}'
+  :progressDots='{"current":1,"total":3,"activeColor":"bg-purple-400 shadow-lg shadow-purple-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Memory Hygiene & Best Practices -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: Enterprise Governance -->
+<FourCardGridSlide
   :partNumber="4"
   pillIcon="🔐"
-  pillLabel="Privacy & Best Practices"
-  title="Effective Memory Usage"
-  :before='{ header: "❌ Vague — Too Generic to Apply", items: [
-    { title: "\u201cI like clean code\u201d", detail: "What does \u2018clean\u2019 mean? Not actionable" },
-    { title: "\u201cBe helpful\u201d", detail: "Too generic — already the default behavior" },
-    { title: "\u201cUse best practices\u201d", detail: "No specificity — which practices?" }
-  ] }'
-  :after='{ header: "✅ Good — Explicit and Specific", items: [
-    { title: "\u201cRemember for future sessions: I prefer concise bullet-point explanations\u201d", detail: "Explicit and future-scoped" },
-    { title: "\u201cFrom now on, always ask clarifying questions before implementing\u201d", detail: "Future-tense instruction" },
-    { title: "Functions under 20 lines with single responsibility", detail: "Specific and measurable" }
-  ] }'
-  :insight='{ icon: "🧹", text: "Monthly Memory Hygiene: (1) Audit stored memories, (2) Delete obsolete preferences, (3) Update evolved conventions, (4) Reconfirm critical ones" }'
-  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  pillLabel="Privacy and Usage"
+  title="Enterprise Governance at a Glance"
+  :cards='[{"icon":"👤","title":"Admin visibility","description":"Memory content is private to each user — admins see usage events only, never memory content."},{"icon":"🛡️","title":"Sensitive data guard","description":"Tool filters secrets; users can delete any memory; 28-day auto-expiry is a safety net."},{"icon":"🏢","title":"Org control","description":"Organizations can disable memory for all users via policy — all-or-nothing governance option."},{"icon":"📦","title":"Data portability","description":"Export all memories as JSON anytime for backup, audit, or deletion before account changes."}]'
+  :progressDots='{"current":2,"total":3,"activeColor":"bg-purple-400 shadow-lg shadow-purple-500/50"}'
 />
 
-
 ---
 
-<!-- SLIDE: Progressive Memory Profiles -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔐 Privacy & Best Practices</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Build Your Memory Profile Over 4 Weeks</div>
-<div class="text-xs text-white/50">Progressive approach to curated 10-15 memory collection</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-4 gap-3 text-xs">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-2xl mb-1">1️⃣</div>
-<div class="font-bold text-cyan-300 mb-1">Week 1: Communication</div>
-<div class="text-xs opacity-70 mb-2">Immediate impact, easy to validate</div>
-<div class="space-y-1 text-xs">
-<div>• Explanation format</div>
-<div>• Verbosity level</div>
-<div>• Example style</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="text-2xl mb-1">2️⃣</div>
-<div class="font-bold text-blue-300 mb-1">Week 2: Coding Style</div>
-<div class="text-xs opacity-70 mb-2">Personal patterns beyond team standards</div>
-<div class="space-y-1 text-xs">
-<div>• Function length</div>
-<div>• Conditional structure</div>
-<div>• Comment style</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30">
-<div class="text-2xl mb-1">3️⃣</div>
-<div class="font-bold text-indigo-300 mb-1">Week 3: Workflow</div>
-<div class="text-xs opacity-70 mb-2">How you work, not what you build</div>
-<div class="space-y-1 text-xs">
-<div>• Planning style</div>
-<div>• Review approach</div>
-<div>• Debug methodology</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
-<div class="text-2xl mb-1">4️⃣</div>
-<div class="font-bold text-purple-300 mb-1">Week 4: Project Context</div>
-<div class="text-xs opacity-70 mb-2">Architectural decisions and rationale</div>
-<div class="space-y-1 text-xs">
-<div>• Tech choices & why</div>
-<div>• Historical context</div>
-<div>• ADR references</div>
-</div>
-</div>
-</div>
-<div class="relative z-10 mt-2 p-2 bg-pink-900/20 rounded-lg border border-pink-500/20">
-<div class="text-xs text-pink-300">🎯 <span class="font-semibold">Outcome:</span> After 4 weeks, a curated 10-15 memory collection provides consistent, personalized assistance without overwhelming retrieval.</div>
-</div>
-</div>
-</div>
-
-
----
-
-<!-- SLIDE: Real-World Impact -->
-<BeforeAfterMetricsSlide
+<!-- SLIDE: ROI -->
+<HeroStatSlide
   :partNumber="4"
-  pillIcon="📊"
-  pillLabel="Real-World Impact"
-  title="Quantified Time Savings"
-  :before='{ header: "⏱️ Before Memory", items: [
-    { title: "Style Re-Explanation", detail: "10 min/session × 3/day × 5 days = 150 min/week re-explaining preferences" },
-    { title: "Architectural Decisions", detail: "15 min monthly to correct wrong suggestions (Redis vs Memcached)" },
-    { title: "Communication Format", detail: "40\u201360 responses/week need manual \u201cmake this shorter\u201d adjustment" }
-  ] }'
-  :after='{ header: "✅ After Memory", items: [
-    { title: "Style Preferences", detail: "5 min one-time storage \u2192 145 min/week saved automatically" },
-    { title: "Architectural Decisions", detail: "AI references Redis automatically with rationale \u2014 zero corrections needed" },
-    { title: "Communication Format", detail: "Zero follow-ups \u2014 responses arrive in preferred format every time" }
-  ] }'
-  :metrics='[
-    { value: "99x", label: "ROI on preferences (2 min \u2192 198 min saved)" },
-    { value: "145 min", label: "Saved per week on re-explanation" },
-    { value: "0", label: "Manual follow-ups per week" }
-  ]'
-  :insight='{ icon: "💡", text: "Store once, agent applies automatically. 40 sessions over 2 months: 2 minutes invested → 198 minutes saved." }'
-  :progressDots='{ current: 4, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  pillIcon="🔐"
+  pillLabel="Privacy and Usage"
+  title="The Math Is Simple. The ROI Is Not."
+  subtitle="Store once. Benefit every session — indefinitely."
+  :hero='{"value":"99x","label":"Return on investment — 2 minutes stored, 198 minutes reclaimed across 40 sessions","source":"Example from GitHub Copilot Memory docs"}'
+  :supporting='[{"icon":"⏱️","title":"2 min invested","description":"Time to write a clear, specific preference the AI can apply consistently every session."},{"icon":"♾️","title":"Forever saves","description":"That preference eliminates re-explanation in every future session — permanently."},{"icon":"📈","title":"Compounds over time","description":"10 stored preferences means 10x the time saved per session vs. explaining from scratch."},{"icon":"🎯","title":"Session zero","description":"First chat after enabling: preferences apply from the first token — zero warm-up cost."}]'
+  :insight='{"icon":"💡","text":"200 minutes wasted re-explaining across 40 sessions. 2 minutes to store it once. That is the compounding power of memory."}'
+  :progressDots='{"current":3,"total":3,"activeColor":"bg-purple-400 shadow-lg shadow-purple-500/50"}'
 />
-
 
 ---
 
-<!-- SLIDE: Before/After -->
+<!-- SLIDE: Before and After -->
 <BeforeAfterSlide
-header="Context Reset to Persistent Preferences"
-:leftItems='["Context: reset each session", "Setup: repeat preferences manually", "Timeline: forget what worked", "Personalization: none"]'
-:rightItems='["Context: persistent across sessions", "Setup: 5 minutes", "Timeline: 40 sessions = 2 months", "Personalization: instant"]'
-:metrics='[
-  { value: "99x", detail: "ROI (2 min → 198 min saved)" },
-  { value: "5 min", detail: "Setup time" },
-  { value: "2 months", detail: "40 sessions" }
-]'
+  header="Life Before and After Copilot Memory"
+  :leftItems='["Re-explain coding style every session","Prompt-engineer preferences into every chat","Context lost when switching between tools","Team members get inconsistent Copilot behavior"]'
+  :rightItems='["Style and preferences active from the first token","Zero-prompt context — Copilot already knows","Consistent behavior across VS Code, web, and CLI","Memory plus custom instructions compose cleanly"]'
+  :metrics='[{"value":"0 min","detail":"Context warm-up per session"},{"value":"2 min","detail":"One-time preference investment"},{"value":"∞","detail":"Sessions that benefit"}]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Enable in VS Code settings", "Store a coding style preference in memory", "Verify in a new chat — observe preference applied automatically"]'
-  :thisWeek='["Store 3-5 core preferences: coding, communication, workflow", "Review at github.com/settings/copilot", "Test application in actual work", "Delete/refine what didn&#39;t work"]'
-  :thisMonth='["Build a 4-week progressive memory profile", "Distinguish memory vs custom instructions", "Set a monthly review reminder", "Share your memory strategy with team"]'
-  footer="Validate your preferences over one week, review how memory layers with Custom Instructions, and share your memory profile strategy with teammates to multiply the personalization benefit."
+  :today='["Enable memory in VS Code settings (chat.memory.enabled)","Open the memory management panel and review defaults","Write your first preference: preferred language or framework"]'
+  :thisWeek='["Store your test and review style preferences","Add framework and dependency preferences","Tell Copilot your PR and commit message conventions"]'
+  :thisMonth='["Audit stored memories after 30 days for freshness","Layer team custom instructions alongside personal memory","Measure session warm-up time before vs. after adoption"]'
+  footer="Two minutes of preference-writing eliminates context re-establishment permanently — every session compounds the investment."
 />
 
 ---
 
 <!-- SLIDE: References -->
 <ReferencesSlide
-  :groups='[
-    { title: "Official Documentation", color: "cyan", items: [
-        { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory", label: "GitHub Docs: Copilot Memory", description: "Core concepts, enabling memory, curation guide" },
-        { href: "https://github.com/settings/copilot", label: "GitHub Settings: Manage Memory", description: "View, edit, and delete stored memories; privacy controls" },
-        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-instructions", label: "Custom Instructions Guide", description: "Complementary feature for team standards (works with memory)" }
-    ] },
-    { title: "🎓 Related Content", color: "purple", items: [
-        { label: "Copilot Primitives", description: "Instructions, prompts, skills, and agents — the full customization stack" },
-        { label: "Enterprise Patterns", description: "Org-level memory governance and privacy controls" },
-        { label: "Custom Instructions Workshop", description: "Pair memory with explicit instructions for maximum consistency" }
-    ] }
-  ]'
+  :groups='[{"title":"📖 Official Documentation","color":"cyan","items":[{"label":"Copilot Memory documentation","href":"https://docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory","description":"Core concepts, memory curation, and privacy model"},{"label":"Custom instructions in VS Code","href":"https://code.visualstudio.com/docs/copilot/customization/custom-instructions","description":"Complementary team-wide instructions feature"}]}]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="Stateful AI That Remembers Your Preferences"
-:cards="[
-  { icon: '💡', value: '99x', detail: 'ROI on time invested', subdetail: '2 min → 198 min saved across sessions' },
-  { icon: '🔄', value: '28 days', detail: 'Auto-expiration cycle', subdetail: 'Keeps preferences fresh and relevant' },
-  { icon: '🎯', value: '10-15', detail: 'Ideal memory count', subdetail: 'Curated for maximum impact' },
-]"
-prompt="Questions? Let's discuss how to bring persistent memory to your Copilot workflows"
+  title="Copilot Memory"
+  subtitle="Your preferences, persisted. Your context, never lost."
+  :cards='[{"icon":"🧠","value":"Semantic retrieval","detail":"Activates by meaning — write once, benefit forever"},{"icon":"⚡","value":"2-minute investment","detail":"Eliminates 5–10 min of context re-setup per session"},{"icon":"🔄","value":"Memory plus Instructions","detail":"Personal style composing cleanly with team standards"}]'
+  prompt="Enable memory today. Write your first preference in the next 5 minutes."
 />
