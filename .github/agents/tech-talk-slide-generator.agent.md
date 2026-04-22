@@ -20,8 +20,8 @@ Four quick checks — then immediately start writing.
 
 1. **README exists** — Confirm `tech-talks/{topic}/README.md` exists. If not, stop: "No README.md found. Generate it first via the Tech Talk Generator agent."
 2. **Not archived** — Read only the README frontmatter. If `status: archived`, stop. Also refuse if the existing slide file has `status: archived`. Do **not** read the body of any existing `slides/tech-talks/{slug}.md` — it will be overwritten and must not influence generation.
-3. **Read deck recipe** — Look for `tech-talks/{topic}/deck.recipe.yml`.
-   - **If it exists:** read it. It has everything needed for Phase A.
+3. **Read deck recipe + SECTIONS.md** — Look for `tech-talks/{topic}/deck.recipe.yml`.
+   - **If it exists:** read it. It has everything needed for Phase A. Also read `slides/SECTIONS.md` now — you'll need the section value to write correct frontmatter in Phase A.
    - **If missing:** stop. Say: "No `deck.recipe.yml` found for this talk. Run the deck-recipe-review skill to create one, then re-invoke this agent."
    - Do **not** overwrite an existing recipe unless the user explicitly asks.
 4. **Clear the output file** — Before writing a single slide, run:
@@ -30,7 +30,7 @@ Four quick checks — then immediately start writing.
    ```
    This must happen before Phase A. Do not write into an existing file.
 
-→ **All gates passed? Go directly to Phase A.** Do not read the README, template, or SECTIONS.md yet.
+→ **All gates passed? Go directly to Phase A.** Do not read the README or template yet.
 
 ---
 
@@ -52,7 +52,7 @@ Write the scaffold in one pass:
 
 **Scaffold write order:**
 
-1. Frontmatter (use `section: TBD` — fill in Phase B after reading SECTIONS.md) + `<script setup>` import block
+1. Frontmatter (use `section:` value from SECTIONS.md, already read in pre-flight) + `<script setup>` import block
 2. `TitleSlide` — `deck.title`, `deck.subtitle`, `deck.tagline`
 3. `CoreQuestionSlide` — always slide 2; use placeholder cards (3 persona + 3 stat) — fill in Phase B
 4. `TocSlide` — sections from `deck.sectionOrder`; `slide: 0` placeholder — update after Phase B
@@ -68,12 +68,13 @@ Write the scaffold in one pass:
 
 ## Phase B — Body content (README-driven)
 
-Now read everything that Phase B needs — all at once before writing any body slides:
+Now read everything that Phase B needs — **all in one parallel pass before writing any body slides**. Issue all reads simultaneously, not sequentially:
 
 - **`slides/tech-talks/template.md`** — component catalog, prop schemas, import block, escaping rules. Do not read `slides/TEMPLATE.md`.
-- **`slides/SECTIONS.md`** — section → icon → container mapping; update frontmatter `section:` now.
 - **`memories/infra/facts.md`**, `discoveries.md`, `advice.md` — confirmed build rules and gotchas. If the topic has a bench entry (e.g., `memories/agent_architecture/facts.md`), read that too.
 - **`tech-talks/{topic}/README.md`** — full read. Extract: core question, personas, before/after comparisons with metrics, key capabilities ranked by novelty and audience impact, references frontmatter.
+
+Read all of these at the same time. Do not read one, then the next — fetch them all before synthesizing anything.
 
 **Editorial curation — score content before choosing slides:**
 

@@ -80,6 +80,27 @@ Section opener slides (Part 1, Part 2, Part 3, Part 4) use a large section numbe
 
 ---
 
+## copilot-acp.md: Deck structure and section mapping (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+**Slide count:** 25 slides (at max budget). Section opener slide numbers: Part 1=4, Part 2=9, Part 3=13, Part 4=18.
+
+**Section arc (recipe-driven):**
+- Part 1 "N×M Problem" (cyan, 4 body): HeroStat (N×M crisis) → BeforeAfterPanels (before/after ACP) → WorkflowShowdown (LSP precedent) → FourCardGrid (what ACP standardizes)
+- Part 2 "Protocol Architecture" (blue, 3 body): FrameworkMappingRows (4-layer stack) → BeforeAfterMetrics (LSP analogy N×M→N+M) → ThreeColumnCard (ACP vs MCP vs LSP)
+- Part 3 "SDK Ecosystem" (indigo, 4 body): AITerminalTranscript (copilot --acp --stdio) → CodeWithFeatures (14-line TypeScript SDK) → FourCardGrid (4 official SDKs) → TwoColPaired (MCP integration + flywheel)
+- Part 4 "Permissions & Security" (purple, 3 body): WorkflowShowdown (permission flow) → TwoColPaired (interactive vs policy-based) → FrameworkMappingRows (enterprise security table)
+
+**Key framing decisions:**
+- N×M = the problem framing throughout (not just "lock-in") — makes the math explicit
+- LSP analogy is the centerpiece of Part 2, not Part 1 — Part 1 seeds it, Part 2 pays it off
+- Security section framed as "adoption enablers" not restrictions — answers "can I ship this?"
+
+**Source:** `slides/tech-talks/copilot-acp.md`, `tech-talks/copilot-acp/deck.recipe.yml`
+
+---
+
 ## copilot-acp demo: uses MSBart2/cli-acp (ACP Agent Orchestrator web app) (2026-04-17)
 
 `schema_version: 1` | `date: 2026-04-17`
