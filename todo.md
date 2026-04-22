@@ -46,3 +46,7 @@ add WGLL to agentic-sdlc
 ---
 
 Think about AGENTS.md vs copilot-instructions now that VSCode prefers it when running /init.  will affect several modules.
+
+---
+
+AgentRC.  Think about what we could do to have a repo be 100% Level 5 by default, at creation time.

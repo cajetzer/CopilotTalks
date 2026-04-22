@@ -22,7 +22,7 @@ Three quick checks — then immediately start writing.
 2. **Not archived** — Read only the README frontmatter. If `status: archived`, stop. Also refuse if the existing slide file has `status: archived`.
 3. **Read deck recipe** — Look for `tech-talks/{topic}/deck.recipe.yml`.
    - **If it exists:** read it. It has everything needed for Phase A.
-   - **If missing:** read the README now to synthesize a recipe — extract `🎬` markers, core question, core insight, strongest metrics. Use `tech-talks/DECK-RECIPE-TEMPLATE.yml` as schema. Save the recipe file before writing any slides.
+   - **If missing:** stop. Say: "No `deck.recipe.yml` found for this talk. Run the deck-recipe-review skill to create one, then re-invoke this agent."
    - Do **not** overwrite an existing recipe unless the user explicitly asks.
 
 → **Recipe in hand? Go directly to Phase A.** Do not read the README, template, or SECTIONS.md yet.

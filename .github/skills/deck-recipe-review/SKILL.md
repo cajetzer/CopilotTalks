@@ -1,29 +1,31 @@
 ---
 name: deck-recipe-review
 description: >
-  Review a tech-talk's section structure against audience needs and coverage gaps,
-  then update its deck.recipe.yml. Uses a 3-agent collaborative council to analyze
-  section weighting, missing topics, and narrative arc. Triggers: "review the talk",
-  "is this the best use of our time", "section weighting", "coverage gap", "recipe".
+  Review a tech-talk's README and produce a deck.recipe.yml. Uses a 3-agent collaborative
+  council to analyze section weighting, narrative arc, and coverage gaps. Always overwrites
+  any existing recipe. Triggers: "review the talk", "create the recipe", "is this the best
+  use of our time", "section weighting", "coverage gap", "recipe".
 infer: true
 ---
 
 # Deck Recipe Review Skill
 
-Diagnose structural problems in a tech-talk's section order, surface coverage gaps, and produce a concrete updated `deck.recipe.yml`. Uses a collaborative Agent Council for multi-perspective analysis.
+Read the tech-talk README, analyze its structure with an Agent Council, and write `deck.recipe.yml`. This skill **always produces a fresh recipe** — it does not preserve or patch an existing one. The recipe is the authoritative input for the Tech Talk Slide Generator.
 
 **Key Constraints:**
 - **Max 4 sections** — Council should consolidate, not expand. Each section gets ~12-15 slides in 60-min talks.
 - **Slide generator ensures consistency** — Once you commit a recipe, the [Tech Talk Slide Generator agent](../../agents/tech-talk-slide-generator.agent.md) generates all slides using the Vue component system with uniform structure (title, toc, section openers, closers, references). Focus the council on *narrative logic and audience fit*, not slide-level details.
+- **Recipe schema** — Read `.github/skills/deck-recipe-review/DECK-RECIPE-TEMPLATE.yml` to understand all valid fields before writing the output file.
 
 ---
 
 ## When to Invoke This Skill
 
+- After a new tech-talk README is complete (called by the Tech Talk Generator agent as its final step)
+- User wants to revise section structure or narrative arc of an existing talk
 - User questions whether a section is worth its airtime ("we're spending a whole section on X")
 - User notices a topic is missing ("we never show how to build/configure/deploy Y")
 - User asks to "review the talk" or check if the structure matches the audience
-- Preparing to regenerate slides from a recipe and want to validate it first
 
 **Not for:** Minor wording tweaks, slide-level fixes, or adding a single slide.
 
@@ -31,21 +33,21 @@ Diagnose structural problems in a tech-talk's section order, surface coverage ga
 
 ## Pre-Flight: Gather Source Material
 
-Before dispatching the council, read ALL of these. The council prompt must include the full context — agents cannot read files themselves.
+Before dispatching the council, read BOTH of these. The council prompt must include the full context — agents cannot read files themselves.
 
 ```
-1. tech-talks/<topic>/README.md        — full section content + key artifacts
-2. tech-talks/<topic>/deck.recipe.yml  — current sectionOrder, sectionModes, highlightMoments
-3. slides/tech-talks/<topic>.md        — list all <!-- SLIDE: --> comments to see actual slide count per section
+1. tech-talks/<topic>/README.md                                     — full section content + key artifacts
+2. .github/skills/deck-recipe-review/DECK-RECIPE-TEMPLATE.yml      — recipe schema (all valid fields)
 ```
+
+If a `slides/tech-talks/<topic>.md` already exists, also read it to extract slide counts per section.
 
 From these, extract:
-- Current `sectionOrder` with section names
-- Current `sectionModes` (emphasis levels)
-- Current `highlightMoments`
-- Approx slide count per section (from the .md file)
-- Target audience + talk duration
-- The specific concern the user raised
+- The `<!-- 🎬 MAJOR SECTION: -->` markers from the README — these are the candidate sections
+- Target audience + talk duration (from README frontmatter or intro)
+- The core question the talk answers
+- Key artifacts, metrics, and highlight moments
+- The specific concern the user raised (if invoked manually)
 
 ---
 
@@ -61,8 +63,8 @@ TASK: [One-sentence description of the structural question]
 TALK: [title], [duration], audience: [audience list]
 CORE QUESTION: "[the talk's stated core question]"
 
-CURRENT SECTIONS (with slide counts):
-1. "[Section Name]" (emphasis: X, ~N slides) — [2-line description of what it covers]
+CANDIDATE SECTIONS (from README 🎬 markers, with slide counts if deck exists):
+1. "[Section Name]" (~N slides if known, else "TBD") — [2-line description of what it covers]
 2. ...
 
 CONSTRAINTS:
@@ -141,50 +143,31 @@ Key instruct for each: *"Steal the best ideas from the other two shamelessly. Lo
 Single orchestrator prompt with all three Phase 2 improved versions. Ask for:
 
 1. **Verdict** (2-3 sentences) — the core structural problem and fix
-2. **Concrete `sectionOrder`** with `sectionModes` (emphasis + one-line note per section)
-3. **Updated `highlightMoments`** list — what to drop, what to add
-4. **One open decision** — the single thing the user must resolve before slides can be generated
+2. **`arcToc`** — one line ≤ 80 chars, section names joined by ` → `
+3. **`arcNarrative`** — a prose paragraph: what each section sets up for the next, where peak engagement lands, and why the ordering beats alternatives
+4. **Concrete `sectionOrder`** with `sectionModes` (emphasis + one-line note per section)
+5. **Updated `highlightMoments`** list — what to drop, what to add
+6. **One open decision** — the single thing the user must resolve before slides can be generated
 
 ---
 
 ## Mapping Output to recipe.yml
 
-Update `deck.recipe.yml` with the synthesized output:
+Write the **complete** `deck.recipe.yml` file — all fields. Source them as follows:
 
-```yaml
-# Add a comment above sectionOrder explaining the narrative arc
-# Arc: [Consumer → Producer → Sharer] or whatever the council identified
-# Keep to 4 sections maximum.
+| Field | Source |
+|---|---|
+| `version` | Always `1` |
+| `deck.title` | README H1 title |
+| `deck.subtitle` | README subtitle line or guiding question, condensed |
+| `deck.tagline` | README one-line promise / focus (from intro block) |
+| `deck.arcToc` | Council Phase 3 output |
+| `deck.arcNarrative` | Council Phase 3 output |
+| `deck.sectionOrder` | Council Phase 3 output |
+| `deck.sectionModes` | Council Phase 3 output |
+| `deck.highlightMoments` | Council Phase 3 output |
 
-sectionOrder:
-  - "New Section Name 1"
-  - "New Section Name 2"
-  - "New Section Name 3"
-  - "New Section Name 4"
-
-sectionModes:
-  "New Section Name 1":
-    emphasis: high
-    note: >
-      [One-sentence note from the council's section description]
-  "New Section Name 2":
-    emphasis: high
-    note: >...
-  "New Section Name 3":
-    emphasis: medium-high
-    note: >...
-  "New Section Name 4":
-    emphasis: medium
-    note: >...
-
-highlightMoments:
-  - "[Keep existing ones the council validated]"
-  - "[New ones the council added]"
-  # Drop ones the council demoted (keep 4-5 total)
-
-# If there's an open decision, add it as a YAML comment:
-# OPEN DECISION: [The question] — [the two paths and their consequences]
-```
+Use `DECK-RECIPE-TEMPLATE.yml` (read during pre-flight) as the schema for field names, YAML structure, and inline comments. If there is an open decision from the council, append it as a YAML comment at the end of the file: `# OPEN DECISION: [question] — [paths and consequences]`.
 
 **Post-Recipe Workflow:**
 1. Commit updated `deck.recipe.yml`
@@ -199,7 +182,8 @@ highlightMoments:
 - [ ] **Max 4 sections** — Council output has exactly 4 or fewer sections. If more, consolidate.
 - [ ] Every section in the new `sectionOrder` exists as a major section (`##`) in the README
 - [ ] No section has been promoted to `high` that the council flagged as risky without noting the risk
-- [ ] The narrative arc is explicit in a comment above `sectionOrder`
+- [ ] `arcToc` is a single line ≤ 80 chars using ` → ` separators between section names
+- [ ] `arcNarrative` is a prose paragraph explaining the sequencing logic (from the council synthesis)
 - [ ] The open decision is documented in the file — don't silently absorb it
 - [ ] `highlightMoments` list is 3-5 items (not more — dilutes focus)
 - [ ] **After approval**: Tech Talk Slide Generator agent will regenerate all slides using the Vue component system — you don't need to update individual slides

@@ -49,27 +49,21 @@ The agent follows a research-first workflow and pauses at the structure-selectio
 
 #### Phase 3: Build
 - Agent locks the selected structure and generates `README.md`
-- Agent also creates `deck.recipe.yml` with the initial slide-adaptation choices for this talk
 - Sets frontmatter (`status`, `updated`, `section`)
-- **⏸️ Pauses** — shows the completed talk, offers handoff to slides
+- **Invokes the deck-recipe-review skill** to run an Agent Council and produce `deck.recipe.yml`
+- **⏸️ Pauses** — shows the completed talk and recipe, offers handoff to slides
 
 ### Generating Slides (Separate Step)
 
 Slides are **not** part of the tech-talk generator's workflow. After Phase 3, use the handoff buttons or invoke directly:
 
 ```
-@Slide Generator generate slides for tech-talks/{topic}
+@Tech Talk Slide Generator tech-talks/{topic}
 ```
 
-Or for generation + verification:
+The slide deck is a **separate artifact** at `slides/tech-talks/{topic}.md`. The slide generator requires a `deck.recipe.yml` — if one is missing it will stop and prompt you to run the deck-recipe-review skill first.
 
-```
-@Slide Manager generate and verify slides for tech-talks/{topic}
-```
-
-The slide deck is a **separate artifact** at `slides/tech-talks/{topic}.md`. The slide generator derives it from the README's semantic structure — frontmatter, core sections, `<!-- 🎬 MAJOR SECTION: ... -->` markers, artifacts, and references. New tech-talk READMEs should **not** include slide-sequence tables or other visible presentation-planning content.
-
-For tech talks, the recommended per-talk slide control point is `tech-talks/{topic}/deck.recipe.yml`. Adjust that file when you want to regenerate just one deck with a different intro, section order, emphasis, references behavior, or thank-you style.
+For tech talks, the per-talk slide control point is `tech-talks/{topic}/deck.recipe.yml`. Re-run the deck-recipe-review skill when you want to revise section structure or narrative arc, then re-invoke the slide generator.
 
 ### What the Structure Proposal Looks Like
 
@@ -84,23 +78,15 @@ That means the agent does the background reading first, then gives you a small, 
 
 ### Deck Recipe Workflow
 
-The Tech Talk Generator now creates an initial `deck.recipe.yml` for every new tech talk. The Slide Generator then:
+The three-agent pipeline is:
 
-- reads that recipe first when generating `slides/tech-talks/{topic}.md`
-- uses it to keep deck-specific choices stable across reruns
-- synthesizes and saves a recipe once if an older talk does not have one yet
+1. **Tech Talk Generator** — writes `README.md`, then invokes the deck-recipe-review skill as its final step
+2. **Deck Recipe Review skill** — runs an Agent Council to analyze the README, determine section weighting and narrative arc (`arcToc`, `arcNarrative`), and writes `deck.recipe.yml`
+3. **Tech Talk Slide Generator** — reads `deck.recipe.yml` to scaffold the full slide structure in Phase A, then fills body content from the README in Phase B
 
-Start from [DECK-RECIPE-TEMPLATE.yml](DECK-RECIPE-TEMPLATE.yml) if you want to understand or hand-edit the schema.
+The recipe is always freshly generated from the README — it is never patched from a prior version. To revise a talk's structure, re-run the deck-recipe-review skill, then re-invoke the slide generator.
 
-### Alternative: Skill-Based Workflow
-
-You can also use the `@tech-talk-author` skill for a lighter-weight version:
-
-```
-@tech-talk-author create tech talk for [topic] using [URLs]
-```
-
-This follows the same 3-phase process but without the interactive pauses.
+See the recipe schema: [DECK-RECIPE-TEMPLATE.yml](../.github/skills/deck-recipe-review/DECK-RECIPE-TEMPLATE.yml)
 
 ---
 
@@ -157,4 +143,3 @@ The Slide Generator does **not** require a visible slide-mapping section. For ne
 | `terminal-sandboxing/` | Sandboxed terminal execution |
 
 For help choosing which talk to explore, see [DECISION-GUIDE.md](DECISION-GUIDE.md).
-

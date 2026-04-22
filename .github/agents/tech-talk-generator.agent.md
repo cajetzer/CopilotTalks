@@ -133,38 +133,13 @@ After the user responds:
 5. Download images if found: `python3 scripts/download-images.py <source_url> <output_dir> --limit 7`
    — copies into `images/` subdirectory and generates a markdown snippet for the Visual Assets section
 6. Fill all required sections (in template order): The Opportunity, How It Works, Visual Assets, Key Artifacts, Mental Model Shift (with Core Insight one-liner), Decision Tree, Major Sections (with 🎬 markers), Real-World Use Cases, What You Can Do Today (15min/1hr/2-4hr), Related Patterns, References (numbered footnotes `[^n]`)
-7. Create `tech-talks/{topic}/deck.recipe.yml` alongside the README. Base it on the approved structure, chosen toggles, and the strongest slide-adaptation defaults for this one talk.
-8. Keep the README reader-first: no slide sequence tables, no speaker notes, no TOC explanations, and no visible "this becomes a slide" prose
+7. Keep the README reader-first: no slide sequence tables, no speaker notes, no TOC explanations, and no visible "this becomes a slide" prose
 
 ### Deck Recipe Artifact
 
-Every new tech talk also gets a `deck.recipe.yml` file in the same folder as `README.md`. This is a **small, editable slide recipe** for that one talk — not a replacement for the README.
+After the README is complete and approved, invoke the **deck-recipe-review skill** (`.github/skills/deck-recipe-review/SKILL.md`) to create `tech-talks/{topic}/deck.recipe.yml`. The skill runs an Agent Council to analyze the talk structure, determine section weighting and narrative arc, and write the recipe file.
 
-Use `tech-talks/DECK-RECIPE-TEMPLATE.yml` as the schema reference. Keep the recipe compact and only include fields that help single-talk regeneration:
-
-- `version`
-- `source`
-- `deck.title`
-- `deck.subtitle`
-- `deck.tagline`
-- `deck.intro.mode`
-- `deck.toc.enabled`
-- `deck.sectionOrder`
-- `deck.sectionModes`
-- `deck.highlightMoments`
-- `deck.references.enabled`
-- `deck.references.mode`
-- `deck.thankYou.enabled`
-- `deck.thankYou.variant`
-
-Map the approved structure into the recipe:
-
-- Use the chosen framing question and talk title to set `title`, `subtitle`, and `tagline`
-- Copy the approved `🎬` major sections into `sectionOrder`
-- Use the approved toggles to set `intro.mode`, `sectionModes`, and other emphasis hints
-- Default `references.enabled` and `thankYou.enabled` to `true` unless the user asked otherwise
-
-The recipe is the per-talk knob for later slide regeneration. Keep it opinionated, but easy for a human to edit.
+Do **not** write the recipe yourself — the skill owns this step.
 
 ### 4. Quality Validation
 
@@ -183,11 +158,11 @@ The recipe is the per-talk knob for later slide regeneration. Keep it opinionate
 - [ ] References section uses numbered footnotes `[^n]` with minimum 2 first-party links
 - [ ] Code examples are syntactically correct
 - [ ] Research Brief was shown and the structure was approved before drafting
-- [ ] `deck.recipe.yml` was created with the approved slide-adaptation defaults
+- [ ] deck-recipe-review skill was invoked and `deck.recipe.yml` was created
 
 ### 5. Handoff
 
-Inform the user the tech talk is complete and suggest the Generate Slides handoff button.
+Inform the user the tech talk README is complete and the recipe has been created via the deck-recipe-review skill. Suggest the Tech Talk Slide Generator agent as the next step.
 
 ## Key Requirements
 
