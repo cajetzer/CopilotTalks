@@ -4,57 +4,62 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## The Agentic Journey: Incremental Path from Issue to PR Automation
+  ## The Agentic Journey
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: The Agentic Journey - Incremental Path from Issue to PR Automation
+title: The Agentic Journey
 module: tech-talks/agentic-journey
 mdc: true
 section: Agentic Engineering
 status: active
-updated: 2026-02-01
+updated: 2026-04-22
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
 </script>
 
-<!-- SLIDE: Title Slide -->
+<!-- SLIDE: Title -->
 <TitleSlide
-title="The Agentic Journey"
-subtitle="Incremental Path from Issue to PR Automation"
-tagline="4-Workflow Issue Lifecycle with Historical Context Planning"
-meta="Tech Talk · 45 minutes"
+  title="The Agentic Journey"
+  subtitle="Incremental Path from Issue to PR Automation"
+  tagline="Start in 2-3 hours. Compound value at every phase. No SDLC rewire required."
+  meta="CopilotTraining Tech Talk"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="How do I start getting value from GitHub Copilot agents without rewiring my entire SDLC?"
-subtext="The gap between amazing demos and agents that work for you is usually process friction."
-highlight="Start low-risk to build trust before tackling complex agent workflows."
-:cards='[
-  { icon: "🚀", title: "Engineering Leaders Adopting AI Agents", description: "Building confidence and team trust in agentic automation incrementally" },
-  { icon: "📋", title: "Product Managers Draining Backlogs", description: "Offloading well-understood tasks to agents without rewiring your SDLC" },
-  { icon: "🔄", title: "DevOps Teams Automating SDLC Phases", description: "Phase-by-phase journey from issue triage automation to autonomous delivery" },
-  { title: "Triage Overhead", description: "20-30 min per issue today — agents bring this down to 3 minutes" },
-  { title: "Planning Gaps", description: "No historical context slows planning — agents research and synthesize fast" },
-  { title: "Review Bottleneck", description: "10-15x more output than reviewers can handle — automation is the only path" }
-]'
+  question="How do you move from experimenting with AI to trusting it in your SDLC?"
+  subtext="Most teams are stuck between all-in paralysis and experiment-forever drift."
+  highlight="The answer is a state machine: one label transition at a time."
+  :cards='[
+    { icon: "🔧", title: "Developer", description: "Eliminate hours of issue triage, planning, and implementation boilerplate" },
+    { icon: "🏗️", title: "Tech Lead", description: "Get structured, codebase-aware plans before any code is written" },
+    { icon: "🛡️", title: "Engineering Manager", description: "See exactly where human control gates are and why they matter" },
+    { title: "30 min → 3 min", description: "Triage time per issue with AI duplicate detection and auto-labeling" },
+    { title: "60% better estimates", description: "When agents mine historical PRs before generating execution plans" },
+    { title: "2-3 hour setup", description: "Copy 4 YAML files, configure secrets, create an issue — you are live" }
+  ]'
 />
 
 ---
@@ -62,616 +67,419 @@ highlight="Start low-risk to build trust before tackling complex agent workflows
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "📥", title: "Phase 1: Agentic Intake", subtitle: "Automatic triage & duplicate detection", blurb: "20-30 min → 3 min per issue", slide: 4 },
-    { icon: "📋", title: "Phase 2: Agentic Planning", subtitle: "Historical context research & execution plans", blurb: "2-4 hours → 15 min planning time", slide: 7 },
-    { icon: "💻", title: "Phase 3: Agentic Coding", subtitle: "Implementation from approved plans", blurb: "8-12 hours → 1-2 hours to PR", slide: 10 },
-    { icon: "🔍", title: "Phase 4: Code Review", subtitle: "Security & outcome validation", blurb: "2-4 hours → 20 min review time", slide: 12 },
+    { icon: "📥", title: "Agentic Intake",    subtitle: "Triage automation without touching code", blurb: "Duplicate detection, auto-labeling, and the state machine spine", slide: 4  },
+    { icon: "📋", title: "Agentic Planning",  subtitle: "Human-gated, codebase-aware execution plans", blurb: "The /approve-plan gate is the trust inflection point", slide: 8  },
+    { icon: "⚙️", title: "Agentic Coding",   subtitle: "Autonomous implementation from an approved plan", blurb: "PR with tests appears with zero implementation keystrokes", slide: 13 },
+    { icon: "🔍", title: "Code Review",       subtitle: "Automated analysis that amplifies human judgment", blurb: "Security, logic, coverage — and the graduation exit ramp", slide: 17 }
   ]'
 />
 
 ---
 
 <!-- SLIDE: Part 1 — Agentic Intake -->
-
 <SectionOpenerSlide
   :partNumber="1"
   title="Agentic Intake"
-  subtitle="Automatic triage, duplicate detection, and routing"
+  subtitle="Before touching a line of code, earn credibility by eliminating triage noise in 3 minutes."
   :cards='[
-    { icon: "🔍", title: "Context Gathering", blurb: "Issue analysis + related file detection" },
-    { icon: "🔄", title: "Duplicate Detection", blurb: "Search 6 months history, 88% accuracy" },
-    { icon: "🎯", title: "Smart Routing", blurb: "Classification, priority, team assignment" },
+    { icon: "🗺️", title: "State Machine Spine", blurb: "new-issue → intake-complete: the full diagram lives here" },
+    { icon: "🔍", title: "Duplicate Detection",  blurb: "88% match found in 3 min, auto-labeled, fix version posted" },
+    { icon: "⏱️", title: "20-30 min → 3 min",   blurb: "Triage time per issue, compounded across 14 dupes/month" }
   ]'
-  :terminal='{ context: "Every new issue triggers automated analysis", detail: "20-30 min → 3 min per issue" }'
+  :terminal='{ context: "Time to set up agentic intake from scratch", detail: "2-3 hours — copy 4 YAML files, configure secrets, open an issue" }'
 />
 
 ---
 
-<!-- SLIDE: Triage Workflow & Metrics -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📥 Agentic Intake</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-xs text-white/50">Triggered automatically on every new issue — 4 steps in ~3 minutes</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-xs">1</div>
-<div class="font-bold text-cyan-300 text-sm">Context Gathering</div>
-</div>
-<div class="text-xs text-gray-300">Read issue title, description, related files, recent similar issues</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-xs">2</div>
-<div class="font-bold text-blue-300 text-sm">Duplicate Detection</div>
-</div>
-<div class="text-xs text-gray-300">Search open and closed issues from last 6 months, calculate similarity</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-xs">3</div>
-<div class="font-bold text-indigo-300 text-sm">Routing & Labeling</div>
-</div>
-<div class="text-xs text-gray-300">Classify type, priority, affected component, suggest assignee</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-xs">4</div>
-<div class="font-bold text-purple-300 text-sm">Context Summary</div>
-</div>
-<div class="text-xs text-gray-300">Generate analysis with affected files, root cause, suggested approach</div>
-</div>
-</div>
-<div>
-<div class="p-4 bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-xl border border-gray-700/50 mb-3">
-<div class="font-bold text-white text-sm mb-3">Success Metrics (50 issues/month)</div>
-<div class="grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-red-900/30 rounded">
-<div class="text-red-400 font-mono">30 min</div>
-<div class="text-gray-400 mt-0.5">Before: Time to triage</div>
-</div>
-<div class="p-2 bg-green-900/30 rounded">
-<div class="text-green-400 font-mono">&lt;5 min</div>
-<div class="text-gray-400 mt-0.5">After: Time to triage</div>
-</div>
-<div class="p-2 bg-red-900/30 rounded">
-<div class="text-red-400 font-mono">60%</div>
-<div class="text-gray-400 mt-0.5">Before: Duplicate detection</div>
-</div>
-<div class="p-2 bg-green-900/30 rounded">
-<div class="text-green-400 font-mono">&gt;90%</div>
-<div class="text-gray-400 mt-0.5">After: Duplicate detection</div>
-</div>
-</div>
-</div>
-<div class="p-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl border border-cyan-500/30 text-center">
-<div class="text-sm font-semibold text-cyan-300">ROI: $2,000/month savings · 2-3 hours setup</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: The Label State Machine -->
+<MaturityJourneyRoadmapSlide
+  :partNumber="1"
+  pillIcon="🗺️"
+  pillLabel="Agentic Intake · The Spine"
+  title="One Label Machine, Four Automation Phases"
+  subtitle="Every section of this talk advances exactly one state transition"
+  :stages='[
+    { label: "S1", name: "new-issue",               description: "Issue opened — agentic intake fires",              icon: "📥", isTarget: false },
+    { label: "S2", name: "intake-complete",          description: "Triaged, classified, duplicate-checked",           icon: "✅", isTarget: false },
+    { label: "S3", name: "plan-approved",            description: "Human typed /approve-plan in a comment",          icon: "📋", isTarget: false },
+    { label: "S4", name: "impl-complete",            description: "PR opened with tests and description",             icon: "⚙️", isTarget: false },
+    { label: "S5", name: "review-complete",          description: "Security, logic, and coverage verified",           icon: "🔍", isTarget: true  }
+  ]'
+  caption="Each phase&#39;s savings depend on the previous phase having run first — this ordering is not arbitrary"
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Use Case — Duplicate Elimination -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: Triage: Before and After -->
+<BeforeAfterMetricsSlide
   :partNumber="1"
-  pillIcon="📥"
-  pillLabel="Agentic Intake"
-  title="Use Case — Duplicate Elimination"
-  :before='{ header: "❌ The Problem", items: ["Developers spend 45 minutes per duplicate researching before realizing it was already fixed", "Context-switch cost pulls developers away from feature work", "Manual duplicate search only catches 60% — others discovered mid-implementation"] }'
-  :after='{ header: "✅ The Solution", items: ["Agent searches open + closed issues and calculates similarity", "Auto-labels duplicates with references to the original fix", "Detection rate: >90% — catches duplicates in 3 minutes"] }'
-  :insight='{ icon: "📊", text: "Duplicate rate dropped from 15% to <3%. Saved 4.7 hours/month on duplicates alone. Example: Issue #4821 matched #4203 at 88% similarity — auto-labeled in 3 min, saving 45 min of duplicate work." }'
-  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  pillIcon="⏱️"
+  pillLabel="Agentic Intake · Triage"
+  title="Issue Triage: From Investigation to Instant Classification"
+  :before='{
+    header: "Manual Triage",
+    items: [
+      { title: "20-30 min per issue", detail: "Developer reads, researches, decides priority" },
+      "40 min per duplicate — full re-investigation",
+      "Inconsistent classification across team members",
+      "No link to historical context or fix versions"
+    ]
+  }'
+  :after='{
+    header: "Agentic Intake",
+    items: [
+      { title: "3 min per issue", detail: "AI classifies, routes, and checks duplicates" },
+      "88% duplicate match detected and auto-labeled",
+      "Consistent classification driven by prompt template",
+      "Fix version posted automatically on duplicates"
+    ]
+  }'
+  :metrics='[
+    { value: "90%", label: "faster triage" },
+    { value: "14×", label: "duplicate ROI per month" },
+    { value: "3 hrs", label: "total setup time" }
+  ]'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Duplicate Detection in Action -->
+<AITerminalTranscriptSlide
+  :partNumber="1"
+  pillIcon="🔍"
+  pillLabel="Agentic Intake · Whoa Moment"
+  title="Duplicate Detection: 88% Match in 3 Minutes"
+  subtitle="14 duplicates/month × 40 minutes each — evaporating"
+  :transcript='[
+    { type: "prompt",   text: "github-actions[bot]" },
+    { type: "user",     text: "Triage new issue #4821: Login fails on mobile Safari" },
+    { type: "thinking", label: "🤔 Copilot (Intake Agent):" },
+    { type: "response", lines: ["Analyzing issue type, priority, and codebase context...", "Searching for similar resolved issues in last 90 days..."] },
+    { type: "divider" },
+    { type: "response", lines: ["Found: Issue #4203 — 88% similarity score", "Status: Resolved in v2.1.3 (2 weeks ago)", "Fix: Corrected SameSite cookie attribute for Safari compatibility"] },
+    { type: "divider" },
+    { type: "outcome",  text: "Label applied: duplicate" },
+    { type: "outcome",  text: "Comment posted: Fix available in v2.1.3 — close if confirmed resolved" }
+  ]'
+  footerMetric="40 min saved · 14 duplicates/month · 560 min/month recovered"
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Part 2 — Agentic Planning -->
-
 <SectionOpenerSlide
   :partNumber="2"
   title="Agentic Planning"
-  subtitle="Historical context research & execution plan generation"
+  subtitle="The /approve-plan gate is the single boundary between intake and autonomous coding."
   :cards='[
-    { icon: "🔍", title: "Historical Context", blurb: "Understand related issues and patterns" },
-    { icon: "📋", title: "Execution Plan", blurb: "Step-by-step implementation roadmap" },
-    { icon: "✋", title: "Human Approval", blurb: "Review before implementation starts" },
+    { icon: "🔎", title: "Historical Research", blurb: "Agent mines similar past PRs for codebase-aware planning" },
+    { icon: "📑", title: "Execution Plan",      blurb: "Structured, reviewable plan generated before any code" },
+    { icon: "✅", title: "/approve-plan Gate",  blurb: "Human types one comment; only then does code get written" }
   ]'
-  :terminal='{ context: "Estimate accuracy with historical context", detail: "±20% estimate vs ±50% without" }'
+  :terminal='{ context: "Time to produce a codebase-aware execution plan", detail: "2-4 hrs → 15 min" }'
 />
 
 ---
 
-<!-- SLIDE: Historical Context Innovation -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: Planning Workflow Comparison -->
+<WorkflowShowdownStepsSlide
   :partNumber="2"
   pillIcon="📋"
-  pillLabel="Agentic Planning"
-  title="The Key Innovation: Learning From History"
-  :before='{ header: "❌ Without Historical Context", items: ["Plan from scratch every time", "Miss edge cases from previous work", "±50% estimate accuracy", "Mid-implementation surprises"] }'
-  :after='{ header: "✅ With Historical Context", items: ["Learn patterns from similar issues", "Surface edge cases before coding", "±20% estimate accuracy", "60% fewer mid-implementation surprises"] }'
-  :insight='{ icon: "💡", text: "Planning time 4 hours → 15 minutes with more accurate plans. Example: adding Microsoft OAuth found token refresh and multi-tenant lessons from Google (#2847) and GitHub (#3104) OAuth work. ROI: $7,000/month." }'
-  :progressDots='{ current: 1, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  pillLabel="Agentic Planning · Workflow"
+  title="Ad-Hoc Planning vs. Codebase-Aware Execution Plans"
+  subtitle="From intuition-based estimates to structured, historically-informed plans"
+  leftLabel="Traditional Planning"
+  rightLabel="Agentic Planning"
+  :steps='[
+    { left: { label: "Read the issue", note: "Understand requirements manually" }, right: { label: "Read the issue", note: "Understand requirements manually" } },
+    { left: { label: "Browse codebase", note: "2-3 hours reading code and docs" }, right: { label: "Agent mines past PRs", note: "6 months of similar issues researched in minutes" } },
+    { left: { label: "Estimate from intuition", note: "Hope you haven&#39;t missed edge cases" }, right: { label: "Structured plan generated", note: "Files, approach, tests — all specified up front" } },
+    { left: { label: "Start coding immediately", note: "Discover wrong assumptions mid-sprint" }, right: { label: "Human types /approve-plan", note: "One comment — then autonomous coding begins" } }
+  ]'
+  :outcomeLeft='{ icon: "🔄", label: "40% of implementations hit mid-sprint scope changes" }'
+  :outcomeRight='{ icon: "✓", label: "60% better estimate accuracy — approved plan is the contract" }'
+  summaryMetric="2-4 hrs of planning → 15 min with full historical context"
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Planning Metrics & Example -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 Agentic Planning</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Human Approval Gate & Metrics</div>
-<div class="text-xs text-white/50">Plan posts as issue comment and waits for `/approve-plan` command</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 mb-1">
-<div class="p-3 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border border-red-500/30">
-<div class="text-sm font-bold text-red-300 mb-2">Before Agents</div>
-<div class="space-y-1 text-xs text-gray-300">
-<div class="flex justify-between p-1 bg-red-900/20 rounded">
-<span>Time to plan</span>
-<span class="text-red-400 font-mono">4 hours</span>
-</div>
-<div class="flex justify-between p-1 bg-red-900/20 rounded">
-<span>Estimate accuracy</span>
-<span class="text-red-400 font-mono">±50%</span>
-</div>
-<div class="flex justify-between p-1 bg-red-900/20 rounded">
-<span>Missing requirements</span>
-<span class="text-red-400 font-mono">25%</span>
-</div>
-<div class="flex justify-between p-1 bg-red-900/20 rounded">
-<span>Historical context</span>
-<span class="text-red-400 font-mono">0%</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-2">After Automation</div>
-<div class="space-y-1 text-xs text-gray-300">
-<div class="flex justify-between p-1 bg-green-900/20 rounded">
-<span>Time to plan</span>
-<span class="text-green-400 font-mono">&lt;30 min</span>
-</div>
-<div class="flex justify-between p-1 bg-green-900/20 rounded">
-<span>Estimate accuracy</span>
-<span class="text-green-400 font-mono">±20%</span>
-</div>
-<div class="flex justify-between p-1 bg-green-900/20 rounded">
-<span>Missing requirements</span>
-<span class="text-green-400 font-mono">&lt;10%</span>
-</div>
-<div class="flex justify-between p-1 bg-green-900/20 rounded">
-<span>Historical context</span>
-<span class="text-green-400 font-mono">&gt;80%</span>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Historical Context Impact -->
+<HeroStatSlide
+  :partNumber="2"
+  pillIcon="📊"
+  pillLabel="Agentic Planning · Impact"
+  title="Historical Context Changes the Math"
+  subtitle="Agents research what humans skip"
+  :hero='{ value: "60%", label: "better estimate accuracy when agents mine past PRs before planning", source: "" }'
+  :supporting='[
+    { icon: "🔎", title: "6 months of similar issues", description: "Agent queries resolved PRs matching the current issue type and scope" },
+    { icon: "📉", title: "40% fewer mid-sprint surprises", description: "Codebase-aware plans surface edge cases before coding starts" },
+    { icon: "📁", title: "File-level specificity", description: "Plan names exact files and functions to modify — no guessing during implementation" },
+    { icon: "🧪", title: "Test strategy included", description: "Agent specifies test files and coverage targets in the plan before code is written" }
+  ]'
+  :insight='{ icon: "💡", text: "The plan is the artifact — not the code. Managers approve what gets built before anyone builds it." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-1">Example Plan Output</div>
-<div class="text-xs font-mono text-gray-300 space-y-1">
-<div class="text-indigo-400">📋 EXECUTION PLAN: Add Microsoft OAuth Support</div>
-<div class="ml-3 space-y-0.5">
-<div class="text-cyan-400">Historical Context:</div>
-<div class="ml-3 opacity-80">Based on Issue #2847 "Add Google OAuth" and #3104 "Add GitHub OAuth"</div>
-<div class="ml-3">✓ Token refresh edge cases require explicit testing</div>
-<div class="ml-3">✓ Multi-tenant configuration needed for enterprise</div>
-<div class="text-cyan-400 mt-1">Affected Files:</div>
-<div class="ml-3">1. src/auth/providers/microsoft-oauth.ts (new)</div>
-<div class="ml-3">2. src/auth/oauth-handler.ts (modify)</div>
-<div class="text-cyan-400">Estimated Effort: 6-8 hours (historical average)</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+---
+
+<!-- SLIDE: Three Planning Beats -->
+<ThreeColumnCardSlide
+  :partNumber="2"
+  pillIcon="📑"
+  pillLabel="Agentic Planning · Three Beats"
+  title="From Context to Approved Plan: Three Distinct Steps"
+  :columns='[
+    { icon: "🔎", title: "Historical Research", description: "Agent mines similar past issues and resolved PRs for codebase-aware context", items: ["6 months of PR history", "File-level change patterns", "Past estimation accuracy"] },
+    { icon: "📋", title: "Execution Plan", description: "Structured, reviewable plan posted as an issue comment before any code is written", items: ["Files to change — named", "Test strategy specified", "Risk areas flagged"] },
+    { icon: "✅", title: "/approve-plan Gate", description: "Human reviews the plan and types /approve-plan — only then does any code get written", items: ["Explicit human opt-in", "Full visibility before code", "Rejection resets planning"] }
+  ]'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: The /approve-plan Gate -->
+<ProblemSolutionOutcomeSlide
+  :partNumber="2"
+  pillIcon="✅"
+  pillLabel="Agentic Planning · The Gate"
+  title="The /approve-plan Gate: One Comment, Complete Control"
+  :problem='{
+    header: "The Concern",
+    items: [
+      "Autonomous agents writing code sounds risky",
+      { title: "What stops it from doing the wrong thing?", detail: "Managers need a clear control boundary" },
+      "How do I reject a bad plan without breaking the workflow?"
+    ]
+  }'
+  :solution='{
+    header: "The Gate",
+    items: [
+      "Agent posts execution plan as a readable issue comment",
+      "Human reads, questions, and optionally edits the plan",
+      "/approve-plan triggers coding — anything else does not"
+    ]
+  }'
+  :outcome='{
+    header: "The Outcome",
+    items: [
+      "State machine advances to plan-approved on human command only",
+      "Code is written exactly once — from an approved, reviewed plan",
+      "One comment = complete, auditable, reversible human control"
+    ],
+    metrics: [{ value: "100%", label: "human-gated before code" }]
+  }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Part 3 — Agentic Coding -->
-
 <SectionOpenerSlide
   :partNumber="3"
   title="Agentic Coding"
-  subtitle="Implementation from approved plans"
+  subtitle="An approved plan unlocks autonomous implementation — tests, PR, and description included."
   :cards='[
-    { icon: "✅", title: "Plan-Driven", blurb: "Follow the established execution plan" },
-    { icon: "🔄", title: "Auto-PR Creation", blurb: "Autonomous PR with passing tests" },
-    { icon: "💻", title: "Copilot Agent", blurb: "Background execution from approved plan" },
+    { icon: "🤖", title: "Agent Assignment",  blurb: "Copilot coding agent picked up directly from the approved plan" },
+    { icon: "🧪", title: "Test Generation",   blurb: "Tests are a first-class output, not an afterthought" },
+    { icon: "📬", title: "PR Creation",       blurb: "implementation-complete: PR opens, state machine advances" }
   ]'
-  :terminal='{ context: "Connecting Phase 2 plan to GitHub Copilot agent", detail: "8-12 hours → 1-2 hours to PR" }'
+  :terminal='{ context: "Time to implement from approved plan to open PR", detail: "8-12 hrs → 1-2 hrs" }'
 />
 
 ---
 
-<!-- SLIDE: The Copilot Coding Agent -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💻 Agentic Coding</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">The Copilot Coding Agent: You Already Have This</div>
-<div class="text-xs text-white/50">Phase 3 connects your approved plan directly to GitHub Copilot's SWE agent</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-4 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30 mb-3">
-<div class="text-sm font-bold text-indigo-300 mb-3">What the Copilot Coding Agent Does</div>
-<div class="grid grid-cols-3 gap-3 text-xs text-gray-300">
-<div class="p-3 bg-indigo-900/30 rounded-lg border border-indigo-500/20">
-<div class="text-indigo-300 font-semibold mb-1">📋 Reads the Plan</div>
-<div class="opacity-80">Takes the approved execution plan from Phase 2 as its implementation spec</div>
-</div>
-<div class="p-3 bg-purple-900/30 rounded-lg border border-purple-500/20">
-<div class="text-purple-300 font-semibold mb-1">⚡ Writes the Code</div>
-<div class="opacity-80">Implements across multiple files, follows existing patterns, writes tests</div>
-</div>
-<div class="p-3 bg-pink-900/30 rounded-lg border border-pink-500/20">
-<div class="text-pink-300 font-semibold mb-1">🔄 Opens a PR</div>
-<div class="opacity-80">Commits, pushes, creates PR with evidence bundle — ready for review</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="text-sm font-bold text-green-300 mb-2">✅ The Good News</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-<div>• <strong>Already available</strong> in your GitHub org</div>
-<div>• No new model to train or configure</div>
-<div>• Works on any issue — just assign it</div>
-<div>• Phase 3 adds the <em>structure</em> you're missing</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/20 rounded-xl border border-indigo-500/30">
-<div class="text-sm font-bold text-indigo-300 mb-2">🎯 What Phase 3 Adds</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-<div>• Trigger only from <strong>approved plans</strong></div>
-<div>• Injects plan context into the agent prompt</div>
-<div>• Enforces quality guidelines automatically</div>
-<div>• Labels PR for downstream review workflow</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: What the Coding Agent Delivers -->
+<ThreeColumnCardSlide
+  :partNumber="3"
+  pillIcon="⚙️"
+  pillLabel="Agentic Coding · Outputs"
+  title="Three First-Class Outputs From One Approved Plan"
+  :columns='[
+    { icon: "🤖", title: "Agent Assignment", description: "Copilot coding agent is assigned directly from the approved plan — no manual kickoff required", items: ["Triggered by plan-approved label", "Plan document is the instruction set", "Runs in CI — no local env needed"] },
+    { icon: "🧪", title: "Tests Included", description: "Test generation is a first-class output — the plan specifies test strategy before coding begins", items: ["Unit and integration tests", "Coverage targets from the plan", "CI fails if tests are missing"] },
+    { icon: "📬", title: "PR Created", description: "implementation-complete label fires as the PR opens — the state machine advances without human intervention", items: ["PR description auto-generated", "Linked to source issue", "Ready for automated review"] }
+  ]'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Assigning the Copilot Agent -->
+<!-- SLIDE: Externalized Prompt Architecture -->
 <TwoColPairedConceptsSlide
   :partNumber="3"
-  pillIcon="💻"
-  pillLabel="Agentic Coding"
-  title="Two Ways to Assign: Manual & Automated"
-  :left='{ header: "🖱️ Manual Assignment", icon: "🖱️", items: [{ title: "On GitHub.com", detail: "Open the issue, go to Assignees, select copilot — agent starts immediately" }, "Best for: ad-hoc tasks, exploring capabilities, issues without formal plans"] }'
-  :right='{ header: "⚡ Automated Trigger", icon: "⚡", items: [{ title: "Comment on the issue", detail: "Type /approve-plan — workflow assigns copilot and injects the approved plan automatically" }, "Best for: structured workflow, plan-driven implementation, full audit trail"] }'
-  :insight='{ icon: "📋", text: "The agent receives: issue context (requirements, labels, linked issues), approved plan (files to change, estimate, historical lessons), and quality rules (code style, test requirements, commit format)." }'
+  pillIcon="📝"
+  pillLabel="Agentic Coding · Configuration"
+  title="Update Agent Behavior by Editing Markdown, Not Debugging YAML"
+  :left='{
+    header: "Embedded YAML",
+    icon: "⚠️",
+    items: [
+      { title: "Instructions buried in workflow files", detail: "Hard to find, harder to review" },
+      "Non-technical stakeholders locked out of prompt review",
+      { title: "Prompt changes require YAML debugging", detail: "Risk of breaking CI triggers" },
+      "No clear version history for agent behavior changes"
+    ]
+  }'
+  :right='{
+    header: ".github/prompts/",
+    icon: "✅",
+    items: [
+      { title: "One markdown file per phase", detail: "triage-, planning-, implementation-, review-instructions.md" },
+      "Product managers can read and improve prompts directly",
+      { title: "Edit markdown — workflow YAML unchanged", detail: "Zero CI risk from prompt iteration" },
+      "Prompts serve as living documentation of agent behavior"
+    ]
+  }'
   :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Coding Metrics -->
+<!-- SLIDE: Implementation Time Savings -->
 <BeforeAfterMetricsSlide
   :partNumber="3"
-  pillIcon="💻"
-  pillLabel="Agentic Coding"
-  title="Implementation Quality & Speed"
-  :before='{ header: "Before Agents", items: ["Implementation time: 8-12 hours", "Time to first PR: 1-2 days", "Initial test pass rate: 70%", "PRs requiring rework: 30%"] }'
-  :after='{ header: "After Automation", items: ["Implementation time: 1-2 hours", "Time to first PR: 2-4 hours", "Initial test pass rate: >90%", "PRs requiring rework: <15%"] }'
+  pillIcon="🚀"
+  pillLabel="Agentic Coding · Impact"
+  title="From 12-Hour Implementations to 2-Hour PRs"
+  :before='{
+    header: "Manual Implementation",
+    items: [
+      { title: "8-12 hours per task", detail: "Research, code, debug, write tests, write PR description" },
+      "Tests written last — or skipped under deadline pressure",
+      "PR description written from memory of what changed",
+      { title: "Context switching cost", detail: "Interruptions break implementation flow" }
+    ]
+  }'
+  :after='{
+    header: "Agentic Coding",
+    items: [
+      { title: "1-2 hours per task", detail: "Coding agent implements from the approved plan" },
+      "Tests generated as first-class output from the plan",
+      "PR description auto-generated with full context",
+      { title: "Developer reviews, not builds", detail: "Human time spent on judgment, not keystrokes" }
+    ]
+  }'
   :metrics='[
-    { value: "6-10×", label: "Faster" },
-    { value: "70% → 90%+", label: "Test pass rate" },
-    { value: "30% → 15%", label: "Rework reduced" }
+    { value: "85%", label: "less implementation time" },
+    { value: "100%", label: "of PRs include tests" },
+    { value: "0", label: "implementation keystrokes" }
   ]'
-  :insight='{ icon: "💡", text: "Guidelines enforced automatically: follow existing patterns, write tests, atomic commits, single-purpose functions, error handling, descriptive commit messages. ROI: $17,000/month." }'
+  :insight='{ icon: "🎯", text: "The approved plan is the implementation contract — the agent executes it, the developer governs it." }'
   :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Part 4 — Code Review -->
-
 <SectionOpenerSlide
   :partNumber="4"
-  title="Code Review Agent"
-  subtitle="Security, logic, performance, and test coverage validation"
+  title="Code Review"
+  subtitle="Automated review amplifies human judgment — and surfaces the graduation signals you&#39;ve earned."
   :cards='[
-    { icon: "🔒", title: "Security Scan", blurb: "OWASP vulnerabilities, injection risks" },
-    { icon: "⚡", title: "Performance Check", blurb: "N+1 queries, bottlenecks, optimization" },
-    { icon: "🧪", title: "Test Coverage", blurb: "Coverage metrics and gap analysis" },
+    { icon: "🛡️", title: "Trust Amplification", blurb: "Security, logic, coverage — the answer to is the code any good?" },
+    { icon: "🔚", title: "review-complete",       blurb: "Final state machine transition: the loop closes here" },
+    { icon: "🎓", title: "Graduation Signals",    blurb: "Threshold indicators that the next SDLC phase is within reach" }
   ]'
-  :terminal='{ context: "Code review accelerated by AI", detail: "2-4 hours → 20 min review time" }'
+  :terminal='{ context: "Time to review an agent-generated PR end-to-end", detail: "2-4 hrs → 20 min" }'
 />
 
 ---
 
-<!-- SLIDE: Review Focus Areas -->
+<!-- SLIDE: Four Automated Review Dimensions -->
 <FourCardGridSlide
   :partNumber="4"
   pillIcon="🔍"
-  pillLabel="Code Review"
-  title="What the Agent Reviews: 4 Focus Areas"
+  pillLabel="Code Review · Coverage"
+  title="Four Dimensions of Automated Review"
   :cards='[
-    { icon: "🔒", title: "Security (~2 min)", description: "SQL injection patterns, XSS vulnerabilities, auth bypass risks, hardcoded secrets, unsafe dependencies" },
-    { icon: "⚙️", title: "Logic (~2 min)", description: "Error handling completeness, edge case coverage, race conditions, resource leaks, state management bugs" },
-    { icon: "⚡", title: "Performance (~1 min)", description: "O(n²) algorithms, N+1 query patterns, blocking operations, caching opportunities, memory inefficiencies" },
-    { icon: "🧪", title: "Tests (~1 min)", description: "Coverage on new code, edge case test presence, integration test quality, flaky test detection, test maintainability" }
+    { icon: "🛡️", title: "Security Analysis",   description: "OWASP pattern detection, dependency vulnerability scanning, auth logic review" },
+    { icon: "🧠", title: "Logic Review",         description: "Business rule verification, edge case detection, race condition identification" },
+    { icon: "⚡", title: "Performance Checks",   description: "N+1 query detection, unnecessary re-renders, algorithmic complexity flags" },
+    { icon: "🧪", title: "Coverage Gates",       description: "Test coverage thresholds enforced — PRs fail CI if below plan targets" }
   ]'
-  :insight='{ icon: "💡", text: "Human review shifts from reading every line to validating outcomes against intent — does the implementation match the approved plan? Agent catches 95% of technical issues; humans validate strategic alignment." }'
+  :insight='{ icon: "💡", text: "Automated review answers the first question — humans answer the architectural question." }'
   :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Review Metrics & Security Impact -->
+<!-- SLIDE: Code Review Time Savings -->
 <BeforeAfterMetricsSlide
   :partNumber="4"
-  pillIcon="🔍"
-  pillLabel="Code Review"
-  title="Impact: Security Review at Scale"
-  :before='{ header: "❌ The Problem", items: ["2-4 hours per PR review", "Race condition in token refresh logic slipped through manual review", "Caused production incident — 45 min downtime", "Review capacity bottleneck blocking velocity"] }'
-  :after='{ header: "✅ The Solution", items: ["Agent analyzes security, logic, performance in 6 minutes", "Race condition pattern flagged automatically", "Human reads agent analysis in 15 min vs entire diff in 3 hours", "Same pattern caught in next PR before merge"] }'
+  pillIcon="⏱️"
+  pillLabel="Code Review · Impact"
+  title="From 4-Hour Reviews to 20-Minute Sign-Offs"
+  :before='{
+    header: "Manual Review",
+    items: [
+      { title: "2-4 hours per agent PR", detail: "Reviewers read 500-2000 lines of generated code" },
+      "Security gaps caught post-merge — costly remediation",
+      "Inconsistent review depth across different reviewers",
+      { title: "10-15× volume increase", detail: "Agent PRs arrive faster than humans can review" }
+    ]
+  }'
+  :after='{
+    header: "Automated Review",
+    items: [
+      { title: "20 min human review", detail: "Automated pass surfaces all first-order issues before human reads a line" },
+      "Security, logic, and coverage checked pre-merge",
+      "Consistent rubric — same depth on every PR",
+      { title: "Reviewers shift roles", detail: "From line-by-line gatekeepers to architectural judges" }
+    ]
+  }'
   :metrics='[
-    { value: "3h → 20m", label: "Review time" },
-    { value: ">95%", label: "Critical bugs caught" },
-    { value: "0/quarter", label: "Security incidents" },
-    { value: "8-12×", label: "Review capacity" }
+    { value: "83%", label: "faster human review" },
+    { value: "0", label: "post-merge security bugs" },
+    { value: "3.1×", label: "PR throughput increase" }
   ]'
-  :insight='{ icon: "💡", text: "Review bottleneck eliminated. Security improved. ROI: $10,000/month." }'
   :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: When to Graduate to Full SDLC -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🚀 Graduation Path</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-0.5">The Inflection Point: When Quick Wins Hit Limits</div>
-<div class="text-xs text-white/50">Watch for these signals that you've outgrown Phases 1-4</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3 mb-2">
-<div class="p-2 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-lg border border-red-500/30">
-<div class="text-xs font-bold text-red-300 mb-1 uppercase tracking-wider">⚠️ Signals You've Outgrown Phase 1-4</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>• <strong>Repository Chaos:</strong> Agents touching 3-5 repos per feature</div>
-<div>• <strong>CI Bottleneck:</strong> Queue time &gt;60 minutes</div>
-<div>• <strong>Review Overwhelm:</strong> 50+ PRs open, 10+ days to review</div>
-<div>• <strong>Test Flakiness:</strong> &gt;10% flaky test rate</div>
-<div>• <strong>Manual Governance:</strong> Compliance requires human review</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-lg border border-green-500/30">
-<div class="text-xs font-bold text-green-300 mb-1 uppercase tracking-wider">✅ Solutions: Full SDLC Transformation</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>→ <strong>Monorepo consolidation</strong> (eliminate coordination overhead)</div>
-<div>→ <strong>Trust factory CI</strong> (&lt;10 min PR checks)</div>
-<div>→ <strong>Outcome-based PRs</strong> (evidence bundles)</div>
-<div>→ <strong>Hermetic builds</strong> (deterministic signal)</div>
-<div>→ <strong>Automated attestations</strong> (compliance verification)</div>
-</div>
-</div>
-</div>
-
-<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-sm font-bold text-cyan-300 mb-1">The Upgrade Path</div>
-<div class="text-xs font-mono text-gray-300">
-<div class="grid grid-cols-2 gap-3">
-<div>
-<div class="text-cyan-400 mb-1">PHASE 1-4 (Quick Wins)</div>
-<div class="space-y-0.5 ml-2">
-<div>✓ Issue → PR automation</div>
-<div>✓ Agent-generated code</div>
-<div>✓ Code review assistance</div>
-<div>~ Manual coordination</div>
-<div>~ Traditional CI (slow)</div>
-<div class="text-cyan-400 mt-2">THROUGHPUT: 5-10 features/week</div>
-</div>
-</div>
-<div>
-<div class="text-green-400 mb-1">PHASE 5 (Full SDLC)</div>
-<div class="space-y-0.5 ml-2">
-<div>✓ Monorepo with module boundaries</div>
-<div>✓ Feature-scale PRs (500-2000 lines)</div>
-<div>✓ Intent-based reviews</div>
-<div>✓ Atomic merges</div>
-<div>✓ CI as trust factory (&lt;10 min)</div>
-<div class="text-green-400 mt-2">THROUGHPUT: 10-15 features/day</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 p-2 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-xl border border-pink-500/30 text-center">
-<div class="text-xs font-semibold text-pink-300">Phases 1-4 build proof of value and executive support for the full transformation</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Expected ROI -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">💰 ROI Analysis</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Expected ROI by Phase</div>
-<div class="text-xs text-white/50">Based on $100/hour developer cost, 50 issues/month</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="space-y-1.5 mb-1">
-<div class="grid grid-cols-4 gap-3">
-<div class="p-2 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30 text-center">
-<div class="text-xl font-bold text-cyan-300">Phase 1</div>
-<div class="text-xs opacity-70">Intake</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
-<div class="text-xs text-gray-400 mb-1">Setup</div>
-<div class="text-sm text-white font-mono">2-3 hours</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-lg border border-green-500/30">
-<div class="text-xs text-gray-400 mb-1">Monthly</div>
-<div class="text-sm text-green-300 font-mono">$2,000</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-emerald-900/40 to-emerald-800/40 rounded-lg border border-emerald-500/30">
-<div class="text-xs text-gray-400 mb-1">Annual</div>
-<div class="text-sm text-emerald-300 font-mono">$24,000</div>
-</div>
-</div>
-<div class="grid grid-cols-4 gap-3">
-<div class="p-2 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30 text-center">
-<div class="text-xl font-bold text-blue-300">Phase 2</div>
-<div class="text-xs opacity-70">Planning</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
-<div class="text-xs text-gray-400 mb-1">Setup</div>
-<div class="text-sm text-white font-mono">2-3 hours</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-lg border border-green-500/30">
-<div class="text-xs text-gray-400 mb-1">Monthly</div>
-<div class="text-sm text-green-300 font-mono">$7,000</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-emerald-900/40 to-emerald-800/40 rounded-lg border border-emerald-500/30">
-<div class="text-xs text-gray-400 mb-1">Annual</div>
-<div class="text-sm text-emerald-300 font-mono">$84,000</div>
-</div>
-</div>
-<div class="grid grid-cols-4 gap-3">
-<div class="p-2 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-lg border border-indigo-500/30 text-center">
-<div class="text-xl font-bold text-indigo-300">Phase 3</div>
-<div class="text-xs opacity-70">Coding</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
-<div class="text-xs text-gray-400 mb-1">Setup</div>
-<div class="text-sm text-white font-mono">0 hours</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-lg border border-green-500/30">
-<div class="text-xs text-gray-400 mb-1">Monthly</div>
-<div class="text-sm text-green-300 font-mono">$17,000</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-emerald-900/40 to-emerald-800/40 rounded-lg border border-emerald-500/30">
-<div class="text-xs text-gray-400 mb-1">Annual</div>
-<div class="text-sm text-emerald-300 font-mono">$204,000</div>
-</div>
-</div>
-<div class="grid grid-cols-4 gap-3">
-<div class="p-2 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30 text-center">
-<div class="text-xl font-bold text-purple-300">Phase 4</div>
-<div class="text-xs opacity-70">Review</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border border-gray-700/30">
-<div class="text-xs text-gray-400 mb-1">Setup</div>
-<div class="text-sm text-white font-mono">1-2 hours</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-lg border border-green-500/30">
-<div class="text-xs text-gray-400 mb-1">Monthly</div>
-<div class="text-sm text-green-300 font-mono">$10,000</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-emerald-900/40 to-emerald-800/40 rounded-lg border border-emerald-500/30">
-<div class="text-xs text-gray-400 mb-1">Annual</div>
-<div class="text-sm text-emerald-300 font-mono">$120,000</div>
-</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-r from-emerald-600/80 to-cyan-600/80 rounded-xl border-2 border-emerald-400 shadow-lg">
-<div class="grid grid-cols-3 gap-4 text-center">
-<div>
-<div class="text-xs text-white/70 mb-1">Combined Setup</div>
-<div class="text-xl font-bold text-white">~8 hours</div>
-</div>
-<div>
-<div class="text-xs text-white/70 mb-1">Monthly Savings</div>
-<div class="text-xl font-bold text-white">$36,000</div>
-</div>
-<div>
-<div class="text-xs text-white/70 mb-1">Annual Savings</div>
-<div class="text-xl font-bold text-white">$432,000</div>
-</div>
-</div>
-</div>
-
-<div class="mt-2 text-center text-xs text-gray-400 italic">Phase 5 (full SDLC) adds $1.8M/year but requires 3-6 month investment</div>
-</div>
-</div>
+<!-- SLIDE: Graduation Signals -->
+<ThreeColumnCardSlide
+  :partNumber="4"
+  pillIcon="🎓"
+  pillLabel="Code Review · Graduation"
+  title="Graduation Signals: You&#39;ve Already Won — Now Scale"
+  :columns='[
+    { icon: "🔗", title: "Cross-Repo Coordination", description: "Agent changes spanning 2+ repos per feature exceed what this pipeline handles cleanly", items: ["Agents need shared context across boundaries", "Monorepo or ACP manifest needed", "See: Agentic SDLC talk"] },
+    { icon: "👥", title: "5+ Teams Participating", description: "Coordination overhead starts exceeding automation gains at multi-team scale", items: ["Conflicting intake routing rules appear", "Shared planning context required", "Enterprise Patterns talk applies"] },
+    { icon: "📈", title: "Proven ROI on Record", description: "You have 3+ months of time savings data — now is the moment to request the full transformation", items: ["Estimate accuracy tracked", "Review throughput measured", "Executive support earned"] }
+  ]'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Before/After -->
 <BeforeAfterSlide
-header="From Manual Issue-to-PR to Agentic Automation"
-:leftItems='["Triage: 20–30 min per issue", "Planning: 2–4 hrs", "Accuracy: varies by context", "Manual synthesis required"]'
-:rightItems='["Triage: 3 min", "Planning: 15 min", "Accuracy: +60% improvement", "Automated historical context"]'
-:metrics='[
-  { value: "20–30 min → 3 min", detail: "Triage acceleration" },
-  { value: "2–4 hrs → 15 min", detail: "Planning acceleration" },
-  { value: "+60%", detail: "Accuracy improvement" }
-]'
+  header="From Manual SDLC to Compounding Automation"
+  :leftItems='["30 min triage per issue, 40 min per duplicate", "2-4 hour ad-hoc planning with missed context", "8-12 hour implementations with scope drift", "2-4 hour code review with inconsistent coverage"]'
+  :rightItems='["3 min AI triage with duplicate detection and auto-labeling", "15 min codebase-aware plan, human-gated via /approve-plan", "1-2 hour agent-coded PR with tests and description", "20 min automated security, logic, and coverage review"]'
+  :metrics='[
+    { value: "90%", detail: "less triage time per issue" },
+    { value: "94%", detail: "faster structured planning" },
+    { value: "4×", detail: "implementation throughput" }
+  ]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Review the 4 workflow files in the talk repository", "Identify your repo with highest issue volume", "Check prerequisites: Actions enabled, Copilot license active"]'
-  :thisWeek='["Copy 1-issue-triage.yml to your repo", "Create prompt templates in .github/prompts/", "Configure COPILOT_GITHUB_TOKEN secret", "Create a test issue and verify the workflow"]'
-  :thisMonth='["Add Phases 2-4 progressively (one per week)", "Customize prompts for team coding standards", "Track metrics: triage time, plan accuracy, review speed", "Monitor for Phase 5 graduation signals"]'
-  footer="Deploy Phase 1 today and validate for 1-2 weeks, then add phases progressively, build ROI dashboards, and present results using the Agentic Delivery executive framing."
+  :today='["Copy 4 YAML workflow files into your repo", "Configure secrets for GitHub Copilot agent access", "Create your first intake issue to test the pipeline"]'
+  :thisWeek='["Review and approve your first agent-generated execution plan", "Validate a Copilot-coded PR against your quality bar", "Measure triage time before and after for one sprint"]'
+  :thisMonth='["Track estimate accuracy improvements across 10+ planned issues", "Expand the workflow to a second repository", "Assess whether graduation signals are appearing in your team"]'
+  footer="Each phase saves time independently — but the ROI multiplies when all four run in sequence."
 />
-
 
 ---
 
@@ -679,16 +487,12 @@ header="From Manual Issue-to-PR to Agentic Automation"
 <ReferencesSlide
   :groups='[
     { title: "📖 Official Documentation", color: "cyan", items: [
-        { href: "https://docs.github.com/en/copilot", label: "GitHub Copilot Documentation", description: "Core concepts, getting started guide, and overview" },
-        { href: "https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent", label: "Copilot Coding Agent for PRs", description: "Agent-assisted PR workflows and review" },
-        { href: "https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line", label: "Using Copilot in the Command Line", description: "CLI installation and programmatic mode" },
-        { href: "https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions", label: "GitHub Actions Workflow Syntax", description: "Triggers, jobs, steps, and permissions" }
+      { href: "https://docs.github.com/en/copilot", label: "GitHub Copilot documentation", description: "Full reference for GitHub Copilot features and configuration" },
+      { href: "https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent", label: "Copilot coding agent for pull requests", description: "How the coding agent handles autonomous implementation" }
     ] },
-    { title: "🎓 Related Content", color: "purple", items: [
-        { label: "Agentic SDLC", description: "Full Gen-4 transformation: repository topology, PR workflows, CI trust factory" },
-        { label: "Agent Teams", description: "Specialized agent patterns for complex multi-agent coordination" },
-        { label: "Copilot Hooks", description: "Governance and control mechanisms for agent behavior" },
-        { label: "Enterprise Patterns", description: "Organization-wide adoption patterns and rollout strategies" }
+    { title: "🛠️ Related Talks", color: "purple", items: [
+      { label: "Agent Teams", description: "Multi-agent orchestration patterns for complex engineering workflows" },
+      { label: "Agentic SDLC", description: "Full software delivery lifecycle transformation with agentic workflows" }
     ] }
   ]'
 />
@@ -697,12 +501,12 @@ header="From Manual Issue-to-PR to Agentic Automation"
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="The Agentic Journey: Incremental Path to Automation"
-:cards='[
-  { icon: "⚡", value: "20-30min → 3min", detail: "Issue triage time", subdetail: "Phase 1: Automated classification & prioritization" },
-  { icon: "📊", value: "±20%", detail: "Plan accuracy improvement", subdetail: "Phase 2: Historical context reduces estimation variance" },
-  { icon: "💰", value: "$432K/year", detail: "Combined ROI", subdetail: "50 issues/month across 4 phases" }
-]'
-prompt="Questions? Let's discuss your incremental adoption path — start with Phase 1 this week"
+  title="The Agentic Journey"
+  subtitle="Incremental Path from Issue to PR Automation"
+  :cards="[
+    { value: '3 min', detail: 'AI triage replaces 30-minute manual intake — duplicate detection included' },
+    { value: '/approve-plan', detail: 'One human comment is the complete answer to what if it goes wrong?' },
+    { value: '1-2 hrs', detail: 'Agent-coded PR with tests appears — zero implementation keystrokes' },
+  ]"
+  prompt="Which phase of the state machine would save your team the most time this sprint?"
 />

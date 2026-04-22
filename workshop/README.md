@@ -21,7 +21,7 @@
 - ✅ Basic auth scaffolding → Secure, tested implementation
 - ✅ Generic UI → Polished, show-specific experience
 
-**The twist**: You'll do it in 11-13 hours using GitHub Copilot. But not "basic Copilot." You'll learn to configure, customize, and orchestrate AI assistance through:
+**The twist**: You'll do it in 9-10 hours using GitHub Copilot. But not "basic Copilot." You'll learn to configure, customize, and orchestrate AI assistance through:
 
 - **Repository instructions** (`.github/copilot-instructions.md`) — Your team's standards, automatically applied
 - **Agent plan mode** — Structured thinking and systematic AI collaboration
@@ -40,15 +40,14 @@
 
 **Monday, 9:00 AM**: Sarah (skeptical senior dev) throws down the challenge. The team looks at the starter code—it's rough. Generic content, inconsistent patterns, zero documentation. Copilot gives confused suggestions because it has nothing to work with.
 
-**Monday, 9:00 AM - 6:00 PM**: Over the next 8-9 hours (your time, your pace), you'll follow the team as they:
+**Monday, 9:00 AM - 6:00 PM**: Over the next 9-10 hours (your time, your pace), you'll follow the team as they:
 
 1. **Document architecture** and establish team standards (watch suggestions improve instantly)
 2. **Master plan mode** for structured thinking and systematic AI collaboration
 3. **Build a prompt library** for reusable workflows
-4. **Add custom instructions** for context-aware code generation
-5. **Encode domain expertise** with Agent Skills that Copilot loads automatically
-6. **Connect to external systems** via MCP for database queries, API calls, and deployment awareness
-7. **Unleash autonomous agents** that leverage ALL the context you've built — THE FINALE
+4. **Encode domain expertise** with Agent Skills that Copilot loads automatically
+5. **Connect to external systems** via MCP for database queries, API calls, and deployment awareness
+6. **Unleash autonomous agents** that leverage ALL the context you've built — THE FINALE
 
 Each module builds on the previous. Each customization compounds. By the end, you'll have a production app and a completely transformed understanding of AI-assisted development.
 
@@ -126,7 +125,7 @@ Every module connects back to these core ideas:
 
 ## 📚 Workshop Structure
 
-**Total Time**: 8-9 hours (self-paced) · **Format**: Story-driven with hands-on exercises
+**Total Time**: 9-10 hours (self-paced) · **Format**: Story-driven with hands-on exercises
 
 | Module | Time | What You'll Build | Transformation | Key Skills |
 |--------|------|-------------------|----------------|------------|
@@ -134,10 +133,9 @@ Every module connects back to these core ideas:
 | **1: Repository Instructions** | 90 min | Document architecture, create `.github/copilot-instructions.md` | Generic → Architecture-aware | Repository instructions |
 | **2: Agent Plan Mode** | 90 min | Structured thinking, systematic AI workflows | Reactive → Strategic | Plan mode, agent config |
 | **3: Custom Prompts** | 90 min | Reusable test & spec functions in `.github/prompts/` | Manual → Automated | Prompt functions, templates |
-| **4: Custom Instructions** | 90 min | File-scoped context with `applyTo` patterns | Generic → Context-aware | Custom instructions |
-| **5: Agent Skills** | 90 min | Domain expertise in `.github/skills/` | Generic → Domain expert | SKILL.md format |
-| **6: MCP Servers** | 75 min | Connect to SQLite, GitHub via Model Context Protocol | Knowledge → Action | MCP config, databases |
-| **7: Custom Agents** ⭐ | 90 min | **THE FINALE** — Autonomous agent orchestrates everything you've built | Sequential → Autonomous | Agent design, orchestration |
+| **4: Agent Skills** | 90 min | Domain expertise in `.github/skills/` | Generic → Domain expert | SKILL.md format |
+| **5: MCP Servers** | 75 min | Connect to SQLite, GitHub via Model Context Protocol | Knowledge → Action | MCP config, databases |
+| **6: Custom Agents** ⭐ | 90 min | **THE FINALE** — Autonomous agent orchestrates everything you've built | Sequential → Autonomous | Agent design, orchestration |
 
 **Featured Personas:** Sarah (skeptical senior), Marcus (DevOps), David (architect), Elena (QA), Rafael (product), Jessica (junior)
 
@@ -173,7 +171,7 @@ Intentional struggles make transformations meaningful
 By completing this workshop, you will:
 
 - **Build a production application** with AI assistance in 9-10 hours
-- **Master 6 customization techniques**: repository instructions, agent plan mode, custom prompts (functions), custom agents (workflows), custom instructions, and Agent Skills
+  - **Master 5 customization techniques**: repository instructions, agent plan mode, custom prompts, Agent Skills, and MCP Servers
 - **Understand compounding value**: how early configuration pays dividends on every later task
 - **Transform your workflow**: from writing code to orchestrating AI
 - **Measure success differently**: clarity, scalability, and judgment over syntax

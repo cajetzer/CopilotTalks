@@ -10,7 +10,7 @@ The CopilotTraining slide deck build system consists of two PowerShell scripts:
 ## Quick Start
 
 ```powershell
-cd C:\Users\hobob\source\CopilotTraining\slides
+cd slides
 
 # Build only tech-talks
 .\build.ps1 Tech-talks
@@ -89,8 +89,8 @@ After a successful build:
 
 ```
 [ROCKET] Building Tech-talks Slidev presentations...
-[FOLDER] Slides directory: C:\Users\hobob\source\CopilotTraining\slides
-[BOX] Output directory: C:\Users\hobob\source\CopilotTraining\slides\dist
+[FOLDER] Slides directory: <repo>/slides
+[BOX] Output directory: <repo>/slides/dist
 [OPEN_FOLDER] Folder filter: Tech-talks
 
 [SCIENCE] Building tech-talks slides...
@@ -103,7 +103,7 @@ After a successful build:
 
 [DONE] 17 presentations built, 0 archived skipped.
 [CLOCK] Total time: 1m 12s
-[BOX] Output location: C:\Users\hobob\source\CopilotTraining\slides\dist
+[BOX] Output location: <repo>/slides/dist
 ```
 
 Built decks are in `slides/dist/<category>/<deck-name>/`.

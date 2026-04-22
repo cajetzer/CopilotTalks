@@ -4,6 +4,22 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Do NOT use runSubagent for slide generation — use direct agent invocation (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+The Tech Talk Slide Generator produces a full slide deck (18–24 slides + build commands). This consistently exceeds the subagent response length cap, causing the task to fail with "response hit the length limit."
+
+**Never use `runSubagent` for slide generation.** Instead, tell the user to invoke the agent directly in a new Copilot Chat session:
+
+```
+@Tech Talk Slide Generator tech-talks/{topic}
+```
+
+Same applies to any other agent that produces large file outputs (Tech Talk Generator, Module Creator).
+
+---
+
 ## Multiline `:prop` array bindings break Vue template parser in Slidev (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`
@@ -380,6 +396,34 @@ const cardStyles = computed(() => isDark.value ? DARK_CARD_STYLES : LIGHT_CARD_S
 - `text-gray-400` desc → `text-gray-600`
 
 **Build verified:** `npm run build -- tech-talks/copilot-acp.md` ✅ (April 2026)
+
+---
+
+## Tech Talk Slide Generator: no `---` separator between `</script>` and the Title slide (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+The Tech Talk Slide Generator (and any agent writing Slidev decks) must **not** place a `---` slide separator between the closing `</script>` tag and the first `<!-- SLIDE: Title -->` comment. The `<script setup>` block is frontmatter-adjacent — it belongs to slide 1 automatically. An extra `---` before the TitleSlide creates a blank slide 1 and shifts all TOC slide numbers off by one.
+
+**Wrong:**
+```markdown
+</script>
+
+---
+
+<!-- SLIDE: Title -->
+<TitleSlide ... />
+```
+
+**Correct:**
+```markdown
+</script>
+
+<!-- SLIDE: Title -->
+<TitleSlide ... />
+```
+
+The first `---` separator belongs **after** the TitleSlide closing `/>`, not before it.
 
 ---
 

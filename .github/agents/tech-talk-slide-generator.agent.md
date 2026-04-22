@@ -1,7 +1,7 @@
 ---
 name: Tech Talk Slide Generator
 description: Generate Slidev presentation slides for CopilotTraining tech talks. Uses the full Vue component system — no raw HTML. Source: tech-talks/{topic}/README.md + deck.recipe.yml.
-tools: ["read", "edit/createFile", "edit/editFiles", "run"]
+tools: ["read", "edit/createFile", "edit/editFiles", "execute/runInTerminal", "execute/getTerminalOutput"]
 model: Claude Sonnet 4.6
 argument-hint: Provide the tech-talk path (e.g., tech-talks/copilot-cli, tech-talks/agent-teams)
 ---
@@ -19,7 +19,7 @@ Every slide uses a Vue component — no raw HTML. The component library handles 
 Four quick checks — then immediately start writing.
 
 1. **README exists** — Confirm `tech-talks/{topic}/README.md` exists. If not, stop: "No README.md found. Generate it first via the Tech Talk Generator agent."
-2. **Not archived** — Read only the README frontmatter. If `status: archived`, stop. Also refuse if the existing slide file has `status: archived`.
+2. **Not archived** — Read only the README frontmatter. If `status: archived`, stop. Also refuse if the existing slide file has `status: archived`. Do **not** read the body of any existing `slides/tech-talks/{slug}.md` — it will be overwritten and must not influence generation.
 3. **Read deck recipe** — Look for `tech-talks/{topic}/deck.recipe.yml`.
    - **If it exists:** read it. It has everything needed for Phase A.
    - **If missing:** stop. Say: "No `deck.recipe.yml` found for this talk. Run the deck-recipe-review skill to create one, then re-invoke this agent."

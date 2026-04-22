@@ -14,8 +14,14 @@ Use the **Slide Generator** agent to create slides:
 
 ```
 @slide-generator workshop/03-custom-prompts
-@slide-generator tech-talks/copilot-cli
 @slide-generator exec-talks/agentic-delivery
+```
+
+For tech talks, use the **Tech Talk Slide Generator** instead:
+
+```
+@tech-talk-slide-generator tech-talks/copilot-cli
+@tech-talk-slide-generator tech-talks/agent-teams
 ```
 
 **What it does:**
@@ -36,7 +42,7 @@ Preview slides locally:
 
 ```bash
 cd slides
-npx slidev workshop/00-orientation.md
+npm run dev workshop/00-orientation.md
 ```
 
 Opens at `http://localhost:3030` with hot reload.
@@ -80,10 +86,11 @@ Agentic delivery, economics, and labor implications.
 
 **Manual build** (for local testing):
 
-```bash
-cd scripts
-./build-all.sh              # Linux/Mac
-build-all.ps1               # Windows/PowerShell
+```powershell
+cd slides
+.\build.ps1                 # all categories
+.\build.ps1 Tech-talks      # single category
+npm run build -- tech-talks/copilot-cli.md   # single deck
 ```
 
 Outputs to `dist/` folder for GitHub Pages or any static host.
@@ -99,7 +106,7 @@ Outputs to `dist/` folder for GitHub Pages or any static host.
 
 **View locally:**
 ```bash
-npx slidev workshop/03-custom-prompts.md
+npm run dev workshop/03-custom-prompts.md
 ```
 
 **Update slides when content changes:**
