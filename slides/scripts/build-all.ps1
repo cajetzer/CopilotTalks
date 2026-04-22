@@ -19,7 +19,7 @@
 #   Violations emit yellow [WARN] line N: messages — non-blocking, build stays [OK].
 #   Limits enforced (from slides/tech-talks/template.md):
 #     FrameworkMappingRowsSlide  label ≤13, description ≤70
-#     SectionOpenerSlide         cards.blurb ≤75, cards.title ≤30
+#     SectionOpenerSlide         title ≤40, subtitle ≤120, cards.blurb ≤75, cards.title ≤30
 #     CoreQuestionSlide          cards.description ≤90, cards.title ≤40
 #     TocSlide                   sections.blurb ≤100, sections.title ≤49
 #     All Tier-1 body slides     title ≤80
@@ -88,10 +88,17 @@ function Invoke-PropLint {
         }
     }
 
-    # ── SectionOpenerSlide: cards.title ≤30, cards.blurb ≤60 ────────────────
+    # ── SectionOpenerSlide: title ≤40, subtitle ≤120, cards.title ≤30, cards.blurb ≤75 ──
     foreach ($m in [regex]::Matches($content, '(?s)<SectionOpenerSlide\b.*?/>')) {
         $block = $m.Value; $off = $m.Index
         $title = if ($m.Value -match 'title="([^"]+)"') { $matches[1] } else { '(unknown)' }
+        # title= and subtitle= prop-level checks
+        if ($block -match 'title="([^"]+)"') {
+            & $checkLen 'SectionOpenerSlide' $title 'title' $matches[1] 40 $off
+        }
+        if ($block -match 'subtitle="([^"]+)"') {
+            & $checkLen 'SectionOpenerSlide' $title 'subtitle' $matches[1] 120 $off
+        }
         foreach ($r in [regex]::Matches($block, '\{[^}]*title:\s*"([^"]+)"[^}]*blurb:\s*"([^"]+)"')) {
             & $checkLen 'SectionOpenerSlide' $title 'card.title' $r.Groups[1].Value 30 ($off + $r.Index)
             & $checkLen 'SectionOpenerSlide' $title 'card.blurb' $r.Groups[2].Value 75 ($off + $r.Index)

@@ -181,7 +181,7 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 <SectionOpenerSlide
   :partNumber="2"
   title="Protocol Architecture"
-  subtitle="ACP is LSP for AI agents — collapsing N×M to N+M through the same standardization move that transformed language tooling."
+  subtitle="ACP is LSP for AI agents — collapsing N×M to N+M through the same standardization that transformed language tooling."
   :cards='[
     { icon: "🧱", title: "Four Layers",       blurb: "Transport → Protocol → Session → Application — the ACP stack" },
     { icon: "🔁", title: "LSP Analogy",       blurb: "Pre-ACP N×M grid vs post-ACP N+M model — the same paradigm shift" },

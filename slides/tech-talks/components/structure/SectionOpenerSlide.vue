@@ -40,12 +40,29 @@
 import { computed } from 'vue'
 import { isDark } from '../useTheme'
 
+const TITLE_MAX    = 40
+const SUBTITLE_MAX = 120
+const CARD_TITLE_MAX = 30
+const CARD_BLURB_MAX = 75
+
 const props = defineProps({
   partNumber: { type: Number, required: true },
   title:      { type: String, required: true },
   subtitle:   { type: String, required: true },
   cards:      { type: Array,  required: true }, // exactly 3: { icon, title, blurb }
   terminal:   { type: Object, required: true }, // { context, detail }
+})
+
+// Dev-tools warnings — build is pure Vite bundle so these only fire in browser
+if (props.title?.length > TITLE_MAX)
+  console.warn(`[SectionOpenerSlide] title too long (${props.title.length} chars, max ${TITLE_MAX}): "${props.title.slice(0, 40)}…"`)
+if (props.subtitle?.length > SUBTITLE_MAX)
+  console.warn(`[SectionOpenerSlide] subtitle too long (${props.subtitle.length} chars, max ${SUBTITLE_MAX}): "${props.subtitle.slice(0, 40)}…"`)
+props.cards?.forEach((c, i) => {
+  if (c.title?.length > CARD_TITLE_MAX)
+    console.warn(`[SectionOpenerSlide] cards[${i}].title too long (${c.title.length} chars, max ${CARD_TITLE_MAX}): "${c.title}"`)
+  if (c.blurb?.length > CARD_BLURB_MAX)
+    console.warn(`[SectionOpenerSlide] cards[${i}].blurb too long (${c.blurb.length} chars, max ${CARD_BLURB_MAX}): "${c.blurb.slice(0, 40)}…"`)
 })
 
 const validationError = computed(() => {
