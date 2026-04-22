@@ -44,6 +44,22 @@ Also: `&#39;` HTML entities inside `:prop` bindings cause attribute-name parse e
 
 ---
 
+## SectionOpenerSlide prop limits: title ≤40 chars, subtitle ≤120 chars (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+`SectionOpenerSlide` uses `text-5xl font-bold` for the title and `text-2xl font-normal opacity-70` for the subtitle. At slide width:
+- **title** wraps at ~40 chars — anything longer causes visible text overflow
+- **subtitle** overflows the slide height at >120 chars (crowding the card row)
+
+Both limits are enforced in two places:
+1. **`SectionOpenerSlide.vue`** — `console.warn` in `<script setup>` (fires in browser dev tools only)
+2. **`scripts/build-all.ps1` `Invoke-PropLint`** — non-blocking `[WARN] line N:` at build time
+
+The recipe `sectionModes[].note` values are typically 150–165 chars — always condense to ≤120 when using as subtitle. The limits are in addition to the existing `card.title ≤30` and `card.blurb ≤75` limits.
+
+---
+
 ## Prop linter calibrated limits in build-all.ps1 (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`

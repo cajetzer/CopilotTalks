@@ -4,6 +4,29 @@ Confirmed facts about Copilot Tools tech-talk decks — framing, structure, and 
 
 ---
 
+## copilot-chat-internals.md: Deck structure and section mapping (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+**Slide count:** 24 slides. Section opener slide numbers: Part 1=4, Part 2=9, Part 3=14, Part 4=17.
+
+**Section arc (recipe-driven):**
+- Part 1 “Agent Debug Panel: Real-Time Events” (cyan, 4 body): FourCardGrid (4 event stream types) → AITerminalTranscript (YAML syntax error caught in 90 sec) → TwoColPaired (Chart View + Loaded Customizations) → WorkflowShowdown (reload-and-pray vs panel-first)
+- Part 2 “Chat Debug View: Full Pipeline” (blue, 4 body): FrameworkMappingRows (5-stage request pipeline) → AITerminalTranscript (wrong file in context demo) → FourCardGrid (thinking token insights) → BeforeAfterMetrics (/compact + /fork context management)
+- Part 3 “Customization Diagnostics” (indigo, 2 body): FrameworkMappingRows (4 failure modes + fixes) → TwoColPaired (Diagnostics View vs Extension Logs)
+- Part 4 “Systematic Troubleshooting” (purple, 3 body): FrameworkMappingRows (4 symptom → tool decision map) → WorkflowShowdown (ad-hoc vs systematic) → HeroStat (4 min diagnosis)
+
+**Key framing decisions:**
+- Core stat: 45 min → 4 min (config error diagnosis) — appears in BeforeAfterSlide, HeroStat, terminal detail on Part 3 opener
+- Part 1 is the wow-moment section — Agent Debug Panel (v1.110) is the entry hook; LSP analogy not used here
+- Part 2 unifies 3 sub-features (Chat Debug View, Thinking Tokens, Context Management) into one pipeline mental model
+- Part 3 is intentionally short (2 slides) — config diagnostics are the bridge between wow and systematic patterns
+- Decision map in Part 4 slide 18 maps 4 symptoms to 4 tools — this is the practitioner take-home artifact
+
+**Source:** `slides/tech-talks/copilot-chat-internals.md`, `tech-talks/copilot-chat-internals/deck.recipe.yml`
+
+---
+
 ## copilot-azure-mcp.md: Deck structure and section mapping (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`
