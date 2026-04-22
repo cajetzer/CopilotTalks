@@ -1,4 +1,12 @@
 # deck.recipe.yml — Agentic Workflows talk guidance
+#
+# COUNCIL VERDICT: The recipe section names were shifted one slot ahead of actual slide
+# content — "The Opportunity" (Part 1 in slides) had no recipe entry, and "Real-World
+# Use Cases" named a section that doesn't exist as a slide opener, creating a ghost
+# section. All four names are reconciled to match live slide content; "Real-World Use
+# Cases" is absorbed into "The Agent Factory Pattern" which already contains the triage
+# use-case slide, and Safe Outputs' coverage gap (1 slide, high emphasis) is flagged
+# for expansion to 2–3 slides before the next delivery.
 
 version: 1
 
@@ -6,48 +14,57 @@ deck:
   title: "GitHub Agentic Workflows"
   subtitle: "Repository Automation with AI Agents"
   tagline: "Write repository automation in natural language, execute with security-first AI agents"
-  arc: "Foundation → Trust → Catalog → Proof"
-
+  arc: "Opportunity → Foundation → Trust → Catalog + Proof"
 
   sectionOrder:
+    - "The Opportunity"
     - "Core Architecture & Compilation"
     - "Safe Outputs Deep Dive"
     - "The Agent Factory Pattern"
-    - "Real-World Use Cases"
 
   sectionModes:
-    "Core Architecture & Compilation":
+    "The Opportunity":
       emphasis: medium
       note: >
-        Opens by absorbing The Opportunity's intent-vs-YAML framing as a short primer,
-        then teaches the Markdown → compilation → sandboxed execution pipeline as the
-        mental model everything else builds on.
+        Short, energizing hook — contrasts intent-driven automation (adaptive, natural
+        language) with stepwise YAML workflows (deterministic, imperative). Make the
+        audience feel the gap before filling it. Two slides maximum; resist the urge to
+        explain the solution here.
+    "Core Architecture & Compilation":
+      emphasis: medium-high
+      note: >
+        Teaches the three-phase pipeline: Markdown workflow definition → gh aw compile
+        → generated .lock.yml → sandboxed execution. The lock file as a generated
+        artifact (never hand-authored) is the load-bearing mental model; the
+        Markdown-to-YAML example and execution-flow slides make it concrete. Everything
+        downstream — security posture, pattern composability — depends on internalizing
+        this foundation.
     "Safe Outputs Deep Dive":
       emphasis: high
       note: >
-        The enterprise trust unlock — threat model, read-only default, the three
-        validated-write config archetypes (project, PR, issue), and why
-        compiler-as-policy beats ad-hoc YAML guardrails; this section converts skeptics.
+        The enterprise trust unlock and primary skeptic-converter. Cover the threat
+        model (AI decides in read-only sandbox, sanitized handlers execute writes),
+        the seven Safe Output types (Issues, PRs, Comments, Labels, Projects, Code
+        Review, Security), and the three validated-write config archetypes (project,
+        PR, issue). Currently one slide — expand to 2–3 before next delivery; the
+        compiler-as-policy argument needs room to land with platform engineers and EMs.
     "The Agent Factory Pattern":
       emphasis: high
       note: >
-        Generalizes from concrete use cases to a composable catalog of 100+ specialized
-        patterns, from reactive triage to multi-agent orchestrator compositions — the
-        conceptual payoff.
-    "Real-World Use Cases":
-      emphasis: medium-high
-      note: >
-        End-to-end walkthroughs (issue triage → CI diagnostic → daily status synthesis
-        → agent council) that make the pattern catalog concrete and feed directly into
-        the What You Can Do Today close.
+        Conceptual payoff plus concrete proof in one section. Opens with the 100+
+        composable pattern catalog (reactive → scheduled → orchestrator), then grounds
+        it with three rapid vignettes — issue triage, CI diagnostic, daily status
+        synthesis (Option B: chosen for mixed Developer/EM audience, validates breadth,
+        avoids overrun). Closes into the Mental Model Shift and "What You Can Do Today"
+        call-to-action. Before/After and closing slides feed directly from this arc.
 
   highlightMoments:
     - "Write Markdown, get secure CI/CD — intent replaces implementation, compilation replaces convention"
-    - "Read-only AI + validated writes: the compiler enforces the security posture, not the author's discipline"
-    - "100+ proven patterns from issue triage to agent councils — specialization without prompt engineering"
+    - "Read-only AI + validated writes: the compiler enforces security posture, not the author's discipline"
+    - "Seven Safe Output types span the full GitHub surface — Issues to Security — without a single direct write"
+    - "100+ proven patterns from reactive triage to multi-agent orchestrator — specialization without prompt engineering"
     - "Declare what success looks like; let AI navigate the path and compound value over time"
 
-  # OPEN DECISION: Real-World Use Cases demo format
-  # A — single "hero" scenario built live from zero: maximum depth, one peak aha moment, risk of overrun
-  # B — three rapid vignettes (triage / CI diagnostic / status synthesis): validates breadth, safer on time, shallower per example
-  # Option A creates a memorable centerpiece demo; Option B validates the pattern catalog's breadth.
+  # RESOLVED: Real-World Use Cases demo format → Option B (three rapid vignettes)
+  # Rationale: mixed Developer/EM audience benefits from breadth over depth; validates the
+  # 100+ pattern catalog narrative; safer on time for a 45–60 min slot.

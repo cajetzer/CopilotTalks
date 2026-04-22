@@ -1,13 +1,19 @@
 # deck.recipe.yml — Agentic Journey talk guidance
+#
+# VERDICT: The 4-section structure is sound and maps cleanly to the 4 workflow files;
+# "Chain fires" belongs as the FINAL slide of Agentic Coding (Option B resolved) so that
+# Code Review lands as a genuine trust-close rather than a post-climax epilogue.
+# Biggest structural risk is S1 and S2 carrying only 2 content slides each — both sections
+# need a third slide to give the label state machine introduction and the
+# historical-context + /approve-plan double-beat the space they require.
 
 version: 1
 
 deck:
   title: "The Agentic Journey"
   subtitle: "Incremental Path from Issue to PR Automation"
-  tagline: "4-workflow issue lifecycle with historical context planning"
+  tagline: "Label state machine visual spine across 4 workflows — issue to PR in ~2 hours"
   arc: "Credibility → Insight → Payoff → Trust"
-
 
   sectionOrder:
     - "Agentic Intake"
@@ -19,35 +25,59 @@ deck:
     "Agentic Intake":
       emphasis: medium
       note: >
-        Introduce the label state machine as the talk's visual spine — shown once here,
-        referenced in every section — and land the low-risk entry ROI (20-30 min → 3 min)
-        to establish credibility fast.
+        Open with the full label state machine (issue opened → status:triaged →
+        status:planned → /approve-plan → status:in-review → status:reviewed) as
+        the talk's visual spine — subsequent sections each advance one state transition,
+        so the audience tracks progress like a progress bar. Land the entry-point ROI
+        (20-30 min → 3 min triage) immediately to establish credibility and lower the
+        perceived risk of trying Phase 1. This section currently carries only 2 content
+        slides; a third is needed to hold both the state machine introduction and the
+        triage workflow detail without compressing either beat.
     "Agentic Planning":
       emphasis: high
       note: >
-        The intellectual peak: historical context mining is the capability audiences don't
-        expect; ±20% estimate accuracy is the talk's best ROI claim; the /approve-plan gate
-        is the anxiety-reduction moment for every skeptical manager in the room.
+        The intellectual peak and the talk's strongest differentiator: historical context
+        mining (agent mines similar past issues/PRs) is the capability audiences don't
+        expect — give it its own dedicated slide. The ±20% vs ±50% estimate accuracy
+        stat ($7,000/month for 50-issue teams) is the single most persuasive ROI claim
+        for engineering managers and must not share a slide with the /approve-plan
+        explanation. The /approve-plan gate is the anxiety-reduction moment — frame it
+        explicitly as a feature ("human approval required before any code is written"),
+        not a limitation. This section currently carries only 2 content slides; a third
+        is needed to separate historical-context ROI and the /approve-plan gate.
     "Agentic Coding":
       emphasis: high
       note: >
-        The emotional climax: the chain fires — label state machine cascades from approved
-        plan to open PR in ~2 hours — this is the visceral payoff developers came for.
+        The emotional climax: the label state machine visibly advances to status:in-review
+        as the PR opens. The "chain fires" moment (triage → approved plan → open PR in
+        ~2 hours vs 3-4 days manual) is the FINAL slide of this section — it completes
+        the coding payoff arc and delivers the visceral moment developers came for, while
+        leaving Code Review to land cleanly as the trust-close. One sentence on externalized
+        prompt templates in .github/prompts/ ("you can customize without touching YAML")
+        serves as the practical reassurance for skeptical engineers.
     "Code Review":
       emphasis: medium-high
       note: >
         The trust close — security, quality, and coverage gates answer "but is the code any
-        good?"; strip the Graduation subsection to a single forward-pointer slide so this
-        section lands cleanly without dilution.
+        good?" for every skeptical manager in the room. Strip the Graduation subsection to a
+        single forward-pointer slide (one sentence + link to Agentic SDLC talk) so the
+        section lands on quality gates without dilution. Close the section — and the talk's
+        body — with the 85% automation stat as the capstone ROI number that earns the
+        "What You Can Do Today" call to action in the outro.
 
   highlightMoments:
-    - "Historical context search: planning agent mines similar past issues/PRs → ±20% estimate accuracy (vs ±50% without) — $7,000/month impact for 50-issue teams"
-    - "\"Chain fires\" timing: triage → approved plan → PR open in ~2 hours total vs 3-4 days manual — shown as the label state machine completing its full arc"
-    - "/approve-plan gate as safety valve: human approval required before any code is written — a feature, not a limitation; answers the \"handing over control\" concern directly"
-    - "85% of issue lifecycle automated when all 4 phases run — the full-stack ROI number for the manager audience"
+    - "Label state machine as sequential reveal: show the full arc once in S1 (issue opened → status:triaged → ... → status:reviewed), then advance one state per section — the audience always knows where they are in the journey"
+    - "Historical context search: planning agent mines similar past issues/PRs → ±20% estimate accuracy vs ±50% without — $7,000/month savings for 50-issue teams; the ROI claim managers still talk about after the talk"
+    - "/approve-plan gate as safety valve: human approval required before any code is written — frame explicitly as a feature, not a limitation; the single most effective answer to 'what if it goes wrong?'"
+    - "\"Chain fires\" timing: triage → approved plan → open PR in ~2 hours vs 3-4 days manual — final slide of Agentic Coding when the state machine reaches status:in-review"
+    - "Phase 1 deploys in 2-3 hours: incremental adoption means one workflow file at a time — the actionability hook that converts skeptics into starters before they leave the room"
 
-# OPEN DECISION: "Chain fires" placement —
-# (A) Standalone bridge slide between Coding and Code Review: maximum emotional impact,
-#     but risks Code Review feeling like a post-climax epilogue needing a re-engagement hook.
-# (B) Final slide of Agentic Coding section: cleaner structure, Code Review retains weight
-#     as a genuine trust-close, but the chain-fires moment competes for visual prominence.
+# RESOLVED: "Chain fires" → Option B (final slide of Agentic Coding).
+#   Rationale: Code Review retains its weight as a genuine trust-close; no re-engagement
+#   hook needed; the state machine arc completes naturally at the PR-open moment.
+#
+# OPEN DECISION: S1 and S2 slide count — both sections carry only 2 content slides,
+#   which is insufficient for the beats they own (state machine intro + triage ROI in S1;
+#   historical-context ROI + /approve-plan gate in S2). Options:
+#   (A) Add one slide to each section before build (recommended).
+#   (B) Accept compression and rely on speaker notes to carry the second beat per section.

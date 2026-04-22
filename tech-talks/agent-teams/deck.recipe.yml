@@ -6,11 +6,11 @@ deck:
   title: "Agent Teams"
   subtitle: "Subagents, Teams, and Autonomous Execution"
   tagline: "Mechanisms for composing multi-agent AI systems that handle complex tasks"
-
+  arc: "Primitive → Composition → Autonomy → Quality Gate"
 
   # Conceptual ladder: primitive → composition → autonomy → quality gate.
-  # Autonomy (section 3) lands hardest after the audience understands the team
-  # structure enabling it — Teams before Autonomy is the correct emotional order.
+  # Decision tree introduced in S1, shown at every section boundary with one
+  # branch illuminated per section, fully lit on the S4 closing slide.
   sectionOrder:
     - "Subagents: The Building Block"
     - "Agent Teams: Organized Specialists"
@@ -20,25 +20,27 @@ deck:
   sectionModes:
     - section: "Subagents: The Building Block"
       emphasis: medium
-      note: "Establish the primitive fast — live parallel subagent demo proves the mechanism; exit with the decision tree as the navigation spine returned at every section boundary."
+      note: "Establish the primitive fast — live parallel subagent demo proves the mechanism; introduce the decision tree as the talk's navigation spine, one branch illuminated per section from here forward."
     - section: "Agent Teams: Organized Specialists"
       emphasis: high
-      note: "The intellectual centerpiece — Squad in 10 minutes, compounding history.md, role-enforced tool constraints; the moment the audience sees a catalog of agents become a system."
+      note: "The intellectual centerpiece — Squad in 10 minutes, compounding history.md, role-enforced tool constraints; the moment a catalog of agents becomes a composable system; decision tree gains the Teams branch."
     - section: "Autonomous Execution: Background Agents + Worktrees"
       emphasis: high
-      note: "ROI payoff enabled by Teams — 85 active minutes to 27 minutes lands hardest after the audience understands the team structure executing autonomously; Engineering Manager dashboard moment."
+      note: "ROI payoff enabled by Teams — background agents + worktrees collapse active supervision 65-82% (85 min → 27 min); name /fleet as the CLI fan-out equivalent; 9.7 hrs/week is the EM headline; decision tree gains the Autonomy branch. Target ~6 slides."
     - section: "Agent Council: When Different Models Think Differently"
-      emphasis: medium-low
-      note: "Quality gate finale — Claude+GPT+Gemini catch the subtle flaw the team missed; 2-3 slides max, closes the auth case study with a concrete before/after."
+      emphasis: medium
+      note: "Quality gate finale — 3 slides max; Claude+GPT+Gemini catch what the team missed; closes the auth case study with concrete before/after; decision tree fully illuminated on closing slide."
 
   highlightMoments:
     - "3 parallel subagents cut analysis time 2.75x (22 min → 8 min) with 4-6x token reduction — visible live in the VS Code subagent panel"
     - "Squad installed in 10 minutes: specialists with history.md make week-2 output 30-40% better than week-1 on the same task class — compounding knowledge ROI for Architects"
     - "Background agent handoff reduces active supervision 65-82% (85 min → 27 min on the auth case study) — the single number Engineering Managers take back to their teams"
+    - "9.7 hours/week reclaimed: 10 tasks × 58 minutes saved each — the EM math that converts background agents from demo to budget conversation"
     - "Full-stack composition: one coordinator, three Squad specialists, autonomous worktree execution, AgentCouncil deliberation — all four patterns against the same auth task shows the complete system"
 
-# OPEN DECISION: Live demo vs scripted walkthrough —
-# (A) Live terminal demo (background agent completes PR while presenter talks): maximum impact,
-#     highest timing risk, requires pre-staged repo and rehearsed fallback for every section.
-# (B) Scripted walkthrough (annotated screenshots/output): 95% of impact, zero timing risk,
-#     slides carry the story alone. This choice sets information density for all sections.
+# OPEN DECISION: Auth case study threading —
+# (A) Thread across all 4 sections (subagent research → Squad implements → background agent
+#     executes → AgentCouncil reviews): maximum narrative continuity and full-stack payoff,
+#     but requires tight slide coordination and risks feeling contrived in S1/S2.
+# (B) Introduce at S3, close at S4 only: cleaner pacing, lower coordination risk,
+#     AgentCouncil "catches the flaw" lands harder with a hot context the audience just watched.

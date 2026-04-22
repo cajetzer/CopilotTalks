@@ -1,3 +1,8 @@
+# VERDICT (3-agent council): "Adoption & Enablement" is the canonical S4 name — it frames the
+# organizational outcome, not just measurement; update slide section header to match. S2 earns
+# medium-high: Agent Skills (GA) and Knowledge Bases (Enterprise) are differentiating capabilities
+# that bridge the standards foundation to governance and warrant ~3 slides, not 2.
+
 version: 1
 
 deck:
@@ -5,6 +10,14 @@ deck:
   subtitle: Enterprise Patterns for AI Adoption
   tagline: Transform individual team success into organizational capability with consistent standards and governance
 
+  arc: >
+    Open with the scaling chaos problem — teams reinventing rules, tribal knowledge siloed in repos,
+    no consistent standards. Fix the foundation with org-wide instructions (S1). Amplify institutional
+    expertise through org skills and knowledge bases that compound across teams rather than fragment (S2).
+    Lock it down with model governance, compliance automation, and cost-optimized licensing (S3).
+    Close with the ROI proof: metrics that replace anecdotes, self-service onboarding with no
+    platform bottleneck, and a federated governance model ready to present to the CFO (S4).
+    Arc label: "From Pilot Chaos to Organizational Capability."
 
   sectionOrder:
     - "Organization-Wide Standards: Custom Instructions at Scale"
@@ -16,28 +29,35 @@ deck:
     "Organization-Wide Standards: Custom Instructions at Scale":
       emphasis: high
       note: >
-        The foundational fix — one instruction change reaches every repo instantly, ending team-by-team reinvention of security, framework, and quality rules.
+        The foundational fix — one instruction change reaches every repo instantly, ending team-by-team
+        reinvention of security, framework, and quality rules. Sets the stage for everything that follows.
 
     "Organizational Skills & Knowledge Bases: Institutional Knowledge That Scales":
-      emphasis: medium
+      emphasis: medium-high
       note: >
-        Shows how domain expertise (security validation, compliance checks, architecture review) compounds across teams rather than fragmenting inside individual repos.
+        Bumped from medium: Agent Skills (GA) and Knowledge Bases (Enterprise) are genuine differentiators
+        that encode domain expertise centrally — security validation, compliance checks, architecture review
+        compound across teams instead of fragmenting inside individual repos. Needs ~3 slides to land.
 
     "Governance & Licensing: Control, Compliance, and Cost Optimization":
       emphasis: medium-high
       note: >
-        Critical for regulated industries and cost-conscious leaders — model policies, compliance automation, and 30-40% cost reduction via flexible licensing strategies.
+        Critical for regulated industries and cost-conscious leaders — model policies, compliance automation,
+        and 30-40% cost reduction via flexible licensing and entitlements strategies.
 
     "Adoption & Enablement: Scaling Without Bottlenecks":
       emphasis: high
       note: >
-        The ROI payoff — metrics framework, self-service onboarding, and federated governance model that converts adoption data into a CFO-ready investment narrative.
+        The ROI payoff — metrics framework (55-65% acceptance rate target, 80%+ active users), self-service
+        30-minute onboarding, and federated governance model that converts adoption data into a CFO-ready
+        investment narrative. Canonical name for this section; slide header should match.
 
   highlightMoments:
     - "16x ROI from knowledge multiplication across teams via shared org instructions"
     - "One org instruction change propagates to all repos instantly — no per-repo updates needed"
     - "30-40% cost reduction via flexible licensing and entitlements strategy"
     - "Metrics framework replaces anecdotes with acceptance rates, PR velocity, and cost-per-feature data"
+    - "Federated governance: platform team sets standards, domain teams customize — self-service onboarding in 30 minutes, no platform bottleneck"
 
-# OPEN DECISION: "The Problem" and "The Solution" sections are currently rendered as framing slides
-# before Part 1 rather than named recipe sections — promote them if intro framing needs more weight.
+  # RESOLVED: framing slides ("The Problem" / "The Solution") are embedded as the opening slide of
+  # Part 1 ("The Traditional Problem") — no promotion to named recipe sections needed.

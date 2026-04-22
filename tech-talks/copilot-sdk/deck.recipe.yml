@@ -1,4 +1,12 @@
 # deck.recipe.yml — Copilot SDK talk guidance
+#
+# VERDICT (3-agent council): Pattern 1 (CLI Tool) belongs in "Installing and Using the SDK" as the
+# "hello world" that proves the install worked — S3 should own only the two production-grade patterns
+# (web API, scheduled automation), so the arc earns its "install → first run → scale" shape.
+# Emphasis rebalanced to medium-high / medium / high / high: the architecture section is essential
+# but contained (2 dense slides, not long), and Real-World Use Cases must land with full weight
+# as the closing argument audiences take back to their managers; the "same SDK, different targets"
+# highlight moment was cut as the only one without a number or a genuine revelation.
 
 version: 1
 
@@ -6,8 +14,7 @@ deck:
   title: "GitHub Copilot SDK"
   subtitle: "Build AI-Powered Tools for Your Workflows"
   tagline: "Transform repetitive analysis into automated intelligence"
-  arc: "Understand the engine → Install and run it → Build real patterns → See it proved in production"
-
+  arc: "Understand the engine → Install and run your first tool → Scale to web APIs and automation → See it proved in production"
 
   sectionOrder:
     - "How the SDK Works"
@@ -17,33 +24,36 @@ deck:
 
   sectionModes:
     "How the SDK Works":
-      emphasis: high
+      emphasis: medium-high
       note: >
         This is the conceptual anchor — the JSON-RPC-over-stdio architecture diagram is the
         "aha" moment that explains why the SDK is not just a thin wrapper but the full agent runtime.
+        Two slides, both dense; medium-high is honest here — essential but contained, not sprawling.
     "Installing and Using the SDK":
-      emphasis: medium-high
+      emphasis: medium
       note: >
-        Move fast here; the audience is practitioners who can follow install steps on their own —
-        spend time on streaming and the CopilotClient constructor options, not pip install.
+        Move fast; practitioners can follow install steps on their own. Pattern 1 (CLI Tool) lives
+        here as the "hello world" that completes the install story — keep it brief but run it live
+        so the audience sees the SDK respond before S3 raises the stakes with production patterns.
     "Building Tools with the SDK":
       emphasis: high
       note: >
-        The highest-value section — three copy-pasteable patterns (CLI tool, web API, scheduled
-        automation) are what practitioners came for; give each pattern its full 60 seconds of air.
+        The highest-value section — two production-grade patterns (web API, scheduled automation)
+        are what practitioners came for; Pattern 1 has already been demoed in S2, so S3 can open
+        at full speed. Give each pattern its full 60 seconds of air and show the diff from S2.
     "Real-World Use Cases":
-      emphasis: medium-high
+      emphasis: high
       note: >
-        Close with proof: quantified before/after numbers (2 h → 10 min, 45 min → 5 min) land the
-        ROI argument and give the audience language to bring back to their managers.
+        Close with proof and close hard — quantified before/after numbers (2 h → 10 min, 45 min →
+        5 min, 30 min/PR → auto) are the language the audience needs to justify the SDK internally.
+        This is the closing argument; high emphasis so it lands with weight, not as a rushed coda.
 
   highlightMoments:
     - "Release notes automation: 2 hours → 10 minutes per release (92% time reduction)"
     - "Production-tested agent runtime as a library — no DIY agent infrastructure to build"
     - "One SDK import gives you full planning loops, tool orchestration, and multi-turn conversations"
-    - "Test failure analysis: 45 minutes → 5 minutes per failed build"
-    - "Same SDK, different deployment targets: CLI tools, web APIs, scheduled jobs, and bots"
+    - "Test failure analysis: 45 minutes → 5 minutes per failed build (89% reduction)"
 
-# OPEN DECISION: 'When to Use This Pattern' (decision tree section in README) is intentionally
-# excluded from sectionOrder — its content (CLI vs IDE vs SDK comparison table) fits better as
-# a backup slide or facilitator reference than as a primary audience-facing section at this talk length.
+# OPEN DECISION: 'When to Use This Pattern' (decision tree / CLI vs IDE vs SDK comparison table)
+# is intentionally excluded from sectionOrder — it fits better as a backup or facilitator reference
+# than as a primary section at this talk length. Still the right call at 45 minutes.

@@ -1,4 +1,7 @@
 # deck.recipe.yml — MCP Apps talk guidance
+# VERDICT: Section weights and arc are well-calibrated for a 40-minute practitioner audience; the naming
+# inconsistency is resolved by adopting "Real-World Impact" to match the slide section-opener, and the
+# custom-component highlight is replaced with the 12-min→45-sec benchmark — the talk's strongest proof point.
 
 version: 1
 
@@ -8,20 +11,19 @@ deck:
   tagline: "Transform chat from text stream to visual workspace with inline charts, tables, and forms"
   arc: "See the palette → Build the server → Apply the patterns → Prove the value"
 
-
   sectionOrder:
     - "Component Types Deep-Dive"
     - "Building MCP Apps"
     - "Real-World Patterns"
-    - "Real-World Use Cases"
+    - "Real-World Impact"
 
   sectionModes:
     "Component Types Deep-Dive":
       emphasis: medium-high
       note: >
-        Establish the visual vocabulary — five component types developers will reach for repeatedly;
-        move briskly through the catalog so the audience arrives at Building MCP Apps with a clear
-        mental model of what the palette offers.
+        Establish the visual vocabulary — six component types developers will reach for repeatedly;
+        move at pace (one slide per type plus the decision tree) so the audience arrives at
+        Building MCP Apps with a clear mental model of the full palette.
     "Building MCP Apps":
       emphasis: high
       note: >
@@ -32,19 +34,15 @@ deck:
       note: >
         Elevate the audience from "can build" to "builds well" by naming the four canonical patterns
         (dashboard, drill-down, form-driven, hierarchical); keep it design-level, not line-by-line.
-    "Real-World Use Cases":
+    "Real-World Impact":
       emphasis: medium
       note: >
         Three concrete before/after scenarios validate the investment and give developers language to
         justify adoption; move at pace — the proof lands faster than the patterns did.
 
   highlightMoments:
-    - Five built-in components (charts, tables, forms, trees, cards) cover 95% of visualization needs
-    - Interactive data visualization replaces static ASCII art and external tool exports
-    - Sortable, filterable tables with full-text search and CSV export — all inline in chat
-    - Callback-driven forms and trees trigger MCP tool calls on user interaction, enabling stateful multi-step workflows without leaving chat
-    - Custom sandboxed HTML/CSS/JS components for specialized visualizations that fall outside the built-in set
-
-# OPEN DECISION: "Real-World Use Cases" slides are labeled "Part 4 — Real-World Impact" in the deck
-# but the README heading is "Real-World Use Cases" — confirm the slide section-opener title matches
-# the README heading before the next delivery to avoid speaker confusion.
+    - "Five built-in components (charts, tables, forms, trees, cards) cover 95% of visualization needs"
+    - "Interactive data visualization replaces static ASCII art and external tool exports"
+    - "Sortable, filterable tables with full-text search and CSV export — all inline in chat"
+    - "Callback-driven forms and trees trigger MCP tool calls on user interaction, enabling stateful multi-step workflows without leaving chat"
+    - "12 minutes of manual copy-export-chart work becomes 45 seconds inline in chat"

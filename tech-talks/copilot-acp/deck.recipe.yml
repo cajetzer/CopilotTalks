@@ -1,4 +1,7 @@
-# deck.recipe.yml — Copilot ACP talk guidance
+# VERDICT: The 4-section structure and emphasis calibration are sound — do not split S4;
+# the Permission Model → Use Cases → Orchestrator sequence is a single payoff arc whose
+# momentum would be broken by an artificial boundary. One action item remains: align the
+# Part 1 slide header from "The LSP Analogy" to "The Problem" so deck and recipe agree.
 
 version: 1
 
@@ -7,7 +10,6 @@ deck:
   subtitle: "The Agent Client Protocol"
   tagline: "Universal AI integration for any editor, tool, or workflow"
   arc: "Diagnose the N×M fragmentation crisis → internalize the four-layer protocol model → connect live with a single flag → prove production readiness"
-
 
   sectionOrder:
     - "The Problem"
@@ -21,11 +23,16 @@ deck:
       note: >
         Land the N×M → N+M shift using the LSP analogy as the hook — this is the central
         cognitive unlock that makes ACP feel inevitable rather than optional for editor teams.
+        ACTION: update the Part 1 slide header from "The LSP Analogy" to "The Problem" to
+        match this canonical section name; the analogy is the mechanism, not the movement.
     "Protocol Architecture: Four Layers of Standardization":
       emphasis: medium
       note: >
         Walk the four-layer model (Transport → Protocol → Session → Application) and the
-        message-flow diagram; audiences need this mental model before the SDK code lands.
+        message-flow diagram; close the section with the ACP vs MCP vs LSP comparison table
+        — platform engineers arrive with "we already have MCP" objections and this table
+        defuses them before the live demo begins. Audiences need the full mental model
+        before the SDK code lands in S3.
     "Getting Started: From Zero to Connected in 5 Minutes":
       emphasis: high
       note: >
@@ -35,9 +42,13 @@ deck:
     "Permissions & Security: Trust Without Blind Faith":
       emphasis: medium-high
       note: >
-        Show the permission-callback pattern (interactive vs policy-based), then anchor
-        it with the Zed, CI/CD, and polyrepo use cases; close on the ACP Agent Orchestrator
-        as proof that the protocol composes into production multi-agent systems.
+        Six slides is the right count — Permission Model → Zed → CI/CD → Polyrepo →
+        ACP Agent Orchestrator → SDK Ecosystem is a single cohesive movement, not two
+        separate stories; splitting would produce a thin 2-slide security stub and break
+        the proof-point momentum. Show the permission-callback pattern (interactive vs
+        policy-based), anchor with the three concrete use cases, and close on the ACP
+        Agent Orchestrator as proof the protocol composes into production multi-agent
+        systems. DECISION CLOSED: do not split; maintain the 4-section cap.
 
   highlightMoments:
     - "N×M integration chaos collapses to N+M via one protocol — exactly what LSP did for language servers"
@@ -45,8 +56,3 @@ deck:
     - "First streaming response in the TypeScript SDK demo — agent output appears chunk by chunk in the terminal"
     - "Side-by-side permission strategies: interactive approval vs policy-based auto-approve for reads, block for deletes"
     - "ACP Agent Orchestrator: one broadcast prompt drives four worker agents across repos and synthesizes a cross-repo result"
-
-  # OPEN DECISION: Should 'Permissions & Security' and 'Real-World Use Cases' be split into
-  # two separate sections (currently consolidated as section 4's 8-slide block) —
-  # clear security-first narrative with dedicated enterprise trust time vs maintaining the
-  # 4-section cap by keeping permission patterns and use-case proof together as one movement?

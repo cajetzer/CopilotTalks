@@ -1,3 +1,7 @@
+# VERDICT: The high→high→medium-high→medium-high gradient is structurally sound for this arc and audience,
+# but S2 (Writing Issues) is slide-count thin for its "high" designation and needs a third content slide
+# — a Bad/Good issue comparison or reusable template walkthrough — to sustain the weight it's been given.
+
 version: 1
 
 deck:
@@ -5,7 +9,6 @@ deck:
   subtitle: "GitHub Copilot's Coding Agent in Practice"
   tagline: "What if filing an issue was the same as fixing it?"
   arc: "Hook with the delegation loop → Master the skill → Govern safely → Close confidently"
-
 
   sectionOrder:
     - "The Delegation Loop: From Issue Assignment to Draft PR"
@@ -19,14 +22,21 @@ deck:
       note: >
         Establish the full loop end-to-end — trigger, sandbox execution, evidence bundle,
         and the separation-of-duties constraint — so every subsequent section has a
-        concrete mental model to build on.
+        concrete mental model to build on. For audiences unfamiliar with GitHub Actions or
+        async agent workflows, fold a brief "how the agent runs" orientation callout into the
+        first loop slide rather than adding a standalone orientation slide; this preserves
+        the hook momentum while grounding mixed audiences (devs, tech leads, PMs) before
+        the deeper mechanics land.
 
     "Writing Issues That Work":
       emphasis: high
       note: >
         The most learnable and immediately applicable skill in the talk; PR quality is
         a direct reflection of issue quality, so this section is the practical unlock
-        that lets teams leave and delegate something today.
+        that lets teams leave and delegate something today. At "high" emphasis, two slides
+        (Effective Issue Anatomy + Image-Based Issue Creation) are thin — add a third slide
+        contrasting a vague issue against a well-structured one, or walk through a reusable
+        issue template, so the emphasis weight is fully supported.
 
     "Trust and Configuration: Environment Setup and the Agent Firewall":
       emphasis: medium-high
@@ -40,7 +50,10 @@ deck:
       note: >
         Closes the loop and builds long-term confidence — evidence-bundle-first review,
         mobile PR approval, and custom review agents show that human oversight is a
-        fast, structured step rather than a bottleneck.
+        fast, structured step rather than a bottleneck. The "What to Delegate" decision
+        tree slide is the durable take-home framework for this section: well-understood
+        and bounded tasks delegate; anything requiring design judgment stays human.
+        Treat it as the closing anchor that converts audience insight into day-one action.
 
   highlightMoments:
     - "End-to-end automation: file issue → agent PR → review → merge with human control at each gate"
@@ -48,9 +61,3 @@ deck:
     - "Image-based issue creation: 14-minute manual transcription becomes a 2-minute visual workflow with 95% detail capture"
     - "Mobile review loop: senior developers read the evidence bundle, invoke @review-enforcer, and approve in under 3 minutes from a phone"
     - "12 minutes total human time for a complete lodash upgrade across 23 files — the agent did the rest"
-
-# OPEN DECISION: "The Opportunity" and "How It Works: The Coding Agent" sections from the README
-# provide strong conceptual framing that currently lives only in the intro slides.
-# Consider whether a brief pre-loop orientation slide (or expanding the Table of Contents slide)
-# would help audiences who are unfamiliar with GitHub Actions or async agent workflows
-# before jumping into the delegation loop.

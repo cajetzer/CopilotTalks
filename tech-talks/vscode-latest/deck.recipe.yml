@@ -1,4 +1,8 @@
 # deck.recipe.yml — VS Code Latest talk guidance
+#
+# VERDICT: S4 renamed "Security & UX" to match actual slide content (browser tools + Chat UX
+# already live in the deck); VS Code Agents companion app added as a highlight moment because
+# it is the architectural culmination of the arc — fleet-level parallel execution across repos.
 
 version: 1
 
@@ -6,14 +10,13 @@ deck:
   title: "What's New in Copilot for VS Code"
   subtitle: "v1.108 – v1.115: Eight Releases of AI Innovation"
   tagline: "From assistant to autonomous agent team"
-  arc: "assistant → autonomous agent → enterprise agent fleet — each section adds a capability layer, ending with trust controls"
-
+  arc: "assistant → autonomous agent → enterprise agent fleet — each section adds a capability layer, ending with trust and UX controls"
 
   sectionOrder:
     - "Agent Sessions & Orchestration"
     - "Agent Customization"
     - "Claude & Anthropic Integration"
-    - "Security & Trust"
+    - "Security & UX"
 
   sectionModes:
     "Agent Sessions & Orchestration":
@@ -21,32 +24,36 @@ deck:
       note: >
         Lead with the four agent types and background agents with Git worktree isolation —
         this is the biggest mindset shift and earns the audience's attention for everything
-        that follows.
+        that follows. Close the section with the VS Code Agents companion app (v1.115) as the
+        capstone: it shows what fleet-level parallel execution across repos looks like in practice.
     "Agent Customization":
       emphasis: high
       note: >
         Skills (now GA), Plugins, and org-level instructions show how teams take control
-        of what agents know and can do — the "make it yours" beat.
+        of what agents know and can do — the "make it yours" beat. Two consecutive high-emphasis
+        sections is intentional: S1 establishes the paradigm shift, S2 shows how organizations
+        own it. The combined weight is appropriate for a 45-60 minute audience.
     "Claude & Anthropic Integration":
       emphasis: medium-high
       note: >
         Thinking tokens and the Claude Agent SDK unlock a new tier of reasoning; position
-        as the power-user layer for teams pushing beyond default capabilities.
-    "Security & Trust":
+        as the power-user layer for teams pushing beyond default capabilities. Configurable
+        thinking effort (v1.113) is the key new angle to land here.
+    "Security & UX":
       emphasis: medium
       note: >
-        Terminal sandboxing and auto-approval rules are what allow organizations to safely
-        delegate more work to autonomous agents — close with confidence, not caution.
+        Terminal sandboxing, MCP server sandboxing, and auto-approval rules let organizations
+        safely delegate more work to autonomous agents. Fold in Chat UX improvements (Chat
+        Customizations editor, agentic browser tools) as the day-to-day polish beat — close
+        with confidence that the full stack is production-ready.
 
   highlightMoments:
     - "Four agent types optimized for different tasks — Local, Background, Cloud, Claude"
     - "Autopilot mode enables fully autonomous task execution with configurable tool permissions"
     - "Background agents with Git worktree isolation enable true parallel autonomous execution"
+    - "VS Code Agents companion app (v1.115) parallelizes tasks across repos with full session monitoring"
     - "Explore subagent dedicated to research reduces Plan agent context contamination"
-    - "Weekly stable releases starting v1.111 — 8 releases of AI innovation in 4 months"
 
-# OPEN DECISION: "Chat UX & Productivity" (video in chat, Copy Final Response, Chat
-# Customizations editor) is excluded from sectionOrder due to the 4-section cap.
-# Consider folding its highlights into the Security & Trust closing beat if the audience
-# asks about day-to-day UX polish, or elevate it to replace "Security & Trust" for
-# audiences less concerned with enterprise governance.
+# RESOLVED: "Chat UX & Productivity" content (Chat Customizations editor, agentic browser
+# tools, Copy Final Response) is folded into S4 "Security & UX" as already implemented in
+# the slides. No further action needed — the 4-section cap is maintained.
