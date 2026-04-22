@@ -151,6 +151,8 @@ updated: {YYYY-MM-DD}
 
 One `<script setup>` block at the top, immediately after frontmatter. Import only components the deck uses. See `slides/tech-talks/template.md` for the full canonical block.
 
+**Critical:** Do NOT place a `---` separator between `</script>` and the first slide (`<!-- SLIDE: Title -->`). The `</script>` block flows directly into the first slide with only a blank line.
+
 ### Component selection
 
 Every body slide **must** use one of the 13 Tier-1 components. No inline HTML for body slides. The components handle cockpit wrapper, section chrome, color progression, and theming.

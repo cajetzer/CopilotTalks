@@ -65,8 +65,6 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 </script>
 ```
 
----
-
 ## Opening Slides (1–3)
 
 ### Slide 1 — Title

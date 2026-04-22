@@ -5,7 +5,7 @@ highlighter: shiki
 lineNumbers: false
 info: |
   ## Copilot Configuration Primitives
-  Making AI Understand Your Codebase
+  CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
@@ -14,531 +14,308 @@ module: tech-talks/copilot-primitives
 mdc: true
 section: Customization & Context
 status: active
-updated: 2026-03-23
+updated: 2026-04-22
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
 import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
 </script>
 
-<!-- SLIDE: Title Slide -->
+<!-- SLIDE: Title -->
 <TitleSlide
-title="Copilot Configuration Primitives"
-subtitle="Making AI Understand Your Codebase"
-tagline="Four building blocks that transform Copilot from generic assistant to team-aware partner"
-meta="Tech Talk · 30 minutes"
+  title="Copilot Configuration Primitives"
+  subtitle="Instructions · Skills · Custom Prompts · Agents"
+  tagline="Encode your codebase once. Every Copilot interaction inherits it."
+  meta="GitHub Copilot · Customization & Context"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="How can I make GitHub Copilot understand my codebase better?"
-subtext="This isn't a limitation of the AI model — it's a context problem."
-highlight="Copilot's response quality is directly proportional to how much it knows about your codebase."
-:cards='[
-  { icon: "📁", title: "Developers Personalizing Copilot", description: "Instructions, skills, and custom prompts that encode your patterns and standards" },
-  { icon: "🏢", title: "Team Leads Standardizing AI Use", description: "Custom instructions enforce org conventions for every developer automatically" },
-  { icon: "🚀", title: "Power Users Maximizing Agent Output", description: "Combine instructions, skills, and prompts for domain-expert level responses" },
-  { title: "Repeated Context", description: "Same codebase explanations every session — instructions fix this permanently" },
-  { title: "Generic Responses", description: "Textbook answers instead of your patterns — primitives make Copilot specific" },
-  { title: "Inconsistent Quality", description: "Varies by developer context — shared instructions level the playing field" }
-]'
+  question="How can I make GitHub Copilot actually understand my codebase?"
+  subtext="Generic responses ignore your team&#39;s conventions. The fix is not better prompting — it&#39;s configuration."
+  highlight="Four primitives. Committed to the repo. Every interaction inherits your team&#39;s knowledge."
+  :cards='[{"icon":"👩‍💻","title":"Individual contributors","description":"Developers who paste the same context into every chat session and want Copilot to just know their project conventions."},{"icon":"🏗️","title":"Team leads","description":"Engineering leads who want consistent, team-wide Copilot behavior — not per-developer variation in response quality."},{"icon":"🧑‍🔧","title":"Platform engineers","description":"Infrastructure engineers automating workflows who need Copilot to understand domain-specific tools and constraints."},{"icon":"🔄","title":"Repeated context today","description":"The average developer re-explains the same project conventions to Copilot in every single chat session — minutes wasted, every day."},{"icon":"⚡","title":"5-minute setup","description":"One copilot-instructions.md file transforms Copilot from generic assistant to team-aware partner — visible improvement on the first request."},{"icon":"📈","title":"Progressive stack","description":"Instructions to Skills to Prompts to Agents — each primitive builds on the last, adding capability without replacing what came before."}]'
 />
 
 ---
 
 <!-- SLIDE: Table of Contents -->
 <TocSlide
-  :sections='[
-    { icon: "📖", title: "Instructions", subtitle: "The foundation — always-on context", blurb: "Transform Copilot in 5 minutes", slide: 4 },
-    { icon: "🔧", title: "Skills", subtitle: "On-demand expertise packs", blurb: "Progressive loading keeps context efficient", slide: 9 },
-    { icon: "📋", title: "Custom Prompts", subtitle: "Reusable workflow templates", blurb: "Standardized team tasks via /command", slide: 11 },
-    { icon: "🤖", title: "Custom Agents", subtitle: "Specialized AI personas", blurb: "Constrained tools + guided handoffs", slide: 13 },
-  ]'
+  title="Copilot Configuration Primitives"
+  subtitle="Instructions → Skills → Custom Prompts → Agents"
+  :sections='[{"icon":"📋","title":"Instructions","blurb":"Always-on foundation — the fastest ROI in the entire stack","slide":4},{"icon":"⚡","title":"Skills","blurb":"On-demand capability packs loaded by AI relevance matching","slide":10},{"icon":"💬","title":"Custom Prompts","blurb":"Team slash commands that crystallise tribal knowledge","slide":13},{"icon":"🤖","title":"Agents","blurb":"Constrained personas composing all prior primitives","slide":16}]'
 />
 
 ---
 
-<!-- SLIDE: Part 1 — Instructions -->
-
+<!-- SLIDE: Part 1 Opener -->
 <SectionOpenerSlide
   :partNumber="1"
+  pillIcon="📋"
+  pillLabel="Instructions"
   title="Instructions"
-  subtitle="The foundation — always-on context"
-  :cards='[
-    { icon: "📖", title: "Always Active", blurb: "Injected into every request automatically" },
-    { icon: "🎯", title: "Three Selectors", blurb: "Repo-wide, path-specific, directory-local" },
-    { icon: "⚡", title: "5-Minute Setup", blurb: "Immediate project-aware responses" },
-  ]'
-  :terminal='{ context: "One file = team-aware Copilot", detail: "encode conventions once, apply everywhere" }'
+  subtitle="The 5-minute setup hook. One file. Every Copilot interaction inherits your team&#39;s conventions from this moment on."
+  :cards='[{"icon":"🏗️","title":"Always-on baseline","blurb":"copilot-instructions.md is injected into every request automatically — no activation step required."},{"icon":"🎯","title":"Three surfaces","blurb":"Repo-wide, path-scoped by applyTo glob, and AGENTS.md nearest-directory playbook — pick the right selector."},{"icon":"👁️","title":"Transparent references","blurb":"VS Code shows which instruction files were applied in the References panel — the system is verifiably working."}]'
+  :terminal='{"context":"$ cat .github/copilot-instructions.md","detail":"One file. Every Copilot interaction inherits it."}'
 />
 
 ---
 
-<!-- SLIDE: Instructions — Three Selectors -->
+<!-- SLIDE: The Three Instruction Surfaces -->
 <ThreeColumnCardSlide
   :partNumber="1"
-  pillIcon="📖"
+  pillIcon="📋"
   pillLabel="Instructions"
-  title="Three Ways to Scope Instructions"
-  :columns='[
-    { icon: "📦", title: "Repository Selector", description: "Applies to every request in the repo. Best for tech stack, build commands, and coding standards. File: .github/copilot-instructions.md" },
-    { icon: "🎯", title: "File-Pattern Selector", description: "Applies when applyTo glob matches. Best for path-specific conventions. File: .github/instructions/models.instructions.md" },
-    { icon: "📂", title: "Directory Selector", description: "Nearest file in tree wins (the agent playbook). Best for local commands, tests, and subproject rules. File: frontend/AGENTS.md" }
-  ]'
-  :insight='{ icon: "💡", text: "Key Principle: All matching instructions combine. Repo-wide + path-specific + directory-local all apply when relevant." }'
-  :progressDots='{ current: 1, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  title="Three Instruction Surfaces — One for Each Scope"
+  :columns='[{"icon":"🌐","title":"Repo-wide","description":"The whole-repository baseline — always active.","items":[".github/copilot-instructions.md","Applied to every request in this repo","Coding standards, build commands, file structure","No frontmatter needed — pure Markdown"]},{"icon":"🎯","title":"Path-scoped","description":"Activates only for matching file patterns.","items":[".github/instructions/*.instructions.md","applyTo: glob pattern in frontmatter","Language-specific rules, test conventions","Combines with repo-wide when both match"]},{"icon":"📁","title":"AGENTS.md","description":"Nearest-directory agent playbook — open format.","items":["AGENTS.md at repo root or any subdirectory","Commands, test steps, PR expectations","Monorepo-safe: each subproject gets its own","Cross-agent portable — not VS Code only"]}]'
+  :progressDots='{"current":1,"total":5,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Instructions — Repository-Wide Pattern -->
+<!-- SLIDE: Repo Instructions Code -->
 <CodeWithFeaturesSlide
   :partNumber="1"
-  pillIcon="📖"
+  pillIcon="📋"
   pillLabel="Instructions"
-  title="Repository-Wide Instructions Example"
-  codePosition="top"
-  :code='{
-    language: "markdown",
-    filename: ".github/copilot-instructions.md",
-    content: "# Repository Instructions\n\nThis repository uses TypeScript with strict type checking enabled.\n\n## Build and Test\n- Build: `npm run build`\n- Tests: `npm test` (Jest, co-located in __tests__/)\n\n## Coding Standards\n- Prefer functional programming patterns\n- Use explicit return types for all functions\n- Add JSDoc comments for exported functions\n- Use named exports (avoid default exports)\n\n## Error Handling\n- Use custom error classes extending Error\n- Log with structured logging (logger.error())\n- Never swallow errors silently"
-  }'
-  :features='[
-    { icon: "✅", title: "Before vs After", description: "Generic Express boilerplate becomes a TypeScript endpoint with Prisma, custom errors, JSDoc, and co-located tests — all from one file." },
-    { icon: "📊", title: "Real Impact", description: "40% reduction in style review comments. 5 minutes to implement. Zero training required — instant team-wide effect." }
-  ]'
-  :progressDots='{ current: 2, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  title="A Production-Ready copilot-instructions.md"
+  :code='{"language":"markdown","content":"# Repository Instructions\n\nThis repository uses TypeScript with strict type checking.\n\n## Build and Test\n- Build: `npm run build`\n- Tests co-located in `__tests__/` directories\n- Use Vitest — never Mocha or Jest\n- Run: `npm test`\n\n## Coding Standards\n- Prefer functional patterns\n- Explicit return types on all functions\n- JSDoc on every exported function\n- Named exports only — no default exports\n\n## Error Handling\n- Custom error classes extending Error\n- Structured logging via logger.error()\n- Never swallow errors silently","filename":".github/copilot-instructions.md"}'
+  codePosition="left"
+  :features='[{"icon":"⚡","title":"Immediate effect","description":"Created this file? Every Copilot request in this repo now inherits your conventions — no restart or re-configuration."},{"icon":"📝","title":"Keep it under 2 pages","description":"Bloated instruction files consume context budget meant for your actual question. Distil to true conventions only."},{"icon":"🔍","title":"Verify via References","description":"After the first chat response, check the References panel in VS Code — instruction files used are listed there."}]'
+  :progressDots='{"current":2,"total":5,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Instructions — Path-Specific Targeting -->
+<!-- SLIDE: Path-scoped instructions -->
 <CodeWithFeaturesSlide
   :partNumber="1"
-  pillIcon="📖"
+  pillIcon="📋"
   pillLabel="Instructions"
-  title="Path-Specific Instructions"
-  codePosition="top"
-  :code='{
-    language: "markdown",
-    filename: ".github/instructions/models.instructions.md",
-    content: "---\napplyTo: \"src/models/**/*.ts\"\n---\n\n# Database Model Instructions\n\nWhen working with database models:\n- Use Prisma schema definitions\n- Include JSDoc comments with field descriptions\n- Define relationships explicitly with @relation\n- Add indexes for foreign keys\n- Use snake_case for DB columns, camelCase in TypeScript\n- Always include audit fields: createdAt, updatedAt"
-  }'
-  :features='[
-    { icon: "🎯", title: "Precision", description: "Only loads for matching files — keeps the context budget clean and focused." },
-    { icon: "🔄", title: "Combines", description: "Merges with repo-wide instructions when both match the file path." },
-    { icon: "🗂️", title: "Examples", description: "src/web/** for React, src/api/** for Express, tests/** for test rules." }
-  ]'
-  :progressDots='{ current: 3, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  title="Path-Scoped Instructions — Precision at File Level"
+  :code='{"language":"markdown","content":"---\napplyTo: \"src/models/**/*.ts\"\n---\n\n# Database Model Instructions\n\nWhen working with database models:\n\n1. Use Prisma schema in `prisma/schema.prisma`\n2. Include JSDoc with field descriptions\n3. Define relationships with `@relation`\n4. Add indexes for foreign keys\n5. snake_case for DB columns, camelCase in TS\n6. Always include: `createdAt` and `updatedAt`","filename":".github/instructions/models.instructions.md"}'
+  codePosition="left"
+  :features='[{"icon":"🎯","title":"Surgical scoping","description":"applyTo: glob means these rules only activate when Copilot is working on matching files — never polluting other contexts."},{"icon":"➕","title":"Additive with repo-wide","description":"Path-scoped instructions combine with copilot-instructions.md — both apply when a file matches both selectors."},{"icon":"🗂️","title":"Store in .github/instructions/","description":"All .instructions.md files live in one place — easy to audit, review in PRs, and onboard new contributors."}]'
+  :progressDots='{"current":3,"total":5,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Instructions — AGENTS.md Playbook -->
-<CodeWithFeaturesSlide
-  :partNumber="1"
-  pillIcon="📖"
-  pillLabel="Instructions"
-  title="AGENTS.md: The Open Agent Playbook"
-  codePosition="top"
-  :code='{
-    language: "markdown",
-    filename: "frontend/AGENTS.md",
-    content: "# AGENTS.md\n\n## Dev environment tips\n- Install dependencies: `pnpm install`\n- Start frontend: `pnpm --filter web dev`\n\n## Testing instructions\n- Run tests: `pnpm --filter web test`\n- Lint before PR: `pnpm --filter web lint`\n\n## PR instructions\n- Title format: `[web] &lt;Title&gt;`"
-  }'
-  :features='[
-    { icon: "🗺️", title: "Nearest File Wins", description: "Directory tree traversal finds the most specific playbook for the working file." },
-    { icon: "🔁", title: "Monorepo-Friendly", description: "frontend/, infra/, api/ each get their own rules without collision." },
-    { icon: "🤝", title: "Open Format", description: "Works across GitHub Copilot, Claude, and other coding agents that read AGENTS.md." }
-  ]'
-  :progressDots='{ current: 4, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Skills — Scripts -->
+<!-- SLIDE: AGENTS.md -->
 <TwoColPairedConceptsSlide
-  :partNumber="2"
-  pillIcon="🔧"
-  pillLabel="Skills"
-  title="Skills Bundle Verified Scripts With Documentation"
-  :left='{
-    header: "What Are Scripts?",
-    icon: "📜",
-    items: [
-      { title: "Shell, Python, or any executable", detail: "Anything Copilot can read, understand, and run as part of a skill" },
-      { title: "scripts/run-tests.sh", detail: "Project-specific entry points your team has already validated" },
-      { title: "scripts/validate-schema.py", detail: "Reusable verification logic agents call instead of guessing" },
-      { title: "scripts/deploy-preview.sh", detail: "Deterministic workflows packaged alongside SKILL.md instructions" }
-    ]
-  }'
-  :right='{
-    header: "Why Scripts Matter",
-    icon: "✨",
-    items: [
-      { title: "Verified", detail: "No guessing at CLI flags — the script encodes the right invocation" },
-      { title: "Team-approved", detail: "Your exact workflows, reviewed and merged like any other code" },
-      { title: "Self-documenting", detail: "Copilot reads the script to understand inputs, outputs, side effects" },
-      { title: "Composable", detail: "Chain scripts together for complex multi-step operations" }
-    ]
-  }'
-  :insight='{ icon: "🧩", text: "SKILL.md tells Copilot: Run scripts/run-tests.sh to execute · Run scripts/coverage-report.sh for coverage." }'
-  :progressDots='{ current: 5, total: 6, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :partNumber="1"
+  pillIcon="📋"
+  pillLabel="Instructions"
+  title="AGENTS.md — Cross-Tool Institutional Knowledge"
+  :left='{"header":"📁 What goes in AGENTS.md","items":["Setup and install commands for the repo","Test commands and linting steps for PRs","Repository navigation tips and subproject layout","Per-directory guardrails in monorepos","PR title format, commit conventions, workflow rules"]}'
+  :right='{"header":"🌐 Why it outlasts any single tool","items":["Open Markdown format — not VS Code-specific","Any coding agent that reads AGENTS.md gets the playbook","Nested files: frontend/AGENTS.md + infra/AGENTS.md","Subproject-scoped rules without a monolithic root file","Institutional knowledge that travels with the repo"]}'
+  :progressDots='{"current":4,"total":5,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Skills — Templates -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔧 Skills</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Templates: Starter Patterns</div>
-<div class="text-xs text-white/50">Enforce team patterns — components include tests, routes include error handling</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-2">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-xl">📋</div>
-<div class="font-bold text-purple-300">What Are Templates?</div>
-</div>
-<div class="text-xs opacity-80 mb-2">Starter files with placeholders that Copilot fills in, ensuring consistency.</div>
-<div class="bg-gray-950/50 rounded p-2 font-mono text-xs border border-purple-500/20 space-y-0.5">
-<div class="text-purple-300">templates/component.tsx</div>
-<div class="text-purple-300">templates/test-case.spec.ts</div>
-<div class="text-purple-300">templates/api-route.ts</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-purple-900/40 rounded-xl border border-pink-500/30">
-<div class="flex items-center gap-2 mb-2">
-<div class="text-xl">✨</div>
-<div class="font-bold text-pink-300">Why Templates Matter</div>
-</div>
-<div class="space-y-1">
-<div class="flex items-start gap-2">
-<div class="text-pink-400">→</div>
-<div class="text-xs"><strong class="text-pink-300">Consistency:</strong> Same structure every time</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-pink-400">→</div>
-<div class="text-xs"><strong class="text-pink-300">Completeness:</strong> Tests, types, docs by default</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-pink-400">→</div>
-<div class="text-xs"><strong class="text-pink-300">Best practices:</strong> Error handling baked in</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-pink-400">→</div>
-<div class="text-xs"><strong class="text-pink-300">Reduced review:</strong> Already meets standards</div>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-gray-950/80 rounded-xl border border-purple-500/30 p-3">
-<div class="text-xs font-semibold text-white mb-2">Example: Component Template with Placeholders</div>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-gray-900/50 rounded p-2 font-mono text-xs text-purple-200 space-y-0.5 border border-purple-500/20">
-<div class="text-purple-400">// templates/component.tsx</div>
-<div>import &#123; FC &#125; from 'react';</div>
-<div>interface &#123;&#123;name&#125;&#125;Props &#123; ... &#125;</div>
-<div>export const &#123;&#123;name&#125;&#125;: FC = () =&gt; &#123;</div>
-<div class="ml-2">return &lt;div&gt;...&lt;/div&gt;;</div>
-<div>&#125;;</div>
-</div>
-<div class="text-xs space-y-1.5">
-<div class="text-gray-400">Copilot replaces placeholders:</div>
-<div class="bg-gray-900/50 rounded px-2 py-1 font-mono text-pink-300">&#123;&#123;name&#125;&#125; → UserProfile</div>
-<div class="bg-gray-900/50 rounded px-2 py-1 font-mono text-pink-300">Props filled from requirements</div>
-<div class="bg-gray-900/50 rounded px-2 py-1 font-mono text-pink-300">Test file auto-generated alongside</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Instructions Architecture Stack -->
+<FrameworkMappingRowsSlide
+  :partNumber="1"
+  pillIcon="📋"
+  pillLabel="Instructions"
+  title="Choosing the Right Instruction Surface"
+  :rows='[{"label":"Always, whole repo","description":"copilot-instructions.md — the repo constitution, active on every request, zero conditions.","tag":"Repo-wide"},{"label":"Only these files","description":".instructions.md with applyTo glob — language-specific rules, test conventions, model patterns.","tag":"Path-scoped"},{"label":"This directory&#39;s commands","description":"AGENTS.md — setup, test, and PR rules scoped to a subproject or monorepo package.","tag":"AGENTS.md"},{"label":"Generated baseline","description":"Run /init in Copilot Chat — auto-generates copilot-instructions.md from your workspace.","tag":"Auto-generate"},{"label":"Verify it&#39;s working","description":"Check the References panel in every chat response — applied instruction files are listed there.","tag":"Debug tip"}]'
+  :progressDots='{"current":5,"total":5,"activeColor":"bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
+/>
 
 ---
 
-<!-- SLIDE: Part 3 — Custom Prompts -->
+<!-- SLIDE: Part 2 Opener -->
+<SectionOpenerSlide
+  :partNumber="2"
+  pillIcon="⚡"
+  pillLabel="Skills"
+  title="Skills"
+  subtitle="GA as of v1.109 — the primitive that shifts Copilot from passive context to active capability."
+  :cards='[{"icon":"🧠","title":"AI relevance matching","blurb":"Copilot loads the right skill without the developer doing anything — specialized expertise on demand."},{"icon":"📦","title":"Progressive loading","blurb":"Discovery metadata loads always; full skill body and scripts only load when the task matches."},{"icon":"🌐","title":"Portable open standard","blurb":"Skills work in VS Code, Copilot CLI, and GitHub Copilot coding agent — write once, use everywhere."}]'
+  :terminal='{"context":"$ # Skill loaded automatically when you ask to run tests","detail":"AI relevance matching — zero invocation friction"}'
+/>
 
+---
+
+<!-- SLIDE: How Skills Work -->
+<ThreeColumnCardSlide
+  :partNumber="2"
+  pillIcon="⚡"
+  pillLabel="Skills"
+  title="Three-Level Progressive Loading"
+  :columns='[{"icon":"1️⃣","title":"Discovery","description":"Lightweight metadata scanned at startup.","items":["Skill name and description only","Always loaded — near-zero context cost","Powers AI relevance matching","Dozens of skills with minimal overhead"]},{"icon":"2️⃣","title":"Instructions","description":"Full SKILL.md body — when the task matches.","items":["Complete guidance and process steps","Loaded only when description matches prompt","Context-efficient — not always present","Contains scripts, examples references"]},{"icon":"3️⃣","title":"Resources","description":"Scripts and templates — when referenced.","items":["Shell scripts, test templates, examples","Fetched lazily during execution","Never loaded if not referenced","Keeps even complex skills lightweight"]}]'
+  :progressDots='{"current":1,"total":2,"activeColor":"bg-blue-400 shadow-lg shadow-blue-500/50"}'
+/>
+
+---
+
+<!-- SLIDE: Skill anatomy code -->
+<CodeWithFeaturesSlide
+  :partNumber="2"
+  pillIcon="⚡"
+  pillLabel="Skills"
+  title="A Test-Runner Skill — Anatomy"
+  :code='{"language":"markdown","content":"---\nname: test-runner\ndescription: Run tests, analyze failures, and suggest\n  fixes for unit and integration tests. Use when asked\n  to test, debug failures, or add test coverage.\n---\n\n# Test Runner Skill\n\n## When to Use\n- User asks to test an API endpoint\n- Debugging failing integration tests\n\n## Process\n1. Check existing tests in `tests/api/`\n2. Use the template in [template](./test-template.ts)\n3. Run: `npm run test:api`\n4. Analyze failures and suggest targeted fixes","filename":".github/skills/test-runner/SKILL.md"}'
+  codePosition="left"
+  :features='[{"icon":"🎯","title":"Description drives matching","description":"The description frontmatter is the matching key — Copilot compares your prompt semantically against every installed skill description."},{"icon":"🔗","title":"Resource links are lazy","description":"The [template](./test-template.ts) reference is only fetched if Copilot references it during execution — not on skill load."},{"icon":"📂","title":"Store in .github/skills/","description":"Each skill gets its own subdirectory: SKILL.md + scripts/ + examples/. Personal skills live in ~/.copilot/skills/."}]'
+  :progressDots='{"current":2,"total":2,"activeColor":"bg-blue-400 shadow-lg shadow-blue-500/50"}'
+/>
+
+---
+
+<!-- SLIDE: Part 3 Opener -->
 <SectionOpenerSlide
   :partNumber="3"
+  pillIcon="💬"
+  pillLabel="Custom Prompts"
   title="Custom Prompts"
-  subtitle="Reusable workflow templates"
-  :cards='[
-    { icon: "⌨️", title: "User-Invoked", blurb: "Triggered via /command in chat" },
-    { icon: "📋", title: "Variable Interpolation", blurb: "{{componentName}}, ${selection}, ${file}" },
-    { icon: "🔄", title: "Reuses Instructions", blurb: "No duplication of conventions" },
-  ]'
-  :terminal='{ context: "Turn frequent tasks into /commands", detail: "standardize workflows across the team" }'
+  subtitle="Team slash commands — tribal knowledge crystallised into /commands any developer can invoke."
+  :cards='[{"icon":"🗂️","title":"Anatomy first","blurb":".github/prompts/ path, frontmatter schema, /command binding, and variable interpolation."},{"icon":"👥","title":"Team sharing unlock","blurb":"One developer writes the prompt file. Every developer on the team gets the slash command."},{"icon":"📋","title":"Instructions vs Prompts","blurb":"Instructions load passively. Prompts are invoked explicitly — the developer decides when."}]'
+  :terminal='{"context":"$ /component MyButtonGroup","detail":"Scaffolds a full React component with tests"}'
 />
 
 ---
 
-<!-- SLIDE: Custom Prompts — Component Generator Example -->
+<!-- SLIDE: Prompt anatomy code -->
 <CodeWithFeaturesSlide
   :partNumber="3"
-  pillIcon="📋"
+  pillIcon="💬"
   pillLabel="Custom Prompts"
-  title="Example: /component Generator"
-  codePosition="top"
-  :code='{
-    language: "markdown",
-    filename: ".github/prompts/component.prompt.md",
-    content: "---\nname: component\ndescription: Generate React component with TypeScript, tests, docs\ntools: [\"editFiles\", \"createFile\"]\nagent: agent\n---\n\n# Component Generator\n\nCreate a new React component following team coding standards.\n\n## Files to Create\nsrc/components/{{componentName}}/\n   {{componentName}}.tsx\n   {{componentName}}.types.ts\n   {{componentName}}.module.css\n   __tests__/{{componentName}}.test.tsx\n\n## Requirements\n• Use functional components with hooks\n• Include TypeScript props interface with JSDoc\n• Follow conventions in coding standards"
-  }'
-  :features='[
-    { icon: "💬", title: "Usage", description: "Type /component MyButton in chat — generates the full folder structure automatically" },
-    { icon: "🔁", title: "Consistency", description: "Same structure every time, across every developer on the team" }
-  ]'
-  :progressDots='{ current: 1, total: 1, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  title="Prompt File Anatomy"
+  :code='{"language":"markdown","content":"---\nname: component\ndescription: Generate a React component with TypeScript,\n  tests, and documentation\ntools: [\"editFiles\", \"createFile\"]\nagent: agent\nmodel: Claude Sonnet 4 (copilot)\n---\n\n# Component Generator\n\nCreate a new React component: {{componentName}}\n\n## Files to Create\nsrc/components/{{componentName}}/\n  {{componentName}}.tsx\n  {{componentName}}.types.ts\n  {{componentName}}.module.css\n  __tests__/{{componentName}}.test.tsx\n  index.ts\n\nFollow conventions in [standards](../copilot-instructions.md)","filename":".github/prompts/component.prompt.md"}'
+  codePosition="left"
+  :features='[{"icon":"⚡","title":"Tool and agent scoping","description":"tools: restricts what the prompt can do. agent: agent gives it full agentic capability. model: lets you pick the best model per task."},{"icon":"🔤","title":"Variable interpolation","description":"{{componentName}} becomes a parameter. Also supports ${selection}, ${file}, and ${input:name:placeholder} for dynamic content."},{"icon":"🔗","title":"Reference instructions","description":"Link to copilot-instructions.md inside the prompt body — reuse conventions without duplicating them into every prompt file."}]'
+  :progressDots='{"current":1,"total":2,"activeColor":"bg-indigo-400 shadow-lg shadow-indigo-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Part 4 — Custom Agents -->
+<!-- SLIDE: Skills vs Prompts contrast -->
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="💬"
+  pillLabel="Custom Prompts"
+  title="Skills vs. Custom Prompts — Know Which to Reach For"
+  :left='{"header":"⚡ Skills — AI activates them","items":["Loaded automatically when the task description matches","Developer does nothing — relevance matching fires","Best for: specialized capabilities and repeatable expertise","Example: test-runner loads when you ask to test an endpoint","Stored in .github/skills/ — open standard across tools"]}'
+  :right='{"header":"💬 Prompts — Developer invokes them","items":["Developer types /component or selects from the list","Explicit invocation — the command is the intent signal","Best for: scaffolding, checklists, and structured workflows","Example: /component MyForm creates the full file tree","Stored in .github/prompts/ — visible to all team members"]}'
+  :progressDots='{"current":2,"total":2,"activeColor":"bg-indigo-400 shadow-lg shadow-indigo-500/50"}'
+/>
 
+---
+
+<!-- SLIDE: Part 4 Opener -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="Custom Agents"
-  subtitle="Specialized AI personas with constrained tools"
-  :cards='[
-    { icon: "🔒", title: "Tool Constraints", blurb: "Exactly which tools are available — and which aren’t" },
-    { icon: "🤝", title: "Guided Handoffs", blurb: "Plan → Implement → Review with context preserved" },
-    { icon: "🎭", title: "Session Persona", blurb: "Instructions, model, and temperature per role" },
-  ]'
-  :terminal='{ context: "Different tasks need different capabilities", detail: "constrain tools to prevent accidental edits" }'
+  pillIcon="🤖"
+  pillLabel="Agents"
+  title="Agents"
+  subtitle="Synthesis peak — constrained personas composing all prior primitives. Tool boundaries are the architecture."
+  :cards='[{"icon":"🔒","title":"Constraint as design","blurb":"A read-only Planner cannot accidentally edit files. The tool restriction is not a workaround — it is the architecture."},{"icon":"🔄","title":"Planner-to-implementer handoff","blurb":"After planning, one button transitions to an implementer agent with full context preserved — the whoa moment."},{"icon":"🗺️","title":"Decision tree payoff","blurb":"The talk closes with a durable answer to which primitive do I reach for — earned after experiencing all four."}]'
+  :terminal='{"context":"$ # Select Planner agent → research → handoff → Implementer","detail":"Tool constraints enforcing role separation by design"}'
 />
 
 ---
 
-<!-- SLIDE: Custom Agents — Planner Example with Handoffs -->
+<!-- SLIDE: Agent anatomy code -->
 <CodeWithFeaturesSlide
   :partNumber="4"
   pillIcon="🤖"
-  pillLabel="Custom Agents"
-  title="Example: Planning Agent with Handoffs"
+  pillLabel="Agents"
+  title="The Planner Agent — Constraint as Architecture"
+  :code='{"language":"markdown","content":"---\nname: planner\ndescription: Generate implementation plans by researching\n  the codebase. Read-only — never modifies files.\ntools: [\"search\", \"readFile\", \"listFiles\", \"fetch\"]\nmodel: Claude Sonnet 4 (copilot)\nhandoffs:\n  - label: Start Implementation\n    agent: agent\n    prompt: Implement the plan outlined above.\n    send: false\n---\n\n# Planning Agent\n\nYou are a senior architect creating implementation plans.\n\n## Rules\n- NEVER modify files — you are read-only\n- Always cite files and line numbers\n- Include effort estimates for each step","filename":".github/agents/planner.agent.md"}'
   codePosition="left"
-  :code='{
-    language: "markdown",
-    filename: ".github/agents/planner.agent.md",
-    content: "---\nname: planner\ndescription: Generate plans. Read-only.\ntools: [\"search\", \"readFile\", \"listFiles\"]\nhandoffs:\n  - label: Start Implementation\n    agent: agent\n---\n\n# Planning Agent\n\nSenior architect role. Research codebase, generate plan.\n\nRule: NEVER modify files — read-only"
-  }'
-  :features='[
-    { icon: "🔒", title: "Why Constrain Tools?", description: "Planner: read-only prevents edits · Security: search but no terminal · DB admin: SQL but no frontend" },
-    { icon: "🤝", title: "Handoff Workflow", description: "1: Planner creates plan → 2: Click Start Implementation → 3: Agent switches with context → 4: Optional security handoff" }
-  ]'
-  :insight='{ icon: "📈", text: "Real Impact: DB admin agent = zero production migration rollbacks in 6 months, 60% faster schema review." }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :features='[{"icon":"🔒","title":"tools: is the boundary","description":"search, readFile, listFiles, fetch — no editFiles, no terminal. The Planner literally cannot write code. Intentional by design."},{"icon":"🔄","title":"Handoff button appears","description":"After planning, a Start Implementation button appears in chat. One click transitions to the implementer with full plan context."},{"icon":"🧠","title":"Model per agent","description":"Pick the best model for each role — a reasoning model for planning, a fast model for implementation. Not one-size-fits-all."}]'
+  :progressDots='{"current":1,"total":4,"activeColor":"bg-purple-400 shadow-lg shadow-purple-500/50"}'
 />
 
 ---
 
-<!-- SLIDE: Custom Agents — Advanced Patterns -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Custom Agents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></div>
-<span class="text-white/40 text-xs ml-1">2 of 2</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-xl font-bold text-white mb-1">Advanced Patterns: Squad &#38; AgentCouncil</div>
-<div class="text-sm text-white/60">Open-source frameworks that take custom agents to the next level</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-<div class="grid grid-cols-2 gap-4">
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
-<div class="flex items-center gap-2 mb-3">
-<div class="text-2xl">👥</div>
-<div class="font-bold text-blue-300 text-lg">Squad</div>
-</div>
-<div class="text-sm opacity-90 mb-3">Persistent AI development team with specialized roles, memory, and parallel execution.</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-start gap-2">
-<div class="text-blue-400">→</div>
-<div><strong class="text-blue-300">Named agents:</strong> Ripley (lead), Dallas (frontend), Kane (backend)</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400">→</div>
-<div><strong class="text-blue-300">Memory:</strong> Scribe agent maintains context across sessions</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-blue-400">→</div>
-<div><strong class="text-blue-300">Ralph:</strong> Autonomous backlog processing</div>
-</div>
-</div>
-<div class="mt-3 font-mono text-xs bg-gray-950/60 rounded p-2 text-blue-200">npx github:bradygaster/squad</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border border-purple-500/30">
-<div class="flex items-center gap-2 mb-3">
-<div class="text-2xl">🎭</div>
-<div class="font-bold text-purple-300 text-lg">AgentCouncil</div>
-</div>
-<div class="text-sm opacity-90 mb-3">Multi-model deliberation — Claude, GPT, and Gemini debate your decisions.</div>
-<div class="space-y-2 text-sm">
-<div class="flex items-start gap-2">
-<div class="text-purple-400">→</div>
-<div><strong class="text-purple-300">Collaborative:</strong> Models build on each other's ideas</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-purple-400">→</div>
-<div><strong class="text-purple-300">Adversarial:</strong> Models attack positions to stress-test</div>
-</div>
-<div class="flex items-start gap-2">
-<div class="text-purple-400">→</div>
-<div><strong class="text-purple-300">Synthesis:</strong> Final answer incorporates all perspectives</div>
-</div>
-</div>
-<div class="mt-3 font-mono text-xs bg-gray-950/60 rounded p-2 text-purple-200">council: should we use microservices?</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-cyan-900/40 to-blue-900/40 rounded-lg border border-cyan-500/30">
-<div class="text-sm"><strong class="text-cyan-300">Deep Dive:</strong> See the <strong>Agent Teams</strong> tech talk for full coverage of Squad memory, ceremonies, and AgentCouncil modes.</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Multi-agent orchestration -->
+<FourCardGridSlide
+  :partNumber="4"
+  pillIcon="🤖"
+  pillLabel="Agents"
+  title="Advanced Agent Patterns"
+  :cards='[{"icon":"🔄","title":"Planner → Implementer","description":"Read-only Planner researches and plans; handoff to Implementer with full context — role separation enforced by tools."},{"icon":"🔒","title":"Security reviewer","description":"search + readFile only — the security agent scans for vulnerabilities without the ability to change code it reviews."},{"icon":"🗄️","title":"Database admin agent","description":"terminal + SQL tools enabled; frontend directories excluded from listFiles — the right capability set, no more."},{"icon":"🧠","title":"Model selection per agent","description":"Planner uses a reasoning model for deep analysis; Implementer uses a fast model for code generation — match model to task."}]'
+  :progressDots='{"current":2,"total":4,"activeColor":"bg-purple-400 shadow-lg shadow-purple-500/50"}'
+/>
 
 ---
 
-<!-- SLIDE: Choosing the Right Primitive -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🎯 Decision Guide</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="mb-3">
-<div class="text-lg font-bold text-white mb-0.5">Start Simple, Add Complexity When Needed</div>
-<div class="text-xs text-white/50">Progressive adoption path — most teams should follow this sequence</div>
-</div>
-
-<div class="grid grid-cols-2 gap-3 mb-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border border-cyan-500/30">
-<div class="text-sm font-semibold text-cyan-300 mb-2">✅ Adoption Sequence</div>
-<div class="text-xs opacity-90 space-y-1">
-<div><strong>Week 1:</strong> copilot-instructions.md (5 min → immediate value)</div>
-<div><strong>Week 2:</strong> Path-specific .instructions.md (targeted rules)</div>
-<div><strong>Week 3:</strong> First prompt for most common task</div>
-<div><strong>Month 2:</strong> Skills for cross-project capabilities</div>
-<div><strong>Month 3:</strong> Agents for complex orchestration</div>
-</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-red-900/40 to-orange-900/40 rounded-xl border border-red-500/30">
-<div class="text-sm font-semibold text-red-300 mb-2">❌ Common Mistakes</div>
-<div class="text-xs opacity-90 space-y-1">
-<div>• Start with agents → over-engineers simple problems</div>
-<div>• 5-page instructions → consumes context budget</div>
-<div>• Task-specific instructions → bloats every request</div>
-<div>• Skipping configuration → leaves 80% value unused</div>
-</div>
-</div>
-</div>
-
-<div class="grid grid-cols-4 gap-2">
-<div class="p-2 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
-<div class="text-xs font-semibold text-cyan-300 mb-1">📖 Instructions</div>
-<div class="text-xs opacity-80">Always know our conventions</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="text-xs font-semibold text-blue-300 mb-1">🔧 Skills</div>
-<div class="text-xs opacity-80">When this task appears</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="text-xs font-semibold text-indigo-300 mb-1">📋 Prompts</div>
-<div class="text-xs opacity-80">When I run /command</div>
-</div>
-<div class="p-2 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-500/30">
-<div class="text-xs font-semibold text-purple-300 mb-1">🤖 Agents</div>
-<div class="text-xs opacity-80">When I want this persona</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Full primitive stack -->
+<MaturityJourneyRoadmapSlide
+  :partNumber="4"
+  pillIcon="🤖"
+  pillLabel="Agents"
+  title="The Configuration Stack — How the Primitives Compose"
+  :stages='[{"icon":"📋","label":"Instructions","description":"Foundation — always-on baseline every other primitive inherits"},{"icon":"⚡","label":"Skills","description":"Capabilities — on-demand expertise loaded by AI relevance matching"},{"icon":"💬","label":"Prompts","description":"Workflows — team slash commands encoding repeatable tasks"},{"icon":"🤖","label":"Agents","description":"Personas — constrained roles composing instructions + skills + prompts"}]'
+  :progressDots='{"current":3,"total":4,"activeColor":"bg-purple-400 shadow-lg shadow-purple-500/50"}'
+/>
 
 ---
 
-<!-- SLIDE: Before/After -->
+<!-- SLIDE: Decision tree — choosing the right primitive -->
+<FrameworkMappingRowsSlide
+  :partNumber="4"
+  pillIcon="🤖"
+  pillLabel="Agents"
+  title="Choosing the Right Primitive"
+  :rows='[{"label":"Passive context","description":"Copilot should always know your repo conventions, standards, and build commands.","tag":"→ Instructions"},{"label":"Directory rules","description":"A subproject or monorepo package needs its own commands, tests, and PR guidance.","tag":"→ AGENTS.md"},{"label":"Active capability","description":"Specialized expertise should load automatically when the task matches — no invocation.","tag":"→ Skills"},{"label":"Repeatable workflow","description":"A task is well-defined and the team should share a consistent /command for it.","tag":"→ Prompts"},{"label":"Full persona","description":"A role needs specific tools enabled or disabled, and possibly a handoff to another agent.","tag":"→ Agents"}]'
+  :progressDots='{"current":4,"total":4,"activeColor":"bg-purple-400 shadow-lg shadow-purple-500/50"}'
+/>
+
+---
+
+<!-- SLIDE: Before and After -->
 <BeforeAfterSlide
-header="Repeated Context to Encoded Conventions"
-:leftItems='["Context: repeated per conversation", "Implementation: manual per developer", "Effect: inconsistent across team", "ROI: hours per developer per month"]'
-:rightItems='["Context: encoded in instructions", "Implementation: 5 minutes", "Effect: instant team-wide", "ROI: 40% code review reduction"]'
-:metrics='[
-  { value: "40%", detail: "Code review reduction" },
-  { value: "5 min", detail: "Implementation time" },
-  { value: "Instant", detail: "Team-wide effect" }
-]'
+  header="From Repeated Context to Inherited Knowledge"
+  :leftItems='["Developer re-explains conventions in every chat session — minutes wasted, every day","Copilot suggests raw SQL when the project uses Prisma — zero codebase awareness","Different developers get different response quality based on how much context they include","Generic boilerplate: no types, console.log errors, wrong test framework"]'
+  :rightItems='["copilot-instructions.md injected automatically — conventions always present, zero effort","Path-scoped instructions load Prisma patterns only for model files — surgical precision","Every team member gets the same configured baseline from day one — shared quality floor","TypeScript endpoint, custom error classes, Vitest tests, JSDoc — the first time"]'
+  :metrics='[{"value":"5 min","detail":"To create your first instructions file and see immediate improvement"},{"value":"0 effort","detail":"Per-request — instructions inject automatically once committed"},{"value":"4 primitives","detail":"Progressive stack from foundation to orchestration"}]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Create .github/copilot-instructions.md", "Add tech stack, build commands, coding standards", "Try /init to auto-generate from workspace", "Check References section to verify they load"]'
-  :thisWeek='["Add path-specific .instructions.md files", "Create first .prompt.md for common task", "Review Awesome Copilot for examples", "Share instructions via version control"]'
-  :thisMonth='["Build a skill for a frequent capability", "Create a planning agent (read-only)", "Set up Plan → Implement → Review handoffs", "Explore agentskills.io standard"]'
-  footer="One copilot-instructions.md file = 40% reduction in style review comments + project-aware responses from day one. This is the highest ROI customization available."
+  :today='["Create .github/copilot-instructions.md with your build commands and coding standards","Ask Copilot to generate a first draft using the /init command in chat","Verify the References panel shows the file applied on your next request"]'
+  :thisWeek='["Add one path-scoped .instructions.md for your most convention-heavy file pattern","Write one .prompt.md for a scaffolding workflow your team repeats — commit it to the repo","Audit whether any team conventions are buried in wikis that should be in instructions files"]'
+  :thisMonth='["Create a SKILL.md for a specialized capability your team uses regularly","Author a Planner agent with read-only tools — try the handoff to an implementer once","Use the decision tree: for every new customization need, pick the right primitive first"]'
+  footer="Start with instructions. Add skills and agents only when a clear need emerges. Over-engineering primitives is real — resist it."
 />
 
 ---
 
 <!-- SLIDE: References -->
 <ReferencesSlide
-  :groups='[
-    { title: "📖 Overview & Getting Started", color: "cyan", items: [
-        { href: "https://code.visualstudio.com/docs/copilot/copilot-customization", label: "Customize AI in Visual Studio Code", description: "Comprehensive customization overview" },
-        { href: "https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot", label: "Adding repository custom instructions", description: "Repo-scoped instructions reference" },
-        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-instructions", label: "Use custom instructions in VS Code", description: "VS Code instructions configuration" },
-        { href: "https://docs.github.com/en/copilot/reference/custom-instructions-support", label: "Custom instructions support reference", description: "Surface support matrix and limits" }
-    ] },
-    { title: "🌐 Open Standards & Community", color: "purple", items: [
-        { href: "https://code.visualstudio.com/docs/copilot/customization/agent-skills", label: "Use Agent Skills in VS Code", description: "Skill file format and invocation" },
-        { href: "https://code.visualstudio.com/docs/copilot/customization/prompt-files", label: "Use prompt files in VS Code", description: "Reusable prompt templates" },
-        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-agents", label: "Custom agents in VS Code", description: ".agent.md definitions and configuration" },
-        { href: "https://agents.md/", label: "AGENTS.md open format", description: "Cross-vendor agent instruction standard" },
-        { href: "https://agentskills.io/", label: "Agent Skills open standard", description: "Community skill library and spec" },
-        { href: "https://github.com/github/awesome-copilot", label: "Awesome Copilot repository", description: "Community prompts, skills, and agents" }
-    ] }
-  ]'
+  :groups='[{"title":"📖 VS Code Documentation","color":"cyan","items":[{"label":"Customize AI in Visual Studio Code","href":"https://code.visualstudio.com/docs/copilot/copilot-customization","description":"Overview of all customization options — the canonical starting point"},{"label":"Use custom instructions in VS Code","href":"https://code.visualstudio.com/docs/copilot/customization/custom-instructions","description":"Instructions syntax, applyTo globs, and personal vs. workspace scoping"},{"label":"Use Agent Skills in VS Code","href":"https://code.visualstudio.com/docs/copilot/customization/agent-skills","description":"Skill structure, progressive loading, and the open standard"},{"label":"Use prompt files in VS Code","href":"https://code.visualstudio.com/docs/copilot/customization/prompt-files","description":"Prompt frontmatter schema, variable interpolation, and team sharing"},{"label":"Custom agents in VS Code","href":"https://code.visualstudio.com/docs/copilot/customization/custom-agents","description":"Agent file structure, tool restrictions, model selection, and handoffs"}]},{"title":"📖 GitHub Documentation","color":"purple","items":[{"label":"Adding repository custom instructions for GitHub Copilot","href":"https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot","description":"GitHub-side documentation for repository instructions"},{"label":"AGENTS.md open format","href":"https://agents.md/","description":"Open specification for the cross-agent AGENTS.md playbook format"}]}]'
 />
 
 ---
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="Making AI Understand Your Codebase"
-:cards="[
-  { icon: '🔧', value: '4', detail: 'Configuration Primitives', subdetail: 'Instructions, Skills, Prompts, Agents' },
-  { icon: '⚡', value: '5 min', detail: 'To Transform Copilot', subdetail: 'From generic to team-aware assistant' },
-  { icon: '📉', value: '40%', detail: 'Reduction in Review Comments', subdetail: 'When Copilot knows your style' },
-]"
-prompt="Questions? Start with copilot-instructions.md today — five minutes to transform Copilot"
+  title="Copilot Configuration Primitives"
+  subtitle="Encode your codebase once. Every interaction inherits it."
+  :cards='[{"icon":"📋","value":"Instructions","detail":"5 minutes — one file, immediate improvement, zero ongoing maintenance"},{"icon":"⚡","value":"Skills","detail":"Expertise on demand — AI relevance matching, zero invocation friction"},{"icon":"🤖","value":"Agents","detail":"Constrained personas — tool boundaries as architecture, not workarounds"}]'
+  prompt="Create .github/copilot-instructions.md today. Add skills and agents only when a clear need emerges."
 />

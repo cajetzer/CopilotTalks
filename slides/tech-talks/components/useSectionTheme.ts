@@ -31,8 +31,10 @@ export interface SectionChrome {
 }
 
 export interface SectionCard {
-    bg: string
-    border: string
+    bg: string       // Tailwind class (used by FourCard, ThreeCol, TwoCol)
+    border: string   // Tailwind class (used by FourCard, ThreeCol, TwoCol)
+    bgColor: string       // CSS rgba value — used by FrameworkMappingRowsSlide via :style
+    borderColor: string   // CSS rgba value — used by FrameworkMappingRowsSlide via :style
     title: string
     blurb: string
 }
@@ -126,57 +128,68 @@ const LIGHT_CHROME: SectionChrome[] = [
 // Per-section card palettes. Each section provides 4 distinct card styles
 // (used by FourCardGrid). Three-column components consume the first 3,
 // two-column components consume the first 2.
+// bgColor/borderColor use raw rgba so FrameworkMappingRowsSlide can apply them
+// via :style — UnoCSS does not reliably scan .ts files, so dynamic class
+// strings built here may not make it into the CSS bundle.
 const DARK_CARDS: SectionCard[][] = [
+    // Part 1: cyan → blue → indigo → violet
     [
-        { bg: 'bg-cyan-900/30', border: 'border-cyan-500/30', title: 'text-cyan-300', blurb: 'text-cyan-100/70' },
-        { bg: 'bg-blue-900/30', border: 'border-blue-500/30', title: 'text-blue-300', blurb: 'text-blue-100/70' },
-        { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', blurb: 'text-indigo-100/70' },
-        { bg: 'bg-sky-900/30', border: 'border-sky-500/30', title: 'text-sky-300', blurb: 'text-sky-100/70' },
+        { bg: 'bg-cyan-900/30', border: 'border-cyan-500/30', bgColor: 'rgba(22,78,99,0.3)', borderColor: 'rgba(6,182,212,0.3)', title: 'text-cyan-300', blurb: 'text-cyan-100/70' },
+        { bg: 'bg-blue-900/30', border: 'border-blue-500/30', bgColor: 'rgba(30,58,138,0.3)', borderColor: 'rgba(59,130,246,0.3)', title: 'text-blue-300', blurb: 'text-blue-100/70' },
+        { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', bgColor: 'rgba(30,27,75,0.3)', borderColor: 'rgba(99,102,241,0.3)', title: 'text-indigo-300', blurb: 'text-indigo-100/70' },
+        { bg: 'bg-violet-900/30', border: 'border-violet-500/30', bgColor: 'rgba(46,16,101,0.3)', borderColor: 'rgba(139,92,246,0.3)', title: 'text-violet-300', blurb: 'text-violet-100/70' },
     ],
+    // Part 2: blue → indigo → violet → purple
     [
-        { bg: 'bg-blue-900/30', border: 'border-blue-500/30', title: 'text-blue-300', blurb: 'text-blue-100/70' },
-        { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', blurb: 'text-indigo-100/70' },
-        { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300', blurb: 'text-purple-100/70' },
-        { bg: 'bg-violet-900/30', border: 'border-violet-500/30', title: 'text-violet-300', blurb: 'text-violet-100/70' },
+        { bg: 'bg-blue-900/30', border: 'border-blue-500/30', bgColor: 'rgba(30,58,138,0.3)', borderColor: 'rgba(59,130,246,0.3)', title: 'text-blue-300', blurb: 'text-blue-100/70' },
+        { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', bgColor: 'rgba(30,27,75,0.3)', borderColor: 'rgba(99,102,241,0.3)', title: 'text-indigo-300', blurb: 'text-indigo-100/70' },
+        { bg: 'bg-violet-900/30', border: 'border-violet-500/30', bgColor: 'rgba(46,16,101,0.3)', borderColor: 'rgba(139,92,246,0.3)', title: 'text-violet-300', blurb: 'text-violet-100/70' },
+        { bg: 'bg-purple-900/30', border: 'border-purple-500/30', bgColor: 'rgba(59,7,100,0.3)', borderColor: 'rgba(168,85,247,0.3)', title: 'text-purple-300', blurb: 'text-purple-100/70' },
     ],
+    // Part 3: indigo → violet → purple → pink
     [
-        { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', blurb: 'text-indigo-100/70' },
-        { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300', blurb: 'text-purple-100/70' },
-        { bg: 'bg-pink-900/30', border: 'border-pink-500/30', title: 'text-pink-300', blurb: 'text-pink-100/70' },
-        { bg: 'bg-fuchsia-900/30', border: 'border-fuchsia-500/30', title: 'text-fuchsia-300', blurb: 'text-fuchsia-100/70' },
+        { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', bgColor: 'rgba(30,27,75,0.3)', borderColor: 'rgba(99,102,241,0.3)', title: 'text-indigo-300', blurb: 'text-indigo-100/70' },
+        { bg: 'bg-violet-900/30', border: 'border-violet-500/30', bgColor: 'rgba(46,16,101,0.3)', borderColor: 'rgba(139,92,246,0.3)', title: 'text-violet-300', blurb: 'text-violet-100/70' },
+        { bg: 'bg-purple-900/30', border: 'border-purple-500/30', bgColor: 'rgba(59,7,100,0.3)', borderColor: 'rgba(168,85,247,0.3)', title: 'text-purple-300', blurb: 'text-purple-100/70' },
+        { bg: 'bg-pink-900/30', border: 'border-pink-500/30', bgColor: 'rgba(131,24,67,0.3)', borderColor: 'rgba(236,72,153,0.3)', title: 'text-pink-300', blurb: 'text-pink-100/70' },
     ],
+    // Part 4: violet → purple → pink → rose
     [
-        { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300', blurb: 'text-purple-100/70' },
-        { bg: 'bg-pink-900/30', border: 'border-pink-500/30', title: 'text-pink-300', blurb: 'text-pink-100/70' },
-        { bg: 'bg-rose-900/30', border: 'border-rose-500/30', title: 'text-rose-300', blurb: 'text-rose-100/70' },
-        { bg: 'bg-fuchsia-900/30', border: 'border-fuchsia-500/30', title: 'text-fuchsia-300', blurb: 'text-fuchsia-100/70' },
+        { bg: 'bg-violet-900/30', border: 'border-violet-500/30', bgColor: 'rgba(46,16,101,0.3)', borderColor: 'rgba(139,92,246,0.3)', title: 'text-violet-300', blurb: 'text-violet-100/70' },
+        { bg: 'bg-purple-900/30', border: 'border-purple-500/30', bgColor: 'rgba(59,7,100,0.3)', borderColor: 'rgba(168,85,247,0.3)', title: 'text-purple-300', blurb: 'text-purple-100/70' },
+        { bg: 'bg-pink-900/30', border: 'border-pink-500/30', bgColor: 'rgba(131,24,67,0.3)', borderColor: 'rgba(236,72,153,0.3)', title: 'text-pink-300', blurb: 'text-pink-100/70' },
+        { bg: 'bg-rose-900/30', border: 'border-rose-500/30', bgColor: 'rgba(136,19,55,0.3)', borderColor: 'rgba(244,63,94,0.3)', title: 'text-rose-300', blurb: 'text-rose-100/70' },
     ],
 ]
 
 const LIGHT_CARDS: SectionCard[][] = [
+    // Part 1: cyan → blue → indigo → violet
     [
-        { bg: 'bg-cyan-100/80', border: 'border-cyan-300', title: 'text-cyan-700', blurb: 'text-cyan-900/70' },
-        { bg: 'bg-blue-100/80', border: 'border-blue-300', title: 'text-blue-700', blurb: 'text-blue-900/70' },
-        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
-        { bg: 'bg-sky-100/80', border: 'border-sky-300', title: 'text-sky-700', blurb: 'text-sky-900/70' },
+        { bg: 'bg-cyan-100/80', border: 'border-cyan-300', bgColor: 'rgba(207,250,254,0.8)', borderColor: 'rgb(103,232,249)', title: 'text-cyan-700', blurb: 'text-cyan-900/70' },
+        { bg: 'bg-blue-100/80', border: 'border-blue-300', bgColor: 'rgba(219,234,254,0.8)', borderColor: 'rgb(147,197,253)', title: 'text-blue-700', blurb: 'text-blue-900/70' },
+        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', bgColor: 'rgba(224,231,255,0.8)', borderColor: 'rgb(165,180,252)', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
+        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
     ],
+    // Part 2: blue → indigo → violet → purple
     [
-        { bg: 'bg-blue-100/80', border: 'border-blue-300', title: 'text-blue-700', blurb: 'text-blue-900/70' },
-        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
-        { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-700', blurb: 'text-purple-900/70' },
-        { bg: 'bg-violet-100/80', border: 'border-violet-300', title: 'text-violet-700', blurb: 'text-violet-900/70' },
+        { bg: 'bg-blue-100/80', border: 'border-blue-300', bgColor: 'rgba(219,234,254,0.8)', borderColor: 'rgb(147,197,253)', title: 'text-blue-700', blurb: 'text-blue-900/70' },
+        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', bgColor: 'rgba(224,231,255,0.8)', borderColor: 'rgb(165,180,252)', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
+        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
+        { bg: 'bg-purple-100/80', border: 'border-purple-300', bgColor: 'rgba(243,232,255,0.8)', borderColor: 'rgb(216,180,254)', title: 'text-purple-700', blurb: 'text-purple-900/70' },
     ],
+    // Part 3: indigo → violet → purple → pink
     [
-        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
-        { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-700', blurb: 'text-purple-900/70' },
-        { bg: 'bg-pink-100/80', border: 'border-pink-300', title: 'text-pink-700', blurb: 'text-pink-900/70' },
-        { bg: 'bg-fuchsia-100/80', border: 'border-fuchsia-300', title: 'text-fuchsia-700', blurb: 'text-fuchsia-900/70' },
+        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', bgColor: 'rgba(224,231,255,0.8)', borderColor: 'rgb(165,180,252)', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
+        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
+        { bg: 'bg-purple-100/80', border: 'border-purple-300', bgColor: 'rgba(243,232,255,0.8)', borderColor: 'rgb(216,180,254)', title: 'text-purple-700', blurb: 'text-purple-900/70' },
+        { bg: 'bg-pink-100/80', border: 'border-pink-300', bgColor: 'rgba(252,231,243,0.8)', borderColor: 'rgb(249,168,212)', title: 'text-pink-700', blurb: 'text-pink-900/70' },
     ],
+    // Part 4: violet → purple → pink → rose
     [
-        { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-700', blurb: 'text-purple-900/70' },
-        { bg: 'bg-pink-100/80', border: 'border-pink-300', title: 'text-pink-700', blurb: 'text-pink-900/70' },
-        { bg: 'bg-rose-100/80', border: 'border-rose-300', title: 'text-rose-700', blurb: 'text-rose-900/70' },
-        { bg: 'bg-fuchsia-100/80', border: 'border-fuchsia-300', title: 'text-fuchsia-700', blurb: 'text-fuchsia-900/70' },
+        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
+        { bg: 'bg-purple-100/80', border: 'border-purple-300', bgColor: 'rgba(243,232,255,0.8)', borderColor: 'rgb(216,180,254)', title: 'text-purple-700', blurb: 'text-purple-900/70' },
+        { bg: 'bg-pink-100/80', border: 'border-pink-300', bgColor: 'rgba(252,231,243,0.8)', borderColor: 'rgb(249,168,212)', title: 'text-pink-700', blurb: 'text-pink-900/70' },
+        { bg: 'bg-rose-100/80', border: 'border-rose-300', bgColor: 'rgba(255,228,230,0.8)', borderColor: 'rgb(253,164,175)', title: 'text-rose-700', blurb: 'text-rose-900/70' },
     ],
 ]
 
