@@ -14,7 +14,7 @@ module: tech-talks/agentic-sdlc
 mdc: true
 section: Agentic Engineering
 status: active
-updated: 2026-04-21
+updated: 2026-04-22
 ---
 
 <script setup>
@@ -27,39 +27,39 @@ import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlid
 import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
-import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
 import HeroStatSlide from './components/HeroStatSlide.vue'
 import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
 import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
 import MaturityLevelDrilldownSlide from './components/MaturityLevelDrilldownSlide.vue'
-import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
 <TitleSlide
   title="Agentic SDLC"
   subtitle="Level 5 Infrastructure for AI Velocity"
-  tagline="Autonomous delivery infrastructure that grows with agent throughput"
-  meta="Tech Talk · Architects · Platform Engineers · Engineering Leaders"
+  tagline="Autonomous delivery infrastructure that grows with agent throughput."
+  meta="CopilotTraining Tech Talk"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="How do I rewire repositories, PR workflows, and CI/CD to scale from 2–3 features/week to 10–15 features/day?"
-  subtext="Traditional SDLC infrastructure collapses at agent velocity."
-  highlight="Level 5 requires rebuilding three foundational layers — repo, governance, and trust manufacturing."
+  question="What does your repository infrastructure need to handle 15,000 lines/day from agents?"
+  subtext="Your review habits, repo topology, and CI pipelines were designed for human throughput."
+  highlight="At Level 5, the bottleneck is trust — not writing code."
   :cards='[
-    { icon: "🏗️", title: "Platform Engineers", description: "Build the monorepo, CI pipeline, and policy enforcement that agents rely on" },
-    { icon: "🔬", title: "Architects", description: "Design module boundaries and governance that scale to 15,000 lines/day" },
-    { icon: "🎯", title: "Engineering Leaders", description: "Get the 100× throughput blueprint and 3-phase implementation roadmap" },
-    { title: "300 → 15,000 lines/day", description: "Review habits designed for 300 lines/day collapse under Level 5 agent throughput" },
-    { title: "3 days → 45 minutes", description: "3 repos × 45-min CI = 3 days to production; monorepo makes it 45 minutes" },
-    { title: "150 → 3,600 features/year", description: "Compounding effect of topology, governance, and CI trust manufacturing" }
+    { icon: "🏗️", title: "Architect", description: "Design repo topology and CI pipelines that scale agent throughput 100x" },
+    { icon: "🛡️", title: "Platform Engineer", description: "Automate governance gates so 22 manual approvals become 4 human checkpoints" },
+    { icon: "📈", title: "Engineering Manager", description: "Understand the 5-level maturity model and where your team sits today" },
+    { title: "300 → 15,000 lines/day", description: "Review capacity shift when governance automation replaces manual gates" },
+    { title: "3 days → 45 min", description: "Time to production when 3 separate repos collapse into a monorepo" },
+    { title: "150 → 3,600 features/year", description: "100x throughput from repo topology + PR governance + CI trust combined" }
   ]'
 />
 
@@ -68,10 +68,10 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "📐", title: "AgentRC Maturity Model", subtitle: "The L5 breakpoint", blurb: "Where review habits collapse and what changes at autonomous velocity", slide: 4 },
-    { icon: "🗂️", title: "Repository Topology",   subtitle: "Eliminate coordination tax", blurb: "Monorepo, enforced boundaries, and hermetic builds for agents", slide: 7 },
-    { icon: "🔀", title: "PR Workflows",           subtitle: "Outcome-based governance", blurb: "Evidence bundles, policy gates, and 50× review capacity", slide: 11 },
-    { icon: "🏭", title: "Trust Manufacturing",    subtitle: "CI as trust factory", blurb: "10-minute feedback loops, zero flake, and attestation at velocity", slide: 15 }
+    { icon: "📐", title: "AgentRC Maturity Model", subtitle: "5 levels from functional to autonomous", blurb: "Where agent review habits collapse and why", slide: 4 },
+    { icon: "🗂️", title: "Repository Topology",   subtitle: "Monorepo vs. polyrepo coordination tax", blurb: "The arithmetic that makes 3 days become 45 minutes", slide: 7 },
+    { icon: "🔀", title: "PR Workflows",           subtitle: "Governance pyramid inversion", blurb: "22 manual gates → 4 human checkpoints + 90% automated", slide: 12 },
+    { icon: "🏭", title: "Trust Manufacturing",    subtitle: "CI as an agent enablement system", blurb: "10-minute threshold and the L3→L5 implementation roadmap", slide: 17 }
   ]'
 />
 
@@ -81,370 +81,68 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 <SectionOpenerSlide
   :partNumber="1"
   title="AgentRC Maturity Model"
-  subtitle="Five levels of repository readiness — and the breakpoint that changes everything"
+  subtitle="Five levels of repository readiness — from functional scripts to autonomous delivery."
   :cards='[
-    { icon: "📐", title: "Five Levels", blurb: "Functional → Documented → Standardized → Optimized → Autonomous" },
-    { icon: "⚡", title: "The Breakpoint", blurb: "L3 review habits collapse when agents produce 15,000 lines/day" },
-    { icon: "🎯", title: "L5 Target", blurb: "Agents as primary producers, humans govern outcomes not lines" }
+    { icon: "📊", title: "5-Level Framework", blurb: "L1 functional through L5 autonomous — each unlocks a new capability class" },
+    { icon: "⚡", title: "The L3→L5 Breakpoint", blurb: "Where review habits designed for 300 lines/day collapse at 15,000" },
+    { icon: "🎯", title: "Your Current Level", blurb: "Concrete checks and changes for each maturity transition" }
   ]'
-  :terminal='{ context: "AgentRC measures repository AI-readiness at five maturity levels", detail: "L3 → L4 → L5: automation, speed, and safety compound at each step" }'
+  :terminal='{ context: "Lines of agent-generated code reviewable per day per engineer at L5", detail: "15,000 lines/day — vs. 300 at L1" }'
 />
 
 ---
 
-<!-- SLIDE: The AgentRC Levels -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 AgentRC Maturity Model</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-</div>
-<div class="relative z-10 mb-4">
-<div class="text-lg font-bold text-white mb-0.5">5 Levels of Repository Readiness</div>
-<div class="text-xs text-white/50">Each level unlocks a new class of agent capability — they compound</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-4">
-<div class="flex items-stretch gap-2">
-<div class="flex-1 flex flex-col p-3 bg-gradient-to-b from-slate-700/50 to-slate-800/50 rounded-xl border border-slate-500/40 text-center">
-<div class="text-3xl font-black text-slate-400 leading-none mb-1">L1</div>
-<div class="w-full h-px bg-slate-500/30 mb-2"></div>
-<div class="text-sm font-bold text-slate-300 mb-1">Functional</div>
-<div class="text-xs text-slate-400 flex-1">Reliable scripts &amp; baseline CI signals</div>
-<div class="mt-2 text-lg">🔧</div>
-</div>
-<div class="flex items-center text-slate-600 text-xl font-thin px-0.5">›</div>
-<div class="flex-1 flex flex-col p-3 bg-gradient-to-b from-blue-900/50 to-blue-800/50 rounded-xl border border-blue-500/40 text-center">
-<div class="text-3xl font-black text-blue-400 leading-none mb-1">L2</div>
-<div class="w-full h-px bg-blue-500/30 mb-2"></div>
-<div class="text-sm font-bold text-blue-300 mb-1">Documented</div>
-<div class="text-xs text-blue-200/70 flex-1">Explicit conventions agents can follow</div>
-<div class="mt-2 text-lg">📖</div>
-</div>
-<div class="flex items-center text-blue-700 text-xl font-thin px-0.5">›</div>
-<div class="flex-1 flex flex-col p-3 bg-gradient-to-b from-indigo-900/50 to-indigo-800/50 rounded-xl border border-indigo-500/40 text-center">
-<div class="text-3xl font-black text-indigo-400 leading-none mb-1">L3</div>
-<div class="w-full h-px bg-indigo-500/30 mb-2"></div>
-<div class="text-sm font-bold text-indigo-300 mb-1">Standardized</div>
-<div class="text-xs text-indigo-200/70 flex-1">CI/CD policies &amp; auditable review paths</div>
-<div class="mt-2 text-lg">⚙️</div>
-</div>
-<div class="flex items-center text-indigo-600 text-xl font-thin px-0.5">›</div>
-<div class="flex-1 flex flex-col p-3 bg-gradient-to-b from-cyan-900/50 to-cyan-800/50 rounded-xl border border-cyan-500/40 text-center">
-<div class="text-3xl font-black text-cyan-400 leading-none mb-1">L4</div>
-<div class="w-full h-px bg-cyan-500/30 mb-2"></div>
-<div class="text-sm font-bold text-cyan-300 mb-1">Optimized</div>
-<div class="text-xs text-cyan-200/70 flex-1">MCP tools &amp; multi-step agent workflows</div>
-<div class="mt-2 text-lg">🤖</div>
-</div>
-<div class="flex items-center text-cyan-600 text-xl font-thin px-0.5">›</div>
-<div class="flex-1 flex flex-col p-3 bg-gradient-to-b from-emerald-900/50 to-emerald-800/50 rounded-xl border border-emerald-500/40 text-center relative">
-<div class="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-500/80 rounded-full text-white text-[10px] font-bold tracking-wide">TARGET</div>
-<div class="text-3xl font-black text-emerald-400 leading-none mb-1 mt-1">L5</div>
-<div class="w-full h-px bg-emerald-500/30 mb-2"></div>
-<div class="text-sm font-bold text-emerald-300 mb-1">Autonomous</div>
-<div class="text-xs text-emerald-200/70 flex-1">Agents as primary producers, machine-paced</div>
-<div class="mt-2 text-lg">🚀</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-emerald-500/15 to-cyan-500/15 rounded-xl border border-emerald-500/30 text-center">
-<div class="text-sm font-semibold text-emerald-300">L1–L4 are prerequisites, not stepping stones — each level must stay healthy as you reach for L5</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: AgentRC 5-Level Maturity Model -->
+<MaturityJourneyRoadmapSlide
+  :partNumber="1"
+  pillIcon="📐"
+  pillLabel="AgentRC · Maturity Model"
+  title="Five Levels of Repository AI Readiness"
+  subtitle="Each level unlocks more automation, more speed, and more safety"
+  :stages='[
+    { label: "L1", name: "Functional",    description: "Reliable scripts and baseline CI — basic automation can run",               icon: "🔧", isTarget: false },
+    { label: "L2", name: "Documented",    description: "Explicit conventions agents follow instead of guessing",                   icon: "📖", isTarget: false },
+    { label: "L3", name: "Standardized", description: "CI/CD, CODEOWNERS, policy — automation becomes repeatable",                  icon: "⚙️", isTarget: false },
+    { label: "L4", name: "Optimized",    description: "MCP tools, custom agents, and skills chain multi-step work",               icon: "🤖", isTarget: false },
+    { label: "L5", name: "Autonomous",   description: "Agents as primary producers — end-to-end delivery, minimal oversight",    icon: "🚀", isTarget: true  }
+  ]'
+  caption="L5 is not a shortcut around L1–L4 — it is the compounding result of them"
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Level 1 — Functional -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 AgentRC Maturity Model</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">1 of 5</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-xl font-bold text-white mb-1">🔧 Functional</div>
-<div class="text-sm text-gray-400">Safe for AI-assisted development with close human review</div>
-</div>
-<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-white/10 text-sm text-gray-300 italic">
-&ldquo;A repo at Level 1 is safe for AI-assisted development — a human can clone, build, and test it with confidence. Agents can produce output, but need close human review because there are no enforced conventions or CI gates to catch mistakes automatically.&rdquo;
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 rounded-xl bg-gradient-to-br from-red-950/60 to-gray-900/80 border border-red-500/20">
-<div class="text-xs font-bold text-red-400 mb-2 uppercase tracking-wider">⏳ Where Time is Lost</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• PRs fail due to fragile build paths</div>
-        <div>• CI babysitting and setup/debug time</div>
-        <div>• Agent PRs arrive without context, require back-and-forth</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-green-950/60 to-gray-900/80 border border-green-500/20">
-<div class="text-xs font-bold text-green-400 mb-2 uppercase tracking-wider">✅ What Changes</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Build/test paths become explicit and measurable</div>
-        <div>• CI setup and debug time are reduced</div>
-        <div>• Linting removes style review churn</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-cyan-950/60 to-gray-900/80 border border-cyan-500/20">
-<div class="text-xs font-bold text-cyan-400 mb-2 uppercase tracking-wider">🔍 Key Checks</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Linting configured</div>
-        <div>• Build + test scripts</div>
-        <div>• README present</div>
-        <div>• Lockfile present</div>
-        <div>• Custom AI instructions (copilot-instructions.md)</div>
-</div>
-</div>
-</div>
-</div>
----
+<!-- SLIDE: The L5 Breakpoint -->
+<HeroStatSlide
+  :partNumber="1"
+  pillIcon="⚡"
+  pillLabel="AgentRC · The Breakpoint"
+  title="The L5 Breakpoint: Where L3 Review Habits Collapse"
+  subtitle="Scarcity shifts from writing code to trusting it at velocity"
+  :hero='{ value: "50×", label: "more code to review per day — review habits designed for 300 lines/day collapse at 15,000", source: "" }'
+  :supporting='[
+    { icon: "✍️", title: "L3 assumption", description: "Humans produce 300 lines/day — line-by-line review is feasible" },
+    { icon: "🤖", title: "L5 reality", description: "Agents produce 15,000 lines/day per reviewer — detail review is impossible" },
+    { icon: "🔀", title: "What must change", description: "Repo topology, PR governance, and CI speed all need L5-native redesign" },
+    { icon: "💡", title: "The insight", description: "Bottleneck shifts from writing code to manufacturing trust at agent velocity" }
+  ]'
+  :insight='{ icon: "🎯", text: "The bottleneck at Level 5 is not writing code — it is trusting 15,000 lines per day." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
-<!-- SLIDE: Level 2 — Documented -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 AgentRC Maturity Model</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 5</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-xl font-bold text-white mb-1">📝 Documented</div>
-<div class="text-sm text-gray-400">Meaningful AI autonomy with convention awareness</div>
-</div>
-<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-white/10 text-sm text-gray-300 italic">
-&ldquo;A repo at Level 2 is safe for AI-assisted development with meaningful autonomy. Agents understand conventions, have a CI gate to catch regressions, and can be connected to live tools via MCP. Human review is still essential, but the volume of rework comments drops significantly.&rdquo;
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 rounded-xl bg-gradient-to-br from-red-950/60 to-gray-900/80 border border-red-500/20">
-<div class="text-xs font-bold text-red-400 mb-2 uppercase tracking-wider">⏳ Where Time is Lost</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• AI output violates repo conventions</div>
-        <div>• Author rework and reviewers re-explaining norms</div>
-        <div>• Agents act on underspecified issues, miss requirements</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-green-950/60 to-gray-900/80 border border-green-500/20">
-<div class="text-xs font-bold text-green-400 mb-2 uppercase tracking-wider">✅ What Changes</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Repo-specific AI instructions in place</div>
-        <div>• Instruction consistency enforced</div>
-        <div>• Author rewrites and review cycles reduced</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-cyan-950/60 to-gray-900/80 border border-cyan-500/20">
-<div class="text-xs font-bold text-cyan-400 mb-2 uppercase tracking-wider">🔍 Key Checks</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• CI workflow configured</div>
-        <div>• CODEOWNERS present</div>
-        <div>• PR template present</div>
-        <div>• Issue templates</div>
-        <div>• MCP config present</div>
-</div>
-</div>
-</div>
-</div>
----
-
-<!-- SLIDE: Level 3 — Standardized -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 AgentRC Maturity Model</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 5</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-xl font-bold text-white mb-1">📋 Standardized</div>
-<div class="text-sm text-gray-400">Supervised autonomous operation with policy compliance</div>
-</div>
-<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-white/10 text-sm text-gray-300 italic">
-&ldquo;A repo at Level 3 is ready for supervised autonomous operation — agents can be trusted to draft complete, policy-compliant PRs and handle multi-step tasks. Security guardrails, dependency hygiene, and observability are in place so that what agents produce can be safely shipped with targeted human review.&rdquo;
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 rounded-xl bg-gradient-to-br from-red-950/60 to-gray-900/80 border border-red-500/20">
-<div class="text-xs font-bold text-red-400 mb-2 uppercase tracking-wider">⏳ Where Time is Lost</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Inconsistent repo behaviors increase reviewer context switching</div>
-        <div>• CI variance, ownership confusion, policy exceptions add overhead</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-green-950/60 to-gray-900/80 border border-green-500/20">
-<div class="text-xs font-bold text-green-400 mb-2 uppercase tracking-wider">✅ What Changes</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• CI-enforced readiness standards in place</div>
-        <div>• Reviewer overhead and escalation time reduced</div>
-        <div>• Security and dependency hygiene automated</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-cyan-950/60 to-gray-900/80 border border-cyan-500/20">
-<div class="text-xs font-bold text-cyan-400 mb-2 uppercase tracking-wider">🔍 Key Checks</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Branch protection configured</div>
-        <div>• Security policy (SECURITY.md)</div>
-        <div>• Dependabot configured</div>
-        <div>• Custom AI agents</div>
-        <div>• Commit convention enforced</div>
-</div>
-</div>
-</div>
-</div>
----
-
-<!-- SLIDE: Level 4 — Optimized -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 AgentRC Maturity Model</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 5</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-xl font-bold text-white mb-1">⚡ Optimized</div>
-<div class="text-sm text-gray-400">End-to-end autonomous task execution without scaffolding</div>
-</div>
-<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-white/10 text-sm text-gray-300 italic">
-&ldquo;At Level 4, agents can be trusted to execute well-defined end-to-end tasks — read an issue, write code, run tests, open a PR — without human scaffolding at each step. Pre-commit authoring time starts falling meaningfully as autonomous task execution becomes routine.&rdquo;
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 rounded-xl bg-gradient-to-br from-red-950/60 to-gray-900/80 border border-red-500/20">
-<div class="text-xs font-bold text-red-400 mb-2 uppercase tracking-wider">⏳ Where Time is Lost</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Developers manually chain steps AI could execute end-to-end</div>
-        <div>• Context switching between tools</div>
-        <div>• Pre-commit authoring time for routine changes</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-green-950/60 to-gray-900/80 border border-green-500/20">
-<div class="text-xs font-bold text-green-400 mb-2 uppercase tracking-wider">✅ What Changes</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• MCP-enabled tool use gives agents real repo access</div>
-        <div>• Agent skills handle multi-step work</div>
-        <div>• Pre-commit authoring time and manual orchestration reduced</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-cyan-950/60 to-gray-900/80 border border-cyan-500/20">
-<div class="text-xs font-bold text-cyan-400 mb-2 uppercase tracking-wider">🔍 Key Checks</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Custom agents configured</div>
-        <div>• Skills present</div>
-        <div>• Release automation configured</div>
-        <div>• MCP actively used in workflows</div>
-</div>
-</div>
-</div>
-</div>
----
-
-<!-- SLIDE: Level 5 — Autonomous -->
-<div class="h-full flex flex-col justify-center px-14 py-4 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/25 via-blue-900/15 to-indigo-900/25"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/15 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 AgentRC Maturity Model</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-white/20"></div>
-  <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">5 of 5</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-xl font-bold text-white mb-1">🚀 Autonomous</div>
-<div class="text-sm text-gray-400">Agents as primary producers — humans review and approve</div>
-</div>
-<div class="relative z-10 mb-3 p-3 bg-gray-900/50 rounded-xl border border-white/10 text-sm text-gray-300 italic">
-&ldquo;At Level 5, agents handle authoring entirely. Human time becomes review and approval, not execution. CI gates and continuous evaluation prevent context from going stale as the codebase evolves.&rdquo;
-</div>
-<div class="relative z-10 grid grid-cols-3 gap-3">
-<div class="p-3 rounded-xl bg-gradient-to-br from-red-950/60 to-gray-900/80 border border-red-500/20">
-<div class="text-xs font-bold text-red-400 mb-2 uppercase tracking-wider">⏳ Where Time is Lost</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Human engineering time still required to author even routine changes</div>
-        <div>• Manual prompt iteration for well-understood task types</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-green-950/60 to-gray-900/80 border border-green-500/20">
-<div class="text-xs font-bold text-green-400 mb-2 uppercase tracking-wider">✅ What Changes</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• Fully autonomous agent workflows: issue → code → tests → PR without scaffolding</div>
-        <div>• CI enforces agentrc eval pass rate</div>
-        <div>• Context and instructions kept fresh by gates</div>
-</div>
-</div>
-<div class="p-3 rounded-xl bg-gradient-to-br from-cyan-950/60 to-gray-900/80 border border-cyan-500/20">
-<div class="text-xs font-bold text-cyan-400 mb-2 uppercase tracking-wider">🔍 Key Checks</div>
-<div class="text-xs text-gray-300 space-y-1.5">
-        <div>• agentrc eval gate in CI (e.g., --fail-level 80)</div>
-        <div>• Agent output quality tracked over time</div>
-        <div>• Instructions enforced, not just present</div>
-</div>
-</div>
-</div>
-</div>
 ---
 
 <!-- SLIDE: Part 2 — Repository Topology -->
-
 <SectionOpenerSlide
   :partNumber="2"
   title="Repository Topology"
-  subtitle="Rewiring code boundaries for agent-native delivery"
+  subtitle="The coordination tax is the single largest wall-time killer for multi-repo agent workflows."
   :cards='[
-    { icon: "🏗️", title: "Monorepo Design", blurb: "Atomic changes across the full stack" },
-    { icon: "🎯", title: "Module Boundaries", blurb: "Build-time enforcement, zero drift" },
-    { icon: "⚡", title: "War Story", blurb: "6-hour feature drop to 45 minutes" },
+    { icon: "💸", title: "Coordination Tax", blurb: "3 repos × 45-min CI = 3 days to production instead of 45 min" },
+    { icon: "🏢", title: "Monorepo Benefits", blurb: "Single atomic commit, shared context, one CI run for the whole change" },
+    { icon: "🔀", title: "Migration Path", blurb: "How to restructure without halting delivery — incremental topology shifts" }
   ]'
-  :terminal='{ context: "Eliminate cross-repo coordination", detail: "the hidden tax on agent throughput" }'
-/>
----
-
-<!-- SLIDE: Monorepo Default for Agent Velocity -->
-<TwoColPairedConceptsSlide
-  :partNumber="2"
-  pillIcon="🏗️"
-  pillLabel="Repository Topology"
-  title="Monorepo: Default for Agent Velocity"
-  :left='{ header: "✅ Monorepo Benefits", items: ["Atomic changes: API + 7 call sites in 1 PR, not 8", "Agent navigation: grep instead of GitHub search", "Shared patterns: local imports, no \"which version?\"", "Unified CI: consistent standards, shared cache"] }'
-  :right='{ header: "⚡ Multi-Repo: Only When Needed", items: ["Hard access boundaries (PCI-regulated payment)", "Independent lifecycles (mobile vs web, truly separate)", "Regulatory mandates (physical separation required)", "Organizational constraints (acquired company, temporary)"] }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
-  insight="🎯 Decision Rule: If agents touch >1 repo for >30% of features → consolidate to monorepo"
+  :terminal='{ context: "Time to production: 3-repo polyrepo vs. monorepo for one agent change", detail: "3 days → 45 min — same agent work, radically different wall time" }'
 />
 
 ---
@@ -452,402 +150,350 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 <!-- SLIDE: The Coordination Tax -->
 <BeforeAfterMetricsSlide
   :partNumber="2"
-  pillIcon="🏗️"
-  pillLabel="Repository Topology"
-  title="The Coordination Tax"
-  :before='{ header: "Before — Polyrepo", items: ["Feature touches 3 repos", "45-minute CI in each repo", "Reviews happen in sequence, not parallel", "Contract mismatch discovered late", "Deploy ordering becomes a coordination meeting"] }'
-  :after='{ header: "After — Monorepo", items: ["One atomic PR across all modules", "8-minute affected-only CI", "20-minute outcome review", "One deployment path", "Rollback is a single motion"] }'
-  :metrics='[{ value: "3-5 days → 4-6 hrs", label: "Time to production" }, { value: "60 min → 8 min", label: "CI on affected paths" }, { value: "40% → 5%", label: "Coordination time" }]'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  pillIcon="💸"
+  pillLabel="Repository Topology · The Tax"
+  title="The Coordination Tax: Same Agent Work, Radically Different Wall Time"
+  :before='{
+    header: "3-Repo Polyrepo",
+    items: [
+      { title: "Day 1", detail: "PR in repo A — 45-min CI, 4-hr human review" },
+      { title: "Day 2", detail: "PR in repo B — discover contract mismatch, return to A" },
+      { title: "Day 3", detail: "Coordinate deploy order, staging fails, debug across repos" },
+      { title: "Result", detail: "6 hrs agent work, 3 days coordination, 2 rollbacks" }
+    ]
+  }'
+  :after='{
+    header: "Monorepo",
+    items: [
+      { title: "One atomic PR", detail: "All 3 modules changed in a single commit" },
+      { title: "8-min CI", detail: "Affected analysis tests only impacted code" },
+      { title: "20-min review", detail: "Outcome validation on the full change at once" },
+      { title: "Result", detail: "6 hrs agent work, 2 hrs human time, zero rollbacks" }
+    ]
+  }'
+  :metrics='[
+    { value: "96×", label: "faster to production" },
+    { value: "0", label: "coordination rollbacks" },
+    { value: "45 min", label: "total wall time" }
+  ]'
+  :insight='{ icon: "💡", text: "Decision rule: if agents touch >1 repo for >30% of features, consolidate into monorepo." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
+
+---
+
+<!-- SLIDE: Monorepo Structure -->
+<TwoColPairedConceptsSlide
+  :partNumber="2"
+  pillIcon="🗂️"
+  pillLabel="Repository Topology · Structure"
+  title="Agent-Native Monorepo vs. Multi-Repo: When to Use Each"
+  :left='{
+    header: "Monorepo",
+    icon: "✅",
+    items: [
+      { title: "Atomic cross-module changes", detail: "API + 7 call sites in one PR, not 8 coordinated PRs" },
+      { title: "Agent navigation via grep", detail: "One rg command instead of GitHub search across repos" },
+      { title: "Unified CI pipeline", detail: "Consistent standards, shared cache, single build graph" },
+      "Use when: agents touch 2+ modules for >30% of features"
+    ]
+  }'
+  :right='{
+    header: "Multi-Repo (when required)",
+    icon: "⚠️",
+    items: [
+      { title: "Hard access boundaries", detail: "PCI payment processing physically separated from marketing" },
+      { title: "Regulatory mandates", detail: "Auditor requires physical separation — not a preference" },
+      { title: "Independent lifecycles", detail: "Mobile (6-month releases) + web (daily) truly share nothing" },
+      "Not valid: &#39;we&#39;ve always done it this way&#39;"
+    ]
+  }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
 ---
 
 <!-- SLIDE: Enforced Module Boundaries -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏗️ Repository Topology</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">📦 Enforced Module Boundaries</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-6">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border-2 border-red-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">❌</div>
-<div class="font-bold text-red-300">Suggested (Fails at Level 5)</div>
-</div>
-<div class="text-xs font-mono text-gray-300 bg-gray-900/50 p-2 rounded mb-2">
-// @internal - Don't import this!<br />
-export class PaymentProcessor {}
-</div>
-<div class="text-xs text-gray-400">Agents don't read comments — they follow import patterns they observe</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 rounded-xl border-2 border-emerald-500/30">
-<div class="text-center mb-3">
-<div class="text-2xl">✅</div>
-<div class="font-bold text-emerald-300">Enforced (Works at Level 5)</div>
-</div>
-<div class="text-xs font-mono text-gray-300 bg-gray-900/50 p-2 rounded mb-2">
-// nx.json boundary enforcement<br />
-{<br />
-  "sourceTag": "scope:payment",<br />
-  "onlyDependOnLibsWithTags": ["scope:shared"]<br />
-}
-</div>
-<div class="text-xs text-gray-400">Build-time failures prevent violations; clear error messages guide corrections</div>
-</div>
-</div>
+<ProblemSolutionOutcomeSlide
+  :partNumber="2"
+  pillIcon="🔒"
+  pillLabel="Repository Topology · Boundaries"
+  title="Enforced Boundaries: Agents Follow Rules, Not Comments"
+  :problem='{
+    header: "Suggested Boundaries",
+    items: [
+      { title: "Code comment conventions", detail: "// @internal - Don&#39;t import this!" },
+      "Agents observe import patterns in the codebase — they follow what works, not what comments say",
+      "Architectural decay is invisible until production incidents reveal it"
+    ]
+  }'
+  :solution='{
+    header: "Build-Time Enforcement",
+    items: [
+      "nx.json module boundary configuration blocks violations at lint time",
+      "tsconfig path mappings enforce import rules before CI runs",
+      { title: "CI fails loudly", detail: "&#39;A project tagged scope:data-access cannot depend on scope:payment&#39;" }
+    ]
+  }'
+  :outcome='{
+    header: "Architectural Integrity",
+    items: [
+      "Agents learn boundaries from build failures — clear error messages, not silent drift",
+      "Circular dependencies impossible — graph enforced, not suggested",
+      "Rules ARE the documentation — no separate architecture docs to go stale"
+    ],
+    metrics: [{ value: "100%", label: "boundary violations caught before merge" }]
+  }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
-<div class="mt-4 space-y-2 text-xs">
-<div class="p-2 bg-gray-800 rounded"><span class="text-cyan-400">✓ Architectural decay prevention:</span> Can't create circular dependencies</div>
-<div class="p-2 bg-gray-800 rounded"><span class="text-green-400">✓ CI catches violations before merge:</span> Agent learns constraint from build failure</div>
-<div class="p-2 bg-gray-800 rounded"><span class="text-blue-400">✓ Documentation via enforcement:</span> Rules ARE the documentation</div>
-</div>
-</div>
-</div>
+---
+
+<!-- SLIDE: Affected Analysis -->
+<BeforeAfterMetricsSlide
+  :partNumber="2"
+  pillIcon="⚡"
+  pillLabel="Repository Topology · CI Speed"
+  title="Affected Analysis: Test What Changed, Cache the Rest"
+  :before='{
+    header: "Test Everything",
+    items: [
+      { title: "npm test", detail: "45 min — runs 1,247 tests" },
+      { title: "npm run lint", detail: "12 min — checks 8,932 files" },
+      { title: "npm run build", detail: "23 min — rebuilds 47 packages" },
+      { title: "Total: 80 min", detail: "Agent productive only 50% of the time" }
+    ]
+  }'
+  :after='{
+    header: "Test What Changed",
+    items: [
+      { title: "nx affected:test", detail: "4 min — runs 89 affected tests" },
+      { title: "nx affected:lint", detail: "1 min — checks 234 affected files" },
+      { title: "nx affected:build", detail: "3 min — rebuilds 3 affected packages" },
+      { title: "Total: 8 min", detail: "Agent productive 95% of the time" }
+    ]
+  }'
+  :metrics='[
+    { value: "10×", label: "faster CI" },
+    { value: "95%", label: "agent productive time" },
+    { value: "5×", label: "features/day per agent" }
+  ]'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Part 3 — PR Workflows -->
-
 <SectionOpenerSlide
   :partNumber="3"
   title="PR Workflows"
-  subtitle="Scaling governance from line-by-line review to outcome validation"
+  subtitle="Governance that was designed for humans cannot scale to agent throughput without automation."
   :cards='[
-    { icon: "📋", title: "Intent-Based PRs", blurb: "Evidence bundles, not implementation reviews" },
-    { icon: "🔺", title: "Governance Pyramid", blurb: "Tiered automation by risk level" },
-    { icon: "💰", title: "Economic Shift", blurb: "Scarcity moves from code to review bandwidth" },
+    { icon: "🔺", title: "Governance Pyramid", blurb: "22 manual approval gates today → 4 human checkpoints after inversion" },
+    { icon: "🤖", title: "90% Automated", blurb: "Security, compliance, quality — enforced by policy, not by reading" },
+    { icon: "👁️", title: "Human Judgment", blurb: "Architects review what only humans can judge: architecture and intent" }
   ]'
-  :terminal='{ context: "300 lines/day human review can’t scale to 15,000 lines/day", detail: "the model must change" }'
+  :terminal='{ context: "Review capacity per engineer after governance automation", detail: "300 lines/day → 15,000 lines/day" }'
 />
+
 ---
 
-<!-- SLIDE: The Economic Shift -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: Why Traditional PRs Fail at L5 -->
+<WorkflowShowdownStepsSlide
+  :partNumber="3"
+  pillIcon="🔀"
+  pillLabel="PR Workflows · The Mismatch"
+  title="L3 Review Habits vs. L5 Agent Volume"
+  subtitle="Same governance model, 50× the volume — the math doesn&#39;t work"
+  leftLabel="L3 PR Review"
+  rightLabel="L5 PR Review"
+  :steps='[
+    { left: { label: "Read every line", note: "50-200 line change, 30-min review" }, right: { label: "Validate intent", note: "500-2000 lines — read requirements, not implementation" } },
+    { left: { label: "Discussion threads", note: "&#39;Why did you use a Map on line 47?&#39;" }, right: { label: "Evidence bundle check", note: "Tests passed, security clean, coverage met" } },
+    { left: { label: "Manual compliance", note: "Security team reviews every auth change" }, right: { label: "Automated gates", note: "90% of checks automated — humans review exceptions" } },
+    { left: { label: "LGTM after 3 hrs", note: "300 lines/day/reviewer capacity" }, right: { label: "Approved after 20 min", note: "15,000 lines/day/reviewer capacity" } }
+  ]'
+  :outcomeLeft='{ icon: "🔄", label: "4-7 days from PR to merge at L5 volume" }'
+  :outcomeRight='{ icon: "✓", label: "2-4 hours from PR to merge" }'
+  summaryMetric="50× review capacity increase — same engineers, governance automation does the heavy lifting"
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Three PR Models That Scale -->
+<ThreeColumnCardSlide
   :partNumber="3"
   pillIcon="📋"
-  pillLabel="PR Workflows"
-  title="The Economic Shift"
-  :before='{ header: "Level 3 Scarcity", items: ["Developer time to write code", "Code quality (bugs in implementation)", "Implementation speed", "Review thoroughness"] }'
-  :after='{ header: "Level 5 Scarcity", items: ["Governance capacity to review", "Trust at scale (can we ship this velocity?)", "Architectural coherence", "Compliance verification speed"] }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
-  insight="💡 The Shift: From 'can we write it fast enough?' to 'can we trust it at this velocity?'"
+  pillLabel="PR Workflows · Three Models"
+  title="Three PR Models Built for Agent Velocity"
+  :columns='[
+    { icon: "🎯", title: "Intent-Based PRs", description: "Spec lives in .intent/ folder — reviewers read requirements, agent generates the 1,500 lines", items: ["20 min review vs. 3 hrs", "Approve intent, not implementation", "Request intent clarification, not code changes"] },
+    { icon: "📦", title: "Evidence-Bundle PRs", description: "PR contains tests passed, security scan clean, coverage met, staging deployed — reviewers trust the bundle", items: ["All evidence in one PR", "Human asks: is evidence sufficient?", "Not: why did you choose this pattern?"] },
+    { icon: "🔒", title: "Policy-Gated PRs", description: "90% of governance automated — security, compliance, architecture, coverage all checked before human sees it", items: ["22 gates → 4 human checkpoints", "1 sign-off after all gates pass", "Auto-merge on low-risk changes"] }
+  ]'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Intent-Based PRs -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 PR Workflows</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">📋 Intent-Based PRs: Evidence Bundles</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="space-y-3 text-sm">
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2">1. Intent Specification (What Humans Provide)</div>
-<div class="text-xs text-gray-300">Feature requirements, constraints, acceptance criteria — goal-level direction, not implementation detail</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-2">2. Policy Enforcement (Automated Checks)</div>
-<div class="text-xs text-gray-300">Security scan, boundary enforcement, compliance validation — 90% automated, 10% human judgment</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2">3. Outcome Validation (Human Review Focus)</div>
-<div class="text-xs text-gray-300">Does implementation match intent? Edge cases handled? Feature integrates correctly? NOT "why Map on line 47?"</div>
-</div>
-</div>
-
-<div class="mt-4 grid grid-cols-2 gap-4">
-<div class="p-3 bg-red-900/30 rounded-lg">
-<div class="text-sm font-bold text-red-300">Traditional Review</div>
-<div class="text-xs text-gray-400">3 hours, 200-line limit, line-by-line scrutiny</div>
-</div>
-<div class="p-3 bg-green-900/30 rounded-lg">
-<div class="text-sm font-bold text-green-300">Intent-Based Review</div>
-<div class="text-xs text-gray-400">20 minutes, 2000-line payloads, outcome validation</div>
-</div>
-</div>
-
-<div class="mt-3 p-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30 text-center">
-<div class="text-xs font-semibold text-green-300">Result: 50x review capacity increase — 15,000 lines/day becomes manageable</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Governance Pyramid Inversion -->
+<BeforeAfterMetricsSlide
+  :partNumber="3"
+  pillIcon="🔺"
+  pillLabel="PR Workflows · Governance"
+  title="Governance Pyramid Inversion: 22 Gates → 4 Human Checkpoints"
+  :before='{
+    header: "Traditional Governance",
+    items: [
+      { title: "22 manual approval gates", detail: "Security, compliance, architect, QA, lead — each per PR" },
+      "Senior architect reviews every architecture decision",
+      "Security team reviews every auth change manually",
+      { title: "Result", detail: "4-7 days from PR to merge" }
+    ]
+  }'
+  :after='{
+    header: "L5 Governance",
+    items: [
+      { title: "4 human checkpoints", detail: "Intent validation, security risk, architectural fit, outcome" },
+      "90% of checks automated — security, compliance, quality, architecture",
+      "Architects review violations and exceptions, not every change",
+      { title: "Result", detail: "2-4 hours from PR to merge" }
+    ]
+  }'
+  :metrics='[
+    { value: "90%", label: "automated enforcement" },
+    { value: "50×", label: "review capacity per engineer" },
+    { value: "4 hrs", label: "avg time to merge" }
+  ]'
+  :insight='{ icon: "💡", text: "Human judgment handles what only humans can judge: architecture, intent, and strategic risk." }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: The Governance Pyramid -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📋 PR Workflows</span>
-<div class="flex-1 h-px bg-gradient-to-r from-indigo-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-lg shadow-indigo-500/50"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">🔺 The Governance Pyramid</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="flex flex-col items-center gap-2 mt-3">
-<div class="p-3 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg text-center max-w-md">
-<div class="text-sm font-bold text-white">Human Governance (10%)</div>
-<div class="text-xs text-blue-200 mt-0.5">Strategic decisions · High-risk changes · Architectural fit</div>
-</div>
-
-<div class="text-2xl text-gray-500">↓</div>
-
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 text-center max-w-2xl">
-<div class="text-base font-bold text-cyan-300 mb-2">Automated Governance (90%)</div>
-<div class="grid grid-cols-3 gap-1.5 text-xs">
-<div class="p-1.5 bg-cyan-900/50 rounded">Security scanning</div>
-<div class="p-1.5 bg-blue-900/50 rounded">Test coverage</div>
-<div class="p-1.5 bg-indigo-900/50 rounded">Performance benchmarks</div>
-<div class="p-1.5 bg-purple-900/50 rounded">Architecture rules</div>
-<div class="p-1.5 bg-pink-900/50 rounded">Compliance checks</div>
-<div class="p-1.5 bg-cyan-900/50 rounded">Dependency audits</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 grid grid-cols-2 gap-3 text-sm">
-<div class="p-2.5 bg-red-900/30 rounded-lg">
-<div class="font-bold text-red-300 text-xs">Traditional Governance</div>
-<div class="text-xs text-gray-400">22 manual gates, 4-7 days PR→merge</div>
-</div>
-<div class="p-2.5 bg-green-900/30 rounded-lg">
-<div class="font-bold text-green-300 text-xs">Level 5 Governance</div>
-<div class="text-xs text-gray-400">4 human checkpoints, 2-4 hours PR→merge</div>
-</div>
-</div>
-</div>
-</div>
+<!-- SLIDE: Context-Aware Compliance Validation -->
+<TwoColPairedConceptsSlide
+  :partNumber="3"
+  pillIcon="🤖"
+  pillLabel="PR Workflows · AI Review"
+  title="Context-Aware Validation: Agents Apply Judgment, Not Just Patterns"
+  :left='{
+    header: "Rules-Based Scan",
+    icon: "⚠️",
+    items: [
+      { title: "847 warnings generated", detail: "regex pattern \"email\" fires on every match" },
+      "803 false positives — test fixtures, docs, examples",
+      { title: "Developers ignore all warnings", detail: "The signal is lost in the noise" },
+      "Actual PII violation ships to production"
+    ]
+  }'
+  :right='{
+    header: "Agent Validation",
+    icon: "✅",
+    items: [
+      { title: "44 real warnings generated", detail: "Agent reads context: test fixture vs. production handler" },
+      "2 false positives — 97% signal quality",
+      { title: "Developers trust the signal", detail: "Every flag comes with reasoning" },
+      "Actual violations caught before merge — always"
+    ]
+  }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: Part 4 — Trust Manufacturing -->
-
 <SectionOpenerSlide
   :partNumber="4"
   title="Trust Manufacturing"
-  subtitle="Transforming CI from quality gate to trust evidence production"
+  subtitle="CI is not a quality gate — it is the agent enablement system. Speed and coverage both matter."
   :cards='[
-    { icon: "⏱️", title: "10-Minute Rule", blurb: "Fast CI = agent throughput × safety" },
-    { icon: "🎯", title: "Zero-Flake Tolerance", blurb: "Flaky tests block 15 PRs/day at scale" },
-    { icon: "🏭", title: "Attestations", blurb: "Automated trust signals at shipping velocity" },
+    { icon: "⏱️", title: "10-Minute Threshold", blurb: "Agents idle 80% of the time at 60-min CI, productive 95% at 8-min CI" },
+    { icon: "🔒", title: "Safe-Output Validation", blurb: "Every agent output sanitized before shell execution — no injection risk" },
+    { icon: "🗺️", title: "L3→L5 Roadmap", blurb: "Three implementation phases architects take back to their teams" }
   ]'
-  :terminal='{ context: "CI becomes a trust factory", detail: "production rate must match agent output rate" }'
+  :terminal='{ context: "Features per day: 60-min CI vs. 8-min CI with agents running continuously", detail: "3 features/day → 15 features/day" }'
 />
+
 ---
 
-<!-- SLIDE: The 10-Minute Rule -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: CI as Trust Factory -->
+<FrameworkMappingRowsSlide
   :partNumber="4"
   pillIcon="🏭"
-  pillLabel="Trust Manufacturing"
-  title="The 10-Minute Rule"
-  :before='{ header: "If CI Takes 60 Minutes", items: ["Generate code (5 min) → Wait CI (60 min) → Fix → Repeat", "4 iterations = 4 hours total", "Agent sits idle 80% of the time", "Effective velocity: 2-3 features/day"] }'
-  :after='{ header: "If CI Takes 8 Minutes", items: ["Generate code (5 min) → Wait CI (8 min) → Fix → Repeat", "4 iterations = 52 minutes total", "Agent productive 95% of the time", "Effective velocity: 10-15 features/day"] }'
+  pillLabel="Trust Manufacturing · Principles"
+  title="Manufacturing Principles Applied to CI"
+  subtitle="From quality gate to trust evidence production at agent velocity"
+  :rows='[
+    { label: "Repeatable",   description: "Same checks, same order, every time — zero variation creates reliable trust signals",                         tag: "Deterministic" },
+    { label: "Automated",    description: "327 tests in 8 minutes, 10,000 security patterns in 45 seconds — machines inspect, not humans",              tag: "At Scale" },
+    { label: "Evidence",     description: "Every check produces attestations — auditable, reproducible, tamper-evident supply chain records",            tag: "SLSA" },
+    { label: "Fast",         description: "<10 min PR checks: agents idle 80% at 60-min CI, productive 95% at 8-min CI — speed is throughput",          tag: "<10 min" },
+    { label: "Zero Flake",   description: "Quarantine on first flake, fix within 2 days or disable — green builds must be trustworthy signals",         tag: "100% Signal" }
+  ]'
+  footnote="The goal: trust that scales linearly with agent output, not quadratically with human review time"
   :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
-  insight="🎯 Target: &lt;10 minutes for PR checks, &lt;30 minutes for full pipeline"
 />
 
 ---
 
-<!-- SLIDE: How to Achieve Fast CI -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">⚙️ How to Achieve Fast CI</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-5 gap-3 text-xs">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30">
-<div class="text-2xl mb-2">🎯</div>
-<div class="font-bold text-cyan-300">Affected Analysis</div>
-<div class="text-gray-400 mt-1">Test only changed modules: 80 min → 8 min</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30">
-<div class="text-2xl mb-2">⚡</div>
-<div class="font-bold text-blue-300">Parallelize</div>
-<div class="text-gray-400 mt-1">Distribute across runners: 8 min → 4 min</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-lg border border-purple-500/30">
-<div class="text-2xl mb-2">💾</div>
-<div class="font-bold text-purple-300">Cache Aggressively</div>
-<div class="text-gray-400 mt-1">Dependencies, builds, test results</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-pink-900/40 to-pink-800/40 rounded-lg border border-pink-500/30">
-<div class="text-2xl mb-2">🔨</div>
-<div class="font-bold text-pink-300">Incremental Builds</div>
-<div class="text-gray-400 mt-1">Rebuild only what changed</div>
-</div>
-
-<div class="p-3 bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-lg border border-green-500/30">
-<div class="text-2xl mb-2">🚀</div>
-<div class="font-bold text-green-300">Strategic Splitting</div>
-<div class="text-gray-400 mt-1">Fast smoke tests first (fail fast)</div>
-</div>
-</div>
-
-<div class="mt-6 space-y-2 text-sm">
-<div class="p-3 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
-<div class="font-bold text-gray-300">Example Impact</div>
-<div class="text-xs text-gray-400 mt-1">First build: 23 minutes → Cached build with affected analysis: 3 minutes (7.6x speedup)</div>
-</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Zero-Flake Tolerance -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-3">
-<span class="px-4 py-1 bg-gradient-to-r from-purple-600/80 to-pink-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🏭 Trust Manufacturing</span>
-<div class="flex-1 h-px bg-gradient-to-r from-purple-400/50 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-  <span class="w-2.5 h-2.5 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"></span>
-</div>
-<span class="text-white/40 text-xs ml-1">3 of 3</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">🎯 Zero-Flake Tolerance</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="p-4 bg-gradient-to-br from-red-900/30 to-red-800/20 rounded-xl border-2 border-red-500/30 mb-4">
-<div class="font-bold text-red-300 mb-2">⚠️ The Problem with Flaky Tests</div>
-<div class="text-xs text-gray-300 space-y-1">
-<div>Single flaky test (5% failure rate) × 20 PRs/day = 1 spurious failure/day</div>
-<div>10 flaky tests = 10 failures/day → Developers lose trust in CI</div>
-<div>"Just rerun it" becomes default → Green builds mean nothing</div>
-</div>
-</div>
-
-<div class="grid grid-cols-2 gap-4 text-sm">
-<div class="p-3 bg-gradient-to-br from-orange-900/40 to-orange-800/40 rounded-lg border border-orange-500/30">
-<div class="font-bold text-orange-300 mb-2">Zero Tolerance Policy</div>
-<div class="space-y-1 text-xs text-gray-300">
-<div>1. Quarantine on first flake</div>
-<div>2. Fix within 2 days or delete</div>
-<div>3. After 2 days: auto-disabled</div>
-<div>4. Track flake rate: &lt;2% target</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-lg border border-green-500/30">
-<div class="font-bold text-green-300 mb-2">How to Fix Flaky Tests</div>
-<div class="space-y-1 text-xs text-gray-300">
-<div>Race conditions → waitFor(), not sleep()</div>
-<div>External deps → Mock APIs</div>
-<div>Time-dependent → Mock system time</div>
-<div>Order-dependent → Unique IDs per test</div>
-</div>
-</div>
-</div>
-
-<div class="mt-4 p-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30 text-center">
-<div class="text-sm font-semibold text-green-300">Real-world impact: 18% flake rate → 1.2% | Agent idle time: 35% → 8% | Manual reruns: 45/week → 2/week</div>
-</div>
-</div>
-</div>
-
----
-
-<!-- SLIDE: Key Takeaways -->
-<FourCardGridSlide
+<!-- SLIDE: The 10-Minute Threshold -->
+<HeroStatSlide
   :partNumber="4"
-  pillIcon="✅"
-  pillLabel="Key Takeaways"
-  title="Key Takeaways"
-  :cards='[
-    { icon: "📐", title: "AgentRC Level 5 is a maturity target", description: "Autonomous delivery only works if Levels 1-4 foundations are solid" },
-    { icon: "🏗️", title: "Monorepo eliminates coordination overhead", description: "Default for 80% of product teams when agents touch 2+ repos frequently" },
-    { icon: "📋", title: "PR review shifts to outcome validation", description: "Evidence bundles + automated gates + human judgment on intent match" },
-    { icon: "🏭", title: "CI becomes a trust factory", description: "&lt;10 min PR checks, &lt;2% flake rate, automated attestations at scale" }
+  pillIcon="⏱️"
+  pillLabel="Trust Manufacturing · The Threshold"
+  title="The 10-Minute Threshold: CI Speed = Agent Productivity"
+  subtitle="Agents sit idle waiting for CI — the faster the feedback, the higher the throughput"
+  :hero='{ value: "5×", label: "more features per day: 60-min CI delivers 3/day, 8-min CI delivers 15/day — same agents", source: "" }'
+  :supporting='[
+    { icon: "💤", title: "60-minute CI", description: "Agents idle 80% of the time — 4 iteration cycles = 4 hours of wall time" },
+    { icon: "⚡", title: "8-minute CI", description: "Agents productive 95% of the time — 4 iteration cycles = 52 minutes" },
+    { icon: "🔧", title: "How to get there", description: "Affected analysis + parallelization + caching — test only what changed" },
+    { icon: "📈", title: "Cache economics", description: "15th feature costs 2 min CI (cache hit) — marginal trust cost approaches zero" }
   ]'
-  :progressDots='{ current: 1, total: 1, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :insight='{ icon: "🏭", text: "Target: <10 min for PR checks. Every minute over 10 is agent idle time compounded across 15 PRs/day." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: L3→L5 Implementation Roadmap -->
+<ThreeColumnCardSlide
+  :partNumber="4"
+  pillIcon="🗺️"
+  pillLabel="Trust Manufacturing · Roadmap"
+  title="Three-Phase Implementation Roadmap: L3 to L5"
+  :columns='[
+    { icon: "⚙️", title: "Phase 1: Reach L3", description: "Standardize foundations so automation becomes repeatable and trustworthy", items: ["Add linting, build scripts, README, lockfile", "Set up CODEOWNERS and branch protection", "Achieve <2% CI flake rate", "Timeline: 4-6 weeks"] },
+    { icon: "🤖", title: "Phase 2: Reach L4", description: "Add agent tooling and optimize the loops that are now reliable enough to accelerate", items: ["Install MCP servers for CI context", "Enable affected analysis — target <10 min CI", "Deploy policy-gated PR automation", "Timeline: 6-10 weeks"] },
+    { icon: "🚀", title: "Phase 3: Operate at L5", description: "Agents become primary producers; humans govern outcomes and exceptions", items: ["Enable intent-based + evidence-bundle PRs", "Achieve 10-15 features/day throughput", "Generate SLSA attestations per release", "Timeline: 8-12 weeks"] }
+  ]'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Before/After -->
 <BeforeAfterSlide
-  header="🚀 From Manual Bottlenecks to Agentic Velocity"
-  :leftItems="[
-    'Developers block on cross-repo coordination — hours of meetings per feature',
-    'Polyrepo workflows create 45-minute CI per repo, line-by-line reviews dominate',
-    'Agent autonomy stalls at Level 2/3 — no trust infrastructure for Level 5 velocity',
-    'Code quality depends on human review bandwidth — cannot scale beyond 300 lines/day'
-  ]"
-  :rightItems="[
-    'Monorepo atomicity eliminates coordination tax — one PR, one review, one deployment',
-    'Affected-only CI cuts runtime from 45 min to 8 min — 6-hour features done in 45 minutes',
-    'Evidence-based trust enables Level 5 autonomy — CI as trust factory, not quality gate',
-    '15,000+ lines/day at quality — intent-based validation replaces line-by-line review'
-  ]"
-  :metrics="[
-    { value: '150 → 3,600', detail: 'Features per year' },
-    { value: '3-5 days → 4-6 hours', detail: 'Time to production' },
-    { value: 'L2 → L5', detail: 'Agent autonomy level' }
-  ]"
+  header="From Human-Paced SDLC to Agent-Velocity Delivery"
+  :leftItems='["Manual triage and review gates designed for 300 lines/day", "3 repos × 45-min CI = 3 days to production per feature", "22 manual approval gates per release", "60-min CI leaves agents idle 80% of the time"]'
+  :rightItems='["Automated governance handles 15,000 lines/day per reviewer", "Monorepo: 45-min CI for the same cross-cutting change", "4 human checkpoints + 90% automated policy enforcement", "8-min CI keeps agents productive 95% of the time"]'
+  :metrics='[
+    { value: "100×", detail: "throughput — 150 features/year → 3,600" },
+    { value: "96×", detail: "faster to production — 3 days → 45 min" },
+    { value: "5×", detail: "more daily features with 8-min vs. 60-min CI" }
+  ]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Run agentrc assess on your repo to get a maturity score", "Identify your single biggest blocker to reaching L2", "Add an AGENTS.md with intent and architecture context", "Check your CI runtime — is it under 10 minutes?"]'
-  :thisWeek='["Enforce module boundaries with Nx or equivalent tooling", "Get CI consistently under 10 minutes", "Achieve AgentRC L2: documented and repeatable workflows", "Target a CI flake rate below 2%"]'
-  :thisMonth='["Reach AgentRC L3+ with standardized agent workflows", "Implement hermetic builds for reproducible trust signals", "Adopt intent-based PRs and governance pyramid controls", "Enable autonomous agent merge for qualifying PRs"]'
-  footer="Getting CI under 10 minutes is the single highest-leverage action — it unlocks faster agent feedback loops, more concurrent PRs, and the trust signals that make autonomous merge possible."
+  :today='["Audit your CI pipeline runtime — is it under 10 minutes?", "Count your current manual approval gates per release", "Run AgentRC assessment: which of the 5 levels are you at?"]'
+  :thisWeek='["Add safe-output validation to one agent workflow", "Identify the top 3 cross-repo dependencies that slow CI", "Draft your L3 checklist: linting, build scripts, README, lockfile"]'
+  :thisMonth='["Reach L3 maturity across your primary repository", "Automate one governance gate that is currently manual", "Map your repo topology and model the coordination tax savings"]'
+  footer="The infrastructure investment is front-loaded — the throughput dividend compounds every sprint after."
 />
 
 ---
@@ -855,29 +501,31 @@ export class PaymentProcessor {}
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "🤖 AgentRC & GitHub", color: "cyan", items: [
-        { href: "https://github.com/MSBart2/agentrc", label: "AgentRC Framework", description: "Repository AI-readiness maturity model and workflow automation" },
-        { href: "https://github.com/MSBart2/agentrc/blob/feat/workflow-automation-pillar/docs/maturity-models.md", label: "AgentRC Maturity Model Docs", description: "L1–L5 level definitions, checks, and progression criteria" },
-        { href: "https://docs.github.com/en/actions", label: "GitHub Actions Documentation", description: "CI/CD workflow automation, parallelization, and caching strategies" },
-        { href: "https://docs.github.com/en/copilot", label: "GitHub Copilot Documentation", description: "Agent mode, custom instructions, MCP integration" }
+    { title: "📖 Official Documentation", color: "cyan", items: [
+      { href: "https://github.com/microsoft/agentrc", label: "Microsoft AgentRC repository", description: "Maturity model specification, readiness assessment tooling, and the measure/generate/maintain loop" },
+      { href: "https://github.com/microsoft/agentrc/blob/main/docs/concepts.md", label: "AgentRC concepts and maturity model", description: "Level definitions, readiness pillars, and how autonomy is staged" },
+      { href: "https://docs.github.com/en/actions", label: "GitHub Actions documentation", description: "CI/CD workflow automation for PR checks, deploy pipelines, and policy gates" },
+      { href: "https://nx.dev/", label: "Nx monorepo tools", description: "Build orchestration, module boundary enforcement, and affected analysis" },
+      { href: "https://slsa.dev/", label: "SLSA supply chain security framework", description: "Attestation standards and supply chain trust levels" }
     ] },
-    { title: "🛠️ Tools & Standards", color: "purple", items: [
-        { href: "https://nx.dev", label: "Nx Monorepo Tools", description: "Build orchestration, module boundaries, affected analysis, caching" },
-        { href: "https://slsa.dev", label: "SLSA Framework", description: "Supply chain security levels and software attestation standards" },
-        { href: "https://bazel.build/basics/hermeticity", label: "Hermetic Builds (Bazel)", description: "Deterministic build principles for reproducible trust signals" },
-        { label: "Related Tech Talks", description: "Agentic Journey · Agent Teams · Enterprise Patterns · Agentic Workflows" }
+    { title: "🛠️ Related Talks", color: "purple", items: [
+      { label: "Agentic Journey", description: "Incremental 4-workflow path from issue triage to PR automation — start here before the full SDLC" },
+      { label: "Agentic Workflows", description: "GitHub Actions workflow authoring for AI agent pipelines" },
+      { label: "Enterprise Patterns", description: "Organization-wide scaling of agentic delivery infrastructure" }
     ] }
   ]'
 />
+
 ---
+
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="Agentic SDLC: Infrastructure for AI Velocity"
-:cards="[
-  { icon: '🚀', value: '2–3 → 10–15', detail: 'Features per day', subdetail: 'Level 5 infrastructure acceleration' },
-  { icon: '📈', value: '100x', detail: 'Throughput scaling potential', subdetail: 'With proper tooling and process changes' },
-  { icon: '⚡', value: '<10 min', detail: 'CI trust cycle target', subdetail: 'Hermetic builds + parallel execution' },
-]"
-prompt="Questions? Let's discuss your path to Level 5 — and what infrastructure changes to prioritize first"
+  title="Agentic SDLC"
+  subtitle="Level 5 Infrastructure for AI Velocity"
+  :cards="[
+    { value: '15,000', detail: 'Lines reviewable per day per engineer — 50× the human baseline' },
+    { value: '45 min', detail: 'Time to production from 3 days — monorepo eliminates the coordination tax' },
+    { value: '3,600', detail: 'Features per year at Level 5 — 100× from topology + governance + CI combined' },
+  ]"
+  prompt="Which of the three infrastructure pillars — repo topology, PR governance, or CI speed — is your team&#39;s biggest blocker today?"
 />
