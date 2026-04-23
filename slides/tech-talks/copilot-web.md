@@ -5,58 +5,59 @@ highlighter: shiki
 lineNumbers: false
 info: |
   ## From Issue to Pull Request
-  GitHub Copilot's Coding Agent in Practice
+  CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
 title: From Issue to Pull Request
 module: tech-talks/copilot-web
+mdc: true
 section: Copilot Tools
 status: active
-updated: 2026-04-06
-mdc: true
+updated: 2026-04-22
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
-import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
 import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
 <TitleSlide
-title="From Issue to Pull Request"
-subtitle="GitHub Copilot's Coding Agent in Practice"
-tagline="What if filing an issue was the same as fixing it?"
-meta="Tech Talk · 40 minutes"
+  title="From Issue to Pull Request"
+  subtitle="GitHub Copilot&#39;s Coding Agent in Practice"
+  tagline="What if filing an issue was the same as fixing it?"
+  meta="GitHub Copilot · Coding Agent · Agentic Delivery"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="What if filing an issue was the same as fixing it?"
-subtext="Dependency upgrades, test scaffolding, doc sync — well-understood work stuck in the backlog."
-highlight="The coding agent closes the gap between knowing and getting it done."
-:cards='[
-  { icon: "📱", title: "Developers on Browser or Mobile", description: "Trigger autonomous agent work from GitHub.com — no IDE or local checkout required" },
-  { icon: "👔", title: "Engineering Managers Draining Backlogs", description: "Assign well-understood issues to run autonomously while your team stays focused" },
-  { icon: "🤝", title: "Teams with Non-Coding Contributors", description: "PMs and designers can delegate implementation directly from a GitHub issue" },
-  { title: "Assign an Issue", description: "From browser or mobile — the agent picks it up and starts working immediately" },
-  { title: "Agent Implements", description: "Autonomous, sandboxed execution from the issue spec your team already wrote" },
-  { title: "Review Draft PR", description: "Evidence-backed implementation with passing tests — ready for your approval" }
-]'
+  question="What would you tackle if bounded implementation work cost minutes, not days?"
+  subtext="The coding agent closes the gap between"
+  highlight="&#34;we know what needs doing&#34; and &#34;it&#39;s done.&#34;"
+  :cards='[
+    { icon: "👩‍💻", title: "Developer", description: "Offload dependency upgrades, scaffold, and doc sync to focus on design" },
+    { icon: "🏗️", title: "Tech Lead", description: "Assign bounded backlog issues without scheduling sprint slots for each one" },
+    { icon: "📋", title: "Product Manager", description: "File a well-formed issue and watch it close — no implementation queue to manage" },
+    { title: "12 minutes", description: "Total human time — complete lodash upgrade across 23 files, the agent handled the rest" },
+    { title: "95% detail capture", description: "Image-based issue creation vs ~60% manually — 14-minute transcription → 2 minutes visual" },
+    { title: "Draft PR, never merge", description: "Platform-enforced: the person who assigned the issue cannot approve the resulting PR" }
+  ]'
 />
 
 ---
@@ -64,346 +65,299 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "🔄", title: "Delegation Loop", subtitle: "From assignment to draft PR", blurb: "Asynchronous, evidence-driven", slide: 4 },
-    { icon: "✍️", title: "Writing Issues", subtitle: "Specs that produce quality PRs", blurb: "Template-driven, image-capable", slide: 9 },
-    { icon: "🔒", title: "Trust & Configuration", subtitle: "Environment setup and firewall", blurb: "Setup before enforcement", slide: 13 },
-    { icon: "✅", title: "Review Workflow", subtitle: "Mobile-ready, agents-first", blurb: "4hr → 30min turnaround", slide: 17 },
+    { icon: "🔄", title: "Delegation Loop",       subtitle: "From issue to draft PR end-to-end",        blurb: "The full loop, architecture, evidence bundle, separation of duties", slide: 4  },
+    { icon: "✍️", title: "Writing Issues",        subtitle: "Issue quality drives PR quality",           blurb: "Structure, weak-vs-good comparison, image-based fast path",           slide: 9  },
+    { icon: "🔒", title: "Trust & Configuration", subtitle: "Environment setup and the Agent Firewall",  blurb: "copilot-setup-steps.yml, allowlist, blocked-call logging",             slide: 13 },
+    { icon: "✅", title: "Review Workflow",        subtitle: "Evidence bundle to approved PR",            blurb: "Mobile review, @review-enforcer, what to delegate decision tree",      slide: 16 }
   ]'
 />
+
 ---
 
-<!-- SLIDE: Part 1 — The Delegation Loop -->
-
+<!-- SLIDE: Part 1 — Delegation Loop -->
 <SectionOpenerSlide
   :partNumber="1"
-  title="The Delegation Loop"
-  subtitle="From Issue Assignment to Draft PR"
+  title="Delegation Loop"
+  subtitle="Assign an issue, receive a tested draft PR — with no developer involvement in between."
   :cards='[
-    { icon: "🔄", title: "Three Triggers", blurb: "Browser, VS Code, or mobile — same async session" },
-    { icon: "🔬", title: "Sandboxed Execution", blurb: "Ephemeral Ubuntu runner, destroyed after use" },
-    { icon: "⚖️", title: "Separation of Duties", blurb: "Assigner cannot approve — enforced by GitHub" },
+    { icon: "🏗️", title: "Three-Layer Architecture", blurb: "Intelligence, Environment, Governance — the structural backbone" },
+    { icon: "⚡", title: "Sandboxed Execution", blurb: "Ephemeral runner, CI pipeline, evidence bundle in draft PR" },
+    { icon: "🔐", title: "Separation of Duties", blurb: "GitHub-enforced: assigner cannot be approver" }
   ]'
-  :terminal='{ context: "Developer involvement begins at code review", detail: "closed loop from issue to reviewable PR" }'
+  :terminal='{ context: "Assign issue → agent runs CI → opens draft PR", detail: "12 min human time · 23 files · lodash upgraded" }'
 />
+
 ---
 
-<!-- SLIDE: Triggering the Agent -->
+<!-- SLIDE: The Three-Layer Architecture -->
 <ThreeColumnCardSlide
   :partNumber="1"
-  pillIcon="🔄"
-  pillLabel="Delegation Loop"
-  title="Three Ways to Trigger"
+  pillIcon="🏗️"
+  pillLabel="Delegation Loop: Architecture"
+  title="The Coding Agent Runs in Three Layers"
   :columns='[
-    { icon: "🌐", title: "GitHub.com", items: ["Open issue → Assignees → select Copilot", "Or type /assigntopilot in a comment"] },
-    { icon: "💻", title: "VS Code", items: ["Copilot Chat → @github Create a PR that fixes #427", "Returns immediately — agent works async"] },
-    { icon: "📱", title: "GitHub Mobile", items: ["Open issue → tap Assignees → select Copilot", "Trigger from anywhere, review on the go"] }
+    { icon: "🧠", title: "Intelligence", description: "Same model, instructions, and skills as VS Code chat — no separate configuration needed", items: [".github/copilot-instructions.md", "Agent skills (.github/skills/)", "Custom review agents"] },
+    { icon: "⚙️", title: "Environment", description: "Fresh ephemeral Ubuntu runner per session — copilot-setup-steps.yml configures it first", items: ["Same Node/Python as your CI", "Git clone at issue&#39;s base branch", "Destroyed after session ends"] },
+    { icon: "🛡️", title: "Governance", description: "Agent Firewall restricts outbound connections — blocked attempts logged in evidence bundle", items: ["Branch protection enforced", "Required status checks apply", "Audit log in every PR"] }
   ]'
-  :insight='{ icon: "💡", text: "All three paths create the same asynchronous session — no need to stay connected while the agent works." }'
   :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Inside the Sandbox -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Delegation Loop</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">2 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">What Happens Inside the Sandbox</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-r from-cyan-900/30 to-cyan-800/20 rounded-lg border-l-4 border-cyan-400 flex items-start gap-3">
-<div class="text-cyan-400 font-bold text-sm w-5 shrink-0">1</div>
-<div class="text-sm">Provision ephemeral <span class="text-cyan-300">Ubuntu runner</span> — fresh for every session</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-blue-900/30 to-blue-800/20 rounded-lg border-l-4 border-blue-400 flex items-start gap-3">
-<div class="text-blue-400 font-bold text-sm w-5 shrink-0">2</div>
-<div class="text-sm">Run <span class="text-blue-300 font-mono">copilot-setup-steps.yml</span> — installs deps, configures tooling</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-indigo-900/30 to-indigo-800/20 rounded-lg border-l-4 border-indigo-400 flex items-start gap-3">
-<div class="text-indigo-400 font-bold text-sm w-5 shrink-0">3</div>
-<div class="text-sm">Clone repo + read <span class="text-indigo-300">issue, comments, linked PRs, instructions</span></div>
-</div>
-<div class="p-3 bg-gradient-to-r from-purple-900/30 to-purple-800/20 rounded-lg border-l-4 border-purple-400 flex items-start gap-3">
-<div class="text-purple-400 font-bold text-sm w-5 shrink-0">4</div>
-<div class="text-sm">Plan + implement across files — may iterate multiple rounds</div>
-</div>
-</div>
-<div class="space-y-2">
-<div class="p-3 bg-gradient-to-r from-violet-900/30 to-violet-800/20 rounded-lg border-l-4 border-violet-400 flex items-start gap-3">
-<div class="text-violet-400 font-bold text-sm w-5 shrink-0">5</div>
-<div class="text-sm">Run <span class="text-violet-300">build, tests, linters</span> — CI pipeline runs inside sandbox</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-fuchsia-900/30 to-fuchsia-800/20 rounded-lg border-l-4 border-fuchsia-400 flex items-start gap-3">
-<div class="text-fuchsia-400 font-bold text-sm w-5 shrink-0">6</div>
-<div class="text-sm">Create branch <span class="text-fuchsia-300 font-mono">copilot/issue-NNN</span></div>
-</div>
-<div class="p-3 bg-gradient-to-r from-pink-900/30 to-pink-800/20 rounded-lg border-l-4 border-pink-400 flex items-start gap-3">
-<div class="text-pink-400 font-bold text-sm w-5 shrink-0">7</div>
-<div class="text-sm">Open <span class="text-pink-300">draft PR</span> with evidence bundle — never merges itself</div>
-</div>
-<div class="p-3 bg-gradient-to-r from-rose-900/30 to-rose-800/20 rounded-lg border-l-4 border-rose-400 flex items-start gap-3">
-<div class="text-rose-400 font-bold text-sm w-5 shrink-0">8</div>
-<div class="text-sm">Destroy runner — no persistent environment, no residual access</div>
-</div>
-</div>
-</div>
-<div class="mt-4 text-center text-xs opacity-50">Session log visible in the GitHub Agents tab throughout execution</div>
-</div>
-</div>
+<FrameworkMappingRowsSlide
+  :partNumber="1"
+  pillIcon="📦"
+  pillLabel="Delegation Loop: Execution"
+  title="What Happens Inside the Agent&#39;s Sandbox"
+  :rows='[
+    { label: "Provision",  description: "Fresh Ubuntu runner created — isolated from production, destroyed after session",    tag: "ephemeral"    },
+    { label: "Setup",      description: "copilot-setup-steps.yml runs — same Node version, npm ci, same as your CI",             tag: "CI parity"    },
+    { label: "Context",    description: "Issue body, copilot-instructions.md, and relevant source files loaded",                 tag: "RAG + search" },
+    { label: "Implement",  description: "Multi-file changes made, iterating until build and tests pass",                          tag: "coordinated"  },
+    { label: "Evidence",   description: "Draft PR opened with changes summary, test results, and firewall alerts",                tag: "audit bundle" }
+  ]'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
 <!-- SLIDE: The Evidence Bundle -->
 <FourCardGridSlide
   :partNumber="1"
-  pillIcon="🔄"
-  pillLabel="Delegation Loop"
-  title="The Evidence Bundle"
+  pillIcon="📋"
+  pillLabel="Delegation Loop: Evidence Bundle"
+  title="Every Draft PR Includes an Evidence Bundle"
   :cards='[
-    { icon: "📝", title: "Summary of Changes", description: "What was changed and why, in plain language — rationale for every decision stated before you open the diff" },
-    { icon: "✅", title: "Test Results", description: "Pass/fail status from the CI run inside the sandbox — know if the change works before reading the code" },
-    { icon: "📁", title: "Files Modified", description: "List of changed files with rationale for each — scoped review before opening the full diff" },
-    { icon: "🔥", title: "Firewall Alerts", description: "Any blocked outbound connections — investigate before merging if unexpected calls appear" }
+    { icon: "📝", title: "Changes Summary",  description: "What was changed and why — plain language rationale for every file touched by the agent" },
+    { icon: "✅", title: "Test Results",     description: "Pass/fail status from the CI run inside the sandbox — before you open the diff" },
+    { icon: "🔥", title: "Firewall Alerts",  description: "Any blocked outbound connection attempts logged with the triggering command and timestamp" },
+    { icon: "⏱️", title: "2–3 Minutes",     description: "Time to read the bundle and get a complete picture of what the agent did before reviewing the diff" }
   ]'
-  :insight='{ icon: "💡", text: "Reading the evidence bundle takes 2-3 minutes and gives a complete picture of what the agent did — before opening the diff." }'
+  :insight='{ icon: "💡", text: "Read the evidence bundle first. A clean bundle means the diff review focuses on correctness and edge cases, not basic functionality." }'
   :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Separation of Duties -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔄 Delegation Loop</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
-<div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
-</div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
-</div>
-<div class="relative z-10 mb-3">
-<div class="text-lg font-bold text-white mb-1">Separation of Duties</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0 flex flex-col gap-4">
-<div class="max-w-4xl w-full grid grid-cols-2 gap-4">
-<div class="p-4 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50">
-<div class="text-2xl mb-2 text-center">⚖️</div>
-<div class="text-base font-bold text-cyan-300 mb-2 text-center">The Constraint</div>
-<div class="text-sm opacity-90 leading-relaxed">The developer who <span class="text-cyan-300 font-semibold">assigned</span> the issue <span class="text-red-400 font-semibold">cannot be the approver</span> of the resulting PR.</div>
-<div class="mt-2 text-xs opacity-60">Enforced by GitHub — not configurable, and intentional</div>
-</div>
-<div class="p-4 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50">
-<div class="text-2xl mb-2 text-center">🛡️</div>
-<div class="text-base font-bold text-blue-300 mb-2 text-center">Why It Matters</div>
-<div class="text-sm opacity-90 leading-relaxed">Every agent-generated change gets a <span class="text-blue-300 font-semibold">second human review</span> before reaching the default branch — regardless of who assigned the task.</div>
-<div class="mt-2 text-xs opacity-60">No direct-to-merge path exists, even for repository admins</div>
-</div>
-</div>
-<div class="max-w-4xl w-full p-4 bg-gradient-to-br from-indigo-900/20 to-purple-900/20 rounded-xl border border-indigo-500/20">
-<div class="text-sm font-semibold text-center mb-3">Practical Implication for Teams</div>
-<div class="grid grid-cols-3 gap-4 text-sm">
-<div class="text-center">
-<div class="text-xl mb-1">👤</div>
-<div class="text-indigo-300 font-medium">Tech Lead</div>
-<div class="opacity-70 text-xs">Assigns tasks to Copilot</div>
-</div>
-<div class="text-center">
-<div class="text-xl mb-1">🤖</div>
-<div class="text-blue-300 font-medium">Agent</div>
-<div class="opacity-70 text-xs">Implements + opens draft PR</div>
-</div>
-<div class="text-center">
-<div class="text-xl mb-1">👥</div>
-<div class="text-cyan-300 font-medium">Second Reviewer</div>
-<div class="opacity-70 text-xs">Reviews and approves</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<HeroStatSlide
+  :partNumber="1"
+  pillIcon="🔐"
+  pillLabel="Delegation Loop: Governance"
+  title="Platform-Enforced Separation of Duties"
+  subtitle="The person who assigns the issue cannot approve the resulting PR"
+  :hero='{ value: "100%", label: "of agent PRs require a second human reviewer", source: "GitHub-enforced, not configurable — intentional by design" }'
+  :supporting='[
+    { icon: "🚫", title: "Not configurable", description: "Enforced by GitHub platform rules, not a policy that can be bypassed" },
+    { icon: "👥", title: "Plan for a reviewer", description: "Where the tech lead both assigns and reviews, designate a second reviewer" },
+    { icon: "📱", title: "Mobile-ready review", description: "The review workflow is designed to complete from a phone — evidence bundle plus @review-enforcer" }
+  ]'
+  :insight='{ icon: "🔒", text: "The draft-PR boundary is the hardest constraint in the loop — and the most important. The agent can never merge its own work." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
 
 ---
 
-<!-- SLIDE: Part 2 — Writing Issues That Work -->
-
+<!-- SLIDE: Part 2 — Writing Issues -->
 <SectionOpenerSlide
   :partNumber="2"
-  title="Writing Issues That Work"
-  subtitle="Specs That Produce Quality PRs"
+  title="Writing Issues"
+  subtitle="PR quality is a direct function of issue quality — the most learnable, immediately applicable skill in this talk."
   :cards='[
-    { icon: "✍️", title: "Issue Anatomy", blurb: "Criteria, scope, context, constraints" },
-    { icon: "📸", title: "Image-Based Creation", blurb: "Screenshot → structured issue in 2 minutes" },
-    { icon: "⚡", title: "85% Time Savings", blurb: "14 min → 2 min per issue filed" },
+    { icon: "📐", title: "Four-Part Structure", blurb: "Criteria, scope, context, constraints — anatomy of an effective agent issue" },
+    { icon: "👁️", title: "Weak vs Effective", blurb: "Side-by-side comparison makes the quality gap visible, not described" },
+    { icon: "📸", title: "Image-Based Fast Path", blurb: "14-min transcription → 2-min visual with 95% detail capture" }
   ]'
-  :terminal='{ context: "The quality of the agent’s PR is a direct reflection", detail: "of the quality of the issue" }'
+  :terminal='{ context: "Issue quality → PR quality — direct causation", detail: "Write the issue once · delegate forever" }'
 />
+
 ---
 
-<!-- SLIDE: Effective Issue Anatomy -->
+<!-- SLIDE: Anatomy of an Effective Issue -->
+<FourCardGridSlide
+  :partNumber="2"
+  pillIcon="📐"
+  pillLabel="Writing Issues: Structure"
+  title="Four Components of an Agent-Ready Issue"
+  :cards='[
+    { icon: "✅", title: "Acceptance Criteria", description: "Testable conditions for done — the agent runs each as a verification step" },
+    { icon: "🎯", title: "Scope Boundaries",    description: "What is and is not in scope — prevents the agent from expanding the change" },
+    { icon: "🔗", title: "Context Links",       description: "Related issues, PRs, migration guides, or source files to study first" },
+    { icon: "⚠️", title: "Constraints",         description: "Patterns to follow, libraries to avoid — the team&#39;s non-negotiables" }
+  ]'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Weak vs Effective Issue -->
 <BeforeAfterPanelsSlide
   :partNumber="2"
-  pillIcon="✍️"
-  pillLabel="Writing Issues"
-  title="Weak vs. Effective Issues"
-  :before='{ header: "Weak — Inconsistent Results", items: ["No acceptance criteria — agent guesses done", "No scope — may change unintended files", "No context links — broad code search, missed files"] }'
-  :after='{ header: "Effective — Consistent PRs", items: ["Testable acceptance criteria — pass/fail checkboxes", "Explicit scope sections: In and Out", "Context links + key files referenced", "Constraints naming patterns to follow"] }'
-  :insight='{ icon: "💡", text: "4 elements of an effective issue: Criteria, Scope, Context, Constraints — each shapes the quality of the agent PR." }'
-  :progressDots='{ current: 1, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  pillIcon="📝"
+  pillLabel="Writing Issues: Quality Gap"
+  title="The Same Task, Two Very Different Issues"
+  :before='{
+    header: "Weak Issue — inconsistent PRs",
+    items: [
+      "Title: Fix the authentication bug",
+      "Body: The auth is broken. Please fix it.",
+      "No criteria — agent guesses what done means",
+      "No scope — change could touch anything in the codebase"
+    ]
+  }'
+  :after='{
+    header: "Effective Issue — consistent, reviewable PRs",
+    items: [
+      "Upgrade express-rate-limit v6 → v7",
+      "Criteria: onLimitReached migrated to handler, existing tests pass, new test added",
+      "Scope: src/middleware/, package.json, test/middleware/ only",
+      "Context: migration guide URL and current config file path provided"
+    ]
+  }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Image-Based Issue Creation -->
-<ProblemSolutionOutcomeSlide
+<HeroStatSlide
   :partNumber="2"
-  pillIcon="✍️"
-  pillLabel="Writing Issues"
-  title="Image-Based Issue Creation"
-  :problem='{ header: "The Old Way", items: ["Screenshot alert → manually read error", "Transcribe to GitHub → add labels → assign", "~14 minutes per alert", "~60% detail capture — manual transcription misses context"] }'
-  :solution='{ header: "With Web Copilot", items: ["Drag screenshot into github.com/copilot", "AI extracts errors, stack traces, timestamps, request IDs", "Structured issue in ~2 minutes", "~95% detail capture via vision model"] }'
-  :outcome='{ header: "Time Savings", items: ["8 hrs/week saved at 40 alerts per week"], metrics: [{ value: "85%", label: "Time reduction" }, { value: "14 → 2 min", label: "Per issue filed" }] }'
-  :progressDots='{ current: 2, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  pillIcon="📸"
+  pillLabel="Writing Issues: Fast Path"
+  title="The Fastest Route to a Well-Formed Issue"
+  subtitle="Drag a screenshot into github.com/copilot — AI reads the image and generates a structured issue"
+  :hero='{ value: "95%", label: "detail capture vs ~60% manually", source: "14-minute manual transcription → 2-minute visual workflow" }'
+  :supporting='[
+    { icon: "🚨", title: "PagerDuty alerts",  description: "Drop a monitoring screenshot — error messages, timestamps, request IDs extracted" },
+    { icon: "🐛", title: "UI bug reports",    description: "QA screenshots become structured issues with labels and severity assessed" },
+    { icon: "💡", title: "Then delegate",     description: "Once the issue is created and refined, assign it to Copilot — image to delegated PR in one session" }
+  ]'
+  :insight='{ icon: "⚡", text: "Particularly powerful for operations teams — a PagerDuty screenshot becomes a structured, delegated issue in under 3 minutes." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — Trust & Configuration -->
-
+<!-- SLIDE: Part 3 — Trust and Configuration -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="Trust & Configuration"
-  subtitle="Environment Setup and the Agent Firewall"
+  title="Trust and Configuration"
+  subtitle="Two files determine agent reliability — one controls what goes in, one controls what stays out."
   :cards='[
-    { icon: "📄", title: "Setup Steps", blurb: "copilot-setup-steps.yml controls the environment" },
-    { icon: "🛡️", title: "Agent Firewall", blurb: "Default allowlist + custom rules" },
-    { icon: "🏢", title: "Config Levels", blurb: "Org and repo-level controls" },
+    { icon: "⚙️", title: "Setup Steps", blurb: "copilot-setup-steps.yml — CI parity guarantee before execution begins" },
+    { icon: "🔥", title: "Agent Firewall", blurb: "Allowlist-based outbound restriction with audit log in every PR" },
+    { icon: "📜", title: "Instructions Apply", blurb: "copilot-instructions.md and skills work identically for agent PRs" }
   ]'
-  :terminal='{ context: "Setup before enforcement — get the environment right first", detail: "firewall activates after setup steps complete" }'
+  :terminal='{ context: "Blocked call logged in evidence bundle — auditability by design", detail: "firewall: unauthorized-domain.com:443 → BLOCKED" }'
 />
+
 ---
 
 <!-- SLIDE: copilot-setup-steps.yml -->
 <CodeWithFeaturesSlide
   :partNumber="3"
-  pillIcon="🔒"
-  pillLabel="Trust & Configuration"
-  title="Configuring the Agent Environment"
+  pillIcon="⚙️"
+  pillLabel="Trust: Environment Setup"
+  title="copilot-setup-steps.yml — CI Parity Before Execution"
   codePosition="left"
-  :code='{ language: "yaml", filename: ".github/workflows/copilot-setup-steps.yml", content: "name: \"Copilot Setup Steps\"\non:\n  workflow_dispatch:\njobs:\n  copilot-setup-steps:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 20\n      - run: npm ci\n\n# Job name must be exactly copilot-setup-steps" }'
+  :code='{ language: "yaml", filename: ".github/workflows/copilot-setup-steps.yml", content: "jobs:\n  copilot-setup-steps:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: \"20\"\n          cache: \"npm\"\n      - run: npm ci" }'
   :features='[
-    { icon: "🔑", title: "Runs Before Firewall", description: "Private registry installs in setup steps succeed without needing allowlist entries — firewall activates after setup completes" },
-    { icon: "🔧", title: "Testable in CI", description: "Add workflow_dispatch and path triggers to validate setup before the agent runs it" },
-    { icon: "📋", title: "Logs Visible", description: "Setup step logs appear in the Copilot session UI — environment debugging is straightforward" },
-    { icon: "⚡", title: "Failure-Resilient", description: "If setup fails, agent continues and reports the failure in session log — setup errors do not silently block all work" }
+    { icon: "🔄", title: "CI parity guarantee", description: "Same Node version, same tooling as your CI pipeline — no environment surprises" },
+    { icon: "⏮️", title: "Runs before firewall", description: "npm ci and tool downloads complete before firewall enforcement begins" },
+    { icon: "🔍", title: "Visible in session log", description: "Setup step output appears in the Copilot session UI — failures are debuggable" }
   ]'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: The Agent Firewall -->
-<TwoColPairedConceptsSlide
+<ThreeColumnCardSlide
   :partNumber="3"
-  pillIcon="🔒"
-  pillLabel="Trust & Configuration"
-  title="The Agent Firewall"
-  :left='{ header: "Default Allowlist", icon: "🛡️", items: ["npm, PyPI, Maven, RubyGems, NuGet, Go modules", "apt, yum, apk (OS package managers)", "Docker Hub, ghcr.io, gcr.io (container registries)", "GitHub APIs + raw.githubusercontent.com", "SSL certificate authorities + Playwright browsers", "Most repos work immediately — no custom config needed"] }'
-  :right='{ header: "Blocked Connection Log", icon: "🚨", code: { language: "text", content: "⚠️ Firewall blocked connection\nTarget: unauthorized-domain.com:443\nCommand: curl https://...\nTime: 2026-04-06T14:32:17Z\n\nAppears in the PR evidence bundle —\nalways investigate before merging." } }'
-  :insight='{ icon: "⚠️", text: "Firewall only applies to agent bash processes — not MCP servers, setup steps, or self-hosted runners." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  pillIcon="🔥"
+  pillLabel="Trust: Agent Firewall"
+  title="The Firewall Controls What Stays Out of the Sandbox"
+  :columns='[
+    { icon: "✅", title: "Default Allowlist", description: "npm, PyPI, Maven, Docker Hub, GitHub APIs — standard installs work without configuration", items: ["apt, yum, apk package managers", "ghcr.io, gcr.io registries", "SSL CAs + Playwright browsers"] },
+    { icon: "➕", title: "Extend When Needed", description: "Add internal registries at org or repo level via Settings → Copilot → Cloud agent", items: ["Org-level: applies to all repos", "Repo-level: scoped overrides", "Private npm/PyPI registries"] },
+    { icon: "📋", title: "Blocked Call Logging", description: "Every blocked connection logged in the PR evidence bundle — auditability by design", items: ["Target domain and port recorded", "The triggering command shown", "Timestamp for correlation"] }
+  ]'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Firewall Configuration Levels -->
-<TwoColPairedConceptsSlide
-  :partNumber="3"
-  pillIcon="🔒"
-  pillLabel="Trust & Configuration"
-  title="Firewall Configuration Levels"
-  :left='{ header: "Organization Level", icon: "🏢", items: [{ title: "Enable/Disable Firewall", detail: "Enabled · Disabled · Let repositories decide (default)" }, { title: "Recommended Allowlist", detail: "Toggle the default package registry list on/off" }, { title: "Custom Allowlist", detail: "Add domains or URLs — applies to all repos in the org" }, { title: "Repo Custom Rules", detail: "Allow or prevent repos from adding their own rules" }] }'
-  :right='{ header: "Repository Level", icon: "📁", items: [{ title: "Enable/Disable Firewall", detail: "Only if org is set to Let repositories decide" }, { title: "Recommended Allowlist", detail: "Toggle on/off if org allows repository decisions" }, { title: "Custom Allowlist", detail: "Add domains or URLs — combined with org-level rules" }, { title: "Note", detail: "Org-level rules lock repo overrides when set to Enabled or Disabled" }] }'
-  :insight='{ icon: "💡", text: "Org settings: Settings → Code, planning & automation → Copilot → Cloud agent. Repo settings: Repository Settings → Code & automation → Copilot → Cloud agent." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Part 4 — The Review Workflow -->
-
+<!-- SLIDE: Part 4 — Review Workflow -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="The Review Workflow"
-  subtitle="From Draft PR to Merge"
+  title="Review Workflow"
+  subtitle="Evidence bundle to approved PR — human review in minutes, not hours, from a browser or a phone."
   :cards='[
-    { icon: "📋", title: "Evidence-First", blurb: "Read bundle before touching the diff" },
-    { icon: "📱", title: "Mobile Review", blurb: "4 hr → 30 min turnaround" },
-    { icon: "🧠", title: "What to Delegate", blurb: "Design judgment stays human" },
+    { icon: "📋", title: "Evidence-First Review", blurb: "Read the bundle before the diff — 2 minutes reveals what to look for" },
+    { icon: "📱", title: "Mobile Review Loop", blurb: "@review-enforcer + approve from GitHub Mobile in under 3 minutes" },
+    { icon: "🗺️", title: "What to Delegate", blurb: "Decision tree — the durable take-home artifact from this talk" }
   ]'
-  :terminal='{ context: "The coding agent opens a draft PR — never merges", detail: "review is where teams maintain quality and build trust" }'
+  :terminal='{ context: "Lodash upgrade · 23 files · tests passing", detail: "12 minutes total human time — start to approved merge" }'
 />
+
 ---
 
 <!-- SLIDE: Evidence-First Review -->
-<ProblemSolutionOutcomeSlide
+<FrameworkMappingRowsSlide
   :partNumber="4"
-  pillIcon="✅"
-  pillLabel="Review Workflow"
-  title="Evidence-First Review Process"
-  :problem='{ header: "1 — Read Evidence Bundle", items: ["Check summary, test results, and firewall alerts", "2-3 minutes before touching the diff", "Know what the agent did before reading the code"] }'
-  :solution='{ header: "2 — Review the Diff", items: ["Focus on correctness, edge cases, security", "Apply the same criteria as for any contributor PR", "Leave specific comments with file path and code pattern to follow"] }'
-  :outcome='{ header: "3 — Approve or Iterate", items: ["Leave specific PR comments → agent reads, pushes commits, re-runs tests", "Effective for 3-5 iterations"], metrics: [{ value: "✅", label: "Specific: file path + pattern to follow" }, { value: "❌", label: "Too vague: This looks wrong. Fix it." }] }'
+  pillIcon="📋"
+  pillLabel="Review Workflow: Evidence Bundle"
+  title="Read the Evidence Bundle Before Opening the Diff"
+  :rows='[
+    { label: "Summary",  description: "What the agent changed and why — 2-min read gives a full picture of intent",              tag: "2 minutes"  },
+    { label: "Tests",    description: "Pass/fail from the CI run — tells you if it works before looking at a single line",       tag: "CI results" },
+    { label: "Firewall", description: "Any blocked outbound calls — investigate before proceeding if unexpected ones appear",   tag: "audit log"  }
+  ]'
+  footnote="Clean bundle = focus the diff review on correctness and edge cases, not basic functionality"
   :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Mobile Review and Custom Agents -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: Mobile Review Loop -->
+<WorkflowShowdownStepsSlide
   :partNumber="4"
-  pillIcon="✅"
-  pillLabel="Review Workflow"
-  title="Mobile Review + Custom Agents"
-  codePosition="left"
-  :code='{ language: "markdown", filename: ".github/agents/review-enforcer.md", content: "# @review-enforcer\n\n## Decision\nAPPROVE / REQUEST_CHANGES\n\n## Findings\n\ud83d\udd34 Critical (blocks merge)\n\ud83d\udfe1 Important (request changes)\n\ud83d\udfe2 Acceptable\n\nFocus: security, correctness,\nbreaking changes, error handling.\nMax 300 words. Mobile-optimized." }'
-  :features='[
-    { icon: "📱", title: "Review on Mobile", description: "Open draft PR → read evidence bundle → invoke @review-enforcer for color-coded analysis" },
-    { icon: "🤖", title: "Custom Review Agent", description: "Place in .github/agents/review-enforcer.md — returns mobile-optimized findings in under 300 words" },
-    { icon: "⚡", title: "4 hr → 30 min", description: "Average PR wait time with mobile-enabled async reviews — no laptop required" }
+  pillIcon="📱"
+  pillLabel="Review Workflow: Mobile"
+  title="The Full Review Loop from a Phone"
+  leftLabel="Traditional Review"
+  rightLabel="Mobile Agent PR Review"
+  :steps='[
+    { left: { label: "Pull branch locally",        note: "Set up dev environment, run tests" },    right: { label: "Open PR notification",       note: "GitHub Mobile, any device" } },
+    { left: { label: "Read the full diff",          note: "30–60 min for complex changes" },        right: { label: "Read evidence bundle",        note: "Summary + test results, 2–3 min" } },
+    { left: { label: "Verify correctness manually", note: "Check test coverage, edge cases" },      right: { label: "Invoke @review-enforcer",     note: "Security, logic, coverage analysis" } },
+    { left: { label: "Write review comments",       note: "15–30 min for detailed feedback" },      right: { label: "Approve or request changes",  note: "Specific, line-referenced feedback" } }
   ]'
+  :outcomeLeft='{ icon: "⏱️", label: "45–90 minutes per agent PR review" }'
+  :outcomeRight='{ icon: "✅", label: "Under 3 minutes from a phone" }'
+  summaryMetric="4-hour average PR wait → under 30 minutes with mobile review"
   :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: What to Delegate -->
-<BeforeAfterPanelsSlide
+<!-- SLIDE: What to Delegate Decision Tree -->
+<FrameworkMappingRowsSlide
   :partNumber="4"
-  pillIcon="🧠"
-  pillLabel="Review Workflow"
-  title="What to Delegate vs. Keep Human"
-  :before='{ header: "Keep Human", items: ["Novel feature design requiring creative judgment", "Complex debugging (local environment required)", "Multi-repository coordination", "Architecture decisions and design exploration", "Windows-only tooling (agent runs Ubuntu)"] }'
-  :after='{ header: "Delegate to Coding Agent", items: ["Dependency upgrades with clear migration path", "CRUD endpoint scaffolding from established patterns", "Documentation sync after refactoring", "Test coverage for flagged gaps", "Lint and style cleanup across files"] }'
-  :insight='{ icon: "💡", text: "The core shift: developers handle work requiring design judgment; the agent handles well-understood, bounded, repeatable backlog tasks." }'
+  pillIcon="🗺️"
+  pillLabel="Review Workflow: Decision Framework"
+  title="What to Delegate — The Durable Take-Home Framework"
+  subtitle="Well-understood + bounded → delegate. Design judgment or novel architecture → keep human."
+  :rows='[
+    { label: "→ Delegate",   description: "Dependency upgrades, test scaffold, CRUD endpoints, doc sync — bounded and repeatable",   tag: "Copilot"     },
+    { label: "→ Delegate",   description: "Boilerplate with clear spec — migration scripts, converters, config generation",              tag: "Copilot"     },
+    { label: "→ Keep human", description: "Novel feature design, architecture decisions — requires creative judgment",                  tag: "IDE Copilot" },
+    { label: "→ Keep human", description: "Multi-repo coordination — agent works in one repository per session",                        tag: "human"       },
+    { label: "→ Keep human", description: "Local environment or database required — sandbox has no production access",                  tag: "human"       }
+  ]'
+  footnote="Lodash upgrade · 23 files · 12 minutes total human time — this is what &#34;delegate&#34; looks like in practice"
   :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
@@ -411,26 +365,24 @@ highlight="The coding agent closes the gap between knowing and getting it done."
 
 <!-- SLIDE: Before/After -->
 <BeforeAfterSlide
-header="Manual Triage to Automated Issue-to-PR"
-leftLabel="Before"
-rightLabel="After"
-:leftItems='["Triage: 14 min per issue", "Turnaround: 4 hrs per issue", "Understanding PR: 2–3 minutes", "Delegation: manual handoff"]'
-:rightItems='["Triage: 2 min", "Turnaround: 30 min", "Understanding PR: 2–3 minutes", "Delegation: evidence-first"]'
-:metrics='[
-  { value: "14 min → 2 min", detail: "Triage acceleration" },
-  { value: "4 hrs → 30 min", detail: "Turnaround time" },
-  { value: "2–3 min", detail: "Understanding PR" }
-]'
+  header="From Deferred Backlog to Delegated Execution"
+  :leftItems='["Bounded work deferred indefinitely — never prioritized in sprints", "Developer writes and also reviews their own bounded-scope code", "14-minute manual issue transcription from screenshots and alerts", "PR review requires pulling the branch and setting up a local environment"]'
+  :rightItems='["Assign an issue — tested draft PR arrives without developer involvement", "Human role shifts to reviewer and approver — not implementer", "2-minute image-based issue creation with 95% detail capture", "Full review from evidence bundle plus @review-enforcer, 3 minutes on mobile"]'
+  :metrics='[
+    { value: "12 min", detail: "total human time — complete lodash upgrade, 23 files, tests passing" },
+    { value: "95%", detail: "detail capture with image-based issue creation vs ~60% manually" },
+    { value: "0 merges", detail: "the agent opens draft PRs — it can never merge its own work" }
+  ]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Assign one small, well-scoped issue to the coding agent", "Add copilot-setup-steps.yml to your repo", "Review the evidence bundle in the resulting PR", "Check the agent session log to see how it reasoned"]'
-  :thisWeek='["Write an effective issue template for your repo", "Configure the agent firewall allowlist for your stack", "Practice evidence-first PR review on 3-5 agent PRs", "Identify issue patterns the agent handles reliably"]'
-  :thisMonth='["Build a delegation checklist for your team", "Establish PR review norms for agent-generated code", "Integrate agent assignments into your sprint workflow", "Track delegation success rate and refine issue quality"]'
-  footer="Assign one well-scoped issue today — the delegation loop becomes fluent once you've seen the full evidence bundle and reviewed your first agent PR."
+  :today='["Assign one bounded backlog issue to Copilot from github.com/copilot", "Read the evidence bundle before opening the diff on the resulting PR", "Note whether the PR quality reflects the issue quality"]'
+  :thisWeek='["Commit .github/workflows/copilot-setup-steps.yml with your Node or Python version and npm ci", "Draft an issue template with acceptance criteria, scope boundaries, and context links", "Designate a second reviewer — the assigner cannot approve the resulting PR"]'
+  :thisMonth='["Build a @review-enforcer agent in .github/agents/review-enforcer.md optimized for mobile readability", "Run one dependency upgrade sprint across multiple services using the coding agent", "Review the Agent Firewall allowlist and add any internal registries your repositories use"]'
+  footer="The coding agent changes what developer time means — from writing bounded code to reviewing the agent&#39;s work."
 />
 
 ---
@@ -438,30 +390,29 @@ rightLabel="After"
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "VS Code Documentation", color: "cyan", items: [
-        { href: "https://code.visualstudio.com/docs/copilot/copilot-coding-agent", label: "GitHub Copilot coding agent", description: "Core concepts and VS Code integration" },
-        { href: "https://docs.github.com/en/copilot/concepts/coding-agent", label: "GitHub Docs — About the Coding Agent", description: "Architecture, security model, capabilities, and limitations" },
-        { href: "https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent", label: "Customizing the Development Environment", description: "copilot-setup-steps.yml reference, runner config, and options" },
-        { href: "https://docs.github.com/en/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent", label: "Customizing or Disabling the Agent Firewall", description: "Allowlist management, org/repo controls, and firewall limitations" }
+    { title: "📖 Official Documentation", color: "cyan", items: [
+      { href: "https://code.visualstudio.com/docs/copilot/copilot-coding-agent", label: "GitHub Copilot coding agent — VS Code docs", description: "Core concepts, triggering the agent, VS Code integration" },
+      { href: "https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent", label: "About the Copilot coding agent — GitHub docs", description: "Architecture, capabilities, three-layer model reference" },
+      { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment", label: "Customizing the development environment", description: "copilot-setup-steps.yml reference and advanced runner configuration" },
+      { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-firewall", label: "Customizing or disabling the Agent Firewall", description: "Allowlist management, org-level controls, and security model" }
     ] },
-    { title: "GitHub Blog & Resources", color: "purple", items: [
-        { href: "https://github.blog/changelog/2025-05-19-github-copilot-coding-agent-now-available-for-copilot-enterprise-and-copilot-pro-users/", label: "GitHub Blog — Assigning Issues with Coding Agent", description: "Delegation workflow, evidence bundle, and PR lifecycle" },
-        { href: "https://github.blog/ai-and-ml/github-copilot/onboarding-your-ai-peer-programmer/", label: "Onboarding Your AI Peer Programmer", description: "Issue quality, setup strategies, and team adoption patterns" },
-        { href: "https://docs.github.com/en/copilot/reference/copilot-allowlist-reference", label: "Copilot Allowlist Reference", description: "Complete list of hosts in the recommended allowlist" },
-        { href: "https://github.blog/changelog/2025-07-30-copilot-coding-agent-custom-setup-steps-are-now-more-reliable/", label: "Custom Setup Steps — More Reliable", description: "Failure resilience and setup log visibility improvements" }
+    { title: "📰 Further Reading", color: "purple", items: [
+      { href: "https://github.blog/ai-and-ml/github-copilot/assigning-and-completing-issues-with-coding-agent-in-github-copilot/", label: "Assigning and completing issues with coding agent", description: "GitHub Blog — end-to-end walkthrough and real-world use cases" },
+      { href: "https://github.blog/ai-and-ml/github-copilot/onboarding-your-ai-peer-programmer-setting-up-github-copilot-coding-agent-for-success/", label: "Onboarding your AI peer programmer", description: "GitHub Blog — team adoption guide and setup checklist" }
     ] }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="GitHub Copilot's Coding Agent in Practice"
-:cards="[
-  { icon: '⚡', value: '85%', detail: 'Reduction in issue triage time', subdetail: 'Automated classification and context gathering' },
-  { icon: '📱', value: '4hr → 30min', detail: 'PR review with mobile workflow', subdetail: 'Review agent output on phone, merge from anywhere' },
-  { icon: '🛡️', value: '0 merges', detail: 'Agent never merges its own code', subdetail: 'Human approval required for all changes' },
-]"
-prompt="Questions? Let's discuss which tasks in your backlog are ready to delegate today."
+  title="From Issue to Pull Request"
+  subtitle="GitHub Copilot&#39;s Coding Agent in Practice"
+  :cards="[
+    { value: '12 min', detail: 'total human time — lodash upgrade across 23 files, tests passing, PR approved' },
+    { value: '95%', detail: 'detail capture — image-based issue creation vs manual transcription' },
+    { value: 'Draft only', detail: 'agent opens PRs, never merges — GitHub-enforced separation of duties' }
+  ]"
+  prompt="What&#39;s one bounded task from your backlog you could assign to Copilot this week?"
 />
