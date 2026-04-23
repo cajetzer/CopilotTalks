@@ -4,17 +4,17 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## What's New in Copilot for VS Code: v1.108 – v1.115
+  ## What's New in Copilot for VS Code: v1.108 – v1.117
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: What's New in Copilot for VS Code - v1.108 to v1.115
+title: What's New in Copilot for VS Code - v1.108 to v1.117
 module: tech-talks/vscode-latest
 mdc: true
 section: Copilot Tools
 status: active
-updated: 2026-04-13
+updated: 2026-04-22
 ---
 
 <script setup>
@@ -34,7 +34,7 @@ import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 <!-- SLIDE: Title -->
 <TitleSlide
 title="What's New in Copilot for VS Code"
-subtitle="v1.108 – v1.115: Eight Releases of AI Innovation"
+subtitle="v1.108 – v1.117: Nine Releases of AI Innovation"
 tagline="From assistant to autonomous agent team"
 meta="Tech Talk · 45-60 minutes"
 />
@@ -52,7 +52,7 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
   { icon: "🎓", title: "Developers New to Copilot Agent Mode", description: "Jump from inline completions to full agentic orchestration in minutes" },
   { title: "Weekly Releases", description: "Starting v1.111, weekly stable updates — features ship faster than ever" },
   { title: "4 Agent Types", description: "Local, Background, Cloud, and Claude — each optimized for different tasks" },
-  { title: "Autopilot", description: "Fully autonomous operation — delegates, executes, and reports back independently" }
+  { title: "BYOK (v1.117)", description: "Enterprise teams now connect own model API keys — admin-controlled, any provider" }
 ]'
 />
 
@@ -570,10 +570,10 @@ user-invokable: true
 <SectionOpenerSlide
   :partNumber="4"
   title="Security & UX"
-  subtitle="Sandboxed autonomy and agentic browser tools"
+  subtitle="Sandboxed autonomy, enterprise model control, and agentic browser tools"
   :cards='[
-    { icon: "🔒", title: "Terminal Sandboxing", blurb: "OS-level restriction on agent commands" },
-    { icon: "⚡", title: "YOLO Mode", blurb: "/yolo to toggle auto-approve globally" },
+    { icon: "🖒", title: "Terminal Sandboxing", blurb: "OS-level restriction on agent commands" },
+    { icon: "🔑", title: "BYOK (v1.117)", blurb: "Enterprise teams bring their own model API keys" },
     { icon: "🌐", title: "Agentic Browser", blurb: "Agents interact with web apps autonomously" },
   ]'
   :terminal='{ context: "Auto-approve safe commands while sandboxing blocks system access", detail: "sandboxed autonomy pattern" }'
@@ -607,7 +607,7 @@ user-invokable: true
     ],
     code: { language: "json", content: "{\n  \"chat.tools.terminal.sandbox.enabled\": true,\n  \"chat.tools.terminal.sandbox.network\": [\"github.com\", \"npmjs.com\"],\n  \"chat.tools.terminal.enableAutoApprove\": true,\n  \"chat.tools.terminal.autoApproveWorkspaceNpmScripts\": true\n}" }
   }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -637,11 +637,40 @@ user-invokable: true
   title="Chat UX & Productivity Improvements"
   :cards='[
     { icon: "🔍", title: "Model Picker Redesign", description: "Organized sections (Auto, Featured, Recent, Other), search box for large lists, rich hover with model capabilities (v1.110)" },
-    { icon: "💡", title: "Contextual Tips", description: "Feature discovery suggestions based on your usage patterns. Toggle via chat.tips.enabled (v1.110)" },
+    { icon: "⚡", title: "Incremental Rendering", description: "Responses stream block-by-block with configurable animation (fade/rise/blur). Enabled by default in v1.117. Settings: chat.experimental.incrementalRendering.*" },
     { icon: "🌐", title: "Integrated Browser", description: "Replaces limited Simple Browser. Sign into websites, use DevTools, send elements to chat for AI assistance (v1.109)" },
     { icon: "🔎", title: "External Indexing", description: "Non-GitHub workspaces can be remotely indexed. Fast semantic search via #codebase, same experience as GitHub repos (v1.109)" }
   ]'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: BYOK — Bring Your Own Key -->
+<TwoColPairedConceptsSlide
+  :partNumber="4"
+  pillIcon="🔑"
+  pillLabel="Security & UX"
+  title="BYOK: Bring Your Own Key (v1.117, Enterprise)"
+  :left='{
+    header: "What It Unlocks",
+    icon: "🔑",
+    items: [
+      { title: "Any model provider", detail: "OpenAI, Anthropic, Google, Azure, OpenRouter, Ollama, and custom endpoints" },
+      { title: "Admin-controlled", detail: "Org admin enables via GitHub.com Copilot policy — developers then add their keys" },
+      { title: "Extension ecosystem", detail: "Model providers contribute models via Language Model Chat Provider API" }
+    ]
+  }'
+  :right='{
+    header: "How to Use",
+    icon: "⚙️",
+    items: [
+      { title: "Chat model picker → Manage Models…", detail: "Add a provider and paste your API key — models appear immediately" },
+      { title: "Own billing + rate limits", detail: "Usage goes to your provider account, not Copilot quotas" },
+      { title: "Copilot Business or Enterprise only", detail: "Not available on Copilot Individual" }
+    ]
+  }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -652,11 +681,11 @@ header="Single Assistant to Multi-Agent Platform"
 leftLabel="Before"
 rightLabel="After"
 :leftItems='["Capability: single-agent chat", "Releases: quarterly", "Parallelism: sequential research", "Bottleneck: human context switching"]'
-:rightItems='["Capability: 4 specialized agents", "Releases: v1.108–v1.115 (weekly)", "Parallelism: parallel research teams", "Bottleneck: eliminated"]'
+:rightItems='["Capability: 4 specialized agents + Autopilot", "Releases: v1.108–v1.117 (weekly)", "Parallelism: parallel research teams", "Bottleneck: eliminated"]'
 :metrics='[
   { value: "4 types", detail: "Specialized agents" },
-  { value: "v1.108–v1.115", detail: "Weekly releases" },
-  { value: "Parallel", detail: "Research teams" }
+  { value: "v1.108–v1.117", detail: "Weekly releases" },
+  { value: "BYOK", detail: "Enterprise model freedom" }
 ]'
 />
 
@@ -664,8 +693,8 @@ rightLabel="After"
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Update VS Code to v1.110+", "Try /init to bootstrap workspace instructions", "Enable thinking tokens (budgetTokens: 4000)", "Try /fork to branch a conversation"]'
-  :thisWeek='["Enable terminal sandboxing (sandbox.enabled: true)", "Create first Agent Skill in .github/skills/", "Install an Agent Plugin via @agentPlugins", "Use /compact to manually compact conversation"]'
+  :today='["Update VS Code to v1.117+", "If on Copilot Enterprise, ask admin to enable BYOK policy", "Try /init to bootstrap workspace instructions", "Enable thinking tokens (budgetTokens: 4000)", "Try /fork to branch a conversation"]'
+  :thisWeek='["If BYOK enabled: add a provider via model picker → Manage Models… and compare responses", "Enable terminal sandboxing (sandbox.enabled: true)", "Create first Agent Skill in .github/skills/", "Install an Agent Plugin via @agentPlugins", "Use /compact to manually compact conversation"]'
   :thisMonth='["Define custom agent with subagent invocation", "Enable Copilot Memory (copilotMemory.enabled)", "Try agentic browser tools (enableChatTools: true)", "Use /create-skill to extract a debugging workflow"]'
   footer="VS Code has evolved from a single-chat assistant to a multi-agent orchestration platform. Plan locally → implement in background → validate in browser → merge selectively. The workflow pattern is the real unlock."
 />
@@ -675,7 +704,8 @@ rightLabel="After"
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "📦 Release Notes (v1.108–v1.115)", color: "cyan", items: [
+    { title: "📦 Release Notes (v1.108–v1.117)", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/updates/v1_117", label: "v1.117 (Apr 22)", description: "BYOK for Enterprise, incremental rendering, session sorting" },
         { href: "https://code.visualstudio.com/updates/v1_115", label: "v1.115 (Apr 8)", description: "VS Code Agents app, terminal tools" },
         { href: "https://code.visualstudio.com/updates/v1_114", label: "v1.114 (Apr 1)", description: "Video in chat, simplified #codebase" },
         { href: "https://code.visualstudio.com/updates/v1_113", label: "v1.113 (Mar 25)", description: "Customizations editor, nested subagents" },
@@ -702,11 +732,11 @@ rightLabel="After"
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
 title="Thank You"
-subtitle="What's New in Copilot for VS Code: v1.108 – v1.115"
+subtitle="What's New in Copilot for VS Code: v1.108 – v1.117"
 :cards="[
-  { icon: '📅', value: '8 Releases', detail: 'Weekly cadence from v1.111', subdetail: 'Rapid innovation and iteration' },
+  { icon: '📅', value: '9 Releases', detail: 'Weekly cadence from v1.111', subdetail: 'Rapid innovation and iteration' },
   { icon: '🤖', value: 'Autopilot', detail: 'Full agent autonomy (v1.111)', subdetail: 'Hands-free multi-file editing' },
-  { icon: '🎭', value: 'Agents App', detail: 'Parallel sessions (v1.115)', subdetail: 'Multiple agents, zero context confusion' },
+  { icon: '🔑', value: 'BYOK', detail: 'Enterprise model freedom (v1.117)', subdetail: 'Any provider, admin-controlled' },
   { icon: '⚙️', value: 'Customizations', detail: 'Unified editor (v1.113)', subdetail: 'One place for all configuration' },
 ]"
 prompt="Questions? Let's discuss which features to adopt first for your workflow"

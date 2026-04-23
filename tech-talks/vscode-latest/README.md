@@ -1,8 +1,11 @@
 ---
 status: active
-updated: 2026-04-13
+updated: 2026-04-22
 section: "Copilot Tools"
 references:
+  - url: https://code.visualstudio.com/updates/v1_117
+    label: "VS Code release notes: April 22, 2026 (v1.117)"
+    verified: 2026-04-22
   - url: https://code.visualstudio.com/updates/v1_115
     label: "VS Code release notes: April 8, 2026 (v1.115)"
     verified: 2026-04-13
@@ -41,7 +44,7 @@ references:
     verified: 2026-04-13
 ---
 
-# What's New in Copilot for VS Code: v1.108 – v1.115
+# What's New in Copilot for VS Code: v1.108 – v1.117
 
 > **The Question This Talk Answers:**
 > *"What are the most impactful new Copilot features in VS Code's recent releases, and how do I start using them today?"*
@@ -63,12 +66,13 @@ references:
 ---
 
 
-## Eight Releases at a Glance
+## Nine Releases at a Glance
 
 > **Note:** Starting with v1.111 (March 2026), VS Code moved to **weekly stable releases**.
 
 | Release | Date | Headline Theme |
 |---------|------|----------------|
+| **v1.117** | April 22, 2026 | **BYOK for Enterprise** (bring your own model keys), incremental chat rendering, agent session sorting, CLI terminal profile integration [^14] |
 | **v1.115** | April 8, 2026 | **VS Code Agents companion app**, terminal tools for background commands, browser tool improvements [^9] |
 | **v1.114** | April 1, 2026 | Video in chat, Copy Final Response, simplified #codebase semantic search, /troubleshoot previous sessions, TypeScript 6.0 [^8] |
 | **v1.113** | March 25, 2026 | **Chat Customizations editor**, configurable thinking effort, **nested subagents**, MCP in CLI/Claude agents, session forking [^7] |
@@ -207,6 +211,14 @@ Subagents can now invoke other subagents, enabling complex multi-step workflows 
 
 This unlocks recursive task execution — an orchestrator agent can delegate to specialist agents, which can further delegate subtasks.
 
+### Agent Session Sorting (v1.117)
+
+When many agent sessions accumulate, sort them by **latest activity** or **creation date** to jump back into the right context without scrolling [^14]:
+
+- Click the sort control in the Sessions panel header
+- Options: Latest Activity (default) or Creation Date
+- Combines with existing search and status filters
+
 ### MCP in Copilot CLI & Claude Agents (v1.113)
 
 MCP servers configured in VS Code are now available to Copilot CLI and Claude agents [^7]. This bridges your workspace MCP configuration to all agent types:
@@ -224,6 +236,34 @@ MCP servers configured in VS Code are now available to Copilot CLI and Claude ag
 
 <!-- 🎬 MAJOR SECTION: Agent Customization -->
 ## Agent Customization
+
+### Bring Your Own Key (BYOK, v1.117)
+
+Copilot Business and Enterprise users can now connect their own API keys for language models directly in VS Code Chat — without switching tools or losing workflow context [^14]:
+
+**How it works:**
+1. Admin enables the BYOK policy in GitHub.com Copilot settings for the organization
+2. Members open the model picker → **Manage Models…** → add a provider and API key
+3. All available models for that key appear as selectable options in chat
+
+**Supported providers (built-in):** OpenAI, Anthropic, Google, Azure OpenAI, OpenRouter, Ollama, and any OpenAI-compatible endpoint.
+
+**Extension ecosystem:** Language model providers can also contribute models through extensions using the Language Model Chat Provider API — the model list grows with the extension marketplace.
+
+```json
+// No VS Code settings needed — admin enables via GitHub.com Copilot policy
+// Developers then add API keys via: Chat model picker → Manage Models…
+
+// For custom OpenAI-compatible endpoints:
+// Add endpoint URL + API key in the "Custom" provider section
+```
+
+**Key constraints:**
+- Billing and rate limits are handled by the model provider — not GitHub Copilot quotas
+- BYOK requires Copilot Business or Enterprise; not available on Copilot Individual
+- Admin can restrict which providers org members can add
+
+---
 
 ### Chat Customizations Editor (Preview, v1.113)
 
@@ -488,6 +528,31 @@ Auto-approval has expanded progressively across releases [^1] [^2] [^3]:
 <!-- 🎬 MAJOR SECTION: Chat UX & Productivity -->
 ## Chat UX & Productivity
 
+### Incremental Chat Rendering (Experimental, v1.117)
+
+Chat responses now stream block-by-block instead of in large chunks, making responses feel significantly more fluid and interactive [^14]:
+
+```json
+{
+  // Enabled by default in v1.117+
+  "chat.experimental.incrementalRendering.enabled": true,
+
+  // Animation style: fade (default), rise, blur, scale, slide, reveal, none
+  "chat.experimental.incrementalRendering.animationStyle": "fade",
+
+  // Buffering: off (default — fastest), word, paragraph
+  "chat.experimental.incrementalRendering.buffering": "off"
+}
+```
+
+**Tradeoff:** Lower buffering (`off`) renders fastest but may show incomplete words mid-stream. Use `word` or `paragraph` buffering for cleaner visual updates at the cost of slightly more latency.
+
+### Copilot CLI — Launch from Any Terminal Profile (v1.117)
+
+Copilot CLI can now be launched from any configured terminal profile — not just the default shell [^14]. This means PowerShell users on macOS and bash users on Windows can invoke the CLI without switching profiles.
+
+Long-running background commands also now push notifications directly into the chat panel for easier tracking without context-switching to the terminal.
+
 ### Integrated Browser Debugging (v1.112)
 
 Debug web apps end-to-end without leaving VS Code [^6]:
@@ -657,13 +722,16 @@ Inline chat is optimized for quick single-file code changes, with a lightweight 
 ## ✅ What You Can Do Today
 
 **Immediate (5 minutes):**
-- [ ] Update VS Code to v1.115+
+- [ ] Update VS Code to v1.117+
+- [ ] Check BYOK availability: ask your Copilot Enterprise admin to enable the "Bring Your Own Language Model Key" policy
 - [ ] Try Autopilot: enable `"chat.autopilot.enabled": true`, then select Autopilot in permissions picker
 - [ ] Try `/init` to bootstrap workspace instructions for your project
 - [ ] Use the thinking effort picker in model selector (Low/Medium/High)
 - [ ] Try `/fork` to branch a conversation for exploring alternatives
 
 **Short-Term (30 minutes):**
+- [ ] If BYOK is enabled for your org, add a provider via model picker → Manage Models… and compare responses
+- [ ] Tune incremental rendering animation: try `"chat.experimental.incrementalRendering.animationStyle": "rise"` vs `"fade"`
 - [ ] Open Chat Customizations editor (gear icon in Chat view) to explore unified management
 - [ ] Enable terminal sandboxing: `"chat.tools.terminal.sandbox.enabled": true`
 - [ ] Enable MCP server sandboxing in `mcp.json` with `"sandboxEnabled": true`
@@ -720,6 +788,14 @@ Quick reference for all settings mentioned in this talk:
   "chat.subagents.allowInvocationsFromSubagents": true,
   "chat.useCustomAgentHooks": true,
 
+  // BYOK & Model Management (v1.117) — no settings; admin enables via GitHub.com
+  // Add providers via: Chat model picker → Manage Models…
+
+  // Incremental Rendering (v1.117)
+  "chat.experimental.incrementalRendering.enabled": true,
+  "chat.experimental.incrementalRendering.animationStyle": "fade",
+  "chat.experimental.incrementalRendering.buffering": "off",
+
   // Productivity
   "github.copilot.chat.copilotMemory.enabled": true,
   "workbench.browser.openLocalhostLinks": true,
@@ -767,6 +843,8 @@ See [DECISION-GUIDE.md](../DECISION-GUIDE.md) for complete navigation help.
 
 [^9]: **[VS Code Release Notes: April 8, 2026 (v1.115)](https://code.visualstudio.com/updates/v1_115)** — VS Code Agents companion app, terminal tools for background commands, browser tool improvements
 
+[^14]: **[VS Code Release Notes: April 22, 2026 (v1.117)](https://code.visualstudio.com/updates/v1_117)** — BYOK (Bring Your Own Key) for Copilot Business/Enterprise, incremental chat rendering, agent session sorting, Copilot CLI from any terminal profile
+
 [^10]: **[Agent Plugins Documentation](https://code.visualstudio.com/docs/copilot/customization/agent-plugins)** — Installing and creating agent plugin bundles
 
 [^11]: **[Agent Skills Documentation](https://code.visualstudio.com/docs/copilot/customization/agent-skills)** — Creating and using Agent Skills in VS Code
@@ -790,6 +868,7 @@ Starting with v1.111 (March 9, 2026), VS Code transitioned to **weekly stable re
 ### Engineering Highlights
 
 - **v1.108 Housekeeping**: The VS Code team closed **5,951 issues** across all repositories, including 2,872 in the core `microsoft/vscode` repo and 1,659 in `microsoft/vscode-copilot-release` [^3]
+- **TypeScript 6.0.3 patch** (v1.117): Resolves import-related bugs introduced in 6.0 [^14]
 - **TypeScript-Go (tsgo)**: VS Code now defaults to TSGo for development, with built-in extensions compiling in under a second [^1]
 - **Extension bundling with esbuild**: Most built-in extensions migrated from webpack to esbuild for faster builds [^1]
 - **macOS DMG installer**: VS Code ships DMG images for native drag-and-drop installation [^2]
