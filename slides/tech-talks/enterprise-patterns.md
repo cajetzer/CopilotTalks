@@ -9,53 +9,56 @@ info: |
 drawings:
   persist: false
 transition: slide-left
-title: Scaling GitHub Copilot Across Organizations - Enterprise Patterns for AI Adoption
+title: Scaling GitHub Copilot Across Organizations
 module: tech-talks/enterprise-patterns
 mdc: true
-section: Copilot Tools
+section: Agentic Engineering
 status: active
-updated: 2026-06-24
+updated: 2026-04-22
 ---
 
 <script setup>
-import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
-import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
 import TocSlide from './components/structure/TocSlide.vue'
-import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
 import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
-import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
-import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
+import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
 </script>
 
-<!-- SLIDE: Title Slide -->
+<!-- SLIDE: Title -->
 <TitleSlide
-title="Scaling GitHub Copilot"
-subtitle="Enterprise Patterns for AI Adoption"
-tagline="Transform individual team success into organizational capability"
-meta="Tech Talk · 60 minutes"
+  title="Scaling GitHub Copilot Across Organizations"
+  subtitle="Enterprise Patterns for AI Adoption at Scale"
+  tagline="One change, all repos, instantly — from pilot teams to org-wide capability"
+  meta="GitHub Copilot · Enterprise · Platform Engineering"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-question="How do I scale GitHub Copilot from pilot teams to organization-wide adoption?"
-subtext="Consistent standards, governance, and measurable ROI."
-highlight="The transition from pilot success to organizational capability requires deliberate infrastructure."
-:cards='[
-  { icon: "🏢", title: "Engineering Leaders Scaling AI Adoption", description: "Move from successful pilot to measurable, org-wide Copilot capability" },
-  { icon: "⚙️", title: "Platform Teams Standardizing AI Patterns", description: "Shared instructions, skills, and agent patterns deployed across all teams" },
-  { icon: "📈", title: "CTO Offices Proving ROI with Data", description: "Replace anecdotes and surveys with data-driven measurement and benchmarks" },
-  { icon: "🔄", title: "Repeated Reinvention", description: "50 teams rebuilding the same patterns — shared infrastructure eliminates this waste" },
-  { icon: "🧱", title: "Knowledge Silos", description: "Success in one team does not compound — shared primitives change everything" },
-  { icon: "📊", title: "ROI Measurement", description: "Anecdotes vs. data — dashboards and metrics make impact quantifiable at scale" }
-]'
+  question="How do you turn 50 teams each reinventing the same patterns into one organization that compounds knowledge?"
+  subtext="Individual Copilot success doesn&#39;t scale automatically —"
+  highlight="organizational patterns turn fragmented expertise into compounding capability."
+  :cards='[
+    { icon: "🏛️", title: "Engineering Leader", description: "Justify Copilot expansion budget with measurable ROI instead of developer anecdotes" },
+    { icon: "🔧", title: "Platform Engineer", description: "Deploy org-wide standards, skill libraries, and governance without becoming a bottleneck" },
+    { icon: "🏗️", title: "Enterprise Architect", description: "Build governance and compliance frameworks that satisfy regulated-industry requirements" },
+    { title: "16× ROI", description: "180 hours platform investment → 2,900+ hours saved year one (50 teams × 40 hrs reinvention avoided)" },
+    { title: "50 reinventions", description: "Without org standards, every team rebuilds the same security rules, framework patterns, and quality checks" },
+    { title: "30% cost reduction", description: "Usage-based licensing vs. seat-only — the CFO number that unlocks expansion budget" }
+  ]'
 />
 
 ---
@@ -63,52 +66,74 @@ highlight="The transition from pilot success to organizational capability requir
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "🏢", title: "Organization-Wide Standards", subtitle: "Custom instructions at scale", blurb: "One config, hundreds of developers aligned automatically", slide: 4 },
-    { icon: "🧠", title: "Skills & Knowledge Bases", subtitle: "Institutional knowledge that scales", blurb: "Domain expertise that loads on demand", slide: 8 },
-    { icon: "🔐", title: "Governance & Licensing", subtitle: "Control, compliance, and cost optimization", blurb: "Seat management, policy controls, audit trails", slide: 11 },
-    { icon: "📊", title: "Scaling & Measurement", subtitle: "Adoption, ROI, and federated governance", blurb: "Self-service onboarding, metrics, 16× knowledge ROI", slide: 15 },
+    { icon: "📜", title: "Org-Wide Standards",    subtitle: "Define once, inherit everywhere",           blurb: "Custom instructions, monorepo playbooks, 500+ devs from one change", slide: 4  },
+    { icon: "🧠", title: "Skills & Knowledge",    subtitle: "Encode expertise, multiply impact",         blurb: "Org skill libraries (GA) and Knowledge Bases (Enterprise Cloud)",     slide: 9  },
+    { icon: "🛡️", title: "Governance & Licensing", subtitle: "Control, compliance, cost optimization",   blurb: "Model policies, 30-40% cost reduction, compliance automation",         slide: 13 },
+    { icon: "📈", title: "Adoption & Enablement",  subtitle: "16× ROI and self-service at scale",        blurb: "Metrics framework, 30-min onboarding, federated governance model",     slide: 17 }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Part 1 — Organization-Wide Standards -->
-
 <SectionOpenerSlide
   :partNumber="1"
   title="Organization-Wide Standards"
-  subtitle="Custom instructions at scale"
+  subtitle="Define security, framework, and quality requirements once — every repository inherits automatically."
   :cards='[
-    { icon: "🏢", title: "Org Instructions", blurb: "Define once, apply everywhere" },
-    { icon: "🔁", title: "16× ROI", blurb: "Knowledge multiplication across teams" },
-    { icon: "⚡", title: "Instant Updates", blurb: "One change propagates to all repos" },
+    { icon: "📡", title: "One Change, 500 Devs", blurb: "Org-level instructions propagate to every repo instantly" },
+    { icon: "🗂️", title: "Monorepo Playbooks",  blurb: "Nested AGENTS.md files scope guidance to each subdomain" },
+    { icon: "🔒", title: "What to Standardize", blurb: "Security, frameworks, accessibility, performance budgets" }
   ]'
-  :terminal='{ context: "Senior architect knowledge reaches 500 developers", detail: "instantly — baseline consistency without per-repo config" }'
+  :terminal='{ context: "50 teams × 40 hrs reinvention = 2,000 hours wasted without org standards", detail: "One org instruction → zero per-repo config needed" }'
 />
+
 ---
 
-<!-- SLIDE: The Traditional Problem -->
-<BeforeAfterMetricsSlide
+<!-- SLIDE: The Reinvention Problem -->
+<HeroStatSlide
   :partNumber="1"
-  pillIcon="🏢"
-  pillLabel="Organization-Wide Standards"
-  title="The Traditional Polyrepo Chaos"
-  :before='{ header: "😩 Before: Fragmented Standards", items: [
-    { title: "repo-1: Team A\u2019s security patterns", detail: "Each team interprets standards independently" },
-    { title: "repo-2: Team B\u2019s different approach", detail: "No shared baseline, no consistency" },
-    { title: "repo-3: Team C\u2019s interpretation", detail: "50 repos × 40 hours wasted = 2,000 hrs" }
-  ] }'
-  :after='{ header: "🚀 After: Organization-Level", items: [
-    { title: "Security baseline defined once at org level", detail: "One change propagates everywhere" },
-    { title: "Auto-applied to all 500+ developers", detail: "Zero per-repo configuration needed" },
-    { title: "Repos add domain-specific overrides only", detail: "180 hrs invested \u2192 2,900+ hrs saved" }
-  ] }'
-  :metrics='[
-    { value: "2,000 hrs", label: "Wasted on fragmented per-repo standards" },
-    { value: "16\u00d7", label: "ROI on org-level investment" },
-    { value: "500+", label: "Developers aligned automatically" }
+  pillIcon="⚠️"
+  pillLabel="Standards: The Problem"
+  title="50 Teams, 50 Reinventions — Zero Consistency"
+  subtitle="Every team independently discovers the same security rules, framework patterns, and quality checks"
+  :hero='{ value: "2,000", label: "hours wasted on repeated configuration", source: "50 teams × 40 hours each — before org-wide standards" }'
+  :supporting='[
+    { icon: "🔒", title: "Security reinvented", description: "Each team builds auth patterns, PII rules, and encryption config independently" },
+    { icon: "📋", title: "Standards drift", description: "AI-generated code reviewed differently across teams — inconsistent risk exposure" },
+    { icon: "🚪", title: "Knowledge walks out", description: "Best practices live in individual repo files — lost when engineers change teams" }
   ]'
-  :insight='{ icon: "💡", text: "Define security, frameworks, and quality requirements once at org level → every team inherits automatically" }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "💡", text: "The fix isn&#39;t documentation — it&#39;s executable standards that propagate automatically to every repo from a single source." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Org Instructions vs Repo Instructions -->
+<BeforeAfterPanelsSlide
+  :partNumber="1"
+  pillIcon="📜"
+  pillLabel="Standards: Org vs Repo"
+  title="One Org Instruction vs. 50 Repo Configurations"
+  :before='{
+    header: "Polyrepo without org standards",
+    items: [
+      "repo-1/.github/copilot-instructions.md — Team A&#39;s security interpretation",
+      "repo-2/.github/copilot-instructions.md — Team B&#39;s security interpretation",
+      "repo-3/.github/copilot-instructions.md — Team C&#39;s security interpretation",
+      "50 repos = 50 maintenance burdens when compliance requirements change"
+    ]
+  }'
+  :after='{
+    header: "With org-level custom instructions",
+    items: [
+      "Organization Settings → Custom Instructions (auto-applied to all repos)",
+      "Security, framework, and quality baseline inherited by every developer",
+      "Repo instructions remain optional — override only for domain-specific needs",
+      "Compliance update: change one file, 500+ developers get it immediately"
+    ]
+  }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -116,377 +141,317 @@ highlight="The transition from pilot success to organizational capability requir
 <!-- SLIDE: What to Standardize -->
 <FourCardGridSlide
   :partNumber="1"
-  pillIcon="🏢"
-  pillLabel="Organization-Wide Standards"
-  title="Organization Custom Instructions Template"
+  pillIcon="✅"
+  pillLabel="Standards: What to Include"
+  title="Four Pillars of an Org-Wide Instruction File"
   :cards='[
-    { icon: "🔒", title: "Security & Compliance", description: "OAuth 2.0 with PKCE, AES-256 for PII at rest, Azure Key Vault for secrets, parameterized queries exclusively" },
-    { icon: "⚙️", title: "Framework Preferences", description: "React 18+ with TypeScript, Node.js 20 LTS, Jest + Playwright (80% coverage), Prettier + ESLint org config" },
-    { icon: "♿", title: "Quality Standards", description: "WCAG 2.1 AA compliance, keyboard navigation, screen reader support across all UI" },
-    { icon: "⚡", title: "Performance Budgets", description: "Under 2s load on 3G, Lighthouse score above 90, 200KB gzipped bundle budget" }
+    { icon: "🔐", title: "Security & Compliance", description: "Auth patterns (OAuth 2.0 + PKCE), PII encryption, secrets management, SQL injection prevention — non-negotiables that apply everywhere" },
+    { icon: "⚙️", title: "Framework Preferences", description: "Approved tech stack, third-party dependencies, testing frameworks (Jest + Playwright), CI/CD integration patterns" },
+    { icon: "♿", title: "Accessibility & Quality", description: "WCAG 2.1 AA requirements, performance budgets (Lighthouse >90), error handling patterns, documentation expectations" },
+    { icon: "🗂️", title: "Monorepo Playbooks",    description: "Nested AGENTS.md files scope guidance to frontend/backend/infra — shared repo constitution with local commands per domain" }
   ]'
-  :insight='{ icon: "💡", text: "These four domains cover 90%+ of what teams reinvent independently. Define once in org instructions \u2192 every repo inherits automatically." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "📐", text: "Rule of thumb: repository selector → org instructions or copilot-instructions.md. File pattern → .instructions.md. Directory/subproject → nearest AGENTS.md." }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Monorepo Nested Playbooks -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: Standards Topology Decision -->
+<FrameworkMappingRowsSlide
   :partNumber="1"
-  pillIcon="🏢"
-  pillLabel="Organization-Wide Standards"
-  title="Monorepo Pattern: Nested AGENTS.md Playbooks"
-  :code='{ language: "text", filename: "repo/", content: "repo/\n\u251c\u2500\u2500 .github/\n\u2502   \u251c\u2500\u2500 copilot-instructions.md   \u2190 Repo constitution\n\u2502   \u2514\u2500\u2500 instructions/\n\u2502       \u251c\u2500\u2500 api.instructions.md   \u2190 Additive, glob-based\n\u2502       \u2514\u2500\u2500 infra.instructions.md\n\u251c\u2500\u2500 AGENTS.md                      \u2190 Global guardrails\n\u251c\u2500\u2500 frontend/\n\u2502   \u2514\u2500\u2500 AGENTS.md                  \u2190 Frontend playbook\n\u251c\u2500\u2500 backend/\n\u2502   \u2514\u2500\u2500 AGENTS.md                  \u2190 Backend playbook\n\u2514\u2500\u2500 infra/\n    \u2514\u2500\u2500 AGENTS.md                  \u2190 Infra playbook" }'
-  codePosition="left"
-  :features='[
-    { icon: "🏛️", title: "Repository Selector", description: "Org/repo instructions apply globally — standards that every developer in the repo inherits" },
-    { icon: "📄", title: "File Pattern Selector", description: ".instructions.md files activate by glob pattern — only when editing matching file types" },
-    { icon: "📁", title: "Directory Selector", description: "Nearest AGENTS.md applies to that subdirectory — frontend/backend/infra each have their own playbook" }
+  pillIcon="🗺️"
+  pillLabel="Standards: Where to Put What"
+  title="Choosing the Right Standards Layer"
+  :rows='[
+    { label: "Org settings",    description: "50+ repos need the same security/quality baseline — one GitHub change, zero per-repo work", tag: "org instructions"    },
+    { label: "Repo root",       description: "Project-specific GitHub Copilot conventions for a single repo — clear constitution",        tag: "copilot-instructions" },
+    { label: "File patterns",   description: "Specific file types need different guidance — applyTo glob targets the right files",         tag: ".instructions.md"    },
+    { label: "Subdirectory",    description: "Monorepo package needs local commands, tests, workflow rules — nearest AGENTS.md wins",      tag: "AGENTS.md"           },
+    { label: "Cross-tool",      description: "Portable playbook for any agent (Claude, Gemini, etc.) alongside GitHub-specific guidance",  tag: "root AGENTS.md"      }
   ]'
-  :insight='{ icon: "💡", text: "Rule of thumb: Copilot-specific standards in .github/ hierarchy, portable agent playbooks in AGENTS.md files" }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 2 — Skills & Knowledge Bases -->
-
+<!-- SLIDE: Part 2 — Organizational Skills & Knowledge Bases -->
 <SectionOpenerSlide
   :partNumber="2"
   title="Skills & Knowledge Bases"
-  subtitle="Institutional knowledge that scales"
+  subtitle="Encode domain expertise once — update centrally, apply everywhere, compound with every use."
   :cards='[
-    { icon: "🧠", title: "Org Skills (GA)", blurb: "Encode domain expertise once" },
-    { icon: "📚", title: "Knowledge Bases", blurb: "Multi-repo context (Enterprise)" },
-    { icon: "🔄", title: "Central Updates", blurb: "Change once, propagate everywhere" },
+    { icon: "🧠", title: "Org Skill Libraries", blurb: "GA: security, compliance, architecture skills available across all repos" },
+    { icon: "📚", title: "Knowledge Bases",     blurb: "Enterprise Cloud: multi-repo context for microservices architectures" },
+    { icon: "🔀", title: "Knowledge Graph",     blurb: "Related services indexed together — cross-repo answers from one query" }
   ]'
-  :terminal='{ context: "From documentation (often outdated) to executable systems", detail: "senior architect knowledge reaches 500 developers instantly" }'
+  :terminal='{ context: "Senior architect updates @security-validator — 50 teams inherit it instantly", detail: "Knowledge compounds with use rather than fragmenting" }'
 />
----
-
-<!-- SLIDE: Organizational Agent Skills -->
-<div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
-<div class="relative z-10 flex items-center gap-3 mb-2">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧠 Skills & Knowledge Bases</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<span class="text-white/40 text-xs ml-1">1 of 2</span>
-</div>
-</div>
-<div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Organizational Agent Skills (Now GA)</div>
-<div class="text-xs text-white/50">Centrally versioned domain expertise available across all repos</div>
-</div>
-<div class="relative z-10 flex-1 min-h-0">
-<div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">🏛️</span>
-<div class="text-sm font-semibold text-blue-300">Domain-Specific Expertise</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-blue-950/60 border border-blue-500/30 rounded text-blue-300">payment-processing</code> PCI compliance validation</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-blue-950/60 border border-blue-500/30 rounded text-blue-300">healthcare-data</code> HIPAA data handling rules</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-blue-950/60 border border-blue-500/30 rounded text-blue-300">architecture-review</code> System design standards</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-blue-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-blue-950/60 border border-blue-500/30 rounded text-blue-300">performance-budgets</code> Load time & resource limits</span>
-</div>
-</div>
-</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-lg border border-indigo-500/30">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-xl">⚗️</span>
-<div class="text-sm font-semibold text-indigo-300">Cross-Cutting Concerns</div>
-</div>
-<div class="space-y-1 text-xs">
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-indigo-950/60 border border-indigo-500/30 rounded text-indigo-300">security-scanner</code> Vulnerability pattern detection</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-indigo-950/60 border border-indigo-500/30 rounded text-indigo-300">accessibility-check</code> WCAG compliance validation</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-indigo-950/60 border border-indigo-500/30 rounded text-indigo-300">cost-estimator</code> Cloud resource cost prediction</span>
-</div>
-<div class="flex items-start gap-2">
-<span class="text-indigo-400 mt-0.5">•</span>
-<span class="opacity-80"><code class="px-1.5 py-0.5 bg-indigo-950/60 border border-indigo-500/30 rounded text-indigo-300">tech-debt-analyzer</code> Maintainability scoring</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="mt-3 space-y-2">
-<div class="grid grid-cols-3 gap-2">
-<div class="p-2 bg-blue-900/20 rounded-lg border border-blue-500/20 text-center">
-<div class="text-lg mb-0.5">📝</div>
-<div class="text-xs font-semibold text-blue-300">1. Author</div>
-<div class="text-xs text-white/50 mt-0.5">Define in <code class="bg-blue-950/60 px-1 rounded text-blue-400">.github/skills/</code></div>
-</div>
-<div class="p-2 bg-indigo-900/20 rounded-lg border border-indigo-500/20 text-center">
-<div class="text-lg mb-0.5">🏢</div>
-<div class="text-xs font-semibold text-indigo-300">2. Publish</div>
-<div class="text-xs text-white/50 mt-0.5">Push to org — versioned & reviewed</div>
-</div>
-<div class="p-2 bg-purple-900/20 rounded-lg border border-purple-500/20 text-center">
-<div class="text-lg mb-0.5">⚡</div>
-<div class="text-xs font-semibold text-purple-300">3. Propagate</div>
-<div class="text-xs text-white/50 mt-0.5">Instant in all repos — zero config</div>
-</div>
-</div>
-<div class="p-2 bg-gradient-to-r from-blue-900/20 to-indigo-900/20 rounded-lg border border-blue-500/20">
-<div class="text-xs text-blue-300/90"><strong>The Multiplication Effect:</strong> Update once → propagates to all <strong class="text-blue-200">500+</strong> developers immediately → expertise compounds at org scale</div>
-</div>
-</div>
-</div>
-</div>
 
 ---
 
-<!-- SLIDE: Copilot Knowledge Bases -->
-<BeforeAfterMetricsSlide
+<!-- SLIDE: Org Skill Libraries (GA) -->
+<TwoColPairedConceptsSlide
   :partNumber="2"
   pillIcon="🧠"
-  pillLabel="Skills & Knowledge Bases"
-  title="Knowledge Bases: Multi-Repo Context (Enterprise)"
-  :before='{ header: "🔍 The Problem", items: [
-    { title: "Microservices split across 10\u201350 repos", detail: "Copilot in a single repo lacks cross-service context" },
-    { title: "Manual reference of 5\u201310 dependency repos", detail: "Developers context-switch constantly for answers" },
-    { title: "Documentation scattered across locations", detail: "Architecture knowledge is inaccessible during coding" }
-  ] }'
-  :after='{ header: "📚 Knowledge Base Solution", items: [
-    { title: "Payment Platform KB spans 5 repos", detail: "payment-api, payment-processor, fraud-detection, compliance-rules, platform-docs" },
-    { title: "Query across all repos simultaneously", detail: "\u201cHow does fraud detection integrate with payment flow?\u201d \u2014 answered with full cross-repo context" },
-    { title: "Invoke from any repo with @kb", detail: "Zero per-repo configuration, automatic cross-reference" }
-  ] }'
-  :metrics='[
-    { value: "50 repos", label: "Max per knowledge base" },
-    { value: "Enterprise", label: "Tier required" },
-    { value: "@kb", label: "Invoke from anywhere" }
+  pillLabel="Skills: Org Skill Libraries"
+  title="Organizational Agent Skills — Now Generally Available"
+  :left='{
+    header: "What they are",
+    icon: "📦",
+    items: [
+      { title: "Defined at org level", detail: "Skills in a shared repo, automatically available across all repositories" },
+      { title: "Centrally versioned", detail: "Update once — all consuming repos inherit the improved logic" },
+      { title: "Domain-encoded expertise", detail: "Security validation, compliance checks, architecture review as executable skills" }
+    ]
+  }'
+  :right='{
+    header: "Use cases by domain",
+    icon: "🔧",
+    items: [
+      { title: "Financial services", detail: "@pci-validator — card data handling, tokenization, audit logging" },
+      { title: "Healthcare", detail: "@hipaa-compliance-check — PHI encryption, access control, retention" },
+      { title: "Platform-wide", detail: "@security-scanner, @accessibility-check, @cost-estimator" }
+    ]
+  }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Knowledge Bases (Enterprise Cloud) -->
+<ThreeColumnCardSlide
+  :partNumber="2"
+  pillIcon="📚"
+  pillLabel="Skills: Knowledge Bases"
+  title="Knowledge Bases — Microservices Context at Scale"
+  :columns='[
+    { icon: "❓", title: "The Problem", description: "Microservices split systems across 10-50 repos — Copilot in one repo lacks context from related services", items: ["Manual cross-repo reference", "Scattered architecture docs", "Dependencies opaque to AI"] },
+    { icon: "💡", title: "The Solution", description: "Index multiple repos into a named Knowledge Base — Copilot answers using context from the entire system at once", items: ["@kb payment-platform", "Context from all 5 repos", "One query, system-wide answer"] },
+    { icon: "🎯", title: "Best For", description: "Enterprise Cloud tier — highest ROI for distributed codebases with interdependent services", items: ["Microservices architectures", "Shared libraries org-wide", "Multi-repo systems (FE+BE+infra)"] }
   ]'
-  :insight='{ icon: "💬", text: "Sample queries: \"Where is auth handled across our microservices?\" \"What compliance rules apply to user data?\" \"Which services depend on the pricing engine?\"" }'
-  :progressDots='{ current: 2, total: 2, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Knowledge Multiplication -->
+<HeroStatSlide
+  :partNumber="2"
+  pillIcon="📈"
+  pillLabel="Skills: Compounding Returns"
+  title="Knowledge That Multiplies Instead of Fragmenting"
+  subtitle="Every skill update propagates instantly to all teams — individual expertise scales to 500+ developers"
+  :hero='{ value: "∞×", label: "return on encoded expertise", source: "Update once → every consuming repo inherits improved logic with zero deployment" }'
+  :supporting='[
+    { icon: "🔄", title: "Compounding returns", description: "Every new developer automatically benefits from institutional knowledge without onboarding from individuals" },
+    { icon: "🔒", title: "Compliance stays current", description: "When regulations change, update the skill once — 50 teams are immediately compliant without coordination" },
+    { icon: "🤝", title: "Federated contribution", description: "Teams contribute domain expertise back to org library — individual insights become organizational assets" }
+  ]'
+  :insight='{ icon: "💡", text: "Skills transform knowledge from documentation (often outdated) into executable systems that scale infinitely and stay current automatically." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Part 3 — Governance & Licensing -->
-
 <SectionOpenerSlide
   :partNumber="3"
   title="Governance & Licensing"
-  subtitle="Control, compliance, and cost optimization"
+  subtitle="Control which models teams access, cut costs 30-40%, and automate compliance for regulated industries."
   :cards='[
-    { icon: "🔐", title: "Model Governance", blurb: "Control which AI models teams access" },
-    { icon: "💰", title: "Flexible Licensing", blurb: "30-40% cost reduction via smart deployment" },
-    { icon: "✅", title: "Compliance Auto", blurb: "Encode regulatory requirements" },
+    { icon: "🎛️", title: "Model Governance", blurb: "Policies control which models teams access — auto-selection optimizes cost vs. capability" },
+    { icon: "💰", title: "Flexible Licensing", blurb: "Mix seat-based and usage-based — 30-40% cost reduction vs. all-seats deployment" },
+    { icon: "🛡️", title: "Compliance Automation", blurb: "OWASP, HIPAA, PCI — encode as custom agents running on every PR" }
   ]'
-  :terminal='{ context: "Balance AI capability with enterprise requirements", detail: "cost optimization + risk reduction + audit readiness" }'
+  :terminal='{ context: "Model policies + usage-based licensing + compliance agents", detail: "30-40% cost reduction · audit trails · 0 compliance violations" }'
 />
+
 ---
 
-<!-- SLIDE: Model Governance & Auto Selection -->
-<TwoColPairedConceptsSlide
+<!-- SLIDE: Model Governance -->
+<FourCardGridSlide
   :partNumber="3"
-  pillIcon="🔐"
-  pillLabel="Governance & Licensing"
-  title="Model Governance & Auto Selection"
-  :left='{ header: "🔒 Policy Framework", items: [
-    { title: "Restrict high-cost models to approved use cases", detail: "Leadership retains budget control" },
-    { title: "Enforce compliance — data residency, audit trails", detail: "Regulatory requirements automatically met" },
-    { title: "Set budget controls on premium model requests", detail: "Cost predictability across the org" },
-    { title: "Track model usage org-wide for cost analysis", detail: "Full visibility into AI spend" }
-  ] }'
-  :right='{ header: "💰 Cost Optimization", items: [
-    { title: "Routine completion \u2192 Fast, cost-effective models", detail: "Auto-routed to smallest capable model" },
-    { title: "Documentation \u2192 Balanced models (Sonnet)", detail: "Quality without premium cost" },
-    { title: "Architecture analysis \u2192 Premium (Opus) with budget", detail: "Reserved for high-value tasks" },
-    { title: "Code review \u2192 Task-appropriate auto-selection", detail: "Right model, right task, every time" }
-  ] }'
-  :insight='{ icon: "⚖️", text: "Teams access appropriate AI power without manual model selection \u2014 leadership retains budget control and compliance visibility. 4 model tiers, 30% cost reduction." }'
+  pillIcon="🎛️"
+  pillLabel="Governance: Model Policies"
+  title="Centralized Model Governance and Auto-Selection"
+  :cards='[
+    { icon: "🚦", title: "Model Allow/Restrict",  description: "Control org-wide: allow GPT-4.1 and Claude Sonnet, restrict Opus to approved use cases only" },
+    { icon: "🤖", title: "Auto-Selection",         description: "Routine tasks route to cost-effective models; complex analysis escalates to premium — respects policies automatically" },
+    { icon: "📋", title: "Audit Logging",          description: "All model usage tracked across the org — compliance visibility for finance, healthcare, government requirements" },
+    { icon: "🌍", title: "Data Residency",         description: "Configure where data is processed and retained — EU residency, HIPAA boundaries, government cloud isolation" }
+  ]'
   :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Flexible Licensing Strategies -->
+<!-- SLIDE: Flexible Licensing Strategy -->
 <ThreeColumnCardSlide
   :partNumber="3"
-  pillIcon="🔐"
-  pillLabel="Governance & Licensing"
-  title="Flexible Licensing: 30-40% Cost Reduction"
+  pillIcon="💰"
+  pillLabel="Governance: Licensing"
+  title="Mix Licensing Tiers for 30-40% Cost Reduction"
   :columns='[
-    { icon: "👩‍💻", title: "Full Seats", items: [
-      { title: "Core engineering teams", detail: "Heavy daily coding users" },
-      { title: "Platform engineers", detail: "Daily AI-assisted work" },
-      { title: "Architects", detail: "Constant code generation" }
-    ] },
-    { icon: "⚡", title: "Usage-Based", items: [
-      { title: "Contractors", detail: "Temporary projects, pay per use" },
-      { title: "Security reviewers", detail: "Occasional deep analysis" },
-      { title: "Technical writers", detail: "Periodic documentation work" }
-    ] },
-    { icon: "👁️", title: "Review-Only", items: [
-      { title: "Product managers", detail: "Read access, no generation" },
-      { title: "Design team", detail: "Context review only" },
-      { title: "QA engineers", detail: "Test review, no authoring" }
-    ] }
+    { icon: "👩‍💻", title: "Full Seats", description: "Daily coding — maximum ROI per license", items: ["Core engineering teams", "Platform engineers", "Architects defining patterns"] },
+    { icon: "🔧", title: "Usage-Based", description: "Occasional use — pay only for actual requests", items: ["Contractors (project scope)", "Security team reviewing PRs", "Technical writers"] },
+    { icon: "👁️", title: "Review-Only", description: "No license required — read AI suggestions in PRs", items: ["Product managers", "Design team validating UI", "QA analyzing test coverage"] }
   ]'
-  :insight='{ icon: "💰", text: "200-person org example: 80 full + 40 usage-based + 80 review-only = 30\u201340% cost savings vs. all-full seats, without restricting any team\u2019s access" }'
   :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Compliance Automation -->
-<CodeWithFeaturesSlide
+<BeforeAfterMetricsSlide
   :partNumber="3"
-  pillIcon="🔐"
-  pillLabel="Governance & Licensing"
-  title="Compliance Automation"
-  :code='{ language: "text", filename: "@security-validator + hipaa-compliance-check", content: "Custom Agent: @security-validator\n\u2022 OWASP Top 10 vulnerabilities\n\u2022 Hardcoded secrets/credentials\n\u2022 Unapproved dependencies\n\u2022 Data exposure risks\n\nAgent Skill: hipaa-compliance-check\n\u2022 PHI encryption (AES-256)\n\u2022 Audit logging completeness\n\u2022 Access control enforcement\n\u2022 Data retention policies" }'
-  codePosition="left"
-  :features='[
-    { icon: "🛡️", title: "Access Governance", description: "Org policies, model access restrictions, and full audit logs baked into every workflow" },
-    { icon: "🚫", title: "Content Filtering", description: "Block vulnerable patterns and copyrighted code before they reach pull requests" },
-    { icon: "📋", title: "Data Governance", description: "Training opt-out, data residency controls, and retention policies enforced automatically" }
+  pillIcon="🛡️"
+  pillLabel="Governance: Compliance"
+  title="Compliance Automation — From Manual Checklist to Enforced"
+  :before='{
+    header: "Manual compliance",
+    items: [
+      { title: "OWASP review", detail: "Security engineer reads every PR — 45 min per PR" },
+      { title: "HIPAA validation", detail: "3–5 day bottleneck before regulated PRs can merge" },
+      { title: "PCI checking", detail: "12 violations per quarter — caught in audit, not pre-merge" },
+      "Compliance knowledge trapped in senior engineers"
+    ]
+  }'
+  :after='{
+    header: "Automated with custom agents",
+    items: [
+      { title: "@security-validator", detail: "OWASP Top 10 checked on every PR — 10 min, not 45" },
+      { title: "@hipaa-compliance-check", detail: "4-hour automated review replaces 3-5 day bottleneck" },
+      { title: "@pci-validator", detail: "0 violations per quarter — caught pre-merge, not in audit" },
+      "Compliance logic updated once, enforced everywhere"
+    ]
+  }'
+  :metrics='[
+    { value: "78%", label: "faster security review per PR" },
+    { value: "94%", label: "faster HIPAA compliance review" },
+    { value: "100%", label: "PCI violation reduction" }
   ]'
-  :insight='{ icon: "⚠️", text: "For regulated industries: Healthcare, finance, government \u2014 governance frameworks are prerequisites for AI adoption, not optional afterthoughts. HIPAA \u00b7 SOC 2 \u00b7 FedRAMP" }'
   :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 4 — Scaling & Measurement -->
-
+<!-- SLIDE: Part 4 — Adoption & Enablement -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="Scaling & Measurement"
-  subtitle="Adoption, ROI, and federated governance"
+  title="Adoption & Enablement"
+  subtitle="Metrics that replace anecdotes, self-service onboarding that removes bottlenecks, and the 16× ROI close."
   :cards='[
-    { icon: "📊", title: "Metrics Framework", blurb: "Leading, intermediate, lagging indicators" },
-    { icon: "🎓", title: "Self-Service Kit", blurb: "30-minute quick start" },
-    { icon: "💰", title: "ROI Reporting", blurb: "Data-driven CFO narrative" },
+    { icon: "📊", title: "Metrics Framework",   blurb: "Leading, intermediate, lagging indicators — data-driven ROI for CFO" },
+    { icon: "⚡", title: "30-Min Onboarding",   blurb: "Self-service kit — 50 teams onboard without overwhelming platform team" },
+    { icon: "🏛️", title: "Federated Governance", blurb: "Platform team sets floor, domain teams set ceiling, community shares" }
   ]'
-  :terminal='{ context: "Enable 50+ teams simultaneously", detail: "self-service onboarding + quantifiable metrics = scalable adoption" }'
+  :terminal='{ context: "180 hours platform investment → 2,900+ hours saved year one", detail: "16× ROI — the number that converts skeptical engineering leaders" }'
 />
+
 ---
 
 <!-- SLIDE: Metrics Framework -->
 <ThreeColumnCardSlide
   :partNumber="4"
   pillIcon="📊"
-  pillLabel="Scaling & Measurement"
-  title="Adoption Metrics & ROI Measurement"
+  pillLabel="Enablement: Metrics"
+  title="Three-Layer Metrics Framework — Leading to Lagging"
   :columns='[
-    { icon: "📊", title: "Leading (Adoption Health)", items: [
-      { title: "Acceptance rate", detail: "55\u201365% target" },
-      { title: "Active users", detail: "80%+ utilization" },
-      { title: "AI code lines", detail: "% of total output" },
-      { title: "Feature adoption", detail: "Chat, Skills, Agents" }
-    ] },
-    { icon: "⚡", title: "Intermediate (Efficiency)", items: [
-      { title: "PR velocity", detail: "PRs per week trend" },
-      { title: "Review time", detail: "PR open to merge duration" },
-      { title: "Bug fix time", detail: "Issue to resolution" },
-      { title: "Documentation", detail: "Coverage improvement" }
-    ] },
-    { icon: "🏆", title: "Lagging (Business Impact)", items: [
-      { title: "Time to market", detail: "Feature delivery speed" },
-      { title: "Dev satisfaction", detail: "7.8 \u2192 8.4 average" },
-      { title: "Onboarding time", detail: "45 days \u2192 28 days" },
-      { title: "Cost per feature", detail: "\u221231% reduction" }
-    ] }
+    { icon: "🟢", title: "Leading Indicators", description: "Adoption health — early signal before productivity shows", items: ["Acceptance rate (target: 55–65%)", "Active users / licensed seats (target: 80%+)", "Chat interactions per week", "Feature adoption: Chat, Skills, Agents"] },
+    { icon: "🟡", title: "Intermediate", description: "Efficiency gains — visible within weeks of adoption", items: ["PRs per week (89 → 127 ↑)", "Review time (18 hrs → 12 hrs ↓)", "Bug fix time (2.3d → 1.7d ↓)", "Onboarding time for new hires"] },
+    { icon: "🔴", title: "Lagging Indicators", description: "Business impact — the CFO conversation", items: ["Feature velocity (+43% YoY)", "Developer satisfaction (7.8 → 8.4)", "Cost per feature (−31%)", "Time to market for new features"] }
   ]'
-  :insight='{ icon: "💡", text: "Track acceptance rate first (predicts everything else) \u2192 act on it \u2192 watch intermediate & lagging metrics improve. Target: 55\u201365% acceptance, \u221231% cost per feature." }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Self-Service Onboarding -->
-<CodeWithFeaturesSlide
+<FourCardGridSlide
   :partNumber="4"
-  pillIcon="📊"
-  pillLabel="Scaling & Measurement"
-  title="Self-Service Onboarding Kit"
-  :code='{ language: "text", filename: "team-onboarding/", content: "team-onboarding/\n\u251c\u2500\u2500 README.md              \u2190 30-min quick start\n\u251c\u2500\u2500 repository-setup.md    \u2190 Config guide\n\u251c\u2500\u2500 custom-instructions.md \u2190 Org standards\n\u251c\u2500\u2500 skills-catalog.md      \u2190 Available skills\n\u251c\u2500\u2500 review-checklist.md    \u2190 AI code review\n\u2514\u2500\u2500 examples/\n    \u251c\u2500\u2500 good-prompts.md\n    \u251c\u2500\u2500 custom-agent-template/\n    \u2514\u2500\u2500 sample-repository/" }'
-  codePosition="left"
-  :features='[
-    { icon: "📖", title: "Read Quick Start (10 min)", description: "Org standards overview — what\u2019s enabled, what\u2019s available, what\u2019s expected" },
-    { icon: "⚙️", title: "Configure Repo (10 min)", description: "Copy/paste templates from the kit — instructions, skills, AGENTS.md" },
-    { icon: "✅", title: "Complete Exercise (10 min)", description: "Validate setup with a real task using the sample repository and good-prompts guide" }
+  pillIcon="⚡"
+  pillLabel="Enablement: Onboarding"
+  title="30-Minute Self-Service Onboarding Kit"
+  :cards='[
+    { icon: "📖", title: "Quick Start (10 min)",   description: "Overview of org standards, available skills, and configuration requirements — read, not written, by each team" },
+    { icon: "⚙️", title: "Repo Config (10 min)",   description: "Copy/paste ready templates for instructions, skill references, and agent definitions — no interpretation required" },
+    { icon: "✅", title: "First Exercise (10 min)", description: "Interactive task validating the setup works — team confirms productive use before the session ends" },
+    { icon: "📐", title: "Scale to 50 Teams",       description: "50 teams onboard simultaneously without platform team bottleneck — <2 support tickets per team target" }
   ]'
-  :insight='{ icon: "🎯", text: "Success metrics: 30 min to productive, under 2 support tickets per team, 90%+ satisfaction. Enables 50 teams to onboard simultaneously." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :insight='{ icon: "💡", text: "Every hour invested in onboarding materials saves 50+ hours across teams using them. Package once, scale infinitely." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Federated Governance Model & ROI -->
-<TwoColPairedConceptsSlide
+<!-- SLIDE: Federated Governance Model -->
+<BeforeAfterPanelsSlide
   :partNumber="4"
-  pillIcon="📊"
-  pillLabel="Scaling & Measurement"
-  title="Federated Model & Knowledge Multiplication"
-  :left='{ header: "🏗️ Platform Team Owns", items: [
-    { title: "Org-wide standards", detail: "40 hrs — security, frameworks, quality baselines" },
-    { title: "Shared skill library", detail: "60 hrs — domain expertise encoded once" },
-    { title: "Onboarding kit", detail: "80 hrs — self-service for all 50+ teams" },
-    { title: "Metrics & ROI tracking", detail: "Data-driven governance dashboard" }
-  ], code: { language: "text", content: "Investment: 180 hours total" } }'
-  :right='{ header: "🌿 Teams Own", items: [
-    { title: "Domain-specific customization", detail: "Team agents, local AGENTS.md overrides" },
-    { title: "Team-specific agent skills", detail: "Contribute back to shared library" },
-    { title: "Contribute winning patterns back", detail: "Knowledge compounds across the org" },
-    { title: "Share learnings in community", detail: "Accelerates every other team" }
-  ], code: { language: "text", content: "Returns: 2,900+ hours saved" } }'
-  :insight='{ icon: "📈", text: "The Compounding Effect: 180 hrs invested \u2192 2,900+ dev hours saved \u2192 16\u00d7 ROI. One-to-many deployment + automatic inheritance = knowledge stops fragmenting, starts compounding." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  pillIcon="🏛️"
+  pillLabel="Enablement: Governance Model"
+  title="Federated Governance — Standards Floor, Innovation Ceiling"
+  :before='{
+    header: "Central control (creates bottleneck)",
+    items: [
+      "Platform team approves every team configuration change",
+      "Innovation stalls waiting for standardization decisions",
+      "Platform team overwhelmed — support requests queue up",
+      "Teams route around governance to maintain velocity"
+    ]
+  }'
+  :after='{
+    header: "Federated model (scales to 50+ teams)",
+    items: [
+      "Platform team: org instructions, shared skills, compliance, metrics",
+      "Domain teams: repo-specific instructions, team skills, local workflows",
+      "Community of practice: monthly pattern sharing, internal skill catalog",
+      "Successful patterns promote from team → org library automatically"
+    ]
+  }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: The 16× ROI Close -->
+<HeroStatSlide
+  :partNumber="4"
+  pillIcon="📈"
+  pillLabel="Enablement: ROI"
+  title="The Number That Converts Skeptical Engineering Leaders"
+  subtitle="180 hours of platform investment → 2,900+ hours saved in year one — and compounding"
+  :hero='{ value: "16×", label: "ROI from enterprise patterns", source: "180 hrs invested → 2,900+ hrs saved yr 1 (50 teams × 40 hrs reinvention avoided)" }'
+  :supporting='[
+    { icon: "📜", title: "Org instructions (40 hrs)", description: "2 hrs saved per developer × 200 devs = 400 hours saved from baseline configuration alone" },
+    { icon: "🧠", title: "Shared skill library (60 hrs)", description: "5 hrs of repeated work eliminated per developer = 1,000 hours saved across the org" },
+    { icon: "⚡", title: "Onboarding kit (80 hrs)", description: "Setup time drops from 8 hrs to 0.5 hrs per team = 1,500 hours saved at 50-team scale" }
+  ]'
+  :insight='{ icon: "🚀", text: "Every new developer and every org growth event increases the return — the 16× grows as the organization scales. Knowledge compounds." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: Before/After -->
 <BeforeAfterSlide
-header="50 Teams to Organization-Level Scaling"
-leftLabel="Before"
-rightLabel="After"
-:leftItems='["Teams: 50 isolated silos", "Cost: per-team overhead", "Onboarding: 45 days", "Knowledge: siloed practices"]'
-:rightItems='["Teams: unified organization", "Cost: 30–40% reduction", "Onboarding: 28 days", "Knowledge: shared patterns"]'
-:metrics='[
-  { value: "16x", detail: "ROI" },
-  { value: "30–40%", detail: "Cost reduction" },
-  { value: "45 → 28 days", detail: "Onboarding" }
-]'
+  header="From Fragmented Adoption to Compounding Organizational Capability"
+  :leftItems='["50 teams each spending 40 hours reinventing the same security rules and framework patterns", "Compliance knowledge trapped in senior engineers — lost when they change teams", "Leadership asks for ROI but receives anecdotes — blocks expansion budget approval", "Platform team becomes bottleneck — all 50 teams queue for configuration support"]'
+  :rightItems='["One org instruction file — 500+ developers inherit baseline standards from day one", "Domain expertise encoded as Agent Skills — update once, all repos get improved logic", "Metrics dashboard: 55-65% acceptance rate, 80%+ utilization, -31% cost per feature", "30-minute self-service onboarding — 50 teams onboard simultaneously without platform bottleneck"]'
+  :metrics='[
+    { value: "16×", detail: "ROI — 180 hours platform investment into 2,900+ hours saved in year one" },
+    { value: "30-40%", detail: "licensing cost reduction mixing seat-based and usage-based tiers" },
+    { value: "0", detail: "compliance violations per quarter after automating OWASP, HIPAA, PCI checks" }
+  ]'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Audit current adoption: teams, acceptance rates, standards?", "Identify 2-3 successful pilot teams for patterns", "Review org custom instructions documentation"]'
-  :thisWeek='["Create initial org-wide custom instructions", "Deploy to pilots, gather feedback, iterate", "Build metrics baseline using Copilot Metrics API", "Start onboarding kit with copy/paste templates"]'
-  :thisMonth='["Develop shared Agent Skill library", "Establish Community of Practice: monthly sessions", "Configure Knowledge Bases (Enterprise tier)", "Build quarterly ROI dashboard for leadership"]'
-  footer="Target 80%+ utilization through progressive rollout — pilot with 2-3 high-adoption teams, build metrics baselines, then scale to 200+ developers with a standardized onboarding kit and shared skill library."
+  :today='["Draft an org-level custom instruction with your top 3 security requirements", "Identify the one skill that if encoded would save every team 5+ hours this quarter", "Pull your current Copilot acceptance rate from the Metrics API — establish your baseline"]'
+  :thisWeek='["Publish org-wide custom instructions to Organization Settings → Copilot → Policies", "Create one organizational Agent Skill for your most common compliance check", "Build a self-service onboarding README your teams can complete in 30 minutes"]'
+  :thisMonth='["Establish a quarterly metrics review cadence with leading + lagging indicators", "Launch a Community of Practice channel for monthly pattern sharing across teams", "Calculate your 16× ROI projection: hours invested vs. hours saved across all teams"]'
+  footer="Enterprise patterns transform individual Copilot expertise into organizational capability that compounds with every new developer and every team."
 />
 
 ---
@@ -494,30 +459,27 @@ rightLabel="After"
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "🤖 GitHub Copilot Enterprise", color: "cyan", items: [
-        { href: "https://docs.github.com/en/copilot/managing-copilot/managing-copilot-for-your-enterprise", label: "Managing Copilot for Your Enterprise", description: "Org policies, model access controls, seat management, and audit logs" },
-        { href: "https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-organization-instructions", label: "Organization-Wide Custom Instructions", description: "Org-level and repo-level instructions, AGENTS.md, .github/copilot-instructions.md" },
-        { href: "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills", label: "Organizational Agent Skills (GA)", description: "Centrally versioned domain skills deployed across all org repositories" },
-        { href: "https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces", label: "Copilot Spaces (Knowledge Bases)", description: "Multi-repo context — organize repos into spaces for cross-codebase queries" }
+    { title: "📖 Official Documentation", color: "cyan", items: [
+      { href: "https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization", label: "Managing Copilot in your organization", description: "Enterprise administration, policies, and org-wide configuration" },
+      { href: "https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot#adding-organization-wide-custom-instructions", label: "Adding organization-wide custom instructions", description: "Step-by-step guide to centralized standards configuration" },
+      { href: "https://docs.github.com/en/rest/copilot/copilot-metrics", label: "Copilot Metrics REST API", description: "Usage data and analytics for acceptance rate, active users, and more" }
     ] },
-    { title: "📊 Metrics, Licensing & Standards", color: "purple", items: [
-        { href: "https://docs.github.com/en/rest/copilot/copilot-metrics", label: "Copilot Usage Metrics API", description: "Acceptance rates, active users, feature adoption — org and team breakdowns" },
-        { href: "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access", label: "Flexible Licensing Strategies", description: "Full seats, usage-based, and review-only tiers for cost optimization" },
-        { href: "https://agents.md/", label: "AGENTS.md Open Format", description: "Cross-vendor standard for agent instruction files and repo conventions" },
-        { label: "Related Tech Talks", description: "Agentic Journey · Agentic SDLC · Agent Teams · Agentic Workflows" }
+    { title: "🔗 Related Formats", color: "purple", items: [
+      { href: "https://agents.md/", label: "AGENTS.md open format", description: "Cross-tool portable agent configuration — complements GitHub-specific instructions" }
     ] }
   ]'
 />
+
 ---
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-title="Thank You"
-subtitle="Enterprise Patterns for AI Adoption"
-:cards="[
-  { icon: '💡', value: '16x', detail: 'ROI from knowledge multiplication', subdetail: 'One instruction benefits entire organization' },
-  { icon: '💰', value: '30-40%', detail: 'Cost reduction via flexible licensing', subdetail: 'Right-size seats based on usage patterns' },
-  { icon: '👥', value: '500+', detail: 'Developers benefit from one instruction', subdetail: 'Organization-wide knowledge at scale' },
-]"
-prompt="Questions? Let's discuss which enterprise patterns apply to your organization first"
+  title="Scaling GitHub Copilot Across Organizations"
+  subtitle="Enterprise Patterns for AI Adoption at Scale"
+  :cards="[
+    { value: '16×', detail: 'ROI — 180 hrs platform investment into 2,900+ hrs saved year one at 50-team scale' },
+    { value: '30-40%', detail: 'licensing cost reduction mixing seat-based and usage-based tiers strategically' },
+    { value: 'One change', detail: 'org-wide instruction update reaches 500+ developers instantly — zero per-repo config' }
+  ]"
+  prompt="What&#39;s the one skill your organization should encode to multiply your senior engineers&#39; expertise across every team?"
 />
