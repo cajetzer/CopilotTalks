@@ -70,9 +70,10 @@ Queries and writes should target the appropriate bench:
 | `customization_context` | Primitives, Hooks, Memory, SDK, MCP Apps talks                        |
 | `agent_architecture`    | Agent Teams, ACP talks                                                |
 | `agentic_sdlc`          | Workflows, Journey, SDLC, Enterprise Patterns talks                   |
-| `exec_talks`            | Delivery, Economics, Labor talks                                      |
-| `workshop`              | All workshop modules + persona decisions                              |
-| `infra`                 | Slidev patterns, frontmatter rules, build gotchas, archival rationale |
+| `workshop`              | All workshop modules + persona decisions + module milestones          |
+| `slides`                | Slidev patterns, Vue component schemas, build gotchas, prop linter rules |
+| `exec-talks`            | exec-spine structure, TOC indexing, exec-talk voice rules, deck milestones |
+| `tech-talks`            | Tech-talk pipeline, component catalog exclusions, content milestones  |
 | `rmathis`               | Editorial voice, framing philosophy, author taste decisions           |
 
 ---
@@ -95,9 +96,9 @@ When you update a content artifact, ask:
 
 1. **Does this change a confirmed fact?** → Update or add `facts` entry
 2. **Does this retire or archive something?** → Write `events` with date and rationale
-3. **Does this affect a cross-reference?** → Update the cross-reference table in `infra/facts`
+3. **Does this affect a cross-reference?** → Update the cross-reference table in `slides/facts`
 4. **Did you discover something new that would save time next session?** → Write `discoveries` or `advice`
-5. **Topic-specific gate — did this session change anything about *this deck's content* that an agent reading only the deck would miss?** (framing decisions, audience misreads, ordering constraints, why a section was rejected) → Write to the matching topic bench (e.g. `agent_architecture/discoveries.md`). If the answer is just "we used component X" or "we fixed a Slidev gotcha," that belongs in `infra`, not the topic bench.
+5. **Topic-specific gate — did this session change anything about *this deck's content* that an agent reading only the deck would miss?** (framing decisions, audience misreads, ordering constraints, why a section was rejected) → Write to the matching topic bench (e.g. `agent_architecture/discoveries.md`). If the answer is just "we used component X" or "we fixed a Slidev gotcha," that belongs in `slides`, not the topic bench.
 
 If none of the above apply, no write is needed. **Empty topic benches are acceptable** — do not pre-create folders or invent thin entries to fill them.
 
@@ -105,7 +106,7 @@ If none of the above apply, no write is needed. **Empty topic benches are accept
 
 ## Cross-Reference Table
 
-Maintained in `infra/facts`. Topics covered in multiple artifacts — check for drift when updating either.
+Maintained in `slides/facts`. Topics covered in multiple artifacts — check for drift when updating either.
 
 For cross-cutting topics (MCP, agent mode, CLI, custom instructions, memory), use the **`topics/` bench** instead — each has a dedicated drawer with full coverage maps and drift risk notes. The `infra/facts` table below covers artifact-pair relationships not captured by a topic drawer:
 

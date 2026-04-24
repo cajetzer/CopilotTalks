@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: Building Agent Systems
-module: tech-talks/agent-teams
 mdc: true
 section: Agentic Engineering
 status: active

@@ -26,6 +26,7 @@ Generates `slides/workshop/*.md` and `slides/exec-talks/*.md` from module README
 6. **Read visual exemplar** — Read the first 200 lines of an existing same-category deck as a visual reference for cockpit content slides.
 7. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section → icon → container mapping.
 8. **Query memory** — Read `memories/infra/facts.md`, `memories/infra/discoveries.md`, and `memories/infra/advice.md` for confirmed build rules and structural gotchas.
+9. **Check for exec recipe (exec-talks only)** — Look for `exec-talks/<topic>/exec.recipe.yml`. If it exists, read it and use `sectionOrder`, `sectionModes`, `highlightMoments`, `arcToc`, and `arcNarrative` to drive the slide structure instead of inferring sections from the README. If it does not exist, continue without one (recipe is optional for exec-talks). To create or revise a recipe, suggest the `exec-recipe-review` skill.
 
 ---
 

@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: MCP Apps
-module: tech-talks/mcp-apps
 mdc: true
 section: Customization & Context
 status: active

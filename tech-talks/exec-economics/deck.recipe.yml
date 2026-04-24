@@ -1,0 +1,135 @@
+# exec.recipe.yml — executive talk generation guidance
+#
+# Guides slide generation from exec-talks/agentic-economics/README.md.
+# Produced by exec-recipe-review skill (Agent Council, 2026-04-23).
+
+version: 1
+
+deck:
+  title: "The Agentic Economics: Making the Business Case"
+  subtitle: "A strategic guide for leaders calculating the ROI of agentic AI adoption"
+  tagline: "Agent labor costs $2–5/hour. Capturing that arbitrage requires infrastructure — and honesty."
+
+  # arcToc: one line ≤ 80 chars, section names joined by →
+  arcToc: "The Arbitrage → The Catch → The Returns → The Decision"
+
+  preamble:
+    - src: ./exec-spine.md
+
+  # arcNarrative: sequencing rationale for an executive audience
+  arcNarrative: >
+    This talk's differentiator is credibility through honest constraints — a posture that earns
+    executive trust before asking for investment. Section 1 establishes the price anchor ($2–5/hr
+    vs. $70–150/hr) and the three-bucket labor categorization, then closes on an unresolved
+    tension: "The arbitrage is real. The infrastructure to capture it is not." This creates
+    productive urgency without overselling. Section 2 — The Catch — arrives before the full ROI
+    math, not after. It detonates the single most credibility-building line in the deck: without
+    automated verification, adding agents produces a net LOSS vs. human-only. It then layers in
+    the five structural barriers and the market failure rate (only 5% of AI pilots deliver
+    material bottom-line improvement). Executives who have been burned by AI pilots will
+    lean in here. Section 3 delivers the business case math after the executive has earned
+    trust in the analysis: quick-win entry point (3.6-day payback), tiered roadmap, the 20%
+    goal, and the J-curve (Year 1 net loss → Year 2 profit). The scale multiplier closes the
+    section — same infrastructure, order-of-magnitude larger returns. Section 4 is the close:
+    the executive summary table and three concrete named asks. The arc moves executives from
+    "this sounds too good to be true" to "now I understand why most organizations fail" to
+    "now I believe the math" to "here's what I'm authorizing."
+
+  # Ordered list of sections (max 4). Match sectionModes keys exactly.
+  sectionOrder:
+    - "The Arbitrage"
+    - "The Catch"
+    - "The Returns"
+    - "The Decision"
+
+  # Per-section editorial guidance for the slide generator.
+  sectionModes:
+    "The Arbitrage":
+      # high = 4–5 slides, medium = 2–3, medium-low = 1–2
+      emphasis: medium
+      note: >
+        Merge §1 ($2/Hour Engineer) + §2 (Labor Arbitrage Opportunity). Two slides, fast.
+        Slide 1: the cost comparison table — agent labor ($2–5/hr fully loaded) vs. human
+        engineering labor ($70–150/hr, 2026). Do not over-explain; the table is the argument.
+        Close with the reframe question: "What work can we move to $2–5/hour — and what
+        infrastructure do we need to capture that arbitrage?" Slide 2: the three-bucket
+        model (High-Value stays human at $150–250/hr, Routine could be $2/hr, Pure Toil
+        best at $2/hr). 85–95% cost reduction per hour shifted. End the section with the
+        unresolved tension: "The arbitrage is real. The infrastructure to capture it is not."
+        This line must close the section — it creates forward momentum into The Catch without
+        overselling. Two slides total. Cut: extended bucket explanations, individual task
+        examples. The tension line is more important than any individual data point.
+
+    "The Catch":
+      emphasis: high
+      note: >
+        Merge §3 (Investment Gap / 5 Barriers) + §7 (Constraint Reality Check) + §12
+        (Critical Success Factors). This is the talk's credibility engine — the section
+        most business cases skip, and the one that earns executive trust. Three beats.
+        Beat 1: The five structural barriers (No Instrumentation, Tribal Knowledge, Approval
+        Bottlenecks, Undefined Boundaries, Fragmented Tooling) — framed as infrastructure
+        debt that must be retired before savings materialize. Beat 2 (MANDATORY, one full slide):
+        The verification loss case — show the math explicitly. Without automation: agent ($3) +
+        human review ($200) = $203 total, vs. human-only ($200). Net result: -$3. With
+        automation: $28.10 total. 86% savings. This is the most important slide in the deck.
+        Display the negative number prominently. Executives remember shock math. Beat 3: Market
+        failure data — only 5% of AI pilots deliver material bottom-line improvement; 65% cite
+        organizational complexity as top barrier; 25% AI code error rate without verification.
+        Frame as: "These are not arguments against proceeding. They are the conditions under
+        which proceeding works." Three to four slides total. Cut: iteration cost worked example
+        (survives in speaker notes), headcount reduction framing (wrong frame — this is
+        throughput multiplication). The 3.6-day payback quick-win number belongs in Section 3,
+        not here — do not use it to soften The Catch.
+
+    "The Returns":
+      emphasis: high
+      note: >
+        Merge §4 (20% Goal) + §5 (Quick Wins) + §6 (High-Value Targets) + §8 (Phased
+        Investment) + §9 (Multiplier Effect). The business case math, sequenced to build
+        trust before asking for money. Slide 1: Quick wins first — $10,200 investment →
+        $1M savings → 3.6-day payback (issue lifecycle automation). This is the proof-of-concept
+        that gives nervous executives permission to begin. Show it before the large numbers.
+        Slide 2: Tiered roadmap — Tier 1 ($167K/yr, 0–3 months), Tier 2 ($424K/yr, 3–6
+        months), Tier 3 ($894K/yr, 6–12 months), combined $1.49M/yr for 50 engineers. Present
+        as a capital allocation decision tree, not an implementation plan. Slide 3: The 20%
+        goal — 50-person team, $1.94M annual savings, $800K–1.6M infrastructure investment.
+        Payback 12–18 months. 3-year ROI: 240–350%. Only 13% achieve sub-12-month payback
+        (keep this line — it reinforces Section 2's credibility). Slide 4: The J-curve
+        (mandatory for CFO audiences) — Year 1 net: -$425K. Year 2 net: +$1.06M. Year 3
+        cumulative: +$2.55M. Show the net-negative Year 1 explicitly; hiding it destroys
+        credibility. Slide 5 (closing beat): Scale multiplier — same $1M infrastructure
+        investment, 10x returns at 500 engineers vs. 50. The 60/40 → 20/80 routine/strategic
+        shift as a capacity argument. This is the "why act now" beat. Four to five slides total.
+        Cut: detailed per-task economics tables (survive in speaker notes), Phase 1/2/3
+        investment breakdown tables (condense to Slide 2 tier view).
+
+    "The Decision":
+      emphasis: medium
+      note: >
+        Merge §10 (Leadership Calculation summary table) + three concrete named asks.
+        Slide 1: The executive summary table — Opportunity / Investment / Constraints /
+        Recommendation — from §10, unchanged. This is the leave-behind. Every cell should
+        be completable by the executive from memory after the talk. Slide 2: Three named asks
+        with owners and timelines: (1) Authorize quick-win pilot — $110K, Q this quarter,
+        issue lifecycle automation, VP Engineering owns; (2) Commission infrastructure
+        assessment — 60 days, define the gaps between current state and what automation
+        requires, measure iteration count and verification cost (not just agent cost);
+        (3) Set the right success metric — iteration count and verification overhead are the
+        leading indicators of ROI, not agent API cost alone. Two slides total. Do NOT soften
+        into prose. Cut: §11 (Connecting the Trilogy) entirely — speaker notes only.
+
+  # 3–5 high-signal moments the generator must surface in the deck.
+  highlightMoments:
+    - "Without automated verification: agent ($3) + human review ($200) = $203 total vs. $200 human-only. Net result: -$3. This is not savings — it is a loss."
+    - "With automated verification: $28.10 total vs. $200 human-only. 86% cost reduction. Automated verification is the multiplier that makes agent economics work."
+    - "Only 5% of AI pilots deliver material bottom-line improvement. 65% of leaders cite organizational complexity — not technology — as the top barrier."
+    - "Issue lifecycle automation: $10,200 investment → $1,001,000 annual savings. Payback period: 3.6 days. The entry point requires no CI/CD rewrite."
+    - "Year 1 net position: -$425,000. Year 2 net position: +$1,061,000. The J-curve is honest — and it is the business case."
+
+# OPEN DECISION: Is the primary audience CFO (capex/NPV framing), CISO/audit committee
+# (governance risk framing), or general CXO (strategic ROI framing)?
+# Current recipe serves the general CXO. For CFO audiences, reframe §3's investment tables
+# as a capitalized asset with depreciation schedule and add NPV/IRR to the J-curve slide.
+# For CISO/audit audiences, elevate "The Catch" to Section 1 and reframe barriers as
+# governance gaps with liability exposure — the ROI becomes a consequence of proper
+# governance, not the goal.

@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: The Agentic Journey
-module: tech-talks/agentic-journey
 mdc: true
 section: Agentic Engineering
 status: active

@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: GitHub Copilot CLI + Azure MCP
-module: tech-talks/copilot-azure-mcp
 mdc: true
 section: Copilot Tools
 status: active

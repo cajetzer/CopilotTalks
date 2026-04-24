@@ -117,6 +117,9 @@ deck:
     - "--remote collapses Geography: start on a production server, steer from your phone via QR code (public preview 2026-04-13)"
     - "Log forensics without data transfer: AI reasons where the data lives — compliance by architecture, not policy"
 
+  appendix:
+    - src: ./copilot-cli-reference.md
+
 # OPEN DECISION: Does the CI/CD Automation demo in S4 run live or as a narrated walkthrough?
 # - Live: "it works right now" credibility peaks, but a CI/CD trigger-to-result loop can
 #   exceed 3 minutes; a failure in the closing section breaks momentum for the whole talk.

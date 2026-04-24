@@ -57,6 +57,16 @@ deck:
         [Any special structure for the closing section — e.g., embed a mini roadmap,
         surface a 3-phase rollout, or tie back to the arc's opening frame.]
 
+  # Optional: slide files to import immediately after the TitleSlide.
+  # Each entry becomes a `src:` import block in the generated deck.
+  # Leave empty [] if the talk has no preamble imports.
+  preamble: []
+
+  # Optional: slide files to append after the ThankYouSlide.
+  # Each entry becomes a `src:` import block at the end of the generated deck.
+  # Leave empty [] if the talk has no appendix imports.
+  appendix: []
+
   # 3–5 high-signal moments the generator must surface in the deck.
   # Used for: BeforeAfterSlide items, ThankYouSlide cards, WhatYouCanDoTodaySlide actions.
   # Write each as a complete sentence with a quantified metric where possible.

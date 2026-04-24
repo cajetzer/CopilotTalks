@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: Copilot Chat Internals
-module: tech-talks/copilot-chat-internals
 mdc: true
 section: Copilot Tools
 status: active

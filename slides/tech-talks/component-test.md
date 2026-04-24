@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: Component Test Deck
-module: tech-talks/component-test
 section: Agentic Engineering
 status: active
 updated: 2026-04-21

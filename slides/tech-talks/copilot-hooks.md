@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: GitHub Copilot Hooks
-module: tech-talks/copilot-hooks
 mdc: true
 section: Customization & Context
 status: active

@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: Copilot Plugins & APM
-module: tech-talks/copilot-plugins
 mdc: true
 section: Customization & Context
 status: active

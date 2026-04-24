@@ -1,0 +1,60 @@
+# exec-talks / preferences
+
+Voice, tone, and framing preferences for executive-audience talks.
+
+---
+
+## Exec-talk voice rules: no alarmism, no "not X it's Y" (2026-04-24)
+
+`schema_version: 1` | `date: 2026-04-24`
+
+These rules were established by reviewing exec-labor slides. Apply to all exec-talk slide generation and README writing.
+
+### Banned: "Not X, it's Y" constructions
+
+Never use this rhetorical pattern. Rewrite to state only the positive claim.
+
+**Examples of what NOT to write:**
+- "The organizations moving fastest are **not** those with the most developers — **they are** those who..."
+- "**These are not** technology failure costs. **They are** structural labor gaps."
+- "**These are not** projections. **They are** what organizations are measuring."
+- "Automated governance pays for itself — **manual review does not scale**."
+- "**Inaction is not neutral**..."
+- "**The gap is not paused** while you decide."
+- "**not** after audit" / "**not** API cost" / "**not** next year"
+- "**not** a catch-up response" / "**not** a future state"
+- "The **absence of policy is itself a policy**" (same rhetorical move)
+
+**Fix:** State the positive claim directly and move on.
+
+### Banned: Alarmist urgency framing
+
+Never frame inaction as threat. Never imply the audience is falling behind or at risk if they don't act now. Present opportunity, not fear.
+
+**Patterns to avoid:**
+- "risk surface you are carrying **undefended**"
+- "**gap widens** every deferred quarter" / "every quarter of deferral"
+- "**The Cost of Every Deferred Quarter**" (slide title pattern)
+- "**Inaction does not hold position**" / "**Inaction is not neutral**"
+- "**the window is now**" / "**the window is closing**"
+- "**compounding cost** of delay" / "**compound silently**"
+- "**exposure**" used as a threat label (e.g. "$4.88M exposure" — say "$4.88M avg breach cost")
+- "**carrying undefended**"
+- "**catch-up necessity**"
+- "**structural cost advantage**" framing competitors as a threat
+
+**Fix:** State the same data as opportunity or factual context. "Elite teams deploy 208x more frequently" — not "the gap widens every quarter you delay."
+
+### Preferred voice for exec-talks
+
+- **Factual and direct.** State what is true. Trust the executive to draw implications.
+- **Opportunity-framed.** "The 67% is ready to move" — not "67% is still untouched."
+- **Positive comparison.** "Organizations that have started have an 18–24 month head start" — not "you are 18–24 months behind."
+- **Data as context, not threat.** DORA 208x is a benchmark, not a warning. $4.88M is a cost structure, not a scare stat.
+- **Section titles describe what the audience gets**, not what they are losing. "The Business Case" or "The ROI Evidence" — not "The Exposure Ledger" or "What Each Quarter Costs."
+
+### Applied in exec-labor (2026-04-24)
+
+These patterns were removed from `slides/tech-talks/exec-labor.md` and the replacement style is visible there. Use exec-labor as the reference for correct exec-talk voice.
+
+**Still to retrofit:** `slides/tech-talks/exec-delivery.md`, `slides/tech-talks/exec-economics.md`, and the corresponding `tech-talks/exec-*/README.md` files.

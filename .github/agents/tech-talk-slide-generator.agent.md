@@ -38,6 +38,12 @@ Four quick checks — then immediately start writing.
 
 The recipe contains everything needed to write the full structural skeleton. Start immediately.
 
+> **HARD STOP — no additional reads before writing.**
+> Pre-flight loaded the recipe and SECTIONS.md. That is all Phase A needs.
+> Do NOT read the README, component `.vue` files, sibling decks, template.md, or memory files before writing the skeleton.
+> If you find yourself reaching for any of those — stop. Write the skeleton first. Those reads happen at the start of Phase B.
+> The user is watching the file. It must change within seconds of pre-flight completing.
+
 Write the scaffold in one pass:
 
 | Recipe field | Used for |
@@ -49,18 +55,40 @@ Write the scaffold in one pass:
 | `deck.sectionModes[].note` | `SectionOpenerSlide` subtitle — verbatim or condensed to ≤ 120 chars |
 | `deck.sectionModes[].emphasis` | Budget comment after each opener: `high` = 4–5 slides, `medium` = 2–3, `medium-low` = 1–2 |
 | `deck.highlightMoments` | `BeforeAfterSlide` items/metrics; `WhatYouCanDoTodaySlide` actions; `ThankYouSlide` summary cards |
+| `deck.preamble` | `src:` import blocks emitted immediately after `TitleSlide` (optional) |
+| `deck.appendix` | `src:` import blocks emitted after `ThankYouSlide` (optional) |
 
 **Scaffold write order:**
 
 1. Frontmatter (use `section:` value from SECTIONS.md, already read in pre-flight) + `<script setup>` import block
 2. `TitleSlide` — `deck.title`, `deck.subtitle`, `deck.tagline`
-3. `CoreQuestionSlide` — always slide 2; use placeholder cards (3 persona + 3 stat) — fill in Phase B
-4. `TocSlide` — sections from `deck.sectionOrder`; `slide: 0` placeholder — update after Phase B
-5. One `SectionOpenerSlide` per `deck.sectionOrder` entry; subtitle from `sectionModes[].note`; placeholder cards — immediately followed by `<!-- Phase B: {emphasis} — {N} body slides -->`
-6. `BeforeAfterSlide` — derive left/right items and metrics from `deck.highlightMoments`
-7. `WhatYouCanDoTodaySlide` — derive today/thisWeek/thisMonth from `deck.highlightMoments`
-8. `ReferencesSlide` — use a single placeholder item; fill in Phase B after reading README
-9. `ThankYouSlide` — 3 strongest `deck.highlightMoments` as summary cards
+3. **Preamble** — if `deck.preamble` exists, emit one `src:` block per entry immediately after the TitleSlide separator:
+   ```
+   ---
+   src: {entry.src}
+   ---
+   ```
+   **Do NOT read preamble files** — their component requirements are already listed here. For `exec-spine.md`, add these imports to `<script setup>` (in addition to whatever the body slides need):
+   ```html
+   import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+   import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
+   import HeroStatSlide from './components/HeroStatSlide.vue'
+   import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+   import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+   ```
+4. `CoreQuestionSlide` — always next; use placeholder cards (3 persona + 3 stat) — fill in Phase B
+5. `TocSlide` — sections from `deck.sectionOrder`; `slide: 0` placeholder — update after Phase B
+6. One `SectionOpenerSlide` per `deck.sectionOrder` entry; subtitle from `sectionModes[].note`; placeholder cards — immediately followed by `<!-- Phase B: {emphasis} — {N} body slides -->`
+7. `BeforeAfterSlide` — derive left/right items and metrics from `deck.highlightMoments`
+8. `WhatYouCanDoTodaySlide` — derive today/thisWeek/thisMonth from `deck.highlightMoments`
+9. `ReferencesSlide` — use a single placeholder item; fill in Phase B after reading README
+10. `ThankYouSlide` — 3 strongest `deck.highlightMoments` as summary cards
+11. **Appendix** — if `deck.appendix` exists, emit one `src:` block per entry after the ThankYouSlide separator:
+    ```
+    ---
+    src: {entry.src}
+    ---
+    ```
 
 **After writing:** run `.\build.ps1 -Deck {slug}`. Fix any errors. The scaffold must build cleanly before Phase B begins.
 
@@ -139,7 +167,6 @@ drawings:
   persist: false
 transition: slide-left
 title: {Title}
-module: tech-talks/{slug}
 mdc: true
 section: {value from SECTIONS.md}
 status: active
@@ -260,7 +287,6 @@ Run through this before handing off.
 - [ ] No `&quot;` or `\"` in any prop value
 
 ### Frontmatter & metadata
-- [ ] `module: tech-talks/{slug}` present
 - [ ] `section:` value matches `slides/SECTIONS.md`
 - [ ] `status: active` and `updated: {today}`
 - [ ] Single `<script setup>` block, imports only what the deck uses

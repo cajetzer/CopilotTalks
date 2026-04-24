@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: From Issue to Pull Request
-module: tech-talks/copilot-web
 mdc: true
 section: Copilot Tools
 status: active

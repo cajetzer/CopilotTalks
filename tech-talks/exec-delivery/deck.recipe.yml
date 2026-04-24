@@ -1,0 +1,124 @@
+# exec.recipe.yml — executive talk generation guidance
+#
+# Guides slide generation from exec-talks/agentic-delivery/README.md.
+# Produced by exec-recipe-review skill (Agent Council, 2026-04-23).
+
+version: 1
+
+deck:
+  title: "No Instruments, No Delivery: The Enterprise Agentic Imperative"
+  subtitle: "An executive briefing for decision-makers authorizing AI investment"
+  tagline: "Agentic AI multiplies developer throughput — but only if you build the cockpit first."
+
+  # arcToc: one line ≤ 80 chars, section names joined by →
+  arcToc: "The Shift → The Flight Model → The Risk → The Decision"
+
+  preamble:
+    - src: ./exec-spine.md
+
+  # arcNarrative: sequencing rationale for an executive audience
+  arcNarrative: >
+    The talk opens with the reframe and the business stakes simultaneously — executives must
+    understand the opportunity (55% faster, 20–45% productivity uplift, DORA 208x gap) before
+    they will invest attention in the mental model. The aviation metaphor is established in one
+    vocabulary slide (roles mapped to enterprise equivalents) and then assumed, never re-taught.
+    Section 2 delivers the operating model in the smallest possible surface area: the four
+    flight phases as an authorization model (human authority vs. AI autonomy), the six
+    instruments as a single governance table, and the multiplier math — $20M delivery capacity
+    in a $10M org — as the economic payoff that closes the section. Section 3 is the governance
+    reframe: the No-Fly Zones are recast as executive liability categories (each one a dollar
+    figure, not a technical concern), the readiness question is compressed to three executive
+    tests, and the instrument panel is positioned as flight clearance — not IT overhead. Section
+    4 is brief and concrete: three named asks with owners and timelines. The arc moves executives
+    from "I see the opportunity and the stakes" to "I know the model and the liability" to "I
+    know exactly what I'm authorizing and when."
+
+  # Ordered list of sections (max 4). Match sectionModes keys exactly.
+  sectionOrder:
+    - "The Shift"
+    - "The Flight Model"
+    - "The Risk"
+    - "The Decision"
+
+  # Per-section editorial guidance for the slide generator.
+  sectionModes:
+    "The Shift":
+      # high = 4–5 slides, medium = 2–3, medium-low = 1–2
+      emphasis: high
+      note: >
+        Merge §1 (The Shift: From Coders to Captains) + §7 (The Imperative). The correct
+        exec sequence is: reframe → business stakes → competitive window. Do NOT separate
+        the productivity data from the urgency data. Slide 1: the reframe (Coder → Captain,
+        55% faster, 20–45% uplift). Slide 2: the business stakes (DORA 208x deployment gap,
+        $4.88M average breach, SEC 4-day disclosure — these must arrive before any model
+        explanation). Slide 3: the aviation vocabulary — one slide mapping FAA/ATC/Ground Crew/
+        Pilots/Autopilot to enterprise roles. This is the only slide from §2 (The System) that
+        survives; cut the extended org-chart section entirely. Slide 4: the competitive window
+        — 12–18 months of institution-building advantage that latecomers cannot compress.
+        Anchor stats: GitHub 2022 (55%), McKinsey 2023 (20–45%), DORA 2023 (208x), IBM 2024
+        ($4.88M). Cut: any extended metaphor explanation, the full Mermaid org-chart section.
+
+    "The Flight Model":
+      emphasis: medium
+      note: >
+        Merge §3 (The Cockpit), §4 (The Flight), §5 (The Multiplier). Deliver the operating
+        model in three beats. Beat 1: the four flight phases as an authorization model — use
+        the Mermaid lifecycle diagram but label phases by authority level (Human Authority vs.
+        AI Autonomy + Human Monitoring), not by flight jargon. Executives are hearing: "AI
+        operates in one bounded phase; humans control the entry and exit." Beat 2: the six
+        instruments as a single executive governance table — Instrument | What It Measures |
+        What Breaks Without It. No per-instrument deep-dive. One row per instrument. Governance
+        conditions, not developer tooling. Beat 3: the multiplier math — this is the economic
+        payoff that makes Section 2 worth the executive's attention. One developer supervising
+        3–4 concurrent agentic sessions. "$10M engineering org → $20M delivery capacity."
+        "The limit is instrument monitoring capacity, not typing speed." Three slides total.
+        Cut: individual instrument explanations, extended flight-phase detail, No-Fly Zones
+        (those belong in Section 3).
+
+    "The Risk":
+      emphasis: high
+      note: >
+        Merge §6 (No-Fly Zones) + §8 (Checklist, compressed). Reframe No-Fly Zones as an
+        executive liability charter — each of the six categories maps to a dollar risk or
+        regulatory exposure, not a developer workflow rule. Slide 1: The Governance Charter —
+        six categories of AI autonomy that require human authorization, presented as liability
+        categories: production DB schema changes = data breach / recovery exposure; security
+        control bypasses = SEC 4-day disclosure trigger; external system integrations =
+        supply chain risk (SolarWinds, Log4j). Every item gets a dollar figure or regulatory
+        citation, not a technical description. Slide 2: Three executive readiness questions —
+        compress the 8-item checklist to three: "Can your pilots read instruments? Do you have
+        instruments? Is your control tower staffed?" If any is no, agents amplify risk, not
+        productivity. Slide 3: The framing line — "The instrument panel is not IT overhead.
+        It is flight clearance." ROI anchor: $1 invested in delivery automation → $6 return
+        (IBM/Ponemon). Without instruments, the agentic multiplier inverts: you're flying
+        blind across more missions simultaneously. Three slides total. The full 8-question
+        checklist survives in speaker notes for the VP Eng follow-up, not on slides.
+
+    "The Decision":
+      emphasis: high
+      note: >
+        §9 (The Decision) preserved intact — three concrete asks, three slides. Do NOT soften
+        into prose or merge into a single dense slide. Each ask gets its own slide with a
+        named owner and timeline: (1) Platform infrastructure audit — owner: VP Engineering,
+        timeline: 4 weeks, scope defined; (2) Fund the instrument panel — investment: platform
+        team of 3–5 engineers for a 50-developer org, payback: weeks vs. multiplier unlocked;
+        (3) Designate a pilot team — scope: one team, three agentic capabilities, 90 days,
+        baseline metrics defined before launch. Closing line: "You're not authorizing a
+        technology. You're authorizing a new operating model." Two to three slides. Anchor:
+        $1→$6 delivery automation ROI (IBM/Ponemon) if not already used in Section 3.
+
+  # 3–5 high-signal moments the generator must surface in the deck.
+  highlightMoments:
+    - "DORA 2023: elite teams deploy 208x more frequently with a 3x lower change failure rate — and the gap widens every quarter."
+    - "One developer supervising 3–4 concurrent agentic sessions = $20M delivery capacity in a $10M engineering organization."
+    - "$4.88M average data breach cost (IBM 2024) — before SEC 4-day disclosure obligations and regulatory fines. The instrument panel is your liability defense."
+    - "$1 invested in delivery automation returns $6 in reduced incident costs and remediation time (IBM/Ponemon Institute)."
+    - "Without instruments, you cannot fly multiple aircraft safely. You have the AI. You have the pilots. You need the cockpit."
+
+# OPEN DECISION: How extended is the aviation metaphor in slides vs. speaker notes?
+# Current recipe assumes the metaphor runs as language (pilots, instruments, no-fly zones)
+# but NOT as curriculum (no extended org-chart deep-dive, no flight-phase narration).
+# If the presenter wants to lean into the metaphor for a more narrative-style briefing,
+# the §2 org-chart section could be restored as a full slide with speaker notes —
+# but this is only recommended if the audience skews toward operational leaders (COO, VP Ops)
+# rather than financial/governance executives (CFO, CISO, General Counsel).

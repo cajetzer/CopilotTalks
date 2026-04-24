@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: Copilot Configuration Primitives
-module: tech-talks/copilot-primitives
 mdc: true
 section: Customization & Context
 status: active

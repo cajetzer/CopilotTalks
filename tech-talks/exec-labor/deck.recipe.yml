@@ -1,0 +1,108 @@
+# exec.recipe.yml — executive talk generation guidance
+#
+# Guides slide generation from exec-talks/agentic-labor/README.md.
+# Produced by exec-recipe-review skill (Agent Council, 2026-04-23).
+
+version: 1
+
+deck:
+  title: "The Labor Multiplier: What Agents Actually Do"
+  subtitle: "An executive briefing on the economics of agentic software delivery"
+  tagline: "AI tools addressed 33% of the labor problem. Here's how to capture the other 67%."
+
+  # arcToc: one line ≤ 80 chars, section names joined by →
+  arcToc: "The Hidden Labor Bill → The Exposure Ledger → The Multiplier Model → The Decision Window"
+
+  preamble:
+    - src: ./exec-spine.md
+
+  # arcNarrative: sequencing rationale for an executive audience
+  arcNarrative: >
+    The talk opens with a credibility reframe: AI coding tools have been optimizing a minority
+    of the actual labor problem. Section 1 establishes the 67% gap as a budget and competitive
+    issue, using McKinsey's time-allocation data to reframe the investment question. Section 2
+    converts that abstraction into a CFO-readable financial exposure table — five labor
+    categories, one dollar risk per row, no implementation detail. This is the talk's
+    load-bearing section: executives will authorize action based on the evidence here, not the
+    framework. Section 3 delivers the operating model — the Handoff Pattern (8–12 hrs → ~20
+    min) and the Automate/Augment/Human taxonomy give leaders a mental model for what "capturing
+    the 67%" actually means in practice. The section closes with the cost-of-delay signal
+    (DORA 208x deployment gap), transitioning directly into Section 4. Section 4 is brief and
+    concrete: three discrete leadership authorizations, timed to this quarter. The arc moves
+    executives from "I didn't know I had this problem" to "I know what I'm authorizing Monday."
+
+  # Ordered list of sections (max 4). Match sectionModes keys exactly.
+  sectionOrder:
+    - "The Hidden Labor Bill"
+    - "The Exposure Ledger"
+    - "The Multiplier Model"
+    - "The Decision Window"
+
+  # Per-section editorial guidance for the slide generator.
+  sectionModes:
+    "The Hidden Labor Bill":
+      # high = 4–5 slides, medium = 2–3, medium-low = 1–2
+      emphasis: high
+      note: >
+        Lead immediately with the reframe: developers spend only 30–33% of time writing code.
+        AI tools have addressed that minority — the 67% is untouched. Use the SDLC Labor Map
+        as a single supporting visual (one slide), not a taxonomy deep-dive. Do not name-check
+        individual agent categories here. Close the section with the competitive urgency
+        statement: competitors investing now compound an advantage that takes 18–24 months to
+        build. Two to three slides total. Cut: any operational detail about what agents do.
+        Anchor stat: McKinsey 2023 (30–33%) + GitHub 2023 (55% faster — but only on the 33%).
+
+    "The Exposure Ledger":
+      emphasis: high
+      note: >
+        This is the talk's credibility anchor. Present as a single executive risk table:
+        five labor categories (Discovery, Planning, Governance, Knowledge, Validation), each
+        with its quantified financial exposure. No agent descriptions. No implementation detail.
+        Pure risk surface the executive is currently carrying undefended. Close the section
+        with the ROI metrics table showing before/target/dollar impact — this is the payoff
+        that makes the evidence actionable. Four to five slides total. Anchor numbers that must
+        appear: $4.88M average breach cost (IBM 2024), GDPR 4% global revenue, $11K/min
+        outage (Gartner), 50–200% engineer replacement cost (SHRM), 20–30% project budget
+        rework (IDC). Do not explain how agents fix these — that is Section 3's job.
+
+    "The Multiplier Model":
+      emphasis: medium
+      note: >
+        Deliver the operating model in two beats. First: the Automate/Augment/Human taxonomy —
+        40–50% of current engineering labor falls in the Automate quadrant. This gives leaders
+        a mental model for authorization scope. Second: the Handoff Pattern — Preparation (5
+        min, agent) → Decision (2–3 min, human) → Execution (agent). Headline visual: 8–12
+        hours of human time compressed to ~20 minutes. Close with the before/after org model
+        table (one slide). The final slide of this section should be the cost-of-delay
+        transition: DORA 208x deployment frequency gap is widening today, not next quarter.
+        This sets up Section 4 without requiring a separate section opener for urgency.
+        Three slides total. Cut: per-category capability detail, individual metric tables.
+
+    "The Decision Window":
+      emphasis: high
+      note: >
+        Brief and concrete — executives close on specificity. Three discrete asks on three
+        slides (or one high-density slide): (1) labor allocation audit — 4-week assessment,
+        defined scope, not an open initiative; (2) 90-day pilot — one team, three agent
+        capabilities, baseline metrics defined before launch, success criteria in advance;
+        (3) governance policy definition — what agents can access without approval, who owns
+        agent behavior in production, legal and security input required. Frame each ask with
+        its time horizon and investment level. Do NOT soften these into prose. The "window"
+        framing must be explicit: the cost of not acting is not staying level — it is
+        compounding lag. Two to three slides total. Anchor: DORA 208x gap + Stack Overflow
+        2023 (62% of engineers say modern tooling influences job choice).
+
+  # 3–5 high-signal moments the generator must surface in the deck.
+  highlightMoments:
+    - "AI tools addressed 33% of software delivery labor. Competitors are moving on the other 67% now — the advantage compounds over 18–24 months."
+    - "$4.88M average data breach cost (IBM 2024) + GDPR fines up to 4% of global annual revenue: Governance is the highest-financial-exposure labor category."
+    - "8–12 hours of human effort compressed to ~20 minutes via the Preparation → Decision → Execution handoff pattern."
+    - "40–50% of current engineering labor falls in the 'Automate' quadrant — capturable today without displacing human judgment."
+    - "DORA 2023: elite teams deploy 208x more frequently. The gap widens every quarter investment is deferred."
+
+# OPEN DECISION: What is the primary audience persona for this talk — CFO (cost/ROI framing),
+# CISO (compliance/risk framing), or CTO/VP Eng (operating model framing)?
+# The current recipe serves a general executive audience. If the primary attendee is a CFO,
+# consider elevating the Exposure Ledger to Section 1 and making the Hidden Labor Bill
+# its explanatory follow-on. If primary audience is CISO, Governance deserves its own
+# opening moment before collapsing into the Exposure Ledger.

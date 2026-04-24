@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: GitHub Copilot CLI
-module: tech-talks/copilot-cli
 mdc: true
 section: Copilot Tools
 status: active

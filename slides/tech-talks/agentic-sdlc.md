@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: Agentic SDLC
-module: tech-talks/agentic-sdlc
 mdc: true
 section: Agentic Engineering
 status: active

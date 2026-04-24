@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: GitHub Copilot SDK
-module: tech-talks/copilot-sdk
 mdc: true
 section: "Customization & Context"
 status: active

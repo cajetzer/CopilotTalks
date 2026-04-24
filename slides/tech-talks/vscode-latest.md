@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: What's New in Copilot for VS Code - v1.108 to v1.117
-module: tech-talks/vscode-latest
 mdc: true
 section: Copilot Tools
 status: active

@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: GitHub Copilot ACP
-module: tech-talks/copilot-acp
 mdc: true
 section: Agentic Engineering
 status: active

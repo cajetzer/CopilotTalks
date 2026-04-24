@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: Scaling GitHub Copilot Across Organizations
-module: tech-talks/enterprise-patterns
 mdc: true
 section: Agentic Engineering
 status: active

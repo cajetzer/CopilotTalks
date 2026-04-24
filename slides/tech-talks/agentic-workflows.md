@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: GitHub Agentic Workflows
-module: tech-talks/agentic-workflows
 mdc: true
 section: Agentic Engineering
 status: active

@@ -1,0 +1,166 @@
+# tech-talks / events
+
+Milestones for individual tech-talk content: creation, rewrites, conformance, and pipeline changes.
+
+---
+
+## Tech-talk pipeline restructured: 3-agent workflow with deck-recipe-review skill (2026-04-22)
+
+`schema_version: 1` | `date: 2026-04-22`
+
+The tech-talk authoring pipeline was redesigned into a strict 3-stage sequence:
+
+1. **Tech Talk Generator** — writes `README.md`. No longer creates `deck.recipe.yml` itself. Final step invokes the deck-recipe-review skill.
+2. **Deck Recipe Review skill** — owns recipe creation entirely. Reads README + `DECK-RECIPE-TEMPLATE.yml` schema. Runs a 3-agent Agent Council (Phase 1 → Phase 2 improve → Phase 3 orchestrate). Produces a **complete, fresh** `deck.recipe.yml`. Always overwrites — never patches.
+3. **Tech Talk Slide Generator** — reads `deck.recipe.yml` as the sole Phase A input. If recipe is missing, **hard stops**: "Run the deck-recipe-review skill first."
+
+**Other changes:**
+- `DECK-RECIPE-TEMPLATE.yml` moved from `tech-talks/` to `.github/skills/deck-recipe-review/`
+- File-clear gate promoted to pre-flight in slide generator
+- References to `@Slide Manager`, `@Slide Generator`, `@tech-talk-author` removed from `tech-talks/README.md` (obsolete agent names)
+
+---
+
+## Full conformance sweep complete: all 18 tech-talk decks use Tier-1 components (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+All 18 tech-talk decks conformed to Tier-1 components. Raw HTML forbidden for body slides across all decks.
+
+**Decks conformed this session:**
+- `copilot-cli.md` — 13 slides converted, 8 kept raw HTML
+- `copilot-azure-mcp.md` — 7 slides converted, 4 kept raw HTML
+- `copilot-web.md` — 11 slides converted, 2 kept raw HTML
+- `copilot-sdk.md` — 6 slides converted, 3 kept raw HTML
+- `copilot-chat-internals.md` — 7 slides converted, 2 kept raw HTML
+- `copilot-acp.md` — 2 slides converted (slides 18, 19), existing slide 17 already done
+- `agentic-workflows.md` — 7 slides converted, 2 kept raw HTML
+- `copilot-plugins.md` — 6 slides converted, 3 kept raw HTML
+- `copilot-primitives.md` — 2 slides converted, 3 kept raw HTML
+- `agentic-journey.md` — 6 slides converted, 5 kept raw HTML
+- `copilot-code-review.md` — 7 slides converted, 8 kept raw HTML
+
+**Key orphan HTML patterns discovered:** `multi_replace_string_in_file` with mismatched closing `</div>` absorbs neighboring slide content. Always convert one slide per call or use full-region replacement. See `slides/discoveries.md`.
+
+---
+
+## Phase 1 catalog complete: all 18 tech-talk decks cataloged (2026-04-21)
+
+`schema_version: 1` | `date: 2026-04-21`
+
+All 18 raw HTML slides cataloged across all tech-talk decks. Working files created in `plan-decks/<deck>.md` for every deck.
+
+**Totals:** ~185 raw HTML slides across 18 decks
+- Direct maps (existing components): ~110 slides
+- Conditional: ~40 slides
+- Keep raw HTML (genuinely bespoke): ~35 slides
+
+---
+
+## copilot-plugins tech-talk created (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+New tech-talk added: **Copilot Plugins & APM: Composable AI Extensions**
+
+**Files created:**
+- `tech-talks/copilot-plugins/README.md` — CLI-first framing, distinguishes `copilot plugin` vs `apm` workflows
+- `tech-talks/copilot-plugins/deck.recipe.yml`
+- `slides/tech-talks/copilot-plugins.md` — 21-slide deck, builds clean
+
+**Section placement:** Customization & Context
+
+**Framing decision:** CLI-first throughout. Core insight: `copilot plugin` = personal exploration, `apm` = team infrastructure as code.
+
+---
+
+## fanhub-plugin APM demo package created (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Created `demos/fanhub-plugin/` — a complete, installable APM plugin package sourced from the workshop module folders.
+
+**Contents:** 28 files — `.github/copilot-instructions.md`, `docs/architecture.md`, `docs/breaking-bad-universe.md`, 6 prompts, 3 skills, `mcp-servers/fanhub-api-server.js`, `.vscode/mcp.json`, 2 agents, `apm.yml`, `WALKTHROUGH.md`, `README.md`.
+
+**Use:** Module 00 closing reveal.
+
+**Key insight confirmed:** `docs/architecture.md` ships as part of the payload and is read automatically by Copilot as codebase context — the single highest-value file in the package.
+
+---
+
+## demos/ folder created: 7 tech-talk companion walkthroughs (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+Created `demos/` at repo root containing grounded hands-on walkthroughs for 7 STRONG YES tech-talks.
+
+| File | Source talk |
+|------|-------------|
+| `copilot-cli-walkthrough.md` | tech-talks/copilot-cli |
+| `copilot-acp-walkthrough.md` | tech-talks/copilot-acp |
+| `copilot-azure-mcp-walkthrough.md` | tech-talks/copilot-azure-mcp |
+| `copilot-code-review-walkthrough.md` | tech-talks/copilot-code-review |
+| `copilot-coding-agent-walkthrough.md` | tech-talks/copilot-web |
+| `agentic-sdlc-walkthrough.md` | tech-talks/agentic-sdlc |
+| `agent-teams-walkthrough.md` | tech-talks/agent-teams |
+
+---
+
+## copilot-cli reframed around --remote: "AI at the Point of Work" (2026-04-17)
+
+`schema_version: 1` | `date: 2026-04-17`
+
+The `copilot-cli` tech-talk was comprehensively reframed from "Terminal-Native AI for Developers and DevOps" to **"AI at the Point of Work"** using a 3-phase collaborative council.
+
+**Structural spine: "Removing Distance."** Each section removes a different constraint:
+- Intent → Plan Mode
+- Complexity → /fleet fan-out
+- Context → Auto-compaction + Memory
+- Time → Cloud delegation (&)
+- Geography → `--remote` (the culmination)
+
+**Tagline:** "Start Anywhere. Steer Anywhere. Resume Anywhere."
+
+**README changes:** New major section "Remote Sessions: The Last Distance Falls". Distance Model table added. Use cases expanded from 3 → 6.
+
+**Slide deck changes:** 32 content slides + 10 preserved appendix reference slides = 42 total. Build verified clean ✅.
+
+---
+
+## vscode-latest tech-talk updated to v1.115 (2026-04-13)
+
+`schema_version: 1` | `date: 2026-04-13`
+
+The `vscode-latest` tech-talk README and slides were expanded to cover VS Code releases **v1.108 – v1.115** (8 releases total, up from 3).
+
+**Key new features added:** Autopilot mode (v1.111), VS Code Agents companion app (v1.115), Chat Customizations editor (v1.113), nested subagents (v1.113), MCP server sandboxing (v1.112).
+
+Duration changed from 30-45 minutes to 45-60 minutes. Slides regenerated: 24 slides.
+
+---
+
+## copilot-code-review tech-talk: Complete rewrite to remove hallucinations (2026-04-10)
+
+`schema_version: 1` | `date: 2026-04-10`
+
+The `copilot-code-review` tech-talk README and slides were completely rewritten to remove pervasive hallucinated content.
+
+**Hallucinations removed:**
+- Fictional `copilot-review.yml` YAML config files with invented `triggers`, `severity_threshold`, `focus`, `pattern`, `require_context` schema
+- Non-existent `examples/` directory references
+- References to non-existent tech-talks: `../copilot-chat/` and `../copilot-workspace/`
+
+**Rewritten to reflect actual product:**
+- Configuration via **GitHub Rulesets UI**
+- Custom behavior via **`.github/copilot-instructions.md`** (Markdown)
+- Language-specific rules via **`.github/instructions/<topic>.instructions.md`**
+
+**Always regenerate from `tech-talks/copilot-code-review/research.md`** for this talk to avoid hallucination recurrence.
+
+---
+
+## copilot-acp.md: Part 4 use-case slides restructured (2026-04-09)
+
+`schema_version: 1` | `date: 2026-04-09`
+
+Slide 17 (Zed Editor Integration) was split into three standalone slides. Deck grew from **22 → 24 slides**. The slide count entry in any all-decks table is stale — copilot-acp.md is at 24 slides, not 22.

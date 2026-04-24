@@ -10,7 +10,6 @@ drawings:
   persist: false
 transition: slide-left
 title: GitHub Copilot Code Review
-module: tech-talks/copilot-code-review
 mdc: true
 section: Copilot Tools
 status: active
