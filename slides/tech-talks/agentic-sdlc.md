@@ -13,7 +13,7 @@ title: Agentic SDLC
 mdc: true
 section: Agentic Engineering
 status: active
-updated: 2026-04-22
+updated: 2026-07-17
 ---
 
 <script setup>
@@ -32,7 +32,6 @@ import FourCardGridSlide from './components/FourCardGridSlide.vue'
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
 import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
-import MaturityLevelDrilldownSlide from './components/MaturityLevelDrilldownSlide.vue'
 import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
 </script>
@@ -40,26 +39,9 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <!-- SLIDE: Title -->
 <TitleSlide
   title="Agentic SDLC"
-  subtitle="Level 5 Infrastructure for AI Velocity"
-  tagline="Autonomous delivery infrastructure that grows with agent throughput."
+  subtitle="Two Frameworks, One Journey to Autonomous Delivery"
+  tagline="AgentRC readiness + WGLL adoption — the infrastructure and the habits that scale together"
   meta="CopilotTraining Tech Talk"
-/>
-
----
-
-<!-- SLIDE: Core Question -->
-<CoreQuestionSlide
-  question="What does your repository infrastructure need to handle 15,000 lines/day from agents?"
-  subtext="Your review habits, repo topology, and CI pipelines were designed for human throughput."
-  highlight="At Level 5, the bottleneck is trust — not writing code."
-  :cards='[
-    { icon: "🏗️", title: "Architect", description: "Design repo topology and CI pipelines that scale agent throughput 100x" },
-    { icon: "🛡️", title: "Platform Engineer", description: "Automate governance gates so 22 manual approvals become 4 human checkpoints" },
-    { icon: "📈", title: "Engineering Manager", description: "Understand the 5-level maturity model and where your team sits today" },
-    { title: "300 → 15,000 lines/day", description: "Review capacity shift when governance automation replaces manual gates" },
-    { title: "3 days → 45 min", description: "Time to production when 3 separate repos collapse into a monorepo" },
-    { title: "150 → 3,600 features/year", description: "100x throughput from repo topology + PR governance + CI trust combined" }
-  ]'
 />
 
 ---
@@ -67,46 +49,47 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "📐", title: "AgentRC Maturity Model", subtitle: "5 levels from functional to autonomous", blurb: "Where agent review habits collapse and why", slide: 4 },
-    { icon: "🗂️", title: "Repository Topology",   subtitle: "Monorepo vs. polyrepo coordination tax", blurb: "The arithmetic that makes 3 days become 45 minutes", slide: 7 },
-    { icon: "🔀", title: "PR Workflows",           subtitle: "Governance pyramid inversion", blurb: "22 manual gates → 4 human checkpoints + 90% automated", slide: 12 },
-    { icon: "🏭", title: "Trust Manufacturing",    subtitle: "CI as an agent enablement system", blurb: "10-minute threshold and the L3→L5 implementation roadmap", slide: 17 }
+    { icon: "📐", title: "Unified Maturity Model", subtitle: "AgentRC levels + WGLL rings", blurb: "Two frameworks that only work when they advance together", slide: 3 },
+    { icon: "🗂️", title: "Repository Topology",   subtitle: "Coordination tax eliminated", blurb: "3 days → 45 min — same agent work, different wall time", slide: 7 },
+    { icon: "🔀", title: "PR Workflows",           subtitle: "Governance pyramid inverted", blurb: "22 manual gates → 4 human checkpoints + 90% automated", slide: 12 },
+    { icon: "🏭", title: "Trust Manufacturing",    subtitle: "CI as trust factory", blurb: "10-min threshold: agents idle 80% at 60 min, productive 95% at 8 min", slide: 17 },
+    { icon: "🗺️", title: "Implementation Roadmap", subtitle: "Three phased actions", blurb: "Infrastructure + habits advancing together at each level", slide: 20 }
   ]'
 />
 
 ---
 
-<!-- SLIDE: Part 1 — AgentRC Maturity Model -->
+<!-- SLIDE: Part 1 — Unified Maturity Model -->
 <SectionOpenerSlide
   :partNumber="1"
-  title="AgentRC Maturity Model"
-  subtitle="Five levels of repository readiness — from functional scripts to autonomous delivery."
+  title="Unified Maturity Model"
+  subtitle="Two frameworks orient the room — infrastructure readiness and developer adoption must advance together."
   :cards='[
-    { icon: "📊", title: "5-Level Framework", blurb: "L1 functional through L5 autonomous — each unlocks a new capability class" },
-    { icon: "⚡", title: "The L3→L5 Breakpoint", blurb: "Where review habits designed for 300 lines/day collapse at 15,000" },
-    { icon: "🎯", title: "Your Current Level", blurb: "Concrete checks and changes for each maturity transition" }
+    { icon: "📊", title: "AgentRC Levels", blurb: "L1 Functional → L5 Autonomous — the infrastructure rails agents run on" },
+    { icon: "🔄", title: "WGLL Rings", blurb: "Ring 1 platform → Ring 5 measurement — the habits that use those rails" },
+    { icon: "⚠️", title: "Mismatch Trap", blurb: "L5 infra + Ring 1 habits still underperforms L3 + Ring 3" }
   ]'
-  :terminal='{ context: "Lines of agent-generated code reviewable per day per engineer at L5", detail: "15,000 lines/day — vs. 300 at L1" }'
+  :terminal='{ context: "Assess → Restructure → Govern → Trust → Scale", detail: "Constraint-ladder: each section solves the bottleneck the previous one exposed" }'
 />
 
 ---
 
-<!-- SLIDE: AgentRC 5-Level Maturity Model -->
-<MaturityJourneyRoadmapSlide
+<!-- SLIDE: L1–L5 ↔ Ring Mapping Table -->
+<FrameworkMappingRowsSlide
   :partNumber="1"
   pillIcon="📐"
-  pillLabel="AgentRC · Maturity Model"
-  title="Five Levels of Repository AI Readiness"
-  subtitle="Each level unlocks more automation, more speed, and more safety"
-  :stages='[
-    { label: "L1", name: "Functional",    description: "Reliable scripts and baseline CI — basic automation can run",               icon: "🔧", isTarget: false },
-    { label: "L2", name: "Documented",    description: "Explicit conventions agents follow instead of guessing",                   icon: "📖", isTarget: false },
-    { label: "L3", name: "Standardized", description: "CI/CD, CODEOWNERS, policy — automation becomes repeatable",                  icon: "⚙️", isTarget: false },
-    { label: "L4", name: "Optimized",    description: "MCP tools, custom agents, and skills chain multi-step work",               icon: "🤖", isTarget: false },
-    { label: "L5", name: "Autonomous",   description: "Agents as primary producers — end-to-end delivery, minimal oversight",    icon: "🚀", isTarget: true  }
+  pillLabel="Unified Maturity · Mapping"
+  title="L1–L5 ↔ WGLL Ring Mapping"
+  subtitle="Rate where your team sits across both dimensions before choosing investments"
+  :rows='[
+    { label: "L1 Functional",    description: "Copilot licensed, basic IDE setup, reliable CI floor",                                                  tag: "Pre-Ring" },
+    { label: "L2 Documented",    description: "copilot-instructions.md exists, Chat in daily use, conventions explicit",                                tag: "Ring 1 entering" },
+    { label: "L3 Standardized",  description: "MCP ≥1 system, CCR default, GHAS enabled, CCA delegated work, CI flake <2%",                           tag: "Ring 1–3" },
+    { label: "L4 Optimized",     description: "MCP ≥2 enterprise, coding agents in PR flow, org governance deliberate",                                tag: "Ring 2–4" },
+    { label: "L5 Autonomous",    description: "Agents own features end-to-end, Metrics API + DORA correlated, ROI narrative produced",                  tag: "Ring 4–5" }
   ]'
-  caption="L5 is not a shortcut around L1–L4 — it is the compounding result of them"
-  :progressDots='{ current: 1, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  footnote="L5 infrastructure + Ring 1 habits still underperforms L3 infrastructure + Ring 3 habits — maturity must advance on both axes"
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -115,18 +98,38 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <HeroStatSlide
   :partNumber="1"
   pillIcon="⚡"
-  pillLabel="AgentRC · The Breakpoint"
-  title="The L5 Breakpoint: Where L3 Review Habits Collapse"
+  pillLabel="Unified Maturity · Breakpoint"
+  title="The Volume Flip: Where Review Habits Collapse"
   subtitle="Scarcity shifts from writing code to trusting it at velocity"
-  :hero='{ value: "50×", label: "more code to review per day — review habits designed for 300 lines/day collapse at 15,000", source: "" }'
+  :hero='{ value: "50×", label: "more code to review per day — habits designed for 300 lines/day collapse at 15,000", source: "" }'
   :supporting='[
     { icon: "✍️", title: "L3 assumption", description: "Humans produce 300 lines/day — line-by-line review is feasible" },
     { icon: "🤖", title: "L5 reality", description: "Agents produce 15,000 lines/day per reviewer — detail review is impossible" },
     { icon: "🔀", title: "What must change", description: "Repo topology, PR governance, and CI speed all need L5-native redesign" },
-    { icon: "💡", title: "The insight", description: "Bottleneck shifts from writing code to manufacturing trust at agent velocity" }
+    { icon: "💡", title: "The architectural insight", description: "The bottleneck is not writing code — it is manufacturing trust at agent velocity" }
   ]'
-  :insight='{ icon: "🎯", text: "The bottleneck at Level 5 is not writing code — it is trusting 15,000 lines per day." }'
-  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "🎯", text: "At L5, scarcity moves from code production to trust production. Every section that follows addresses one layer of that shift." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Instruction Hierarchy -->
+<MaturityJourneyRoadmapSlide
+  :partNumber="1"
+  pillIcon="📜"
+  pillLabel="Unified Maturity · Instructions"
+  title="The Instruction Hierarchy: Highest-Leverage Cross-Cutting Investment"
+  subtitle="One investment that compounds at every maturity level — treat config as first-class code"
+  :stages='[
+    { label: "Org",   name: "Organization Instructions", description: "GitHub Settings → Copilot → Custom Instructions — applies to Chat, CCR, CCA",  icon: "🏢", isTarget: false },
+    { label: "Repo",  name: "copilot-instructions.md",   description: ".github/copilot-instructions.md — coding standards, architecture, patterns",    icon: "📁", isTarget: false },
+    { label: "Agent", name: "AGENTS.md",                  description: "Build commands, test patterns, PR conventions — CCA operates like a team member", icon: "🤖", isTarget: false },
+    { label: "Task",  name: "Prompt Files",               description: ".github/prompts/*.prompt.md — team&#39;s top repeatable workflows",              icon: "📄", isTarget: false },
+    { label: "Code",  name: "Coding Guidelines",          description: "GitHub repo settings → Copilot → Code Review — CCR enforces team standards",     icon: "✅", isTarget: true  }
+  ]'
+  caption="Version in GitHub repos, review in PRs, evolve alongside the codebase — this is what separates good from excellent"
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -135,7 +138,7 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <SectionOpenerSlide
   :partNumber="2"
   title="Repository Topology"
-  subtitle="The coordination tax is the single largest wall-time killer for multi-repo agent workflows."
+  subtitle="You&#39;ve assessed where you are — now the first wall is coordination tax."
   :cards='[
     { icon: "💸", title: "Coordination Tax", blurb: "3 repos × 45-min CI = 3 days to production instead of 45 min" },
     { icon: "🏢", title: "Monorepo Benefits", blurb: "Single atomic commit, shared context, one CI run for the whole change" },
@@ -150,7 +153,7 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <BeforeAfterMetricsSlide
   :partNumber="2"
   pillIcon="💸"
-  pillLabel="Repository Topology · The Tax"
+  pillLabel="Repo Topology · The Tax"
   title="The Coordination Tax: Same Agent Work, Radically Different Wall Time"
   :before='{
     header: "3-Repo Polyrepo",
@@ -181,14 +184,14 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 
 ---
 
-<!-- SLIDE: Monorepo Structure -->
+<!-- SLIDE: Monorepo vs Multi-Repo -->
 <TwoColPairedConceptsSlide
   :partNumber="2"
   pillIcon="🗂️"
-  pillLabel="Repository Topology · Structure"
+  pillLabel="Repo Topology · Decision"
   title="Agent-Native Monorepo vs. Multi-Repo: When to Use Each"
   :left='{
-    header: "Monorepo",
+    header: "Monorepo (default 80%)",
     icon: "✅",
     items: [
       { title: "Atomic cross-module changes", detail: "API + 7 call sites in one PR, not 8 coordinated PRs" },
@@ -216,7 +219,7 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <ProblemSolutionOutcomeSlide
   :partNumber="2"
   pillIcon="🔒"
-  pillLabel="Repository Topology · Boundaries"
+  pillLabel="Repo Topology · Boundaries"
   title="Enforced Boundaries: Agents Follow Rules, Not Comments"
   :problem='{
     header: "Suggested Boundaries",
@@ -252,7 +255,7 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <BeforeAfterMetricsSlide
   :partNumber="2"
   pillIcon="⚡"
-  pillLabel="Repository Topology · CI Speed"
+  pillLabel="Repo Topology · CI Speed"
   title="Affected Analysis: Test What Changed, Cache the Rest"
   :before='{
     header: "Test Everything",
@@ -286,9 +289,9 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <SectionOpenerSlide
   :partNumber="3"
   title="PR Workflows"
-  subtitle="Governance that was designed for humans cannot scale to agent throughput without automation."
+  subtitle="Coordination is solved — now review capacity is the bottleneck."
   :cards='[
-    { icon: "🔺", title: "Governance Pyramid", blurb: "22 manual approval gates today → 4 human checkpoints after inversion" },
+    { icon: "🔺", title: "Governance Pyramid", blurb: "22 manual approval gates → 4 human checkpoints after inversion" },
     { icon: "🤖", title: "90% Automated", blurb: "Security, compliance, quality — enforced by policy, not by reading" },
     { icon: "👁️", title: "Human Judgment", blurb: "Architects review what only humans can judge: architecture and intent" }
   ]'
@@ -297,7 +300,27 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 
 ---
 
-<!-- SLIDE: Why Traditional PRs Fail at L5 -->
+<!-- SLIDE: Unified Maturity Context for PR Governance -->
+<FrameworkMappingRowsSlide
+  :partNumber="3"
+  pillIcon="🔀"
+  pillLabel="PR Workflows · Maturity Context"
+  title="How Review Mode Shifts at Each Level"
+  subtitle="PR governance model evolves as both infrastructure and habits advance"
+  :rows='[
+    { label: "L1 Functional",   description: "Manual verification — humans working against basic tooling, no Copilot habits yet",                                          tag: "Manual" },
+    { label: "L2 Documented",   description: "Human review with better context via Copilot Chat — completions + chat habitual",                                             tag: "Assisted" },
+    { label: "L3 Standardized", description: "Repeatable gates: CCR automatic on all PRs, branch rulesets, CCA delegated ≥3-5 issues/sprint",                              tag: "Gated" },
+    { label: "L4 Optimized",    description: "Context-aware automation + human exception handling — MCP ≥2, org governance deliberate",                                     tag: "Automated" },
+    { label: "L5 Autonomous",   description: "Outcome validation: 4 human checkpoints, 90% automated — Metrics API + DORA, ROI narrative, champions active",               tag: "Outcome" }
+  ]'
+  footnote="Most PR systems feel fine through L1–L4 then break when teams try L5 volume with L3 review habits"
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: L3 vs L5 Review Habits -->
 <WorkflowShowdownStepsSlide
   :partNumber="3"
   pillIcon="🔀"
@@ -315,22 +338,6 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
   :outcomeLeft='{ icon: "🔄", label: "4-7 days from PR to merge at L5 volume" }'
   :outcomeRight='{ icon: "✓", label: "2-4 hours from PR to merge" }'
   summaryMetric="50× review capacity increase — same engineers, governance automation does the heavy lifting"
-  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Three PR Models That Scale -->
-<ThreeColumnCardSlide
-  :partNumber="3"
-  pillIcon="📋"
-  pillLabel="PR Workflows · Three Models"
-  title="Three PR Models Built for Agent Velocity"
-  :columns='[
-    { icon: "🎯", title: "Intent-Based PRs", description: "Spec lives in .intent/ folder — reviewers read requirements, agent generates the 1,500 lines", items: ["20 min review vs. 3 hrs", "Approve intent, not implementation", "Request intent clarification, not code changes"] },
-    { icon: "📦", title: "Evidence-Bundle PRs", description: "PR contains tests passed, security scan clean, coverage met, staging deployed — reviewers trust the bundle", items: ["All evidence in one PR", "Human asks: is evidence sufficient?", "Not: why did you choose this pattern?"] },
-    { icon: "🔒", title: "Policy-Gated PRs", description: "90% of governance automated — security, compliance, architecture, coverage all checked before human sees it", items: ["22 gates → 4 human checkpoints", "1 sign-off after all gates pass", "Auto-merge on low-risk changes"] }
-  ]'
   :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
@@ -365,13 +372,13 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
     { value: "50×", label: "review capacity per engineer" },
     { value: "4 hrs", label: "avg time to merge" }
   ]'
-  :insight='{ icon: "💡", text: "Human judgment handles what only humans can judge: architecture, intent, and strategic risk." }'
+  :insight='{ icon: "💡", text: "CODEOWNERS + required reviewers + automated status checks — humans judge architecture, intent, and strategic risk." }'
   :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Context-Aware Compliance Validation -->
+<!-- SLIDE: Context-Aware Compliance -->
 <TwoColPairedConceptsSlide
   :partNumber="3"
   pillIcon="🤖"
@@ -406,18 +413,18 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <SectionOpenerSlide
   :partNumber="4"
   title="Trust Manufacturing"
-  subtitle="CI is not a quality gate — it is the agent enablement system. Speed and coverage both matter."
+  subtitle="Review scales — now you need CI to manufacture trust at velocity."
   :cards='[
-    { icon: "⏱️", title: "10-Minute Threshold", blurb: "Agents idle 80% of the time at 60-min CI, productive 95% at 8-min CI" },
-    { icon: "🔒", title: "Safe-Output Validation", blurb: "Every agent output sanitized before shell execution — no injection risk" },
-    { icon: "🗺️", title: "L3→L5 Roadmap", blurb: "Three implementation phases architects take back to their teams" }
+    { icon: "⏱️", title: "10-Minute Threshold", blurb: "Agents idle 80% at 60-min CI, productive 95% at 8-min CI" },
+    { icon: "🚫", title: "Zero-Flake Tolerance", blurb: "Quarantine on first flake, fix in 2 days — green = trustworthy" },
+    { icon: "📜", title: "Attestations", blurb: "SLSA evidence trails for regulated environments and audit" }
   ]'
   :terminal='{ context: "Features per day: 60-min CI vs. 8-min CI with agents running continuously", detail: "3 features/day → 15 features/day" }'
 />
 
 ---
 
-<!-- SLIDE: CI as Trust Factory -->
+<!-- SLIDE: CI Manufacturing Principles -->
 <FrameworkMappingRowsSlide
   :partNumber="4"
   pillIcon="🏭"
@@ -432,7 +439,7 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
     { label: "Zero Flake",  description: "Quarantine on first flake, fix in 2 days — green = trustworthy",           tag: "100% Signal" }
   ]'
   footnote="The goal: trust that scales linearly with agent output, not quadratically with human review time"
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -441,7 +448,7 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <HeroStatSlide
   :partNumber="4"
   pillIcon="⏱️"
-  pillLabel="Trust Manufacturing · The Threshold"
+  pillLabel="Trust Manufacturing · Threshold"
   title="The 10-Minute Threshold: CI Speed = Agent Productivity"
   subtitle="Agents sit idle waiting for CI — the faster the feedback, the higher the throughput"
   :hero='{ value: "5×", label: "more features per day: 60-min CI delivers 3/day, 8-min CI delivers 15/day — same agents", source: "" }'
@@ -452,47 +459,145 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
     { icon: "📈", title: "Cache economics", description: "15th feature costs 2 min CI (cache hit) — marginal trust cost approaches zero" }
   ]'
   :insight='{ icon: "🏭", text: "Target: <10 min for PR checks. Every minute over 10 is agent idle time compounded across 15 PRs/day." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: L3→L5 Implementation Roadmap -->
-<ThreeColumnCardSlide
-  :partNumber="4"
-  pillIcon="🗺️"
-  pillLabel="Trust Manufacturing · Roadmap"
-  title="Three-Phase Implementation Roadmap: L3 to L5"
-  :columns='[
-    { icon: "⚙️", title: "Phase 1: Reach L3", description: "Standardize foundations so automation becomes repeatable and trustworthy", items: ["Add linting, build scripts, README, lockfile", "Set up CODEOWNERS and branch protection", "Achieve <2% CI flake rate", "Timeline: 4-6 weeks"] },
-    { icon: "🤖", title: "Phase 2: Reach L4", description: "Add agent tooling and optimize the loops that are now reliable enough to accelerate", items: ["Install MCP servers for CI context", "Enable affected analysis — target <10 min CI", "Deploy policy-gated PR automation", "Timeline: 6-10 weeks"] },
-    { icon: "🚀", title: "Phase 3: Operate at L5", description: "Agents become primary producers; humans govern outcomes and exceptions", items: ["Enable intent-based + evidence-bundle PRs", "Achieve 10-15 features/day throughput", "Generate SLSA attestations per release", "Timeline: 8-12 weeks"] }
+<!-- SLIDE: Part 5 — Implementation Roadmap -->
+<SectionOpenerSlide
+  :partNumber="5"
+  title="Implementation Roadmap"
+  subtitle="Trust is automated — now you need a phased plan to scale both axes."
+  :cards='[
+    { icon: "⚙️", title: "Phase 1: Standardized", blurb: "L3 + Rings 1–3 — the launchpad where repeatability first compounds" },
+    { icon: "🤖", title: "Phase 2: Optimized", blurb: "L4 + Rings 2–4 — enterprise governance and advanced agent capabilities" },
+    { icon: "🚀", title: "Phase 3: Autonomous", blurb: "L5 + Rings 4–5 — agents own features, measurement drives improvement" }
   ]'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :terminal='{ context: "Both dimensions must advance together", detail: "L3 is the launchpad — skip it and L5 collapses under its own weight" }'
 />
 
 ---
 
-<!-- SLIDE: Before/After -->
-<BeforeAfterSlide
-  header="From Human-Paced SDLC to Agent-Velocity Delivery"
-  :leftItems='["Manual triage and review gates designed for 300 lines/day", "3 repos × 45-min CI = 3 days to production per feature", "22 manual approval gates per release", "60-min CI leaves agents idle 80% of the time"]'
-  :rightItems='["Automated governance handles 15,000 lines/day per reviewer", "Monorepo: 45-min CI for the same cross-cutting change", "4 human checkpoints + 90% automated policy enforcement", "8-min CI keeps agents productive 95% of the time"]'
-  :metrics='[
-    { value: "100×", detail: "throughput — 150 features/year → 3,600" },
-    { value: "96×", detail: "faster to production — 3 days → 45 min" },
-    { value: "5×", detail: "more daily features with 8-min vs. 60-min CI" }
-  ]'
+<!-- SLIDE: Phase 1 — Standardized Foundation -->
+<TwoColPairedConceptsSlide
+  :partNumber="5"
+  pillIcon="⚙️"
+  pillLabel="Roadmap · Phase 1"
+  title="Phase 1: Standardized Foundation (L3 + Rings 1–3)"
+  :left='{
+    header: "Infrastructure (AgentRC L3)",
+    icon: "🏗️",
+    items: [
+      { title: "MCP ≥1 enterprise system", detail: "Internal docs, database schema, or CI feedback connected" },
+      { title: "CCR as default reviewer", detail: "Automatic on all PRs in target repositories" },
+      { title: "GHAS enabled", detail: "CodeQL, secret scanning, Dependabot on every PR" },
+      "Monorepo migration if >30% cross-repo features"
+    ]
+  }'
+  :right='{
+    header: "Habits (WGLL Rings 1–3)",
+    icon: "🧑‍💻",
+    items: [
+      { title: "copilot-instructions.md versioned", detail: "Reviewed in PRs like any code change" },
+      { title: "Copilot MAU ≥60%", detail: "Chat + completions + CLI habitual, not experimental" },
+      { title: "CCA delegated ≥3-5 issues/sprint", detail: "Issue templates structured for agent success" },
+      "≥5 custom coding guidelines co-authored with tech lead"
+    ]
+  }'
+  :insight='{ icon: "📜", text: "Instruction Hierarchy: establish org instructions + repo copilot-instructions.md + AGENTS.md — the foundation everything builds on." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-emerald-400 shadow-lg shadow-emerald-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Phase 2 — Optimized Governance -->
+<TwoColPairedConceptsSlide
+  :partNumber="5"
+  pillIcon="🤖"
+  pillLabel="Roadmap · Phase 2"
+  title="Phase 2: Optimized Governance (L4 + Rings 2–4)"
+  :left='{
+    header: "Infrastructure (AgentRC L4)",
+    icon: "🏗️",
+    items: [
+      { title: "MCP ≥2 enterprise systems", detail: "Multi-step orchestration: CCA + MCP + custom instructions" },
+      { title: "Coding agents in PR flow", detail: "CCA PR merge rate ≥60%, time to merge trending down" },
+      { title: "Org-level governance", detail: "Enterprise Copilot settings deliberate, not defaults" },
+      "Policy-gated PR automation deployed"
+    ]
+  }'
+  :right='{
+    header: "Habits (WGLL Rings 2–4)",
+    icon: "🧑‍💻",
+    items: [
+      { title: "CCR tuned, false positives <20%", detail: "Custom coding guidelines ≥10, iterated from feedback" },
+      { title: "Seat utilization ≥80%", detail: "Inactive seats reallocated; PRU governance in place" },
+      { title: "Copilot Memory enabled", detail: "Monthly curation cadence established" },
+      "PR review turnaround reduced ≥30% vs. pre-CCR baseline"
+    ]
+  }'
+  :insight='{ icon: "📜", text: "Instruction Hierarchy matures: AGENTS.md + prompt files covering top workflows, coding guidelines tuned from CCR patterns." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-emerald-400 shadow-lg shadow-emerald-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Phase 3 — Autonomous Scale -->
+<TwoColPairedConceptsSlide
+  :partNumber="5"
+  pillIcon="🚀"
+  pillLabel="Roadmap · Phase 3"
+  title="Phase 3: Autonomous Scale (L5 + Rings 4–5)"
+  :left='{
+    header: "Infrastructure (AgentRC L5)",
+    icon: "🏗️",
+    items: [
+      { title: "Agents own features end-to-end", detail: "Intent spec → implementation → CI trust → human validation → merge" },
+      { title: "Metrics API integrated", detail: "Copilot usage correlated with DORA metrics on team dashboards" },
+      { title: "ROI narrative produced", detail: "X% reduction in PR cycle time, Y% increase in deploy frequency" },
+      "SLSA attestations generated per release"
+    ]
+  }'
+  :right='{
+    header: "Habits (WGLL Rings 4–5)",
+    icon: "🧑‍💻",
+    items: [
+      { title: "Enterprise platform operational", detail: "Admin dashboard, Copilot Spaces with deliberate architecture" },
+      { title: "Champions program active", detail: "≥2 power users per team coaching peers and contributing instructions" },
+      { title: "Quarterly capability assessments", detail: "Clear next-level targets with self-sufficiency score ≥4/5" },
+      "≥4 Copilot modalities in active use across the org"
+    ]
+  }'
+  :insight='{ icon: "🎯", text: "L3 is the launchpad — where repeatability, habits, and quality infrastructure first compound. Skip it and L5 collapses under its own weight." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-emerald-400 shadow-lg shadow-emerald-500/50" }'
 />
 
 ---
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Audit your CI pipeline runtime — is it under 10 minutes?", "Count your current manual approval gates per release", "Run AgentRC assessment: which of the 5 levels are you at?"]'
-  :thisWeek='["Add safe-output validation to one agent workflow", "Identify the top 3 cross-repo dependencies that slow CI", "Draft your L3 checklist: linting, build scripts, README, lockfile"]'
-  :thisMonth='["Reach L3 maturity across your primary repository", "Automate one governance gate that is currently manual", "Map your repo topology and model the coordination tax savings"]'
-  footer="The infrastructure investment is front-loaded — the throughput dividend compounds every sprint after."
+  :today='["Run self-assessment: rate your team on both AgentRC levels and WGLL rings", "Audit CI pipeline runtime — is it under 10 minutes?", "Check Copilot MAU: are ≥60% of licensed seats active?"]'
+  :thisWeek='["Version copilot-instructions.md in primary repos; review it in a PR", "Write AGENTS.md and copilot-setup-steps.yml for CCA-enabled repos", "Enable CCR as automatic reviewer on your most active repository"]'
+  :thisMonth='["Connect ≥1 MCP server to a valuable enterprise system", "Implement flake quarantine policy and target <2% CI flake rate", "Assign 3-5 well-decomposed issues to CCA and review results as a team"]'
+  footer="Infrastructure and habits advance together — L3 is the launchpad, not the destination."
+/>
+
+---
+
+<!-- SLIDE: Core Question -->
+<CoreQuestionSlide
+  question="Is your SDLC ready for the throughput your agents can deliver?"
+  subtext="Two frameworks, one journey — infrastructure readiness and developer adoption must advance together."
+  highlight="L5 infrastructure with Ring 1 habits wastes the investment. L3 with Ring 3 outperforms it."
+  :cards='[
+    { icon: "🏗️", title: "Architect", description: "Design repo topology and CI pipelines that scale agent throughput 100x" },
+    { icon: "🛡️", title: "Platform Engineer", description: "Automate governance gates so 22 manual approvals become 4 human checkpoints" },
+    { icon: "📈", title: "Engineering Leader", description: "Advance both axes: infrastructure readiness and developer habits in lockstep" },
+    { title: "300 → 15,000 lines/day", description: "Review capacity shift when governance automation replaces manual gates" },
+    { title: "3 days → 45 min", description: "Time to production when 3 separate repos collapse into a monorepo" },
+    { title: "150 → 3,600 features/year", description: "100x throughput from topology + governance + CI trust combined" }
+  ]'
 />
 
 ---
@@ -501,15 +606,17 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <ReferencesSlide
   :groups='[
     { title: "📖 Official Documentation", color: "cyan", items: [
-      { href: "https://github.com/microsoft/agentrc", label: "Microsoft AgentRC repository", description: "Maturity model specification, readiness assessment tooling, and the measure/generate/maintain loop" },
+      { href: "https://github.com/microsoft/agentrc", label: "Microsoft AgentRC repository", description: "Maturity model, readiness assessment tooling, and the measure/generate/maintain loop" },
       { href: "https://github.com/microsoft/agentrc/blob/main/docs/concepts.md", label: "AgentRC concepts and maturity model", description: "Level definitions, readiness pillars, and how autonomy is staged" },
+      { href: "https://docs.github.com/en/rest/copilot/copilot-metrics", label: "GitHub Copilot Metrics API", description: "Adoption metrics by modality, language, and team for ROI measurement" },
+      { href: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent", label: "Copilot Coding Agent (CCA)", description: "Setup, copilot-setup-steps.yml, and agent firewall configuration" },
       { href: "https://docs.github.com/en/actions", label: "GitHub Actions documentation", description: "CI/CD workflow automation for PR checks, deploy pipelines, and policy gates" },
       { href: "https://nx.dev/", label: "Nx monorepo tools", description: "Build orchestration, module boundary enforcement, and affected analysis" },
       { href: "https://slsa.dev/", label: "SLSA supply chain security framework", description: "Attestation standards and supply chain trust levels" }
     ] },
     { title: "🛠️ Related Talks", color: "purple", items: [
-      { label: "Agentic Journey", description: "Incremental 4-workflow path from issue triage to PR automation — start here before the full SDLC" },
-      { label: "Agentic Workflows", description: "GitHub Actions workflow authoring for AI agent pipelines" },
+      { label: "What Good Looks Like (WGLL)", description: "AI-native SDLC on GitHub — five rings of platform adoption and assessment criteria" },
+      { label: "Agentic Journey", description: "Incremental 4-workflow path from issue triage to PR automation — start here before full SDLC" },
       { label: "Enterprise Patterns", description: "Organization-wide scaling of agentic delivery infrastructure" }
     ] }
   ]'
@@ -520,11 +627,11 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
   title="Agentic SDLC"
-  subtitle="Level 5 Infrastructure for AI Velocity"
+  subtitle="Two Frameworks, One Journey to Autonomous Delivery"
   :cards="[
     { value: '15,000', detail: 'Lines reviewable per day per engineer — 50× the human baseline' },
     { value: '45 min', detail: 'Time to production from 3 days — monorepo eliminates the coordination tax' },
-    { value: '3,600', detail: 'Features per year at Level 5 — 100× from topology + governance + CI combined' },
+    { value: 'L3', detail: 'The launchpad — where repeatability, habits, and quality infrastructure first compound' },
   ]"
-  prompt="Which of the three infrastructure pillars — repo topology, PR governance, or CI speed — is your team&#39;s biggest blocker today?"
+  prompt="Which dimension needs more attention in your org — the infrastructure rails or the developer habits riding them?"
 />
