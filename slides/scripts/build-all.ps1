@@ -51,6 +51,8 @@ $PROP_EXTRACTORS = @{
     'CARD_TITLE_MAX' = @{ type = 'match'; pattern = 'title:\s*"([^"]+)"' }
     'CARD_BLURB_MAX' = @{ type = 'match'; pattern = 'blurb:\s*"([^"]+)"' }
     'ROW_MAX'        = @{ type = 'count'; pattern = 'label:\s*"[^"]+"' }
+    'SECTIONS_MAX'   = @{ type = 'count'; pattern = 'icon:\s*"[^"]+"' }
+    'CARDS_MAX'      = @{ type = 'count'; pattern = 'icon:\s*"[^"]+"' }
     'HEADER_MAX'     = @{ type = 'attr';  pattern = 'header="([^"]+)"' }
     'PROMPT_MAX'     = @{ type = 'attr';  pattern = 'prompt="([^"]+)"' }
     'FOOTER_MAX'     = @{ type = 'attr';  pattern = 'footer="([^"]+)"' }

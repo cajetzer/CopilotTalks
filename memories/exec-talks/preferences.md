@@ -4,11 +4,37 @@ Voice, tone, and framing preferences for executive-audience talks.
 
 ---
 
-## Exec-talk voice rules: no alarmism, no "not X it's Y" (2026-04-24)
+## Exec-talk voice rules: no alarmism, no "not X it's Y", no you/yours (2026-04-24)
 
 `schema_version: 1` | `date: 2026-04-24`
 
 These rules were established by reviewing exec-labor slides. Apply to all exec-talk slide generation and README writing.
+
+### Banned: Second-person framing (you / your / yours)
+
+Never address the audience as "you" or "your". Executive briefings speak in the third person about organizations, leaders, teams, and developers.
+
+**Examples of what NOT to write:**
+- "whether **your** organization can capture this change"
+- "Are **your** developers equipped to fly?"
+- "agentic AI is **your** autopilot"
+- "the cheapest line in **your** risk budget"
+- "**Your** developers are becoming pilots"
+- "**You** cannot fly multiple aircraft without instruments"
+- "That data is **your** business case"
+
+**Fix:** Reframe with "an organization", "the organization", "developers", "leaders", "the team", or passive constructions.
+- ✅ "whether **an organization** can capture this change"
+- ✅ "Are developers equipped to fly?"
+- ✅ "agentic AI is **the** autopilot"
+- ✅ "the most cost-effective line in **an organization's** risk budget"
+- ✅ "Developers are becoming pilots"
+- ✅ "Instrument coverage is the prerequisite for multi-session flight"
+- ✅ "That data is the business case for scaling"
+
+**First applied:** exec-delivery README (2026-04-24). Also needs retrofit on exec-economics and exec-labor READMEs.
+
+---
 
 ### Banned: "Not X, it's Y" constructions
 

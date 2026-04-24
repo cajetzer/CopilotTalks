@@ -107,13 +107,16 @@ const validationError = computed(() => {
 })
 
 // Prop length limits — read by build-all.ps1 for static lint enforcement
-const TITLE_MAX    = 80
-const SUBTITLE_MAX = 120
+// These limits are set to prevent wrapping at Slidev canvas width (980px):
+//   TITLE_MAX: text-5xl (48px bold) — ~33 chars safely, 40 with narrow-char buffer
+//   SUBTITLE_MAX: text-xl pill (20px) — ~65 chars before pill wraps
+const TITLE_MAX    = 40
+const SUBTITLE_MAX = 65
 const TAGLINE_MAX  = 120
 if (props.title?.length > TITLE_MAX)
-  console.warn(`[TitleSlide] title is ${props.title.length} chars (max ${TITLE_MAX})`)
+  console.warn(`[TitleSlide] title is ${props.title.length} chars (max ${TITLE_MAX}): "${props.title}"`)
 if (props.subtitle?.length > SUBTITLE_MAX)
-  console.warn(`[TitleSlide] subtitle is ${props.subtitle.length} chars (max ${SUBTITLE_MAX})`)
+  console.warn(`[TitleSlide] subtitle is ${props.subtitle.length} chars (max ${SUBTITLE_MAX}): "${props.subtitle}"`)
 if (props.tagline?.length > TAGLINE_MAX)
   console.warn(`[TitleSlide] tagline is ${props.tagline.length} chars (max ${TAGLINE_MAX})`)
 

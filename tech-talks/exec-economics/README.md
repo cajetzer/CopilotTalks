@@ -1,7 +1,38 @@
 ---
 status: active
-updated: 2026-02-06
+updated: 2026-04-24
 section: "Executive Talks"
+references:
+  - url: https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier
+    label: "McKinsey: Economic potential of generative AI, 2023"
+    verified: 2026-04-24
+  - url: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2024-and-a-half-decade-in-review
+    label: "McKinsey QuantumBlack: State of AI 2024 — 5% of pilots deliver material improvement"
+    verified: 2026-04-24
+  - url: https://openai.com/api/pricing/
+    label: "OpenAI API Pricing, 2025 — basis for $2-5/hr agent cost range"
+    verified: 2026-04-24
+  - url: https://www.bls.gov/oes/current/oes151252.htm
+    label: "BLS Occupational Employment: Software Developers, 2024"
+    verified: 2026-04-24
+  - url: https://www.swebench.com/
+    label: "SWE-bench: AI on real GitHub issues, Princeton/MIT, 2024"
+    verified: 2026-04-24
+  - url: https://arxiv.org/abs/2304.10778
+    label: "Yetistiren et al.: AI code generation correctness — Copilot 46%, CodeWhisperer 31%, ChatGPT 65% on HumanEval, arXiv 2023"
+    verified: 2026-04-24
+  - url: https://arxiv.org/abs/2507.09089
+    label: "METR RCT 2025 — experienced open-source devs 19% slower on complex tasks with AI; believed 20% faster (perception gap)"
+    verified: 2026-04-24
+  - url: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/
+    label: "GitHub + Accenture enterprise RCT — 84% more successful builds, 2024"
+    verified: 2026-04-24
+  - url: https://www.ibm.com/reports/data-breach
+    label: "IBM Cost of a Data Breach Report, 2025 — $4.44M global avg breach cost; $2.2M savings with AI security; 20% of breaches from shadow AI"
+    verified: 2026-04-24
+  - url: https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development
+    label: "DORA: ROI of AI-Assisted Development, 2025"
+    verified: 2026-04-24
 ---
 
 # The Agentic Economics: Making the Business Case
@@ -12,7 +43,7 @@ section: "Executive Talks"
 
 ## The $2/Hour Engineer
 
-Let's start with a number that will get every leader's attention.
+Start with a number that reframes the economics of engineering labor.
 
 **AI agent operational costs range from $2-5/hour for production-grade implementations** using best available models.
 
@@ -145,7 +176,7 @@ Let's make this concrete.
 
 ### The Math
 
-For a 50-person engineering team:
+For a 50-person engineering team as a concrete baseline:
 - **Total labor hours:** 50 engineers × 2,000 hours/year = 100,000 hours/year*
 - **Current cost at $100/hr average:** $10,000,000/year
 - **20% target:** 20,000 hours/year moved to agents
@@ -501,7 +532,7 @@ These require significant infrastructure but deliver the largest returns:
 
 ## The Constraint Reality Check
 
-Before calculating savings, let's address what typically blocks immediate cost reduction:
+Before calculating savings, five structural constraints typically block immediate cost reduction:
 
 ### Constraint 1: Headcount ≠ Cost Savings
 
@@ -533,7 +564,7 @@ Agents produce output. Humans must verify output. If verification takes as long 
 │   Human review:      2 hours @ $100/hr = $200                                    │
 │   Total cost:        $203                                                        │
 │   vs. Human only:    $200 (same task)                                            │
-│   Savings:           -$3 (LOSS!)                                                 │
+│   Savings:           -$3 (net loss)                                                 │
 │                                                                                  │
 │   ─────────────────────────────────────────────────────────────────────────────  │
 │                                                                                  │
@@ -550,7 +581,7 @@ Agents produce output. Humans must verify output. If verification takes as long 
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Key insight:** Automated verification is the multiplier that makes agent economics work. Without it, organizations pay twice—once for the agent, once for the human reviewer.
+**Key insight:** Automated verification is the multiplier that makes agent economics work. Without it, organizations pay twice—once for the agent, once for the human reviewer. IBM's 2025 Cost of a Data Breach report shows organizations using AI in security workflows save an average of $2.2M per incident (global average breach cost: $4.44M) — a concrete illustration of what automated verification unlocks at scale.
 
 ### Constraint 3: Context Acquisition Costs
 
@@ -606,6 +637,11 @@ Agents don't always get it right the first time. If a task requires 5 iterations
 │                                                                                  │
 │   KEY INSIGHT: Iteration count is the primary driver of ROI.                     │
 │   Clear requirements → fewer iterations → better economics.                      │
+│                                                                                  │
+│   NOTE: METR RCT (2025) found experienced developers on complex tasks were 19%   │
+│   slower with AI assistance than without — iteration overhead and context        │
+│   switching explain most of that gap. Well-scoped, routine tasks are where       │
+│   the economics reliably hold.                                                   │
 │                                                                                  │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -788,7 +824,7 @@ Here's the executive summary for budget discussions:
 │   • Requires knowledge codification and documentation discipline                 │
 │   • Requires sustained organizational change management                          │
 │   • Savings come through capacity multiplication, not headcount reduction        │
-│   • Quality risks: 25% AI code error rate without proper verification            │
+│   • Quality risks: Copilot 46% code correctness on benchmarks (Yetistiren 2023); METR RCT finds 19% slowdown on complex real-world tasks  │
 │   • Success rate: Only 13-15% of AI projects achieve projected ROI               │
 │                                                                                  │
 │   THE RECOMMENDATION                                                             │
@@ -802,12 +838,11 @@ Here's the executive summary for budget discussions:
 │                                                                                  │
 │   THE BOTTOM LINE                                                                │
 │   ───────────────                                                                │
-│   Organizations that invest now with disciplined execution and realistic         │
-│   expectations will achieve 15-20% labor arbitrage within 18-24 months.          │
-│   Organizations that wait will face a widening competitive gap as early          │
-│   adopters compound their advantages.                                            │
+│   Organizations with disciplined execution and proper infrastructure achieve     │
+│   15–20% labor arbitrage within 18–24 months. Organizations that have started   │
+│   have an 18–24 month head start on platform maturity and team competency.      │
 │                                                                                  │
-│   However, organizations that chase unrealistic ROI projections or skimp on      │
+│   Organizations that chase unrealistic ROI projections or skimp on               │
 │   infrastructure investment typically see minimal returns and risk damaging      │
 │   developer morale and code quality in the process.                              │
 │                                                                                  │
@@ -843,7 +878,7 @@ The economics only work when organizations address key risk factors head-on. Her
 
 ### Quality Assurance Requirements
 
-**The Challenge:** AI-generated code has a 25% error rate, and 45% fails standard security tests without proper verification.
+**The Challenge:** On HumanEval benchmark tasks, AI code generation tools show correctness rates of 31–65%: CodeWhisperer 31%, GitHub Copilot 46%, ChatGPT 65% (Yetistiren et al., arXiv 2023). That means 35–69% of generated code fails even straightforward benchmark tasks without human verification. The METR RCT (2025) found that on real, complex open-source codebases, developers accepted fewer than 44% of AI suggestions — and were still 19% slower overall, suggesting AI quality on complex real-world work trails benchmark performance further.
 
 **Risk Mitigation:**
 - **Mandatory automated testing** with 80%+ coverage on critical paths
@@ -855,15 +890,17 @@ The economics only work when organizations address key risk factors head-on. Her
 
 ### Organizational Readiness
 
-**The Challenge:** Only 5% of AI pilots deliver material bottom-line improvement. Most failures are organizational, not technological.
+**The Challenge:** Only 5% of AI pilots deliver material bottom-line improvement (McKinsey QuantumBlack, 2024). Most failures are organizational. The DORA 2025 report (90% AI adoption across software professionals) confirms this: AI functions as a **mirror and multiplier** — it amplifies an organization's existing strengths and exposes its existing weaknesses. Cohesive, high-performing teams ship faster. Fragmented teams see increased instability and higher change failure rates. The technology is consistent; the org is the variable.
+
+DORA 2025 identifies a striking trust gap: while 90% of developers use AI tools daily, only **24% express strong trust in AI outputs** and 30% have little to no trust. Adoption without trust produces caution-heavy workflows that erode the economics.
 
 **Success Factors:**
 - **Executive sponsorship** with sustained commitment (not just initial approval)
 - **Change management budget** equal to 20-30% of technical investment
-- **Cultural shift to "trust but verify"** approach (not blind faith in AI output)
+- **Cultural shift to "trust but verify"** approach — DORA's 7 team archetypes show that "Harmonious High-Achievers" consistently outperform "Legacy Bottlenecks" by combining AI adoption with strong engineering fundamentals
 - **Cross-functional collaboration** across engineering, security, compliance, and product
 
-**Industry Data:** 65% of leaders cite organizational complexity—not technology—as the top implementation barrier.
+**Industry Data:** DORA 2025 identifies 7 foundational capabilities required to fully realize AI's benefits — including value stream management, small batch sizes, high-quality internal data, and strong developer platform infrastructure. Without these, AI adoption produces local efficiency gains that don't translate to business outcomes.
 
 ### Skill Development & Erosion Prevention
 
@@ -879,17 +916,28 @@ The economics only work when organizations address key risk factors head-on. Her
 
 **What the Research Actually Shows:**
 - **Claimed productivity gains:** 20-50% in early optimistic studies
-- **Rigorous analysis shows:** 5-10% actual improvement after accounting for review time
-- **Some workflows:** Actually see increased total development time due to iteration costs
-- **GitHub/Accenture study:** 55% faster on specific coding tasks, but overall productivity gains are more modest
+- **METR RCT (2025):** Experienced open-source developers on complex, familiar codebases were **19% slower** with AI tools than without — yet believed they were 20% faster. Expert forecasters predicted a 38-39% productivity gain; actual result was a measured slowdown. 69% of participants still wanted to use AI post-study, reflecting the perception/reality gap.
+- **GitHub + Accenture RCT (2024, 12,000+ developers):** 84% increase in successful builds, 8.7% rise in pull requests per developer, 15% higher merge rate — representing genuine quality and throughput gains on well-instrumented work.
+- **The pattern:** AI reliably improves outcomes on well-defined, routine tasks with high test coverage. On complex, unfamiliar, or poorly specified work, it frequently adds iteration overhead that erodes or eliminates the savings.
 
 **Set Expectations Accordingly:**
-- First 6 months: Learning curve, minimal gains
-- Months 6-12: Quick wins materialize, 5-10% productivity improvement
-- Months 12-18: Infrastructure matures, approaching 15-20% labor shift
-- Year 2+: Full value realization if execution remains disciplined
+- First 6 months: Learning curve, minimal throughput gains — investment in instrumentation
+- Months 6-12: Quick wins materialize on well-scoped tasks; 5-10% productivity improvement visible
+- Months 12-18: Infrastructure matures, approaching 15-20% labor shift on suitable work categories
+- Year 2+: Full value realization if execution remains disciplined and task selection is rigorous
 
 ### Security & Compliance Risks
+
+The IBM Cost of a Data Breach Report 2025 introduces a new risk category that directly intersects with AI adoption: **shadow AI**.
+
+| Risk | Scale | Cost Premium |
+|---|---|---|
+| Shadow AI (AI deployed without IT approval) | 20% of all 2025 breaches | +$670K per incident vs. non-shadow AI |
+| No AI governance policy | 63% of breached organizations | Part of the $4.44M global avg breach cost |
+| Inadequate AI access controls | 97% of AI-related breach victims | — |
+| Adversarial AI use (phishing, deepfakes) | 1 in 6 breaches (16%) | — |
+
+For software teams deploying agents into production: every agent that can write code, open PRs, or interact with APIs without an approved governance framework is a shadow AI risk. The $2.2M savings from AI-assisted security detection (IBM, 2025) are only available to organizations that govern their AI usage — the organizations that don't govern it face both the breach cost *and* the shadow AI premium.
 
 **Known Vulnerabilities in AI-Generated Code:**
 - Missing input validation
@@ -900,6 +948,8 @@ The economics only work when organizations address key risk factors head-on. Her
 
 **Required Controls:**
 - **Automated security scanning** on all AI-generated code (no exceptions)
+- **AI governance policy** covering what agents can do, what data they can access, and how changes are approved
+- **Shadow AI inventory** — regular discovery of AI tools in use across engineering and operations
 - **Dependency analysis** to catch vulnerable libraries
 - **Compliance rule codification** for regulated industries
 - **Audit trails** for AI-generated changes
@@ -949,9 +999,7 @@ The barriers are real but surmountable:
 
 The organizations that do this work will operate with a fundamentally different cost structure than those that don't. Not 10% more efficient—potentially 15-20% more efficient on significant portions of their engineering labor when executed with discipline and proper infrastructure.
 
-**The question isn't whether we can afford to invest in agentic infrastructure.**
-
-**The question is whether we can afford not to—and whether we're willing to do it right.**
+The infrastructure investment unlocks the arbitrage. Organizations with proper automated verification, codified knowledge, and clear task boundaries are the ones achieving the 15–20% labor shift at scale.
 
 Success requires honesty about risks, investment in automation, and realistic expectations. Organizations that approach this strategically will thrive. Those that chase quick wins without foundation will struggle.
 

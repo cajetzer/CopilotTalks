@@ -1,138 +1,53 @@
-<!-- SLIDE: Spine Reframe -->
+<!-- SLIDE: Spine Overview -->
 <!-- SPINE: Shared foundation — imported by exec-delivery, exec-labor, exec-economics -->
 <!-- No frontmatter or script setup — components are imported by the parent deck -->
 
 <ThreeColumnCardSlide
   :partNumber="1"
-  pillIcon="🧭"
+  pillIcon="📚"
   pillLabel="Before We Begin"
-  title="This Is Not a Technology Evaluation"
+  title="A Three-Part Executive Briefing Series"
   :columns='[
-    { icon: "🔧", title: "Not about which tool to buy", description: "Tool selection is an output, not the decision. The AI landscape will shift again next quarter." },
-    { icon: "📊", title: "Not about benchmark scores", description: "Synthetic benchmarks do not predict delivery throughput or competitive position." },
-    { icon: "🎯", title: "An investment decision", description: "Organizational capacity. Competitive position. Capital allocation. Those are the questions." }
+    { icon: "🏭", title: "The Labor Multiplier", description: "What agents can actually do — the 67% of delivery labor outside the code editor that AI is built to handle at a fraction of human cost" },
+    { icon: "💰", title: "Agentic Economics", description: "How to calculate and capture ROI — agent compute costs, infrastructure investment requirements, and the honest payback math" },
+    { icon: "✈️", title: "Agentic Delivery", description: "The operating model for safe scale — instrument infrastructure, pilot oversight, and the governance that enables the throughput multiplier" }
   ]'
-  :insight='{ icon: "💡", text: "The organizations moving fastest are not those with the best tools. They are those who built the infrastructure to use them." }'
-  :progressDots='{ current: 1, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "🎯", text: "Each briefing is complete on its own. Together they form a full strategic framework for agentic AI investment." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The 67% Problem -->
-
-<HeroStatSlide
-  :partNumber="1"
-  pillIcon="📊"
-  pillLabel="The Coverage Gap"
-  title="The 67% Problem"
-  :hero='{ value: "67%", label: "of delivery labor has no AI coverage", source: "McKinsey Global Institute, 2023" }'
-  :supporting='[
-    { icon: "🔍", title: "Discovery & Planning", description: "Issue triage, impact analysis, architecture decisions — 20–30% of project budgets" },
-    { icon: "🛡️", title: "Compliance & Governance", description: "Security review, audit trails, regulatory checks — $4.88M average breach cost" },
-    { icon: "📚", title: "Knowledge & Handoffs", description: "Onboarding, documentation drift, institutional memory — 50–200% replacement cost" },
-    { icon: "✅", title: "Validation & Testing", description: "Risk-weighted coverage, quality assurance — $11K/minute production outage cost" }
-  ]'
-  :insight='{ icon: "💡", text: "AI coding tools address the ~33% of developer time spent writing new code. The other 67% — every activity surrounding code — has no coverage." }'
-  :progressDots='{ current: 2, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: The Shift -->
-
-<BeforeAfterPanelsSlide
-  :partNumber="1"
-  pillIcon="✈️"
-  pillLabel="The Shift"
-  title="From Coders to Captains"
-  :before='{
-    header: "Developer as Coder",
-    items: [
-      { text: "Productivity", detail: "lines of code written" },
-      { text: "Bottleneck", detail: "typing speed" },
-      { text: "Value", detail: "syntax knowledge" },
-      { text: "AI role", detail: "faster autocomplete" }
-    ]
-  }'
-  :after='{
-    header: "Developer as Captain",
-    items: [
-      { text: "Productivity", detail: "missions completed" },
-      { text: "Bottleneck", detail: "instrument monitoring capacity" },
-      { text: "Value", detail: "judgment & decisions" },
-      { text: "AI role", detail: "autopilot — we still fly" }
-    ]
-  }'
-  :insight='{ icon: "✈️", text: "The question isn&#39;t about replacement. It&#39;s whether developers have the instruments they need to fly safely." }'
-  :progressDots='{ current: 3, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: The Flight System -->
+<!-- SLIDE: Spine Decisions -->
 
 <FrameworkMappingRowsSlide
   :partNumber="1"
-  pillIcon="🗼"
-  pillLabel="The System"
-  title="The Flight Operations System"
+  pillIcon="🎯"
+  pillLabel="What Each Briefing Decides"
+  title="Three Briefings, Three Decisions"
   :rows='[
-    { label: "FAA", description: "Sets rules for all flights — safety standards and enforcement", tag: "Security · Compliance · Legal" },
-    { label: "Air Traffic", description: "Coordinates active flights — sequencing, routing, go/no-go decisions", tag: "CTO · VP Engineering" },
-    { label: "Ground Crew", description: "Prepares aircraft and instruments before and after every flight", tag: "Platform · DevOps" },
-    { label: "Captains", description: "Plans the mission, makes judgment calls, lands safely — accountable", tag: "Developers" },
-    { label: "Autopilot", description: "Executes mechanical flight — code generation, test iteration", tag: "Agentic AI" }
+    { label: "The Labor Multiplier", description: "Which of the 67% of delivery labor is ready to automate — and what organizational investment does capturing it require?", tag: "Opportunity Decision" },
+    { label: "Agentic Economics", description: "What is the realistic ROI timeline, and what infrastructure makes the $2–5/hour agent arbitrage accessible at scale?", tag: "Capital Decision" },
+    { label: "Agentic Delivery", description: "What governance infrastructure — instruments, oversight model, no-fly zones — must exist before agent programs can operate safely?", tag: "Operating Model Decision" }
   ]'
-  footnote="Most organizations have Captains and Autopilot. Ground Crew and the instrument panel are missing."
-  :progressDots='{ current: 4, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  footnote="These are the three decisions the briefing series is designed to drive. This talk addresses one of them."
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Labor Arbitrage -->
+<!-- SLIDE: Spine Connection -->
 
-<TwoColPairedConceptsSlide
+<ThreeColumnCardSlide
   :partNumber="1"
-  pillIcon="💰"
-  pillLabel="The Arbitrage"
-  title="The Labor Arbitrage"
-  :left='{
-    header: "Agent Execution Cost",
-    icon: "🤖",
-    items: [
-      { text: "$2–5 per hour", detail: "API compute + infrastructure overhead" },
-      { text: "Structured repeatable tasks", detail: "Triage, planning docs, compliance checks, documentation" },
-      { text: "Concurrent sessions", detail: "One developer can supervise 3–4 agents simultaneously" }
-    ]
-  }'
-  :right='{
-    header: "The Condition",
-    icon: "⚙️",
-    items: [
-      { text: "$70–150 per hour", detail: "Human engineer loaded cost — salary + benefits + overhead" },
-      { text: "Manual review cancels the arbitrage", detail: "2-hour review at $100/hr + $3 agent = $203 vs $200 human-only" },
-      { text: "Automated verification: 86% savings", detail: "Drops review from 2 hrs to 15 min — the instrument panel makes it work" }
-    ]
-  }'
-  :insight='{ icon: "💡", text: "The arbitrage is real — but only when verification is automated. The instrument panel is what makes agent economics work." }'
-  :progressDots='{ current: 5, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: The Competitive Window -->
-
-<HeroStatSlide
-  :partNumber="1"
-  pillIcon="⏱️"
-  pillLabel="The Window"
-  title="The Competitive Window"
-  :hero='{ value: "208×", label: "more frequent deployments", source: "DORA 2023 · Accelerate State of DevOps" }'
-  :supporting='[
-    { icon: "📊", title: "The Baseline, Not the Goal", description: "Elite teams deploy 208× more than low performers — this is the current operating norm, not a pilot metric" },
-    { icon: "🔄", title: "The Advantage Compounds", description: "Documented workflows, trained teams, calibrated governance — none of this can be rushed later" },
-    { icon: "⚠️", title: "The Window Is Closing", description: "Organizations investing in 2025–2026 establish positions latecomers cannot replicate on a shorter timeline" }
+  pillIcon="🔗"
+  pillLabel="How They Connect"
+  title="The Complete Decision Framework"
+  :columns='[
+    { icon: "🔍", title: "Identify the Opportunity", description: "The Labor Multiplier: 67% of delivery labor has no AI coverage — discovery, compliance, documentation, and validation are ready for agents" },
+    { icon: "📊", title: "Quantify the Investment", description: "Agentic Economics: agent compute at $2–5/hour creates a structural cost arbitrage — the ROI depends on the verification infrastructure" },
+    { icon: "🏗️", title: "Enable Safe Operation", description: "Agentic Delivery: the instrument panel, pilot model, and governance structure that make the multiplier achievable at enterprise scale" }
   ]'
-  :insight='{ icon: "🎯", text: "The tools are available to everyone. The readiness is earned over time — and it is compounding right now for your competitors." }'
-  :progressDots='{ current: 6, total: 6, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "💡", text: "The Labor Multiplier identifies what is possible. Agentic Economics quantifies the return. Agentic Delivery specifies the infrastructure that makes both achievable." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />

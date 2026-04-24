@@ -5,9 +5,9 @@ tools: ["read", "github/web_search", "edit/createFile", "edit/editFiles"]
 model: Claude Sonnet 4.6
 argument-hint: Provide URLs to research or describe the tech talk topic (uses web_search for reliability)
 handoffs:
-  - label: Generate Slides
-    agent: Tech Talk Slide Generator
-    prompt: Generate slides for the tech talk I just created
+  - label: Review Recipe
+    agent: AgentCouncil
+    prompt: Run the exec-recipe-review skill on the exec talk I just created
     send: false
 ---
 

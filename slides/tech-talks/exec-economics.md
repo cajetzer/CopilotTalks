@@ -4,13 +4,12 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## The Agentic Economics
-  Making the Business Case for AI Agent Adoption
+  ## The Agentic Economics: Making the Business Case
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: The Agentic Economics - Making the Business Case
+title: The Agentic Economics
 mdc: true
 section: Executive Talks
 status: active
@@ -27,19 +26,20 @@ import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlid
 import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 import HeroStatSlide from './components/HeroStatSlide.vue'
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
-import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
 <TitleSlide
   title="The Agentic Economics"
-  subtitle="Making the Business Case for AI Agent Adoption"
-  tagline="Agent labor costs $2–5/hour. Capturing that arbitrage requires infrastructure — and honesty."
+  subtitle="Making the Business Case"
+  tagline="What it takes to turn the $2/hour opportunity into P&L reality"
   meta="Executive Talk · 45 minutes"
 />
 
@@ -49,16 +49,16 @@ src: ./exec-spine.md
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="What does it actually cost to run AI agents — and what does it cost when you get it wrong?"
-  subtext="The agent API bill is not the investment. The infrastructure to verify what agents produce — that is the investment."
-  highlight="85–95% cost reduction on routine work is real. Only 5% of AI pilots capture it."
+  question="What does it actually take to capture the agentic labor cost advantage?"
+  subtext="The arbitrage is documented and real. Organizations that have approved AI pilots and seen nothing in their P&L are not outliers — they are the majority."
+  highlight="Only 5% of AI pilots deliver material bottom-line improvement. The differentiator is not the model — it is the infrastructure."
   :cards='[
-    { icon: "💼", title: "CFOs / Finance Leaders", description: "What is the real ROI timeline — including Year 1 net loss — and how does it scale?" },
-    { icon: "👔", title: "CEOs / Executive Sponsors", description: "Why do 95% of AI pilots fail, and what separates the 5% that deliver?" },
-    { icon: "🗼", title: "CTOs / VP Engineering", description: "What infrastructure must exist before agent economics become positive?" },
-    { title: "$2–5/hour", description: "Fully-loaded agent execution cost vs. $70–150/hr human engineering labor" },
-    { title: "Only 5% of pilots deliver", description: "Material bottom-line improvement from AI initiatives — McKinsey 2024" },
-    { title: "3.6-day payback", description: "Issue lifecycle automation — $10,200 investment → $1,001,000 annual savings" }
+    { icon: "💼", title: "CXOs / Board", description: "What infrastructure must be funded before AI investment returns P&L value?" },
+    { icon: "📊", title: "CFOs / Finance Leaders", description: "What does the honest J-curve look like — and what is the payback period?" },
+    { icon: "🗼", title: "CTOs / VP Engineering", description: "Which workflow is the right first wedge — and how do we measure it?" },
+    { title: "$5/hr vs $130/hr", description: "Agent vs senior engineer — a 20-65x fully-loaded labor cost differential" },
+    { title: "5% material ROI rate", description: "McKinsey QuantumBlack 2024: only 5% of AI pilots deliver bottom-line improvement" },
+    { title: "3.6-day payback", description: "Issue lifecycle automation — $1M annual savings for a 50-person team" }
   ]'
 />
 
@@ -67,320 +67,298 @@ src: ./exec-spine.md
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "💰", title: "The Arbitrage", subtitle: "The $2–5/Hour Reality", blurb: "Agent cost vs. human cost — and the three buckets of work worth shifting", slide: 9 },
-    { icon: "⚠️", title: "The Catch", subtitle: "Why 95% Fail", blurb: "Five barriers, the verification loss case, and market failure data", slide: 12 },
-    { icon: "📈", title: "The Returns", subtitle: "The Business Case Math", blurb: "Quick wins, tiered roadmap, 20% goal, and the honest J-curve", slide: 16 },
-    { icon: "🎯", title: "The Decision", subtitle: "Three Named Asks", blurb: "Executive summary table and concrete asks with owners and timelines", slide: 21 },
+    { icon: "💰", title: "The Labor Arbitrage Opportunity", subtitle: "The $5/hr Reframe", blurb: "The cost differential that changes the investment calculus for every CXO", slide: 6 },
+    { icon: "🚧", title: "The Capture Problem", subtitle: "Why Pilots Don&#39;t Show Up in the P&L", blurb: "Why most organizations approved pilots and saw nothing — and what the data says", slide: 9 },
+    { icon: "🎯", title: "The Profitable Wedge", subtitle: "Issue Lifecycle Pattern", blurb: "One workflow, one payback number, the path from arbitrage to actual P&L impact", slide: 14 },
+    { icon: "📋", title: "The Leadership Calculation", subtitle: "What to Approve Monday", blurb: "The honest J-curve and three named asks with owners and timelines", slide: 18 },
   ]'
 />
 
 ---
 
-<!-- SLIDE: Part 1 — The Arbitrage -->
+<!-- SLIDE: Part 1 — The Labor Arbitrage Opportunity -->
 <SectionOpenerSlide
   :partNumber="1"
-  title="The Arbitrage"
-  subtitle="Agent labor costs $2–5/hour. The question is what work can move there — and what it takes."
+  title="The Labor Arbitrage Opportunity"
+  subtitle="Agent labor costs $5/hr. Senior engineering costs $130/hr. What infrastructure is required to capture that differential?"
   :cards='[
-    { icon: "💰", title: "The Cost Comparison", blurb: "Agent vs. human labor — a 14–75x price difference on the same tasks." },
-    { icon: "🗂️", title: "Three Work Buckets", blurb: "High-value stays human. Routine and pure toil can move to $2/hr." },
-    { icon: "⚡", title: "The Tension", blurb: "The arbitrage is real. The infrastructure to capture it is not." },
+    { icon: "💰", title: "The Cost Differential", blurb: "20-65x fully-loaded labor cost advantage — documented and measurable" },
+    { icon: "🪣", title: "The Work Spectrum", blurb: "Three buckets: high-value human, automatable, hybrid — the decision lens" },
+    { icon: "⚠️", title: "The Adoption Paradox", blurb: "90% of orgs adopt AI; only 24% trust outputs — DORA 2025" },
   ]'
-  :terminal='{ context: "agentic economics", detail: "What work can we move to $2–5/hour?" }'
+  :terminal='{ context: "executive briefing", detail: "The arbitrage is real. The infrastructure to capture it is not yet standard." }'
 />
-
 
 ---
 
-<!-- SLIDE: The Cost Comparison -->
+<!-- SLIDE: Two Labor Cost Regimes -->
 <TwoColPairedConceptsSlide
   :partNumber="1"
   pillIcon="💰"
-  pillLabel="The Arbitrage"
-  title="The Cost Comparison"
+  pillLabel="The Labor Arbitrage"
+  title="Two Labor Cost Regimes"
   :left='{
-    header: "Agent Labor (2026)",
-    icon: "🤖",
+    header: "Human Engineering Labor (2026)",
+    icon: "👨‍💻",
     items: [
-      { text: "$2–5/hour", detail: "Fully-loaded: API + infrastructure + integration" },
-      { text: "GPT-4o / Claude Sonnet", detail: "$0.60–$1.20/hr pure API; $2–5/hr for real workflows" },
-      { text: "Concurrent execution", detail: "One developer can supervise 3–4 agents simultaneously" },
-      { text: "No benefits, no PTO", detail: "Scales instantly — no hiring lead time" }
+      { text: "Junior Developer", detail: "$70–90/hour fully loaded" },
+      { text: "Mid-Level Developer", detail: "$85–110/hour fully loaded" },
+      { text: "Senior Developer", detail: "$100–130/hour fully loaded" },
+      { text: "Staff Engineer", detail: "$120–150/hour fully loaded" }
     ]
   }'
   :right='{
-    header: "Human Engineering Labor (2026)",
-    icon: "👷",
+    header: "Agentic Labor (2026)",
+    icon: "🤖",
     items: [
-      { text: "$70–150/hour", detail: "Fully-loaded: salary + benefits + overhead" },
-      { text: "Junior–Staff: $70–150/hr", detail: "14–75× more expensive than agent equivalent" },
-      { text: "Offshore: $25–85/hr", detail: "Still 5–42× more expensive for routine tasks" },
-      { text: "Contractor: $60–130/hr", detail: "Surge capacity at premium cost" }
+      { text: "Base API cost", detail: "$0.60–$1.20/hour (GPT-4o, Claude 3.5)" },
+      { text: "Infrastructure overhead", detail: "Orchestration, monitoring, retries" },
+      { text: "Total production cost", detail: "$2–5/hour for capable agents" },
+      { text: "vs. Senior Developer", detail: "20–65× less expensive per hour" }
     ]
   }'
-  :insight='{ icon: "💡", text: "The question is not whether agents are cheaper. It is: what work can we move to $2–5/hour — and what does it take to capture that arbitrage?" }'
+  :insight='{ icon: "⚡", text: "The question is not whether agents are cheaper. The question is what infrastructure is required to move work to $2–5/hour." }'
   :progressDots='{ current: 1, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Three Work Buckets -->
+<!-- SLIDE: The Three-Bucket Decision Framework -->
 <ThreeColumnCardSlide
   :partNumber="1"
-  pillIcon="🗂️"
-  pillLabel="The Arbitrage"
-  title="Three Buckets of Work"
+  pillIcon="🪣"
+  pillLabel="The Work Spectrum"
+  title="The Three-Bucket Decision Framework"
   :columns='[
-    { icon: "💰", title: "High-Value: Stay Human", description: "Architecture, strategic planning, complex debugging. $150–250/hr. Judgment-intensive." },
-    { icon: "⚙️", title: "Routine: Could Be $2/hr", description: "Code review, test writing, bug investigation. Pattern-based — prime agent territory." },
-    { icon: "🔁", title: "Pure Toil: Best at $2/hr", description: "Issue triage, compliance checks, status reports. Rule-following — 85–95% reduction/hr." }
+    { icon: "💼", title: "High-Value Human", description: "Architecture, strategic planning, customer conversations. Stays human at $150–250/hr. Judgment-intensive work that compounds over time.", items: ["Complex trade-off evaluation", "System design decisions", "Stakeholder negotiation"] },
+    { icon: "⚙️", title: "Hybrid / Routine", description: "Code review, test writing, bug investigation, PR descriptions. Could move to $2–5/hr with proper context and verification infrastructure in place.", items: ["Feature implementation", "Test generation", "Refactoring"] },
+    { icon: "🔁", title: "Automatable Toil", description: "Issue triage, compliance checking, dependency updates, documentation sync. Best at $2–5/hr. Pattern-following, rule-based, measurable outcomes.", items: ["Status reports", "Audit preparation", "Duplicate detection"] }
   ]'
-  :insight='{ icon: "⚠️", text: "The arbitrage is real. The infrastructure to capture it is not. Most organizations are not ready — and that is what The Catch is about." }'
+  :insight='{ icon: "⚠️", text: "DORA 2025: 90% of orgs have adopted AI tools — only 24% trust the outputs. Adoption without trust produces caution-heavy workflows that erode the economics." }'
   :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 2 — The Catch -->
+<!-- SLIDE: Part 2 — The Capture Problem -->
 <SectionOpenerSlide
   :partNumber="2"
-  title="The Catch"
-  subtitle="Without automated verification, adding agents produces a net loss vs. human-only delivery"
+  title="The Capture Problem"
+  subtitle="Most orgs approved AI pilots and saw nothing in the P&L. The data explains why — one root cause accounts for all of it."
   :cards='[
-    { icon: "🚧", title: "Five Barriers", blurb: "Infrastructure debt that must be retired before savings materialize." },
-    { icon: "🔴", title: "The Loss Case", blurb: "Agent ($3) + human review ($200) = $203. Human-only = $200. Net: -$3." },
-    { icon: "📉", title: "Market Failure", blurb: "Only 5% of AI pilots deliver. 65% cite org complexity, not tech." },
+    { icon: "📉", title: "The 5% Signal", blurb: "McKinsey 2024: only 5% of AI pilots deliver material P&L improvement" },
+    { icon: "🔬", title: "Flying Blind & Confident", blurb: "Devs reported 20% faster; independently measured 19% slower — METR RCT 2025" },
+    { icon: "🏗️", title: "One Root Cause", blurb: "Five barriers, one diagnosis: no observability infrastructure" },
   ]'
-  :terminal='{ context: "the catch", detail: "These are not arguments against proceeding. They are the conditions under which proceeding works." }'
-/>
-
-
----
-
-<!-- SLIDE: Five Structural Barriers -->
-<FourCardGridSlide
-  :partNumber="2"
-  pillIcon="🚧"
-  pillLabel="The Catch"
-  title="Five Structural Barriers"
-  :cards='[
-    { icon: "🚧", title: "No Instrumentation", description: "Without automated tests and quality gates, every agent output requires human review. No time saved." },
-    { icon: "🧠", title: "Tribal Knowledge", description: "Critical context lives in people&#39;s heads. Agents can&#39;t access what isn&#39;t written." },
-    { icon: "⏸️", title: "Approval Bottlenecks", description: "Agent finishes in 30 minutes, waits 2 days in review queue. Total time: unchanged." },
-    { icon: "🔧", title: "Fragmented Tooling", description: "Context scattered across Jira, Slack, Confluence, GitHub. Agents get partial context." }
-  ]'
-  :insight='{ icon: "💡", text: "These are infrastructure gaps — not technology failures. Each one must be retired before savings materialize." }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :terminal='{ context: "skeptic validation", detail: "You were right to be cautious. Here is exactly why your pilots didn&#39;t show up in the P&L." }'
 />
 
 ---
 
-<!-- SLIDE: The Verification Loss Case -->
-<BeforeAfterMetricsSlide
+<!-- SLIDE: The 5% Reality -->
+<HeroStatSlide
   :partNumber="2"
-  pillIcon="🔴"
-  pillLabel="The Catch"
-  title="The Verification Loss Case"
+  pillIcon="📉"
+  pillLabel="The Capture Problem"
+  title="The 5% Reality"
+  subtitle="The data validates skepticism — and explains it precisely"
+  :hero='{ value: "5%", label: "of AI pilots deliver material bottom-line improvement", source: "McKinsey QuantumBlack, State of AI 2024" }'
+  :supporting='[
+    { icon: "🏢", title: "65% Cite Organizational Complexity", description: "The top barrier to AI ROI is not the technology — it is the organizational infrastructure required to capture value from it." },
+    { icon: "🔍", title: "The Common Pattern", description: "Pilot approved. Developers report productivity gains. Six months later — nothing visible in the P&L. The pattern is not unique to any one organization." },
+    { icon: "✅", title: "What the 5% Did Differently", description: "Invested in automated verification infrastructure before scaling. Measured iteration count and verification overhead — not just agent API cost." }
+  ]'
+  :insight='{ icon: "🎯", text: "Skepticism was the right response. The caution was earned. The diagnosis — not the models, but the infrastructure — is what changes the outcome." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Flying Blind and Confident -->
+<BeforeAfterPanelsSlide
+  :partNumber="2"
+  pillIcon="🔬"
+  pillLabel="The Capture Problem"
+  title="Flying Blind and Confident"
   :before='{
-    header: "Without Automated Verification",
+    header: "What Developers Self-Reported",
     items: [
-      { title: "Agent execution", detail: "$3 — 1 hour at $3/hr" },
-      { title: "Human review", detail: "$200 — 2 hours at $100/hr, full manual check" },
-      { title: "Total cost", detail: "$203 vs. $200 human-only for the same task" },
-      { title: "Net result", detail: "-$3 — this is a loss, not savings" }
+      { title: "Perceived productivity gain", detail: "+20% faster with AI assistance" },
+      "Strong confidence in AI tool effectiveness",
+      "High satisfaction scores across the cohort",
+      "Widespread willingness to continue using AI"
     ]
   }'
   :after='{
-    header: "With Automated Verification",
+    header: "Independently Measured — METR RCT 2025",
     items: [
-      { title: "Agent execution", detail: "$3 — same task, same quality output" },
-      { title: "Automated checks", detail: "$0.10 — tests, security scan, lint in minutes" },
-      { title: "Human spot-check", detail: "$25 — 15 min at $100/hr, confirmation only" },
-      { title: "Total cost", detail: "$28.10 vs. $200 human-only — 86% reduction" }
+      { title: "Actual measured throughput", detail: "19% slower on complex real-world tasks" },
+      "Fewer than 44% of AI suggestions accepted",
+      "Context switching and iteration overhead consumed the gains",
+      "69% of developers still wanted AI — perception gap persisted"
     ]
   }'
-  :metrics='[
-    { value: "-$3", label: "net result without automation — a loss vs. human-only" },
-    { value: "86%", label: "cost reduction with automated verification in the loop" },
-    { value: "5×", label: "minimum automation investment to make agent economics positive" }
-  ]'
-  :insight='{ icon: "🔑", text: "Automated verification is the multiplier. Without it, organizations pay twice — once for the agent, once for the human reviewer." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :insight='{ icon: "🔬", text: "The perception-reality gap is the diagnostic. Every org that approved pilots and saw nothing in the P&L was measuring the wrong thing." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Market Failure Data -->
-<ThreeColumnCardSlide
+<!-- SLIDE: Five Barriers, One Diagnosis -->
+<FrameworkMappingRowsSlide
   :partNumber="2"
-  pillIcon="📉"
-  pillLabel="The Catch"
-  title="Why 95% of Pilots Fail"
-  :columns='[
-    { icon: "📉", title: "Only 5% deliver", description: "Material bottom-line improvement from AI initiatives. The gap is infrastructure — not tools." },
-    { icon: "🏢", title: "65% cite org complexity", description: "Organizational complexity — not technology — is the top barrier. The tools work." },
-    { icon: "⚠️", title: "25% AI code error rate", description: "Without automated verification. Agents without guardrails create rework at scale." }
+  pillIcon="🏗️"
+  pillLabel="The Capture Problem"
+  title="Five Barriers, One Diagnosis"
+  subtitle="Each barrier is a different symptom of the same root cause: no observability infrastructure"
+  :rows='[
+    { label: "No Instrumentation", description: "Agents need feedback loops. Without automated tests and quality gates, every output requires human review — paying twice for the same work.", tag: "Root cause" },
+    { label: "Tribal Knowledge", description: "Critical context lives in people&#39;s heads. Agents cannot access what is not written down — wrong assumptions, constant rework.", tag: "Context gap" },
+    { label: "Approval Bottlenecks", description: "An agent finishes in 30 minutes; it waits 2 days in the review queue. Total elapsed time is unchanged. Speed without flow is not speed.", tag: "Process gap" },
+    { label: "Undefined Boundaries", description: "Nobody has defined what agents can and cannot do. Every task requires negotiating permissions and guardrails. The result is paralysis.", tag: "Governance gap" },
+    { label: "Fragmented Tooling", description: "Context is scattered across Jira, Slack, GitHub, and email. Agents given partial context produce incomplete output that humans must finish.", tag: "Data gap" }
   ]'
-  :insight='{ icon: "💡", text: "These are not arguments against proceeding. They are the conditions under which proceeding works." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  footnote="The gap is not the models. It is the infrastructure required to capture value — and that is a solvable problem."
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — The Returns -->
+<!-- SLIDE: Shadow AI: The Governance Risk -->
+<FrameworkMappingRowsSlide
+  :partNumber="2"
+  pillIcon="🛡️"
+  pillLabel="The Capture Problem"
+  title="Shadow AI: The Unmonitored Infrastructure Risk"
+  subtitle="IBM Cost of a Data Breach Report 2025"
+  :rows='[
+    { label: "Origin",      description: "20% of 2025 data breaches originated from shadow AI use",        tag: "IBM 2025" },
+    { label: "Cost Premium", description: "$670K premium per incident above the standard breach average",   tag: "+$670K" },
+    { label: "Policy Gap",  description: "63% have no governance policy — 97% lack AI access controls",    tag: "63% / 97%" },
+    { label: "Controls ROI", description: "Organizations with AI security controls saved $2.2M per breach", tag: "$2.2M saved" }
+  ]'
+  footnote="Governance investment is quantifiably self-funding — the $2.2M average payout exceeds the cost of controls."
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Part 3 — Quick Wins Economics: The Issue Lifecycle Pattern -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="The Returns"
-  subtitle="Quick wins first — then the tiered roadmap, the 20% goal, and the honest J-curve"
+  title="Quick Wins Economics"
+  subtitle="One workflow. One payback number. The proof point that shows the path from the arbitrage to actual P&L impact."
   :cards='[
-    { icon: "⚡", title: "Quick Win Entry Point", blurb: "3.6-day payback. $1M savings from $10K investment. No CI/CD rewrite." },
-    { icon: "📊", title: "Tiered Roadmap", blurb: "$1.49M/yr combined for 50 engineers across three tiers." },
-    { icon: "📉", title: "The J-Curve", blurb: "Year 1: -$425K. Year 2: +$1.06M. Show the loss — it earns the trust." },
+    { icon: "⚡", title: "The Proof Point", blurb: "Issue lifecycle automation: $1M savings, 3.6-day payback (50-person team)" },
+    { icon: "🔐", title: "The Wedge Principle", blurb: "Start where work is frequent, measurable, and approval-light" },
+    { icon: "🛡️", title: "Governance as ROI Gate", blurb: "IBM 2025: $2.2M savings with AI security — governance protects the ROI" },
   ]'
-  :terminal='{ context: "business case", detail: "The math works. It just doesn&#39;t work immediately." }'
+  :terminal='{ context: "issue lifecycle automation", detail: "$10,200 investment → $1,001,000 annual savings → 3.6-day payback" }'
 />
-
 
 ---
 
-<!-- SLIDE: Quick Win Entry Point -->
+<!-- SLIDE: The Issue Lifecycle Proof Point -->
 <HeroStatSlide
   :partNumber="3"
   pillIcon="⚡"
-  pillLabel="The Returns"
-  title="The Quick Win Entry Point"
-  subtitle="Start here. Prove the model. Then scale."
-  :hero='{ value: "3.6 days", label: "payback period on issue lifecycle automation", source: "$10,200 investment → $1,001,000 annual savings" }'
+  pillLabel="The Profitable Wedge"
+  title="The Issue Lifecycle Proof Point"
+  subtitle="One workflow. One number. The entry point to agentic economics."
+  :hero='{ value: "3.6", label: "days payback period — $10,200 investment returning $1,001,000 in annual savings", source: "Issue lifecycle automation baseline — 50-person engineering team at $100/hr loaded rate" }'
   :supporting='[
-    { icon: "🔍", title: "What it automates", description: "Full issue lifecycle: triage → planning → implementation → review. 20 issues/week." },
-    { icon: "💰", title: "The economics", description: "Human-only: $1,040,000/year. With agents: $39,000/year. No CI/CD rewrite required." },
-    { icon: "📈", title: "Natural expansion", description: "Start with 1–2 repos, prove ROI, then scale to all repos. The infrastructure serves every tier." }
+    { icon: "📊", title: "Current State (Manual)", description: "20 issues/week × 10 hours each = 10,400 hours/year = $1,040,000/year. Agent + human spot-check brings total to $39,000/year." },
+    { icon: "🔧", title: "Minimal Infrastructure Required", description: "No CI/CD rewrite. No repository restructuring. No organizational change management. Works with existing GitHub workflows from day one." },
+    { icon: "🎯", title: "Why This Workflow First", description: "Frequent (20 issues/week), measurable (time-to-triage, implementation accuracy), and approval-light. Agents handle mechanical work; humans make judgment calls." }
   ]'
-  :insight='{ icon: "🎯", text: "The quick win gives nervous executives permission to begin. Show the proof of concept before asking for the larger investment." }'
-  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  :insight='{ icon: "💡", text: "Quick wins generate the budget and organizational credibility for the larger transformation. The issue lifecycle is the proof point that funds Phase 2." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Tiered Roadmap -->
-<FrameworkMappingRowsSlide
+<!-- SLIDE: The Wedge Principle -->
+<ProblemSolutionOutcomeSlide
   :partNumber="3"
-  pillIcon="📊"
-  pillLabel="The Returns"
-  title="Tiered Roadmap"
-  subtitle="A capital allocation decision tree — not an implementation plan"
-  :rows='[
-    { label: "Tier 1", description: "Issue triage, PR descriptions, dependency updates — $110K investment", tag: "$167K/yr · 0–3 mo" },
-    { label: "Tier 2", description: "Test generation, compliance checking, doc sync — $375K investment", tag: "$424K/yr · 3–6 mo" },
-    { label: "Tier 3", description: "Code implementation, bug investigation, refactoring — $575K", tag: "$894K/yr · 6–12 mo" },
-    { label: "Combined", description: "All three tiers for 50-person team — $1.06M total investment", tag: "$1.49M/yr" }
-  ]'
-  footnote="Only 13% of AI projects achieve sub-12-month payback. Success requires exceptional execution, organizational readiness, and automated verification."
-  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  pillIcon="🔐"
+  pillLabel="The Profitable Wedge"
+  title="The Wedge Principle"
+  :problem='{
+    header: "The Common Mistake",
+    items: [
+      "Broad AI transformation approved before infrastructure is ready",
+      { title: "Verification gap goes unaddressed", detail: "Every agent output requires full human review — costs double" },
+      "Savings do not materialize in the P&L within 6 months",
+      "Program loses executive sponsorship before Phase 2"
+    ]
+  }'
+  :solution='{
+    header: "The Wedge Approach",
+    items: [
+      "Identify one workflow that is frequent, measurable, and approval-light",
+      { title: "Issue lifecycle is the default wedge", detail: "Minimal infrastructure, maximum immediate value" },
+      "Prove the economics at small scale before investing in the full platform"
+    ]
+  }'
+  :outcome='{
+    header: "The Self-Funding Path",
+    items: [
+      "Quick win savings fund Phase 2 infrastructure investment",
+      "Executive confidence built on demonstrated, attributable value"
+    ],
+    metrics: [
+      { value: "9,714%", label: "first-year ROI — issue lifecycle" },
+      { value: "3.6 days", label: "payback funds Phase 2" }
+    ]
+  }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The 20% Goal -->
-<HeroStatSlide
+<!-- SLIDE: Governance Is the ROI Gate -->
+<ThreeColumnCardSlide
   :partNumber="3"
-  pillIcon="🎯"
-  pillLabel="The Returns"
-  title="The 20% Goal"
-  subtitle="A concrete, achievable target — with honest constraints"
-  :hero='{ value: "$1.94M", label: "annual savings for a 50-person team at 20% labor shift", source: "20,000 hours/year at $3/hr vs. $100/hr" }'
-  :supporting='[
-    { icon: "💰", title: "The math", description: "100K hours/yr × 20% = 20K agent hours × $3 = $60K cost vs. $2M human cost. Net: $1.94M/yr." },
-    { icon: "🏗️", title: "Investment required", description: "$800K–$1.6M one-time infrastructure. Add 40–60% contingency for legacy systems." },
-    { icon: "📈", title: "3-year ROI", description: "Disciplined execution: 240–350% over 3 years. Only with automated verification in place." }
+  pillIcon="🛡️"
+  pillLabel="The Profitable Wedge"
+  title="Governance Is the ROI Gate"
+  :columns='[
+    { icon: "📋", title: "Define Before Scaling", description: "Establish what agents can and cannot do before expanding beyond the pilot workflow. Undefined boundaries are the fourth structural barrier to ROI capture.", items: ["Document agent scope", "Set approval thresholds", "Define escalation paths"] },
+    { icon: "🔍", title: "Measure the Right Things", description: "Iteration count and verification overhead are the leading indicators of ROI. Agent API cost alone is the wrong metric — it captures spending, not savings.", items: ["Track iteration cycles", "Measure verification time", "Monitor shadow AI usage"] },
+    { icon: "✅", title: "Governance Pays for Itself", description: "IBM 2025: organizations with AI security controls save $2.2M per breach incident on average. Governance is an insurance policy with documented returns.", items: ["$2.2M avg savings/incident", "$670K shadow AI premium avoided", "97% of orgs lack access controls"] }
   ]'
-  :insight='{ icon: "⚠️", text: "Without proper infrastructure, actual savings may be 50–70% lower due to verification overhead and rework costs." }'
-  :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  :insight='{ icon: "🛡️", text: "Governance is not a compliance tax on the ROI. It is the infrastructure that makes the ROI defensible — and the next phase of investment fundable." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The J-Curve -->
-<FrameworkMappingRowsSlide
-  :partNumber="3"
-  pillIcon="📉"
-  pillLabel="The Returns"
-  title="The J-Curve"
-  subtitle="Show the loss. It earns the trust."
-  :rows='[
-    { label: "Year 1 net", description: "Investment: $1.06M | Savings realized: $635K | Net position: -$425K", tag: "Investment phase" },
-    { label: "Year 2 net", description: "No new investment | Annual savings: $1.49M | Cumulative net: +$1.06M", tag: "Profit begins" },
-    { label: "Year 3 net", description: "Cumulative savings: $3.6M | Total investment: $1.06M | Net: +$2.55M", tag: "240% ROI" },
-    { label: "At scale", description: "Same $1M infrastructure for 500 engineers — 10× returns, same cost", tag: "Multiplier" }
-  ]'
-  footnote="CFO note: Hiding the Year 1 net loss destroys credibility. Show it explicitly — executives who have been burned by AI pilots will trust you more for it."
-  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Part 4 — The Decision -->
+<!-- SLIDE: Part 4 — The Leadership Calculation -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="The Decision"
-  subtitle="The executive summary table and three concrete asks with named owners"
+  title="The Leadership Calculation"
+  subtitle="Year 1 is negative. Year 2 turns positive. 240% verified 3-year ROI — if instrumentation is funded first."
   :cards='[
-    { icon: "📋", title: "The Summary Table", blurb: "Opportunity, investment, constraints, recommendation — one slide." },
-    { icon: "🎯", title: "Three Named Asks", blurb: "Pilot authorization, infrastructure assessment, success metric reset." },
-    { icon: "📏", title: "The Right Metric", blurb: "Iteration count and verification overhead — not agent API cost." },
+    { icon: "📈", title: "The Honest J-Curve", blurb: "Year 1 ~-$425K → Year 2 positive → 240% verified 3-year ROI" },
+    { icon: "📋", title: "Three Named Asks", blurb: "Instrumentation first, governance mandate, workflow redesign commitment" },
+    { icon: "🎯", title: "The Mandate Reframe", blurb: "Fund measurement first — not just approve another pilot" },
   ]'
-  :terminal='{ context: "authorization", detail: "Measure what makes agent economics work — not just what they cost." }'
+  :terminal='{ context: "leadership decision", detail: "CFOs who see the honest J-curve trust the math. Hide Year 1 and you lose the room." }'
 />
 
+<!-- Phase B: high — 3 body slides -->
 
 ---
 
-<!-- SLIDE: Executive Summary Table -->
-<FrameworkMappingRowsSlide
-  :partNumber="4"
-  pillIcon="📋"
-  pillLabel="The Decision"
-  title="Executive Summary"
-  subtitle="The leave-behind — every cell completable from memory after this talk"
-  :rows='[
-    { label: "Opportunity", description: "$1.49M/yr for 50 engineers — 85–95% cost reduction on routine work", tag: "Annual savings" },
-    { label: "Investment", description: "$1.06M infrastructure over 12 months — tiers 1–3 fully deployed", tag: "One-time cost" },
-    { label: "Constraints", description: "Automated verification mandatory — without it, economics are negative", tag: "Must-have" },
-    { label: "Timeline", description: "Year 1: -$425K. Year 2: +$1.06M. Year 3: +$2.55M cumulative", tag: "J-curve" },
-    { label: "Recommend", description: "Authorize quick-win pilot. Commission assessment. Reset metric.", tag: "Three asks" }
-  ]'
-  footnote="The ROI math works. The execution conditions are specific. Both must be on the table."
-  :progressDots='{ current: 1, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Three Named Asks -->
-<ThreeColumnCardSlide
-  :partNumber="4"
-  pillIcon="🎯"
-  pillLabel="The Decision"
-  title="Three Named Asks"
-  :columns='[
-    { icon: "⚡", title: "Authorize the Pilot", description: "$110K this quarter. Issue lifecycle automation. VP Engineering owns. 3.6-day payback." },
-    { icon: "🔍", title: "Commission an Assessment", description: "60 days. Map infrastructure gaps. Measure iteration count and verification cost." },
-    { icon: "📏", title: "Reset the Metric", description: "Iteration count and verification overhead — not agent API cost — are the ROI drivers." }
-  ]'
-  :insight='{ icon: "✈️", text: "Agent labor costs $2–5/hour. The infrastructure to verify it is the investment that makes that price real." }'
-  :progressDots='{ current: 2, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Before and After -->
+<!-- SLIDE: Before/After -->
 <BeforeAfterSlide
-  header="Automated Verification Is the Multiplier"
-  :leftItems='["Agent execution: $3/hour API cost for routine task", "Human review: 2 hours at $100/hr = $200 verification cost", "Total: $203 — vs. $200 human-only. Net result: a loss.", "Speed without verification amplifies errors, not productivity"]'
-  :rightItems='["Agent execution: $3 — same task, same quality output", "Automated checks: $0.10 — tests, security scan, lint in minutes", "Human spot-check: 15 min at $100/hr = $25 final review", "Total: $28.10 vs. $200 human-only. 86% cost reduction."]'
+  header="From Pilot Approval to P&L Impact"
+  :leftItems='["Pilot approved — no P&L impact after 6 months", "Developers self-reporting productivity gains not visible in output", "Shadow AI in use with no governance or measurement", "Five structural barriers undiagnosed — blamed on the models"]'
+  :rightItems='["3.6-day payback on first automatable workflow", "$1M annual savings measured and attributable", "Governance infrastructure protecting ROI and reducing breach risk by $2.2M", "Instrumentation identifies barriers; 240% 3-year ROI verified"]'
   :metrics='[
-    { value: "86%", detail: "cost reduction with automated verification in the loop" },
-    { value: "-$3", detail: "net result without automation — a loss vs. human-only" },
-    { value: "3.6 days", detail: "payback period on the quick-win entry point pilot" }
+    { value: "20-65×", detail: "fully-loaded labor cost differential — agent vs senior engineer" },
+    { value: "3.6 days", detail: "payback period on issue lifecycle automation (50-person team)" },
+    { value: "240%", detail: "verified 3-year ROI with proper instrumentation and governance" }
   ]'
 />
 
@@ -388,10 +366,10 @@ src: ./exec-spine.md
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Authorize the quick-win pilot: $110K, issue lifecycle automation, VP Engineering owns", "Define your verification cost baseline — how long does human review take per agent task today?"]'
-  :thisWeek='["Commission an infrastructure assessment: map gaps between current state and automation requirements", "Identify iteration count and verification overhead as your leading ROI indicators — not agent API cost"]'
-  :thisMonth='["Set the 20% goal target with your engineering leadership — 50-person team benchmark: $1.94M annual savings", "Establish the J-curve as the board narrative: Year 1 investment phase, Year 2 profit, Year 3 240% ROI"]'
-  footer="Agent labor costs $2–5/hour. The infrastructure to verify it is the investment that makes that price real."
+  :today='["Identify one automatable workflow in your engineering org", "Calculate its current cost per issue (time × loaded rate)", "Confirm it is measurable and approval-light"]'
+  :thisWeek='["Map the five structural barriers in your current AI environment", "Run a verification-cost audit — what does human review of AI output cost today?", "Quantify shadow AI exposure using IBM&#39;s 20% breach attribution benchmark"]'
+  :thisMonth='["Scope an instrumentation investment — iteration count, verification overhead", "Launch the issue lifecycle pilot with a defined payback measurement plan", "Set a governance baseline before scaling any agentic workflow"]'
+  footer="The arbitrage is real — but only organizations that fund measurement infrastructure first will see it in the P&L."
 />
 
 ---
@@ -399,15 +377,15 @@ src: ./exec-spine.md
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "📊 Research & Market Data", color: "cyan", items: [
-      { label: "McKinsey Digital, 2024", description: "Only 5% of AI pilots deliver material bottom-line improvement" },
-      { label: "McKinsey Digital, 2023", description: "The economic potential of generative AI — 20–45% enterprise uplift" },
-      { label: "Gartner, 2024", description: "65% of leaders cite organizational complexity as top barrier to AI ROI" }
+    { title: "📊 Research & Data", color: "cyan", items: [
+      { href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2024-and-a-half-decade-in-review", label: "McKinsey QuantumBlack: State of AI 2024", description: "5% of AI pilots deliver material bottom-line improvement; 65% cite org complexity as top barrier" },
+      { href: "https://arxiv.org/abs/2507.09089", label: "METR: Measuring the Impact of AI Coding Assistance (2025)", description: "RCT: developers self-reported 20% faster; independently measured 19% slower on complex tasks" },
+      { href: "https://www.ibm.com/reports/cost-of-a-data-breach", label: "IBM Cost of a Data Breach Report 2025", description: "$4.44M global avg breach cost; 20% of breaches from shadow AI; $2.2M savings with AI security" },
+      { href: "https://dora.dev/research/2025/dora-report/", label: "DORA 2025 State of DevOps Report", description: "90% AI adoption, 24% output trust — the adoption paradox and 7 team archetypes" }
     ] },
-    { title: "🛡️ Risk & Verification", color: "indigo", items: [
-      { href: "https://www.ibm.com/reports/data-breach", label: "IBM Cost of a Data Breach Report, 2024", description: "$4.88M average breach cost — before fines and remediation" },
-      { label: "IBM / Ponemon Institute", description: "$1 in delivery automation returns $6 in reduced incident costs" },
-      { label: "Software engineering research, 2024", description: "25% AI code error rate without automated verification in pipeline" }
+    { title: "📖 Related Talks", color: "purple", items: [
+      { label: "No Instruments, No Delivery", description: "Enterprise agentic governance — the cockpit model for safe agent operations at scale" },
+      { label: "The Agentic Labor Model", description: "The workforce composition shift and the three-bucket work spectrum in depth" }
     ] }
   ]'
 />
@@ -417,7 +395,12 @@ src: ./exec-spine.md
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
   title="The Agentic Economics"
-  subtitle="Making the Business Case for AI Agent Adoption"
-  :cards="[{ icon: '💰', value: '$2–5/hr', detail: 'Agent Labor Cost', subdetail: 'vs. $70–150/hr human engineering — 14–75× price difference' }, { icon: '⚠️', value: '5%', detail: 'Pilots That Deliver', subdetail: 'Automated verification is what separates the 5% from the 95%' }, { icon: '📈', value: '3.6 days', detail: 'Quick-Win Payback', subdetail: '$10,200 investment → $1,001,000 annual savings — no CI/CD rewrite' }, { icon: '📉', value: '240%', detail: '3-Year ROI', subdetail: 'Year 1: -$425K. Year 2: +$1.06M. Year 3 cumulative: +$2.55M' }]"
-  prompt="What is your current verification cost per agent task — and have you measured it?"
+  subtitle="Making the Business Case for Agentic AI Adoption"
+  :cards="[
+    { value: '20-65×', detail: 'Agent vs senior engineer labor cost differential — the arbitrage that changes the investment frame' },
+    { value: '5%', detail: 'of AI pilots deliver material P&L improvement — McKinsey 2024. Infrastructure is the differentiator.' },
+    { value: '3.6 days', detail: 'Payback period on issue lifecycle automation — $1M annual savings for a 50-person team' },
+    { value: '240%', detail: 'Verified 3-year ROI with instrumentation and governance funded before agents are scaled' },
+  ]"
+  prompt="What is the first workflow in your organization where the payback period is measurable in days — not quarters?"
 />

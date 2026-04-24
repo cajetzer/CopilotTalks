@@ -100,6 +100,7 @@ Now read everything that Phase B needs — **all in one parallel pass before wri
 
 - **`slides/tech-talks/template.md`** — component catalog, prop schemas, import block, escaping rules. Do not read `slides/TEMPLATE.md`.
 - **`memories/infra/facts.md`**, `discoveries.md`, `advice.md` — confirmed build rules and gotchas. If the topic has a bench entry (e.g., `memories/agent_architecture/facts.md`), read that too.
+- **Topic bench `preferences.md`** — if a `memories/{topic}/preferences.md` or `memories/{section}/preferences.md` exists (e.g., `memories/exec-talks/preferences.md`), read it now. Voice, tone, and framing rules live here and override default assumptions. For exec-talks this is **mandatory** — it contains banned patterns and preferred voice rules that must be applied to every prop value.
 - **`tech-talks/{topic}/README.md`** — full read. Extract: core question, personas, before/after comparisons with metrics, key capabilities ranked by novelty and audience impact, references frontmatter.
 
 Read all of these at the same time. Do not read one, then the next — fetch them all before synthesizing anything.

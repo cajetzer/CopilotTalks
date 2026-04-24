@@ -48,6 +48,7 @@ const props = defineProps({
 })
 
 // Prop length limits — read by build-all.ps1 for static lint enforcement
+const SECTIONS_MAX   = 4   // sections array must be exactly 4 items
 const CARD_TITLE_MAX = 49
 const CARD_BLURB_MAX = 100
 

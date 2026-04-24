@@ -15,6 +15,7 @@ section: Executive Talks
 status: active
 updated: 2026-04-24
 ---
+
 <script setup>
 import TitleSlide from './components/structure/TitleSlide.vue'
 import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
@@ -24,9 +25,8 @@ import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
 import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
 import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import ThankYouSlide from './components/structure/ThankYouSlide.vue'
-import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
 import HeroStatSlide from './components/HeroStatSlide.vue'
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
@@ -35,10 +35,10 @@ import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vu
 
 <!-- SLIDE: Title -->
 <TitleSlide
-  title="The Labor Multiplier: What Agents Actually Do"
-  subtitle="An executive briefing on the economics of agentic software delivery"
-  tagline="AI tools addressed 33% of the labor problem. Here's how to capture the other 67%."
-  meta="Executive Talk · CopilotTraining"
+  title="The Labor Multiplier"
+  subtitle="Where the other 67% of delivery labor lives"
+  tagline="AI addressed the 33%. Here is where the other 67% lives — and what it costs to leave it untouched."
+  meta="Executive Briefing · 30 minutes"
 />
 
 ---
@@ -47,28 +47,28 @@ src: ./exec-spine.md
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="Where does the other 67% of software delivery labor go — and what changes when agents handle it?"
-  subtext="AI coding tools accelerated code writing — roughly 33% of what engineering teams actually do. Discovery, planning, governance, knowledge transfer, and validation account for the rest."
-  highlight="67% of delivery labor. Five addressable categories. A clear ROI case for each."
+  question="Where does the P&L gain actually live — and what must leadership authorize to capture it?"
+  subtext="AI is already in engineering organizations. The productivity data is real. The P&L impact is not showing up — and this briefing explains exactly why."
+  highlight="Developers spend 30–33% of their time writing code. AI has addressed that slice. The other 67% of engineering labor is untouched — that is where the compounding return lives."
   :cards='[
-    { icon: "💰", title: "CFOs / Finance Leaders", description: "What is the ROI timeline for automating discovery, governance, and validation work?" },
-    { icon: "🏢", title: "CEOs / Executive Sponsors", description: "What does it take to build a delivery cost advantage in the 67% beyond code writing?" },
-    { icon: "🔧", title: "CTOs / VP Engineering", description: "Which 40–50% of engineering labor is in the Automate quadrant — and what does it take?" },
-    { title: "67% of delivery labor", description: "The categories beyond code writing — five addressable areas with clear ROI" },
-    { title: "$4.88M avg breach cost", description: "IBM 2024 — automated compliance review addresses the root cause" },
-    { title: "208× DORA gap", description: "Elite teams deploy 208x more frequently (DORA 2023)" }
+    { icon: "🏢", title: "CXOs / Board", description: "Why is AI investment not showing in the P&L — and what must leadership authorize?" },
+    { icon: "⚙️", title: "VPs Engineering", description: "Which workflows are addressable — and which operating model captures the gain?" },
+    { icon: "📦", title: "VPs Product", description: "What does agent-assisted delivery mean for cycle time, quality, and capacity?" },
+    { title: "67%", description: "Engineering labor outside the code editor — untouched by today&#39;s AI investment" },
+    { title: "$4.44M", description: "$4.44M average breach cost before regulatory fines — what governance agents address" },
+    { title: "12x", description: "SQL injection remediation speed improvement via Copilot Autofix (Octoverse 2024)" }
   ]'
 />
 
 ---
 
-<!-- SLIDE: Table of Contents -->
+<!-- SLIDE: Overview -->
 <TocSlide
   :sections='[
-    { icon: "📊", title: "The Hidden Labor Bill", subtitle: "The 67% Gap", blurb: "The labor AI tools have not yet touched — and the opportunity it represents", slide: 9 },
-    { icon: "📋", title: "The Exposure Ledger", subtitle: "Five Business Cases, Quantified", blurb: "Five labor categories where automation delivers the clearest return", slide: 13 },
-    { icon: "⚡", title: "The Multiplier Model", subtitle: "Automate, Augment, Human", blurb: "The operating model and the handoff pattern that compresses 8–12 hrs to 20 min", slide: 17 },
-    { icon: "🎯", title: "The Decision Window", subtitle: "Three Named Asks", blurb: "Three discrete authorizations, defined scope, this quarter", slide: 21 },
+    { icon: "📊", title: "The Hidden Labor Bill", blurb: "Where AI is working — and why the gains are not reaching the P&L", slide: 5 },
+    { icon: "🗺️", title: "The SDLC Labor Map", blurb: "Control, Coordination, Context — three buckets with a dollar figure each", slide: 10 },
+    { icon: "🔄", title: "The Handoff Pattern", blurb: "The mechanism that captures the gain — and why human review is non-negotiable", slide: 15 },
+    { icon: "✅", title: "The Decision", blurb: "One authorization that unlocks the full operating model", slide: 19 }
   ]'
 />
 
@@ -78,291 +78,302 @@ src: ./exec-spine.md
 <SectionOpenerSlide
   :partNumber="1"
   title="The Hidden Labor Bill"
-  subtitle="AI tools accelerated code writing — about 33% of what engineering teams do. Here is what else is on the table."
+  subtitle="AI addressed what developers type. The P&L gap lives in everything else."
   :cards='[
-    { icon: "📊", title: "The 67% Gap", blurb: "AI tools optimized code writing. Five more categories are ready to go." },
-    { icon: "🗺️", title: "The Labor Map", blurb: "Five categories. Each with strong agent leverage and a clear ROI case." },
-    { icon: "⏳", title: "The Investment Timing", blurb: "Organizations building this now have an 18–24 month head start." },
+    { icon: "📈", title: "The Win", blurb: "84% more builds. 15% higher merge rate. The investment is real." },
+    { icon: "📉", title: "The Gap", blurb: "Code writing is only 30–33% of engineering labor. The rest is untouched." },
+    { icon: "🔎", title: "The Cause", blurb: "AI amplifies what is already in place. The constraint has moved downstream." }
   ]'
-  :terminal='{ context: "labor allocation", detail: "33% of delivery labor optimized. Five more categories ready to go." }'
+  :terminal='{ context: "Where AI investment has delivered — and where it stops", detail: "Code writing: 30–33% of delivery labor" }'
 />
 
 ---
 
-<!-- SLIDE: The 33% Problem Reframe -->
-<HeroStatSlide
+<!-- SLIDE: Part 1 Slide 1 — The Accenture Proof -->
+<BeforeAfterMetricsSlide
   :partNumber="1"
   pillIcon="📊"
-  pillLabel="The Hidden Labor Bill"
-  title="AI Tools Addressed 33% of the Work"
-  subtitle="The other 67% — discovery, governance, knowledge, validation — runs on different economics."
-  :hero='{ value: "67%", label: "of software delivery labor beyond code writing — five categories with strong agent leverage", source: "McKinsey Global Institute 2023: developers spend 30–33% of time writing code" }'
+  pillLabel="The Labor Bill: Evidence"
+  title="The Accenture Proof: What AI Investment Delivers"
+  :before='{ header: "Without Copilot", items: ["Baseline build success rate", "Standard PR throughput per week", "Manual code review and iteration cycles", "Average PR merge rate"] }'
+  :after='{ header: "With Copilot", items: ["84% more successful builds", "8.7% more pull requests per week", "Faster iteration with inline suggestions", "15% higher PR merge rate"] }'
+  :metrics='[
+    { value: "84%", label: "more successful builds (GitHub + Accenture 2024)" },
+    { value: "15%", label: "higher PR merge rate across 12,000+ developers" },
+    { value: "8.7%", label: "more pull requests per week per developer" }
+  ]'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Part 1 Slide 2 — The 67% Problem -->
+<HeroStatSlide
+  :partNumber="1"
+  pillIcon="⏱️"
+  pillLabel="The Labor Bill: The Gap"
+  title="The Constraint Has Moved"
+  subtitle="Code generation is only the beginning"
+  :hero='{ value: "67%", label: "of engineering labor is outside the code editor", source: "McKinsey Global Institute, 2023" }'
   :supporting='[
-    { icon: "💻", title: "What AI optimized", description: "Code writing: 30–33% of developer time. The acceleration is real — 55% faster (GitHub 2023)." },
-    { icon: "🔍", title: "What comes next", description: "Discovery, planning, governance, knowledge, validation — each with strong agent leverage." },
-    { icon: "⏳", title: "The head start", description: "Organizations that have started here have built an 18–24 month advantage in delivery economics." }
+    { icon: "🔍", title: "Discovery and Triage", description: "Issue investigation, duplicate detection, impact analysis" },
+    { icon: "🔒", title: "Governance and Compliance", description: "Security review, policy enforcement, audit generation" },
+    { icon: "📚", title: "Knowledge Transfer", description: "Documentation, onboarding, runbook maintenance" },
+    { icon: "🗺️", title: "Planning and Coordination", description: "Execution planning, dependency mapping, estimation" }
   ]'
-  :insight='{ icon: "💡", text: "The organizations moving fastest have reclaimed the 67% — and the economics are straightforward once you know where to start." }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "💡", text: "AI addressed the 33%. The other 67% is where the P&L opportunity lives." }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The SDLC Labor Map -->
-<FrameworkMappingRowsSlide
+<!-- SLIDE: Part 1 Slide 3 — Mirror and Multiplier -->
+<TwoColPairedConceptsSlide
   :partNumber="1"
-  pillIcon="🗺️"
-  pillLabel="The Hidden Labor Bill"
-  title="The SDLC Labor Map"
-  subtitle="Nine categories of software delivery — five with strong agent leverage beyond code writing"
-  :rows='[
-    { label: "Discovery", description: "Issue triage, impact analysis, duplicate detection — at scale", tag: "Very high" },
-    { label: "Planning", description: "Execution plans, dependency mapping, estimate breakdown", tag: "High" },
-    { label: "Governance", description: "Compliance checks, policy enforcement, audit trail generation", tag: "Very high" },
-    { label: "Knowledge", description: "Documentation sync, onboarding materials, decision records", tag: "High" },
-    { label: "Validation", description: "Risk-weighted test coverage, failure-mode analysis, security scan", tag: "High" }
-  ]'
-  footnote="Code generation — the 33% AI tools already address — is the starting point. These five categories are where the next opportunity is."
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  pillIcon="🔬"
+  pillLabel="The Labor Bill: DORA 2025"
+  title="AI Is a Mirror and a Multiplier"
+  :left='{
+    header: "Where AI Multiplies Performance",
+    icon: "📈",
+    items: [
+      { title: "High-tempo delivery", detail: "Faster cycles get measurably faster with agents" },
+      { title: "Clean CI/CD pipelines", detail: "Stability compounds — agents amplify throughput" },
+      { title: "Accurate documentation", detail: "Agents surface and update what is already there" }
+    ]
+  }'
+  :right='{
+    header: "Where AI Reveals Gaps",
+    icon: "🔍",
+    items: [
+      { title: "Fragile build processes", detail: "Agents produce artifacts into the broken pipeline" },
+      { title: "Manual review bottlenecks", detail: "More code, same compliance review bandwidth" },
+      { title: "Documentation drift", detail: "Agents cannot synthesize what does not exist" }
+    ]
+  }'
+  :insight='{ icon: "🎯", text: "DORA 2025: the ROI from AI is determined more by organizational foundations than by tool selection." }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Compounding Cost -->
-<ThreeColumnCardSlide
+<!-- SLIDE: Part 1 Slide 4 — What AI Reaches -->
+<BeforeAfterPanelsSlide
   :partNumber="1"
-  pillIcon="⏳"
-  pillLabel="The Hidden Labor Bill"
-  title="Why This Quarter"
-  :columns='[
-    { icon: "📊", title: "Delivery Economics", description: "Code completion is where teams started. The 67% is where delivery economics differentiate further." },
-    { icon: "⚡", title: "DORA 208× Gap", description: "Elite teams deploy 208x more frequently. Agent infrastructure is how the gap closes." },
-    { icon: "👥", title: "Talent Signal", description: "62% of engineers say tooling influences job choice — modern infrastructure is a retention lever." }
-  ]'
-  :insight='{ icon: "🕒", text: "Building agent-amplified delivery takes 12–18 months. Starting now means the infrastructure is ready when the opportunity is clearest." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  pillIcon="🎯"
+  pillLabel="The Labor Bill: The Opportunity"
+  title="What AI Investment Reaches — and What It Does Not"
+  :before='{ header: "The AI Investment Today", items: ["Code generation and review assistance", "Testing and bug-fix support in the IDE", "Developer velocity in the code editor", "30–33% of delivery labor addressed"] }'
+  :after='{ header: "The Full P&L Opportunity", items: ["Discovery, triage, and impact analysis", "Compliance governance and audit generation", "Knowledge transfer and documentation drift", "The other 67% of delivery labor"] }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 2 — The Exposure Ledger -->
+<!-- SLIDE: Part 2 — The SDLC Labor Map -->
 <SectionOpenerSlide
   :partNumber="2"
-  title="The Exposure Ledger"
-  subtitle="Five labor categories. Five quantified business cases. One table executives can act on."
+  title="The SDLC Labor Map"
+  subtitle="Three executive buckets — each with an addressable dollar figure."
   :cards='[
-    { icon: "💰", title: "The Business Case Table", blurb: "Five categories, quantified in dollars. No implementation detail required." },
-    { icon: "⚖️", title: "Governance: Clearest ROI", blurb: "$4.88M avg breach cost. GDPR 4% of revenue. Automation changes the math." },
-    { icon: "📈", title: "The ROI Evidence", blurb: "Before/target/dollar impact — a concrete case for each category." },
+    { icon: "🛡️", title: "Control", blurb: "$4.44M breach risk. Autofix: 3.7 hrs to 18 min remediation." },
+    { icon: "🔄", title: "Coordination", blurb: "18,000+ engineer-hours per year on triage. Compressed to minutes." },
+    { icon: "📚", title: "Context", blurb: "50–200% salary to replace one engineer. 7–8 cycles per year." }
   ]'
-  :terminal='{ context: "business case", detail: "Five categories. Each with a clear dollar case." }'
+  :terminal='{ context: "Three executive buckets — each addressable today", detail: "Control · Coordination · Context" }'
 />
 
 ---
 
-<!-- SLIDE: The Financial Exposure Table -->
+<!-- SLIDE: Part 2 Slide 1 — Three Zones Framework -->
 <FrameworkMappingRowsSlide
   :partNumber="2"
-  pillIcon="💰"
-  pillLabel="The Exposure Ledger"
-  title="Five Labor Categories, Five Business Cases"
-  subtitle="Five categories where automation delivers a quantified, recurring return"
+  pillIcon="🗺️"
+  pillLabel="Labor Map: Three Zones"
+  title="Where Agent Labor Changes the Economics"
   :rows='[
-    { label: "Discovery", description: "Wrong routing, missed duplicates — 20–30% of project budget in rework", tag: "$2–4M/yr" },
-    { label: "Planning", description: "Unclear requirements → $150K per rework incident. Estimates vary ±50%", tag: "$520K/yr" },
-    { label: "Governance", description: "$4.88M breach avg. GDPR fines to 4% of revenue. Automation scales.", tag: "$4.88M" },
-    { label: "Knowledge", description: "50–200% salary to replace one engineer. 280+ hrs recovered per hire.", tag: "$350K+ exit" },
-    { label: "Validation", description: "$11K/min outage cost. Risk-weighted coverage finds line test gaps.", tag: "$11K/min" }
+    { label: "CONTROL", description: "Governance + Validation: compliance, security, and audit generation", tag: "$4.44M avg breach" },
+    { label: "COORDINATION", description: "Discovery + Planning: triage, impact analysis, and execution planning", tag: "18,000+ hrs/yr" },
+    { label: "CONTEXT", description: "Knowledge + Maintenance: documentation, onboarding, team continuity", tag: "50–200% salary/hire" }
   ]'
-  footnote="These are structural labor costs — recurring, predictable, and addressable with agent automation."
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :insight='{ icon: "🎯", text: "These three zones represent the 67% of delivery labor that AI investment has not yet addressed." }'
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Governance: The Highest Exposure -->
-<HeroStatSlide
-  :partNumber="2"
-  pillIcon="⚖️"
-  pillLabel="The Exposure Ledger"
-  title="Governance: The Clearest ROI Case"
-  subtitle="Compliance automation has the strongest return profile of any labor category"
-  :hero='{ value: "$4.88M", label: "average data breach cost (IBM 2024) — automated compliance review addresses the root cause", source: "IBM Security: Cost of a Data Breach Report 2024" }'
-  :supporting='[
-    { icon: "📋", title: "GDPR", description: "Up to 4% of global annual revenue per violation. Automated review scales with delivery cadence." },
-    { icon: "🔍", title: "SOC 2 audit cost", description: "$30K–$100K in fees + 160–300 engineer-hours annually. Agent-generated evidence changes the model." },
-    { icon: "⏱️", title: "Review overhead today", description: "4 hours per PR in high-stakes contexts. Agent-based review runs in under 10 minutes." }
-  ]'
-  :insight='{ icon: "💡", text: "A DevSecOps investment returns $6 per $1 spent (IBM/Ponemon). Governance automation is the highest-return category in this table." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
-/>
-
----
-
-<!-- SLIDE: The ROI Evidence -->
+<!-- SLIDE: Part 2 Slide 2 — Control Zone -->
 <BeforeAfterMetricsSlide
   :partNumber="2"
-  pillIcon="📈"
-  pillLabel="The Exposure Ledger"
-  title="The ROI Evidence"
-  :before='{
-    header: "Current State (Manual)",
-    items: [
-      { title: "Issue triage", detail: "30 min/issue — $1.04M/yr for 20 issues/week at $100/hr" },
-      { title: "Compliance review", detail: "4 hrs/PR — 160–300 engineer-hours/yr on SOC 2 alone" },
-      { title: "Onboarding", detail: "3–6 weeks when docs are outdated — 7–8 engineers/yr affected" },
-      { title: "Production issues", detail: "5/quarter — each a potential $4.88M exposure event" }
-    ]
-  }'
-  :after='{
-    header: "Target State (Agent-Augmented)",
-    items: [
-      { title: "Issue triage", detail: "<5 min/issue — 83% time reduction. $1.04M/yr reclaimed." },
-      { title: "Compliance review", detail: "<10 min automated — 160–300 engineer-hours freed for delivery" },
-      { title: "Onboarding", detail: "1–2 weeks with auto-synced docs — 4 weeks saved per hire" },
-      { title: "Production issues", detail: "Target 0 — violations surface before merge, not after audit" }
-    ]
-  }'
+  pillIcon="🛡️"
+  pillLabel="Labor Map: Control Zone"
+  title="Control: From Manual Review to Continuous Governance"
+  :before='{ header: "Manual Governance", items: ["4-hour compliance review per pull request", "Vulnerabilities found at annual audit", "Manual audit evidence assembled under deadline", "Review coverage limited by developer bandwidth"] }'
+  :after='{ header: "Agent Governance", items: ["10-minute automated compliance check per PR", "Vulnerabilities caught at the point of introduction", "Audit evidence generated as a byproduct of delivery", "Every PR reviewed — coverage not limited by bandwidth"] }'
   :metrics='[
-    { value: "~$1M", label: "annual triage savings for a 50-person team" },
-    { value: "6×", label: "DevSecOps ROI — $1 invested returns $6 (IBM/Ponemon)" },
-    { value: "280 hrs", label: "recovered per year from improved onboarding alone" }
+    { value: "12x", label: "faster SQL injection remediation (3.7 hrs to 18 min)" },
+    { value: "7x", label: "faster XSS remediation (Copilot Autofix, Octoverse 2024)" },
+    { value: "$4.44M", label: "average breach cost before regulatory fines (IBM 2025)" }
   ]'
-  :insight='{ icon: "💡", text: "These are what organizations with instrumented discovery and governance are already measuring." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — The Multiplier Model -->
+<!-- SLIDE: Part 2 Slide 3 — Coordination Zone -->
+<HeroStatSlide
+  :partNumber="2"
+  pillIcon="🔄"
+  pillLabel="Labor Map: Coordination Zone"
+  title="Coordination: 18,000+ Engineer-Hours Per Year"
+  subtitle="On triage, investigation, and handoff work"
+  :hero='{ value: "18K+", label: "engineer-hours per year on triage and coordination — 50-person team", source: "Atlassian State of Teams" }'
+  :supporting='[
+    { icon: "🔍", title: "Issue investigation", description: "30 minutes per issue for a developer — under 5 seconds for an agent" },
+    { icon: "🗺️", title: "Change impact analysis", description: "Half a day for a senior engineer — minutes for an agent with full history" },
+    { icon: "📋", title: "Execution planning", description: "2–4 hours of pre-work per issue — compressed before standup" },
+    { icon: "🔄", title: "Duplicate detection", description: "15% of issues are duplicates — agents scan the full backlog systematically" }
+  ]'
+  :insight='{ icon: "💡", text: "The human still makes the call — but reviews a comprehensive briefing instead of doing the research." }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Part 2 Slide 4 — Context Zone -->
+<BeforeAfterPanelsSlide
+  :partNumber="2"
+  pillIcon="📚"
+  pillLabel="Labor Map: Context Zone"
+  title="Context: The Compounding Cost of Forgotten Knowledge"
+  :before='{ header: "Without Knowledge Agents", items: ["3–6 weeks to onboard a new engineer", "30–60 minutes of search to understand any system", "Documentation drifts from code within months", "Institutional knowledge walks out with attrition"] }'
+  :after='{ header: "With Knowledge Agents", items: ["1–2 weeks onboarding with accurate documentation", "Answers in seconds from full codebase context", "Drift detected and patch proposals generated automatically", "Tribal knowledge encoded and available to the entire team"] }'
+  :insight='{ icon: "💡", text: "At 15% attrition on a 50-person team: 7–8 onboarding cycles per year — at 50–200% salary cost each (SHRM)." }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Part 3 — The Handoff Pattern -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="The Multiplier Model"
-  subtitle="8–12 hours of preparation compressed to ~20 minutes. 40–50% of engineering labor ready to move."
+  title="The Handoff Pattern"
+  subtitle="Preparation → Decision → Execution. 8–12 hours of labor. ~20 minutes of human time."
   :cards='[
-    { icon: "🔀", title: "The Taxonomy", blurb: "Automate, Augment, Human — 40–50% of labor in the Automate quadrant." },
-    { icon: "⚡", title: "The Handoff Pattern", blurb: "Prep → Decision → Execute. 8–12 hrs to 20 min." },
-    { icon: "📈", title: "The Investment Timing", blurb: "DORA 208x gap. The infrastructure that closes it takes 12–18 months." },
+    { icon: "⚙️", title: "Preparation", blurb: "Agent assembles context and recommendation in minutes." },
+    { icon: "👤", title: "Decision", blurb: "Human reviews, decides, and approves. Still fully accountable." },
+    { icon: "🚀", title: "Execution", blurb: "Agent executes with monitoring. Human oversight is intact." }
   ]'
-  :terminal='{ context: "multiplier model", detail: "40–50% of engineering labor ready to move into the Automate quadrant." }'
+  :terminal='{ context: "8–12 hours of human labor compressed", detail: "→ ~20 minutes of human decision time" }'
 />
 
 ---
 
-<!-- SLIDE: Three Categories of Work -->
-<ThreeColumnCardSlide
+<!-- SLIDE: Part 3 Slide 1 — Handoff Compression -->
+<BeforeAfterMetricsSlide
   :partNumber="3"
-  pillIcon="🔀"
-  pillLabel="The Multiplier Model"
-  title="Automate, Augment, Human"
-  :columns='[
-    { icon: "🤖", title: "Automate", description: "Rule-based, repetitive, low-risk. Issue triage, compliance checks, doc sync. 40–50% of labor." },
-    { icon: "🤝", title: "Augment", description: "Agent prepares, human decides. Impact analysis, execution planning, code review." },
-    { icon: "🧠", title: "Human", description: "Strategy, architecture, stakeholder management. Judgment that cannot be structured." }
+  pillIcon="🔄"
+  pillLabel="Handoff Pattern: The Compression"
+  title="8–12 Hours to 20 Minutes: The Handoff Pattern in Practice"
+  :before='{ header: "Without Agents", items: ["2–4 hours investigating the issue", "30–60 minutes of stakeholder communication", "4–8 hours of implementation work", "Human time = preparation + decision + execution"] }'
+  :after='{ header: "With the Handoff Pattern", items: ["Agent prepares full analysis in minutes", "Human reviews and decides in 2–3 minutes", "Agent executes the approved plan", "Human time = decision only (~20 minutes total)"] }'
+  :metrics='[
+    { value: "~20 min", label: "total human time per task with the Handoff Pattern" },
+    { value: "8–12 hrs", label: "compressed from this human-only baseline" },
+    { value: "100%", label: "human accountability maintained at the decision point" }
   ]'
-  :insight='{ icon: "🎯", text: "40–50% of current engineering labor falls in the Automate quadrant — capturable today without displacing any human judgment." }'
   :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Handoff Pattern -->
-<TwoColPairedConceptsSlide
+<!-- SLIDE: Part 3 Slide 2 — Trust as Architecture -->
+<HeroStatSlide
   :partNumber="3"
-  pillIcon="⚡"
-  pillLabel="The Multiplier Model"
-  title="The Handoff Pattern"
-  :left='{
-    header: "Without Agents",
-    icon: "👷",
-    items: [
-      { text: "Preparation: 2–4 hrs", detail: "Developer investigates, traces root cause, maps dependencies" },
-      { text: "Decision: 10–15 min", detail: "Makes call with partial context — what they could gather" },
-      { text: "Execution: 4–8 hrs", detail: "Sequential and developer-paced. Blocked until available." },
-      { text: "Total human time: 8–12 hrs", detail: "Expertise spent on research, not judgment" }
-    ]
-  }'
-  :right='{
-    header: "With Agent Handoff",
-    icon: "⚡",
-    items: [
-      { text: "Preparation: 5 min (agent)", detail: "Scans full codebase, traces dependencies, proposes plan" },
-      { text: "Decision: 2–3 min (human)", detail: "Reviews comprehensive briefing — better-informed, faster" },
-      { text: "Execution: 30–90 min (agent)", detail: "Parallel, agent-paced. Runs while human takes next task." },
-      { text: "Total human time: ~20 min", detail: "Expertise concentrated on the judgment only they provide" }
-    ]
-  }'
-  :insight='{ icon: "⏱️", text: "8–12 hours of human effort compressed to ~20 minutes. The human remains in the loop — at the decision point only." }'
+  pillIcon="🤝"
+  pillLabel="Handoff Pattern: The Design Rationale"
+  title="Why Human Review Is Architecturally Mandatory"
+  subtitle="The trust data is the design justification"
+  :hero='{ value: "43%", label: "of developers trust the accuracy of AI-generated output", source: "Stack Overflow Developer Survey 2024" }'
+  :supporting='[
+    { icon: "📊", title: "30% trust little or none", description: "DORA 2025: 30% of developers report little or no trust in AI outputs" },
+    { icon: "🏗️", title: "The design response", description: "Human review at the decision point is the mechanism that gives AI output integrity" },
+    { icon: "⚠️", title: "Skipping review costs more", description: "DORA: productivity gains are lost to downstream rework when review is skipped" },
+    { icon: "✅", title: "The Handoff Pattern is the solution", description: "Structured human review is not a bottleneck — it is what makes output trustworthy to ship" }
+  ]'
+  :insight='{ icon: "🎯", text: "The trust gap is not a risk caveat — it is the architectural reason the human review step is non-negotiable." }'
   :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Cost of Delay -->
-<HeroStatSlide
+<!-- SLIDE: Part 3 Slide 3 — DORA 7 Foundations -->
+<FrameworkMappingRowsSlide
   :partNumber="3"
-  pillIcon="📉"
-  pillLabel="The Multiplier Model"
-  title="The Value of Starting Now"
-  subtitle="The DORA gap is established. Agent infrastructure is how high-performing teams got there."
-  :hero='{ value: "208×", label: "faster deployment frequency — elite teams vs. average (DORA 2023)", source: "Elite teams also recover from failures 2600x faster. These are the current operating baselines for high-performing engineering organizations." }'
-  :supporting='[
-    { icon: "📅", title: "The onboarding curve", description: "Organizations starting this quarter can plan for a 12–18 month infrastructure timeline." },
-    { icon: "💰", title: "Compounding returns", description: "Delivery economics improve as agent infrastructure matures. Early quarters fund later ones." },
-    { icon: "🏗️", title: "Infrastructure timeline", description: "Building agent-amplified delivery takes 12–18 months. The three asks are calibrated to that curve." }
+  pillIcon="📋"
+  pillLabel="Handoff Pattern: Org Readiness"
+  title="DORA&#39;s 7 Foundations: The Leadership Checklist"
+  :rows='[
+    { label: "AI Policy", description: "Teams know what agents can do — decisions happen at the right level", tag: "Strategy" },
+    { label: "Platforms", description: "Stable platforms — broken CI/CD means broken artifacts at agent speed", tag: "Foundation" },
+    { label: "Data Quality", description: "Agent quality is bounded by data quality — at agent speed", tag: "Foundation" },
+    { label: "User Focus", description: "Outcome-focused teams direct agents toward value", tag: "Culture" },
+    { label: "Team Culture", description: "Psychological safety to flag agent errors — dysfunction gets amplified", tag: "Culture" },
+    { label: "Small Batches", description: "Agents iterate fast; batch sizes that hide mistakes hide them longer", tag: "Delivery" }
   ]'
-  :insight='{ icon: "🎯", text: "The three asks in the next section are sized to show results in quarter one — while building the infrastructure that compounds over 12–18 months." }'
+  :insight='{ icon: "🎯", text: "The ROI from AI is determined by how much organizational infrastructure exists to direct and review what agents produce." }'
   :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 4 — The Decision Window -->
+<!-- SLIDE: Part 4 — The Decision -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="The Decision Window"
-  subtitle="Three discrete authorizations. Defined scope. Built to show results this quarter."
+  title="The Decision"
+  subtitle="One authorization — not three asks. A governed AI policy in a bounded workflow."
   :cards='[
-    { icon: "🔍", title: "Labor Audit", blurb: "4-week assessment. Identify your Automate quadrant." },
-    { icon: "🚀", title: "90-Day Pilot", blurb: "One team, three capabilities, baseline metrics pre-set." },
-    { icon: "📋", title: "Governance Policy", blurb: "Define access scope, ownership, and legal review now." },
+    { icon: "📋", title: "The State Right Now", blurb: "99% of enterprise developers already use AI tools." },
+    { icon: "🔬", title: "The Authorization", blurb: "Govern AI in one bounded high-friction workflow." },
+    { icon: "🏆", title: "The Advantage", blurb: "Governed deployments hold an 18–24 month head start." }
   ]'
-  :terminal='{ context: "authorization", detail: "Three asks. This quarter. Defined scope." }'
+  :terminal='{ context: "Whether AI is governed is the remaining question", detail: "99% adoption is already the baseline" }'
 />
 
 ---
 
-<!-- SLIDE: Three Named Asks -->
-<ThreeColumnCardSlide
+<!-- SLIDE: Part 4 Slide 1 — Governance Baseline -->
+<HeroStatSlide
   :partNumber="4"
-  pillIcon="🎯"
-  pillLabel="The Decision Window"
-  title="Three Asks. This Quarter."
-  :columns='[
-    { icon: "🔍", title: "Labor Allocation Audit", description: "4 weeks. Map where engineering time actually goes — calendar and commits, not the roadmap." },
-    { icon: "🚀", title: "90-Day Pilot", description: "One team, three capabilities, baseline metrics set before launch. Success criteria in advance." },
-    { icon: "📋", title: "Governance Policy", description: "Define agent access scope, production ownership, and legal/security review scope." }
+  pillIcon="📊"
+  pillLabel="The Decision: Baseline Reality"
+  title="The Governance Baseline: AI Is Already in the Organization"
+  subtitle="The question is whether it is governed or unmonitored"
+  :hero='{ value: "99%", label: "of enterprise developers have tried AI tools at work", source: "GitHub Developer Survey 2024" }'
+  :supporting='[
+    { icon: "📋", title: "The question is governance", description: "Not whether AI is present — whether it is audited, governed, and accountable" },
+    { icon: "📊", title: "76% using or planning AI tools", description: "Stack Overflow 2024: adoption is already underway across the industry" },
+    { icon: "🔒", title: "The policy gap", description: "Unmonitored adoption operates without audit trail or accountability" },
+    { icon: "📈", title: "18–24 month advantage", description: "Governed deployments hold a compounding head start over unstructured adoption" }
   ]'
-  :insight='{ icon: "✈️", text: "Each of these requires executive authorization — the scope and ownership decisions sit above the engineering layer." }'
+  :insight='{ icon: "🎯", text: "The absence of a governance policy is not neutrality — it is unmonitored adoption at scale, without audit trail." }'
   :progressDots='{ current: 1, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: What Each Quarter Costs -->
-<FrameworkMappingRowsSlide
+<!-- SLIDE: Part 4 Slide 2 — One Authorization -->
+<ThreeColumnCardSlide
   :partNumber="4"
-  pillIcon="🏁"
-  pillLabel="The Decision Window"
-  title="Three Compounding Factors"
-  subtitle="Three areas where earlier investment compounds into a larger return"
-  :rows='[
-    { label: "Governance", description: "Automated compliance runs every commit. Findings surface before merge.", tag: "$6 per $1" },
-    { label: "Delivery", description: "DORA 208x gap. Agent infrastructure is how elite teams closed it.", tag: "208× gap" },
-    { label: "Talent", description: "62% cite tooling in job decisions. Modern infra retains talent.", tag: "62% signal" },
-    { label: "Efficiency", description: "40–50% of labor shifts to the Automate quadrant — measurable results.", tag: "67% ready" }
+  pillIcon="✅"
+  pillLabel="The Decision: Authorization"
+  title="One Authorization, Three Deliverables"
+  :columns='[
+    { icon: "📋", title: "Labor Audit", description: "A 4-week assessment of where engineering time actually goes — the baseline for every improvement." },
+    { icon: "🔬", title: "90-Day Pilot", description: "One team, three agent capabilities: triage, planning, compliance. Metrics defined before launch." },
+    { icon: "🔒", title: "Governance Policy", description: "Define agent autonomy boundaries, approval steps, and who is accountable in production." }
   ]'
-  footnote="The three asks require 4 weeks, 90 days, and one policy session — scoped to show results before the next planning cycle."
+  :insight='{ icon: "🎯", text: "The audit and pilot are implementation mechanics of one governance decision — not three separate asks." }'
   :progressDots='{ current: 2, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
@@ -370,13 +381,23 @@ src: ./exec-spine.md
 
 <!-- SLIDE: Before and After -->
 <BeforeAfterSlide
-  header="The Labor Multiplier Changes the Cost Structure"
-  :leftItems='["AI tools optimized 33% of labor — code writing only", "Discovery, planning, governance, knowledge: unaddressed", "Senior engineers spend 67% of time on non-coding tasks", "Compliance and triage: fully manual at full engineering cost"]'
-  :rightItems='["Agent labor captures the 67% — the untouched majority", "Preparation → Decision → Execution: 8–12 hrs to ~20 min", "40–50% of engineering labor shifts to the Automate quadrant", "Governance and validation: defensible at $2–5/hr agent cost"]'
+  header="What Changes When Agents Enter the SDLC"
+  :leftItems='[
+    "Manual compliance review blocks or delays deployments",
+    "Triage consumes 7–8 hours of engineering time per week",
+    "Documentation drifts from code within months of writing",
+    "Developer expertise spread across investigation and execution"
+  ]'
+  :rightItems='[
+    "Continuous governance: every PR reviewed in under 10 minutes",
+    "Triage in seconds — humans review decisions, not raw data",
+    "Documentation synced automatically — onboarding in 1–2 weeks",
+    "Developer expertise concentrated on high-judgment decisions"
+  ]'
   :metrics='[
-    { value: "67%", detail: "of delivery labor addressed by the multiplier model" },
-    { value: "~20 min", detail: "from 8–12 hours via the agent handoff pattern" },
-    { value: "208×", detail: "DORA deployment gap between elite and average teams" }
+    { value: "12×", detail: "faster vulnerability remediation via Copilot Autofix" },
+    { value: "~20 min", detail: "human time per 8–12 hour task with the Handoff Pattern" },
+    { value: "$4.44M", detail: "average breach cost addressed by continuous governance" }
   ]'
 />
 
@@ -384,10 +405,19 @@ src: ./exec-spine.md
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Map one week of engineering time across Discovery, Planning, Governance, Knowledge, and Validation", "Identify tasks requiring no human judgment — your Automate quadrant candidates"]'
-  :thisWeek='["Draft governance policy scope — what agents can access without approval and who owns agent behavior", "Define 90-day pilot success criteria before launch — baseline metrics agreed in advance, not after"]'
-  :thisMonth='["Launch a single-team pilot with 3 agent capabilities: issue triage, PR descriptions, compliance checking", "Commission an infrastructure assessment — measure iteration count and verification overhead, not API cost"]'
-  footer="The 67% is ready now. The three asks in the previous section are the authorization to start."
+  :today='[
+    "Identify one high-friction engineering workflow as the governance pilot target"
+  ]'
+  :thisWeek='[
+    "Commission a 4-week labor allocation assessment with VP Engineering",
+    "Draft the governance policy scope: agent autonomy boundaries and accountability"
+  ]'
+  :thisMonth='[
+    "Launch the 90-day pilot with baseline metrics defined before day one",
+    "Align legal and security on the AI governance policy",
+    "Schedule a 30-day leadership review with pilot data"
+  ]'
+  footer="Agent-assisted delivery is a current capability — authorization is the only remaining decision."
 />
 
 ---
@@ -395,15 +425,22 @@ src: ./exec-spine.md
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "Research & Market Data", color: "text-cyan-400", items: [
-      { label: "McKinsey Digital (2023)", description: "Developers spend 30–33% of time writing code — the foundation for the 67% opportunity", href: "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/unleashing-developer-productivity-with-generative-ai" },
-      { label: "IBM Cost of a Data Breach 2024", description: "$4.88M average breach cost — the governance automation ROI benchmark", href: "https://www.ibm.com/reports/data-breach" },
-      { label: "DORA State of DevOps 2023", description: "Elite teams deploy 208x more frequently — the delivery performance benchmark", href: "https://dora.dev/research/2023/dora-report/" },
-      { label: "GitHub Octoverse 2023", description: "55% faster code completion with Copilot — on the 33% of coding tasks", href: "https://github.blog/news-insights/research/octoverse-2023/" }
+    { title: "📊 Research and Industry Data", color: "cyan", items: [
+      { href: "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier", label: "McKinsey Global Institute — Developer time allocation, 2023", description: "Developers spend 30–33% of time on new code" },
+      { href: "https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development", label: "DORA — ROI of AI-Assisted Software Development, 2025", description: "AI as mirror and multiplier; 7 foundational capabilities" },
+      { href: "https://dora.dev/research/2023/dora-report/", label: "DORA State of DevOps Report, 2023", description: "Elite teams deploy 208x more frequently; 2,600x faster recovery" },
+      { href: "https://www.ibm.com/reports/data-breach", label: "IBM Cost of a Data Breach Report, 2025", description: "$4.44M average global breach cost before regulatory fines" }
     ]},
-    { title: "Compliance & Risk", color: "text-blue-400", items: [
-      { label: "GDPR Article 83", description: "Fines up to 4% of global annual revenue for governance failures", href: "https://gdpr.eu/article-83-conditions-for-imposing-administrative-fines/" },
-      { label: "Stack Overflow Dev Survey 2023", description: "62% of engineers say modern tooling influences job choice", href: "https://survey.stackoverflow.co/2023/" }
+    { title: "🔬 GitHub and Developer Evidence", color: "blue", items: [
+      { href: "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/", label: "GitHub + Accenture Enterprise RCT, 2024", description: "84% more successful builds; 15% higher merge rate; 12,000+ developers" },
+      { href: "https://github.blog/news-insights/octoverse/octoverse-2024/", label: "GitHub Octoverse 2024", description: "SQL injection 12x faster; XSS 7x faster; 39M secrets detected" },
+      { href: "https://github.blog/news-insights/research/survey-ai-wave-grows/", label: "GitHub Developer Survey 2024", description: "99% of US enterprise developers have tried AI tools at work" },
+      { href: "https://survey.stackoverflow.co/2024/professional-developers#productivity-impacts", label: "Stack Overflow Developer Survey 2024", description: "43% trust AI output accuracy; 76% using or planning AI tools" }
+    ]},
+    { title: "⚖️ Compliance and Workforce Data", color: "purple", items: [
+      { href: "https://gdpr-info.eu/art-83-gdpr/", label: "GDPR Article 83 — Penalty Structure", description: "Up to 4% of global annual revenue for serious violations" },
+      { label: "SHRM — Employee Replacement Cost Benchmarks", description: "50–200% of annual salary per departing engineer" },
+      { label: "Atlassian State of Teams Report", description: "7–8 hours per week on issue management and triage" }
     ]}
   ]'
 />
@@ -413,7 +450,11 @@ src: ./exec-spine.md
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
   title="The Labor Multiplier"
-  subtitle="AI tools addressed 33% of the problem. Here is how to capture the other 67%."
-  :cards="[{ icon: '📊', value: '67%', detail: 'of delivery labor', subdetail: 'Five categories beyond code writing. Each with a clear ROI case.' }, { icon: '⏱️', value: '~20 min', detail: 'from 8–12 hours', subdetail: 'Preparation → Decision → Execution handoff pattern.' }, { icon: '📈', value: '208×', detail: 'DORA deployment gap', subdetail: 'The current benchmark for elite engineering teams.' }]"
-  prompt="What share of your engineering labor is in the Automate quadrant?"
+  subtitle="AI addressed the 33%. The other 67% is the addressable opportunity."
+  prompt="What is one high-friction workflow where the Handoff Pattern could operate in the next 90 days?"
+  :cards='[
+    { value: "84%", detail: "more successful builds — the AI investment is working (GitHub + Accenture 2024)" },
+    { value: "67%", detail: "of engineering labor untouched — the full P&L opportunity" },
+    { value: "~20 min", detail: "of human time per task with the Handoff Pattern in place" }
+  ]'
 />

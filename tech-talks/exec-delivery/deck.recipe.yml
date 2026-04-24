@@ -1,7 +1,8 @@
 # exec.recipe.yml — executive talk generation guidance
 #
-# Guides slide generation from exec-talks/agentic-delivery/README.md.
-# Produced by exec-recipe-review skill (Agent Council, 2026-04-23).
+# Guides slide generation from tech-talks/exec-delivery/README.md.
+# Produced by exec-recipe-review skill (Agent Council, 2026-04-24).
+# Supersedes prior recipe from 2026-04-23.
 
 version: 1
 
@@ -18,20 +19,23 @@ deck:
 
   # arcNarrative: sequencing rationale for an executive audience
   arcNarrative: >
-    The talk opens with the reframe and the business stakes simultaneously — executives must
-    understand the opportunity (55% faster, 20–45% productivity uplift, DORA 208x gap) before
-    they will invest attention in the mental model. The aviation metaphor is established in one
-    vocabulary slide (roles mapped to enterprise equivalents) and then assumed, never re-taught.
-    Section 2 delivers the operating model in the smallest possible surface area: the four
-    flight phases as an authorization model (human authority vs. AI autonomy), the six
-    instruments as a single governance table, and the multiplier math — $20M delivery capacity
-    in a $10M org — as the economic payoff that closes the section. Section 3 is the governance
-    reframe: the No-Fly Zones are recast as executive liability categories (each one a dollar
-    figure, not a technical concern), the readiness question is compressed to three executive
-    tests, and the instrument panel is positioned as flight clearance — not IT overhead. Section
-    4 is brief and concrete: three named asks with owners and timelines. The arc moves executives
-    from "I see the opportunity and the stakes" to "I know the model and the liability" to "I
-    know exactly what I'm authorizing and when."
+    The talk opens with a deliberate two-beat reframe: first the credibility shock (McKinsey's
+    5% AI pilot failure rate, optionally paired with the METR RCT inversion), then the earned
+    upside (55% faster, 84% more successful builds) — so executives understand the gap before
+    they are asked to invest attention in closing it. Business stakes arrive in Section 1 while
+    attention is highest: DORA 208x deployment gap, $4.88M average breach cost, SEC 4-day
+    disclosure now in force, EU AI Act enforcement beginning 2025–2026. Section 2 delivers the
+    operating model in three slides: the five-role enterprise org chart, the six-instrument
+    governance table, and the four-phase authorization model, closing with the Multiplier math
+    ($10M → $20M delivery capacity) as the economic payoff that makes the model worth the
+    executive's attention. Section 3 pivots to the governance reframe: No-Fly Zones are
+    presented as executive liability categories with dollar figures attached (not developer
+    workflow rules), followed by the CFO/CISO ROI chain, with Enterprise Instrument Advantage
+    as the section's closing frame — converting risk anxiety into competitive positioning.
+    Section 4 is brief and binary: three named authorization actions with owners, timelines,
+    and a 90-day proof structure. The arc moves executives from "I see the stakes and the gap"
+    to "I understand the model and my liability exposure" to "I know exactly what I'm
+    authorizing today."
 
   # Ordered list of sections (max 4). Match sectionModes keys exactly.
   sectionOrder:
@@ -46,79 +50,83 @@ deck:
       # high = 4–5 slides, medium = 2–3, medium-low = 1–2
       emphasis: high
       note: >
-        Merge §1 (The Shift: From Coders to Captains) + §7 (The Imperative). The correct
-        exec sequence is: reframe → business stakes → competitive window. Do NOT separate
-        the productivity data from the urgency data. Slide 1: the reframe (Coder → Captain,
-        55% faster, 20–45% uplift). Slide 2: the business stakes (DORA 208x deployment gap,
-        $4.88M average breach, SEC 4-day disclosure — these must arrive before any model
-        explanation). Slide 3: the aviation vocabulary — one slide mapping FAA/ATC/Ground Crew/
-        Pilots/Autopilot to enterprise roles. This is the only slide from §2 (The System) that
-        survives; cut the extended org-chart section entirely. Slide 4: the competitive window
-        — 12–18 months of institution-building advantage that latecomers cannot compress.
-        Anchor stats: GitHub 2022 (55%), McKinsey 2023 (20–45%), DORA 2023 (208x), IBM 2024
-        ($4.88M). Cut: any extended metaphor explanation, the full Mermaid org-chart section.
+        Open with the credibility shock: McKinsey 5% AI pilot failure rate as slide 1 —
+        "only 5% of enterprise AI pilots deliver material bottom-line improvement." Immediately
+        pivot to the dual RCT upside: 55% faster (GitHub/Microsoft 2022), 84% more successful
+        builds (GitHub + Accenture 2024). The sequence is: failure rate → earned upside, not
+        the reverse. Slide 2: business stakes in dollar terms (DORA 208x deployment gap,
+        $4.88M average breach cost, SEC 4-day disclosure now in force, EU AI Act 2025–2026
+        enforcement). These must arrive before any model explanation. Slide 3: the Coder →
+        Captain reframe plus a one-line Multiplier preview (headline only — "$10M org → $20M
+        delivery capacity" — no math or diagram; that closes Section 2). Aviation vocabulary
+        is one label per role, not curriculum. Cut: extended org-chart (§2 full Mermaid
+        diagram), metaphor explanation slides, tribal knowledge detail.
 
     "The Flight Model":
       emphasis: medium
       note: >
-        Merge §3 (The Cockpit), §4 (The Flight), §5 (The Multiplier). Deliver the operating
-        model in three beats. Beat 1: the four flight phases as an authorization model — use
-        the Mermaid lifecycle diagram but label phases by authority level (Human Authority vs.
-        AI Autonomy + Human Monitoring), not by flight jargon. Executives are hearing: "AI
-        operates in one bounded phase; humans control the entry and exit." Beat 2: the six
-        instruments as a single executive governance table — Instrument | What It Measures |
-        What Breaks Without It. No per-instrument deep-dive. One row per instrument. Governance
-        conditions, not developer tooling. Beat 3: the multiplier math — this is the economic
-        payoff that makes Section 2 worth the executive's attention. One developer supervising
-        3–4 concurrent agentic sessions. "$10M engineering org → $20M delivery capacity."
-        "The limit is instrument monitoring capacity, not typing speed." Three slides total.
-        Cut: individual instrument explanations, extended flight-phase detail, No-Fly Zones
-        (those belong in Section 3).
+        Deliver the operating model in three slides, not five. Slide 1: the 5-role enterprise
+        org chart (FAA/ATC/Ground Crew/Pilots/Autopilot mapped to CISO/Platform Eng/Dev team
+        etc.) — one diagram, role assignment only. Slide 2: the 6 instruments as a governance
+        table (Instrument | What It Measures | What Breaks Without It) — governance conditions,
+        not developer tooling. Slide 3: the 4-phase authorization model labeled by authority
+        level ("Human Authority Required" vs. "AI Autonomy + Human Monitoring") closing with
+        the Multiplier math: one developer supervising 3–4 concurrent sessions, "$10M
+        engineering org → $20M delivery capacity — the limit is monitoring, not headcount."
+        Three slides total. Cut to speaker notes: per-instrument explanations, extended
+        flight-phase narration, Build vs. Buy table (§4 README), governance ownership
+        table (§5 README), No-Fly Zones (those belong in Section 3).
 
     "The Risk":
       emphasis: high
       note: >
-        Merge §6 (No-Fly Zones) + §8 (Checklist, compressed). Reframe No-Fly Zones as an
-        executive liability charter — each of the six categories maps to a dollar risk or
-        regulatory exposure, not a developer workflow rule. Slide 1: The Governance Charter —
-        six categories of AI autonomy that require human authorization, presented as liability
-        categories: production DB schema changes = data breach / recovery exposure; security
-        control bypasses = SEC 4-day disclosure trigger; external system integrations =
-        supply chain risk (SolarWinds, Log4j). Every item gets a dollar figure or regulatory
-        citation, not a technical description. Slide 2: Three executive readiness questions —
-        compress the 8-item checklist to three: "Can your pilots read instruments? Do you have
-        instruments? Is your control tower staffed?" If any is no, agents amplify risk, not
-        productivity. Slide 3: The framing line — "The instrument panel is not IT overhead.
-        It is flight clearance." ROI anchor: $1 invested in delivery automation → $6 return
-        (IBM/Ponemon). Without instruments, the agentic multiplier inverts: you're flying
-        blind across more missions simultaneously. Three slides total. The full 8-question
-        checklist survives in speaker notes for the VP Eng follow-up, not on slides.
+        Open with No-Fly Zones recast as executive liability categories — each of the six
+        categories maps to a dollar risk or regulatory citation, not a developer rule: production
+        DB changes = breach/recovery exposure; security control bypasses = SEC 4-day disclosure
+        trigger; external integrations = supply chain exposure. Every item gets a dollar figure
+        or regulatory citation. Slide 2: the CFO/CISO ROI chain — $4.88M average breach cost,
+        $2.2M savings per incident with AI-assisted security detection (IBM 2025), $1 invested
+        in delivery automation returns $6 in reduced incident costs, EU AI Act and SEC deadline
+        dates as factual governance floor. Slide 3: Enterprise Instrument Advantage as the
+        section close — "the instrument panel is not IT overhead; it is flight clearance.
+        Organizations with mature DevSecOps are completing a cockpit, not building one from
+        scratch." This is the anti-FUD exhale after the liability framing. The full 8-question
+        readiness checklist survives in speaker notes for VP Eng follow-up only.
 
     "The Decision":
       emphasis: high
       note: >
-        §9 (The Decision) preserved intact — three concrete asks, three slides. Do NOT soften
-        into prose or merge into a single dense slide. Each ask gets its own slide with a
-        named owner and timeline: (1) Platform infrastructure audit — owner: VP Engineering,
-        timeline: 4 weeks, scope defined; (2) Fund the instrument panel — investment: platform
-        team of 3–5 engineers for a 50-developer org, payback: weeks vs. multiplier unlocked;
-        (3) Designate a pilot team — scope: one team, three agentic capabilities, 90 days,
-        baseline metrics defined before launch. Closing line: "You're not authorizing a
-        technology. You're authorizing a new operating model." Two to three slides. Anchor:
-        $1→$6 delivery automation ROI (IBM/Ponemon) if not already used in Section 3.
+        Three named authorization actions, each on its own slide with a defined owner and
+        timeline. Do NOT collapse into a single dense slide. Ask 1: platform infrastructure
+        audit (VP Engineering, 4 weeks, scope defined). Ask 2: fund the instrument panel
+        (3–5 platform engineers for a 50-developer org; payback measured in weeks vs.
+        Multiplier unlocked). Ask 3: designate a pilot team (one team, three agentic
+        capabilities, 90 days, baseline metrics defined before launch — DORA-anchored:
+        deployment frequency, change failure rate, cycle time). Optional final slide:
+        a one-page Pilot Authorization template — team name, baseline metrics, instrument
+        checklist, 90-day milestone date. Closing line: "You're not authorizing a technology.
+        You're authorizing a new operating model." Cost ranges ($150–200K foundation phase)
+        stay in speaker notes — the room must agree on the model before negotiating price.
 
   # 3–5 high-signal moments the generator must surface in the deck.
   highlightMoments:
-    - "DORA 2023: elite teams deploy 208x more frequently with a 3x lower change failure rate — and the gap widens every quarter."
-    - "One developer supervising 3–4 concurrent agentic sessions = $20M delivery capacity in a $10M engineering organization."
-    - "$4.88M average data breach cost (IBM 2024) — before SEC 4-day disclosure obligations and regulatory fines. The instrument panel is your liability defense."
-    - "$1 invested in delivery automation returns $6 in reduced incident costs and remediation time (IBM/Ponemon Institute)."
-    - "Without instruments, you cannot fly multiple aircraft safely. You have the AI. You have the pilots. You need the cockpit."
+    - "Only 5% of enterprise AI pilots deliver material bottom-line improvement — teams with no instrument visibility account for the majority of that failure (McKinsey QuantumBlack, 2024)."
+    - "GitHub 2022 RCT: developers with AI assistance completed tasks 55% faster. Accenture 2024 RCT: 84% more successful builds versus unassisted teams."
+    - "One developer supervising 3–4 concurrent agentic sessions converts a $10M engineering organization into $20M of delivery capacity — the limit is instrument monitoring, not headcount."
+    - "$4.88M average data breach cost (IBM 2024); AI-assisted security detection reduces incident costs by $2.2M per event (IBM 2025) — the instrument panel is the liability defense, not the compliance burden."
+    - "EU AI Act enforcement begins 2025–2026; SEC 4-day material cybersecurity disclosure rule is now in force — No-Fly Zone violations are no longer developer workflow failures; they are executive regulatory exposure."
 
-# OPEN DECISION: How extended is the aviation metaphor in slides vs. speaker notes?
-# Current recipe assumes the metaphor runs as language (pilots, instruments, no-fly zones)
-# but NOT as curriculum (no extended org-chart deep-dive, no flight-phase narration).
-# If the presenter wants to lean into the metaphor for a more narrative-style briefing,
-# the §2 org-chart section could be restored as a full slide with speaker notes —
-# but this is only recommended if the audience skews toward operational leaders (COO, VP Ops)
-# rather than financial/governance executives (CFO, CISO, General Counsel).
+# OPEN DECISION: Where does the METR RCT finding land?
+# Path A — METR opens Section 1 alongside McKinsey 5%:
+#   "Expected 20–39% faster. Measured: 19% slower." as slide 1 content alongside the failure rate.
+#   Use if the audience has NOT publicly committed to an AI program and skepticism is the posture.
+#   Produces the sharpest opening hook. Risk: if leadership has publicly championed AI adoption,
+#   this can read as "your current strategy is failing" — producing defensiveness before the
+#   solution is established.
+# Path B — McKinsey 5% carries Section 1; METR moves to Section 3 (opens The Risk):
+#   "Experienced developers took 19% longer on complex tasks with AI — while expecting 20–39% speedup.
+#   This result is invisible to every adoption metric and immediately visible in cycle time."
+#   Safer path for audiences with existing AI commitments. Same credibility effect; lower volatility.
+#   METR becomes a productive shock that opens the risk/failure section instead.
+# Recommendation: default to Path B. Presenter can switch to Path A based on pre-briefing
+# intelligence about the room's prior AI program commitments.

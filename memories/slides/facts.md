@@ -20,6 +20,25 @@ Same applies to any other agent that produces large file outputs (Tech Talk Gene
 
 ---
 
+## Slide validation MUST use `.\build.ps1 -Deck {slug}`, not `npm run build` (2026-04-24)
+
+`schema_version: 1` | `date: 2026-04-24`
+
+`npm run build -- tech-talks/{slug}.md` compiles the deck but **skips prop linting**. It will exit `[OK]` even when component guards are violated (e.g., `TocSlide` sections ≠ 4, `DESC_MAX` overflow, `LABEL_MAX` overflow).
+
+The only build command that runs `Invoke-PropLint` is the wrapper at `slides/build.ps1`:
+
+```powershell
+# from slides/ directory:
+.\build.ps1 -Deck {slug}
+```
+
+This delegates to `scripts/build-all.ps1`, which runs `Invoke-PropLint` after every successful Vite build and emits yellow `[WARN] line N:` messages for violations.
+
+**If dispatching slide generation as a general-purpose agent** (because `Tech Talk Slide Generator` is not an available task agent type), the prompt MUST specify `.\build.ps1 -Deck {slug}` — not `npm run build`. Giving the wrong command causes all prop violations to pass through silently.
+
+---
+
 ## Multiline `:prop` array bindings break Vue template parser in Slidev (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`

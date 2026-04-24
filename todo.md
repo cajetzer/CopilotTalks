@@ -3,18 +3,6 @@ New tech-talk : PM using Copilot for market research.
 
 ---
 
-Pick your agent: Use Claude and Codex on Agent HQ  - The GitHub Blog: https://github.blog/news-insights/company-news/pick-your-agent-use-claude-and-codex-on-agent-hq/
-Third-party agents in Visual Studio Code: https://code.visualstudio.com/docs/copilot/agents/third-party-agents
-About third-party agents - GitHub Docs: https://docs.github.com/en/copilot/concepts/agents/about-third-party-agents
-Claude and Codex are now available in public preview on GitHub - GitHub Changelog: https://github.blog/changelog/2026-02-04-claude-and-codex-are-now-available-in-public-preview-on-github/
-Using agents in Visual Studio Code: https://code.visualstudio.com/docs/copilot/agents/overview
-Adding custom instructions for Copilot CLI - GitHub Docs: https://docs.github.com/en/copilot/how-tos/copilot-cli/add-custom-instructions#types-of-custom-instructions
-About agentic memory for GitHub Copilot - GitHub Enterprise Cloud Docs: https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/copilot-memory
-AGENTS.md: https://agents.md/
-Using agents in Visual Studio Code: https://code.visualstudio.com/docs/copilot/agents/overview#_types-of-agents
-
----
-
 evergreen process: using Actions to view all changesets at PR approval and updating agents/instructions/docs each time.  maybe refernce https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/
 
 ---
@@ -50,3 +38,9 @@ Think about AGENTS.md vs copilot-instructions now that VSCode prefers it when ru
 ---
 
 AgentRC.  Think about what we could do to have a repo be 100% Level 5 by default, at creation time.
+
+---
+
+Add to azure-mcp
+https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/?wt.mc_id=msftsource_issue82WN3email_gdc?ocid=eml_pg516617_gdc_comm_mw&mkt_tok=MTU3LUdRRS0zODIAAAGhVPCeXRKU2YYLAMbE6EzKsZ2EBREak1_doXpauAy4xSKct3q11KkAMgbRQlWpB0d0WOwHjzi_BF65hwvjAnPIh5T1oHT0u4A0SSOqj78N5PDtLLeZ6B5RvqPO
+https://github.com/microsoft/azure-skills?tab=readme-ov-file#what-you-get

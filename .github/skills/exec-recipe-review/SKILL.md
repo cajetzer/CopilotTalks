@@ -169,6 +169,8 @@ Write the **complete** `exec.recipe.yml` file — all fields. Source them as fol
 | `deck.sectionOrder` | Council Phase 3 output |
 | `deck.sectionModes` | Council Phase 3 output |
 | `deck.highlightMoments` | Council Phase 3 output |
+| `deck.preamble` | **Always** `[{ src: "./exec-spine.md" }]` for exec talks — every exec deck imports the shared series context slide. Do NOT set to `[]`. |
+| `deck.appendix` | `[]` unless the talk has explicit appendix content |
 
 Use `EXEC-RECIPE-TEMPLATE.yml` (read during pre-flight) as the schema for field names, YAML structure, and inline comments. If there is an open decision from the council, append it as a YAML comment at the end of the file: `# OPEN DECISION: [question] — [paths and consequences]`.
 
@@ -191,6 +193,7 @@ Use `EXEC-RECIPE-TEMPLATE.yml` (read during pre-flight) as the schema for field 
 - [ ] `highlightMoments` list is 3-5 items with quantified metrics where possible
 - [ ] No `highlightMoments` entry describes a tool command, code pattern, or implementation step
 - [ ] **After approval**: Slide Generator agent will regenerate all slides using the cockpit HTML system — you don't need to update individual slides
+- [ ] `deck.preamble` is `[{ src: "./exec-spine.md" }]` — never `[]` for exec talks
 
 ---
 

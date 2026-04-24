@@ -4,19 +4,19 @@ Confirmed facts specific to executive-audience talk structure, build patterns, a
 
 ---
 
-## exec-spine: shared preamble injected via src:, 6 slides (2026-04-24)
+## exec-spine: shared preamble injected via src:, 3 slides (updated 2026-04-24)
 
 `schema_version: 1` | `date: 2026-04-24`
 
-All exec-talks share a 6-slide preamble deck at `slides/tech-talks/exec-spine.md`, injected into each deck via `src: ./exec-spine.md` in the frontmatter. The 6 spine slides appear **after** slide 1 (Title) and **before** CoreQuestion and TOC.
+All exec-talks share a 3-slide preamble deck at `slides/tech-talks/exec-spine.md`, injected into each deck via `src: ./exec-spine.md` in the frontmatter. The 3 spine slides appear **after** slide 1 (Title) and **before** CoreQuestion and TOC.
 
 **Slide order (0-indexed for `$nav.go()`):**
 ```
 0  — Title (the exec-talk's own TitleSlide)
-1–6 — exec-spine slides (shared preamble, 6 slides)
-7  — CoreQuestion
-8  — TOC (TocSlide)
-9  — Part 1 SectionOpener (first content section)
+1–3 — exec-spine slides (shared preamble, 3 slides)
+4  — CoreQuestion
+5  — TOC (TocSlide)
+6  — Part 1 SectionOpener (first content section)
 ```
 
 **Preamble does NOT count toward the 25-slide max** for body content. The spine slides are fixed infrastructure, not content slides.
@@ -38,16 +38,16 @@ This appears immediately before the `<script setup>` block. The preamble slides 
 The `TocSlide` `slide:` values use `$nav.go(N)` navigation, which is **0-indexed** (slide 0 = first slide).
 
 **Formula for exec-talks:**
-- First SectionOpener = slide **9** (0=Title, 1–6=spine, 7=CoreQuestion, 8=TOC)
-- Second SectionOpener = 9 + (body slides in Part 1)
-- Third SectionOpener = previous + (body slides in Part 2)
-- Fourth SectionOpener = previous + (body slides in Part 3)
+- First SectionOpener = slide **6** (0=Title, 1–3=spine, 4=CoreQuestion, 5=TOC)
+- Second SectionOpener = 6 + (body slides in Part 1) + 1 (for the opener itself)
+- Third SectionOpener = previous + (body slides in Part 2) + 1
+- Fourth SectionOpener = previous + (body slides in Part 3) + 1
 
-**Example from exec-labor (TOC slide numbers):**
-- Part 1 Hidden Labor Bill = 9
-- Part 2 Exposure Ledger = 13 (9 + 3 body slides in Part 1 + 1 for the SectionOpener itself)
-- Part 3 Multiplier Model = 17
-- Part 4 Decision Window = 21
+**Example from exec-delivery (TOC slide numbers, 3 body in Part1, 3 in Part2, 2 in Part3, 3 in Part4):**
+- Part 1 The Shift = 6
+- Part 2 The Flight Model = 10 (6 + 1 + 3)
+- Part 3 The Risk = 14 (10 + 1 + 3)
+- Part 4 The Decision = 17 (14 + 1 + 2)
 
 **Common mistake:** Using 1-indexed counts or forgetting that the SectionOpener slide itself counts toward the total when computing subsequent section slide numbers.
 

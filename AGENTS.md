@@ -10,7 +10,7 @@ Three content types, each with dedicated agents:
 
 - **`workshop/`** — Hands-on training modules with personas, exercises, and metrics → use `module-planner` or `module-creator` agents
 - **`tech-talks/`** — Technical deep-dives for practitioners → use `Tech Talk Generator` agent
-- **`exec-talks/`** — Executive thought leadership for strategic decision-making
+- **`exec-talks/`** — Executive thought leadership for strategic decision-making → use `Exec Talk Generator` agent
 
 ---
 

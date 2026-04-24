@@ -16,7 +16,29 @@ All other prop limits pass: no description overflows, no blurb overflows, no tit
 
 ---
 
-## agentic-sdlc deck: conformance state as of 2026-04-21
+## agentic-sdlc deck: WGLL content absorbed into AgentRC levels (2026-04-24)
+
+`schema_version: 1` | `date: 2026-04-24`
+
+The `captures/wgll.md` "What Good Looks Like" framework was fully woven into `tech-talks/agentic-sdlc/README.md`, the deck recipe, and `slides/tech-talks/agentic-sdlc.md`. Key decisions:
+
+**Do not mention WGLL.** All signals, metrics, and adoption criteria from WGLL are absorbed invisibly into AgentRC L1–L5 level definitions. No "WGLL", "Ring X", "two frameworks", or dual-model framing anywhere — not in slides, recipe, or README.
+
+**Single enriched model.** Each AgentRC level (L1–L5) now has three signal dimensions: Platform Readiness, Adoption Depth, and Governance maturity. The content reads as one authoritative framework, not a comparison.
+
+**README structure after merge:**
+- Section "Two Frameworks, One Journey" → renamed "Maturity Assessment Framework"
+- "WGLL Ring Signals" sub-headings → "Adoption & Governance Signals" / "Developer Adoption Signals"
+- Mapping table (L1 ↔ Ring X columns) → Platform Readiness / Adoption Stage columns
+- Implementation Roadmap: "WGLL Ring X actions" → plain adoption/governance actions
+- WGLL removed from References
+
+**Deck recipe:** Subtitle updated to "Designing the SDLC Your Agents Deserve". Section "Unified Maturity Model" → "Maturity Model". All highlight moments rewritten without WGLL attribution.
+
+**Build state:** `.\build.ps1 -Deck agentic-sdlc` — zero warnings as of 2026-04-24.
+
+---
+
 
 `schema_version: 1` | `date: 2026-04-21`
 

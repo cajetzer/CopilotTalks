@@ -14,7 +14,7 @@ title: No Instruments, No Delivery
 mdc: true
 section: Executive Talks
 status: active
-updated: 2026-04-23
+updated: 2026-04-24
 ---
 
 <script setup>
@@ -47,16 +47,16 @@ src: ./exec-spine.md
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="Can your developers safely fly agentic AI at enterprise scale?"
-  subtext="The tools are available. The question is whether your organization has the infrastructure to use them safely."
+  question="What does it take to operate agentic AI safely at enterprise scale?"
+  subtext="The tools are available. The question is whether the organization has the infrastructure to use them safely — and the governance to know when not to."
   highlight="Instruments make speed safe. Without them, faster means failing faster at enterprise scale."
   :cards='[
-    { icon: "👔", title: "Executive Decision-Makers", description: "What infrastructure must you fund before AI investment can return value?" },
-    { icon: "🗼", title: "CTOs / VP Engineering", description: "How do you coordinate agentic sessions fleet-wide without mission conflicts?" },
-    { icon: "🔒", title: "CISOs / Compliance Leaders", description: "How do you make AI-generated code auditable, insurable, and defensible?" },
+    { icon: "👔", title: "Executive Decision-Makers", description: "What infrastructure must be funded before AI investment can return value?" },
+    { icon: "🗼", title: "CTOs / VP Engineering", description: "How are agentic sessions coordinated fleet-wide without mission conflicts?" },
+    { icon: "🔒", title: "CISOs / Compliance Leaders", description: "How is AI-generated code made auditable, insurable, and defensible?" },
+    { title: "Only 5% of AI pilots", description: "Deliver material bottom-line improvement — McKinsey QuantumBlack, 2024" },
     { title: "55% faster task completion", description: "GitHub / Microsoft Research, 2022 — with AI coding assistance" },
-    { title: "208× more frequent deployments", description: "DORA 2023 — elite teams vs. low performers. Gap widens every quarter." },
-    { title: "$4.88M average breach cost", description: "IBM 2024 — before SEC disclosure obligations, fines, and reputational damage" }
+    { title: "$4.88M average breach cost", description: "IBM 2024 — before SEC disclosure obligations and regulatory fines" }
   ]'
 />
 
@@ -65,10 +65,10 @@ src: ./exec-spine.md
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "✈️", title: "The Shift", subtitle: "From Coders to Captains", blurb: "Business stakes and why enterprises face a different calculus than startups", slide: 10 },
-    { icon: "🎛️", title: "The Flight Model", subtitle: "Phases, Instruments, Multiplier", blurb: "How agentic delivery works — and what infrastructure makes it safe", slide: 15 },
-    { icon: "⚖️", title: "The Risk", subtitle: "Governance Charter", blurb: "Six liability categories and three executive readiness tests", slide: 19 },
-    { icon: "🎯", title: "The Decision", subtitle: "Three Asks", blurb: "Named owners, timelines, and exactly what you are authorizing today", slide: 23 },
+    { icon: "✈️", title: "The Shift", subtitle: "From Coders to Captains", blurb: "Business stakes and the reframe that changes the calculus for enterprise AI investment", slide: 6 },
+    { icon: "🎛️", title: "The Flight Model", subtitle: "Roles, Instruments, Multiplier", blurb: "The operating model in three slides — and the math that makes it worth building", slide: 10 },
+    { icon: "⚖️", title: "The Risk", subtitle: "Liability Charter", blurb: "Six governance categories, the ROI chain, and why mature DevSecOps is already the cockpit", slide: 14 },
+    { icon: "🎯", title: "The Decision", subtitle: "Three Named Asks", blurb: "Named owners, timelines, and exactly what leadership is authorizing today", slide: 17 },
   ]'
 />
 
@@ -78,102 +78,82 @@ src: ./exec-spine.md
 <SectionOpenerSlide
   :partNumber="1"
   title="The Shift"
-  subtitle="Developers are becoming captains — the enterprise question is whether you give them the cockpit"
+  subtitle="The productivity opportunity is documented — the question is what it takes to capture it safely at enterprise scale"
   :cards='[
-    { icon: "📊", title: "The Business Case", blurb: "55% faster, 20-45% uplift — and the DORA gap compounds every quarter" },
-    { icon: "⚖️", title: "Enterprise Stakes", blurb: "$4.88M breach + SEC 4-day disclosure — your liability, not the vendor&#39;s" },
-    { icon: "⏱️", title: "The Window", blurb: "18-24 months of institution-building that latecomers cannot compress" },
+    { icon: "📊", title: "The Signal", blurb: "Only 5% of AI pilots deliver material bottom-line improvement" },
+    { icon: "⚖️", title: "The Stakes", blurb: "$4.88M breach + SEC 4-day disclosure — liability startups avoid" },
+    { icon: "✈️", title: "The Reframe", blurb: "Developers become captains — throughput follows the instruments" },
   ]'
-  :terminal='{ context: "executive briefing", detail: "The question is not whether AI changes delivery. It already has." }'
+  :terminal='{ context: "executive briefing", detail: "AI is already changing software delivery at measurable scale. The question is whether an organization captures it safely." }'
 />
+
 
 ---
 
-<!-- SLIDE: The Business Case Is Already Made -->
+<!-- SLIDE: The 5% Signal -->
 <HeroStatSlide
   :partNumber="1"
   pillIcon="📊"
   pillLabel="The Shift"
-  title="The Business Case Is Already Made"
-  subtitle="Three data points that close the investment debate."
-  :hero='{ value: "55%", label: "faster task completion with AI coding assistance", source: "GitHub / Microsoft Research, 2022" }'
+  title="The 5% Signal"
+  subtitle="Only 5% of enterprise AI pilots deliver material bottom-line improvement. Governance infrastructure is the differentiator."
+  :hero='{ value: "5%", label: "of enterprise AI pilots deliver material bottom-line improvement", source: "McKinsey QuantumBlack, State of AI 2024" }'
   :supporting='[
-    { icon: "📈", title: "20–45% Enterprise Uplift", description: "Validated productivity gains across organizations — McKinsey Digital, 2023" },
-    { icon: "🏆", title: "208× Deployment Frequency", description: "Elite teams vs. low performers — DORA 2023. The gap widens every quarter." },
-    { icon: "⏱️", title: "18–24 Month Window", description: "Institutional muscle memory — governance, trained teams — cannot be rushed later." }
+    { icon: "✅", title: "The RCT Evidence", description: "GitHub 2022: 55% faster with AI. Accenture 2024: 84% more successful builds at enterprise scale." },
+    { icon: "🏗️", title: "What Separates the 5%", description: "Automated verification infrastructure — the instrument panel that makes AI trustworthy at speed." },
+    { icon: "💡", title: "The Implication", description: "Governance infrastructure is the variable. Organizations that invest in it capture the full gain." }
   ]'
-  :insight='{ icon: "💡", text: "The debate is settled. The decision left is whether your organization captures the gain — or watches competitors compound it." }'
-  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "🎯", text: "Organizations capturing AI value built the infrastructure to verify what the tools produce." }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Enterprise Delivery Stakes -->
-<HeroStatSlide
+<!-- SLIDE: The Enterprise Stakes -->
+<ThreeColumnCardSlide
   :partNumber="1"
   pillIcon="⚖️"
   pillLabel="The Shift"
-  title="Enterprise Delivery Stakes"
-  subtitle="Startups can experiment without these consequences. You cannot."
-  :hero='{ value: "$4.88M", label: "average enterprise data breach cost", source: "IBM Cost of a Data Breach Report, 2024" }'
-  :supporting='[
-    { icon: "📋", title: "SEC 4-Day Disclosure (2023)", description: "Material cybersecurity incidents require disclosure within 4 business days — before fines." },
-    { icon: "⚖️", title: "Your Liability, Not the Vendor&#39;s", description: "HIPAA, SOC2, FedRAMP violations from AI-generated code are your regulatory exposure." },
-    { icon: "🏢", title: "A Different Calculus", description: "Competitors without compliance constraints ship AI code without checks. You cannot." }
+  title="The Enterprise Stakes"
+  :columns='[
+    { icon: "📊", title: "DORA 208× Gap", description: "Elite teams deploy 208× more frequently with 3× lower failure rate — DORA 2023." },
+    { icon: "🛡️", title: "$4.88M Breach Cost", description: "IBM 2024: average enterprise data breach cost. AI-assisted detection saves $2.2M per incident." },
+    { icon: "📋", title: "Regulatory Floor", description: "SEC 4-day disclosure in force. EU AI Act 2025–2026. NIST AI RMF is the governance standard." }
   ]'
-  :insight='{ icon: "🛡️", text: "Agentic AI without automated governance creates a new delivery risk category. The instrument panel is your defense." }'
-  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "⚖️", text: "Agentic AI without automated governance creates a new delivery liability category. The instrument panel is both the multiplier enabler and the liability defense." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Cockpit Question -->
+<!-- SLIDE: From Coders to Captains -->
 <TwoColPairedConceptsSlide
   :partNumber="1"
-  pillIcon="🎛️"
+  pillIcon="✈️"
   pillLabel="The Shift"
-  title="The Cockpit Question"
+  title="From Coders to Captains"
   :left='{
-    header: "AI Tools You Have",
-    icon: "🤖",
+    header: "Developer as Coder",
+    icon: "💻",
     items: [
-      { text: "GitHub Copilot", detail: "Code completion and agentic chat" },
-      { text: "Agent mode", detail: "Autonomous multi-step task execution" },
-      { text: "Background agents", detail: "Runs while developer monitors" },
-      { text: "Multi-agent workflows", detail: "Parallel execution at scale" }
+      { text: "Productivity measure", detail: "Lines of code written" },
+      { text: "Primary bottleneck", detail: "Typing speed" },
+      { text: "Core value", detail: "Syntax knowledge" },
+      { text: "AI role", detail: "Faster autocomplete" }
     ]
   }'
   :right='{
-    header: "Infrastructure You Need",
-    icon: "🎛️",
+    header: "Developer as Captain",
+    icon: "✈️",
     items: [
-      { text: "Automated test suites", detail: "80%+ coverage — gates every deployment" },
-      { text: "Security scanning in CI/CD", detail: "Every commit, not spot checks" },
-      { text: "Compliance automation", detail: "SOC2, HIPAA, FedRAMP enforced at merge" },
-      { text: "Fleet-wide observability", detail: "Leadership sees all active sessions" }
+      { text: "Productivity measure", detail: "Missions completed" },
+      { text: "Primary bottleneck", detail: "Instrument monitoring capacity" },
+      { text: "Core value", detail: "Judgment and decision-making" },
+      { text: "AI role", detail: "Autopilot — developer remains accountable" }
     ]
   }'
-  :insight='{ icon: "✈️", text: "You have the autopilot. The question is whether you have the cockpit instruments to fly safely." }'
-  :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: The Competitive Window -->
-<HeroStatSlide
-  :partNumber="1"
-  pillIcon="⏱️"
-  pillLabel="The Shift"
-  title="The Competitive Window"
-  subtitle="Institutional readiness is earned over time — and it is compounding right now."
-  :hero='{ value: "18–24", label: "months to build institutional muscle memory", source: "enterprise delivery transformation timelines" }'
-  :supporting='[
-    { icon: "🔄", title: "What Compounds", description: "Calibrated governance, trained pilots, tested automation — none can be rushed on a shorter timeline." },
-    { icon: "⚠️", title: "The Latecomer&#39;s Position", description: "Organizations investing in 2025-2026 establish positions that late movers cannot replicate." },
-    { icon: "📊", title: "Tools Are Not the Moat", description: "The AI tools are available to everyone. Readiness infrastructure is the defensible position." }
-  ]'
-  :insight='{ icon: "🎯", text: "The window is not closing because tools change. It is closing because readiness takes time — and the clock is running." }'
-  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :insight='{ icon: "⚡", text: "One developer supervising 3–4 concurrent agentic sessions converts a $10M organization into $20M of delivery capacity. The Flight Model shows the math." }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
@@ -182,71 +162,85 @@ src: ./exec-spine.md
 <SectionOpenerSlide
   :partNumber="2"
   title="The Flight Model"
-  subtitle="Four phases, six instruments, and the multiplier that makes AI investment return value"
+  subtitle="Five roles, six instruments, and the authorization model that makes the multiplier achievable"
   :cards='[
-    { icon: "✈️", title: "Four Phases", blurb: "Human authority governs entry and exit. AI autonomy in cruise phase only." },
-    { icon: "🎛️", title: "Six Instruments", blurb: "Automated governance gates — each maps to an enterprise liability." },
-    { icon: "⚡", title: "The Multiplier", blurb: "One developer, 3-4 concurrent sessions. $20M capacity in a $10M org." },
+    { icon: "🗼", title: "Five Roles", blurb: "FAA to Autopilot — every enterprise role has a mapped position" },
+    { icon: "🎛️", title: "Six Instruments", blurb: "Automated governance gates — each maps to an enterprise liability" },
+    { icon: "⚡", title: "The Math", blurb: "One developer, 3–4 sessions — $20M capacity in a $10M org" },
   ]'
-  :terminal='{ context: "flight model", detail: "The limit is instrument monitoring capacity, not typing speed." }'
+  :terminal='{ context: "flight model", detail: "Instrument monitoring capacity is the ceiling. The instrument panel determines how many flights are safe." }'
 />
+
 
 ---
 
-<!-- SLIDE: The Authorization Model -->
+<!-- SLIDE: The Enterprise Flight System -->
 <FrameworkMappingRowsSlide
   :partNumber="2"
-  pillIcon="✈️"
+  pillIcon="🗼"
   pillLabel="The Flight Model"
-  title="The Authorization Model"
-  subtitle="Two phases controlled by humans, one by AI — pilots control the boundaries"
+  title="The Enterprise Flight System"
+  subtitle="Five roles — every organization already has most of them"
   :rows='[
-    { label: "Pre-Flight", description: "Human defines scope, acceptance criteria, and agent limits — go/no-go", tag: "Human authority" },
-    { label: "Takeoff", description: "Human initializes agent with bounded scope and begins execution", tag: "Human authority" },
-    { label: "Cruise", description: "AI executes while developer monitors instruments and steers", tag: "AI + monitoring" },
-    { label: "Landing", description: "Human reviews output, confirms all six instruments green, deploys", tag: "Human authority" }
+    { label: "FAA", description: "Sets all rules — safety standards, enforcement, compliance", tag: "CISO · Legal · Compliance" },
+    { label: "Control Tower", description: "Coordinates active flights — sequencing, routing, go/no-go decisions", tag: "CTO · VP Engineering" },
+    { label: "Ground Crew", description: "Prepares instruments and infrastructure for every flight", tag: "Platform Engineering · DevOps" },
+    { label: "Captains", description: "Plans the mission, makes judgment calls, lands safely, deploys code", tag: "Developers" },
+    { label: "Autopilot", description: "Executes the mechanical work — code generation, test iteration, docs", tag: "Agentic AI" }
   ]'
-  footnote="No code deploys without a pilot signing off. The authorization model is what makes AI speed governable."
+  footnote="Most organizations have Captains and Autopilot. Ground Crew and the instrument panel are the missing components."
   :progressDots='{ current: 1, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Six Instruments -->
+<!-- SLIDE: The Instrument Panel -->
 <FrameworkMappingRowsSlide
   :partNumber="2"
   pillIcon="🎛️"
   pillLabel="The Flight Model"
-  title="The Six Instruments"
-  subtitle="Each provides a single traffic-light reading — all green means cleared for deployment"
+  title="The Instrument Panel"
+  subtitle="Six governance gates — each provides a single traffic-light reading at deployment"
   :rows='[
-    { label: "Test Health", description: "Automated test results gate deployment — red grounds the flight", tag: "Quality gate" },
-    { label: "Security", description: "Vulnerability scan on every commit — $4.88M breach defense", tag: "SAST / DAST" },
-    { label: "Performance", description: "Regression vs. production baseline — silent slowdowns drive churn", tag: "Baseline" },
-    { label: "Compliance", description: "SOC2, HIPAA, FedRAMP violations blocked before merge", tag: "Policy gate" },
-    { label: "Deploy Window", description: "Change management enforced automatically — no override needed", tag: "Risk guard" },
-    { label: "Dependencies", description: "Supply chain CVE scan on every import — SolarWinds defense", tag: "CVE gate" }
+    { label: "Test Health", description: "Automated test results gate every deployment — red grounds the flight", tag: "Quality gate" },
+    { label: "Security Scan", description: "Vulnerability detection on every commit — $4.88M breach defense", tag: "SAST / DAST" },
+    { label: "Performance", description: "Regression detection vs. production baseline — silent slowdowns caught", tag: "Baseline guard" },
+    { label: "Compliance", description: "SOC 2, HIPAA, FedRAMP violations blocked at merge — not in audit", tag: "Policy gate" },
+    { label: "Deploy Window", description: "Change management enforced automatically — no override, no exceptions", tag: "Risk guard" },
+    { label: "Dependencies", description: "Supply chain CVE scan on every import — SolarWinds-class risk detected", tag: "CVE gate" }
   ]'
-  footnote="Without these instruments, you cannot verify what the agent produced. You cannot fly multiple missions safely."
+  footnote="Instrument coverage is the prerequisite for safe AI output verification at speed. The multiplier follows from the instrument panel."
   :progressDots='{ current: 2, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: The Multiplier -->
-<HeroStatSlide
+<!-- SLIDE: Authorization and the Multiplier -->
+<TwoColPairedConceptsSlide
   :partNumber="2"
   pillIcon="⚡"
   pillLabel="The Flight Model"
-  title="The Multiplier"
-  subtitle="Not faster typing — more missions in the same time."
-  :hero='{ value: "$20M", label: "delivery capacity from a $10M engineering organization", source: "one developer supervising 3–4 concurrent agentic sessions" }'
-  :supporting='[
-    { icon: "🎛️", title: "Instruments Aggregate Status", description: "One dashboard covering 3-4 flights of test, security, and compliance is manageable." },
-    { icon: "✈️", title: "Cruise Is Autonomous", description: "While agents execute, the developer monitors — not types. Parallel missions compound output." },
-    { icon: "🔒", title: "The Catch", description: "Without instruments, developers can&#39;t safely supervise even one session. Cockpit first." }
-  ]'
-  :insight='{ icon: "💡", text: "A developer managing 3-4 concurrent sessions delivers throughput equivalent to tripling headcount — without tripling payroll." }'
+  title="Authorization and the Multiplier"
+  :left='{
+    header: "The Authorization Model",
+    icon: "✈️",
+    items: [
+      { text: "Pre-flight", detail: "Human defines scope, acceptance criteria, limits — go/no-go decision" },
+      { text: "Takeoff", detail: "Human initializes agent with bounded parameters and explicit constraints" },
+      { text: "Cruise", detail: "AI executes autonomously — developer monitors instrument panel" },
+      { text: "Landing", detail: "Human reviews all output — all six instruments green before deploying" }
+    ]
+  }'
+  :right='{
+    header: "The Multiplier",
+    icon: "⚡",
+    items: [
+      { text: "3–4 concurrent sessions", detail: "One developer monitors aggregated status across all active flights" },
+      { text: "$10M org → $20M capacity", detail: "Throughput equivalent to tripling headcount without tripling payroll" },
+      { text: "Limit: monitoring capacity", detail: "Not typing speed — the instrument panel determines how many flights are safe" }
+    ]
+  }'
+  :insight='{ icon: "💡", text: "AI operates in one bounded phase. Humans control entry and exit. That authorization model is what makes 3–4 concurrent sessions governable at enterprise scale." }'
   :progressDots='{ current: 3, total: 3, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
@@ -256,14 +250,15 @@ src: ./exec-spine.md
 <SectionOpenerSlide
   :partNumber="3"
   title="The Risk"
-  subtitle="Six no-fly zones recast as executive liability categories — each with a dollar figure"
+  subtitle="Six liability categories, the ROI chain, and why existing DevSecOps infrastructure is already the cockpit"
   :cards='[
-    { icon: "⚖️", title: "Governance Charter", blurb: "Six AI actions requiring human authorization — six liability categories." },
-    { icon: "🔍", title: "Three Questions", blurb: "Readiness tests: do agents amplify productivity or amplify risk?" },
-    { icon: "💡", title: "Flight Clearance", blurb: "$1 in delivery automation returns $6 — instruments are clearance." },
+    { icon: "⚖️", title: "Governance Charter", blurb: "Six AI actions requiring authorization — each with a dollar figure" },
+    { icon: "💰", title: "The CFO and CISO Case", blurb: "$2.2M savings + $1→$6 ROI + EU AI Act and SEC timelines" },
+    { icon: "🏗️", title: "The Instrument Advantage", blurb: "Mature DevSecOps orgs are completing a cockpit, not building one" },
   ]'
-  :terminal='{ context: "governance", detail: "The flight plan protects the flight." }'
+  :terminal='{ context: "governance", detail: "The instrument panel is flight clearance." }'
 />
+
 
 ---
 
@@ -273,53 +268,49 @@ src: ./exec-spine.md
   pillIcon="⚖️"
   pillLabel="The Risk"
   title="The Governance Charter"
-  subtitle="Six categories of AI action requiring explicit human authorization"
+  subtitle="Six categories of AI action requiring explicit human authorization — each with a liability citation"
   :rows='[
-    { label: "DB Schema", description: "Schema changes are irreversible at scale — data breach exposure", tag: "$4.88M risk" },
-    { label: "Security", description: "Bypassing a compliance check can trigger SEC 4-day disclosure", tag: "Regulatory" },
-    { label: "Dependencies", description: "Supply chain trust decision — SolarWinds, Log4j precedent", tag: "Supply chain" },
+    { label: "DB Schema", description: "Schema changes are irreversible at scale — creates breach exposure", tag: "$4.88M risk" },
+    { label: "Security Ctrl", description: "Bypassing a compliance check can trigger SEC 4-day disclosure", tag: "SEC regulatory" },
+    { label: "Dependencies", description: "Supply chain trust — SolarWinds and Log4j establish the precedent", tag: "Supply chain" },
     { label: "Prod Config", description: "Runtime config shifts behavior as dramatically as code changes", tag: "Deploy risk" },
     { label: "Access Ctrl", description: "Privilege escalation breaks the trust model for automation", tag: "Audit flag" },
-    { label: "Integrations", description: "New external connections need legal, security, compliance sign-off", tag: "Architecture" }
+    { label: "Integrations", description: "New external connections need legal, security, and compliance sign-off", tag: "Architecture" }
   ]'
-  footnote="These limits earn the agent broad autonomy within them. The flight plan protects the flight."
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  footnote="These limits earn the agent broad autonomous authority within them. Governance boundaries are what make autonomy safe."
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Three Questions Before You Fly -->
-<ThreeColumnCardSlide
+<!-- SLIDE: The CFO and CISO Case -->
+<TwoColPairedConceptsSlide
   :partNumber="3"
-  pillIcon="🔍"
+  pillIcon="💰"
   pillLabel="The Risk"
-  title="Three Questions Before You Fly"
-  :columns='[
-    { icon: "🎛️", title: "Can your pilots read instruments?", description: "Know what to monitor, what red means, and when to intervene. If no: agents amplify risk." },
-    { icon: "📊", title: "Do you have instruments?", description: "Automated gates block bad code. If no: you cannot verify what the agent produced." },
-    { icon: "🗼", title: "Is your control tower staffed?", description: "Fleet-wide visibility across all agentic sessions. If no: missions conflict and crash." }
-  ]'
-  :insight='{ icon: "⚠️", text: "Any no is a gap in your instrument panel. Agents amplify whatever the organization already is — productive or not." }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
-/>
-
----
-
-<!-- SLIDE: The Investment Case -->
-<HeroStatSlide
-  :partNumber="3"
-  pillIcon="💡"
-  pillLabel="The Risk"
-  title="The Investment Case"
-  subtitle="The instrument panel is not IT overhead. It is flight clearance."
-  :hero='{ value: "6×", label: "return on every dollar invested in delivery automation", source: "IBM / Ponemon Institute" }'
-  :supporting='[
-    { icon: "🛡️", title: "Risk Hedge, Not IT Cost", description: "The instrument panel caps your downside — $4.88M breach vs. a platform team budget." },
-    { icon: "⚡", title: "Multiplier Enabler", description: "Without instruments, the multiplier inverts: flying blind across more missions simultaneously." },
-    { icon: "⏱️", title: "Payback in Weeks", description: "A platform team of 3-5 engineers enabling 3-4x throughput. Payback is weeks, not quarters." }
-  ]'
-  :insight='{ icon: "💡", text: "Organizations that see testing as cost and compliance automation as bureaucracy will never safely fly at scale." }'
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  title="The CFO and CISO Case"
+  :left='{
+    header: "The CFO Frame",
+    icon: "💰",
+    items: [
+      { text: "$4.88M average breach cost", detail: "IBM 2024 — before SEC disclosure obligations and regulatory fines" },
+      { text: "$2.2M savings per incident", detail: "IBM 2025 — with AI-assisted security detection in the instrument panel" },
+      { text: "$1 → $6 automation ROI", detail: "Every dollar in delivery automation returns $6 in reduced incident costs" },
+      { text: "The instrument panel is insurance", detail: "Protecting the ROI on AI spend already authorized" }
+    ]
+  }'
+  :right='{
+    header: "The CISO Frame",
+    icon: "🛡️",
+    items: [
+      { text: "EU AI Act: 2025–2026 enforcement", detail: "High-risk AI classification and conformity requirements — build now or build under regulatory audit" },
+      { text: "SEC 4-day disclosure: in force", detail: "Material cybersecurity incidents require disclosure within 4 business days" },
+      { text: "NIST AI RMF", detail: "Govern, Map, Measure, Manage — the enterprise AI governance vocabulary regulators use" },
+      { text: "Mature DevSecOps is the cockpit", detail: "Organizations with existing automation are completing an instrument panel — a structural advantage." }
+    ]
+  }'
+  :insight='{ icon: "🎯", text: "Building governance infrastructure on the organization&#39;s own terms and timeline is the lower-cost path. Regulatory pressure makes it more expensive." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
@@ -328,14 +319,15 @@ src: ./exec-spine.md
 <SectionOpenerSlide
   :partNumber="4"
   title="The Decision"
-  subtitle="Three asks, three named owners, three timelines — what you are authorizing today"
+  subtitle="Three named asks, three owners, three timelines — what is being authorized today"
   :cards='[
     { icon: "🔍", title: "Authorize the Audit", blurb: "VP Engineering. Four weeks. Every gap is risk with open eyes." },
-    { icon: "🏗️", title: "Fund the Cockpit", blurb: "3-5 platform engineers. Enabling infrastructure — not overhead." },
-    { icon: "✈️", title: "Designate Pilots", blurb: "One team. 90 days. Baseline metrics before launch." },
+    { icon: "🏗️", title: "Fund the Cockpit", blurb: "3–5 platform engineers — enabling infrastructure, not overhead." },
+    { icon: "✈️", title: "Designate Pilots", blurb: "One team. 90 days. Baseline DORA metrics defined before launch." },
   ]'
-  :terminal='{ context: "authorization", detail: "You are not authorizing a technology. You are authorizing a new operating model." }'
+  :terminal='{ context: "authorization", detail: "Authorization here is an operating model decision, with named owners and a 90-day proof structure." }'
 />
+
 
 ---
 
@@ -346,11 +338,11 @@ src: ./exec-spine.md
   pillLabel="The Decision"
   title="Action 1: Authorize a Platform Audit"
   :columns='[
-    { icon: "🔍", title: "What", description: "Assess which of the six instruments your delivery pipeline has. Map every gap explicitly." },
+    { icon: "🔍", title: "What", description: "Assess which of the six instruments the pipeline has. Each gap is a named ceiling on AI ROI." },
     { icon: "👤", title: "Owner: VP Engineering", description: "Leads the assessment with the delivery team. Results reported to leadership in four weeks." },
-    { icon: "⏰", title: "Timeline: 4 Weeks", description: "Every gap is risk you are accepting with open eyes — and a ceiling on AI ROI." }
+    { icon: "⏰", title: "Timeline: 4 Weeks", description: "Every gap is risk accepted with open eyes — a ceiling on the AI investment already authorized." }
   ]'
-  :insight='{ icon: "🎯", text: "This is the only ask with a hard deadline. The next two decisions depend on what this one finds." }'
+  :insight='{ icon: "🎯", text: "This is the only ask with a hard deadline. Actions 2 and 3 depend on what this one finds." }'
   :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
@@ -363,11 +355,11 @@ src: ./exec-spine.md
   pillLabel="The Decision"
   title="Action 2: Fund the Instrument Panel"
   :columns='[
-    { icon: "🏗️", title: "What", description: "Dedicated platform team building the six instrument capabilities into your delivery pipeline." },
-    { icon: "💰", title: "Investment: 3-5 Engineers", description: "For a 50-developer org. Same infrastructure scales to 500 developers — payback in weeks." },
-    { icon: "📈", title: "Return: $1 → $6", description: "IBM/Ponemon: $1 in delivery automation returns $6 — payback before the fiscal year ends." }
+    { icon: "🏗️", title: "What", description: "A dedicated platform team wiring existing tooling and filling gaps identified in the audit." },
+    { icon: "💰", title: "Investment: 3–5 Engineers", description: "For a 50-developer organization. Scales to 500. Payback measured in weeks, not quarters." },
+    { icon: "📈", title: "Return: $1 → $6", description: "$1 in delivery automation returns $6 in reduced incident costs — IBM/Ponemon." }
   ]'
-  :insight='{ icon: "💡", text: "This is not a cost center. It is the capital decision that makes your existing AI spend return value instead of create risk." }'
+  :insight='{ icon: "💡", text: "The platform team is the capital decision that makes existing AI spend return value." }'
   :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
@@ -381,10 +373,10 @@ src: ./exec-spine.md
   title="Action 3: Designate a Pilot Team"
   :columns='[
     { icon: "✈️", title: "What", description: "Select one team to operate with a complete instrument panel and structured agentic workflow." },
-    { icon: "📊", title: "Scope: 90-Day Pilot", description: "Measure delivery velocity, defect rate, and deploy frequency — baseline before launch, data after." },
-    { icon: "🎯", title: "Output: Business Case", description: "That data is the board-ready case for scaling agentic delivery organization-wide." }
+    { icon: "📊", title: "Scope: 90-Day Pilot", description: "Measure deployment frequency, failure rate, and cycle time — baseline before launch, data after." },
+    { icon: "🎯", title: "Output: The Business Case", description: "90-day DORA-anchored data is the board-ready case for scaling agentic delivery organization-wide." }
   ]'
-  :insight='{ icon: "✈️", text: "You are not authorizing a technology. You are authorizing a new operating model. Start with one team. Measure everything." }'
+  :insight='{ icon: "✈️", text: "Authorization here is an operating model decision. Start with one team. Measure everything. Scale what works." }'
   :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
@@ -406,10 +398,10 @@ src: ./exec-spine.md
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Schedule the platform infrastructure audit with your VP Engineering — four-week deadline", "Map which of the six instruments your pipeline has and identify every gap explicitly"]'
-  :thisWeek='["Designate a pilot team candidate and define baseline metrics before agentic workflow begins", "Draft the platform team investment proposal — 3-5 engineers, specific gaps, payback timeline"]'
-  :thisMonth='["Fund and staff the platform team; begin remediating the highest-risk instrument gaps", "Pilot team completes first full agentic sprint with complete instrument monitoring active"]'
-  footer="The organizations that win are not those with the most developers. They are those whose developers can safely fly the most planes."
+  :today='["Schedule the platform infrastructure audit with VP Engineering — four-week deadline, instrument gap map as the deliverable", "Identify which of the six instruments the delivery pipeline already has"]'
+  :thisWeek='["Designate a pilot team candidate and define baseline DORA metrics before agentic workflow begins", "Draft the platform team investment proposal — 3–5 engineers, specific gaps identified, payback timeline"]'
+  :thisMonth='["Fund and staff the platform team; begin closing the highest-risk instrument gaps first", "Pilot team completes first full agentic sprint with complete instrument monitoring active"]'
+  footer="The organizations that lead are those whose developers can safely fly the most planes."
 />
 
 ---
@@ -417,15 +409,21 @@ src: ./exec-spine.md
 <!-- SLIDE: References -->
 <ReferencesSlide
   :groups='[
-    { title: "📊 Research & Data", color: "cyan", items: [
-      { href: "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/", label: "GitHub / Microsoft Research, 2022", description: "55% faster task completion with AI coding assistance" },
-      { label: "McKinsey Digital, 2023", description: "20-45% enterprise productivity uplift — The economic potential of generative AI" },
-      { label: "DORA State of DevOps Report, 2023", description: "Elite teams deploy 208× more frequently with a 3× lower change failure rate" }
+    { title: "📊 AI Productivity Research", color: "cyan", items: [
+      { href: "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/", label: "GitHub / Microsoft Research, 2022", description: "Controlled study: developers complete tasks 55% faster with AI coding assistance" },
+      { href: "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/", label: "GitHub + Accenture RCT, 2024", description: "Enterprise scale: 84% more successful builds; 70% less mental effort on repetitive tasks" },
+      { href: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2024-and-a-half-decade-in-review", label: "McKinsey QuantumBlack: State of AI, 2024", description: "Only 5% of AI pilots deliver material bottom-line improvement; organizational complexity is the primary barrier" },
+      { href: "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/", label: "METR RCT, 2025", description: "Experienced developers took 19% longer on complex tasks with AI assistance — expected 20–39% speedup" }
     ] },
-    { title: "🛡️ Risk & Governance", color: "indigo", items: [
-      { href: "https://www.ibm.com/reports/data-breach", label: "IBM Cost of a Data Breach Report, 2024", description: "$4.88M average cost before SEC disclosure obligations and regulatory fines" },
-      { label: "IBM / Ponemon Institute", description: "$1 invested in delivery automation returns $6 in reduced incident costs and remediation" },
-      { label: "SEC Cybersecurity Disclosure Rules, 2023", description: "Material cybersecurity incidents require disclosure within 4 business days" }
+    { title: "⚡ DevOps and Measurement", color: "indigo", items: [
+      { href: "https://dora.dev/research/2023/dora-report/", label: "DORA State of DevOps, 2023", description: "Elite teams deploy 208× more frequently with a 3× lower change failure rate" },
+      { href: "https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development", label: "DORA: ROI of AI-Assisted Development, 2025", description: "Framework linking AI engineering velocity to measurable financial outcomes" }
+    ] },
+    { title: "🛡️ Risk, Governance and Regulation", color: "purple", items: [
+      { href: "https://www.ibm.com/reports/data-breach", label: "IBM Cost of a Data Breach, 2025", description: "$4.88M average breach cost; AI-assisted detection saves $2.2M per incident" },
+      { href: "https://www.sec.gov/news/press-release/2023-139", label: "SEC Cybersecurity Disclosure Rules, 2023", description: "Material cyber incidents require disclosure within 4 business days — now in force" },
+      { href: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai", label: "EU AI Act, 2024–2026", description: "High-risk AI classification, conformity assessment requirements, staged enforcement timeline" },
+      { href: "https://airc.nist.gov/Home", label: "NIST AI Risk Management Framework, 2023", description: "Govern, Map, Measure, Manage — the enterprise AI governance vocabulary" }
     ] }
   ]'
 />
@@ -436,6 +434,6 @@ src: ./exec-spine.md
 <ThankYouSlide
   title="No Instruments, No Delivery"
   subtitle="The Enterprise Agentic Imperative"
-  :cards="[{ icon: '⚡', value: '3–4×', detail: 'Developer Throughput', subdetail: 'Instrument monitoring capacity — not typing speed — is the ceiling' }, { icon: '💰', value: '$20M', detail: 'Capacity in a $10M Org', subdetail: 'One developer, 3–4 concurrent agentic sessions, without tripling payroll' }, { icon: '🛡️', value: '6×', detail: 'Automation ROI', subdetail: 'IBM/Ponemon: $1 in delivery automation returns $6 in incident savings' }, { icon: '✈️', value: '3 Asks', detail: 'Audit · Fund · Pilot', subdetail: 'VP Engineering · Platform team · One team, 90 days' }]"
-  prompt="What is your biggest gap in the instrument panel right now?"
+  :cards="[{ icon: '📊', value: '5%', detail: 'Deliver Material ROI', subdetail: 'McKinsey 2024: the differentiator is governance infrastructure, not the tools' }, { icon: '⚡', value: '$20M', detail: 'Capacity in a $10M Org', subdetail: 'One developer, 3–4 concurrent sessions — limit is monitoring, not headcount' }, { icon: '🛡️', value: '$2.2M', detail: 'Per-Incident Savings', subdetail: 'IBM 2025: AI-assisted security detection reduces breach cost by $2.2M per event' }]"
+  prompt="Which of the six instruments is the most critical gap in the delivery pipeline right now?"
 />

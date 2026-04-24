@@ -4,7 +4,20 @@ Author taste, framing choices, and editorial decisions for agentic SDLC talks.
 
 ---
 
-## enterprise-patterns content slide beautification pattern (2026-04-12)
+## agentic-sdlc opener: maturity model framing (2026-04-24)
+
+`schema_version: 1` | `date: 2026-04-24`
+
+**Lead with the constraint-ladder.** The arc is: each section surfaces a new bottleneck — coordination → review capacity → CI speed → trust → measurement. Name it in transitions: "You've solved X; now Y is the wall."
+
+**"L3 is the launchpad"** is the closing thesis. Platform without adoption stalls at L3. Adoption without platform never reaches L5. Both must advance — and L3 is where they first compound. Use this as the ThankYouSlide stat card anchor.
+
+**Cold open candidate (strong for exec-heavy rooms):** "Your agents can write 15 features/day. Your SDLC can only absorb 3." Opens with the gap, then the talk rebuilds the SDLC to close it. Test in rehearsal.
+
+**TocSlide (4 sections, not 5):** Implementation Roadmap is Section 5 but uses `partNumber=4` (purple) — TocSlide limit is 4 items. "Trust Manufacturing" and "Implementation Roadmap" share Section 4 coloring.
+
+---
+
 
 `schema_version: 1` | `date: 2026-04-12`
 

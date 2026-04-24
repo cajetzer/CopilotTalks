@@ -35,9 +35,10 @@ const chrome    = useSectionChrome(() => props.partNumber)
 const cardStyle = useSectionCards(() => props.partNumber)
 
 // Prop length limits — read by build-all.ps1 for static lint enforcement
-const TITLE_MAX = 80
+const CARDS_MAX      = 4   // cards array must be exactly 4 items
+const TITLE_MAX      = 80
 const CARD_TITLE_MAX = 40
-const DESC_MAX = 100
+const DESC_MAX       = 100
 props.cards?.forEach((c, i) => {
   if (c.title?.length > CARD_TITLE_MAX)
     console.warn(`[FourCardGridSlide] cards[${i}].title is ${c.title.length} chars (max ${CARD_TITLE_MAX}): "${c.title}"`)
