@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-04-17
-section: "Customization & Context"
+section: "Platform Teams"
 references:
   - url: https://code.visualstudio.com/docs/copilot/customization/agent-plugins
     label: "Agent plugins for Copilot customization"

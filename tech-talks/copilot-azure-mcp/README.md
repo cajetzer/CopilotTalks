@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-04-01
-section: "Copilot Tools"
+section: "Agentic Systems"
 references:
   - url: https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices
     label: "Best practices for GitHub Copilot CLI"

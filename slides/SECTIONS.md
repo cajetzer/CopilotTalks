@@ -30,9 +30,9 @@ Top-level container class: `section tech-talks`
 
 | Section Name | Icon | Slug | Tagline | Contents |
 |---|---|---|---|---|
-| `Copilot Tools` | 💬 | `copilot-tools` | Where you interact with Copilot every day | Chat Internals, CLI, CLI + Azure MCP, Code Review, Web, What's New in VS Code |
-| `Customization & Context` | 🧩 | `customization-context` | Making it yours — instructions, skills, and integrations | Primitives, Hooks, Memory, SDK, MCP Apps |
-| `Agentic Engineering` | ⚡ | `agentic-engineering` | Composing agent systems and transforming the full software delivery lifecycle | Agent Teams, ACP, Workflows, Journey, SDLC, Enterprise Patterns |
+| `Developers` | 👩‍💻 | `developers` | Daily tools for every developer on the team | Chat Internals, CLI, Web, Code Review, What's New in VS Code, Primitives |
+| `Platform Teams` | 🧰 | `platform-teams` | Govern, extend, and scale Copilot across your organization | Memory, Hooks, Plugins & APM, SDK, MCP Apps, Enterprise Patterns |
+| `Agentic Systems` | 🤖 | `agentic-systems` | Composing autonomous agents and transforming the full software delivery lifecycle | Agent Teams, ACP, CLI + Azure MCP, Agentic Workflows, Agentic Journey, Agentic SDLC |
 
 ---
 
@@ -77,10 +77,10 @@ Deprecated cards remain in the HTML for link preservation and historical records
 
 ```
 <div class="section tech-talks">
-  <div class="sub-group">  ← Copilot Tools (💬)
-  <div class="sub-group">  ← Customization & Context (🧩)
-  <div class="sub-group">  ← Agent Architecture (🤖)
-  <div class="sub-group">  ← Agentic SDLC (🚀)
+  <div class="sub-group">  ← Developers (👩‍💻)
+  <div class="sub-group">  ← Platform Teams (🧰)
+  <div class="sub-group">  ← Agentic Systems (🤖)
+  <div class="sub-group">  ← Executive (💼) — executive framing talks inside tech-talks section
 
 <div class="section exec-talks">
   <div class="grid">       ← Executive Talks (no sub-groups)

@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-02-01
-section: "Agentic SDLC"
+section: "Agentic Systems"
 references:
   - url: https://docs.github.com/en/copilot
     label: "GitHub Copilot documentation"

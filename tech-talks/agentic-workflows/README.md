@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-03-05
-section: "Agentic SDLC"
+section: "Agentic Systems"
 references:
   - url: https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/
     label: "GitHub Blog: Automate repository tasks with GitHub Agentic Workflows"

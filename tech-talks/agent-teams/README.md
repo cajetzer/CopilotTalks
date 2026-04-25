@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-03-17
-section: "Agent Architecture"
+section: "Agentic Systems"
 references:
   - url: https://code.visualstudio.com/docs/copilot/customization/custom-agents
     label: "Custom agents in VS Code"

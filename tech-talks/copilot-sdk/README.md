@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-02-18
-section: "Customization & Context"
+section: "Platform Teams"
 references:
   - url: https://github.com/github/copilot-sdk
     label: "GitHub Copilot SDK repository"

@@ -12,12 +12,109 @@
       box-sizing: border-box;
     }
 
+    /* ── Dark theme (default) ── */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --section-bg: rgba(255, 255, 255, 0.03);
+      --section-border: rgba(255, 255, 255, 0.1);
+      --section-shadow: rgba(0, 0, 0, 0.2);
+      --section-divider: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.13);
+      --card-hover-bg: rgba(255, 255, 255, 0.08);
+      --card-h2: #e2e8f0;
+      --card-p: #94a3b8;
+      --chip-bg: rgba(255, 255, 255, 0.07);
+      --chip-border: rgba(255, 255, 255, 0.12);
+      --chip-color: #94a3b8;
+      --line-color: rgba(255, 255, 255, 0.1);
+      --hero-bg: rgba(255, 255, 255, 0.03);
+      --hero-border: rgba(255, 255, 255, 0.1);
+      --section-desc: #e2e8f0;
+      --badge-bg: rgba(255, 255, 255, 0.08);
+      --badge-border: rgba(255, 255, 255, 0.18);
+      --badge-color: #94a3b8;
+      --deprecated-bg: rgba(255, 255, 255, 0.02);
+      --deprecated-border: rgba(255, 255, 255, 0.06);
+      --deprecated-color: #64748b;
+    }
+
+    /* ── Light theme ── */
+    [data-theme="light"] {
+      --bg-gradient: linear-gradient(135deg, #e8edf3 0%, #dde3ec 100%);
+      --text: #0f172a;
+      --text-muted: #334155;
+      --text-dim: #475569;
+      --section-bg: rgba(255, 255, 255, 0.95);
+      --section-border: rgba(0, 0, 0, 0.12);
+      --section-shadow: rgba(0, 0, 0, 0.1);
+      --section-divider: rgba(0, 0, 0, 0.1);
+      --card-bg: #ffffff;
+      --card-border: rgba(0, 0, 0, 0.14);
+      --card-hover-bg: #f8fafc;
+      --card-h2: #0f172a;
+      --card-p: #334155;
+      --chip-bg: rgba(0, 0, 0, 0.06);
+      --chip-border: rgba(0, 0, 0, 0.14);
+      --chip-color: #475569;
+      --line-color: rgba(0, 0, 0, 0.1);
+      --hero-bg: rgba(255, 255, 255, 0.9);
+      --hero-border: rgba(0, 0, 0, 0.12);
+      --section-desc: #1e293b;
+      --badge-bg: rgba(0, 0, 0, 0.06);
+      --badge-border: rgba(0, 0, 0, 0.16);
+      --badge-color: #475569;
+      --deprecated-bg: rgba(0, 0, 0, 0.02);
+      --deprecated-border: rgba(0, 0, 0, 0.06);
+      --deprecated-color: #94a3b8;
+      --card-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+      --card-shadow-hover: 0 6px 20px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    /* Respect OS preference when no manual override is set */
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme]) {
+        --bg-gradient: linear-gradient(135deg, #e8edf3 0%, #dde3ec 100%);
+        --text: #0f172a;
+        --text-muted: #334155;
+        --text-dim: #475569;
+        --section-bg: rgba(255, 255, 255, 0.95);
+        --section-border: rgba(0, 0, 0, 0.12);
+        --section-shadow: rgba(0, 0, 0, 0.1);
+        --section-divider: rgba(0, 0, 0, 0.1);
+        --card-bg: #ffffff;
+        --card-border: rgba(0, 0, 0, 0.14);
+        --card-hover-bg: #f8fafc;
+        --card-h2: #0f172a;
+        --card-p: #334155;
+        --chip-bg: rgba(0, 0, 0, 0.06);
+        --chip-border: rgba(0, 0, 0, 0.14);
+        --chip-color: #475569;
+        --line-color: rgba(0, 0, 0, 0.1);
+        --hero-bg: rgba(255, 255, 255, 0.9);
+        --hero-border: rgba(0, 0, 0, 0.12);
+        --section-desc: #1e293b;
+        --badge-bg: rgba(0, 0, 0, 0.06);
+        --badge-border: rgba(0, 0, 0, 0.16);
+        --badge-color: #475569;
+        --deprecated-bg: rgba(0, 0, 0, 0.02);
+        --deprecated-border: rgba(0, 0, 0, 0.06);
+        --deprecated-color: #94a3b8;
+        --card-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+        --card-shadow-hover: 0 6px 20px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.08);
+      }
+    }
+
     body {
       font-family: 'Avenir Next', Arial, sans-serif;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      color: #e2e8f0;
+      background: var(--bg-gradient);
+      color: var(--text);
       min-height: 100vh;
-      padding: 2rem;
+      padding: 1.25rem 1.5rem;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     .container {
@@ -26,9 +123,32 @@
       width: 100%;
     }
 
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem 1.5rem;
+      background: var(--hero-bg);
+      border: 1px solid var(--hero-border);
+      border-left: 4px solid #22d3ee;
+      border-radius: 12px;
+    }
+
+    .hero-logo {
+      width: 52px;
+      height: auto;
+      flex-shrink: 0;
+      opacity: 0.9;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 0.2rem;
       background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #6366f1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -36,48 +156,76 @@
     }
 
     .subtitle {
-      font-size: 1.2rem;
-      color: #94a3b8;
-      margin-bottom: 3rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ── Theme toggle button ── */
+    .theme-toggle {
+      margin-left: auto;
+      flex-shrink: 0;
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      border-radius: 20px;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-family: inherit;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .theme-toggle:hover {
+      background: var(--card-hover-bg);
+      color: var(--text);
     }
 
     .section {
-      margin-bottom: 3rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
+      background: var(--section-bg);
+      border: 1px solid var(--section-border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 4px 16px var(--section-shadow);
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
 
     .section-header {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--section-divider);
     }
 
     .section-icon {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     .section-title {
-      font-size: 1.75rem;
+      font-size: 1.35rem;
       font-weight: 600;
       margin: 0;
     }
 
     .section-description {
-      color: #94a3b8;
-      font-size: 0.95rem;
-      margin-top: 0.25rem;
+      color: var(--section-desc);
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+      font-weight: 400;
+      opacity: 0.85;
     }
 
     /* Workshop: orange → red → purple */
     .section.workshop {
-      border-color: rgba(251, 146, 60, 0.3);
+      border-color: rgba(251, 146, 60, 0.25);
+      border-left: 4px solid rgba(251, 146, 60, 0.8);
       background: linear-gradient(135deg, rgba(251, 146, 60, 0.05) 0%, rgba(248, 113, 113, 0.03) 50%, rgba(192, 132, 252, 0.03) 100%);
     }
 
@@ -90,7 +238,8 @@
 
     /* Tech-talks: cyan → blue → indigo */
     .section.tech-talks {
-      border-color: rgba(34, 211, 238, 0.3);
+      border-color: rgba(34, 211, 238, 0.25);
+      border-left: 4px solid rgba(34, 211, 238, 0.8);
       background: linear-gradient(135deg, rgba(34, 211, 238, 0.05) 0%, rgba(59, 130, 246, 0.03) 50%, rgba(99, 102, 241, 0.03) 100%);
     }
 
@@ -103,7 +252,8 @@
 
     /* Exec-talks: blue → cyan → green */
     .section.exec-talks {
-      border-color: rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.25);
+      border-left: 4px solid rgba(59, 130, 246, 0.8);
       background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(34, 211, 238, 0.03) 50%, rgba(74, 222, 128, 0.03) 100%);
     }
 
@@ -116,69 +266,165 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-auto-rows: clamp(90px, 10vw, 150px);
+      gap: 0.75rem;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
       transition: all 0.3s ease;
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--card-shadow, none);
     }
 
     .card:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: var(--card-hover-bg);
       transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover, none);
     }
 
-    /* Workshop card styles: orange → red → purple */
+    /* Light mode: per-section left accent stripe on cards */
+    [data-theme="light"] .section.tech-talks .card {
+      border-left: 3px solid rgba(34, 211, 238, 0.5);
+    }
+    [data-theme="light"] .section.workshop .card {
+      border-left: 3px solid rgba(251, 146, 60, 0.5);
+    }
+    [data-theme="light"] .section.exec-talks .card {
+      border-left: 3px solid rgba(59, 130, 246, 0.5);
+    }
+    [data-theme="light"] .section.repos .card {
+      border-left: 3px solid rgba(168, 85, 247, 0.5);
+    }
+
+    /* Light mode: kill the yellow tint on NEW cards, keep just the border glow */
+    [data-theme="light"] .card-new {
+      background: #ffffff !important;
+    }
+
+    /* Light mode: sub-group label chips — stronger contrast */
+    [data-theme="light"] .sub-group-label {
+      color: #1e293b;
+      background: rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+    [data-theme="light"] .section.tech-talks .sub-group-label {
+      color: #0369a1;
+      background: rgba(34, 211, 238, 0.15);
+      border-color: rgba(34, 211, 238, 0.4);
+    }
+
+    /* Light mode: section titles — replace unreadable light-cyan gradients with dark solid colors */
+    [data-theme="light"] .section.tech-talks .section-title {
+      background: none;
+      -webkit-text-fill-color: #0369a1;
+      color: #0369a1;
+    }
+    [data-theme="light"] .section.workshop .section-title {
+      background: none;
+      -webkit-text-fill-color: #c2410c;
+      color: #c2410c;
+    }
+    [data-theme="light"] .section.exec-talks .section-title {
+      background: none;
+      -webkit-text-fill-color: #1d4ed8;
+      color: #1d4ed8;
+    }
+    [data-theme="light"] .section.repos .section-title {
+      background: none;
+      -webkit-text-fill-color: #7e22ce;
+      color: #7e22ce;
+    }
+
+    /* Light mode: hero h1 gradient — replace light cyan with readable dark blue */
+    [data-theme="light"] h1 {
+      background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 50%, #4338ca 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    /* Light mode: card hover title colors — replace light cyan with darker tones */
+    [data-theme="light"] .section.tech-talks .card:hover h2 { color: #0369a1; }
+    [data-theme="light"] .section.workshop .card:hover h2  { color: #c2410c; }
+    [data-theme="light"] .section.exec-talks .card:hover h2 { color: #1d4ed8; }
+    [data-theme="light"] .section.repos .card:hover h2     { color: #7e22ce; }
+
+    /* Light mode: section count badges — readable accent colors */
+    [data-theme="light"] .section.tech-talks .section-count-badge {
+      color: #0369a1;
+      background: rgba(3, 105, 161, 0.1);
+      border-color: rgba(3, 105, 161, 0.3);
+    }
+    [data-theme="light"] .section.workshop .section-count-badge {
+      color: #c2410c;
+      background: rgba(194, 65, 12, 0.1);
+      border-color: rgba(194, 65, 12, 0.3);
+    }
+    [data-theme="light"] .section.repos .section-count-badge {
+      color: #7e22ce;
+      background: rgba(126, 34, 206, 0.1);
+      border-color: rgba(126, 34, 206, 0.3);
+    }
+
+    /* Card h2 base — solid, transitions to section accent on hover */
+    .card h2 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--card-h2);
+      transition: color 0.2s ease;
+      overflow: hidden;
+    }
+
+    /* NEW badge — floats right inside the card title row */
+    /* Full definition below in .badge-new */
+
+    /* Workshop card styles */
     .section.workshop .card:hover {
       border-color: rgba(251, 146, 60, 0.6);
       box-shadow: 0 4px 20px rgba(251, 146, 60, 0.2);
     }
 
-    .section.workshop .card h2 {
-      background: linear-gradient(135deg, #fb923c 0%, #f87171 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .section.workshop .card:hover h2 {
+      color: #fb923c;
     }
 
-    /* Tech-talks card styles: cyan → blue → indigo */
+    /* Tech-talks card styles */
     .section.tech-talks .card:hover {
       border-color: rgba(34, 211, 238, 0.6);
       box-shadow: 0 4px 20px rgba(34, 211, 238, 0.2);
     }
 
-    .section.tech-talks .card h2 {
-      background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .section.tech-talks .card:hover h2 {
+      color: #22d3ee;
     }
 
-    /* Exec-talks card styles: blue → cyan → green */
+    /* Exec-talks card styles */
     .section.exec-talks .card:hover {
       border-color: rgba(59, 130, 246, 0.6);
       box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
     }
 
-    .section.exec-talks .card h2 {
-      background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .section.exec-talks .card:hover h2 {
+      color: #3b82f6;
     }
 
     .card p {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      line-height: 1.5;
+      font-size: 0.8rem;
+      color: var(--card-p);
+      line-height: 1.45;
+      margin-top: auto;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
 
     .sub-group {
@@ -192,9 +438,9 @@
     .sub-group-header {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
-      padding-left: 0.25rem;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      padding-left: 0.1rem;
     }
 
     .sub-group-icon {
@@ -203,37 +449,40 @@
     }
 
     .sub-group-label {
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.72rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #64748b;
+      color: var(--chip-color);
+      background: var(--chip-bg);
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid var(--chip-border);
     }
 
     .section.tech-talks .sub-group-label {
-      background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #22d3ee;
+      background: rgba(34, 211, 238, 0.1);
+      border-color: rgba(34, 211, 238, 0.25);
     }
 
     .sub-group-line {
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+      background: linear-gradient(90deg, var(--line-color) 0%, transparent 100%);
       margin-left: 0.5rem;
     }
 
     .sub-group-desc {
-      font-size: 0.75rem;
-      color: #475569;
-      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--text-muted);
       margin-left: 0.5rem;
     }
 
     /* Related Repos: purple → pink → rose */
     .section.repos {
-      border-color: rgba(168, 85, 247, 0.3);
+      border-color: rgba(168, 85, 247, 0.25);
+      border-left: 4px solid rgba(168, 85, 247, 0.8);
       background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(236, 72, 153, 0.03) 50%, rgba(251, 113, 133, 0.03) 100%);
     }
 
@@ -242,6 +491,47 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    .section.repos .card:hover {
+      border-color: rgba(168, 85, 247, 0.6);
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+    }
+
+    .section.repos .card:hover h2 {
+      color: #a855f7;
+    }
+
+    .section-count-badge {
+      margin-left: auto;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--badge-color);
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      border-radius: 20px;
+      padding: 0.25rem 0.8rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      align-self: center;
+    }
+
+    .section.tech-talks .section-count-badge {
+      color: #22d3ee;
+      background: rgba(34, 211, 238, 0.12);
+      border-color: rgba(34, 211, 238, 0.35);
+    }
+
+    .section.workshop .section-count-badge {
+      color: #fb923c;
+      background: rgba(251, 146, 60, 0.12);
+      border-color: rgba(251, 146, 60, 0.35);
+    }
+
+    .section.repos .section-count-badge {
+      color: #a855f7;
+      background: rgba(168, 85, 247, 0.12);
+      border-color: rgba(168, 85, 247, 0.35);
     }
 
     .note {
@@ -254,27 +544,27 @@
       color: #fcd34d;
     }
 
-    /* "NEW" badge — auto-applied by JS to cards updated within 7 days */
+    /* "NEW" badge */
     .badge-new {
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      padding: 0.25rem 0.65rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 6px;
       background: #fbbf24;
       color: #000;
       -webkit-text-fill-color: #000;
       background-clip: padding-box;
       -webkit-background-clip: padding-box;
-      margin-left: 0.75rem;
-      vertical-align: middle;
+      float: right;
+      margin-left: 0.5rem;
+      margin-top: 0.05rem;
       box-shadow: 0 0 12px rgba(251, 191, 36, 0.7), 0 0 24px rgba(251, 191, 36, 0.3);
       animation: pulse-new 2s ease-in-out infinite;
     }
 
-    /* Card glow for NEW items — amber border + soft ambient glow */
     .card-new {
       border-color: rgba(251, 191, 36, 0.5) !important;
       box-shadow: 0 0 12px rgba(251, 191, 36, 0.15), 0 4px 24px rgba(251, 191, 36, 0.1) !important;
@@ -286,12 +576,12 @@
       box-shadow: 0 0 20px rgba(251, 191, 36, 0.3), 0 8px 32px rgba(251, 191, 36, 0.15) !important;
     }
 
-    /* Deprecated card — muted/dimmed treatment */
+    /* Deprecated card */
     .card-deprecated {
       opacity: 0.45;
       filter: grayscale(0.6);
-      border-color: rgba(255, 255, 255, 0.06) !important;
-      background: rgba(255, 255, 255, 0.02) !important;
+      border-color: var(--deprecated-border) !important;
+      background: var(--deprecated-bg) !important;
       pointer-events: none;
     }
 
@@ -307,20 +597,17 @@
       letter-spacing: 0.08em;
       padding: 0.2rem 0.55rem;
       border-radius: 4px;
-      background: rgba(100, 116, 139, 0.3);
-      color: #64748b;
-      -webkit-text-fill-color: #64748b;
+      background: var(--chip-bg);
+      color: var(--deprecated-color);
+      -webkit-text-fill-color: var(--deprecated-color);
       margin-left: 0.5rem;
       vertical-align: middle;
     }
 
     @keyframes pulse-new {
-
-      0%,
-      100% {
+      0%, 100% {
         box-shadow: 0 0 10px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 191, 36, 0.2);
       }
-
       50% {
         box-shadow: 0 0 14px rgba(251, 191, 36, 0.8), 0 0 28px rgba(251, 191, 36, 0.3);
       }
@@ -330,8 +617,17 @@
 
 <body>
   <div class="container">
-    <h1>CopilotTraining</h1>
-    <p class="subtitle">Presentations</p>
+    <div class="hero">
+      <img src="./tech-talks/sdp-logo.png" alt="SDP Logo" class="hero-logo" />
+      <div class="hero-text">
+        <h1>CopilotTraining</h1>
+        <p class="subtitle">Tech talks, executive briefs, and hands-on workshop modules for scaling GitHub Copilot across your teams.</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <span id="themeIcon">☀️</span>
+        <span id="themeLabel">Light</span>
+      </button>
+    </div>
 
     <!-- Tech Talks Section -->
     <div class="section tech-talks">
@@ -342,151 +638,130 @@
           <p class="section-description">Technical deep-dives for practitioners on specific capabilities</p>
         </div>
       </div>
-      <!-- Copilot Tools -->
+      <!-- Developers -->
       <div class="sub-group">
         <div class="sub-group-header">
-          <span class="sub-group-icon">💬</span>
-          <span class="sub-group-label">Copilot Tools</span>
-          <span class="sub-group-desc">Where you interact with Copilot every day</span>
+          <span class="sub-group-icon">👩‍💻</span>
+          <span class="sub-group-label">Developers</span>
+          <span class="sub-group-desc">Daily tools for every developer on the team</span>
           <span class="sub-group-line"></span>
         </div>
         <div class="grid">
           <a href="/CopilotTraining/tech-talks/copilot-chat-internals/" class="card">
             <h2>Copilot Chat Internals</h2>
-            <p>Under the hood diagnostics. Chat Debug View, customization diagnostics, and extension logs for systematic
-              troubleshooting.</p>
+            <p>Under the hood diagnostics. Chat Debug View, customization diagnostics, and extension logs for systematic troubleshooting.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-cli/" class="card">
             <h2>Copilot CLI</h2>
-            <p>AI assistance at the terminal. Natural language to shell commands, git operations, and scripting
-              workflows.</p>
-          </a>
-          <a href="/CopilotTraining/tech-talks/copilot-azure-mcp/" class="card">
-            <h2>Copilot CLI + Azure MCP</h2>
-            <p>Rapid Azure prototyping and deployment. Infrastructure becomes conversational — AI that knows what's
-              running in your subscriptions.</p>
-          </a>
-          <a href="/CopilotTraining/tech-talks/copilot-code-review/" class="card">
-            <h2>Copilot Code Review</h2>
-            <p>Accelerating PR velocity with AI-powered review. 40-60% faster cycle times, custom compliance rulesets,
-              and measurable ROI.</p>
+            <p>AI assistance at the terminal. Natural language to shell commands, git operations, and scripting workflows.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-web/" class="card">
             <h2>Copilot Web</h2>
-            <p>AI assistance beyond the IDE. PR reviews in browsers, issue triage on mobile, with full repository
-              customizations.</p>
+            <p>AI assistance beyond the IDE. PR reviews in browsers, issue triage on mobile, with full repository customizations.</p>
+          </a>
+          <a href="/CopilotTraining/tech-talks/copilot-code-review/" class="card">
+            <h2>Copilot Code Review</h2>
+            <p>Accelerating PR velocity with AI-powered review. 40-60% faster cycle times, custom compliance rulesets, and measurable ROI.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/vscode-latest/" class="card">
             <h2>What's New in VS Code</h2>
-            <p>Latest Copilot features in VS Code v1.108-v1.110. Agent Plugins, /create-* commands, Explore subagent,
-              agentic browser tools, and /yolo mode.</p>
+            <p>Latest Copilot features in VS Code v1.108-v1.110. Agent Plugins, /create-* commands, Explore subagent, agentic browser tools, and /yolo mode.</p>
           </a>
-          <a href="/CopilotTraining/tech-talks/enterprise-patterns/" class="card">
-            <h2>Enterprise Patterns</h2>
-            <p>Scaling Copilot across organizations. From team silos to standardized foundations with measurable ROI.
-            </p>
+          <a href="/CopilotTraining/tech-talks/copilot-primitives/" class="card">
+            <h2>Copilot Primitives</h2>
+            <p>The 4 configuration primitives. Instructions, prompts, skills, and agents — make Copilot understand your codebase better.</p>
           </a>
         </div>
       </div>
 
-      <!-- Customization & Context -->
+      <!-- Platform Teams -->
       <div class="sub-group">
         <div class="sub-group-header">
-          <span class="sub-group-icon">🧩</span>
-          <span class="sub-group-label">Customization & Context</span>
-          <span class="sub-group-desc">Making it yours — instructions, skills, and integrations</span>
+          <span class="sub-group-icon">🧰</span>
+          <span class="sub-group-label">Platform Teams</span>
+          <span class="sub-group-desc">Govern, extend, and scale Copilot across your organization</span>
           <span class="sub-group-line"></span>
         </div>
         <div class="grid">
-          <a href="/CopilotTraining/tech-talks/copilot-primitives/" class="card">
-            <h2>Copilot Primitives</h2>
-            <p>The 4 configuration primitives. Instructions, prompts, skills, and agents — make Copilot understand your
-              codebase better.</p>
+          <a href="/CopilotTraining/tech-talks/copilot-memory/" class="card">
+            <h2>Copilot Memory</h2>
+            <p>Cross-session context persistence. Store preferences, project context, and workflow patterns that persist across all conversations.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-hooks/" class="card">
             <h2>Copilot Hooks</h2>
-            <p>Programmable governance for AI agents. Real-time prevention, audit trails, and compliance enforcement at
-              execution time.</p>
-          </a>
-          <a href="/CopilotTraining/tech-talks/copilot-memory/" class="card">
-            <h2>Copilot Memory</h2>
-            <p>Cross-session context persistence. Store preferences, project context, and workflow patterns that persist
-              across all conversations.</p>
+            <p>Programmable governance for AI agents. Real-time prevention, audit trails, and compliance enforcement at execution time.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-plugins/" class="card">
             <h2>Copilot Plugins & APM</h2>
-            <p>Composable AI extensions. Discover and install plugins from the CLI, then version your entire agent
-              configuration with APM manifests and lockfiles.</p>
+            <p>Composable AI extensions. Discover and install plugins from the CLI, then version your entire agent configuration with APM manifests and lockfiles.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-sdk/" class="card">
             <h2>Copilot SDK</h2>
-            <p>Stop building AI infrastructure. Production Copilot agent runtime in 10 lines — CLI tools, Web APIs,
-              and scheduled automations shipping this sprint.</p>
+            <p>Stop building AI infrastructure. Production Copilot agent runtime in 10 lines — CLI tools, Web APIs, and scheduled automations shipping this sprint.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/mcp-apps/" class="card">
             <h2>MCP Apps</h2>
-            <p>Rich UI in chat responses. Transform chat from text-only to interactive visual experiences with
-              component-based MCP tools.</p>
+            <p>Rich UI in chat responses. Transform chat from text-only to interactive visual experiences with component-based MCP tools.</p>
+          </a>
+          <a href="/CopilotTraining/tech-talks/enterprise-patterns/" class="card">
+            <h2>Enterprise Patterns</h2>
+            <p>Scaling Copilot across organizations. From team silos to standardized foundations with measurable ROI.</p>
           </a>
         </div>
       </div>
 
-      <!-- Agentic Engineering -->
+      <!-- Agentic Systems -->
       <div class="sub-group">
         <div class="sub-group-header">
-          <span class="sub-group-icon">⚡</span>
-          <span class="sub-group-label">Agentic Engineering</span>
-          <span class="sub-group-desc">Composing agent systems and transforming the full software delivery
-            lifecycle</span>
+          <span class="sub-group-icon">🤖</span>
+          <span class="sub-group-label">Agentic Systems</span>
+          <span class="sub-group-desc">Composing autonomous agents and transforming the full software delivery lifecycle</span>
           <span class="sub-group-line"></span>
         </div>
         <div class="grid">
           <a href="/CopilotTraining/tech-talks/agent-teams/" class="card">
             <h2>Agent Teams</h2>
-            <p>From subagents to autonomous teams. The complete stack: context isolation, role specialists (Squad),
-              background agents + worktrees, and multi-model deliberation (AgentCouncil).</p>
+            <p>From subagents to autonomous teams. The complete stack: context isolation, role specialists (Squad), background agents + worktrees, and multi-model deliberation (AgentCouncil).</p>
           </a>
           <a href="/CopilotTraining/tech-talks/copilot-acp/" class="card">
             <h2>Copilot ACP</h2>
-            <p>The Agent Client Protocol for universal AI integration. Use Copilot's agentic capabilities in any editor,
-              tool, or workflow — not just VS Code.</p>
+            <p>The Agent Client Protocol for universal AI integration. Use Copilot's agentic capabilities in any editor, tool, or workflow — not just VS Code.</p>
+          </a>
+          <a href="/CopilotTraining/tech-talks/copilot-azure-mcp/" class="card">
+            <h2>Copilot CLI + Azure MCP</h2>
+            <p>Rapid Azure prototyping and deployment. Infrastructure becomes conversational — AI that knows what's running in your subscriptions.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/agentic-workflows/" class="card">
             <h2>GitHub Agentic Workflows</h2>
-            <p>Repository automation with AI agents. Write workflows in Markdown, compiled to secure GitHub Actions with
-              safe-output validation.</p>
+            <p>Repository automation with AI agents. Write workflows in Markdown, compiled to secure GitHub Actions with safe-output validation.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/agentic-journey/" class="card">
             <h2>Agentic Journey</h2>
-            <p>From "assign to copilot" to full SDLC transformation. The 5-phase incremental path with 4-workflow
-              architecture and historical context search.</p>
+            <p>From "assign to copilot" to full SDLC transformation. The 5-phase incremental path with 4-workflow architecture and historical context search.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/agentic-sdlc/" class="card">
             <h2>Agentic SDLC</h2>
-            <p>Level 5 infrastructure for AI velocity. Rewire repositories, PR workflows, and CI/CD to scale from 2-3
-              features/week to 10-15/day with autonomous agents.</p>
+            <p>Level 5 infrastructure for AI velocity. Rewire repositories, PR workflows, and CI/CD to scale from 2-3 features/week to 10-15/day with autonomous agents.</p>
           </a>
         </div>
       </div>
 
-      <!-- Executive Framing -->
+      <!-- Executive -->
       <div class="sub-group">
         <div class="sub-group-header">
           <span class="sub-group-icon">💼</span>
-          <span class="sub-group-label">Executive Framing</span>
+          <span class="sub-group-label">Executive</span>
           <span class="sub-group-desc">Strategic narratives for leaders making agentic investment decisions</span>
           <span class="sub-group-line"></span>
         </div>
         <div class="grid">
           <a href="/CopilotTraining/tech-talks/exec-delivery/" class="card">
             <h2>Agentic Delivery</h2>
-            <p>No instruments, no delivery. The enterprise agentic imperative — why verification infrastructure is the
-              real investment.</p>
+            <p>No instruments, no delivery. The enterprise agentic imperative — why verification infrastructure is the real investment.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/exec-economics/" class="card">
             <h2>Agentic Economics</h2>
-            <p>The $2–5/hour agent reality. Making the business case — ROI math, the J-curve, and three concrete asks.
-            </p>
+            <p>The $2–5/hour agent reality. Making the business case — ROI math, the J-curve, and three concrete asks.</p>
           </a>
           <a href="/CopilotTraining/tech-talks/exec-labor/" class="card">
             <h2>Agentic Labor</h2>
@@ -590,38 +865,83 @@
 
   </div>
   <script>
-    // Auto-show "NEW" badge on cards whose slides were updated within 7 days.
+    // ── Theme toggle ──────────────────────────────────────────────
+    (function () {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      const osDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = stored || (osDark ? 'dark' : 'light');
+      if (initial === 'light') root.setAttribute('data-theme', 'light');
+      else root.setAttribute('data-theme', 'dark');
+
+      function updateButton(theme) {
+        const icon = document.getElementById('themeIcon');
+        const label = document.getElementById('themeLabel');
+        if (!icon || !label) return;
+        if (theme === 'light') {
+          icon.textContent = '🌙';
+          label.textContent = 'Dark';
+        } else {
+          icon.textContent = '☀️';
+          label.textContent = 'Light';
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        updateButton(root.getAttribute('data-theme'));
+        document.getElementById('themeToggle').addEventListener('click', () => {
+          const current = root.getAttribute('data-theme');
+          const next = current === 'light' ? 'dark' : 'light';
+          root.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateButton(next);
+        });
+      });
+    })();
+
     //
     // SOURCE OF TRUTH: the "updated:" field in each slide's YAML frontmatter.
     // To regenerate this map, run:   node slides/scripts/sync-index-dates.mjs
     const SLIDE_DATES = {
-      'agent-teams': '2026-04-22',
-      'agentic-journey': '2026-04-22',
+      'agent-teams': '2026-04-01',
+      'agentic-journey': '2026-04-01',
       'agentic-sdlc': '2026-04-24',
-      'agentic-workflows': '2026-04-22',
-      'component-test': '2026-04-21',
-      'copilot-acp': '2026-04-22',
-      'copilot-azure-mcp': '2026-04-22',
-      'copilot-chat-internals': '2026-04-22',
-      'copilot-cli': '2026-04-22',
-      'copilot-code-review': '2026-04-22',
-      'copilot-hooks': '2026-04-22',
-      'copilot-memory': '2026-04-22',
-      'copilot-plugins': '2026-04-22',
-      'copilot-primitives': '2026-04-22',
-      'copilot-sdk': '2026-04-22',
-      'copilot-web': '2026-04-22',
-      'enterprise-patterns': '2026-04-22',
+      'agentic-workflows': '2026-04-01',
+      'component-test': '2026-04-01',
+      'copilot-acp': '2026-04-01',
+      'copilot-azure-mcp': '2026-04-01',
+      'copilot-chat-internals': '2026-04-01',
+      'copilot-cli': '2026-04-01',
+      'copilot-code-review': '2026-04-01',
+      'copilot-hooks': '2026-04-01',
+      'copilot-memory': '2026-04-01',
+      'copilot-plugins': '2026-04-01',
+      'copilot-primitives': '2026-04-01',
+      'copilot-sdk': '2026-04-01',
+      'copilot-web': '2026-04-01',
+      'enterprise-patterns': '2026-04-01',
       'exec-delivery': '2026-04-24',
       'exec-economics': '2026-04-24',
       'exec-labor': '2026-04-24',
-      'mcp-apps': '2026-04-22',
-      'vscode-latest': '2026-04-22',
+      'mcp-apps': '2026-04-01',
+      'vscode-latest': '2026-04-01',
     };
 
     document.addEventListener('DOMContentLoaded', () => {
       const now = new Date();
       const oneWeek = 7 * 24 * 60 * 60 * 1000;
+
+      // Inject count badges into each section header
+      document.querySelectorAll('.section').forEach(section => {
+        const count = section.querySelectorAll('.card').length;
+        if (!count) return;
+        const badge = document.createElement('span');
+        badge.className = 'section-count-badge';
+        badge.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
+        const header = section.querySelector('.section-header');
+        if (header) header.appendChild(badge);
+      });
+
 
       document.querySelectorAll('.card[href]').forEach(card => {
         // Extract slug from href:  /CopilotTraining/tech-talks/copilot-cli/ → copilot-cli

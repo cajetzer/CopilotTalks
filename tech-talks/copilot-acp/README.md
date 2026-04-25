@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-02-11
-section: "Agent Architecture"
+section: "Agentic Systems"
 references:
   - url: https://docs.github.com/en/copilot/reference/acp-server
     label: "Copilot CLI ACP Server reference"

@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-04-22
-section: "Copilot Tools"
+section: "Developers"
 references:
   - url: https://code.visualstudio.com/updates/v1_117
     label: "VS Code release notes: April 22, 2026 (v1.117)"

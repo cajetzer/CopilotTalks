@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-03-23
-section: "Agentic SDLC"
+section: "Platform Teams"
 references:
   - url: https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization
     label: "Managing Copilot in your organization"

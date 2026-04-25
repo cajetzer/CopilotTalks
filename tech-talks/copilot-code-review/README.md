@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-04-10
-section: "Copilot Agents"
+section: "Developers"
 references:
   - url: https://docs.github.com/en/copilot/concepts/agents/code-review
     label: "GitHub Copilot Code Review - Concepts"

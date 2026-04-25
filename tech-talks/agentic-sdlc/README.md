@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-04-24
-section: "Agentic SDLC"
+section: "Agentic Systems"
 references:
   - url: https://github.com/microsoft/agentrc
     label: "Microsoft AgentRC repository"

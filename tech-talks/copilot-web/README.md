@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-04-06
-section: "Copilot Tools"
+section: "Developers"
 references:
   - url: https://code.visualstudio.com/docs/copilot/copilot-coding-agent
     label: "GitHub Copilot coding agent - VS Code"

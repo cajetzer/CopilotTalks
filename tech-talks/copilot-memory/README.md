@@ -1,7 +1,7 @@
 ---
 status: active
 updated: 2026-02-01
-section: "Customization & Context"
+section: "Platform Teams"
 references:
   - url: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/copilot-memory
     label: "Copilot Memory documentation"
