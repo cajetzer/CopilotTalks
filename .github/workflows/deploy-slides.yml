@@ -204,9 +204,11 @@ jobs:
               json.dump(manifest, f, indent=2, sort_keys=True)
           " <<< "$(for key in "${!NEW_MANIFEST[@]}"; do echo "${key}=${NEW_MANIFEST[$key]}"; done)"
 
-          # Copy index and 404
+          # Copy index, 404, and shared assets
           cp index-custom.html dist/index.html
           cp 404.html dist/404.html
+          mkdir -p dist/tech-talks
+          cp tech-talks/sdp-logo.png dist/tech-talks/sdp-logo.png
 
           BUILT=${#LABELS[@]}
           echo "📊 ${BUILT} built, ${SKIPPED} skipped (up to date)"
