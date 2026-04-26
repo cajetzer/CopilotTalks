@@ -51,20 +51,28 @@ const validationError = computed(() => {
 const chrome = useSectionChrome(() => props.partNumber)
 
 // Internal stage color progression — independent of section theme
-const STAGE_PALETTE = [
+const DARK_STAGE_PALETTE = [
   { bg: 'from-slate-700/50 to-slate-800/50',     border: 'border-slate-500/40',   divider: 'bg-slate-500',   label: 'text-slate-400',   name: 'text-slate-300',   desc: 'text-slate-400/80',  chevron: 'text-slate-600'   },
   { bg: 'from-blue-900/50 to-blue-800/50',       border: 'border-blue-500/40',    divider: 'bg-blue-500',    label: 'text-blue-400',    name: 'text-blue-300',    desc: 'text-blue-200/70',   chevron: 'text-blue-700'    },
   { bg: 'from-indigo-900/50 to-indigo-800/50',   border: 'border-indigo-500/40',  divider: 'bg-indigo-500',  label: 'text-indigo-400',  name: 'text-indigo-300',  desc: 'text-indigo-200/70', chevron: 'text-indigo-600'  },
   { bg: 'from-cyan-900/50 to-cyan-800/50',       border: 'border-cyan-500/40',    divider: 'bg-cyan-500',    label: 'text-cyan-400',    name: 'text-cyan-300',    desc: 'text-cyan-200/70',   chevron: 'text-cyan-600'    },
   { bg: 'from-emerald-900/50 to-emerald-800/50', border: 'border-emerald-500/40', divider: 'bg-emerald-500', label: 'text-emerald-400', name: 'text-emerald-300', desc: 'text-emerald-200/70', chevron: 'text-emerald-600' },
 ]
+const LIGHT_STAGE_PALETTE = [
+  { bg: 'from-slate-100 to-slate-200',     border: 'border-slate-300',   divider: 'bg-slate-400',   label: 'text-slate-600',   name: 'text-slate-700',   desc: 'text-slate-600',  chevron: 'text-slate-400'   },
+  { bg: 'from-blue-50 to-blue-100',        border: 'border-blue-200',    divider: 'bg-blue-400',    label: 'text-blue-600',    name: 'text-blue-700',    desc: 'text-blue-600',   chevron: 'text-blue-300'    },
+  { bg: 'from-indigo-50 to-indigo-100',    border: 'border-indigo-200',  divider: 'bg-indigo-400',  label: 'text-indigo-600',  name: 'text-indigo-700',  desc: 'text-indigo-600', chevron: 'text-indigo-300'  },
+  { bg: 'from-cyan-50 to-cyan-100',        border: 'border-cyan-200',    divider: 'bg-cyan-400',    label: 'text-cyan-600',    name: 'text-cyan-700',    desc: 'text-cyan-600',   chevron: 'text-cyan-300'    },
+  { bg: 'from-emerald-50 to-emerald-100',  border: 'border-emerald-200', divider: 'bg-emerald-400', label: 'text-emerald-600', name: 'text-emerald-700', desc: 'text-emerald-600', chevron: 'text-emerald-300' },
+]
 
 // Distribute palette evenly when fewer than 5 stages
 const stageColors = computed(() => {
+  const palette = isDark.value ? DARK_STAGE_PALETTE : LIGHT_STAGE_PALETTE
   const n = props.stages.length
-  if (n === 5) return STAGE_PALETTE
-  const step = (STAGE_PALETTE.length - 1) / (n - 1)
-  return props.stages.map((_, i) => STAGE_PALETTE[Math.round(i * step)])
+  if (n === 5) return palette
+  const step = (palette.length - 1) / (n - 1)
+  return props.stages.map((_, i) => palette[Math.round(i * step)])
 })
 
 // Prop length limits — read by build-all.ps1 for static lint enforcement
@@ -79,14 +87,18 @@ props.stages?.forEach((s, i) => {
 })
 
 const DARK = {
-  title:   'text-white',
+  title:    'text-white',
   subtitle: 'text-white/60',
-  caption: 'text-white/40',
+  caption:  'text-white/40',
+  dotInactive: 'bg-white/20',
+  dotCounter:  'text-white/40',
 }
 const LIGHT = {
-  title:   'text-gray-900',
+  title:    'text-gray-900',
   subtitle: 'text-gray-600',
-  caption: 'text-gray-500',
+  caption:  'text-gray-500',
+  dotInactive: 'bg-gray-300',
+  dotCounter:  'text-gray-400',
 }
 const t = computed(() => isDark.value ? DARK : LIGHT)
 </script>
@@ -111,9 +123,9 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
         <div
           v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full"
-          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'"
+          :class="n === progressDots.current ? progressDots.activeColor : t.dotInactive"
         ></div>
-        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+        <span class="text-xs ml-1" :class="t.dotCounter">{{ progressDots.current }} of {{ progressDots.total }}</span>
       </div>
     </div>
 

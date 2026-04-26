@@ -165,31 +165,31 @@ const DARK_CARDS: SectionCard[][] = [
 const LIGHT_CARDS: SectionCard[][] = [
     // Part 1: cyan → blue → indigo → violet
     [
-        { bg: 'bg-cyan-100/80', border: 'border-cyan-300', bgColor: 'rgba(207,250,254,0.8)', borderColor: 'rgb(103,232,249)', title: 'text-cyan-700', blurb: 'text-cyan-900/70' },
-        { bg: 'bg-blue-100/80', border: 'border-blue-300', bgColor: 'rgba(219,234,254,0.8)', borderColor: 'rgb(147,197,253)', title: 'text-blue-700', blurb: 'text-blue-900/70' },
-        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', bgColor: 'rgba(224,231,255,0.8)', borderColor: 'rgb(165,180,252)', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
-        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
+        { bg: 'bg-cyan-200', border: 'border-cyan-400', bgColor: 'rgba(165,243,252,1)', borderColor: 'rgb(34,211,238)', title: 'text-cyan-800', blurb: 'text-cyan-900' },
+        { bg: 'bg-blue-200', border: 'border-blue-400', bgColor: 'rgba(191,219,254,1)', borderColor: 'rgb(96,165,250)', title: 'text-blue-800', blurb: 'text-blue-900' },
+        { bg: 'bg-indigo-200', border: 'border-indigo-400', bgColor: 'rgba(199,210,254,1)', borderColor: 'rgb(129,140,248)', title: 'text-indigo-800', blurb: 'text-indigo-900' },
+        { bg: 'bg-violet-200', border: 'border-violet-400', bgColor: 'rgba(221,214,254,1)', borderColor: 'rgb(167,139,250)', title: 'text-violet-800', blurb: 'text-violet-900' },
     ],
     // Part 2: blue → indigo → violet → purple
     [
-        { bg: 'bg-blue-100/80', border: 'border-blue-300', bgColor: 'rgba(219,234,254,0.8)', borderColor: 'rgb(147,197,253)', title: 'text-blue-700', blurb: 'text-blue-900/70' },
-        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', bgColor: 'rgba(224,231,255,0.8)', borderColor: 'rgb(165,180,252)', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
-        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
-        { bg: 'bg-purple-100/80', border: 'border-purple-300', bgColor: 'rgba(243,232,255,0.8)', borderColor: 'rgb(216,180,254)', title: 'text-purple-700', blurb: 'text-purple-900/70' },
+        { bg: 'bg-blue-200', border: 'border-blue-400', bgColor: 'rgba(191,219,254,1)', borderColor: 'rgb(96,165,250)', title: 'text-blue-800', blurb: 'text-blue-900' },
+        { bg: 'bg-indigo-200', border: 'border-indigo-400', bgColor: 'rgba(199,210,254,1)', borderColor: 'rgb(129,140,248)', title: 'text-indigo-800', blurb: 'text-indigo-900' },
+        { bg: 'bg-violet-200', border: 'border-violet-400', bgColor: 'rgba(221,214,254,1)', borderColor: 'rgb(167,139,250)', title: 'text-violet-800', blurb: 'text-violet-900' },
+        { bg: 'bg-purple-200', border: 'border-purple-400', bgColor: 'rgba(233,213,255,1)', borderColor: 'rgb(192,132,252)', title: 'text-purple-800', blurb: 'text-purple-900' },
     ],
     // Part 3: indigo → violet → purple → pink
     [
-        { bg: 'bg-indigo-100/80', border: 'border-indigo-300', bgColor: 'rgba(224,231,255,0.8)', borderColor: 'rgb(165,180,252)', title: 'text-indigo-700', blurb: 'text-indigo-900/70' },
-        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
-        { bg: 'bg-purple-100/80', border: 'border-purple-300', bgColor: 'rgba(243,232,255,0.8)', borderColor: 'rgb(216,180,254)', title: 'text-purple-700', blurb: 'text-purple-900/70' },
-        { bg: 'bg-pink-100/80', border: 'border-pink-300', bgColor: 'rgba(252,231,243,0.8)', borderColor: 'rgb(249,168,212)', title: 'text-pink-700', blurb: 'text-pink-900/70' },
+        { bg: 'bg-indigo-200', border: 'border-indigo-400', bgColor: 'rgba(199,210,254,1)', borderColor: 'rgb(129,140,248)', title: 'text-indigo-800', blurb: 'text-indigo-900' },
+        { bg: 'bg-violet-200', border: 'border-violet-400', bgColor: 'rgba(221,214,254,1)', borderColor: 'rgb(167,139,250)', title: 'text-violet-800', blurb: 'text-violet-900' },
+        { bg: 'bg-purple-200', border: 'border-purple-400', bgColor: 'rgba(233,213,255,1)', borderColor: 'rgb(192,132,252)', title: 'text-purple-800', blurb: 'text-purple-900' },
+        { bg: 'bg-pink-200', border: 'border-pink-400', bgColor: 'rgba(251,207,232,1)', borderColor: 'rgb(244,114,182)', title: 'text-pink-800', blurb: 'text-pink-900' },
     ],
     // Part 4: violet → purple → pink → rose
     [
-        { bg: 'bg-violet-100/80', border: 'border-violet-300', bgColor: 'rgba(237,233,254,0.8)', borderColor: 'rgb(196,181,253)', title: 'text-violet-700', blurb: 'text-violet-900/70' },
-        { bg: 'bg-purple-100/80', border: 'border-purple-300', bgColor: 'rgba(243,232,255,0.8)', borderColor: 'rgb(216,180,254)', title: 'text-purple-700', blurb: 'text-purple-900/70' },
-        { bg: 'bg-pink-100/80', border: 'border-pink-300', bgColor: 'rgba(252,231,243,0.8)', borderColor: 'rgb(249,168,212)', title: 'text-pink-700', blurb: 'text-pink-900/70' },
-        { bg: 'bg-rose-100/80', border: 'border-rose-300', bgColor: 'rgba(255,228,230,0.8)', borderColor: 'rgb(253,164,175)', title: 'text-rose-700', blurb: 'text-rose-900/70' },
+        { bg: 'bg-violet-200', border: 'border-violet-400', bgColor: 'rgba(221,214,254,1)', borderColor: 'rgb(167,139,250)', title: 'text-violet-800', blurb: 'text-violet-900' },
+        { bg: 'bg-purple-200', border: 'border-purple-400', bgColor: 'rgba(233,213,255,1)', borderColor: 'rgb(192,132,252)', title: 'text-purple-800', blurb: 'text-purple-900' },
+        { bg: 'bg-pink-200', border: 'border-pink-400', bgColor: 'rgba(251,207,232,1)', borderColor: 'rgb(244,114,182)', title: 'text-pink-800', blurb: 'text-pink-900' },
+        { bg: 'bg-rose-200', border: 'border-rose-400', bgColor: 'rgba(254,205,211,1)', borderColor: 'rgb(251,113,133)', title: 'text-rose-800', blurb: 'text-rose-900' },
     ],
 ]
 

@@ -61,14 +61,40 @@ if (props.steps && props.steps.length > STEPS_MAX)
   console.warn(`[WorkflowShowdownStepsSlide] steps has ${props.steps.length} items (max ${STEPS_MAX})`)
 
 const DARK = {
-  title:    'text-white',
-  subtitle: 'text-white/60',
-  metric:   'bg-gray-900/50 border-gray-700/50 text-gray-200',
+  title:        'text-white',
+  subtitle:     'text-white/60',
+  metric:       'bg-gray-900/50 border-gray-700/50 text-gray-200',
+  colLeft:      'from-red-900/30 to-orange-900/20 border-red-500/30',
+  colRight:     'from-green-900/30 to-emerald-900/20 border-green-500/30',
+  divLeft:      'border-red-500/20',
+  divRight:     'border-green-500/20',
+  labelLeft:    'text-red-300',
+  labelRight:   'text-green-300',
+  circleLeft:   'bg-red-900/80 border-red-500/60 text-red-300',
+  circleRight:  'bg-green-900/80 border-green-500/60 text-green-300',
+  stepLabel:    'text-white/90',
+  stepNote:     'text-white/50',
+  outcomeLeft:  'bg-orange-900/40 border-orange-500/40 text-orange-300',
+  outcomeRight: 'bg-emerald-900/40 border-emerald-500/40 text-emerald-300',
 }
 const LIGHT = {
-  title:    'text-gray-900',
-  subtitle: 'text-gray-600',
-  metric:   'bg-gray-100/80 border-gray-200 text-gray-800',
+  title:        'text-gray-900',
+  subtitle:     'text-gray-600',
+  metric:       'bg-gray-100/80 border-gray-200 text-gray-800',
+  colLeft:      'from-red-50 to-orange-50 border-red-200',
+  colRight:     'from-green-50 to-emerald-50 border-green-200',
+  divLeft:      'border-red-300/60',
+  divRight:     'border-green-300/60',
+  labelLeft:    'text-red-700',
+  labelRight:   'text-green-700',
+  circleLeft:   'bg-red-100 border-red-400 text-red-700',
+  circleRight:  'bg-green-100 border-green-400 text-green-700',
+  stepLabel:    'text-gray-800',
+  stepNote:     'text-gray-500',
+  outcomeLeft:  'bg-orange-100 border-orange-300 text-orange-700',
+  outcomeRight: 'bg-emerald-100 border-emerald-300 text-emerald-700',
+  dotInactive: 'bg-gray-300',
+  dotCounter:  'text-gray-400',
 }
 const t = computed(() => isDark.value ? DARK : LIGHT)
 </script>
@@ -88,9 +114,9 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
         <div
           v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full"
-          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'"
+          :class="n === progressDots.current ? progressDots.activeColor : t.dotInactive"
         ></div>
-        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+        <span class="text-xs ml-1" :class="t.dotCounter">{{ progressDots.current }} of {{ progressDots.total }}</span>
       </div>
     </div>
 
@@ -105,44 +131,44 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
       <div class="grid grid-cols-2 gap-4 flex-1 min-h-0 text-xs">
 
         <!-- Before (red/problem) -->
-        <div class="p-4 bg-gradient-to-br from-red-900/30 to-orange-900/20 rounded-xl border border-red-500/30 flex flex-col">
-          <div class="flex items-center gap-2 mb-3 pb-2 border-b border-red-500/20">
+        <div class="p-4 bg-gradient-to-br rounded-xl border flex flex-col" :class="t.colLeft">
+          <div class="flex items-center gap-2 mb-3 pb-2 border-b" :class="t.divLeft">
             <span class="text-base">❌</span>
-            <span class="font-bold text-red-300 text-sm">{{ leftLabel }}</span>
+            <span class="font-bold text-sm" :class="t.labelLeft">{{ leftLabel }}</span>
           </div>
           <div class="space-y-2.5 flex-1">
             <div v-for="(step, i) in steps" :key="'l-' + i" class="flex gap-3 items-start">
-              <div class="w-5 h-5 rounded-full bg-red-900/80 border border-red-500/60 flex items-center justify-center text-red-300 font-bold text-xs shrink-0">{{ i + 1 }}</div>
+              <div class="w-5 h-5 rounded-full border flex items-center justify-center font-bold text-xs shrink-0" :class="t.circleLeft">{{ i + 1 }}</div>
               <div>
-                <div class="font-semibold text-white/90">{{ step.left.label }}</div>
-                <div v-if="step.left.note" class="opacity-60 mt-0.5">{{ step.left.note }}</div>
+                <div class="font-semibold" :class="t.stepLabel">{{ step.left.label }}</div>
+                <div v-if="step.left.note" class="mt-0.5" :class="t.stepNote">{{ step.left.note }}</div>
               </div>
             </div>
           </div>
-          <div class="mt-3 flex items-center gap-2 p-2 bg-orange-900/40 rounded border border-orange-500/40">
+          <div class="mt-3 flex items-center gap-2 p-2 rounded border" :class="t.outcomeLeft">
             <span class="text-base">{{ outcomeLeft.icon || '🔄' }}</span>
-            <span class="font-semibold text-orange-300">{{ outcomeLeft.label }}</span>
+            <span class="font-semibold">{{ outcomeLeft.label }}</span>
           </div>
         </div>
 
         <!-- After (green/outcome) -->
-        <div class="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/20 rounded-xl border border-green-500/30 flex flex-col">
-          <div class="flex items-center gap-2 mb-3 pb-2 border-b border-green-500/20">
+        <div class="p-4 bg-gradient-to-br rounded-xl border flex flex-col" :class="t.colRight">
+          <div class="flex items-center gap-2 mb-3 pb-2 border-b" :class="t.divRight">
             <span class="text-base">✅</span>
-            <span class="font-bold text-green-300 text-sm">{{ rightLabel }}</span>
+            <span class="font-bold text-sm" :class="t.labelRight">{{ rightLabel }}</span>
           </div>
           <div class="space-y-2.5 flex-1">
             <div v-for="(step, i) in steps" :key="'r-' + i" class="flex gap-3 items-start">
-              <div class="w-5 h-5 rounded-full bg-green-900/80 border border-green-500/60 flex items-center justify-center text-green-300 font-bold text-xs shrink-0">{{ i + 1 }}</div>
+              <div class="w-5 h-5 rounded-full border flex items-center justify-center font-bold text-xs shrink-0" :class="t.circleRight">{{ i + 1 }}</div>
               <div>
-                <div class="font-semibold text-white/90">{{ step.right.label }}</div>
-                <div v-if="step.right.note" class="opacity-60 mt-0.5">{{ step.right.note }}</div>
+                <div class="font-semibold" :class="t.stepLabel">{{ step.right.label }}</div>
+                <div v-if="step.right.note" class="mt-0.5" :class="t.stepNote">{{ step.right.note }}</div>
               </div>
             </div>
           </div>
-          <div class="mt-3 flex items-center gap-2 p-2 bg-emerald-900/40 rounded border border-emerald-500/40">
+          <div class="mt-3 flex items-center gap-2 p-2 rounded border" :class="t.outcomeRight">
             <span class="text-base">{{ outcomeRight.icon || '✓' }}</span>
-            <span class="font-semibold text-emerald-300">{{ outcomeRight.label }}</span>
+            <span class="font-semibold">{{ outcomeRight.label }}</span>
           </div>
         </div>
 

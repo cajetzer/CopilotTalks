@@ -89,10 +89,11 @@ const DARK_THEMES = [
     h1:        'from-cyan-400 via-blue-300 to-indigo-400',
     divider:   'via-cyan-400',
     arrow:     'text-cyan-300',
+    subtitle:  null,
     cards: [
-      { bg: 'bg-cyan-900/30',   border: 'border-cyan-500/30',   title: 'text-cyan-300'   },
-      { bg: 'bg-blue-900/30',   border: 'border-blue-500/30',   title: 'text-blue-300'   },
-      { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300' },
+      { bg: 'bg-cyan-900/30',   border: 'border-cyan-500/30',   title: 'text-cyan-300',   blurb: null },
+      { bg: 'bg-blue-900/30',   border: 'border-blue-500/30',   title: 'text-blue-300',   blurb: null },
+      { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', blurb: null },
     ],
   },
   {
@@ -102,10 +103,11 @@ const DARK_THEMES = [
     h1:        'from-blue-400 via-indigo-300 to-purple-400',
     divider:   'via-blue-400',
     arrow:     'text-blue-300',
+    subtitle:  null,
     cards: [
-      { bg: 'bg-blue-900/30',   border: 'border-blue-500/30',   title: 'text-blue-300'   },
-      { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300' },
-      { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300' },
+      { bg: 'bg-blue-900/30',   border: 'border-blue-500/30',   title: 'text-blue-300',   blurb: null },
+      { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', blurb: null },
+      { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300', blurb: null },
     ],
   },
   {
@@ -115,10 +117,11 @@ const DARK_THEMES = [
     h1:        'from-indigo-400 via-purple-300 to-pink-400',
     divider:   'via-indigo-400',
     arrow:     'text-indigo-300',
+    subtitle:  null,
     cards: [
-      { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300' },
-      { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300' },
-      { bg: 'bg-pink-900/30',   border: 'border-pink-500/30',   title: 'text-pink-300'   },
+      { bg: 'bg-indigo-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', blurb: null },
+      { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300', blurb: null },
+      { bg: 'bg-pink-900/30',   border: 'border-pink-500/30',   title: 'text-pink-300',   blurb: null },
     ],
   },
   {
@@ -128,10 +131,11 @@ const DARK_THEMES = [
     h1:        'from-purple-400 via-pink-300 to-rose-400',
     divider:   'via-purple-400',
     arrow:     'text-purple-300',
+    subtitle:  null,
     cards: [
-      { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300' },
-      { bg: 'bg-pink-900/30',   border: 'border-pink-500/30',   title: 'text-pink-300'   },
-      { bg: 'bg-rose-900/30',   border: 'border-rose-500/30',   title: 'text-rose-300'   },
+      { bg: 'bg-purple-900/30', border: 'border-purple-500/30', title: 'text-purple-300', blurb: null },
+      { bg: 'bg-pink-900/30',   border: 'border-pink-500/30',   title: 'text-pink-300',   blurb: null },
+      { bg: 'bg-rose-900/30',   border: 'border-rose-500/30',   title: 'text-rose-300',   blurb: null },
     ],
   },
 ]
@@ -140,53 +144,61 @@ const LIGHT_THEMES = [
   {
     ambientBg: 'from-cyan-100/40 via-blue-100/20 to-indigo-100/20',
     orb:       'from-cyan-200/30 via-blue-200/30 to-indigo-200/30',
-    pill:      'from-cyan-500/20 to-blue-500/20 border-cyan-400/50 text-cyan-700',
+    pill:      'from-cyan-100 to-blue-100 border-cyan-400 text-cyan-900',
     h1:        'from-cyan-600 via-blue-600 to-indigo-600',
     divider:   'via-cyan-500',
     arrow:     'text-cyan-700',
+    terminalArrow: 'text-cyan-300',
+    subtitle:  'text-gray-600',
     cards: [
-      { bg: 'bg-cyan-100/80',   border: 'border-cyan-300',   title: 'text-cyan-700'   },
-      { bg: 'bg-blue-100/80',   border: 'border-blue-300',   title: 'text-blue-700'   },
-      { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-700' },
+      { bg: 'bg-cyan-100/80',   border: 'border-cyan-300',   title: 'text-cyan-800',   blurb: 'text-gray-600' },
+      { bg: 'bg-blue-100/80',   border: 'border-blue-300',   title: 'text-blue-800',   blurb: 'text-gray-600' },
+      { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-800', blurb: 'text-gray-600' },
     ],
   },
   {
     ambientBg: 'from-blue-100/40 via-indigo-100/20 to-purple-100/20',
     orb:       'from-blue-200/30 via-indigo-200/30 to-purple-200/30',
-    pill:      'from-blue-500/20 to-indigo-500/20 border-blue-400/50 text-blue-700',
+    pill:      'from-blue-100 to-indigo-100 border-blue-400 text-blue-900',
     h1:        'from-blue-600 via-indigo-600 to-purple-600',
     divider:   'via-blue-500',
     arrow:     'text-blue-700',
+    terminalArrow: 'text-blue-300',
+    subtitle:  'text-gray-600',
     cards: [
-      { bg: 'bg-blue-100/80',   border: 'border-blue-300',   title: 'text-blue-700'   },
-      { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-700' },
-      { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-700' },
+      { bg: 'bg-blue-100/80',   border: 'border-blue-300',   title: 'text-blue-800',   blurb: 'text-gray-600' },
+      { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-800', blurb: 'text-gray-600' },
+      { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-800', blurb: 'text-gray-600' },
     ],
   },
   {
     ambientBg: 'from-indigo-100/40 via-purple-100/20 to-pink-100/20',
     orb:       'from-indigo-200/30 via-purple-200/30 to-pink-200/30',
-    pill:      'from-indigo-500/20 to-purple-500/20 border-indigo-400/50 text-indigo-700',
+    pill:      'from-indigo-100 to-purple-100 border-indigo-400 text-indigo-900',
     h1:        'from-indigo-600 via-purple-600 to-pink-600',
     divider:   'via-indigo-500',
     arrow:     'text-indigo-700',
+    terminalArrow: 'text-indigo-300',
+    subtitle:  'text-gray-600',
     cards: [
-      { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-700' },
-      { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-700' },
-      { bg: 'bg-pink-100/80',   border: 'border-pink-300',   title: 'text-pink-700'   },
+      { bg: 'bg-indigo-100/80', border: 'border-indigo-300', title: 'text-indigo-800', blurb: 'text-gray-600' },
+      { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-800', blurb: 'text-gray-600' },
+      { bg: 'bg-pink-100/80',   border: 'border-pink-300',   title: 'text-pink-800',   blurb: 'text-gray-600' },
     ],
   },
   {
     ambientBg: 'from-purple-100/40 via-pink-100/20 to-rose-100/20',
     orb:       'from-purple-200/30 via-pink-200/30 to-rose-200/30',
-    pill:      'from-purple-500/20 to-pink-500/20 border-purple-400/50 text-purple-700',
+    pill:      'from-purple-100 to-pink-100 border-purple-400 text-purple-900',
     h1:        'from-purple-600 via-pink-600 to-rose-600',
     divider:   'via-purple-500',
     arrow:     'text-purple-700',
+    terminalArrow: 'text-purple-300',
+    subtitle:  'text-gray-600',
     cards: [
-      { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-700' },
-      { bg: 'bg-pink-100/80',   border: 'border-pink-300',   title: 'text-pink-700'   },
-      { bg: 'bg-rose-100/80',   border: 'border-rose-300',   title: 'text-rose-700'   },
+      { bg: 'bg-purple-100/80', border: 'border-purple-300', title: 'text-purple-800', blurb: 'text-gray-600' },
+      { bg: 'bg-pink-100/80',   border: 'border-pink-300',   title: 'text-pink-800',   blurb: 'text-gray-600' },
+      { bg: 'bg-rose-100/80',   border: 'border-rose-300',   title: 'text-rose-800',   blurb: 'text-gray-600' },
     ],
   },
 ]
@@ -225,7 +237,7 @@ const theme = computed(() => (isDark.value ? DARK_THEMES : LIGHT_THEMES)[props.p
 
       <!-- ===== SECTION SUBTITLE ===== -->
       <!-- Supporting subtitle (smaller size) -->
-      <h2 class="!text-2xl !font-normal !m-0 opacity-70 mb-6">
+      <h2 class="!text-2xl !font-normal !m-0 mb-6" :class="theme.subtitle ?? 'opacity-70'">
         {{ subtitle }}
       </h2>
 
@@ -249,7 +261,7 @@ const theme = computed(() => (isDark.value ? DARK_THEMES : LIGHT_THEMES)[props.p
           </div>
 
           <!-- Card description -->
-          <div class="text-xs opacity-70 mt-1">
+          <div class="text-xs mt-1" :class="theme.cards[i].blurb ?? 'opacity-70'">
             {{ card.blurb }}
           </div>
         </div>
@@ -257,14 +269,14 @@ const theme = computed(() => (isDark.value ? DARK_THEMES : LIGHT_THEMES)[props.p
 
       <!-- ===== TERMINAL CONTEXT ===== -->
       <!-- Terminal/console-style context box -->
-      <div class="mt-5 font-mono text-xs bg-gray-950/80 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
+      <div class="mt-5 font-mono text-xs bg-gray-950/90 border border-gray-700/50 rounded-lg px-5 py-3 text-left max-w-xl">
         <!-- Context line (before state) -->
-        <span class="text-gray-400">
+        <span class="text-gray-300">
           {{ terminal.context }}
         </span>
         <!-- Arrow pointer + detail line (after state) -->
         <br />
-        <span class="mt-1 block" :class="theme.arrow">
+        <span class="mt-1 block" :class="theme.terminalArrow ?? theme.arrow">
           ↳ {{ terminal.detail }}
         </span>
       </div>

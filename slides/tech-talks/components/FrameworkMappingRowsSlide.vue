@@ -139,12 +139,16 @@ const DARK = {
   subtitle:    'text-white/60',
   description: 'text-white/80',
   footnote:    'text-white/40',
+  dotInactive: 'bg-white/20',
+  dotCounter:  'text-white/40',
 }
 const LIGHT = {
   title:       'text-gray-900',
   subtitle:    'text-gray-600',
   description: 'text-gray-700',
   footnote:    'text-gray-500',
+  dotInactive: 'bg-gray-300',
+  dotCounter:  'text-gray-400',
 }
 const t = computed(() => isDark.value ? DARK : LIGHT)
 </script>
@@ -164,9 +168,9 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
         <div
           v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full"
-          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'"
+          :class="n === progressDots.current ? progressDots.activeColor : t.dotInactive"
         ></div>
-        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+        <span class="text-xs ml-1" :class="t.dotCounter">{{ progressDots.current }} of {{ progressDots.total }}</span>
       </div>
     </div>
 

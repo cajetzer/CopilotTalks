@@ -76,22 +76,21 @@ props.cards?.forEach((c, i) => {
     console.warn(`[CoreQuestionSlide] cards[${i}].description too long (${c.description.length} chars, max ${DESC_MAX}): "${c.description.slice(0, 50)}…"`)
 })
 
-// Card styles (row 1: prominent /30, row 2: muted /20)
 const DARK_CARD_STYLES = [
-  { bg: 'from-cyan-900/30 to-blue-900/30',     border: 'border-cyan-500/30',   title: 'text-cyan-300'   },
-  { bg: 'from-blue-900/30 to-indigo-900/30',   border: 'border-blue-500/30',   title: 'text-blue-300'   },
-  { bg: 'from-indigo-900/30 to-purple-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300' },
-  { bg: 'from-cyan-900/20 to-teal-900/20',     border: 'border-teal-500/20',   title: 'text-teal-400'   },
-  { bg: 'from-blue-900/20 to-cyan-900/20',     border: 'border-blue-500/20',   title: 'text-blue-400'   },
-  { bg: 'from-purple-900/20 to-indigo-900/20', border: 'border-purple-500/20', title: 'text-purple-400' },
+  { bg: 'from-cyan-900/30 to-blue-900/30',     border: 'border-cyan-500/30',   title: 'text-cyan-300',   desc: 'text-cyan-200/70'   },
+  { bg: 'from-blue-900/30 to-indigo-900/30',   border: 'border-blue-500/30',   title: 'text-blue-300',   desc: 'text-blue-200/70'   },
+  { bg: 'from-indigo-900/30 to-purple-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', desc: 'text-indigo-200/70' },
+  { bg: 'from-cyan-900/20 to-teal-900/20',     border: 'border-teal-500/20',   title: 'text-teal-400',   desc: 'text-teal-200/60'   },
+  { bg: 'from-blue-900/20 to-cyan-900/20',     border: 'border-blue-500/20',   title: 'text-blue-400',   desc: 'text-blue-200/60'   },
+  { bg: 'from-purple-900/20 to-indigo-900/20', border: 'border-purple-500/20', title: 'text-purple-400', desc: 'text-purple-200/60' },
 ]
 const LIGHT_CARD_STYLES = [
-  { bg: 'from-cyan-100/80 to-blue-100/80',     border: 'border-cyan-300',   title: 'text-cyan-700'   },
-  { bg: 'from-blue-100/80 to-indigo-100/80',   border: 'border-blue-300',   title: 'text-blue-700'   },
-  { bg: 'from-indigo-100/80 to-purple-100/80', border: 'border-indigo-300', title: 'text-indigo-700' },
-  { bg: 'from-cyan-50/80 to-teal-50/80',       border: 'border-teal-200',   title: 'text-teal-600'   },
-  { bg: 'from-blue-50/80 to-cyan-50/80',       border: 'border-blue-200',   title: 'text-blue-600'   },
-  { bg: 'from-purple-50/80 to-indigo-50/80',   border: 'border-purple-200', title: 'text-purple-600' },
+  { bg: 'from-cyan-100 to-blue-200',     border: 'border-cyan-400',   title: 'text-cyan-800',   desc: 'text-cyan-900'   },
+  { bg: 'from-blue-100 to-indigo-200',   border: 'border-blue-400',   title: 'text-blue-800',   desc: 'text-blue-900'   },
+  { bg: 'from-indigo-100 to-purple-200', border: 'border-indigo-400', title: 'text-indigo-800', desc: 'text-indigo-900' },
+  { bg: 'from-teal-100 to-cyan-200',     border: 'border-teal-400',   title: 'text-teal-800',   desc: 'text-teal-900'   },
+  { bg: 'from-blue-100 to-cyan-200',     border: 'border-blue-400',   title: 'text-blue-800',   desc: 'text-blue-900'   },
+  { bg: 'from-purple-100 to-indigo-200', border: 'border-purple-400', title: 'text-purple-800', desc: 'text-purple-900' },
 ]
 
 // Structural/ambient theme classes
@@ -102,6 +101,7 @@ const DARK_THEME = {
   divider:      'from-cyan-400/60 to-transparent',
   questionCard: 'from-cyan-900/30 to-blue-900/30 border-cyan-500/30',
   questionText: 'text-cyan-200',
+  subtext:      'text-white/80',
   highlight:    'text-cyan-300',
 }
 const LIGHT_THEME = {
@@ -109,9 +109,10 @@ const LIGHT_THEME = {
   orb:          'from-cyan-200/30 to-transparent',
   pill:         'from-cyan-500 to-blue-500',
   divider:      'from-cyan-300/60 to-transparent',
-  questionCard: 'from-cyan-50/80 to-blue-50/80 border-cyan-300',
-  questionText: 'text-cyan-800',
-  highlight:    'text-cyan-600',
+  questionCard: 'from-cyan-100 to-blue-200 border-cyan-400',
+  questionText: 'text-cyan-900',
+  subtext:      'text-gray-700',
+  highlight:    'text-blue-700',
 }
 
 const cardStyles = computed(() => isDark.value ? DARK_CARD_STYLES : LIGHT_CARD_STYLES)
@@ -148,8 +149,9 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
           "{{ question }}"
         </div>
         <!-- Subtext + highlighted phrase -->
-        <div class="text-base opacity-90 line-clamp-2">
-          <span>{{ subtext }} </span>
+        <div class="text-base line-clamp-3" :class="t.subtext">
+          <span>{{ subtext }}</span>
+          <br />
           <span class="font-semibold" :class="t.highlight">{{ highlight }}</span>
         </div>
       </div>
@@ -172,7 +174,7 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
           {{ card.title }}
         </div>
         <!-- Card description -->
-        <div class="relative text-[10px] leading-tight opacity-70 line-clamp-3">
+        <div class="relative text-[10px] leading-tight line-clamp-3" :class="cardStyles[i].desc">
           {{ card.description }}
         </div>
       </div>

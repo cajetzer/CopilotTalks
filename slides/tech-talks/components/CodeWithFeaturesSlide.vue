@@ -58,6 +58,8 @@ const DARK = {
   codeFrame: 'bg-gray-950/80 border-gray-700/50',
   filename: 'text-gray-400',
   insight: 'bg-gray-900/50 border-gray-700/50 text-gray-200',
+  dotInactive: 'bg-white/20',
+  dotCounter: 'text-white/40',
 }
 const LIGHT = {
   title: 'text-gray-900',
@@ -65,6 +67,8 @@ const LIGHT = {
   codeFrame: 'bg-gray-50 border-gray-300',
   filename: 'text-gray-600',
   insight: 'bg-gray-100/80 border-gray-200 text-gray-800',
+  dotInactive: 'bg-gray-300',
+  dotCounter: 'text-gray-400',
 }
 const t = computed(() => isDark.value ? DARK : LIGHT)
 
@@ -90,9 +94,9 @@ const featuresGrid = computed(() => GRID_COLS[props.features.length] || 'grid-co
       <div class="flex items-center gap-2">
         <div v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full"
-          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'">
+          :class="n === progressDots.current ? progressDots.activeColor : t.dotInactive">
         </div>
-        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+        <span class="text-xs ml-1" :class="t.dotCounter">{{ progressDots.current }} of {{ progressDots.total }}</span>
       </div>
     </div>
 

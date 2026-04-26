@@ -61,14 +61,20 @@ if (props.transcript && props.transcript.length > TRANSCRIPT_MAX)
   console.warn(`[AITerminalTranscriptSlide] transcript has ${props.transcript.length} turns (max ${TRANSCRIPT_MAX})`)
 
 const DARK = {
-  title:    'text-white',
-  subtitle: 'text-white/60',
-  terminal: 'bg-gray-950/60 border-cyan-500/20',
+  title:       'text-white',
+  subtitle:    'text-white/60',
+  terminal:    'bg-gray-950/60 border-cyan-500/20',
+  dotInactive: 'bg-white/20',
+  dotCounter:  'text-white/40',
+  footer:      'text-white/40',
 }
 const LIGHT = {
-  title:    'text-gray-900',
-  subtitle: 'text-gray-600',
-  terminal: 'bg-gray-900/80 border-cyan-500/30',
+  title:       'text-gray-900',
+  subtitle:    'text-gray-600',
+  terminal:    'bg-gray-900/80 border-cyan-500/30',
+  dotInactive: 'bg-gray-300',
+  dotCounter:  'text-gray-400',
+  footer:      'text-gray-400',
 }
 const t = computed(() => isDark.value ? DARK : LIGHT)
 </script>
@@ -88,9 +94,9 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
         <div
           v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full"
-          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'"
+          :class="n === progressDots.current ? progressDots.activeColor : t.dotInactive"
         ></div>
-        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+        <span class="text-xs ml-1" :class="t.dotCounter">{{ progressDots.current }} of {{ progressDots.total }}</span>
       </div>
     </div>
 
@@ -125,6 +131,6 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
     </div>
 
     <!-- Optional footer metric -->
-    <div v-if="footerMetric" class="relative z-10 mt-2 text-right text-xs italic text-white/40">{{ footerMetric }}</div>
+    <div v-if="footerMetric" class="relative z-10 mt-2 text-right text-xs italic" :class="t.footer">{{ footerMetric }}</div>
   </div>
 </template>

@@ -20,6 +20,11 @@ mdc: true
 import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import TitleSlide from './components/structure/TitleSlide.vue'
 import SectionOpenerSlide from './components/structure/SectionOpenerSlide.vue'
+import CoreQuestionSlide from './components/structure/CoreQuestionSlide.vue'
+import TocSlide from './components/structure/TocSlide.vue'
+import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
+import WhatYouCanDoTodaySlide from './components/structure/WhatYouCanDoTodaySlide.vue'
+import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
 import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
@@ -38,9 +43,9 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 <!-- SLIDE: Title -->
 <TitleSlide
   title="Component Test Deck"
-  subtitle="Visual validation for all 13 content components"
-  tagline="BeforeAfterMetrics · BeforeAfterPanels · ProblemSolutionOutcome · TwoColPaired · ThreeColumnCard · FourCardGrid · CodeWithFeatures · HeroStat · WorkflowShowdown · MaturityJourneyRoadmap · AITerminalTranscript · MaturityLevelDrilldown · FrameworkMappingRows"
-  meta="Internal · Component Library · 2026-04-21"
+  subtitle="Visual validation for all 21 components"
+  tagline="Structure: Title · SectionOpener · CoreQuestion · Toc · BeforeAfter · WhatYouCanDoToday · References · ThankYou — Content: BeforeAfterMetrics · BeforeAfterPanels · ProblemSolutionOutcome · TwoColPaired · ThreeColumnCard · FourCardGrid · CodeWithFeatures · HeroStat · WorkflowShowdownSteps · MaturityJourneyRoadmap · AITerminalTranscript · MaturityLevelDrilldown · FrameworkMappingRows"
+  meta="Internal · Component Library · 2026-04-25"
 />
 
 ---
@@ -645,13 +650,99 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 
 ---
 
+<!-- SLIDE: Section — Structure Components -->
+<SectionOpenerSlide
+  :partNumber="4"
+  title="Structure Components"
+  subtitle="The 5 structural slides used in every tech-talk deck"
+  :cards='[
+    { icon: "❓", title: "CoreQuestionSlide", blurb: "The central question + 6 audience cards" },
+    { icon: "📋", title: "TocSlide", blurb: "4-section table of contents" },
+    { icon: "↔️", title: "BeforeAfterSlide", blurb: "Before/after comparison + 3 metrics" },
+  ]'
+  :terminal='{ context: "Structure components power every deck", detail: "WhatYouCanDoToday + ReferencesSlide also covered below" }'
+/>
+
+---
+
+<!-- SLIDE: CoreQuestionSlide -->
+<CoreQuestionSlide
+  question="What mechanisms make multi-agent AI work, and how do I compose them into autonomous systems?"
+  subtext="Single agents hit a ceiling: context fills, supervision is the bottleneck, quality degrades."
+  highlight="The solution is architecture, not a smarter single agent."
+  :cards='[
+    { icon: "🔧", title: "Developers", description: "Subagent patterns, parallel execution, and autonomous hand-offs — no setup required" },
+    { icon: "🏗️", title: "Architects", description: "Design scalable agent systems using coordinator, worktree, and ensemble patterns" },
+    { icon: "👔", title: "Engineering Managers", description: "The business case: 9.7 hrs/week reclaimed per developer" },
+    { title: "300–500 LOC ceiling", description: "Single agents hit a hard wall before most real features are complete" },
+    { title: "50–80% irrelevant context", description: "One agent juggling research + planning + implementation by execution time" },
+    { title: "5–10× throughput gain", description: "Background agents with worktrees vs. supervised single-agent execution" }
+  ]'
+/>
+
+---
+
+<!-- SLIDE: TocSlide -->
+<TocSlide
+  :sections='[
+    { icon: "🧱", title: "Subagents", subtitle: "The Building Block", blurb: "Context isolation, parallel execution, and the vocabulary to reason with", slide: 4 },
+    { icon: "👥", title: "Agent Teams", subtitle: "Organized Specialists", blurb: "Squad: persistent role specialists that compound knowledge across sessions", slide: 8 },
+    { icon: "🚀", title: "Autonomous Execution", subtitle: "Background Agents + Worktrees", blurb: "Hand off to background agents — 85 active minutes become 27", slide: 12 },
+    { icon: "🎭", title: "Agent Council", subtitle: "When Models Think Differently", blurb: "Claude + GPT + Gemini in collaborative or adversarial deliberation", slide: 17 },
+  ]'
+/>
+
+---
+
+<!-- SLIDE: BeforeAfterSlide -->
+<BeforeAfterSlide
+  header="From Single Agent to Multi-Agent Architecture"
+  :leftItems='["Single agent juggling research, planning, and implementation", "50–80% of context is irrelevant by execution time", "Continuous supervision required — cannot look away", "Multiple agents sharing workspace create file conflicts"]'
+  :rightItems='["Coordinator delegates to role-specialized subagents in parallel", "Only 100–500 token structured summaries return to main context", "Background agents execute autonomously in isolated worktrees", "AgentCouncil stress-tests decisions before execution commits"]'
+  :metrics='[
+    { value: "9.7 hrs/wk", detail: "active time reclaimed with background agents" },
+    { value: "5–10×", detail: "throughput with parallel specialized execution" },
+    { value: "0 conflicts", detail: "with git worktree isolation per agent" }
+  ]'
+/>
+
+---
+
+<!-- SLIDE: WhatYouCanDoTodaySlide -->
+<WhatYouCanDoTodaySlide
+  :today='["Try implicit subagent: Run a subagent to research X, return a structured summary", "Run 3 parallel subagents on a PR: security, performance, and testing in parallel", "Hand off one task to a background agent via VS Code session picker and review the branch"]'
+  :thisWeek='["Install Squad with npx github:bradygaster/squad and form your first team", "Write charter.md files for each role: Lead, Dev, Tester", "Install AgentCouncil and run one adversarial debate on a real architecture decision"]'
+  :thisMonth='["Move 10 tasks/week to background agents and measure the active-time reduction", "Establish decisions.md as persistent team memory that compounds across sessions", "Use council deliberation before any architecture decision you will live with for years"]'
+  footer="Compose agents the way you compose a team: the right specialist, in the right isolation, at the right time."
+/>
+
+---
+
+<!-- SLIDE: ReferencesSlide -->
+<ReferencesSlide
+  :groups='[
+    { title: "📖 VS Code Documentation", color: "cyan", items: [
+        { href: "https://code.visualstudio.com/docs/copilot/agents/subagents", label: "Subagent Invocation and Parallel Execution", description: "Context isolation, parallel subagent patterns" },
+        { href: "https://code.visualstudio.com/docs/copilot/customization/custom-agents", label: "Custom Agents in VS Code", description: "YAML frontmatter, tool scoping, model selection" },
+        { href: "https://code.visualstudio.com/updates/v1_109#_agent-orchestration", label: "VS Code v1.109 Agent Orchestration", description: "Invocation controls and parallel agent support" },
+        { href: "https://code.visualstudio.com/docs/copilot/agents/background-agents", label: "Background Agents Documentation", description: "Hand-off workflow and worktree integration" }
+    ] },
+    { title: "🛠️ Tools & Repos", color: "purple", items: [
+        { href: "https://github.com/bradygaster/squad", label: "Squad — Production Agent Team System", description: "Persistent memory, parallel execution, GitHub Issues integration" },
+        { href: "https://github.com/Sentry01/AgentCouncil", label: "AgentCouncil — Multi-Model Deliberation", description: "Claude + GPT + Gemini collaborative and adversarial modes" }
+    ] }
+  ]'
+/>
+
+---
+
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
   title="Thank You"
-  subtitle="Component Test Deck — All 13 Content Components"
+  subtitle="Component Test Deck — All 18 Components"
   :cards='[
     { icon: "🧱", value: "13", detail: "Content components", subdetail: "All validated with visual error guards" },
-    { icon: "🎨", value: "4", detail: "Section palettes", subdetail: "Chrome auto-matched via partNumber 1–4" },
+    { icon: "🏗️", value: "5", detail: "Structure components", subdetail: "CoreQuestion, ToC, BeforeAfter, WhatYouCanDo, References" },
     { icon: "⛔", value: "100%", detail: "Prop validation coverage", subdetail: "Bad props show a visible red error overlay" }
   ]'
   prompt="Use this deck as a reference when authoring new slides — every component pattern is shown in context."

@@ -68,22 +68,26 @@ const DARK_SEMANTIC = {
   afterItemDetail: 'text-emerald-100/70',
   title: 'text-white',
   insight: 'bg-gray-900/50 border-gray-700/50 text-gray-200',
+  dotInactive: 'bg-white/20',
+  dotCounter: 'text-white/40',
 }
 const LIGHT_SEMANTIC = {
-  beforeBg: 'bg-gradient-to-br from-red-100/40 to-red-50/30',
-  beforeBorder: 'border-red-300/60',
+  beforeBg: 'bg-gradient-to-br from-red-50 to-orange-50',
+  beforeBorder: 'border-red-200',
   beforeLabel: 'text-red-700',
-  beforeItem: 'bg-red-100/50',
+  beforeItem: 'bg-red-100',
   beforeItemTitle: 'text-red-800',
-  beforeItemDetail: 'text-red-900/70',
-  afterBg: 'bg-gradient-to-br from-emerald-100/40 to-emerald-50/30',
-  afterBorder: 'border-emerald-300/60',
+  beforeItemDetail: 'text-red-700',
+  afterBg: 'bg-gradient-to-br from-green-50 to-emerald-50',
+  afterBorder: 'border-green-200',
   afterLabel: 'text-emerald-700',
-  afterItem: 'bg-emerald-100/50',
+  afterItem: 'bg-emerald-100',
   afterItemTitle: 'text-emerald-800',
-  afterItemDetail: 'text-emerald-900/70',
+  afterItemDetail: 'text-emerald-700',
   title: 'text-gray-900',
   insight: 'bg-gray-100/80 border-gray-200 text-gray-800',
+  dotInactive: 'bg-gray-300',
+  dotCounter: 'text-gray-400',
 }
 const sem = computed(() => isDark.value ? DARK_SEMANTIC : LIGHT_SEMANTIC)
 
@@ -112,9 +116,9 @@ const metricsGrid = computed(() => GRID_COLS[props.metrics.length] || 'grid-cols
       <div class="flex items-center gap-2">
         <div v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full"
-          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'">
+          :class="n === progressDots.current ? progressDots.activeColor : sem.dotInactive">
         </div>
-        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+        <span class="text-xs ml-1" :class="sem.dotCounter">{{ progressDots.current }} of {{ progressDots.total }}</span>
       </div>
     </div>
 
@@ -146,9 +150,9 @@ const metricsGrid = computed(() => GRID_COLS[props.metrics.length] || 'grid-cols
       </div>
 
       <div class="grid gap-3 text-center" :class="metricsGrid">
-        <div v-for="(metric, idx) in metrics" :key="'m-' + idx" class="p-3 rounded-lg border" :class="[cards[idx % cards.length].bg, cards[idx % cards.length].border]">
+        <div v-for="(metric, idx) in metrics" :key="'m-' + idx" class="p-3 rounded-lg border" :style="{ background: cards[idx % cards.length].bgColor, borderColor: cards[idx % cards.length].borderColor }">
           <div class="font-bold text-xl" :class="cards[idx % cards.length].title">{{ metric.value }}</div>
-          <div class="text-xs mt-1 opacity-80" :class="cards[idx % cards.length].blurb">{{ metric.label }}</div>
+          <div class="text-xs mt-1" :class="cards[idx % cards.length].blurb">{{ metric.label }}</div>
         </div>
       </div>
 

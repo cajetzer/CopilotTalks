@@ -80,6 +80,7 @@ const DARK_THEME = {
     { bg: 'bg-gradient-to-br from-indigo-900/30 to-indigo-800/20', border: 'border-indigo-500/30', value: 'text-indigo-400' },
   ],
   metricDetail: 'text-white/50',
+  itemText: 'text-gray-300',
 }
 
 const LIGHT_THEME = {
@@ -87,20 +88,21 @@ const LIGHT_THEME = {
   orb: 'from-blue-200/20 to-transparent',
   pill: 'from-blue-400/80 to-indigo-400/80',
   header: 'text-gray-900',
-  leftBg: 'bg-gradient-to-br from-red-100/40 to-red-50/30',
-  leftBorder: 'border-red-300/60',
+  leftBg: 'bg-gradient-to-br from-red-50 to-orange-50',
+  leftBorder: 'border-red-200',
   leftLabel: 'text-red-700',
-  leftItem: 'bg-red-100/50',
-  rightBg: 'bg-gradient-to-br from-emerald-100/40 to-emerald-50/30',
-  rightBorder: 'border-emerald-300/60',
+  leftItem: 'bg-red-100',
+  rightBg: 'bg-gradient-to-br from-green-50 to-emerald-50',
+  rightBorder: 'border-green-200',
   rightLabel: 'text-emerald-700',
-  rightItem: 'bg-emerald-100/50',
+  rightItem: 'bg-emerald-100',
   metricContainers: [
-    { bg: 'bg-gradient-to-br from-cyan-100/40 to-cyan-50/30', border: 'border-cyan-300/60', value: 'text-cyan-600' },
-    { bg: 'bg-gradient-to-br from-blue-100/40 to-blue-50/30', border: 'border-blue-300/60', value: 'text-blue-600' },
-    { bg: 'bg-gradient-to-br from-indigo-100/40 to-indigo-50/30', border: 'border-indigo-300/60', value: 'text-indigo-600' },
+    { bg: 'bg-cyan-100', border: 'border-cyan-300', value: 'text-cyan-700' },
+    { bg: 'bg-blue-100', border: 'border-blue-300', value: 'text-blue-700' },
+    { bg: 'bg-indigo-100', border: 'border-indigo-300', value: 'text-indigo-700' },
   ],
   metricDetail: 'text-gray-600',
+  itemText: 'text-gray-700',
 }
 
 const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
@@ -148,7 +150,7 @@ const metricStyles = computed(() => isDark.value ? DARK_THEME.metricContainers :
             Before
           </div>
           <!-- Before items list -->
-          <div class="space-y-1.5 text-xs text-gray-300">
+          <div :class="['space-y-1.5 text-xs', t.itemText]">
             <div v-for="(item, idx) in leftItems" :key="'left-' + idx" :class="['p-1.5 rounded', t.leftItem]">
               {{ item }}
             </div>
@@ -162,7 +164,7 @@ const metricStyles = computed(() => isDark.value ? DARK_THEME.metricContainers :
             After
           </div>
           <!-- After items list -->
-          <div class="space-y-1.5 text-xs text-gray-300">
+          <div :class="['space-y-1.5 text-xs', t.itemText]">
             <div v-for="(item, idx) in rightItems" :key="'right-' + idx" :class="['p-1.5 rounded', t.rightItem]">
               {{ item }}
             </div>

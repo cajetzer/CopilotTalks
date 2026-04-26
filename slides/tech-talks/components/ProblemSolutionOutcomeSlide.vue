@@ -63,30 +63,34 @@ const DARK_SEMANTIC = {
   title: 'text-white',
   insight: 'bg-gray-900/50 border-gray-700/50 text-gray-200',
   itemDetail: 'text-white/70',
+  dotInactive: 'bg-white/20',
+  dotCounter: 'text-white/40',
 }
 const LIGHT_SEMANTIC = {
-  problemBg: 'bg-gradient-to-br from-red-100/40 to-red-50/30',
-  problemBorder: 'border-red-300/60',
+  problemBg: 'bg-gradient-to-br from-red-50 to-orange-50',
+  problemBorder: 'border-red-200',
   problemLabel: 'text-red-700',
-  problemItem: 'bg-red-100/50',
+  problemItem: 'bg-red-100',
   problemItemTitle: 'text-red-800',
 
-  solutionBg: 'bg-gradient-to-br from-blue-100/40 to-blue-50/30',
-  solutionBorder: 'border-blue-300/60',
+  solutionBg: 'bg-gradient-to-br from-blue-50 to-indigo-50',
+  solutionBorder: 'border-blue-200',
   solutionLabel: 'text-blue-700',
-  solutionItem: 'bg-blue-100/50',
+  solutionItem: 'bg-blue-100',
   solutionItemTitle: 'text-blue-800',
 
-  outcomeBg: 'bg-gradient-to-br from-emerald-100/40 to-emerald-50/30',
-  outcomeBorder: 'border-emerald-300/60',
+  outcomeBg: 'bg-gradient-to-br from-green-50 to-emerald-50',
+  outcomeBorder: 'border-green-200',
   outcomeLabel: 'text-emerald-700',
-  outcomeItem: 'bg-emerald-100/50',
+  outcomeItem: 'bg-emerald-100',
   outcomeItemTitle: 'text-emerald-800',
-  outcomeMetric: 'bg-emerald-100/60 border-emerald-300 text-emerald-800',
+  outcomeMetric: 'bg-emerald-100 border-emerald-300 text-emerald-800',
 
   title: 'text-gray-900',
   insight: 'bg-gray-100/80 border-gray-200 text-gray-800',
-  itemDetail: 'text-gray-700',
+  itemDetail: 'text-gray-600',
+  dotInactive: 'bg-gray-300',
+  dotCounter: 'text-gray-400',
 }
 const sem = computed(() => isDark.value ? DARK_SEMANTIC : LIGHT_SEMANTIC)
 
@@ -113,9 +117,9 @@ const outcomeMetricsGrid = computed(() => {
       <div class="flex items-center gap-2">
         <div v-for="n in progressDots.total" :key="n"
           class="w-2 h-2 rounded-full"
-          :class="n === progressDots.current ? progressDots.activeColor : 'bg-white/20'">
+          :class="n === progressDots.current ? progressDots.activeColor : sem.dotInactive">
         </div>
-        <span class="text-white/40 text-xs ml-1">{{ progressDots.current }} of {{ progressDots.total }}</span>
+        <span class="text-xs ml-1" :class="sem.dotCounter">{{ progressDots.current }} of {{ progressDots.total }}</span>
       </div>
     </div>
 

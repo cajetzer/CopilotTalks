@@ -71,16 +71,16 @@ props.sections?.forEach((s, i) => {
 
 // Card styles: cyan → blue → indigo → purple
 const DARK_CARD_STYLES = [
-  { bg: 'from-cyan-900/40 to-blue-900/40',     border: 'border-cyan-500/50',   hover: 'hover:border-cyan-400',   titleGrad: 'from-cyan-300 to-blue-300',     shadow: 'shadow-lg shadow-cyan-500/10',   blurb: 'text-cyan-400/70'   },
-  { bg: 'from-blue-900/40 to-indigo-900/40',   border: 'border-blue-500/50',   hover: 'hover:border-blue-400',   titleGrad: 'from-blue-300 to-indigo-300',   shadow: 'shadow-lg shadow-blue-500/10',   blurb: 'text-blue-400/70'   },
-  { bg: 'from-indigo-900/40 to-purple-900/40', border: 'border-indigo-500/50', hover: 'hover:border-indigo-400', titleGrad: 'from-indigo-300 to-purple-300', shadow: 'shadow-lg shadow-indigo-500/10', blurb: 'text-indigo-400/70' },
-  { bg: 'from-purple-900/40 to-pink-900/40',   border: 'border-purple-500/50', hover: 'hover:border-purple-400', titleGrad: 'from-purple-300 to-pink-300',   shadow: 'shadow-lg shadow-purple-500/10', blurb: 'text-purple-400/70' },
+  { bg: 'from-cyan-900/40 to-blue-900/40',     border: 'border-cyan-500/50',   hover: 'hover:border-cyan-400',   titleGrad: 'from-cyan-300 to-blue-300',     shadow: 'shadow-lg shadow-cyan-500/10',   blurb: 'text-cyan-400/70',   partNum: 'text-cyan-500/60'   },
+  { bg: 'from-blue-900/40 to-indigo-900/40',   border: 'border-blue-500/50',   hover: 'hover:border-blue-400',   titleGrad: 'from-blue-300 to-indigo-300',   shadow: 'shadow-lg shadow-blue-500/10',   blurb: 'text-blue-400/70',   partNum: 'text-blue-500/60'   },
+  { bg: 'from-indigo-900/40 to-purple-900/40', border: 'border-indigo-500/50', hover: 'hover:border-indigo-400', titleGrad: 'from-indigo-300 to-purple-300', shadow: 'shadow-lg shadow-indigo-500/10', blurb: 'text-indigo-400/70', partNum: 'text-indigo-500/60' },
+  { bg: 'from-purple-900/40 to-pink-900/40',   border: 'border-purple-500/50', hover: 'hover:border-purple-400', titleGrad: 'from-purple-300 to-pink-300',   shadow: 'shadow-lg shadow-purple-500/10', blurb: 'text-purple-400/70', partNum: 'text-purple-500/60' },
 ]
 const LIGHT_CARD_STYLES = [
-  { bg: 'from-cyan-100/80 to-blue-100/80',     border: 'border-cyan-300',   hover: 'hover:border-cyan-500',   titleGrad: 'from-cyan-600 to-blue-600',     shadow: 'shadow-lg shadow-cyan-200/50',   blurb: 'text-cyan-700/80'   },
-  { bg: 'from-blue-100/80 to-indigo-100/80',   border: 'border-blue-300',   hover: 'hover:border-blue-500',   titleGrad: 'from-blue-600 to-indigo-600',   shadow: 'shadow-lg shadow-blue-200/50',   blurb: 'text-blue-700/80'   },
-  { bg: 'from-indigo-100/80 to-purple-100/80', border: 'border-indigo-300', hover: 'hover:border-indigo-500', titleGrad: 'from-indigo-600 to-purple-600', shadow: 'shadow-lg shadow-indigo-200/50', blurb: 'text-indigo-700/80' },
-  { bg: 'from-purple-100/80 to-pink-100/80',   border: 'border-purple-300', hover: 'hover:border-purple-500', titleGrad: 'from-purple-600 to-pink-600',   shadow: 'shadow-lg shadow-purple-200/50', blurb: 'text-purple-700/80' },
+  { bg: 'from-cyan-200 to-blue-300',     border: 'border-cyan-400',   hover: 'hover:border-cyan-600',   titleGrad: 'from-cyan-800 to-blue-800',     shadow: 'shadow-lg shadow-cyan-300/50',   blurb: 'text-cyan-900',   partNum: 'text-cyan-700/70'   },
+  { bg: 'from-blue-200 to-indigo-300',   border: 'border-blue-400',   hover: 'hover:border-blue-600',   titleGrad: 'from-blue-800 to-indigo-800',   shadow: 'shadow-lg shadow-blue-300/50',   blurb: 'text-blue-900',   partNum: 'text-blue-700/70'   },
+  { bg: 'from-indigo-100 to-purple-200', border: 'border-indigo-400', hover: 'hover:border-indigo-600', titleGrad: 'from-indigo-700 to-purple-700', shadow: 'shadow-lg shadow-indigo-300/50', blurb: 'text-indigo-800', partNum: 'text-indigo-600/70' },
+  { bg: 'from-purple-100 to-pink-200',   border: 'border-purple-400', hover: 'hover:border-purple-600', titleGrad: 'from-purple-700 to-pink-700',   shadow: 'shadow-lg shadow-purple-300/50', blurb: 'text-purple-800', partNum: 'text-purple-600/70' },
 ]
 
 // Structural/ambient theme classes
@@ -146,6 +146,11 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
               {{ section.icon }}
             </div>
 
+            <!-- Part number badge (top-right) -->
+            <div class="absolute top-3 right-4 text-xs font-bold tracking-widest uppercase" :class="cardStyles[i].partNum">
+              Part {{ i + 1 }}
+            </div>
+
             <!-- Section title with gradient text -->
             <div class="relative text-xl font-bold bg-gradient-to-r bg-clip-text text-transparent mb-2" :class="cardStyles[i].titleGrad">
               {{ section.title }}
@@ -165,7 +170,7 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
       </div>
 
       <!-- Footer hint text -->
-      <div class="mt-3 mb-1 text-center text-sm opacity-40">
+      <div class="mt-3 mb-1 text-center text-sm" :class="t.subtitleText">
         Click any section to jump directly there
       </div>
     </div>

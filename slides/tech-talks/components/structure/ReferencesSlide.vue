@@ -81,20 +81,22 @@ const LIGHT_COLORS = {
 }
 
 const DARK_THEME = {
-  ambientBg: 'from-blue-900/20 via-indigo-900/10 to-transparent',
-  orb:       'from-blue-500/10 to-transparent',
-  pill:      'from-blue-600/80 to-indigo-600/80',
-  divider:   'from-blue-400/60 to-transparent',
-  itemBg:    'bg-gray-900/50 border-gray-700/50',
-  itemDesc:  'text-gray-400',
+  ambientBg:    'from-blue-900/20 via-indigo-900/10 to-transparent',
+  orb:          'from-blue-500/10 to-transparent',
+  pill:         'from-blue-600/80 to-indigo-600/80',
+  divider:      'from-blue-400/60 to-transparent',
+  itemBg:       'bg-gray-900/50 border-gray-700/50',
+  itemBgStyle:  {},
+  itemDesc:     'text-gray-400',
 }
 const LIGHT_THEME = {
-  ambientBg: 'from-blue-100/40 via-indigo-50/20 to-transparent',
-  orb:       'from-blue-200/30 to-transparent',
-  pill:      'from-blue-500 to-indigo-500',
-  divider:   'from-blue-300/60 to-transparent',
-  itemBg:    'bg-gray-100/80 border-gray-200',
-  itemDesc:  'text-gray-600',
+  ambientBg:    'from-blue-100/40 via-indigo-50/20 to-transparent',
+  orb:          'from-blue-200/30 to-transparent',
+  pill:         'from-blue-500 to-indigo-500',
+  divider:      'from-blue-300/60 to-transparent',
+  itemBg:       'border-gray-200',
+  itemBgStyle:  { background: 'rgb(243,244,246)' },
+  itemDesc:     'text-gray-600',
 }
 
 const colors = computed(() => isDark.value ? DARK_COLORS : LIGHT_COLORS)
@@ -157,6 +159,7 @@ const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
               :key="item.label"
               class="p-2 rounded border"
               :class="t.itemBg"
+              :style="t.itemBgStyle"
             >
               <!-- Reference link -->
               <a
