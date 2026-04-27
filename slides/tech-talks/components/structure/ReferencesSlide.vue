@@ -142,7 +142,7 @@ const spanCls  = (c) => (colors.value[c] || colors.value.cyan).span;
 
     <!-- ===== CONTENT SECTION ===== -->
     <!-- Two-column groups grid -->
-    <div class="relative z-10 flex-1 min-h-0">
+    <div class="relative z-10 flex-1 min-h-0 overflow-y-auto">
       <div class="grid grid-cols-2 gap-4 text-xs">
         <!-- Reference group (category) -->
         <div v-for="group in groups" :key="group.title">

@@ -150,7 +150,7 @@ const t = computed(() => isDark.value ? DARK : LIGHT)
       </div>
 
       <!-- Insight bar -->
-      <div class="rounded-lg border px-4 py-2 text-sm" :class="t.insight">
+      <div class="shrink-0 rounded-lg border px-4 py-1.5 text-xs leading-snug" :class="t.insight">
         <span class="mr-2">{{ insight.icon }}</span>{{ insight.text }}
       </div>
     </div>
