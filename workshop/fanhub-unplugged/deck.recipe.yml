@@ -1,4 +1,4 @@
-# deck.recipe.yml — FanHub Unplugged talk guidance
+# deck.recipe.yml — FanHub Unplugged workshop guidance
 
 version: 1
 
@@ -7,13 +7,84 @@ deck:
   subtitle: "Fix It, Ship It, Vibe It"
   tagline: "A 60-minute agent-mode sprint — you direct, Copilot implements"
 
-  intro:
-    mode: core-question
+  # arcToc: short → chain displayed as the TocSlide subtitle. One line, ≤ 80 chars.
+  arcToc: "The World & The Rule → Pick, Init, Run → Sprint → Ship & Zoom Out"
 
+  # arcNarrative: prose rationale explaining WHY the sections are ordered this way.
+  arcNarrative: >
+    Section 1 (Frame) establishes both the world (FanHub: deliberately broken, multi-language,
+    realistic) and the contract — it closes with the single behavioral reframe that governs the
+    entire workshop: you are the Director, not the Implementer. That reframe is the last thing
+    participants see before they touch anything, which is the only place it can land with full
+    weight. Section 2 (Onramp) converts the contract into action: participants select their track
+    and surface simultaneously, run /init to orient the agent in the codebase, and get the app
+    running — with an explicit synchronization checkpoint so no one enters the sprint blocked.
+    Section 3 (Sprint) is the workshop's experiential core: 28 minutes of participant-driven flow
+    across four adventure paths, with slides functioning as reference cards rather than instruction
+    sets — zero new concepts, maximum headroom for the agent to surprise them. Peak engagement
+    lands inside this section, sometime between the first successful agent output and the moment
+    participants stop narrating what they're doing and just start directing. Section 4 (Ship & Zoom
+    Out) is the honest reckoning: METR 19% slower, CodeRabbit 1.7× more major issues, 2.74× more
+    security vulnerabilities — these numbers land not as disclaimers but as earned insight,
+    transformed by the 28 minutes the audience just lived through. The workshop exits with an open
+    question — not a verdict.
+
+  # Ordered list of the 4 section names (must match sectionModes keys below).
+  sectionOrder:
+    - "Frame: The World & The One Rule"
+    - "Onramp: Pick, Init, Run"
+    - "Sprint: Choose Your Adventure"
+    - "Ship & Zoom Out"
+
+  # Per-section editorial guidance for the slide generator.
+  sectionModes:
+    "Frame: The World & The One Rule":
+      emphasis: high
+      note: >
+        The slide generator must reserve the final slide of this section for the Director/Implementer
+        reframe, implemented as a CoreQuestion component — not a bullet point or list item. The
+        FanHub introduction (broken repo, 4 language tracks, BUGS.md files, realistic mess) is
+        setup; the Director Rule is the payoff. Do not include VS Code vs CLI surface comparison
+        here — that decision lives in Section 2 alongside track selection.
+
+    "Onramp: Pick, Init, Run":
+      emphasis: high
+      note: >
+        This is an operational synchronization section — its job is to get every participant to the
+        same technical starting line before the sprint begins. Three distinct steps need clear slide
+        real estate: (1) track selection + surface choice (VS Code agent mode vs Copilot CLI —
+        these happen together), (2) /init codebase orientation with a language-specific hint, (3)
+        get app running locally. Must include an explicit checkpoint slide ("Is everyone running?")
+        designed to be projected while the facilitator circulates — not a speaker note. Zero
+        conceptual content introduced here.
+
+    "Sprint: Choose Your Adventure":
+      emphasis: medium
+      note: >
+        Slides are reference cards, not lecture content. Four adventure path overviews (Bug Blitz,
+        Full Rebrand, Build Something New, Delight Mode) with brief prompting guidance pointers —
+        detailed guidance lives in README/materials. No new concepts introduced; everything
+        participants need is already established. Generator should produce overview slides with
+        maximum whitespace, not dense instruction blocks. The facilitator circulates during this
+        section.
+
+    "Ship & Zoom Out":
+      emphasis: medium
+      note: >
+        The honest reckoning section. Required statistics — must appear by name with numbers, cannot
+        be cut for time: METR 2025 (experienced devs 19% slower on complex tasks despite believing
+        they were faster), CodeRabbit 2025 (1.7× more major issues, 2.74× more security
+        vulnerabilities in AI co-authored code), Simon Willison (204 vibe-coded tools with
+        production caveats). Section exits with an open prompt: "What would you actually use this
+        for tomorrow?" Karpathy and Willison quotes are atmosphere/speaker notes, not required
+        slide content.
+
+  preamble: []
+  appendix: []
+
+  # 3–5 high-signal moments the generator must surface in the deck.
   highlightMoments:
-    - /init scopes the agent to your language track before it touches a single file — skip it and the agent guesses
-    - Write the whole prompt upfront — goal, constraints, and what done looks like — then let it run for 5+ minutes without interrupting
-    - When you get an error, paste it into chat with no comment — the agent has the context and will almost always fix it
-    - Batch your bugs — give the agent a thematic cluster (API consistency, auth gaps, security) not one issue at a time
-    - MCP closes the feedback loop — the agent calls the live API, reads the response, and verifies its own work without leaving chat
-    - If you're reading source code line by line, you've left director mode — describe what's wrong in words and let the agent fix it
+    - "The Director Rule landing — the CoreQuestion slide at the close of Section 1 is the pivotal behavioral reframe; participants enter Section 2 with a different relationship to the agent than they entered Section 1 with."
+    - "The 'Is everyone running?' checkpoint — an explicit synchronization slide in the Onramp, projected while the facilitator circulates; participants who are blocked get help here, not silently during the sprint."
+    - "The first agent output that surprises them — somewhere in the sprint's first 10 minutes, most participants get a response that goes further than expected; this is the 'oh, it actually works' moment and the emotional engine of the workshop."
+    - "The honest reckoning — METR's finding that experienced developers were 19% slower on complex tasks despite believing they were faster lands with maximum force after 28 minutes of flow state; CodeRabbit's 2.74× security vulnerability increase reframes vibe coding as a professional risk management question."
