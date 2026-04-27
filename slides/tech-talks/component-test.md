@@ -45,7 +45,7 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
   title="Component Test Deck"
   subtitle="Visual validation for all 21 components"
   tagline="Structure: Title · SectionOpener · CoreQuestion · Toc · BeforeAfter · WhatYouCanDoToday · References · ThankYou — Content: BeforeAfterMetrics · BeforeAfterPanels · ProblemSolutionOutcome · TwoColPaired · ThreeColumnCard · FourCardGrid · CodeWithFeatures · HeroStat · WorkflowShowdownSteps · MaturityJourneyRoadmap · AITerminalTranscript · MaturityLevelDrilldown · FrameworkMappingRows"
-  meta="Internal · Component Library · 2026-04-25"
+  meta="Internal · Component Library · 2026-04-26"
 />
 
 ---
@@ -170,10 +170,10 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
   subtitle="Two non-opposed concepts in section cool palette — no red/green semantics"
   :cards='[
     { icon: "🎨", title: "Section palette", blurb: "Left = card[0], right = card[1]" },
-    { icon: "🤝", title: "Non-opposed", blurb: "Both concepts are complementary, not conflicting" },
-    { icon: "💻", title: "Optional code", blurb: "Either column can embed a code block" }
+    { icon: "🤝", title: "No code prop", blurb: "Slide 1: items-only, both columns" },
+    { icon: "💻", title: "With code prop", blurb: "Slide 2: right column embeds a code block" }
   ]'
-  :terminal='{ context: "Two complementary concepts — no opposition", detail: "Both columns take section card colors, not red/green" }'
+  :terminal='{ context: "code prop renders a themed <pre> block below items", detail: "Dark: bg-gray-950/80 · Light: bg-gray-100 — themed via isDark" }'
 />
 
 ---
@@ -196,6 +196,37 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
   ]}'
   :insight='{ icon: "💡", text: "Memory store = what we know. Instructions = how we work. Both live in CLAUDE.md." }'
   :progressDots='{ current: 1, total: 1, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: TwoColPairedConceptsSlide — with code prop -->
+<TwoColPairedConceptsSlide
+  :partNumber="1"
+  pillIcon="⚙️"
+  pillLabel="Agent Skills · Configuration"
+  title="Agent Skills — Structure and Settings"
+  :left='{
+    header: "Structure",
+    icon: "📁",
+    items: [
+      ".github/skills/api-design/SKILL.md",
+      ".github/skills/security-review/SKILL.md",
+      "Extensions can package skills",
+      "On-demand loading per task"
+    ]
+  }'
+  :right='{
+    header: "Settings",
+    icon: "⚙️",
+    items: [
+      "Enabled by default in v1.109+",
+      "Add custom skill locations",
+      "Extensions can package skills"
+    ],
+    code: { language: "json", content: "{\n  \"chat.useAgentSkills\": true,\n  \"chat.agentSkillsLocations\": {\n    \"~/.copilot/skills\": true,\n    \"shared/team-skills\": true\n  }\n}" }
+  }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---

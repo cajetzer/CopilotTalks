@@ -4,6 +4,60 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## TwoColPairedConceptsSlide `code` prop block was hardcoded dark (2026-04-26)
+
+`schema_version: 1` | `date: 2026-04-26`
+
+The `<pre>` rendered by the optional `code` prop in `TwoColPairedConceptsSlide.vue` had hardcoded dark classes (`bg-gray-950/80 border-gray-700/50`). Fixed by adding `codeBg`/`codeBorder`/`codeText` to `DARK`/`LIGHT` theme objects and applying via `:class`:
+
+```js
+const DARK = { ..., codeBg: 'bg-gray-950/80', codeBorder: 'border-gray-700/50', codeText: 'text-gray-200' }
+const LIGHT = { ..., codeBg: 'bg-gray-100',    codeBorder: 'border-gray-300',    codeText: 'text-gray-800' }
+```
+```html
+<pre :class="[t.codeBg, t.codeBorder, t.codeText]">...</pre>
+```
+
+**Root cause of slip-through:** `component-test.md` had no instance of this component with a `code` prop, so the code path was never visually tested.
+
+---
+
+## UnoCSS does NOT reliably scan `.ts` files or pick up HMR class additions (2026-04-25)
+
+`schema_version: 1` | `date: 2026-04-25`
+
+UnoCSS scans `.vue` and `.md` files for class strings at dev-server start. Two failure modes confirmed:
+
+**1. Classes in `.ts` files are not compiled into the CSS bundle.**
+`useSectionTheme.ts` defines `LIGHT_CARDS` with Tailwind class strings (`bg-cyan-200`, `border-blue-400`). Because UnoCSS does not scan `.ts` files, these classes produce no effect at runtime — the element renders as transparent. **Fix:** use `:style` with raw CSS values (`bgColor`/`borderColor` inline rgba strings) instead of `:class` with Tailwind names.
+
+**2. New classes added to `.vue` files via HMR are not injected into the CSS bundle.**
+If a class string appears in a component *after* dev-server start (via file edit + HMR), it does not get compiled. The class is in the DOM but `getComputedStyle()` returns `rgba(0,0,0,0)`. **Fix:** restart the dev server to force a full UnoCSS rebuild, OR use `:style` with inline CSS values to bypass UnoCSS entirely.
+
+**Diagnostic:** Use Playwright `page.evaluate()` to check `getComputedStyle(el).backgroundColor`. If `rgba(0,0,0,0)` despite a bg class being present, the class is not in the bundle.
+
+**Pattern for bypassing UnoCSS in LIGHT_THEME objects:**
+```js
+// In DARK_THEME: use Tailwind class strings (they were in the original bundle)
+itemBg: 'bg-gray-900/50 border-gray-700/50',
+itemBgStyle: {},
+
+// In LIGHT_THEME: use inline style object
+itemBg: 'border-gray-200',
+itemBgStyle: { background: 'rgb(243,244,246)' },  // = gray-100
+```
+Then in the template: `:class="t.itemBg" :style="t.itemBgStyle"`.
+
+---
+
+## slide 37 in component-test.md is BeforeAfterSlide, not BeforeAfterMetricsSlide (2026-04-25)
+
+`schema_version: 1` | `date: 2026-04-25`
+
+The component-test deck has two consecutive Before/After slides close together. When debugging slide N, always confirm the component by reading the DOM (`page.innerHTML`) rather than guessing from the slide number and component name similarity. Use Playwright `page.evaluate()` to find the active slide container and read its `innerHTML` or `textContent` to confirm which Vue component is rendering.
+
+---
+
 ## Do NOT use runSubagent for slide generation — use direct agent invocation (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`

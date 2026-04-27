@@ -46,6 +46,9 @@ const DARK = {
   insight: 'bg-gray-900/50 border-gray-700/50 text-gray-200',
   dotInactive: 'bg-white/20',
   dotCounter: 'text-white/40',
+  codeBg: 'bg-gray-950/80',
+  codeBorder: 'border-gray-700/50',
+  codeText: 'text-gray-200',
 }
 const LIGHT = {
   title: 'text-gray-900',
@@ -55,6 +58,9 @@ const LIGHT = {
   insight: 'bg-gray-100/80 border-gray-200 text-gray-800',
   dotInactive: 'bg-gray-300',
   dotCounter: 'text-gray-400',
+  codeBg: 'bg-gray-100',
+  codeBorder: 'border-gray-300',
+  codeText: 'text-gray-800',
 }
 const t = computed(() => isDark.value ? DARK : LIGHT)
 
@@ -98,7 +104,7 @@ const itemDetail = (it) => typeof it === 'string' ? null : it.detail
               <div v-if="itemDetail(item)" class="text-xs opacity-80 mt-0.5" :class="t.itemDetail">{{ itemDetail(item) }}</div>
             </div>
           </div>
-          <pre v-if="left.code" class="mt-2 p-2 rounded bg-gray-950/80 border border-gray-700/50 text-xs overflow-x-auto"><code>{{ left.code.content }}</code></pre>
+          <pre v-if="left.code" class="mt-2 p-2 rounded border text-xs overflow-x-auto" :class="[t.codeBg, t.codeBorder, t.codeText]"><code>{{ left.code.content }}</code></pre>
         </div>
 
         <div class="p-4 rounded-xl border overflow-hidden" :class="[cards[1].bg, cards[1].border]">
@@ -111,7 +117,7 @@ const itemDetail = (it) => typeof it === 'string' ? null : it.detail
               <div v-if="itemDetail(item)" class="text-xs opacity-80 mt-0.5" :class="t.itemDetail">{{ itemDetail(item) }}</div>
             </div>
           </div>
-          <pre v-if="right.code" class="mt-2 p-2 rounded bg-gray-950/80 border border-gray-700/50 text-xs overflow-x-auto"><code>{{ right.code.content }}</code></pre>
+          <pre v-if="right.code" class="mt-2 p-2 rounded border text-xs overflow-x-auto" :class="[t.codeBg, t.codeBorder, t.codeText]"><code>{{ right.code.content }}</code></pre>
         </div>
       </div>
 

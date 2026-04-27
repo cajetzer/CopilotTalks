@@ -28,6 +28,7 @@ import BeforeAfterSlide from './components/structure/BeforeAfterSlide.vue'
 import FourCardGridSlide from './components/FourCardGridSlide.vue'
 import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
 import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import { isDark } from './components/useTheme'
 </script>
 
 <!-- SLIDE: Title -->
@@ -173,64 +174,64 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
 <span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🤖 Agent Sessions & Orchestration</span>
 <div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
 <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
+<span class="text-xs ml-1" :class="isDark ? 'text-white/40' : 'text-gray-400'">4 of 4</span>
 </div>
 <div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Session Management & Context Control</div>
-<div class="text-xs text-white/50">Fork, compact, and organize your agent conversations</div>
+<div class="text-lg font-bold mb-0.5" :class="isDark ? 'text-white' : 'text-gray-900'">Session Management & Context Control</div>
+<div class="text-xs" :class="isDark ? 'text-white/50' : 'text-gray-500'">Fork, compact, and organize your agent conversations</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-3 gap-3">
 <div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
 <div class="flex items-center gap-2 mb-2">
 <div class="text-lg">🔀</div>
-<div class="font-bold text-cyan-300 text-sm">/fork</div>
+<div class="font-bold text-sm" :class="isDark ? 'text-cyan-300' : 'text-cyan-700'">/fork</div>
 </div>
-<div class="text-xs text-gray-300 space-y-1">
+<div class="text-xs space-y-1" :class="isDark ? 'text-gray-300' : 'text-gray-700'">
 <div>Branch conversations</div>
-<div class="p-1.5 bg-cyan-900/30 rounded">Explore alternatives without losing context</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-cyan-900/30' : 'bg-cyan-100/60'">Explore alternatives without losing context</div>
 </div>
 </div>
 <div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
 <div class="flex items-center gap-2 mb-2">
 <div class="text-lg">🗜️</div>
-<div class="font-bold text-blue-300 text-sm">/compact</div>
+<div class="font-bold text-sm" :class="isDark ? 'text-blue-300' : 'text-blue-700'">/compact</div>
 </div>
-<div class="text-xs text-gray-300 space-y-1">
+<div class="text-xs space-y-1" :class="isDark ? 'text-gray-300' : 'text-gray-700'">
 <div>Summarize history</div>
-<div class="p-1.5 bg-blue-900/30 rounded">Free space when approaching context limits</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-blue-900/30' : 'bg-blue-100/60'">Free space when approaching context limits</div>
 </div>
 </div>
 <div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
 <div class="flex items-center gap-2 mb-2">
 <div class="text-lg">📊</div>
-<div class="font-bold text-indigo-300 text-sm">Context Window</div>
+<div class="font-bold text-sm" :class="isDark ? 'text-indigo-300' : 'text-indigo-700'">Context Window</div>
 </div>
-<div class="text-xs text-gray-300 space-y-1">
+<div class="text-xs space-y-1" :class="isDark ? 'text-gray-300' : 'text-gray-700'">
 <div>Token usage indicator</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Hover for breakdown by category</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-indigo-900/30' : 'bg-indigo-100/60'">Hover for breakdown by category</div>
 </div>
 </div>
 </div>
 
 <div class="mt-3 p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
-<div class="font-bold text-purple-300 mb-2 text-sm">Agent Sessions Welcome Page (v1.109)</div>
+<div class="font-bold mb-2 text-sm" :class="isDark ? 'text-purple-300' : 'text-purple-700'">Agent Sessions Welcome Page (v1.109)</div>
 <div class="grid grid-cols-2 gap-2 text-xs">
-<div class="p-2 bg-purple-900/30 rounded">Sessions front and center at startup</div>
-<div class="p-2 bg-purple-900/30 rounded">Search and filter across sessions</div>
-<div class="p-2 bg-purple-900/30 rounded">Status: in-progress, unread, needs attention</div>
-<div class="p-2 bg-purple-900/30 rounded">Visible in command center</div>
+<div class="p-2 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'">Sessions front and center at startup</div>
+<div class="p-2 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'">Search and filter across sessions</div>
+<div class="p-2 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'">Status: in-progress, unread, needs attention</div>
+<div class="p-2 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'">Visible in command center</div>
 </div>
 </div>
 
-<div class="mt-2 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">workbench.startupEditor</div>
-<pre class="overflow-y-auto max-h-24 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-json">{
+<div class="mt-2 p-2 rounded-lg border" :class="isDark ? 'bg-gray-900/50 border-gray-700/50' : 'bg-gray-100 border-gray-300'">
+<div class="text-xs font-mono mb-1" :class="isDark ? 'text-gray-400' : 'text-gray-600'">workbench.startupEditor</div>
+<pre class="overflow-y-auto max-h-24 text-xs p-2 rounded border" :class="isDark ? 'bg-gray-950/80 border-gray-700/30 text-gray-200' : 'bg-white border-gray-300 text-gray-800'"><code class="language-json">{
   "workbench.startupEditor": "agentSessionsWelcomePage"
 }</code></pre>
 </div>
@@ -326,53 +327,53 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
 <span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Agent Customization</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
 <div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">3 of 4</span>
+<span class="text-xs ml-1" :class="isDark ? 'text-white/40' : 'text-gray-400'">3 of 4</span>
 </div>
 <div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">/create-* Commands & /init</div>
-<div class="text-xs text-white/50">Generate customization files directly from conversations</div>
+<div class="text-lg font-bold mb-0.5" :class="isDark ? 'text-white' : 'text-gray-900'">/create-* Commands & /init</div>
+<div class="text-xs" :class="isDark ? 'text-white/50' : 'text-gray-500'">Generate customization files directly from conversations</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-3">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-xl border border-cyan-500/30">
-<div class="font-bold text-cyan-300 mb-2 text-sm">/create-* Family (v1.110)</div>
+<div class="p-3 rounded-xl border" :class="isDark ? 'bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 border-cyan-500/30' : 'bg-cyan-50 border-cyan-300'">
+<div class="font-bold mb-2 text-sm" :class="isDark ? 'text-cyan-300' : 'text-cyan-700'">/create-* Family (v1.110)</div>
 <div class="space-y-1 text-xs">
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="font-mono text-cyan-400">/create-prompt</span> — Reusable prompt file</div>
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="font-mono text-cyan-400">/create-instruction</span> — Project conventions</div>
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="font-mono text-cyan-400">/create-skill</span> — Multi-step workflow package</div>
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="font-mono text-cyan-400">/create-agent</span> — Specialized custom agent</div>
-<div class="p-1.5 bg-cyan-900/30 rounded"><span class="font-mono text-cyan-400">/create-hook</span> — Lifecycle automation</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-cyan-900/30' : 'bg-white/70'"><span class="font-mono" :class="isDark ? 'text-cyan-400' : 'text-cyan-600'">/create-prompt</span> <span :class="isDark ? 'text-gray-300' : 'text-gray-700'">— Reusable prompt file</span></div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-cyan-900/30' : 'bg-white/70'"><span class="font-mono" :class="isDark ? 'text-cyan-400' : 'text-cyan-600'">/create-instruction</span> <span :class="isDark ? 'text-gray-300' : 'text-gray-700'">— Project conventions</span></div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-cyan-900/30' : 'bg-white/70'"><span class="font-mono" :class="isDark ? 'text-cyan-400' : 'text-cyan-600'">/create-skill</span> <span :class="isDark ? 'text-gray-300' : 'text-gray-700'">— Multi-step workflow package</span></div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-cyan-900/30' : 'bg-white/70'"><span class="font-mono" :class="isDark ? 'text-cyan-400' : 'text-cyan-600'">/create-agent</span> <span :class="isDark ? 'text-gray-300' : 'text-gray-700'">— Specialized custom agent</span></div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-cyan-900/30' : 'bg-white/70'"><span class="font-mono" :class="isDark ? 'text-cyan-400' : 'text-cyan-600'">/create-hook</span> <span :class="isDark ? 'text-gray-300' : 'text-gray-700'">— Lifecycle automation</span></div>
 </div>
 </div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-xl border border-blue-500/30">
-<div class="font-bold text-blue-300 mb-2 text-sm">/init — Bootstrap Your Workspace (v1.109)</div>
+<div class="p-3 rounded-xl border" :class="isDark ? 'bg-gradient-to-br from-blue-900/30 to-blue-800/20 border-blue-500/30' : 'bg-blue-50 border-blue-300'">
+<div class="font-bold mb-2 text-sm" :class="isDark ? 'text-blue-300' : 'text-blue-700'">/init — Bootstrap Your Workspace (v1.109)</div>
 <div class="space-y-2 text-xs">
-<div class="p-2 bg-blue-900/30 rounded">Analyzes your project structure</div>
-<div class="p-2 bg-blue-900/30 rounded">Generates tailored copilot-instructions.md or AGENTS.md</div>
-<div class="p-2 bg-blue-900/30 rounded">Run once per project to establish baseline</div>
+<div class="p-2 rounded" :class="isDark ? 'bg-blue-900/30 text-gray-300' : 'bg-white/70 text-gray-700'">Analyzes your project structure</div>
+<div class="p-2 rounded" :class="isDark ? 'bg-blue-900/30 text-gray-300' : 'bg-white/70 text-gray-700'">Generates tailored copilot-instructions.md or AGENTS.md</div>
+<div class="p-2 rounded" :class="isDark ? 'bg-blue-900/30 text-gray-300' : 'bg-white/70 text-gray-700'">Run once per project to establish baseline</div>
 </div>
 </div>
 </div>
 
-<div class="mt-3 p-3 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-xl border border-green-500/30">
-<div class="font-bold text-green-300 mb-2 text-sm">💡 Workflow Pattern</div>
+<div class="mt-3 p-3 rounded-xl border" :class="isDark ? 'bg-gradient-to-br from-green-900/30 to-green-800/20 border-green-500/30' : 'bg-green-50 border-green-300'">
+<div class="font-bold mb-2 text-sm" :class="isDark ? 'text-green-300' : 'text-green-700'">💡 Workflow Pattern</div>
 <div class="grid grid-cols-3 gap-2 text-xs">
-<div class="p-2 bg-green-900/30 rounded text-center">
-<div class="font-bold text-green-400 mb-1">1. Debug Issue</div>
-<div class="text-gray-300">Solve problem in chat</div>
+<div class="p-2 rounded text-center" :class="isDark ? 'bg-green-900/30' : 'bg-white/70'">
+<div class="font-bold mb-1" :class="isDark ? 'text-green-400' : 'text-green-700'">1. Debug Issue</div>
+<div :class="isDark ? 'text-gray-300' : 'text-gray-700'">Solve problem in chat</div>
 </div>
-<div class="p-2 bg-green-900/30 rounded text-center">
-<div class="font-bold text-green-400 mb-1">2. /create-skill</div>
-<div class="text-gray-300">Capture procedure</div>
+<div class="p-2 rounded text-center" :class="isDark ? 'bg-green-900/30' : 'bg-white/70'">
+<div class="font-bold mb-1" :class="isDark ? 'text-green-400' : 'text-green-700'">2. /create-skill</div>
+<div :class="isDark ? 'text-gray-300' : 'text-gray-700'">Capture procedure</div>
 </div>
-<div class="p-2 bg-green-900/30 rounded text-center">
-<div class="font-bold text-green-400 mb-1">3. Reuse</div>
-<div class="text-gray-300">Agents apply it next time</div>
+<div class="p-2 rounded text-center" :class="isDark ? 'bg-green-900/30' : 'bg-white/70'">
+<div class="font-bold mb-1" :class="isDark ? 'text-green-400' : 'text-green-700'">3. Reuse</div>
+<div :class="isDark ? 'text-gray-300' : 'text-gray-700'">Agents apply it next time</div>
 </div>
 </div>
 </div>
@@ -393,51 +394,51 @@ highlight="Autopilot, subagents, and a companion app — from one assistant to a
 <span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🧩 Agent Customization</span>
 <div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
 <div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
-<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
+<div class="w-2 h-2 rounded-full" :class="isDark ? 'bg-white/20' : 'bg-gray-300'"></div>
 <div class="w-2 h-2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/50"></div>
 </div>
-<span class="text-white/40 text-xs ml-1">4 of 4</span>
+<span class="text-xs ml-1" :class="isDark ? 'text-white/40' : 'text-gray-400'">4 of 4</span>
 </div>
 <div class="relative z-10 mb-2">
-<div class="text-lg font-bold text-white mb-0.5">Org-Level Instructions & Custom Agent Controls</div>
-<div class="text-xs text-white/50">Enforce consistency across teams</div>
+<div class="text-lg font-bold mb-0.5" :class="isDark ? 'text-white' : 'text-gray-900'">Org-Level Instructions & Custom Agent Controls</div>
+<div class="text-xs" :class="isDark ? 'text-white/50' : 'text-gray-500'">Enforce consistency across teams</div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4">
 <div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-xl border border-indigo-500/30">
 <div class="text-center mb-2">
 <div class="text-xl">🏢</div>
-<div class="font-bold text-indigo-300 text-sm">Org-Level (v1.108 → v1.109)</div>
+<div class="font-bold text-sm" :class="isDark ? 'text-indigo-300' : 'text-indigo-700'">Org-Level (v1.108 → v1.109)</div>
 </div>
 <div class="space-y-1 text-xs">
-<div class="p-1.5 bg-indigo-900/30 rounded">Org-level custom agents</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Org-level custom instructions</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Enforce consistent AI guidance</div>
-<div class="p-1.5 bg-indigo-900/30 rounded">Enabled by default in v1.109+</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-indigo-900/30 text-gray-300' : 'bg-indigo-100/60 text-gray-700'">Org-level custom agents</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-indigo-900/30 text-gray-300' : 'bg-indigo-100/60 text-gray-700'">Org-level custom instructions</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-indigo-900/30 text-gray-300' : 'bg-indigo-100/60 text-gray-700'">Enforce consistent AI guidance</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-indigo-900/30 text-gray-300' : 'bg-indigo-100/60 text-gray-700'">Enabled by default in v1.109+</div>
 </div>
-<div class="mt-2 p-2 bg-gray-900/50 rounded text-xs font-mono">
+<div class="mt-2 p-2 rounded text-xs font-mono" :class="isDark ? 'bg-gray-900/50 text-gray-300' : 'bg-gray-100 text-gray-700'">
 github.copilot.chat.organizationInstructions.enabled: true
 </div>
 </div>
 <div class="p-3 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-xl border border-purple-500/30">
 <div class="text-center mb-2">
 <div class="text-xl">⚙️</div>
-<div class="font-bold text-purple-300 text-sm">Custom Agent Controls (v1.109)</div>
+<div class="font-bold text-sm" :class="isDark ? 'text-purple-300' : 'text-purple-700'">Custom Agent Controls (v1.109)</div>
 </div>
 <div class="space-y-1 text-xs">
-<div class="p-1.5 bg-purple-900/30 rounded"><span class="font-mono text-purple-400">user-invokable: false</span> — Subagent-only</div>
-<div class="p-1.5 bg-purple-900/30 rounded"><span class="font-mono text-purple-400">disable-model-invocation</span> — Block auto-invoke</div>
-<div class="p-1.5 bg-purple-900/30 rounded"><span class="font-mono text-purple-400">agents: [...]</span> — Restrict subagent access</div>
-<div class="p-1.5 bg-purple-900/30 rounded">Multiple model support with fallbacks</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'"><span class="font-mono text-purple-400">user-invokable: false</span> — Subagent-only</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'"><span class="font-mono text-purple-400">disable-model-invocation</span> — Block auto-invoke</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'"><span class="font-mono text-purple-400">agents: [...]</span> — Restrict subagent access</div>
+<div class="p-1.5 rounded" :class="isDark ? 'bg-purple-900/30 text-gray-300' : 'bg-purple-100/60 text-gray-700'">Multiple model support with fallbacks</div>
 </div>
 </div>
 </div>
 
-<div class="mt-3 p-2 bg-gray-900/50 rounded-lg border border-gray-700/50">
-<div class="text-xs font-mono text-gray-400 mb-1">Custom agent .agent.md frontmatter example</div>
-<pre class="overflow-y-auto max-h-32 text-xs bg-gray-950/80 p-2 rounded border border-gray-700/30"><code class="language-yaml">&#45;&#45;&#45;
+<div class="mt-3 p-2 rounded-lg border" :class="isDark ? 'bg-gray-900/50 border-gray-700/50' : 'bg-gray-100 border-gray-300'">
+<div class="text-xs font-mono mb-1" :class="isDark ? 'text-gray-400' : 'text-gray-600'">Custom agent .agent.md frontmatter example</div>
+<pre class="overflow-y-auto max-h-32 text-xs p-2 rounded border" :class="isDark ? 'bg-gray-950/80 border-gray-700/30 text-gray-200' : 'bg-white border-gray-300 text-gray-800'"><code class="language-yaml">&#45;&#45;&#45;
 name: architect
 model: ['Claude Sonnet 4.5 (copilot)', 'GPT-5 (copilot)']
 tools: ['readFiles', 'codeSearch', 'agent']

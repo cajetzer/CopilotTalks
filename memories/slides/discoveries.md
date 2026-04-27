@@ -4,6 +4,73 @@ Breakthroughs — patterns that solved persistent problems in Slidev slide autho
 
 ---
 
+## Raw HTML slides in Slidev decks can use `isDark` via deck-level `<script setup>` (2026-04-26)
+
+`schema_version: 1` | `date: 2026-04-26`
+
+Raw HTML slides (not Vue components) in a Slidev `.md` file ARE compiled as part of the Vue template. The deck-level `<script setup>` block is shared scope across all slides, including raw HTML ones. Any ref imported there — including `isDark` — is available for `:class` bindings directly in the HTML.
+
+**Pattern:**
+```js
+// In the deck's <script setup>:
+import { isDark } from './components/useTheme'
+```
+```html
+<!-- Then in any raw HTML slide: -->
+<div :class="isDark ? 'text-white' : 'text-gray-900'">...</div>
+```
+
+**Session context:** `vscode-latest.md` had 3 raw HTML slides (Session Management, /create-* Commands, Org-Level Instructions) with hardcoded dark classes. Adding the `isDark` import and converting classes to `:class` ternaries fixed all three.
+
+**Color upgrade pattern for raw HTML slides:**
+- Titles: `text-white` → `:class="isDark ? 'text-white' : 'text-gray-900'"`
+- Subdued text: `text-white/50` → `:class="isDark ? 'text-white/50' : 'text-gray-500'"`
+- Panel backgrounds: `bg-*/900/30` → `:class="isDark ? 'bg-*/900/30' : 'bg-*-50'"`
+- Panel borders: `border-*/500/30` → `:class="isDark ? 'border-*/500/30' : 'border-*-300'"`
+- Panel title text: `text-*-300` → `:class="isDark ? 'text-*-300' : 'text-*-700'"`
+- Item bg: `bg-*/900/30` → `:class="isDark ? 'bg-*/900/30' : 'bg-white/70'"`
+- Code blocks: `bg-gray-950/80 border-gray-700/30` → `:class="isDark ? 'bg-gray-950/80 border-gray-700/30 text-gray-200' : 'bg-white border-gray-300 text-gray-800'"`
+- Inactive dots: `bg-white/20` → `:class="isDark ? 'bg-white/20' : 'bg-gray-300'"`
+
+---
+
+## component-test.md must cover all prop paths, not just all components (2026-04-26)
+
+`schema_version: 1` | `date: 2026-04-26`
+
+Light-mode bug slipped through `component-test.md` coverage because the test deck had one instance of `TwoColPairedConceptsSlide` with no `code` prop. The `code` prop renders a `<pre>` block with its own background/border classes — a separate code path that had hardcoded dark classes (`bg-gray-950/80 border-gray-700/50`).
+
+**Rule:** When adding a new optional prop to any component that has its own markup (not just a value interpolation), add a second test slide to `component-test.md` exercising that prop. One slide per component is insufficient if the component has optional prop paths that render distinct markup regions.
+
+**Fixed:** Added a second `TwoColPairedConceptsSlide` instance with `code` prop in the right column. Updated the section opener to describe both variants.
+
+---
+
+## Light mode fix: opacity-modified Tailwind classes are invisible on white slide backgrounds (2026-04-25)
+
+`schema_version: 1` | `date: 2026-04-25`
+
+All tech-talk Vue components had faint/invisible panels in light mode. Root causes (in order of impact):
+
+**1. `useTheme.ts` had `isDark = ref(true)` hardcoded** — ALL components were always dark. Fixed in a prior session to `import { useDarkMode } from '@slidev/client'; export const isDark = useDarkMode().isDark`.
+
+**2. LIGHT_THEME used opacity-modified classes** (`from-red-100/40`, `bg-red-100/50`, `bg-gray-100/80`). On a white slide background these are virtually invisible. Fix: use solid base colors (`from-red-50 to-orange-50`, `bg-red-100`).
+
+**3. The contrast inversion rule:** lighter panel + darker items. `from-red-50` panel with `bg-red-100` items gives visible depth. Reversed (`from-red-100` panel + `bg-red-50` items) looks flat.
+
+**Components fixed this session:**
+- `structure/BeforeAfterSlide.vue` — solid panel + metric tile backgrounds
+- `structure/ReferencesSlide.vue` — itemBgStyle inline approach
+- `BeforeAfterMetricsSlide.vue` — metric tiles switched to `:style` bgColor/borderColor
+- `useSectionTheme.ts` LIGHT_CARDS — bumped from `/80` opacity to solid `-200` shades
+- CoreQuestionSlide, TocSlide, SectionOpenerSlide, WorkflowShowdownSteps, BeforeAfterPanels, ProblemSolutionOutcome, MaturityJourneyRoadmap, MaturityLevelDrilldown — all LIGHT themes given solid colors
+
+**The reliable fix pattern for any panel/card that uses light mode color:**
+1. Check if the Tailwind class computes to transparent via Playwright (`getComputedStyle(el).backgroundColor === 'rgba(0,0,0,0)'`)
+2. If yes: add a `:style` binding with an inline `background: 'rgb(...)'` value — this bypasses UnoCSS entirely
+
+---
+
 ## Static prop linting in build-all.ps1 replaces runtime overlays for content limits (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`
