@@ -1,6 +1,6 @@
 ---
 status: active
-updated: 2026-04-01
+updated: 2026-04-27
 section: "Agentic Systems"
 references:
   - url: https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices
@@ -12,12 +12,18 @@ references:
   - url: https://github.com/Azure/azure-mcp
     label: "Azure MCP Server GitHub Repository"
     verified: 2026-03-17
+  - url: https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/
+    label: "Announcing the Azure Skills Plugin"
+    verified: 2026-04-27
+  - url: https://github.com/microsoft/azure-skills
+    label: "Azure Skills GitHub Repository"
+    verified: 2026-04-27
 ---
 
-# GitHub Copilot CLI + Azure MCP: Rapid Azure Prototyping and Deployment
+# GitHub Copilot + Azure Skills Plugin: Conversational Azure Prototyping and Deployment
 
 > **The Question This Talk Answers:**
-> *"How do I prototype and deploy Azure solutions conversationally from my terminal — with AI that actually knows what's already running in my subscriptions?"*
+> *"How do I prototype and deploy Azure solutions conversationally — with AI that follows real Azure workflows, knows what's already running in my subscriptions, and executes changes through 200+ live Azure tools?"*
 
 **Duration:** 45 minutes | **Target Audience:** Azure Developers / DevOps Engineers / Cloud Architects
 
@@ -38,6 +44,9 @@ references:
 ## The Opportunity
 
 ### What's Now Possible
+
+- **Deploy Azure solutions end-to-end without portal clicks**
+  Describe what you want — "deploy a Python API to Azure" — and the Azure Skills Plugin activates the right workflow: prepare, validate, deploy. AI follows real Azure best practices, not generic guidance
 
 - **Query live Azure state conversationally**
   Ask "What storage accounts exist in my subscription?" or "Show me Cosmos DB databases with their throughput settings" directly in terminal chat — no portal tab-switching
@@ -67,20 +76,32 @@ The pattern is **infrastructure-as-conversation**: complex Azure operations beco
 
 ### What It Does
 
-GitHub Copilot CLI provides terminal-native AI assistance, while Azure MCP Server acts as a bridge that gives that AI direct read/write access to 40+ Azure services through standardized MCP tools. Together, they enable conversational workflows where AI queries your actual Azure environment, generates infrastructure code from live state, and validates configurations against running resources — all without leaving the terminal[^4].
+GitHub Copilot CLI provides terminal-native AI assistance. The **Azure Skills Plugin** layers curated Azure expertise on top — 21 skills encoding real workflows, decision trees, and guardrails that teach agents how Azure work actually gets done. Below the skills, the **Azure MCP Server** acts as the execution layer with 200+ tools across 40+ Azure services, giving the AI direct read/write access to your environment. Together, these three components enable conversational workflows where AI reasons through Azure scenarios with real knowledge, queries your actual environment, generates infrastructure code from live state, and validates configurations against running resources — all without leaving the terminal[^4].
 
 ### Key Capabilities
 
+- **Azure Skills (Brain Layer)**: 21 curated skills — `azure-prepare`, `azure-validate`, `azure-deploy`, `azure-diagnostics`, `azure-cost-optimization`, `azure-observability`, `azure-rbac`, `azure-ai`, and more — encode real Azure workflows and decision logic that agents invoke by intent[^13]
 - **Live Resource Discovery**: Query Cosmos DB accounts, Storage containers, Log Analytics workspaces, App Configuration stores, and Resource Groups through natural language
 - **Configuration Extraction**: Read live resource properties, settings, and metadata to inform infrastructure-as-code generation
 - **Log Analysis with KQL**: Execute Kusto queries against Azure Monitor directly from chat conversations
 - **DevOps Integration**: Access work items, pull requests, builds, and pipelines through conversational commands
 - **Azure CLI Delegation**: Execute `az` and `azd` commands through AI with JSON output formatting and validation
+- **Foundry MCP Integration**: Deploy and manage Azure AI models, endpoints, and agent workflows through Foundry MCP Server
 - **RBAC-Scoped Access**: MCP server operates within authenticated user's permissions — no elevation, respects subscription boundaries
 
 ### Architecture Overview
 
-The Azure MCP Server runs locally (or remotely via Azure Container Apps) and authenticates using your existing Azure credentials. When Copilot CLI receives a prompt like "List all Cosmos databases," it routes the request to the Azure MCP Server, which translates it into the appropriate Azure SDK calls, executes them with your permissions, and returns structured results to the AI[^5].
+The **Azure Skills Plugin** introduces a three-layer stack that separates knowing from doing:
+
+| Layer | Component | Role |
+|-------|-----------|------|
+| Brain | **Azure Skills** (21 curated skills) | Encodes Azure workflows, decision trees, and guardrails as Markdown instructions agents can invoke by intent |
+| Hands | **Azure MCP Server** (200+ tools, 40+ services) | Executes live Azure SDK calls — resource discovery, configuration reads, log queries, deployments |
+| AI Specialist | **Foundry MCP Server** | Model deployment, endpoint management, agent orchestration for Azure AI Foundry scenarios |
+
+When Copilot CLI receives a prompt like "deploy a Python API to Azure," the Skills layer activates `azure-prepare` and `azure-validate` to reason through the right sequence of steps. The MCP layer then executes those steps using structured tool calls against live Azure APIs — no raw `az` commands, no guesswork[^5].
+
+For direct resource queries ("List all Cosmos databases"), the flow bypasses the skills layer and hits the MCP Server directly, translating natural language to Azure SDK calls, executing with your RBAC permissions, and returning structured results to the AI.
 
 Copilot CLI maintains conversational context across the session — previous queries, discovered resources, and configuration patterns stay in memory. Plan Mode (activated with Shift+Tab) enables collaborative planning: the AI asks clarifying questions about intended changes *before* generating infrastructure code, using live resource queries to validate assumptions[^6].
 
@@ -126,7 +147,7 @@ Cloud delegation (prefixing prompts with `&`) offloads long-running analysis tas
 
 ## 🎯 Mental Model Shift
 
-> **The Core Insight:** Infrastructure prototyping becomes conversational — AI queries live Azure state, validates assumptions in real-time, and generates configs from actual running resources instead of documentation examples
+> **The Core Insight:** Azure infrastructure work becomes conversational end-to-end — the Azure Skills Plugin provides the workflow knowledge (what to do and when), Azure MCP provides the execution reach (200+ live tools across 40+ services), and together they turn natural-language intent into validated, deployed Azure resources
 
 ### Move Toward (Embrace These Patterns)
 
@@ -691,6 +712,91 @@ copilot
 
 ---
 
+<!-- 🎬 MAJOR SECTION: Azure Skills Plugin -->
+## Azure Skills Plugin: Adding the Brain Layer
+
+The Azure MCP Server gives agents execution capability \u2014 200+ tools to act on Azure. The **Azure Skills Plugin** adds the reasoning layer on top: 21 curated skills that encode how Azure work actually gets done. Where MCP tools answer "can I list storage accounts?", skills answer "when deploying a Python API to Azure, what's the right sequence of validation and deployment steps?" [^13]
+
+Skills are plain-text Markdown files that activate by agent intent. There's no separate invocation syntax \u2014 when Copilot recognizes a deployment scenario, the relevant skills are automatically in context.
+
+### What's in the Plugin
+
+The plugin installs to `.github/plugins/azure-skills/` and bundles all three layers in one operation:
+
+| Component | What It Provides |
+|-----------|-----------------|
+| **Azure Skills** (21 curated) | Workflow logic, decision trees, guardrails for the full Azure app lifecycle |
+| **Azure MCP Server** | 200+ structured tools across 40+ Azure services (execution layer) |
+| **Foundry MCP Server** | Model deployment, endpoint management, agent workflows for Azure AI Foundry |
+
+### The 21 Curated Skills
+
+Skills cover the full Azure lifecycle, organized by phase:
+
+**Build and Deploy**
+- `azure-prepare` \u2014 Project analysis, infra code generation, Dockerfile scaffolding, deployment config
+- `azure-validate` \u2014 Pre-deployment checks, configuration guardrails, compatibility verification
+- `azure-deploy` \u2014 Full automated deployment pipeline with rollback handling
+
+**Operate and Troubleshoot**
+- `azure-diagnostics` \u2014 Log-based troubleshooting with real telemetry from Application Insights and Azure Monitor
+- `azure-observability` \u2014 Instrumentation patterns, alerting, and operational dashboards
+- `azure-compliance` \u2014 Policy checks, regulatory requirements, governance guardrails
+
+**Optimize and Design**
+- `azure-cost-optimization` \u2014 Cost review, SKU right-sizing, savings recommendations with live pricing
+- `azure-compute` \u2014 Compute SKU selection, autoscaling configuration, container guidance
+- `azure-resource-visualizer` \u2014 Architecture diagram generation from live subscription state
+
+**Platform and Data Services**
+- `azure-storage` \u2014 Storage account patterns, tiering, lifecycle management, security configuration
+- `azure-kusto` \u2014 KQL query construction, Log Analytics, data exploration
+- `azure-rbac` \u2014 Role assignment, principle of least privilege, service principal management
+
+**AI and Advanced Scenarios**
+- `azure-ai` \u2014 Azure OpenAI, Cognitive Services, and AI service integration patterns
+- `azure-aigateway` \u2014 APIM-based AI gateway configuration, rate limiting, token management
+- `microsoft-foundry` \u2014 Azure AI Foundry model deployment, evaluation, catalog management
+
+**Migration and Identity**
+- `azure-cloud-migrate` \u2014 On-premises to Azure migration assessment and workload transition
+- `entra-app-registration` \u2014 App registration, OAuth flows, permission scopes, managed identity setup[^14]
+
+### Installing the Plugin
+
+**Via Copilot CLI:**
+
+```bash
+/plugin marketplace add microsoft/azure-skills
+/plugin install azure@azure-skills
+```
+
+**Via VS Code:**
+
+Install the **Azure MCP** extension from the VS Code Marketplace \u2014 the Skills Plugin is bundled and auto-configured for Copilot Chat.
+
+**Via Claude Code:**
+
+```bash
+/plugin marketplace add microsoft/azure-skills
+/plugin install azure@azure-skills
+```
+
+The plugin works identically across all three hosts because the skills layer is host-agnostic Markdown, and the MCP layer speaks a standardized protocol[^13].
+
+### Skills in Action
+
+Without the skills plugin, a prompt like "deploy my Python API to Azure" produces generic guidance. With skills, the agent follows the correct sequence:
+
+1. **`azure-prepare` activates** \u2014 analyzes the project, generates `azd`-compatible infra code, creates a Dockerfile if needed
+2. **`azure-validate` activates** \u2014 checks subscription quotas, VNet availability, and naming conflicts before touching anything
+3. **`azure-deploy` activates** \u2014 executes the deployment in the right order, surfaces any errors with context-aware remediation
+4. **`azure-diagnostics` available on request** \u2014 queries Application Insights and logs if something went wrong
+
+The skills are version-controlled and extensible \u2014 teams can add organization-specific skills for internal conventions and governance patterns.
+
+---
+
 <!-- 🎬 MAJOR SECTION: Guardrails -->
 ## Guardrails and Trust Boundaries
 
@@ -986,11 +1092,12 @@ Would you like me to update the Bicep file with these fixes?
 
 ### 15-Minute Quick Start
 
-**Goal:** Install Azure MCP Server, connect to Copilot CLI, and execute your first live Azure query
+**Goal:** Install the Azure Skills Plugin, connect to Copilot CLI, and execute your first live Azure query with full skills + MCP capability
 
-1. **Install Azure MCP Server**
-   - VS Code: Install [Azure MCP Server extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server)
-   - CLI: `npm install -g @azure/mcp`
+1. **Install the Azure Skills Plugin** (installs skills + Azure MCP + Foundry MCP in one step)
+   - VS Code: Install [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server) from the VS Code Marketplace — Skills Plugin is bundled
+   - Copilot CLI: `# /plugin marketplace add microsoft/azure-skills` then `/plugin install azure@azure-skills`
+   - Direct MCP only: `npm install -g @azure/mcp`
 
 2. **Authenticate with Azure**
    ```bash
@@ -998,10 +1105,12 @@ Would you like me to update the Bicep file with these fixes?
    az account set --subscription "Your-Subscription-Name"
    ```
 
-3. **Verify MCP connection in Copilot CLI**
+3. **Verify MCP connection and skills in Copilot CLI**
    ```bash
    copilot /tools
    # Confirm azure-mcp appears in available tools
+   copilot /plugins
+   # Confirm azure-skills plugin is installed
    ```
 
 4. **Run first query**
@@ -1093,6 +1202,7 @@ Would you like me to update the Bicep file with these fixes?
 - **[GitHub Copilot CLI](../copilot-cli/README.md)** — Foundational understanding of terminal-native AI workflows, Plan Mode, and cloud delegation
 - **[MCP Apps](../mcp-apps/README.md)** — Building custom MCP servers for internal tools and proprietary systems
 - **[Agentic Workflows](../agentic-workflows/README.md)** — Delegating complex multi-step tasks to background agents with `/fleet` parallelization
+- **[MCP Servers](../mcp-servers/README.md)** — Deep dive on Model Context Protocol and how tools like the Azure MCP Server expose structured capabilities to agents
 
 ### Features That Work Together
 
@@ -1133,6 +1243,11 @@ Would you like me to update the Bicep file with these fixes?
 
 [^11]: **[How to Use Azure DevOps MCP Server with GitHub Copilot](https://dev.to/devbyrayray/how-to-use-azure-devops-mcp-server-with-github-copilot-in-vs-code-complete-setup-guide-3ala)** — Step-by-step DevOps integration guide
 [^12]: **[Building an MCP Server with Azure Functions](https://ajtech.nl/blog/create-your-own-mcp-server/)** — Extending GitHub Copilot with custom Azure tools
+
+### Azure Skills Plugin
+
+[^13]: **[Announcing the Azure Skills Plugin](https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/)** — Official announcement covering the three-layer architecture, skills list, and supported hosts (GitHub Copilot, Copilot CLI, Claude Code)
+[^14]: **[Azure Skills GitHub Repository](https://github.com/microsoft/azure-skills)** — Source code, skills catalog, and installation instructions for the full plugin
 
 ---
 

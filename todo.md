@@ -34,9 +34,3 @@ Think about AGENTS.md vs copilot-instructions now that VSCode prefers it when ru
 ---
 
 AgentRC.  Think about what we could do to have a repo be 100% Level 5 by default, at creation time.  Implement plan for WGLL additions.
-
----
-
-Add to azure-mcp
-https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/?wt.mc_id=msftsource_issue82WN3email_gdc?ocid=eml_pg516617_gdc_comm_mw&mkt_tok=MTU3LUdRRS0zODIAAAGhVPCeXRKU2YYLAMbE6EzKsZ2EBREak1_doXpauAy4xSKct3q11KkAMgbRQlWpB0d0WOwHjzi_BF65hwvjAnPIh5T1oHT0u4A0SSOqj78N5PDtLLeZ6B5RvqPO
-https://github.com/microsoft/azure-skills?tab=readme-ov-file#what-you-get

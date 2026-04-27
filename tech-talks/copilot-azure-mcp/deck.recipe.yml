@@ -1,54 +1,122 @@
 version: 1
 
 deck:
-  title: "GitHub Copilot CLI + Azure MCP"
-  subtitle: "Rapid Azure Prototyping and Deployment"
-  tagline: "Infrastructure becomes conversational — AI that knows what's running in your subscriptions"
+  title: "GitHub Copilot + Azure Skills Plugin"
+  subtitle: "Conversational Azure Prototyping and Deployment"
+  tagline: "From 45 minutes of portal clicks to 8 minutes of live-context conversation"
 
+  arcToc: "Live Context → Prototype Loop → Skills Plugin Stack → Guardrails"
 
-  highlightMoments:
-    - Live Azure context directly in terminal conversations — no portal tab-switching or manual config pasting
-    - Prototype loop compression: 45 minutes of portal clicks → 8 minutes of conversational deployment
-    - Plan Mode + Azure MCP combination: AI asks clarifying questions against live resources before generating a single line of infrastructure code
-    - Environment cloning in one conversation — exact replica with validated parameters, any region
-    - Permission guardrails enforce read-only boundaries so teams can explore safely before granting write access
-
-  arcToc: "Hook with live context magic → demonstrate speed compression → show how to set it up → close on organizational trust"
   arcNarrative: >
-    Hook with live context magic (wow) → demonstrate speed compression (value) →
-    show how to set it up (adoption) → close on organizational trust (confidence to ship).
-    Config before Guardrails is deliberate: practitioners need the "how" before they sell the "safe".
+    Section 1 establishes the mental model shift — terminal as first-class Azure interface —
+    using concrete discovery queries that let the audience experience "ask, don't click" before
+    any architecture is explained. A vocabulary micro-slide at the tail names azure-prepare,
+    azure-validate, and azure-deploy as the map for Section 2's demo. Section 2 opens with the
+    comparative table ("Same Intent. Three Environments.") before a single demo line runs — this
+    kills the "why not just MCP" objection before it forms, not after. The prototype loop then
+    plays out in full: Plan Mode activates, live context flows in, the config generates, the
+    deployment runs. This is the talk's peak engagement moment; the 8-minute cycle is the headline
+    metric and must land explicitly. Section 3 explains retroactively how the three layers made
+    that work — Skills as brain, MCP as hands, Foundry as AI specialist — and earns the install
+    and auth steps their place because the audience now has a reason to care. The section closes
+    by surfacing azure-rbac as the conceptual handoff: "the Skills layer is also your first line
+    of access governance." Section 4 lands guardrails efficiently — RBAC scoping, read-only
+    defaults, and a single CTO-ready sentence — then exits. This ordering beats the alternative
+    (architecture first) because audiences who understand what a tool does are far more receptive
+    to learning how it works than audiences who learn the architecture and then watch the demo
+    they could have predicted.
+
   sectionOrder:
-    - Live Azure Context in Terminal Conversations
-    - The Prototype Loop: Plan → Generate → Deploy
-    - Configuration and Setup
-    - Guardrails and Trust Boundaries
+    - "Live Azure Context in Terminal Conversations"
+    - "The Prototype Loop: Plan → Generate → Deploy"
+    - "Azure Skills Plugin: Adding the Brain Layer"
+    - "Guardrails and Trust Boundaries"
 
   sectionModes:
     "Live Azure Context in Terminal Conversations":
-      emphasis: high
+      emphasis: medium
       note: >
-        The wow-moment hook — live subscription context in the terminal reframes AI from
-        generic assistant to an agent that knows your infrastructure.
+        Open with the core mental model shift in one tight frame: "terminal becomes your Azure
+        interface." Show 2-3 live query examples (storage accounts, Cosmos DB, Log Analytics)
+        as a BeforeAfterSlide — left side is "open portal, navigate, copy value," right side is
+        one conversational prompt and structured output. Close the section with a vocabulary
+        micro-slide naming the three key skills (azure-prepare, azure-validate, azure-deploy)
+        as the workflow map for the demo ahead. Do not explain the architecture here — that
+        belongs in Section 3. This section earns attention; Section 2 spends it.
+
     "The Prototype Loop: Plan → Generate → Deploy":
       emphasis: high
       note: >
-        The core value demonstration — 45-minute portal workflow compressed to 8-minute
-        conversational deployment with Plan Mode clarifying questions against live resources.
-    "Configuration and Setup":
-      emphasis: medium
-      note: >
-        Adoption enabler — shows exactly how to install and scope the MCP server so
-        practitioners can replicate the demo before the next standup.
-    "Guardrails and Trust Boundaries":
-      emphasis: medium-high
-      note: >
-        The enterprise trust close — read-only service principal pattern and permission
-        escalation path give teams a safe on-ramp before granting write access.
+        This is the talk's centerpiece — peak engagement lives here. Open with the comparative
+        table as its own slide: "Same Intent. Three Environments." with columns No Skills /
+        MCP Only / Skills+MCP and rows covering what you type, Azure context, deploy sequence,
+        error recovery, RBAC awareness, and time (45 min / ~15 min / 8 min). This slide kills
+        the "why not just MCP" objection before a single demo line runs. Slide 2 runs the full
+        prototype loop: Plan Mode activates (Shift+Tab), AI queries live App Service state,
+        scaffolds staging config, validates against subscription limits, deploys. The "8 minutes,
+        zero portal visits" close is the section's headline metric — it must appear explicitly.
+        Do not explain why the loop works (that is Section 3's job). Let the demo speak.
+        NOTE: This placement assumes Plan Mode invokes the Skills layer (Path A). See open
+        decision at the bottom — if Plan Mode bypasses Skills, relocate the comparative table
+        to Section 3 slide 2 and replace this section's opening with a "here's the goal"
+        framing slide instead.
 
-# OPEN DECISION: Should "Configuration and Setup" (only 2 content slides) be merged into
-# "Guardrails and Trust Boundaries" to produce a single "Setup & Safety" section?
-# Arguments for merge: tighter 3-section arc; setup details feel thin standalone.
-# Arguments against: setup is a distinct audience action (adopt) vs guardrails (trust) —
-# collapsing them muddies the call-to-action. Current 4-section structure is preferred
-# unless the talk runs long and a cut is needed.
+    "Azure Skills Plugin: Adding the Brain Layer":
+      emphasis: high
+      note: >
+        Open with the architecture table from the README — Brain (Azure Skills, 21 curated
+        skills), Hands (Azure MCP Server, 200+ tools across 40+ services), AI Specialist
+        (Foundry MCP Server) — as a structured diagram slide. This is the retroactive
+        explanation of what the audience just watched in Section 2. Slide 2 connects the
+        comparative table's "Skills+MCP wins" column to the decision logic encoded in Skills
+        that MCP-only lacks — name azure-prepare, azure-validate, azure-deploy explicitly as
+        examples. Merge install and auth steps here as a natural "here's how you get this"
+        beat — they belong after motivation is established, not before. Close by surfacing
+        azure-rbac explicitly: "the Skills layer is also your first line of access governance"
+        — this is the conceptual bridge into Section 4. Do not make setup the section's focus;
+        it is one slide among four.
+
+    "Guardrails and Trust Boundaries":
+      emphasis: medium-low
+      note: >
+        Land three points and exit. (1) Read-only by default: MCP server operates within
+        authenticated RBAC — no elevation, respects subscription boundaries. (2) Production
+        discipline: AI-validated configs still require review before production deployment —
+        treat AI as a skilled junior engineer, not an authority. (3) CTO talking point as the
+        quote-ready closer: "Read-only service principal by default; write access is opt-in
+        per-service." Flag the room-read variant in speaker notes: security/compliance-focused
+        rooms can lead with this section's content as the talk opener — but that is a speaker
+        choice, not a structural change to the recipe.
+
+  preamble: []
+  appendix: []
+
+  highlightMoments:
+    - "Prototype-to-deployment cycle compresses from 45 minutes of portal clicks and guesswork to 8 minutes of conversational deployment with live context — the talk's headline number, must appear on a slide."
+    - "200+ live Azure tools across 40+ services give the AI direct read/write execution reach — not prompts, not examples, actual SDK calls against the authenticated subscription."
+    - "21 curated skills (azure-prepare, azure-validate, azure-deploy, azure-rbac, and 17 more) encode real Azure decision logic — the Skills layer is what separates this from a raw MCP connection."
+    - "Read-only service principal by default; write access is opt-in per-service — the CTO talking point that closes Section 4."
+    - "Same Intent. Three Environments. — the comparative table (No Skills / MCP Only / Skills+MCP) earns its own slide at the Section 2 opening and is the talk's most persuasive single artifact."
+
+# ─── OPEN DECISION ────────────────────────────────────────────────────────────
+# Question: Does Copilot Plan Mode (Shift+Tab) invoke the Azure Skills layer
+# during its clarifying-question phase?
+#
+# Working assumption: YES (Path A). Plan Mode's "read-only" constraint applies
+# to codebase writes, not to Skills activation. Skills are Markdown instruction
+# files loaded into context by intent recognition — they should be active in any
+# conversation mode including Plan Mode. This assumption has not been verified
+# against live behavior with the Azure Skills Plugin installed.
+#
+# Path A — Skills ACTIVE in Plan Mode (recipe as written, assumed correct):
+#   Section 2's prototype loop is a full Skills+MCP demonstration. Comparative
+#   table placement at Section 2 opening is correct. No structural changes needed.
+#
+# Path B — Skills NOT active in Plan Mode (if assumption is wrong):
+#   Section 2 demo is MCP-only. Move the comparative table to Section 3 slide 2.
+#   Replace Section 2's opening beat with a "here's the goal" framing slide.
+#   Update sectionModes notes for Section 2 and 3 before slide generation.
+#
+# Verify by running the prototype loop demo with Azure Skills Plugin installed
+# and checking whether azure-prepare/validate/deploy appear in the activity log.
+# ─────────────────────────────────────────────────────────────────────────────

@@ -4,16 +4,16 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## GitHub Copilot CLI + Azure MCP
+  ## GitHub Copilot + Azure Skills Plugin
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: GitHub Copilot CLI + Azure MCP
+title: GitHub Copilot + Azure Skills Plugin
 mdc: true
-section: Copilot Tools
+section: Agentic Systems
 status: active
-updated: 2026-04-22
+updated: 2026-04-27
 ---
 
 <script setup>
@@ -27,39 +27,40 @@ import ReferencesSlide from './components/structure/ReferencesSlide.vue'
 import ThankYouSlide from './components/structure/ThankYouSlide.vue'
 import BeforeAfterMetricsSlide from './components/BeforeAfterMetricsSlide.vue'
 import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
-import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
-import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
-import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
-import FourCardGridSlide from './components/FourCardGridSlide.vue'
-import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
-import HeroStatSlide from './components/HeroStatSlide.vue'
-import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
-import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
 import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
+import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
+import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vue'
+import HeroStatSlide from './components/HeroStatSlide.vue'
+import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
+import WorkflowShowdownStepsSlide from './components/WorkflowShowdownStepsSlide.vue'
+import FourCardGridSlide from './components/FourCardGridSlide.vue'
+import ProblemSolutionOutcomeSlide from './components/ProblemSolutionOutcomeSlide.vue'
+import MaturityJourneyRoadmapSlide from './components/MaturityJourneyRoadmapSlide.vue'
 </script>
 
 <!-- SLIDE: Title -->
 <TitleSlide
-  title="GitHub Copilot CLI + Azure MCP"
-  subtitle="Rapid Azure Prototyping and Deployment"
-  tagline="Infrastructure becomes conversational — AI that knows what's running in your subscriptions"
-  meta="CopilotTraining Tech Talk"
+  title="GitHub Copilot + Azure Skills Plugin"
+  subtitle="Conversational Azure Prototyping and Deployment"
+  tagline="From 45 minutes of portal clicks to 8 minutes of live-context conversation"
+  meta="Tech Talk · 45 min · Azure Developers · DevOps Engineers · Cloud Architects"
 />
 
 ---
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="What if Copilot already knew what was running in your Azure subscriptions before you typed a single word?"
-  subtext="Today, AI assistants give generic infrastructure advice. They don't know your actual subscription state, your running resources, or your current quota."
-  highlight="Azure MCP closes that gap — live subscription context, directly in terminal conversations."
+  question="How do I prototype and deploy Azure solutions conversationally?"
+  subtext="Azure developers spend 45+ minutes per cycle switching between portal, docs, and CLI"
+  highlight="What if the AI already knew your subscription?"
   :cards='[
-    { icon: "☁️", title: "Azure Developer", description: "Query live subscriptions, scaffold configs from running resources, deploy validated" },
-    { icon: "⚙️", title: "DevOps Engineer", description: "Compress prototype cycles, clone environments, validate infra code against live state" },
-    { icon: "🔒", title: "Platform / Security Lead", description: "Read-only service principals, subscription-scoped boundaries, permission escalation path" },
-    { title: "45 min → 8 min", description: "Portal click workflow → conversational deployment with Plan Mode + live context" },
-    { title: "0 manual pastes", description: "Azure MCP reads live subscription state automatically — no copying configs to terminal" },
-    { title: "1 conversation", description: "Clone an environment to any region with validated parameters — one session" }
+    { icon: "🧑‍💻", title: "Azure Developer", description: "Tab-switching between terminal, portal, and docs to understand current Azure state" },
+    { icon: "⚙️", title: "DevOps Engineer", description: "Scaffolding staging configs from production resources without copy-paste guesswork" },
+    { icon: "🏗️", title: "Cloud Architect", description: "Evaluating whether AI infrastructure tooling is a durable pattern — not a demo trick" },
+    { title: "45 min → 8 min", description: "Prototype-to-deploy cycle with live Azure context vs. portal tab-switching" },
+    { title: "200+ live Azure tools", description: "Direct SDK calls across 40+ services — resource queries, config reads, deployments" },
+    { title: "21 workflow skills", description: "Curated deployment logic — azure-prepare, azure-validate, azure-deploy, and more" }
   ]'
 />
 
@@ -68,383 +69,375 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "⚡", title: "Live Azure Context",    subtitle: "AI that knows your running infrastructure", blurb: "Live subscription context in the terminal, no tab-switching", slide: 4 },
-    { icon: "🔄", title: "Prototype Loop",         subtitle: "45-minute portal workflow → 8-minute conversation", blurb: "Plan Mode + Azure MCP: clarify against live resources first", slide: 9 },
-    { icon: "⚙️", title: "Configuration & Setup",  subtitle: "Replicate the demo before the next standup", blurb: "Install, scope, and connect the Azure MCP server", slide: 14 },
-    { icon: "🛡️", title: "Guardrails & Trust",     subtitle: "The enterprise trust close", blurb: "Read-only service principal and permission escalation path", slide: 17 }
+    { icon: "💬", title: "Live Azure Context", subtitle: "Terminal as Azure interface", blurb: "Query live subscription state from any conversation", slide: 4 },
+    { icon: "🔄", title: "The Prototype Loop", subtitle: "Plan → Generate → Deploy", blurb: "45-minute portal workflow compressed to 8 minutes", slide: 8 },
+    { icon: "🧠", title: "Azure Skills Plugin", subtitle: "Three-layer stack explained", blurb: "Why the loop works — Skills, MCP, and Foundry", slide: 13 },
+    { icon: "🔒", title: "Guardrails", subtitle: "Trust boundaries for teams", blurb: "Read-only by default, opt-in for writes", slide: 18 }
   ]'
 />
 
 ---
 
-<!-- SLIDE: Part 1 — Live Azure Context in Terminal Conversations -->
+<!-- SLIDE: Part 1 — Live Azure Context -->
 <SectionOpenerSlide
   :partNumber="1"
-  title="Live Azure Context"
-  subtitle="Live subscription context in the terminal — AI that knows what&#39;s running, no portal tab-switching."
+  title="Live Azure Context in the Terminal"
+  subtitle="Terminal replaces the portal — live subscription state in every conversation"
   :cards='[
-    { icon: "🔍", title: "Live Context",   blurb: "Real subscription state — resources, quotas, regions — in every answer" },
-    { icon: "🚫", title: "No Tab-Switching", blurb: "Portal stays closed; AI answers from actual subscription data" },
-    { icon: "💬", title: "Conversational", blurb: "Plain language queries, live accurate answers" }
+    { icon: "💬", title: "Ask, Don&#39;t Click", description: "Query storage accounts, Cosmos DB, App Services directly — no portal tab-switching" },
+    { icon: "📋", title: "Structured Live Output", description: "AI returns real resource configs sourced from live Azure APIs, not docs examples" },
+    { icon: "🔗", title: "Session Context Persists", description: "Discovered resources and config patterns stay in memory for follow-up questions" }
   ]'
-  :terminal='{ context: "gh copilot chat — with Azure MCP connected", detail: "What VMs are running in my subscription right now?" }'
+  :terminal='{ context: "copilot > List all storage accounts in my subscription", detail: "4 results — live, structured, in 3 seconds" }'
 />
 
 ---
 
-<!-- SLIDE: What Azure MCP Unlocks -->
-<FourCardGridSlide
+<!-- SLIDE: Portal vs Terminal -->
+<BeforeAfterPanelsSlide
   :partNumber="1"
-  pillIcon="⚡"
-  pillLabel="Live Context: What Changes"
-  title="Four Capabilities That Reframe Infrastructure Work"
-  :cards='[
-    { icon: "🔍", title: "Live Discovery", description: "Ask what&#39;s running — AI queries real Azure APIs and returns current structured state" },
-    { icon: "📋", title: "Config Extraction", description: "Extract live resource configs as starting points — production-validated, not doc examples" },
-    { icon: "✅", title: "Pre-Deploy Validation", description: "AI checks proposed changes against actual quotas, VNets, and SKU availability" },
-    { icon: "🔁", title: "Session Context", description: "Query results stay in conversation — follow-up questions need no re-query" }
-  ]'
-  :progressDots='{ current: 1, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  pillIcon="🔄"
+  pillLabel="Live Context: The Shift"
+  title="From Tab-Switching to Terminal Conversation"
+  :before='{ header: "Portal-First Discovery", items: [
+    "Open Azure Portal, navigate to the resource group",
+    "Click through resources to find what you need",
+    { title: "Copy values manually", detail: "SKUs, endpoints, networking rules to a text editor" },
+    "Switch back to terminal — context lost between tools"
+  ] }'
+  :after='{ header: "Terminal-First Conversation", items: [
+    "Ask: &#39;List storage accounts with SKUs and networking rules&#39;",
+    "AI returns live structured output in seconds",
+    { title: "Follow-up without re-querying", detail: "Context stays in session for subsequent questions" },
+    "Scaffold new configs from live templates — same conversation"
+  ] }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Terminal Demo — Live Context -->
+<!-- SLIDE: Live Discovery Demo -->
 <AITerminalTranscriptSlide
   :partNumber="1"
   pillIcon="💬"
-  pillLabel="Live Context: Demo"
-  title="Asking Your Subscription What&#39;s Running"
-  subtitle="No portal tab. No manual config copying. Just a question."
+  pillLabel="Live Context: Discovery Demo"
+  title="Live Resource Discovery in Action"
+  subtitle="Three queries, live Azure state, zero portal visits"
   :transcript='[
-    { type: "prompt", text: "gh copilot chat" },
-    { type: "user", text: "What storage accounts exist in my subscription?" },
-    { type: "thinking", label: "🔍 Querying azure.storage.list-accounts..." },
-    { type: "response", lines: ["Found 4 storage accounts:", "• proddata001 — East US — Standard_GRS — public access: disabled", "• stagingdata001 — West US 2 — Standard_LRS — public access: enabled (blob)", "• devlogs — East US 2 — Standard_LRS", "• backuparchive — Central US — Standard_RAGRS"] },
-    { type: "user", text: "Show me the network config for proddata001" },
-    { type: "thinking", label: "🔍 Querying azure.storage.get-account-details..." },
-    { type: "response", lines: ["proddata001 network config:", "• VNet rules: prod-vnet/app-subnet, prod-vnet/db-subnet", "• Private endpoint: prod-storage-pe01", "• Public access: Disabled — Min TLS: 1.2"] },
-    { type: "outcome", text: "Live state in conversation. Portal stayed closed." }
+    { type: "prompt", text: "copilot" },
+    { type: "user", text: "List all storage accounts in my subscription with their locations and SKUs" },
+    { type: "thinking", label: "🤔 Copilot (Azure MCP):" },
+    { type: "response", lines: [
+      "Found 4 storage accounts:",
+      "  proddata001 (East US) — Standard_GRS · public access disabled",
+      "  stagingdata001 (West US 2) — Standard_LRS · public blob enabled",
+      "  devlogs (East US 2) — Standard_LRS · public access disabled"
+    ] },
+    { type: "user", text: "Create a staging config like proddata001 but with LRS and staging-vnet" },
+    { type: "thinking" },
+    { type: "response", lines: [
+      "Based on proddata001 network config:",
+      "  SKU: Standard_LRS  (downgraded — staging doesn&#39;t need geo-redundancy)",
+      "  VNet: staging-vnet/app-subnet  (mapped from prod-vnet/app-subnet)",
+      "  TLS: 1.2 min · public access: disabled · firewall rules: retained"
+    ] },
+    { type: "outcome", text: "Live template extracted — Bicep ready with one more prompt" }
   ]'
-  footerMetric="Real subscription data — no manual config pasting"
-  :progressDots='{ current: 2, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  footerMetric="0 portal visits · live config in under 60 seconds"
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Config Extraction -->
-<TwoColPairedConceptsSlide
+<!-- SLIDE: Workflow Vocabulary -->
+<ThreeColumnCardSlide
   :partNumber="1"
-  pillIcon="📋"
-  pillLabel="Live Context: Templating"
-  title="Scaffold New Resources from Live Production Templates"
-  :left='{
-    header: "Old Way",
-    icon: "📄",
-    items: [
-      { title: "Copy from docs", detail: "Generic ARM/Bicep examples, wrong for your environment" },
-      { title: "Manual parameter hunting", detail: "Open portal, find resource, copy settings — repeat per field" },
-      { title: "Deploy and debug", detail: "First deployment often fails on config mismatch" }
-    ]
-  }'
-  :right='{
-    header: "With Azure MCP",
-    icon: "⚡",
-    items: [
-      { title: "Extract from live resource", detail: "\"Create a staging version of proddata001\" — AI reads live config" },
-      { title: "AI adapts automatically", detail: "Downgrades SKU for cost, updates VNet to staging, retains security settings" },
-      { title: "Production-validated template", detail: "Generated config matches your actual naming conventions and networking" }
-    ]
-  }'
-  :progressDots='{ current: 3, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Environment Cloning -->
-<BeforeAfterMetricsSlide
-  :partNumber="1"
-  pillIcon="🔁"
-  pillLabel="Live Context: Environment Clone"
-  title="Clone an Environment in One Conversation"
-  :before='{ header: "Without Azure MCP", items: [
-    { title: "Manual inventory", detail: "List every resource — portal navigation, notes, copy-paste" },
-    "Copy configs field by field — SKUs, networking rules, app settings, scaling",
-    { title: "Guess cross-region params", detail: "Some SKUs unavailable in target region — discovered on failed deploy" },
-    "3–5 failed deployments before environment is consistent"
-  ] }'
-  :after='{ header: "With Azure MCP", items: [
-    "Ask: \"What resources are in staging-rg?\" — AI returns full inventory",
-    { title: "\"Clone staging-rg to West US 2\"", detail: "AI reads all configs, adapts region-specific params, flags SKU differences" },
-    "Bicep generated from live state — validated against target region availability",
-    "One deployment. One conversation."
-  ] }'
-  :metrics='[
-    { value: "1", label: "conversation to clone" },
-    { value: "0", label: "manual config copies" },
-    { value: "82%", label: "time reduction" }
+  pillIcon="🗺️"
+  pillLabel="Live Context: Workflow Map"
+  title="Three Skills Power Every Deployment"
+  :columns='[
+    { icon: "⚙️", title: "azure-prepare", description: "Project analysis, infra code gen, Dockerfile scaffolding — gets your project Azure-ready", items: ["Analyzes project structure", "Generates azd-compatible infra", "Creates Dockerfiles if needed"] },
+    { icon: "✅", title: "azure-validate", description: "Pre-deployment checks before touching anything — quotas, VNets, naming conflicts", items: ["Subscription quota checks", "VNet availability", "Naming conflict detection"] },
+    { icon: "🚀", title: "azure-deploy", description: "Ordered deployment pipeline with rollback handling and context-aware error remediation", items: ["Correct execution order", "Rollback on failure", "Error context surfaced"] }
   ]'
-  :progressDots='{ current: 4, total: 4, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
+  :progressDots='{ current: 3, total: 3, activeColor: "bg-cyan-400 shadow-lg shadow-cyan-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 2 — The Prototype Loop: Plan → Generate → Deploy -->
+<!-- SLIDE: Part 2 — The Prototype Loop -->
 <SectionOpenerSlide
   :partNumber="2"
-  title="Plan → Generate → Deploy"
-  subtitle="45-minute portal workflow → 8-minute conversation. Plan Mode validates against live resources before generating code."
+  title="The Prototype Loop"
+  subtitle="45-minute portal workflow → 8-minute conversational deployment with live context"
   :cards='[
-    { icon: "🗺️", title: "Plan Mode",     blurb: "AI asks clarifying questions against live resources before generating code" },
-    { icon: "⚡", title: "Speed",          blurb: "45-minute portal click workflow → 8-minute conversation" },
-    { icon: "📋", title: "Clone Environments", blurb: "Exact replica with validated parameters, any region, one conversation" }
+    { icon: "⚖️", title: "Three Environments", description: "See exactly what the Skills layer adds over raw MCP — correct sequence, not just calls" },
+    { icon: "🗣️", title: "Plan Mode Validation", description: "Shift+Tab — AI asks clarifying questions against live resources before generating code" },
+    { icon: "📄", title: "Bicep From Live Templates", description: "Infrastructure code from actual running resources — production-validated, not generic" }
   ]'
-  :terminal='{ context: "gh copilot chat --plan", detail: "Deploy a Function App — AI checks quotas, regions, and existing resources first" }'
+  :terminal='{ context: "copilot [plan] > Deploy a payments API like orders API with its own database", detail: "45 min → 8 min · zero portal visits" }'
 />
 
 ---
 
-<!-- SLIDE: Plan Mode + Azure MCP -->
-<WorkflowShowdownStepsSlide
+<!-- SLIDE: Three Environments Comparison -->
+<ThreeColumnCardSlide
   :partNumber="2"
-  pillIcon="🗺️"
-  pillLabel="Prototype Loop: Plan Mode"
-  title="Plan Mode Reorders the Deployment Workflow"
-  subtitle="Validate assumptions against live Azure resources before a single line of code is written"
-  leftLabel="Traditional Prototype Loop"
-  rightLabel="Plan Mode + Azure MCP"
-  :steps='[
-    { left: { label: "Guess config", note: "Docs examples, manual research, assumptions" }, right: { label: "State the goal", note: "\"Deploy a Function App similar to the payments API\"" } },
-    { left: { label: "Write infra code", note: "ARM/Bicep/Terraform — possibly wrong for your env" }, right: { label: "AI asks clarifying questions", note: "Region? Dedicated plan? Database type? Networking?" } },
-    { left: { label: "Deploy", note: "First attempt — usually fails on config mismatch" }, right: { label: "AI validates against live state", note: "Checks quotas, VNets, SQL capacity, available SKUs" } },
-    { left: { label: "Debug and fix", note: "Portal for diagnosis, repeat 3–5 times" }, right: { label: "Generate + deploy", note: "Bicep from live templates — first deployment succeeds" } }
+  pillIcon="⚖️"
+  pillLabel="Prototype Loop: Why Skills?"
+  title="Same Intent. Three Environments."
+  :columns='[
+    { icon: "🔧", title: "No Skills (raw az)", description: "Generic cloud advice, no Azure context, manual CLI commands — you fill all the gaps", items: ["You write every az command", "No subscription awareness", "No workflow sequencing", "45 min average cycle"] },
+    { icon: "🔌", title: "Azure MCP Only", description: "Live Azure data, correct tool calls — but no sequencing, no validation gates, no RBAC scope", items: ["Queries live state ✓", "Ad hoc tool calls", "Wrong sequence risk", "~15 min cycle"] },
+    { icon: "🚀", title: "Skills + MCP", description: "Correct calls in the correct sequence, validated pre-deployment, RBAC-aware from the start", items: ["prepare → validate → deploy ✓", "Live state + workflow logic ✓", "RBAC validated upfront ✓", "8 min cycle ✓"] }
   ]'
-  :outcomeLeft='{ icon: "🔄", label: "Avg 3–5 iterations, 45 min" }'
-  :outcomeRight='{ icon: "✅", label: "1–2 iterations, 8 min" }'
-  summaryMetric="45 min of guesswork → 8 min of validated conversation"
   :progressDots='{ current: 1, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Plan Mode Terminal Demo -->
-<AITerminalTranscriptSlide
+<!-- SLIDE: Traditional vs Plan Mode -->
+<WorkflowShowdownStepsSlide
   :partNumber="2"
-  pillIcon="⚡"
-  pillLabel="Prototype Loop: Demo"
-  title="Plan Mode Validates Before It Generates"
-  subtitle="AI asks clarifying questions, queries live resources, catches a firewall gap before deployment"
-  :transcript='[
-    { type: "prompt", text: "gh copilot chat" },
-    { type: "user", text: "Deploy a new App Service for the payments API, similar to the orders API" },
-    { type: "thinking", label: "📋 Plan Mode: gathering clarifying questions..." },
-    { type: "response", lines: ["Before I generate anything, a few questions:", "1. Same region as orders API (East US), or separate for redundancy?", "2. Share existing prod-asp-001, or dedicated plan?", "3. New database, or connect to existing SQL server?"] },
-    { type: "user", text: "East US. Dedicated plan. New Azure SQL database on existing server." },
-    { type: "thinking", label: "🔍 Validating against live subscription..." },
-    { type: "response", lines: ["✅ East US capacity: S2 App Service Plan available", "✅ prod-sqlserver-eastus: 8/20 databases used, can create new", "⚠️ payments-subnet not in SQL firewall — will add rule"] },
-    { type: "outcome", text: "Firewall gap caught in conversation, not post-deployment." }
+  pillIcon="🔄"
+  pillLabel="Prototype Loop: Plan Mode"
+  title="Traditional Workflow vs. Plan Mode"
+  subtitle="From trial-and-error to collaborative strategy before a line of code"
+  leftLabel="Traditional Workflow"
+  rightLabel="With Plan Mode + Azure MCP"
+  :steps='[
+    { left: { label: "Describe what you want", note: "Portal tab to check current state" }, right: { label: "Describe what you want", note: "Shift+Tab to enter Plan Mode" } },
+    { left: { label: "AI generates infrastructure", note: "Assumes intent, one interpretation" }, right: { label: "AI asks clarifying questions", note: "Region? Shared plan? Database type? VNet?" } },
+    { left: { label: "Deploy and discover mismatches", note: "Wrong SKU, missing firewall rule, quota hit" }, right: { label: "AI validates against live resources", note: "✅ VNet exists · ✅ quota available · ⚠️ firewall gap found" } },
+    { left: { label: "Fix and redeploy", note: "Average 3-4 iterations before success" }, right: { label: "Approve plan → generate Bicep", note: "1-2 iterations · mismatches caught pre-deployment" } }
   ]'
-  footerMetric="Misconfiguration caught before deployment — not after"
+  :outcomeLeft='{ icon: "🔄", label: "3-4 deploy attempts — 45 min average cycle" }'
+  :outcomeRight='{ icon: "✓", label: "1-2 attempts — 8 min with live validation" }'
+  summaryMetric="45 min → 8 min · misconfigurations caught in conversation, not post-deployment"
   :progressDots='{ current: 2, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Generated Bicep -->
-<CodeWithFeaturesSlide
+<!-- SLIDE: Plan Mode in Action -->
+<AITerminalTranscriptSlide
   :partNumber="2"
-  pillIcon="📄"
-  pillLabel="Prototype Loop: Output"
-  title="Bicep Generated from Live Templates, Not Docs Examples"
-  codePosition="left"
-  :code='{ language: "bicep", filename: "payments-infrastructure.bicep", content: "// Extracted from live orders API config\nresource appServicePlan\n  \"Microsoft.Web/serverfarms@2022-03-01\" = {\n  name: \"payments-asp-001\"\n  location: \"eastus\"\n  sku: { name: \"S2\", capacity: 2 }\n}\nresource appService\n  \"Microsoft.Web/sites@2022-03-01\" = {\n  name: \"payments-api\"\n  properties: {\n    serverFarmId: appServicePlan.id\n    virtualNetworkSubnetId: paymentsSubnetId\n    siteConfig: {\n      alwaysOn: true\n      minTlsVersion: \"1.2\"\n      ftpsState: \"Disabled\"\n    }\n  }\n}\n// + autoscale, SQL db, firewall rule" }'
-  :features='[
-    { icon: "📐", title: "Production conventions", description: "TLS 1.2, FTPS disabled, VNet integration — extracted from existing prod App Service" },
-    { icon: "✅", title: "Pre-validated params", description: "Region, SKU, and firewall confirmed against live subscription before code was written" },
-    { icon: "⚠️", title: "Gap already fixed", description: "SQL firewall rule for payments-subnet added before deploy — not discovered post-failure" },
-    { icon: "🚀", title: "Deploy immediately", description: "az deployment group create — one command, first deployment succeeds" }
+  pillIcon="🗣️"
+  pillLabel="Prototype Loop: Plan Mode Demo"
+  title="Plan Mode in Action: Payments API Deployment"
+  subtitle="AI validates against live subscription state before a single line of infrastructure code"
+  :transcript='[
+    { type: "prompt", text: "copilot [plan mode]" },
+    { type: "user", text: "Deploy a new App Service for payments API — like orders API, own database" },
+    { type: "thinking", label: "🤔 Copilot (azure-prepare):" },
+    { type: "response", lines: [
+      "A few questions to validate the approach:",
+      "  1. Region — orders API is East US. Co-locate or separate region?",
+      "  2. App Service Plan — share prod-asp-001 or dedicated for isolation?",
+      "  3. Database — new Azure SQL, Cosmos DB, or existing connection?"
+    ] },
+    { type: "user", text: "East US, dedicated plan, new Azure SQL with VNet firewall rules" },
+    { type: "divider" },
+    { type: "thinking", label: "🔍 Copilot (azure-validate — live subscription check):" },
+    { type: "response", lines: [
+      "✅ East US S2 capacity available",
+      "✅ prod-vnet/payments-subnet exists (10.0.3.0/24, currently empty)",
+      "✅ Azure SQL quota: 8 of 20 databases used",
+      "⚠️ payments-subnet not in SQL firewall — will add automatically"
+    ] },
+    { type: "outcome", text: "Plan approved → Bicep generated — payments-infrastructure.bicep" }
   ]'
+  footerMetric="Subnet firewall gap caught pre-deployment · estimated cost ~$150/month surfaced"
   :progressDots='{ current: 3, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Loop Compression -->
+<!-- SLIDE: The 8-Minute Number -->
 <HeroStatSlide
   :partNumber="2"
   pillIcon="⏱️"
   pillLabel="Prototype Loop: Impact"
-  title="The Compression That Changes How Teams Prototype"
-  subtitle="From hours of guesswork to minutes of validated conversation"
-  :hero='{ value: "82%", label: "reduction in prototype-to-deploy cycle time", source: "45-minute portal workflow → 8-minute conversational deployment with Plan Mode + Azure MCP" }'
+  title="The Number That Travels to Management"
+  subtitle="Infrastructure-as-conversation — validated before deployment"
+  :hero='{ value: "8 min", label: "prototype-to-deploy cycle with live Azure context", source: "vs. 45-minute average with portal discovery + 3-4 failed deploys" }'
   :supporting='[
-    { icon: "🎯", title: "Validation before code", description: "Assumptions checked against live quotas, SKUs, and networking before Bicep is written" },
-    { icon: "📋", title: "Production-grounded configs", description: "Generated code extracts real conventions from running resources — not generic docs" },
-    { icon: "🔁", title: "Environment cloning", description: "Clone any resource group to any region in one conversation with auto-adapted parameters" },
-    { icon: "💰", title: "Cost-aware generation", description: "AI reads current SKUs and proposes cost-optimized alternatives for dev/staging" }
+    { icon: "✅", title: "1-2 iterations instead of 3-4", description: "Misconfigurations caught in conversation before touching Azure" },
+    { icon: "📋", title: "Bicep from live templates", description: "Production-validated configs — not documentation examples with wrong SKUs" },
+    { icon: "💰", title: "Cost estimate in the plan", description: "AI surfaces ~$150/month before you approve — no billing surprises" },
+    { icon: "🔒", title: "RBAC gap caught pre-deploy", description: "azure-validate found the missing firewall rule before the deploy failed" }
   ]'
-  :insight='{ icon: "💡", text: "AI grounded in live context doesn&#39;t just answer faster — it answers correctly the first time." }'
+  :insight='{ icon: "💡", text: "The loop works because the AI knows what&#39;s running — not what the docs say should be running." }'
   :progressDots='{ current: 4, total: 4, activeColor: "bg-blue-400 shadow-lg shadow-blue-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — Configuration and Setup -->
+<!-- SLIDE: Part 3 — Azure Skills Plugin -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="Configuration and Setup"
-  subtitle="Install and scope the Azure MCP server in 10 minutes — replicate the demo before the next standup."
+  title="Azure Skills Plugin: The Brain Layer"
+  subtitle="21 curated skills + 200+ live tools: the three-layer stack that made the loop work"
   :cards='[
-    { icon: "📦", title: "Install",       blurb: "One command to add the Azure MCP server to Copilot CLI" },
-    { icon: "🔐", title: "Scope",         blurb: "Read-only service principal — safe for any team member to run" },
-    { icon: "✅", title: "Verify",         blurb: "Confirm the connection with a live subscription query" }
+    { icon: "🧠", title: "Skills as Workflow Brain", description: "21 Markdown skills encode Azure decision logic — the sequencing the MCP layer can&#39;t do alone" },
+    { icon: "🤲", title: "MCP as Execution Hands", description: "200+ live Azure SDK calls across 40+ services — queries, config reads, deployments" },
+    { icon: "🤖", title: "Foundry as AI Specialist", description: "Azure AI Foundry model deployment, endpoint management, agent orchestration" }
   ]'
-  :terminal='{ context: "gh copilot mcp add azure-mcp", detail: "Azure MCP connected — subscription context ready" }'
+  :terminal='{ context: "Plugin installed in .github/plugins/azure-skills/", detail: "21 skills · 200+ tools · 3 layers · 1 install" }'
 />
 
 ---
 
-<!-- SLIDE: Install and Connect -->
+<!-- SLIDE: Three-Layer Architecture -->
+<FrameworkMappingRowsSlide
+  :partNumber="3"
+  pillIcon="🏗️"
+  pillLabel="Skills Plugin: Architecture"
+  title="Why the Prototype Loop Worked"
+  subtitle="Three layers — Skills knew the sequence, MCP had the reach, Foundry handles AI"
+  :rows='[
+    { label: "Brain", description: "Azure Skills (21 curated) — workflow logic, decision trees, guardrails", tag: "azure-prepare · azure-validate · azure-deploy" },
+    { label: "Hands", description: "Azure MCP Server (200+ tools, 40+ services) — live SDK calls to Azure", tag: "Resource queries · Config reads · Deployments" },
+    { label: "AI Specialist", description: "Foundry MCP Server — AI model deployment and agent orchestration", tag: "AI models · Endpoints · Agent workflows" }
+  ]'
+  footnote="Skills encode the &#39;when&#39; and &#39;why&#39; — MCP provides the &#39;how&#39; — Foundry handles the &#39;AI&#39;"
+  :progressDots='{ current: 1, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: 21 Skills by Lifecycle Phase -->
+<ThreeColumnCardSlide
+  :partNumber="3"
+  pillIcon="🗂️"
+  pillLabel="Skills Plugin: Skill Catalog"
+  title="21 Skills Covering the Full Azure Lifecycle"
+  :columns='[
+    { icon: "🚀", title: "Build + Deploy", description: "Core deployment pipeline skills that activate in sequence for any Azure workload", items: ["azure-prepare — project analysis + infra gen", "azure-validate — pre-deploy checks", "azure-deploy — ordered pipeline + rollback"] },
+    { icon: "🔍", title: "Operate + Troubleshoot", description: "Live telemetry and operational skills for diagnosing running workloads", items: ["azure-diagnostics — AppInsights + logs", "azure-observability — alerting + dashboards", "azure-kusto — KQL query construction"] },
+    { icon: "⚡", title: "Optimize + Govern", description: "Cost, security, identity, and AI governance skills for production readiness", items: ["azure-cost-optimization — right-sizing", "azure-rbac — RBAC + service principals", "azure-ai · azure-aigateway · microsoft-foundry"] }
+  ]'
+  :progressDots='{ current: 2, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Plugin Installation -->
 <CodeWithFeaturesSlide
   :partNumber="3"
   pillIcon="📦"
-  pillLabel="Setup: Install"
-  title="Three Steps: Install, Authenticate, Connect"
+  pillLabel="Skills Plugin: Setup"
+  title="Install Once, Available Everywhere — ~10 Minutes"
   codePosition="left"
-  :code='{ language: "bash", filename: "setup.sh", content: "# 1. Install the Azure MCP server\nnpm install -g @azure/mcp\n\n# 2. Authenticate with your Azure account\naz login\naz account set --subscription \"your-subscription-name\"\n\n# 3. Configure ~/.copilot/mcp-servers.json\n{\n  \"mcpServers\": [{\n    \"name\": \"azure-mcp\",\n    \"command\": \"npx\",\n    \"args\": [\"@azure/mcp\"],\n    \"env\": {\n      \"AZURE_SUBSCRIPTION_ID\": \"your-id\"\n    }\n  }]\n}\n\n# 4. Verify the connection\ngh copilot chat\n> List all resource groups" }'
+  :code='{ language: "bash", filename: "Install the Azure Skills Plugin", content: "# Copilot CLI\n/plugin marketplace add microsoft/azure-skills\n/plugin install azure@azure-skills\n\n# VS Code\n# Install \"Azure MCP\" extension from Marketplace\n# Skills Plugin is bundled and auto-configured\n\n# Claude Code\n/plugin marketplace add microsoft/azure-skills\n/plugin install azure@azure-skills" }'
   :features='[
-    { icon: "⏱️", title: "10 minutes total", description: "Install + auth + config + verify — replicate before the next standup" },
-    { icon: "🔑", title: "Reuses az login", description: "No separate authentication — inherits your existing Azure CLI session and permissions" },
-    { icon: "🎛️", title: "Scope services", description: "AZURE_MCP_ENABLED_SERVICES=storage,cosmosdb — reduce noise, focus on what you need" }
+    { icon: "🌐", title: "Host-agnostic", description: "Same skills work in Copilot CLI, VS Code, and Claude Code — install once, deploy everywhere" },
+    { icon: "📁", title: "Installs to .github/", description: "Skills land in .github/plugins/azure-skills/ — version-controlled, team-shareable" },
+    { icon: "🔌", title: "Bundles all three layers", description: "One install brings Azure Skills, Azure MCP Server, and Foundry MCP — no separate wiring" },
+    { icon: "🔧", title: "Extensible", description: "Add org-specific skills alongside the 21 curated ones for internal conventions and governance" }
   ]'
-  :progressDots='{ current: 1, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  :progressDots='{ current: 3, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Service Selection -->
-<ThreeColumnCardSlide
+<!-- SLIDE: The azure-rbac Bridge -->
+<BeforeAfterPanelsSlide
   :partNumber="3"
-  pillIcon="🎛️"
-  pillLabel="Setup: Scope"
-  title="40+ Services — Scope to What You Need"
-  :columns='[
-    { icon: "🏗️", title: "Infrastructure", description: "Resources, App Service, AKS, Functions, SQL, Cosmos DB, Key Vault, Storage", items: ["Resource Groups", "ARM deployments", "Pricing SKUs"] },
-    { icon: "📊", title: "Observability", description: "Monitor, Log Analytics KQL queries, App Insights, App Configuration stores", items: ["Live log queries", "Metrics history", "Config stores"] },
-    { icon: "🔧", title: "DevOps", description: "Azure DevOps: work items, pipelines, pull requests, build status", items: ["Pipeline status", "Work item queries", "PR reviews"] }
-  ]'
-  :insight='{ icon: "💡", text: "Start with resources + storage + monitor — covers 80% of discovery workflows. Add services as needed." }'
-  :progressDots='{ current: 2, total: 2, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
+  pillIcon="🔑"
+  pillLabel="Skills Plugin: Governance Bridge"
+  title="The Skills Layer Is Also Your First Line of Access Governance"
+  :before='{ header: "MCP Only — No Governance Layer", items: [
+    "AI executes tool calls with your full authenticated permissions",
+    "No workflow awareness — tool calls can happen in any order",
+    { title: "No RBAC pre-validation", detail: "Permission errors surface post-execution, not pre-deployment" },
+    "Trust depends entirely on the human reviewing outputs"
+  ] }'
+  :after='{ header: "Skills + MCP — azure-rbac Activated", items: [
+    "azure-rbac skill validates role assignments before deployment steps",
+    "Principle of least privilege enforced as part of the workflow sequence",
+    { title: "Service principal guidance built in", detail: "Skill recommends scoped SP over personal account for team workflows" },
+    "Trust is architecturally enforced — not a human memory exercise"
+  ] }'
+  :progressDots='{ current: 4, total: 4, activeColor: "bg-indigo-400 shadow-lg shadow-indigo-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 4 — Guardrails and Trust Boundaries -->
+<!-- SLIDE: Part 4 — Guardrails -->
 <SectionOpenerSlide
   :partNumber="4"
   title="Guardrails and Trust Boundaries"
-  subtitle="Read-only service principal and permission escalation path — a safe on-ramp before granting write access."
+  subtitle="Read-only by default, opt-in for writes — enterprise-safe from day one"
   :cards='[
-    { icon: "🔒", title: "Read-Only First", blurb: "Service principal starts read-only — explore safely, escalate deliberately" },
-    { icon: "📈", title: "Escalation Path",  blurb: "Structured permission promotion: read → targeted write → full deploy" },
-    { icon: "🏢", title: "Enterprise Ready", blurb: "Org-wide MCP policy, audit trails, and subscription-scoped boundaries" }
+    { icon: "🔐", title: "RBAC Inheritance", description: "MCP executes with your auth — no elevation, subscription boundaries automatically respected" },
+    { icon: "👁️", title: "Read-Only First", description: "Scoped service principal with Reader role — explore safely before granting write access" },
+    { icon: "📝", title: "Production Discipline", description: "AI-validated configs still require review — treat Copilot as a skilled junior engineer" }
   ]'
-  :terminal='{ context: "Service principal scope: Reader role", detail: "Explore safely. Escalate deliberately. Ship with confidence." }'
+  :terminal='{ context: "az ad sp create-for-rbac --role Reader --scopes /subscriptions/...", detail: "Read-only by default · opt-in write access per service" }'
 />
 
 ---
 
-<!-- SLIDE: RBAC Inheritance -->
-<FrameworkMappingRowsSlide
-  :partNumber="4"
-  pillIcon="🔒"
-  pillLabel="Guardrails: RBAC Model"
-  title="MCP Inherits Your Permissions — No Elevation"
-  :rows='[
-    { label: "Reader role", description: "Query and discover only — no create, update, or delete", tag: "Safe start" },
-    { label: "Contributor", description: "Full create/update/delete — use only in dev/staging subs", tag: "Write enabled" },
-    { label: "Owner role", description: "Can manage RBAC itself — avoid for MCP workflows", tag: "Too broad" },
-    { label: "Svc principal", description: "Scoped identity shared by team — not personal creds", tag: "Recommended" }
-  ]'
-  :insight='{ icon: "🎯", text: "Start every team with a Reader service principal. Explore safely. Escalate deliberately." }'
-  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
-/>
-
----
-
-<!-- SLIDE: Two Trust Strategies -->
+<!-- SLIDE: Reader vs Contributor — When to Use Each -->
 <TwoColPairedConceptsSlide
   :partNumber="4"
-  pillIcon="📈"
-  pillLabel="Guardrails: Two Strategies"
-  title="Read-Only Exploration vs Write-Enabled Prototyping"
-  :left='{
-    header: "Read-Only First",
-    icon: "🔍",
-    items: [
-      { title: "Reader service principal", detail: "az ad sp create-for-rbac --role Reader" },
-      { title: "Safe on production", detail: "Entire team can query production without risk" },
-      { title: "Covers 70% of the value", detail: "Discovery, templating, validation — all read-only" }
-    ],
-    code: { language: "bash", content: "az ad sp create-for-rbac \\\n  --name copilot-mcp-readonly \\\n  --role Reader \\\n  --scopes /subscriptions/PROD_ID" }
-  }'
-  :right='{
-    header: "Write in Dev/Staging",
-    icon: "🚀",
-    items: [
-      { title: "Contributor on isolated sub", detail: "Separate dev subscription from production" },
-      { title: "Cost guardrails required", detail: "Spending limits before enabling write access" },
-      { title: "Peer review on AI configs", detail: "Generated Bicep goes through PR before deploy" }
-    ],
-    code: { language: "bash", content: "az ad sp create-for-rbac \\\n  --name copilot-mcp-dev \\\n  --role Contributor \\\n  --scopes /subscriptions/DEV_ID" }
-  }'
-  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  pillIcon="⚖️"
+  pillLabel="Guardrails: Permission Model"
+  title="The Safe On-Ramp: Start Read-Only"
+  :left='{ header: "Reader Role — Start Here", icon: "👁️", items: [
+    { title: "Safe for production subscriptions", detail: "Query any resource, read any config — zero modification risk" },
+    { title: "Ideal for team onboarding", detail: "Entire team explores safely before governance decisions" },
+    { title: "Enable for: discovery, templating, config extraction", detail: "All the wow-moments work with Reader" },
+    "Fails loudly on write attempts — accidental modification impossible"
+  ] }'
+  :right='{ header: "Contributor Role — Earn It", icon: "✏️", items: [
+    { title: "Use only in dedicated dev/staging subscriptions", detail: "Isolated from production — failures are contained" },
+    { title: "Require PR review before execution", detail: "AI-generated Bicep goes through standard approval" },
+    { title: "Establish conventions first", detail: "Custom instructions guide AI toward compliant resource patterns" },
+    "Never use personal Owner account — create a scoped service principal"
+  ] }'
+  :progressDots='{ current: 1, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Permission Escalation Path -->
-<WorkflowShowdownStepsSlide
+<!-- SLIDE: The Trust Escalation Path -->
+<ThreeColumnCardSlide
   :partNumber="4"
-  pillIcon="🛡️"
-  pillLabel="Guardrails: Escalation Path"
-  title="The On-Ramp Teams Can Trust"
-  subtitle="Earn write access incrementally — each step adds capability with accountability"
-  leftLabel="What You Can Do"
-  rightLabel="What It Requires"
-  :steps='[
-    { left: { label: "Discover & query", note: "List resources, extract configs, analyze logs" }, right: { label: "Reader service principal", note: "5-minute setup, safe on production" } },
-    { left: { label: "Clone environments", note: "Generate validated Bicep from live resources" }, right: { label: "Contributor on dev sub", note: "Isolated subscription, spending limit set" } },
-    { left: { label: "Deploy from conversation", note: "AI-generated infra, full prototype loop" }, right: { label: "Peer review process", note: "PR review on AI configs before deploy" } },
-    { left: { label: "Production deployments", note: "Live changes with full Azure MCP context" }, right: { label: "Full team governance", note: "RBAC policy, audit trail, approval workflow" } }
+  pillIcon="🛤️"
+  pillLabel="Guardrails: Trust Escalation"
+  title="Explore → Prototype → Ship"
+  :columns='[
+    { icon: "🔍", title: "Explore", description: "Reader SP on any subscription — discover resources, extract configs, scaffold templates safely", items: ["List resources + configs", "Extract live templates", "Generate Bicep for review", "No modification possible"] },
+    { icon: "🔧", title: "Prototype", description: "Contributor SP on isolated dev subscription — build, deploy, iterate with AI in a safe sandbox", items: ["Dedicated dev subscription", "AI-generated configs reviewed", "Peer review before execution", "Production isolated"] },
+    { icon: "🚀", title: "Ship", description: "Approved patterns promoted to production — AI assists, humans approve, audit trail maintained", items: ["Conventions established", "RBAC scoped per service", "PR-gated deployments", "Read-only by default"] }
   ]'
-  :outcomeLeft='{ icon: "🔍", label: "Start here — immediate value, zero risk" }'
-  :outcomeRight='{ icon: "🚀", label: "Earn this — each step builds team confidence" }'
-  summaryMetric="Read-only today → full deployment with governance in one sprint"
-  :progressDots='{ current: 3, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :insight='{ icon: "💡", text: "CTO talking point: Read-only service principal by default — write access is opt-in per service." }'
+  :progressDots='{ current: 2, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Before/After -->
+<!-- SLIDE: Before and After -->
 <BeforeAfterSlide
-  header="From Portal Tab-Switching to Conversational Infrastructure"
+  title="The Infrastructure Workflow Transformation"
   :leftItems='[
-    "Open portal, navigate to correct subscription, find the resource type",
-    "Copy resource names, regions, and config into a separate note or prompt",
-    "Paste context into AI, receive generic advice disconnected from your state",
-    "45 minutes of clicks and context-switching to prototype a single deployment"
+    "Open Azure Portal, navigate resource groups, find the resource",
+    "Manually copy configuration values into a text editor or clipboard",
+    "Search documentation for valid parameter ranges and SKU options",
+    "Deploy, discover configuration mismatches, troubleshoot, redeploy"
   ]'
   :rightItems='[
-    "Ask Copilot CLI in plain language — Azure MCP provides live subscription context automatically",
-    "Plan Mode asks clarifying questions against real resources before generating anything",
-    "AI-generated Bicep/ARM code is grounded in your actual quotas, regions, and existing resources",
-    "8-minute conversational deployment loop from idea to running infrastructure"
+    "Ask Copilot: &#39;What App Services are running and what are their configs?&#39;",
+    "AI returns live structured output with networking, settings, and SKUs",
+    "Scaffold similar resource — AI uses live template, not generic docs example",
+    "Plan Mode validates against subscription limits before deployment"
   ]'
   :metrics='[
-    { value: "82%", detail: "Prototype time reduction: 45 min portal clicks → 8 min conversation" },
-    { value: "0", detail: "Manual config pastes — Azure MCP reads live state automatically" },
-    { value: "1", detail: "Conversation to clone an environment to any region with validated parameters" }
+    { value: "45 min → 8 min", detail: "Prototype-to-deploy cycle" },
+    { value: "200+", detail: "Live Azure tools" },
+    { value: "21", detail: "Workflow skills" }
   ]'
 />
 
@@ -452,10 +445,22 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Install the Azure MCP server with gh copilot mcp add", "Run a live subscription query to verify the connection", "Ask Copilot about your running resources in plain language"]'
-  :thisWeek='["Use Plan Mode + Azure MCP to prototype your next deployment conversationally", "Clone a non-production environment to a new region in one conversation", "Show a colleague the 45-min → 8-min compression demo"]'
-  :thisMonth='["Set up a read-only service principal for your team to explore safely", "Define your permission escalation path from read to targeted write", "Evaluate Azure MCP for org-wide rollout with subscription-scoped boundaries"]'
-  footer="Start with read-only — live context alone changes how your team thinks about infrastructure."
+  :today='[
+    "Install Azure MCP Server (npm, pip, or Docker — ~10 minutes)",
+    "Run your first live query: &#39;List all storage accounts in my subscription&#39;",
+    "Try Plan Mode on a real deployment task with Shift+Tab"
+  ]'
+  :thisWeek='[
+    "Configure a read-only service principal for team-safe exploration",
+    "Scaffold a staging environment config from a production resource",
+    "Install the Azure Skills Plugin and run the prototype loop demo"
+  ]'
+  :thisMonth='[
+    "Evaluate org-wide rollout with RBAC-scoped service principals per team",
+    "Build custom org-specific skills for your team&#39;s Azure workflow patterns",
+    "Compare old portal workflow vs Skills+MCP on a real infrastructure task"
+  ]'
+  footer="Start with Reader role — the wow-moments all work before you grant write access."
 />
 
 ---
@@ -464,14 +469,15 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 <ReferencesSlide
   :groups='[
     { title: "📖 Official Documentation", color: "cyan", items: [
-      { href: "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started", label: "Get started with the Azure MCP Server", description: "Install, configure, and connect the Azure MCP server to Copilot CLI" },
-      { href: "https://github.com/Azure/azure-mcp", label: "Azure MCP Server GitHub Repository", description: "Source, changelog, and community contributions for the Azure MCP server" },
-      { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices", label: "Best practices for GitHub Copilot CLI", description: "CLI usage patterns, Plan Mode, and MCP integration guidance" }
+      { href: "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/get-started", label: "Get started with the Azure MCP Server", description: "Installation, authentication, and first queries" },
+      { href: "https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices", label: "Best practices for GitHub Copilot CLI", description: "Permissions, custom instructions, MCP integration" }
     ] },
-    { title: "🛠️ Related Talks", color: "purple", items: [
-      { label: "Copilot CLI", description: "Core CLI capabilities — Plan Mode, programmatic mode, and terminal-first workflows" },
-      { label: "MCP Apps", description: "Model Context Protocol servers — building and connecting custom tool integrations" },
-      { label: "Enterprise Patterns", description: "Org-wide Copilot rollout, permission governance, and team trust models" }
+    { title: "🔌 Azure Skills Plugin", color: "indigo", items: [
+      { href: "https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/", label: "Announcing the Azure Skills Plugin", description: "21 curated skills, three-layer stack announcement" },
+      { href: "https://github.com/microsoft/azure-skills", label: "Azure Skills GitHub Repository", description: "Source, examples, and community contributions" }
+    ] },
+    { title: "🛠️ Tools and Source", color: "blue", items: [
+      { href: "https://github.com/Azure/azure-mcp", label: "Azure MCP Server GitHub Repository", description: "200+ tools across 40+ Azure services" }
     ] }
   ]'
 />
@@ -480,12 +486,12 @@ import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vu
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-  title="GitHub Copilot CLI + Azure MCP"
-  subtitle="Rapid Azure Prototyping and Deployment"
-  :cards="[
-    { value: '8 min', detail: 'Portal click workflow compressed to conversational deployment — Plan Mode + live Azure context' },
-    { value: 'Live state', detail: 'Azure MCP gives Copilot real subscription context — no manual config pasting, ever' },
-    { value: 'Read-only first', detail: 'Safe on-ramp: explore your infrastructure before granting a single write permission' },
-  ]"
-  prompt="Which Azure workflow in your team still requires the most tab-switching and manual context — and how would live subscription context change it?"
+  title="Infrastructure Becomes Conversational"
+  subtitle="GitHub Copilot + Azure Skills Plugin"
+  :cards='[
+    { value: "45 min → 8 min", detail: "Prototype-to-deploy cycle with live Azure context replacing portal tab-switching" },
+    { value: "21 Skills", detail: "Azure workflow logic encoded as Markdown — not generic prompts, governed deployment sequences" },
+    { value: "Read-Only First", detail: "Opt-in write access per service — enterprise-safe on-ramp before granting production access" }
+  ]'
+  prompt="How much of your Azure workflow still lives in the portal?"
 />
