@@ -76,6 +76,8 @@ const DARK = {
   stepNote:     'text-white/50',
   outcomeLeft:  'bg-orange-900/40 border-orange-500/40 text-orange-300',
   outcomeRight: 'bg-emerald-900/40 border-emerald-500/40 text-emerald-300',
+  dotInactive:  'bg-gray-600',
+  dotCounter:   'text-gray-400',
 }
 const LIGHT = {
   title:        'text-gray-900',

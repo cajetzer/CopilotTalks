@@ -5,9 +5,13 @@ tools: ["read", "github/web_search", "edit/createFile", "edit/editFiles"]
 model: Claude Sonnet 4.6
 argument-hint: Provide URLs to research or describe the tech talk topic (uses web_search for reliability)
 handoffs:
-  - label: Review Recipe
+  - label: Tech Review Recipe
     agent: AgentCouncil
-    prompt: Run the exec-recipe-review skill on the exec talk I just created
+    prompt: Run the deck-recipe-review skill on the tech talk I just created/updated
+    send: false
+  - label: Exec Review Recipe
+    agent: AgentCouncil
+    prompt: Run the exec-recipe-review skill on the exec talk I just created/updated
     send: false
 ---
 
@@ -127,13 +131,13 @@ After the user responds:
 1. Incorporate the user's selected outline, toggle choices, or structural edits
 2. Read `tech-talks/TEMPLATE.md` for complete structure (can be done in parallel with research)
 3. **Query Memory** — Read `memories/infra/facts.md` and `advice.md` for confirmed voice and framing patterns. If the topic maps to a content bench (e.g., `agent_architecture`), read that drawer too. Apply before drafting any section.
-3a. **Workbench Update (session end)** — After the README and recipe are written, run the **Content Change → Workbench Update Protocol** in `.github/skills/workbench/SKILL.md`. Pay particular attention to question 5 (topic-specific gate): if this session produced a non-obvious framing or structural decision specific to this talk's content — something a future agent reading only the README would miss — write a short entry to the matching topic bench. Generic voice/build lessons go to `infra`. If neither applies, write nothing.
+   3a. **Workbench Update (session end)** — After the README and recipe are written, run the **Content Change → Workbench Update Protocol** in `.github/skills/workbench/SKILL.md`. Pay particular attention to question 5 (topic-specific gate): if this session produced a non-obvious framing or structural decision specific to this talk's content — something a future agent reading only the README would miss — write a short entry to the matching topic bench. Generic voice/build lessons go to `infra`. If neither applies, write nothing.
 4. Frame ONE clear question this talk answers
-4. Verify content fitness rubric (all must be 🟢 before proceeding)
-5. Download images if found: `python3 scripts/download-images.py <source_url> <output_dir> --limit 7`
+5. Verify content fitness rubric (all must be 🟢 before proceeding)
+6. Download images if found: `python3 scripts/download-images.py <source_url> <output_dir> --limit 7`
    — copies into `images/` subdirectory and generates a markdown snippet for the Visual Assets section
-6. Fill all required sections (in template order): The Opportunity, How It Works, Visual Assets, Key Artifacts, Mental Model Shift (with Core Insight one-liner), Decision Tree, Major Sections (with 🎬 markers), Real-World Use Cases, What You Can Do Today (15min/1hr/2-4hr), Related Patterns, References (numbered footnotes `[^n]`)
-7. Keep the README reader-first: no slide sequence tables, no speaker notes, no TOC explanations, and no visible "this becomes a slide" prose
+7. Fill all required sections (in template order): The Opportunity, How It Works, Visual Assets, Key Artifacts, Mental Model Shift (with Core Insight one-liner), Decision Tree, Major Sections (with 🎬 markers), Real-World Use Cases, What You Can Do Today (15min/1hr/2-4hr), Related Patterns, References (numbered footnotes `[^n]`)
+8. Keep the README reader-first: no slide sequence tables, no speaker notes, no TOC explanations, and no visible "this becomes a slide" prose
 
 ### Deck Recipe Artifact
 

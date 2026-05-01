@@ -46,17 +46,17 @@ The recipe contains everything needed to write the full structural skeleton. Sta
 
 Write the scaffold in one pass:
 
-| Recipe field | Used for |
-|---|---|
-| `deck.title` / `deck.subtitle` / `deck.tagline` | `TitleSlide` props |
-| `deck.arcToc` | `TocSlide` subtitle — the short → chain shown on the slide |
-| `deck.arcNarrative` | Authoring guidance — read before writing section openers to understand sequencing intent; never displayed |
-| `deck.sectionOrder` | `TocSlide` section list; one `SectionOpenerSlide` per entry |
-| `deck.sectionModes[].note` | `SectionOpenerSlide` subtitle — verbatim or condensed to ≤ 120 chars |
-| `deck.sectionModes[].emphasis` | Budget comment after each opener: `high` = 4–5 slides, `medium` = 2–3, `medium-low` = 1–2 |
-| `deck.highlightMoments` | `BeforeAfterSlide` items/metrics; `WhatYouCanDoTodaySlide` actions; `ThankYouSlide` summary cards |
-| `deck.preamble` | `src:` import blocks emitted immediately after `TitleSlide` (optional) |
-| `deck.appendix` | `src:` import blocks emitted after `ThankYouSlide` (optional) |
+| Recipe field                                    | Used for                                                                                                  |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `deck.title` / `deck.subtitle` / `deck.tagline` | `TitleSlide` props                                                                                        |
+| `deck.arcToc`                                   | `TocSlide` subtitle — the short → chain shown on the slide                                                |
+| `deck.arcNarrative`                             | Authoring guidance — read before writing section openers to understand sequencing intent; never displayed |
+| `deck.sectionOrder`                             | `TocSlide` section list; one `SectionOpenerSlide` per entry                                               |
+| `deck.sectionModes[].note`                      | `SectionOpenerSlide` subtitle — verbatim or condensed to ≤ 120 chars                                      |
+| `deck.sectionModes[].emphasis`                  | Budget comment after each opener: `high` = 4–5 slides, `medium` = 2–3, `medium-low` = 1–2                 |
+| `deck.highlightMoments`                         | `BeforeAfterSlide` items/metrics; `WhatYouCanDoTodaySlide` actions; `ThankYouSlide` summary cards         |
+| `deck.preamble`                                 | `src:` import blocks emitted immediately after `TitleSlide` (optional)                                    |
+| `deck.appendix`                                 | `src:` import blocks emitted after `ThankYouSlide` (optional)                                             |
 
 **Scaffold write order:**
 
@@ -71,10 +71,11 @@ Write the scaffold in one pass:
    **Do NOT read preamble files** — their component requirements are already listed here. For `exec-spine.md`, add these imports to `<script setup>` (in addition to whatever the body slides need):
    ```html
    import BeforeAfterPanelsSlide from './components/BeforeAfterPanelsSlide.vue'
-   import FrameworkMappingRowsSlide from './components/FrameworkMappingRowsSlide.vue'
-   import HeroStatSlide from './components/HeroStatSlide.vue'
-   import ThreeColumnCardSlide from './components/ThreeColumnCardSlide.vue'
-   import TwoColPairedConceptsSlide from './components/TwoColPairedConceptsSlide.vue'
+   import FrameworkMappingRowsSlide from
+   './components/FrameworkMappingRowsSlide.vue' import HeroStatSlide from
+   './components/HeroStatSlide.vue' import ThreeColumnCardSlide from
+   './components/ThreeColumnCardSlide.vue' import TwoColPairedConceptsSlide from
+   './components/TwoColPairedConceptsSlide.vue'
    ```
 4. `CoreQuestionSlide` — always next; use placeholder cards (3 persona + 3 stat) — fill in Phase B
 5. `TocSlide` — sections from `deck.sectionOrder`; `slide: 0` placeholder — update after Phase B
@@ -107,15 +108,15 @@ Read all of these at the same time. Do not read one, then the next — fetch the
 
 **Editorial curation — score content before choosing slides:**
 
-| Axis | Question | Signal |
-|---|---|---|
-| **Novelty** | New or surprising to a practitioner? | Unique capabilities, recent additions, unexpected use cases |
-| **Differentiation** | Only this tool can do it? | Avoid demos that apply to any AI assistant |
+| Axis                | Question                                  | Signal                                                       |
+| ------------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| **Novelty**         | New or surprising to a practitioner?      | Unique capabilities, recent additions, unexpected use cases  |
+| **Differentiation** | Only this tool can do it?                 | Avoid demos that apply to any AI assistant                   |
 | **Audience impact** | Developer thinks "I need that right now"? | Real time savings, workflow unblocking, capability unlocking |
 
 Identify the single "I didn't know it could do that" moment → make it the centerpiece of a section. Prefer novel content. Compress or skip table-stakes demos.
 
-**Target: 18–24 slides total (never exceed 25).** Fixed positions:
+**Target: 20-25 slides total (never exceed 30).** Fixed positions:
 
 ```
 Slide 1   — TitleSlide
@@ -167,11 +168,11 @@ info: |
 drawings:
   persist: false
 transition: slide-left
-title: {Title}
+title: { Title }
 mdc: true
-section: {value from SECTIONS.md}
+section: { value from SECTIONS.md }
 status: active
-updated: {YYYY-MM-DD}
+updated: { YYYY-MM-DD }
 ---
 ```
 
@@ -185,27 +186,28 @@ One `<script setup>` block at the top, immediately after frontmatter. Import onl
 
 Every body slide **must** use one of the 13 Tier-1 components. No inline HTML for body slides. The components handle cockpit wrapper, section chrome, color progression, and theming.
 
-| Situation | Component |
-|---|---|
-| Before → After with quantified metrics | `BeforeAfterMetricsSlide` |
-| Before → After without metrics | `BeforeAfterPanelsSlide` |
-| Problem → Solution → Outcome | `ProblemSolutionOutcomeSlide` |
-| Two non-opposed concepts side-by-side | `TwoColPairedConceptsSlide` |
-| Exactly 3 options/tiers | `ThreeColumnCardSlide` |
-| Exactly 4 items in 2×2 grid | `FourCardGridSlide` |
-| Code block + 2–4 feature cards | `CodeWithFeaturesSlide` |
-| One dominant statistic + context | `HeroStatSlide` |
-| Old vs new workflow, mirrored steps | `WorkflowShowdownStepsSlide` |
-| Maturity/adoption stages (2–5) | `MaturityJourneyRoadmapSlide` |
-| AI terminal conversation | `AITerminalTranscriptSlide` |
-| Single maturity level drilldown | `MaturityLevelDrilldownSlide` |
-| Multi-row concept taxonomy | `FrameworkMappingRowsSlide` |
+| Situation                              | Component                     |
+| -------------------------------------- | ----------------------------- |
+| Before → After with quantified metrics | `BeforeAfterMetricsSlide`     |
+| Before → After without metrics         | `BeforeAfterPanelsSlide`      |
+| Problem → Solution → Outcome           | `ProblemSolutionOutcomeSlide` |
+| Two non-opposed concepts side-by-side  | `TwoColPairedConceptsSlide`   |
+| Exactly 3 options/tiers                | `ThreeColumnCardSlide`        |
+| Exactly 4 items in 2×2 grid            | `FourCardGridSlide`           |
+| Code block + 2–4 feature cards         | `CodeWithFeaturesSlide`       |
+| One dominant statistic + context       | `HeroStatSlide`               |
+| Old vs new workflow, mirrored steps    | `WorkflowShowdownStepsSlide`  |
+| Maturity/adoption stages (2–5)         | `MaturityJourneyRoadmapSlide` |
+| AI terminal conversation               | `AITerminalTranscriptSlide`   |
+| Single maturity level drilldown        | `MaturityLevelDrilldownSlide` |
+| Multi-row concept taxonomy             | `FrameworkMappingRowsSlide`   |
 
 If content does not fit any component, **adapt or split** — there is no inline HTML fallback.
 
 ### Universal component props
 
 Every Tier-1 body component requires:
+
 - `partNumber` (1–4) — drives all colors
 - `pillIcon` + `pillLabel` — breadcrumb
 - `title` — slide headline (≤ 80 chars)
@@ -271,6 +273,7 @@ Before handing off, run the **Content Change → Workbench Update Protocol** in 
 Run through this before handing off.
 
 ### Structure
+
 - [ ] Slide 1: `TitleSlide` with `title`, `subtitle`, `tagline`, `meta`
 - [ ] Slide 2: `CoreQuestionSlide` with exactly 6 cards (3 audience with `icon` + 3 stats)
 - [ ] Slide 3: `TocSlide` with exactly 4 sections; `slide` values are actual counted numbers
@@ -281,6 +284,7 @@ Run through this before handing off.
 - [ ] N: `ThankYouSlide` with `title`, `subtitle`, `cards` (2–4 items), `prompt`
 
 ### Components
+
 - [ ] Every body slide uses one of the 13 Tier-1 components — zero inline HTML
 - [ ] `progressDots` on every body slide (including single-slide sections)
 - [ ] `partNumber` matches section position (1=cyan, 2=blue, 3=indigo, 4=purple)
@@ -288,11 +292,13 @@ Run through this before handing off.
 - [ ] No `&quot;` or `\"` in any prop value
 
 ### Frontmatter & metadata
+
 - [ ] `section:` value matches `slides/SECTIONS.md`
 - [ ] `status: active` and `updated: {today}`
 - [ ] Single `<script setup>` block, imports only what the deck uses
 
 ### Build & index
+
 - [ ] `.\build.ps1 -Deck {slug}` exits with `[OK]`
 - [ ] `index-custom.html` card added in correct section
 - [ ] `sync-index-dates.mjs` run and shows deck in NEW list

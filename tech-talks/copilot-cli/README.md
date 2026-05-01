@@ -1,6 +1,6 @@
 ---
 status: active
-updated: 2026-04-17
+updated: 2026-05-01
 section: "Developers"
 references:
   - url: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli
@@ -33,6 +33,12 @@ references:
   - url: https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/
     label: "Remote control CLI sessions on web and mobile (public preview)"
     verified: 2026-04-17
+  - url: https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle
+    label: "Using GitHub Copilot CLI session data (/chronicle)"
+    verified: 2026-05-01
+  - url: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle
+    label: "About GitHub Copilot CLI session data"
+    verified: 2026-05-01
 ---
 
 # GitHub Copilot CLI: AI at the Point of Work
@@ -97,6 +103,7 @@ GitHub Copilot CLI brings conversational AI directly into terminal workflows —
 - **Performance & UX Upgrades**: Faster, more concise responses with improved diff/timeline views and better Windows/PowerShell support
 - **MCP Registry Integration**: Discover and connect external tools/agents via GitHub MCP Registry with organization-level controls
 - **Plugin Ecosystem**: Install community and team-created plugins from marketplaces — extend CLI functionality with specialized capabilities
+- **`/chronicle` Session Insights**: Review your session history to generate standup reports, surface personalized usage tips, and get suggestions for improving `.github/copilot-instructions.md` — Copilot learns from how you actually work
 
 ### Architecture Overview
 
@@ -109,7 +116,13 @@ The session is the durable entity — terminals are viewports that connect and d
 
 ---
 
-## 📽️ Visual Assets
+## �️ Slide Structure Notes
+
+**Appendix:** `slides/tech-talks/copilot-cli-reference.md` — imported after the ThankYouSlide as a reference card appendix. Always include in `deck.recipe.yml` as `appendix: [{src: ./copilot-cli-reference.md}]`.
+
+---
+
+## �📽️ Visual Assets
 
 *This talk does not include extracted diagrams from source documentation. Visual content will be generated during slide creation using styled HTML components for architecture diagrams and workflow illustrations.*
 
@@ -597,6 +610,43 @@ See also: [Steering a session remotely](https://docs.github.com/en/copilot/how-t
 
 Copilot CLI stores learned facts about your codebase — conventions, patterns, preferred approaches — and applies them automatically in future sessions. This is covered in depth in the [Copilot Memory](../copilot-memory/) talk.
 
+### Session History and `/chronicle`
+
+Every interactive session is saved locally — prompts, responses, tools used, and file modifications — giving Copilot a persistent record of what you've worked on and how you've used it. That history is queryable and actionable.
+
+**`/chronicle`** turns session history into intelligence:
+
+| Command | What It Does |
+|---------|-------------|
+| `/chronicle standup` | Generates a standup report from recent session activity |
+| `/chronicle tips` | Reviews usage patterns and surfaces personalized improvement suggestions |
+| `/chronicle instructions` | Analyzes sessions and suggests additions to `.github/copilot-instructions.md` |
+
+Open-ended questions work too:
+
+```bash
+$ copilot
+> "What did I work on yesterday?"
+> "What issues did I run into this week?"
+> "What patterns do I keep repeating that I could automate?"
+```
+
+**Session management commands:**
+
+```bash
+copilot --continue          # Resume the most recent session
+copilot --resume            # Pick from recent sessions interactively
+copilot --resume SESSION-ID # Resume a specific session by ID
+
+# From within an active session:
+/resume                     # Resume a previous session into current context
+/rename NEW_NAME            # Give the current session a meaningful name
+```
+
+**Session storage:** Data lives in `~/.copilot/session-state/` — private to your machine and user account. Delete that directory to clear history.
+
+See also: [Using GitHub Copilot CLI session data](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle)
+
 ### Model Selection and Premium Request Cost
 
 **Default model:** Claude Sonnet 4.5. Change model at any time:
@@ -985,6 +1035,7 @@ $ copilot
 - [ ] Delegate a long-running task with `& <task>` — verify your IDE stays completely free while the agent works in the cloud
 - [ ] Create `.github/copilot-instructions.md` with your project conventions so Copilot learns your style
 - [ ] Run `/context` and `/usage` to understand session management and auto-compaction
+- [ ] Run `/chronicle standup` after a productive session — verify it reflects what you actually did; use `/chronicle instructions` to get Copilot's read on what's worth adding to your `.github/copilot-instructions.md`
 
 **DevOps Short-Term (1 hour):**
 - [ ] Add Copilot CLI to one CI/CD pipeline for build failure analysis — use `copilot -p "Analyze build failure" --allow-tool 'shell(gh)'`
@@ -1029,6 +1080,8 @@ See [DECISION-GUIDE.md](../DECISION-GUIDE.md) for complete navigation help.
 - 📖 **[Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)** — Command syntax, options, workflows, and slash commands
 - 📖 **[Installing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)** — Setup instructions for npm, Homebrew, WinGet, and install scripts
 - 📖 **[Steering a session remotely](https://docs.github.com/en/copilot/how-tos/copilot-cli/steer-remotely)** — Using `--remote` to monitor and steer sessions from web and mobile
+- 📖 **[Using GitHub Copilot CLI session data](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle)** — `/chronicle` for standup reports, personalized tips, and instructions suggestions
+- 📖 **[About GitHub Copilot CLI session data](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle)** — How session history is stored and used
 
 **Additional Resources:**
 - 🎓 [Copilot CLI Best Practices](https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices) — Optimization patterns and anti-patterns
