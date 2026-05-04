@@ -51,12 +51,12 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
 <CoreQuestionSlide
   question="How do I bring AI to where the work actually is — and keep steering it from wherever I am?"
   subtext="The terminal sees everything VS Code can&#39;t —"
-  highlight="most AI tools target 16% of your day and leave the other 84% untouched."
+  highlight="most AI tools target the ~30% of your day spent writing code and leave the other 70% untouched."
   :cards='[
-    {"icon": "👩‍💻", "title": "Developer", "description": "You spend 84% of your day outside the code editor — debugging, deploying, investigating. AI tools target the other 16%."},
+    {"icon": "👩‍💻", "title": "Developer", "description": "Your AI assistant can&#39;t see the container logs, the CI failure, or the env var mismatch — it only sees source files."},
     {"icon": "🛠️", "title": "DevOps Engineer", "description": "Incidents happen on servers you can&#39;t always reach. Log forensics, CI triage, and container debugging need AI where data lives."},
     {"icon": "⚡", "title": "CLI Power User", "description": "You already live in the terminal. The question is whether AI can meet you there without slowing you down."},
-    {"icon": "⏱️", "title": "84% of dev time", "description": "spent outside the editor on deployments, debugging, log analysis, CI triage — untouched by most AI tools"},
+    {"icon": "⏱️", "title": "~70% of dev time", "description": "spent outside the editor on debugging, deployments, log analysis, CI triage — Atlassian DevEx 2025"},
     {"icon": "🔄", "title": "8→2 debug attempts", "description": "Plan Mode catches misunderstandings before implementation — collaborative planning replaces trial-and-error"},
     {"icon": "⚡", "title": "25→5 min CI/CD", "description": "Programmatic mode drops build failure investigation from 25 minutes to 5 with zero human intervention"}
   ]'
@@ -69,10 +69,10 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
   title="GitHub Copilot CLI"
   subtitle="Think Before You Build → Work From Anywhere → Sessions That Learn → Scale Beyond Yourself"
   :sections='[
-    {"icon": "🧠", "title": "Think Before You Build", "blurb": "Close the intent gap — Plan Mode, reasoning models, collaborative steering", "slide": 4},
-    {"icon": "📱", "title": "Work From Anywhere", "blurb": "Close the geography gap — modes, remote sessions, CI/CD automation", "slide": 10},
-    {"icon": "♾️", "title": "Sessions That Learn", "blurb": "Close the memory gap — /chronicle standup, tips, instruction proposals", "slide": 15},
-    {"icon": "⚡", "title": "Scale Beyond Yourself", "blurb": "Close the reach gap — agents, /fleet fan-out, custom agents and plugins", "slide": 20}
+    {"icon": "🧠", "title": "Think Before You Build", "blurb": "Close the intent gap — Plan Mode asks before it acts, aligns before it generates", "slide": 4},
+    {"icon": "📱", "title": "Work From Anywhere", "blurb": "Close the geography gap — modes, remote sessions, CI/CD automation", "slide": 7},
+    {"icon": "♾️", "title": "Sessions That Learn", "blurb": "Close the memory gap — /chronicle standup, tips, instruction proposals", "slide": 12},
+    {"icon": "⚡", "title": "Scale Beyond Yourself", "blurb": "Close the reach gap — agents, /fleet fan-out, custom agents and plugins", "slide": 17}
   ]'
 />
 
@@ -84,27 +84,12 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
   pillIcon="🧠"
   pillLabel="Think Before You Build"
   title="Think Before You Build"
-  subtitle="Close the intent gap — AI that asks before it acts, reasons before it generates."
+  subtitle="Close the intent gap — most AI failures start with misunderstood intent, not bad code."
   :cards='[
-    {"icon": "📊", "title": "The 84% Problem", "blurb": "AI tools target 16% — the terminal owns the rest."},
-    {"icon": "🧠", "title": "Plan Mode", "blurb": "AI asks first. Shift+Tab to enable. 8 attempts → 2."},
-    {"icon": "⚡", "title": "8 Attempts → 2", "blurb": "Docker root cause in 8 min vs 45 — ask before building."}
-  ]'
-  :terminal='{"context": "$ copilot (Shift+Tab)", "detail": "8 attempts → 2 — Plan Mode stops the guess cycle"}'
-/>
-
----
-
-<!-- SLIDE: The 84% Frame -->
-<ProblemSolutionOutcomeSlide
-  :partNumber="1"
-  pillIcon="📊"
-  pillLabel="Think Before You Build"
-  title="AI Tools Target 16% of Your Day"
-  :progressDots='{"current": 1, "total": 5, "activeColor": "bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
-  :problem='{"header": "AI Targets 16% of Your Day", "items": ["Most AI tools optimize the code-writing slice — just 16% of developer time", "The other 84% — debugging, deployments, log analysis, CI triage — is in the terminal", "An AI in the editor is context-blind to most of what&#39;s actually wrong"]}'
-  :solution='{"header": "Copilot CLI Lives Where the Work Is", "items": ["Runs in the terminal — where logs, env vars, process state, and network traffic live", "Runs commands itself — gathering evidence rather than waiting for you to paste it", "The AI interrogates the running environment directly, not just source files"]}'
-  :outcome='{"header": "The 84% Is Now in Scope", "items": ["Debug a Docker container from the terminal without copy-pasting logs into chat", "Analyze 12GB of logs on the server — no download, no compliance risk", "CI/CD build failure triage automated in GitHub Actions: 25 min → 5 min, zero human intervention"]}'
+    {"icon": "🎯", "title": "Ask Before Acting", "blurb": "Plan Mode asks clarifying questions — like a senior engineer would."},
+    {"icon": "🔄", "title": "8 Attempts → 2", "blurb": "Aligned intent eliminates the guess-and-check cycle."},
+    {"icon": "⚡", "title": "45 min → 8 min", "blurb": "Docker root cause found on the second targeted check."}  ]'
+  :terminal='{"context": "$ copilot (Shift+Tab)", "detail": "Plan Mode — collaborative planning replaces trial-and-error"}'
 />
 
 ---
@@ -115,7 +100,7 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
   pillIcon="🧠"
   pillLabel="Think Before You Build"
   title="Plan Mode: Align First, Implement Second"
-  :progressDots='{"current": 2, "total": 5, "activeColor": "bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
+  :progressDots='{"current": 1, "total": 2, "activeColor": "bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
   leftLabel="Without Plan Mode"
   rightLabel="With Plan Mode (Shift+Tab)"
   :steps='[
@@ -136,7 +121,7 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
   pillIcon="🐳"
   pillLabel="Think Before You Build"
   title="Plan Mode in Action — Docker Debugging"
-  :progressDots='{"current": 3, "total": 5, "activeColor": "bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
+  :progressDots='{"current": 2, "total": 2, "activeColor": "bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
   :transcript='[
     {"type": "prompt", "text": "Debug why the backend container won&#39;t start"},
     {"type": "thinking"},
@@ -146,38 +131,7 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
     {"type": "user", "text": "y"},
     {"type": "outcome", "text": "Found: Port 5000 mapped to 5001. Fix: change ports from 5001:5000 to 5000:5000"}
   ]'
-  footerMetric="Root cause in 8 minutes, 2 targeted checks — vs 45 minutes and 8 trial-and-error attempts"
-/>
-
----
-
-<!-- SLIDE: Reasoning Models -->
-<FourCardGridSlide
-  :partNumber="1"
-  pillIcon="⚙️"
-  pillLabel="Think Before You Build"
-  title="Configurable Reasoning: Tune Depth to the Task"
-  :progressDots='{"current": 4, "total": 5, "activeColor": "bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
-  :cards='[
-    {"icon": "🔵", "title": "Low", "description": "Fast responses for straightforward queries — syntax help, quick lookups, known patterns"},
-    {"icon": "🟢", "title": "Medium", "description": "Balanced speed and depth. Default. Covers most debugging and implementation work"},
-    {"icon": "🟡", "title": "High", "description": "Extended reasoning for complex problems — multi-service failures, unknown root causes"},
-    {"icon": "🔴", "title": "Extra High", "description": "Maximum depth for critical decisions — architecture refactoring, security investigations"}
-  ]'
-  :insight='{"icon": "⌨️", "text": "Ctrl+T reveals the model&#39;s reasoning steps. Setting persists across sessions."}'
-/>
-
----
-
-<!-- SLIDE: Real-Time Steering -->
-<TwoColPairedConceptsSlide
-  :partNumber="1"
-  pillIcon="🎯"
-  pillLabel="Think Before You Build"
-  title="Steer While It Thinks"
-  :progressDots='{"current": 5, "total": 5, "activeColor": "bg-cyan-400 shadow-lg shadow-cyan-500/50"}'
-  :left='{"header": "Enqueue Messages", "items": ["Send follow-up instructions while Copilot is mid-response", "While analyzing Docker logs → Also check if Redis is running", "While scanning env vars → Focus on auth-related keys first", "Add context without interrupting the current operation"]}'
-  :right='{"header": "Reject with Explanation", "items": ["Press Esc and explain why in one step — no restart needed", "Copilot wants rm -rf tmp/* → Esc + Don&#39;t delete tmp/ — it has cached artifacts", "Copilot proposes a refactor → Esc + That module is auto-generated, edit the schema", "AI adapts approach based on your feedback"]}'
+  footerMetric="Two targeted checks, one root cause — questions first eliminated 6 wasted attempts"
 />
 
 ---
@@ -320,7 +274,7 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
   pillLabel="Sessions That Learn"
   title="AI That Proposes to Improve Its Own Instructions"
   subtitle="Copilot reviews your sessions and proposes improvements to its own instructions"
-  :hero='{"value": "/chronicle instructions", "label": "observation → advice → automation"}'
+  :hero='{"value": "/chronicle", "label": "observation → advice → automation"}'
   :supporting='[
     {"icon": "📋", "title": "/chronicle standup", "description": "Yesterday&#39;s work summarized from session history — no reconstruction needed"},
     {"icon": "💡", "title": "/chronicle tips", "description": "AI surfaces patterns in how you work and suggests personalized improvements"},
@@ -441,6 +395,9 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
       {"label": "Installing GitHub Copilot CLI", "href": "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli", "description": "Setup for npm, Homebrew, WinGet"},
       {"label": "Copilot CLI Best Practices", "href": "https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices", "description": "Optimization patterns and anti-patterns"},
       {"label": "Finding and installing plugins", "href": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing", "description": "Plugin discovery, installation, and marketplace management"}
+    ]},
+    {"title": "📊 Research Cited", "color": "indigo", "items": [
+      {"label": "Atlassian State of Developer Experience 2025", "href": "https://www.atlassian.com/software/developer-experience", "description": "Developers spend ~30% of time writing code; ~70% on non-coding work (debugging, CI, deployments)"}
     ]}
   ]'
 />
