@@ -51,7 +51,7 @@ import AITerminalTranscriptSlide from './components/AITerminalTranscriptSlide.vu
 <CoreQuestionSlide
   question="How do I bring AI to where the work actually is — and keep steering it from wherever I am?"
   subtext="The terminal sees everything VS Code can&#39;t —"
-  highlight="most AI tools target the ~30% of your day spent writing code and leave the other 70% untouched."
+  highlight="what unlocks when AI can follow you into the ~70% of your day that happens outside the editor?"
   :cards='[
     {"icon": "👩‍💻", "title": "Developer", "description": "Your AI assistant can&#39;t see the container logs, the CI failure, or the env var mismatch — it only sees source files."},
     {"icon": "🛠️", "title": "DevOps Engineer", "description": "Incidents happen on servers you can&#39;t always reach. Log forensics, CI triage, and container debugging need AI where data lives."},
