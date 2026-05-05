@@ -17,10 +17,10 @@ deck:
   arcToc: "Think Before You Build → Work From Anywhere → Sessions That Learn → Scale Beyond Yourself"
 
   arcNarrative: >
-    S1 closes the Intent gap: the 84% problem (AI tools target only 16% of dev time; the
-    terminal owns the rest) makes the frame feel necessary before Plan Mode delivers the
-    visceral before/after — 8 attempts → 2, 45 min → 8 min — proving that asking the right
-    questions before writing code is worth the pause. S2 closes the Geography gap with
+    S1 closes the Intent gap: what unlocks when AI follows you into the ~70% of your day
+    outside the editor (Atlassian DevEx 2025) — that discovery frame makes Plan Mode feel
+    necessary before delivering the visceral before/after — 8 attempts → 2, 45 min → 8 min
+    — proving that asking the right questions before writing code is worth the pause. S2 closes the Geography gap with
     skeptic-first sequencing: the audience sees a phone steering an AI session on a
     production server for 60 seconds before any architecture explanation arrives, because
     CLI power users who distrust AI in the terminal need the payoff before they'll accept
@@ -45,10 +45,11 @@ deck:
     "Think Before You Build":
       emphasis: high
       note: >
-        Gap closed: Intent. Open with the 84% problem — AI tools target only 16% of dev
-        time (the code-writing slice); the terminal owns deployments, debugging, log
-        analysis, CI triage — the other 84%. This frame makes every downstream capability
-        feel necessary, not optional; land it before touching any feature. One live demo:
+        Gap closed: Intent. Open with the discovery frame — what unlocks when AI follows
+        you into the ~70% of your day outside the editor (Atlassian DevEx 2025:
+        debugging, deployments, log analysis, CI triage). This frame makes every
+        downstream capability feel necessary, not optional; land it before touching any
+        feature. One live demo:
         Docker container debug with Plan Mode — 8 attempts → 2, 45 min → 8 min. The
         structured Q&A before implementation is the "senior engineer asks questions first"
         moment; let it breathe and let the contrast with naive code generation sink in

@@ -70,8 +70,8 @@ references:
 - **The IDE only sees code; the terminal sees everything**
   When you're debugging a failure, the information that matters — container logs, environment variables, process state, network traffic, file system layout — isn't in your source files. It's in what's running. An AI that lives in the terminal has access to all of it. One that lives in the editor is context-blind to most of what's actually wrong
 
-- **AI tools target 16% of your day**
-  Research from Bicameral AI: developers spend just 16% of their time writing code. The other 84% — deployments, debugging failures, requirements clarification, log analysis, CI triage — all happens in the terminal. Most AI coding tools optimize the 16% and leave the 84% untouched
+- **Most of your day happens outside the editor**
+  Atlassian's State of Developer Experience 2025 found developers spend ~30% of their time writing code. The other ~70% — deployments, debugging failures, requirements clarification, log analysis, CI triage — happens in the terminal and across operational tooling. What unlocks when AI can follow you there?
 
 - **AI guesses when requirements are ambiguous. You pay for that later**
   A human developer hits an edge case in a spec and asks a question. AI hits the same ambiguity and picks one interpretation — confidently. You don't find out the guess was wrong until code review, or production. The right moment to catch this is before the first line of code is written, in a conversation that asks the questions a senior engineer would ask
