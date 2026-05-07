@@ -4,6 +4,43 @@ Confirmed, locked facts about Slidev infrastructure, build rules, and structural
 
 ---
 
+## Blank line required between `---` and `<!-- SLIDE: -->` (2026-05-05)
+
+`schema_version: 1` | `date: 2026-05-05`
+
+Every `---` slide separator must be followed by a **blank line** before the `<!-- SLIDE: Name -->` comment. Missing the blank line causes Slidev to misparse the slide boundary.
+
+✅ Correct:
+```
+/>
+
+---
+
+<!-- SLIDE: Next Slide -->
+<ComponentName
+```
+
+❌ Wrong (what the generator produced on 2026-05-05):
+```
+/>
+
+---
+<!-- SLIDE: Next Slide -->
+<ComponentName
+```
+
+**Fix:** Use PowerShell to repair all occurrences at once:
+```powershell
+$file = "slides/tech-talks/{slug}.md"
+$content = [System.IO.File]::ReadAllText($file)
+$fixed = $content -replace "---\r?\n(<!--)", "---`r`n`r`n`$1"
+[System.IO.File]::WriteAllText($file, $fixed, [System.Text.UTF8Encoding]::new($false))
+```
+
+**Root cause:** The tech-talk-slide-generator agent's "Common mistakes" list said `---` must be on its own line but did not explicitly require the blank line after it. Fixed by adding the rule to `.github/agents/tech-talk-slide-generator.agent.md`.
+
+---
+
 ## TwoColPairedConceptsSlide `code` prop block was hardcoded dark (2026-04-26)
 
 `schema_version: 1` | `date: 2026-04-26`

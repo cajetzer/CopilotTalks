@@ -310,6 +310,7 @@ Run through this before handing off.
 
 - `<!-- SLIDE: Name -->` required on **every** slide including slide 1 — missing it shifts all TOC counts off by one
 - `---` separator always on its own line — never `---<!-- SLIDE:` on the same line
+- **Blank line required after `---`** — always leave an empty line between the `---` separator and the `<!-- SLIDE: Name -->` comment that follows it. Missing this blank line causes Slidev to misparse the slide boundary.
 - No per-slide frontmatter (`layout:`, `class:`, `transition:`) — CSS only
 - `SectionOpenerSlide` requires `:terminal` — omitting it causes a silent blank slide
 - `ThankYouSlide` props are `title`, `subtitle`, `cards`, `prompt` — no `message`, no `links`
