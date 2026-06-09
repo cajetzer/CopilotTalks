@@ -95,7 +95,7 @@ build_slide() {
     if $VERBOSE; then
         echo "   🔨 ${CATEGORY}/${BASENAME}..."
         cd "${SLIDES_DIR}"
-        npx slidev build "${CATEGORY}/${BASENAME}.md" \
+        npx @slidev/cli build "${CATEGORY}/${BASENAME}.md" \
             --base "/CopilotTraining/${CATEGORY}/${BASENAME}/" \
             --out "${OUTPUT_DIR}/${CATEGORY}/${BASENAME}" 2>&1 | sed 's/^/      /'
         local SLIDE_END=$(date +%s)
@@ -104,7 +104,7 @@ build_slide() {
     else
         printf "   🔨 %s/%s... " "${CATEGORY}" "${BASENAME}"
         cd "${SLIDES_DIR}"
-        if npx slidev build "${CATEGORY}/${BASENAME}.md" \
+        if npx @slidev/cli build "${CATEGORY}/${BASENAME}.md" \
             --base "/CopilotTraining/${CATEGORY}/${BASENAME}/" \
             --out "${OUTPUT_DIR}/${CATEGORY}/${BASENAME}" > /dev/null 2>&1; then
             local SLIDE_END=$(date +%s)

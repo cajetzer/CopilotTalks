@@ -283,7 +283,7 @@ $jobs = $AllDecks | ForEach-Object {
         $start = Get-Date
         Push-Location $SlidesDir
         try {
-            $output = npx slidev build "$category/$baseName.md" `
+            $output = npx @slidev/cli build "$category/$baseName.md" `
                 --base "/CopilotTraining/$category/$baseName/" `
                 --out "$OutputDir/$category/$baseName" 2>&1
             $exitCode = $LASTEXITCODE
