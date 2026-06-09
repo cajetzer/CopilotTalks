@@ -271,10 +271,10 @@ See `slides/COMPONENT-ARCHETYPES.md` for the full selection matrix, overflow thr
 - `pillLabel` (string, required) — breadcrumb text (e.g., `"Subagents: Core Mechanism"`)
 - `title` (string, required) — slide headline (≤ 80 chars)
 - `progressDots` (object, required) — `{ current, total, activeColor }`. `activeColor` is a Tailwind class; match the section color:
-  - Part 1 (cyan): `"bg-cyan-400 shadow-lg shadow-cyan-500/50"`
-  - Part 2 (blue): `"bg-blue-400 shadow-lg shadow-blue-500/50"`
-  - Part 3 (indigo): `"bg-indigo-400 shadow-lg shadow-indigo-500/50"`
-  - Part 4 (purple): `"bg-purple-400 shadow-lg shadow-purple-500/50"`
+  - Part 1 (purple): `"bg-purple-400 shadow-lg shadow-purple-500/50"`
+  - Part 2 (green): `"bg-green-400 shadow-lg shadow-green-500/50"`
+  - Part 3 (purple): `"bg-purple-400 shadow-lg shadow-purple-500/50"`
+  - Part 4 (green): `"bg-green-400 shadow-lg shadow-green-500/50"`
 - `insight` (optional object `{ icon, text }`) — optional bottom insight bar
 
 ### `BeforeAfterMetricsSlide`

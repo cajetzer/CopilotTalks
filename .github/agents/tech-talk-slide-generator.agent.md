@@ -287,7 +287,7 @@ Run through this before handing off.
 
 - [ ] Every body slide uses one of the 13 Tier-1 components — zero inline HTML
 - [ ] `progressDots` on every body slide (including single-slide sections)
-- [ ] `partNumber` matches section position (1=cyan, 2=blue, 3=indigo, 4=purple)
+- [ ] `partNumber` matches section position (1=purple, 2=green, 3=purple, 4=green)
 - [ ] All `&#39;` escaping applied inside single-quoted array props
 - [ ] No `&quot;` or `\"` in any prop value
 

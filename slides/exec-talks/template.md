@@ -26,9 +26,9 @@ Use a raw HTML title slide with restrained Primer accents.
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
 <div class="absolute inset-0 bg-[#101411]"></div>
 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#8534F3]/20 to-[#0FBF3E]/10 rounded-full blur-3xl"></div>
-<div class="relative z-10">
-<div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-72" alt="" /></div>
-<img src="./sdp-logo.png" class="w-72 relative" alt="SDP Logo" />
+<div class="relative z-10 w-72 h-20 flex items-center justify-center">
+<!-- Replace this div with an <img src="./your-logo.png" class="w-72 relative" alt="Your Logo" /> once you have a logo asset -->
+<span class="text-4xl opacity-40">◈</span>
 </div>
 <h1 class="!text-5xl !font-bold !mt-8 bg-gradient-to-r from-[#8534F3] to-[#B870FF] bg-clip-text text-transparent relative z-10">{TITLE}</h1>
 <div class="mt-4 relative z-10">
