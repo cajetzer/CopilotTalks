@@ -127,7 +127,7 @@ jobs:
             for ATTEMPT in 1 2; do
               [ $ATTEMPT -eq 1 ] && echo "🔨 Building ${CATEGORY}/${BASENAME}..." \
                                  || echo "🔄 Retrying ${CATEGORY}/${BASENAME} (attempt 2)..."
-              if npx slidev build "$SLIDE_FILE" \
+              if npx @slidev/cli build "$SLIDE_FILE" \
                 --base "/CopilotTraining/${CATEGORY}/${BASENAME}/" \
                 --out "$(pwd)/dist/${CATEGORY}/${BASENAME}" \
                 > "$LOG_FILE" 2>&1; then
