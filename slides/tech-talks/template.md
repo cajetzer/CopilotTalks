@@ -12,10 +12,10 @@ Tech talks are practitioner-facing. They should feel concrete, current, and capa
 
 ## Visual System
 
-- Primary gradient: `from-cyan-400 via-blue-400 to-indigo-400`
-- Background gradient: `from-cyan-900/20 via-blue-900/10 to-indigo-900/20`
-- Pill/accent gradient: `from-cyan-600/80 to-blue-600/80`
-- Close progression: cyan → blue → indigo → purple → pink
+- Base canvas: `bg-[#101411]` with neutral surfaces (`#232925`, gray scale)
+- Primary accent: Copilot Purple (`#8534F3`, `#B870FF`)
+- Secondary accent: GitHub Green (`#0FBF3E`, `#238636`)
+- Accent rhythm: purple emphasis → green emphasis → purple emphasis → neutral close
 
 ---
 
@@ -243,7 +243,7 @@ Every Part N slide uses `SectionOpenerSlide`. The component handles the full cen
 
 ## Tier-1 Body-Content Components (REQUIRED — no inline HTML)
 
-All 13 body-slide archetypes. **Every body content slide must use one of these components** — do not write inline HTML for body content. Components handle the cockpit wrapper, section chrome (ambient bg, orb, pill, divider), color progression, and dark/light theming. Do NOT pass color/style/class props; all colors derive from `partNumber` (1–4) via `useSectionTheme.ts`.
+All 13 body-slide archetypes. **Every body content slide must use one of these components** — do not write inline HTML for body content. Components handle the shared wrapper, section chrome (ambient bg, orb, pill, divider), Primer accent rhythm, and dark/light theming. Do NOT pass color/style/class props; all colors derive from `partNumber` (1–4) via `useSectionTheme.ts`.
 
 See `slides/COMPONENT-ARCHETYPES.md` for the full selection matrix, overflow thresholds, and usage examples. If content does not fit a single component, adapt or split the slide — there is no inline HTML fallback.
 
@@ -271,10 +271,10 @@ See `slides/COMPONENT-ARCHETYPES.md` for the full selection matrix, overflow thr
 - `pillLabel` (string, required) — breadcrumb text (e.g., `"Subagents: Core Mechanism"`)
 - `title` (string, required) — slide headline (≤ 80 chars)
 - `progressDots` (object, required) — `{ current, total, activeColor }`. `activeColor` is a Tailwind class; match the section color:
-  - Part 1 (cyan): `"bg-cyan-400 shadow-lg shadow-cyan-500/50"`
-  - Part 2 (blue): `"bg-blue-400 shadow-lg shadow-blue-500/50"`
-  - Part 3 (indigo): `"bg-indigo-400 shadow-lg shadow-indigo-500/50"`
-  - Part 4 (purple): `"bg-purple-400 shadow-lg shadow-purple-500/50"`
+  - Part 1 (purple): `"bg-purple-400 shadow-lg shadow-purple-500/50"`
+  - Part 2 (green): `"bg-green-400 shadow-lg shadow-green-500/50"`
+  - Part 3 (purple): `"bg-purple-400 shadow-lg shadow-purple-500/50"`
+  - Part 4 (green): `"bg-green-400 shadow-lg shadow-green-500/50"`
 - `insight` (optional object `{ icon, text }`) — optional bottom insight bar
 
 ### `BeforeAfterMetricsSlide`
@@ -528,7 +528,7 @@ Two-column numbered step comparison — the "before" path (red/problem) vs the "
 
 ### `MaturityJourneyRoadmapSlide`
 
-Horizontal stage progression with chevron separators. One stage can be marked `isTarget: true` to receive a "TARGET" badge. Supports 2–5 stages; the internal color palette (slate → blue → indigo → cyan → emerald) is distributed automatically.
+Horizontal stage progression with chevron separators. One stage can be marked `isTarget: true` to receive a "TARGET" badge. Supports 2–5 stages; colors follow the shared neutral + accent system and adapt with theme mode.
 
 ```html
 <MaturityJourneyRoadmapSlide

@@ -1,7 +1,7 @@
 # Build script for all Slidev presentations
 # This script builds each .md file in the slides subdirectories
 # Usage: build-all.ps1 [-Verbose] [-Parallel] [-Folder <name>] [-Deck <name>]
-#   -Folder:        optional category to build (workshop, tech-talks)
+#   -Folder:        optional category to build (workshop, tech-talks, exec-talks)
 #   -Deck:          optional specific deck to build (e.g., copilot-cli); auto-detects category
 #   -Parallel:      run builds concurrently (requires PowerShell 7+, limit: 4)
 #   Examples:
@@ -27,7 +27,7 @@
 param(
     [switch]$Verbose,
     [switch]$Parallel,
-    [ValidateSet('workshop', 'tech-talks')]
+    [ValidateSet('workshop', 'tech-talks', 'exec-talks')]
     [string]$Folder,
     [string]$Deck
 )
@@ -166,7 +166,7 @@ $OutputDir = Join-Path $SlidesDir "dist"
 # If -Deck is specified, auto-detect its category
 if ($Deck) {
     $DeckSearched = $false
-    $Categories = @('workshop', 'tech-talks')
+    $Categories = @('workshop', 'tech-talks', 'exec-talks')
 
     foreach ($Cat in $Categories) {
         $DeckPath = Join-Path $SlidesDir $Cat "$Deck.md"
@@ -178,7 +178,7 @@ if ($Deck) {
     }
 
     if (-not $DeckSearched) {
-        Write-Host "[ERROR] Deck not found: $Deck (searched in workshop, tech-talks)" -ForegroundColor Red
+        Write-Host "[ERROR] Deck not found: $Deck (searched in workshop, tech-talks, exec-talks)" -ForegroundColor Red
         exit 1
     }
 }
@@ -206,6 +206,7 @@ Write-Host ""
 # Create output directory structure
 New-Item -ItemType Directory -Force -Path "$OutputDir/workshop" | Out-Null
 New-Item -ItemType Directory -Force -Path "$OutputDir/tech-talks" | Out-Null
+New-Item -ItemType Directory -Force -Path "$OutputDir/exec-talks" | Out-Null
 
 $TotalBuilt = 0
 $TotalFailed = 0
@@ -225,6 +226,7 @@ $AllDecks = [System.Collections.Generic.List[hashtable]]::new()
 $CategoryConfig = @(
     @{ Name = 'workshop';   Icon = '[BOOKS]';   Enabled = (-not $Folder -or $Folder -eq 'workshop') }
     @{ Name = 'tech-talks'; Icon = '[SCIENCE]'; Enabled = (-not $Folder -or $Folder -eq 'tech-talks') }
+    @{ Name = 'exec-talks'; Icon = '[BRIEFCASE]'; Enabled = (-not $Folder -or $Folder -eq 'exec-talks') }
 )
 
 foreach ($Cat in $CategoryConfig) {
@@ -249,7 +251,7 @@ foreach ($Cat in $CategoryConfig) {
 
 if ($AllDecks.Count -eq 0) {
     if ($Deck) {
-        Write-Host "[ERROR] Deck not found: $Deck (searched in workshop, tech-talks)" -ForegroundColor Red
+        Write-Host "[ERROR] Deck not found: $Deck (searched in workshop, tech-talks, exec-talks)" -ForegroundColor Red
     } else {
         Write-Host "[ERROR] No decks found to build." -ForegroundColor Red
     }
@@ -283,7 +285,7 @@ $jobs = $AllDecks | ForEach-Object {
         $start = Get-Date
         Push-Location $SlidesDir
         try {
-            $output = npx slidev build "$category/$baseName.md" `
+            $output = npx @slidev/cli build "$category/$baseName.md" `
                 --base "/CopilotTraining/$category/$baseName/" `
                 --out "$OutputDir/$category/$baseName" 2>&1
             $exitCode = $LASTEXITCODE

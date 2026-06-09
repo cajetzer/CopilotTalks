@@ -13,6 +13,7 @@
 #     .\build.ps1                              # build all categories
 #     .\build.ps1 -Folder Tech-talks           # build only tech-talks category
 #     .\build.ps1 -Folder workshop             # build only workshop category
+#     .\build.ps1 -Folder exec-talks           # build only exec-talks category
 #     .\build.ps1 -Deck copilot-cli            # build only copilot-cli.md (auto-detects folder)
 #     .\build.ps1 -Deck copilot-cli -Verbose   # build single deck with verbose output
 #
@@ -21,7 +22,7 @@
 #     & "C:\...\CopilotTraining\slides\build.ps1" -Folder Tech-talks
 #
 # PARAMETERS:
-#   -Folder:  Category to build (workshop, tech-talks). Omit to build all.
+#   -Folder:  Category to build (workshop, tech-talks, exec-talks). Omit to build all.
 #   -Deck:    Single deck name to build (e.g., copilot-cli). Auto-detects category.
 #   -Verbose: Enable verbose output.
 #   All parameters are passed directly to scripts/build-all.ps1

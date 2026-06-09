@@ -1,6 +1,6 @@
 ---
 name: Slide Generator
-description: Generate Slidev presentation slides for CopilotTraining workshop and exec-talk decks. Uses cockpit HTML templates and category color systems. For tech-talk decks, use the Tech Talk Slide Generator agent instead.
+description: Generate Slidev presentation slides for CopilotTraining workshop and exec-talk decks. Uses Primer-style HTML templates and category profiles. For tech-talk decks, use the Tech Talk Slide Generator agent instead.
 tools: ["read", "edit/createFile", "edit/editFiles", "run"]
 model: Claude Sonnet 4.6
 argument-hint: Provide content path (e.g., workshop/03-custom-prompts, exec-talks/agentic-delivery)
@@ -19,11 +19,11 @@ Generates `slides/workshop/*.md` and `slides/exec-talks/*.md` from module README
 1. **README exists** — Confirm the source README.md exists. If not, stop: "No README.md found at `<path>`. Generate it first before creating slides."
 2. **Not archived** — Read the README frontmatter. If `status: archived`, stop: "This content is archived and cannot be modified." Also refuse if the existing slide file has `status: archived`.
 3. **Resolve category** — Confirm the target is `workshop/` or `exec-talks/`. If the path is under `tech-talks/`, stop and redirect: "Use the Tech Talk Slide Generator agent for tech-talk decks."
-4. **Read shared template** — Read `slides/TEMPLATE.md` for the deck structure skeleton, color progression, frontmatter format, cockpit wrapper HTML, and available raw slide archetypes.
+4. **Read shared template** — Read `slides/TEMPLATE.md` for the deck structure skeleton, Primer visual contract, frontmatter format, shared wrapper HTML, and available raw slide archetypes.
 5. **Read category profile** — Read exactly one:
    - `slides/workshop/template.md`
    - `slides/exec-talks/template.md`
-6. **Read visual exemplar** — Read the first 200 lines of an existing same-category deck as a visual reference for cockpit content slides.
+6. **Read visual exemplar** — Read the first 200 lines of an existing same-category deck as a structural reference. Follow Primer defaults from templates for new visual output.
 7. **Read Sections** — Read `slides/SECTIONS.md` for the authoritative section → icon → container mapping.
 8. **Query memory** — Read `memories/infra/facts.md`, `memories/infra/discoveries.md`, and `memories/infra/advice.md` for confirmed build rules and structural gotchas.
 9. **Check for exec recipe (exec-talks only)** — Look for `exec-talks/<topic>/exec.recipe.yml`. If it exists, read it and use `sectionOrder`, `sectionModes`, `highlightMoments`, `arcToc`, and `arcNarrative` to drive the slide structure instead of inferring sections from the README. If it does not exist, continue without one (recipe is optional for exec-talks). To create or revise a recipe, suggest the `exec-recipe-review` skill.
@@ -54,15 +54,15 @@ Use the category profile for the archetype family:
 - **Workshop:** title, objectives, demo setup, exercise framing, task instructions, validation checkpoints, common failure modes, debrief/recap, next module
 - **Exec-talk:** title, strategic context / why now, TOC or decision framework, value model, risk/governance, operating model transformation, recommended actions, what leaders can do next, references, thank you
 
-Every content slide must use the **cockpit template** from `slides/TEMPLATE.md` — pill breadcrumb + layered gradients + `justify-start px-14`. Never use a plain centered `h1` for content slides; only title and thank-you use centered layouts.
+Every content slide must use the shared **Primer-first wrapper** from `slides/TEMPLATE.md` — neutral base, restrained accents, and `justify-start px-14`. Never use a plain centered `h1` for content slides; only title and thank-you use centered layouts.
 
-Color pair advances each section:
-- Section 1: `cyan → blue`
-- Section 2: `blue → indigo`
-- Section 3: `indigo → purple`
-- Section 4: `purple → pink`
+Use Primer accent rhythm by section:
+- Section 1: purple-led emphasis
+- Section 2: green-led emphasis
+- Section 3: purple-led emphasis
+- Section 4: neutral-led close with a single accent
 
-(Workshop uses `orange → red → purple → blue`; exec-talk uses `blue → cyan → green`.)
+(Workshop and exec-talk profiles can tune this mapping while staying in Primer palette.)
 
 ### Frontmatter
 
@@ -89,7 +89,7 @@ updated: {YYYY-MM-DD}
 
 ### Progress dots (multi-slide sections)
 
-Required on all topic section content slides. Active dot: `bg-{color}-400 shadow-lg shadow-{color}-500/50`. Inactive: `bg-white/20`.
+Required on all topic section content slides. Active dot should use section accent (`bg-purple-400` or `bg-green-400`). Inactive: `bg-white/20`.
 
 ---
 
@@ -140,7 +140,7 @@ Before handing off, run the **Content Change → Workbench Update Protocol** in 
 - [ ] All HTML flush-left (no 4+ space indentation)
 
 ### Structure
-- [ ] Every content slide uses the cockpit template (pill + gradients + `justify-start px-14`)
+- [ ] Every content slide uses the shared Primer wrapper (pill + neutral base + restrained accents + `justify-start px-14`)
 - [ ] No plain centered `h1` content slides
 - [ ] Progress dots on every multi-slide section content slide
 - [ ] Section color pairs advance correctly per category

@@ -139,7 +139,7 @@ jobs:
 
               printf "🔨 %s/%s... " "$CATEGORY" "$BASENAME"
 
-              if npx slidev build "$SLIDE_FILE" \
+              if npx @slidev/cli build "$SLIDE_FILE" \
                 --base "/CopilotTraining/${CATEGORY}/${BASENAME}/" \
                 --out "$(pwd)/dist/${CATEGORY}/${BASENAME}" 2>&1; then
                 echo "✅"

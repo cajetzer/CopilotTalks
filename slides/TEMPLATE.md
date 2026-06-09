@@ -16,15 +16,15 @@ Every deck follows this 5-section skeleton. Total slide budget: **under 25 slide
 
 | Section | Slides | Color | Purpose |
 |---------|--------|-------|---------|
-| **Opener** | Title + TOC | deck category colors | Hook and navigation |
-| **Part 1** | 1 opener + 2–5 content | `cyan → blue` | First topic |
-| **Part 2** | 1 opener + 2–5 content | `blue → indigo` | Second topic |
-| **Part 3** | 1 opener + 2–5 content | `indigo → purple` | Third topic |
-| **Close** | What You Can Do Today + References + Thank You | `purple → pink` | Action and wrap-up |
+| **Opener** | Title + TOC | Primer neutrals + accent | Hook and navigation |
+| **Part 1** | 1 opener + 2–5 content | neutral + purple accent | First topic |
+| **Part 2** | 1 opener + 2–5 content | neutral + green accent | Second topic |
+| **Part 3** | 1 opener + 2–5 content | neutral + purple accent | Third topic |
+| **Close** | What You Can Do Today + References + Thank You | neutral + mixed accent | Action and wrap-up |
 
 **Rules:**
 - Each topic section = 1 Section Opener + 2–5 content slides (progress dots required on all)
-- Add a Part 4 (`purple → pink`) only when content genuinely warrants it; shift Close to `pink → rose`
+- Add a Part 4 (neutral + accent) only when content genuinely warrants it
 - Close is always exactly 3 slides: What You Can Do Today → References → Thank You
 - TOC must link to each Part opener by slide number using `@click="$nav.go(N)"`
 - Target total: **under 25 slides**. Each part earns more slides based on topic depth — don't pad, don't cram.
@@ -41,20 +41,32 @@ Use category profiles for colors, title-slide style, and category-specific arche
 | **Tech-talks** | `slides/tech-talks/template.md` | Practitioner decks with capability-led narrative and `TitleSlide` |
 | **Exec-talks** | `slides/exec-talks/template.md` | Strategic decks with value, risk, and operating-model framing |
 
-### Color Progression Within a Deck
+### Primer Visual Contract (Default For New Decks)
+
+Use the Copilot brand model from `slides/copilot-brand.md` as the default for newly generated slides:
+
+- 80% black/white and neutral surfaces
+- 10% gray borders, dividers, and secondary text
+- 5% Copilot purple accents (`#8534F3`, `#B870FF`)
+- 5% GitHub green accents (`#0FBF3E`)
+
+Accent usage should be sparse and intentional. Do not build rainbow section gradients by default.
+
+Examples in this file are already aligned to the Primer visual contract. Keep structures and spacing, and use restrained purple/green accents on neutral surfaces.
+
+### Accent Rhythm Within a Deck
 
 | Progression | Colors | Use For |
 |---|---|---|
-| Cool→Warm | cyan → blue → indigo → purple → pink | Common multi-part progression for technical deep dives |
-| Warm→Cool | orange → red → purple → blue | Common workshop pacing pattern |
-| Professional | blue → cyan → green | Common exec-talk progression |
+| Primer Rhythm A | purple accent → green accent → purple accent | Balanced technical and workshop pacing |
+| Primer Rhythm B | purple accent → neutral emphasis → green accent | Executive narratives and strategic flows |
+| Primer Rhythm C | green accent → purple accent → neutral close | Outcome-first narratives |
 
-**Section color pairings (in order):**
-- Section 1: `from-cyan-400 to-blue-400`
-- Section 2: `from-blue-400 to-indigo-400`
-- Section 3: `from-indigo-400 to-purple-400`
-- Section 4: `from-purple-400 to-pink-400`
-- Section 5: `from-pink-400 to-rose-400`
+**Default accent mapping (suggested):**
+- Section 1: purple accent (`#8534F3`)
+- Section 2: green accent (`#0FBF3E`)
+- Section 3: purple accent (`#B870FF`)
+- Section 4+: neutral surfaces with one accent tone per slide
 
 ---
 
@@ -62,24 +74,24 @@ Use category profiles for colors, title-slide style, and category-specific arche
 
 | Element | Pattern |
 |---|---|
-| Gradient text | `bg-gradient-to-r from-X-400 to-Y-400 bg-clip-text text-transparent` |
-| Cards | `bg-gradient-to-br from-X-900/30 to-Y-900/30 rounded-xl border border-X-500/30` |
-| Hover zoom | `hover:scale-105 transition-all duration-300` |
-| Glow shadow | `shadow-lg shadow-X-500/10` |
-| Flow arrows | `<div class="text-2xl text-gray-500">→</div>` |
-| Glowing orb | `bg-gradient-to-r ... rounded-full blur-3xl` |
-| Impact callout | `bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border` |
+| Hero text | `bg-gradient-to-r from-[#8534F3] to-[#B870FF] bg-clip-text text-transparent` |
+| Neutral card | `bg-[#232925]/50 rounded-xl border border-gray-700` |
+| Success callout | `bg-[#238636]/10 rounded-xl border border-[#238636]/30` |
+| Accent callout | `bg-[#8534F3]/10 rounded-xl border border-[#8534F3]/30` |
+| Subtle divider | `h-px bg-gradient-to-r from-gray-500/40 to-transparent` |
+| Ambient orb | `bg-gradient-to-r from-[#8534F3]/15 to-[#0FBF3E]/10 rounded-full blur-3xl` |
+| Muted body text | `text-gray-300` |
 
 ### Color Coding Conventions
 
 | Purpose | Background | Border/Accent | Text |
 |---|---|---|---|
-| Human authority | `bg-blue-900/60` | `border-blue-400` | `text-blue-300` |
-| AI/Automation | `bg-green-900/60` | `border-green-400` | `text-green-300` |
-| Warning/Danger | `bg-red-900/40` | `border-red-500` | `text-red-400` |
-| Caution | `bg-yellow-900/40` | `border-yellow-500` | `text-yellow-400` |
-| Neutral/Info | `bg-gray-800` | `border-gray-600` | `text-gray-300` |
-| Success/Highlight | `bg-gradient-to-r from-blue-600 to-blue-800` | — | `text-white` |
+| Primary neutral | `bg-[#101411]` | `border-gray-700` | `text-white` |
+| Secondary neutral | `bg-[#232925]/50` | `border-gray-700` | `text-gray-300` |
+| Primary highlight | `bg-[#8534F3]/10` | `border-[#8534F3]/30` | `text-[#B870FF]` |
+| Positive outcome | `bg-[#238636]/10` | `border-[#238636]/30` | `text-[#0FBF3E]` |
+| Warning | `bg-amber-900/20` | `border-amber-600/40` | `text-amber-300` |
+| Error | `bg-red-900/30` | `border-red-500/40` | `text-red-300` |
 
 ---
 
@@ -165,18 +177,18 @@ Use this generic shape only as a shared reference for the required content field
 
 ## Standard Content Slide (REQUIRED for ALL content slides)
 
-This is the **cockpit template** — use it for every non-title, non-section-opener slide. It provides consistent depth (layered gradients + breadcrumb) that matches the visual style of `agentic-sdlc.md`. **Never use a plain centered `h1` without this wrapper.**
+This is the shared **Primer-first wrapper** — use it for every non-title, non-section-opener slide. It keeps a neutral base with restrained accent usage. **Never use a plain centered `h1` without this wrapper.**
 
-Replace `{SECTION_COLOR}`, `{NEXT_COLOR}` with the section's color pair (e.g., `cyan`/`blue` for section 1, `blue`/`indigo` for section 2). Replace `{SECTION_EMOJI} {Section Name}` with the section's icon and name.
+Replace `{ACCENT}` with either `#8534F3` or `#0FBF3E` depending on section emphasis. Replace `{SECTION_EMOJI} {Section Name}` with the section's icon and name.
 
 ```html
 <!-- SLIDE: Slide Name -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-{SECTION_COLOR}-900/20 via-{NEXT_COLOR}-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-{SECTION_COLOR}-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-[#101411] via-[#101411] to-[#101411]"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[{ACCENT}]/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-{SECTION_COLOR}-600/80 to-{NEXT_COLOR}-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">{SECTION_EMOJI} {Section Name}</span>
-<div class="flex-1 h-px bg-gradient-to-r from-{SECTION_COLOR}-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-[{ACCENT}]/20 border border-[{ACCENT}]/40 rounded-full text-white text-xs font-semibold tracking-wide">{SECTION_EMOJI} {Section Name}</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-500/40 to-transparent"></div>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-1">{Slide Headline}</div>
@@ -190,14 +202,14 @@ Replace `{SECTION_COLOR}`, `{NEXT_COLOR}` with the section's color pair (e.g., `
 
 ### Progress Dots (for multi-slide sections)
 
-Progress dots are **required on all topic section content slides**. Active dot: `bg-{SECTION_COLOR}-400 shadow-lg shadow-{SECTION_COLOR}-500/50`. Inactive: `bg-white/20`.
+Progress dots are **required on all topic section content slides**. Active dot should use the section accent (`bg-[#8534F3]` or `bg-[#0FBF3E]`). Inactive: `bg-white/20`.
 
 ```html
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 Section Name</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-[#8534F3]/20 border border-[#8534F3]/40 rounded-full text-white text-xs font-semibold tracking-wide">📐 Section Name</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-500/40 to-transparent"></div>
 <div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-[#8534F3] shadow-lg shadow-purple-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
@@ -266,44 +278,44 @@ Use `@click="$nav.go(N)"` where N = slide number of the target section divider. 
 ```html
 <!-- SLIDE: Table of Contents -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-[#101411] via-[#101411] to-[#101411]"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#8534F3]/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-6">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-[#8534F3]/20 border border-[#8534F3]/40 rounded-full text-white text-xs font-semibold tracking-wide">📖 Table of Contents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-500/40 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-6 mt-2 max-w-4xl mx-auto">
 <div @click="$nav.go(5)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+<div class="p-5 bg-gradient-to-br from-[#8534F3]/15 to-[#232925] rounded-xl border-2 border-[#8534F3]/40 hover:border-[#B870FF] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#8534F3]/20">
 <div class="text-3xl mb-2">🎯</div>
-<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Section 1</div>
+<div class="text-lg font-bold bg-gradient-to-r from-[#B870FF] to-[#8534F3] bg-clip-text text-transparent">Section 1</div>
 <div class="text-sm text-gray-300 mt-1">Brief description</div>
-<div class="text-xs text-cyan-400/70 mt-2">Key metric</div>
+<div class="text-xs text-[#B870FF]/80 mt-2">Key metric</div>
 </div>
 </div>
 <div @click="$nav.go(9)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
+<div class="p-5 bg-gradient-to-br from-[#0FBF3E]/12 to-[#232925] rounded-xl border-2 border-[#238636]/40 hover:border-[#0FBF3E] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#238636]/20">
 <div class="text-3xl mb-2">🔧</div>
-<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Section 2</div>
+<div class="text-lg font-bold bg-gradient-to-r from-[#0FBF3E] to-[#7ee787] bg-clip-text text-transparent">Section 2</div>
 <div class="text-sm text-gray-300 mt-1">Brief description</div>
-<div class="text-xs text-blue-400/70 mt-2">Key metric</div>
+<div class="text-xs text-[#7ee787]/80 mt-2">Key metric</div>
 </div>
 </div>
 <div @click="$nav.go(13)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
+<div class="p-5 bg-gradient-to-br from-[#B870FF]/15 to-[#232925] rounded-xl border-2 border-[#B870FF]/40 hover:border-[#8534F3] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#B870FF]/20">
 <div class="text-3xl mb-2">💡</div>
-<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Section 3</div>
+<div class="text-lg font-bold bg-gradient-to-r from-[#B870FF] to-[#8534F3] bg-clip-text text-transparent">Section 3</div>
 <div class="text-sm text-gray-300 mt-1">Brief description</div>
-<div class="text-xs text-indigo-400/70 mt-2">Key metric</div>
+<div class="text-xs text-[#B870FF]/80 mt-2">Key metric</div>
 </div>
 </div>
 <div @click="$nav.go(17)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl border-2 border-purple-500/50 hover:border-purple-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/10">
+<div class="p-5 bg-gradient-to-br from-[#238636]/14 to-[#232925] rounded-xl border-2 border-[#238636]/40 hover:border-[#0FBF3E] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#238636]/20">
 <div class="text-3xl mb-2">🚀</div>
-<div class="text-lg font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Section 4</div>
+<div class="text-lg font-bold bg-gradient-to-r from-[#0FBF3E] to-[#7ee787] bg-clip-text text-transparent">Section 4</div>
 <div class="text-sm text-gray-300 mt-1">Brief description</div>
-<div class="text-xs text-purple-400/70 mt-2">Key metric</div>
+<div class="text-xs text-[#7ee787]/80 mt-2">Key metric</div>
 </div>
 </div>
 </div>
@@ -315,36 +327,36 @@ Use `@click="$nav.go(N)"` where N = slide number of the target section divider. 
 ```html
 <!-- SLIDE: Table of Contents -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-indigo-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-[#101411] via-[#101411] to-[#101411]"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#8534F3]/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-6">
-<span class="px-4 py-1 bg-gradient-to-r from-blue-600/80 to-indigo-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📖 Table of Contents</span>
-<div class="flex-1 h-px bg-gradient-to-r from-blue-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-[#8534F3]/20 border border-[#8534F3]/40 rounded-full text-white text-xs font-semibold tracking-wide">📖 Table of Contents</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-500/40 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-3 gap-6 mt-2 max-w-5xl mx-auto">
 <div @click="$nav.go(5)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 rounded-xl border-2 border-cyan-500/50 hover:border-cyan-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+<div class="p-5 bg-gradient-to-br from-[#8534F3]/15 to-[#232925] rounded-xl border-2 border-[#8534F3]/40 hover:border-[#B870FF] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#8534F3]/20">
 <div class="text-3xl mb-2">🏗️</div>
-<div class="text-lg font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Part 1</div>
+<div class="text-lg font-bold bg-gradient-to-r from-[#B870FF] to-[#8534F3] bg-clip-text text-transparent">Part 1</div>
 <div class="text-sm text-gray-300 mt-1">Topic Name</div>
-<div class="text-xs text-cyan-400/70 mt-2">Brief description</div>
+<div class="text-xs text-[#B870FF]/80 mt-2">Brief description</div>
 </div>
 </div>
 <div @click="$nav.go(10)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 rounded-xl border-2 border-blue-500/50 hover:border-blue-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/10">
+<div class="p-5 bg-gradient-to-br from-[#0FBF3E]/12 to-[#232925] rounded-xl border-2 border-[#238636]/40 hover:border-[#0FBF3E] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#238636]/20">
 <div class="text-3xl mb-2">📋</div>
-<div class="text-lg font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">Part 2</div>
+<div class="text-lg font-bold bg-gradient-to-r from-[#0FBF3E] to-[#7ee787] bg-clip-text text-transparent">Part 2</div>
 <div class="text-sm text-gray-300 mt-1">Topic Name</div>
-<div class="text-xs text-blue-400/70 mt-2">Brief description</div>
+<div class="text-xs text-[#7ee787]/80 mt-2">Brief description</div>
 </div>
 </div>
 <div @click="$nav.go(15)" class="cursor-pointer group">
-<div class="p-5 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 rounded-xl border-2 border-indigo-500/50 hover:border-indigo-400 hover:scale-105 transition-all duration-300 shadow-lg shadow-indigo-500/10">
+<div class="p-5 bg-gradient-to-br from-[#B870FF]/15 to-[#232925] rounded-xl border-2 border-[#B870FF]/40 hover:border-[#8534F3] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#B870FF]/20">
 <div class="text-3xl mb-2">🏭</div>
-<div class="text-lg font-bold bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Part 3</div>
+<div class="text-lg font-bold bg-gradient-to-r from-[#B870FF] to-[#8534F3] bg-clip-text text-transparent">Part 3</div>
 <div class="text-sm text-gray-300 mt-1">Topic Name</div>
-<div class="text-xs text-indigo-400/70 mt-2">Brief description</div>
+<div class="text-xs text-[#B870FF]/80 mt-2">Brief description</div>
 </div>
 </div>
 </div>
@@ -390,21 +402,21 @@ Use `@click="$nav.go(N)"` where N = slide number of the target section divider. 
 
 ```html
 <div class="flex items-center justify-center gap-3 flex-wrap">
-<div class="p-3 bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 rounded-lg border border-cyan-500/30 text-center min-w-[120px] hover:scale-105 transition-transform">
+<div class="p-3 bg-gradient-to-br from-[#8534F3]/15 to-[#232925] rounded-lg border border-[#8534F3]/35 text-center min-w-[120px] hover:scale-105 transition-transform">
 <div class="text-2xl mb-1">📝</div>
-<div class="text-sm font-semibold text-cyan-300">Step 1</div>
+<div class="text-sm font-semibold text-[#B870FF]">Step 1</div>
 <div class="text-xs opacity-70">Description</div>
 </div>
 <div class="text-2xl text-gray-500">→</div>
-<div class="p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-lg border border-blue-500/30 text-center min-w-[120px] hover:scale-105 transition-transform">
+<div class="p-3 bg-gradient-to-br from-[#0FBF3E]/12 to-[#232925] rounded-lg border border-[#238636]/35 text-center min-w-[120px] hover:scale-105 transition-transform">
 <div class="text-2xl mb-1">🎯</div>
-<div class="text-sm font-semibold text-blue-300">Step 2</div>
+<div class="text-sm font-semibold text-[#7ee787]">Step 2</div>
 <div class="text-xs opacity-70">Description</div>
 </div>
 <div class="text-2xl text-gray-500">→</div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/40 to-indigo-800/40 rounded-lg border border-indigo-500/30 text-center min-w-[120px] hover:scale-105 transition-transform">
+<div class="p-3 bg-gradient-to-br from-[#B870FF]/12 to-[#232925] rounded-lg border border-[#B870FF]/35 text-center min-w-[120px] hover:scale-105 transition-transform">
 <div class="text-2xl mb-1">✨</div>
-<div class="text-sm font-semibold text-indigo-300">Step 3</div>
+<div class="text-sm font-semibold text-[#B870FF]">Step 3</div>
 <div class="text-xs opacity-70">Description</div>
 </div>
 </div>
@@ -414,27 +426,27 @@ Use `@click="$nav.go(N)"` where N = slide number of the target section divider. 
 
 ## The Opportunity Slide
 
-**Never use "The Problem" — use "The Opportunity" instead.** Wrap in the Standard Content Slide cockpit template.
+**Never use "The Problem" — use "The Opportunity" instead.** Wrap in the Standard Content Slide shared Primer wrapper.
 
 ```html
 <!-- SLIDE: The Opportunity -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-red-900/10 to-transparent"></div>
 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-orange-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Opportunity</span>
+<span class="px-4 py-1 bg-gradient-to-r from-amber-600/80 to-red-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">🔓 The Opportunity</span>
 <div class="flex-1 h-px bg-gradient-to-r from-amber-400/60 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-2">
-<div class="p-4 bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
+<div class="p-4 bg-gradient-to-br from-amber-900/30 to-red-900/30 rounded-lg border border-amber-500/30">
 <div class="text-xl mb-2">🎯</div>
 <div class="font-semibold text-amber-300">Opportunity 1</div>
 <div class="text-sm opacity-80 mt-1">Description of what becomes possible</div>
 </div>
-<div class="p-4 bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-lg border border-orange-500/30">
+<div class="p-4 bg-gradient-to-br from-red-900/30 to-rose-900/30 rounded-lg border border-red-500/30">
 <div class="text-xl mb-2">⚡</div>
-<div class="font-semibold text-orange-300">Opportunity 2</div>
+<div class="font-semibold text-red-300">Opportunity 2</div>
 <div class="text-sm opacity-80 mt-1">Description of what becomes possible</div>
 </div>
 </div>
@@ -461,33 +473,33 @@ Use `@click="$nav.go(N)"` where N = slide number of the target section divider. 
 
 ## Key Takeaways Slide
 
-Wrap in the Standard Content Slide cockpit template.
+Wrap in the Standard Content Slide shared Primer wrapper.
 
 ```html
 <!-- SLIDE: Key Takeaways -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-[#101411] via-[#101411] to-[#101411]"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#8534F3]/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">✅ Key Takeaways</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-[#8534F3]/20 border border-[#8534F3]/40 rounded-full text-white text-xs font-semibold tracking-wide">✅ Key Takeaways</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-500/40 to-transparent"></div>
 </div>
 <div class="relative z-10 flex-1 min-h-0">
 <div class="grid grid-cols-2 gap-4 mt-4 max-w-4xl mx-auto">
-<div class="p-4 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-lg border border-cyan-500/30">
+<div class="p-4 bg-gradient-to-br from-[#8534F3]/12 to-[#232925] rounded-lg border border-[#8534F3]/35">
 <div class="flex items-center gap-3">
-<div class="text-2xl font-bold text-cyan-400">1</div>
+<div class="text-2xl font-bold text-[#B870FF]">1</div>
 <div>
-<div class="font-semibold text-cyan-300">Takeaway Title</div>
+<div class="font-semibold text-[#B870FF]">Takeaway Title</div>
 <div class="text-sm opacity-80">Brief explanation</div>
 </div>
 </div>
 </div>
-<div class="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-500/30">
+<div class="p-4 bg-gradient-to-br from-[#0FBF3E]/12 to-[#232925] rounded-lg border border-[#238636]/35">
 <div class="flex items-center gap-3">
-<div class="text-2xl font-bold text-blue-400">2</div>
+<div class="text-2xl font-bold text-[#7ee787]">2</div>
 <div>
-<div class="font-semibold text-blue-300">Takeaway Title</div>
+<div class="font-semibold text-[#7ee787]">Takeaway Title</div>
 <div class="text-sm opacity-80">Brief explanation</div>
 </div>
 </div>
@@ -522,32 +534,32 @@ Use the category color scheme from the title slide. **No `layout:` frontmatter**
 ```html
 <!-- SLIDE: Thank You -->
 <div class="h-full flex flex-col items-center justify-center relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/10 to-indigo-900/20"></div>
-<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-[#101411] via-[#101411] to-[#101411]"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#8534F3]/20 via-[#B870FF]/15 to-[#0FBF3E]/10 rounded-full blur-3xl"></div>
 <div class="relative z-10">
 <div class="absolute inset-0 blur-2xl opacity-50"><img src="./sdp-logo.png" class="w-48" alt="" /></div>
 <img src="./sdp-logo.png" class="w-48 relative" alt="SDP Logo" />
 </div>
-<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent relative z-10">Thank You!</h1>
+<h1 class="!text-5xl !font-bold !mt-6 bg-gradient-to-r from-[#8534F3] via-[#B870FF] to-[#0FBF3E] bg-clip-text text-transparent relative z-10">Thank You!</h1>
 <div class="mt-4 relative z-10">
-<span class="px-6 py-2 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-lg font-medium shadow-lg shadow-cyan-500/25">{TITLE}: {SUBTITLE}</span>
+<span class="px-6 py-2 bg-gradient-to-r from-[#8534F3]/70 to-[#238636]/70 rounded-full text-white text-lg font-medium shadow-lg shadow-[#8534F3]/20">{TITLE}: {SUBTITLE}</span>
 </div>
 <div class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-3xl mx-auto relative z-10">
-<div class="p-3 bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-lg border border-cyan-500/30">
-<div class="text-cyan-300 font-bold text-lg">{CALL_OUT_1}</div>
+<div class="p-3 bg-gradient-to-br from-[#8534F3]/12 to-[#232925] rounded-lg border border-[#8534F3]/35">
+<div class="text-[#B870FF] font-bold text-lg">{CALL_OUT_1}</div>
 <div class="text-gray-300 mt-2 text-xs">{DETAIL_1}</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg border border-blue-500/30">
-<div class="text-blue-300 font-bold text-lg">{CALL_OUT_2}</div>
+<div class="p-3 bg-gradient-to-br from-[#0FBF3E]/12 to-[#232925] rounded-lg border border-[#238636]/35">
+<div class="text-[#7ee787] font-bold text-lg">{CALL_OUT_2}</div>
 <div class="text-gray-300 mt-2 text-xs">{DETAIL_2}</div>
 </div>
-<div class="p-3 bg-gradient-to-br from-indigo-900/30 to-indigo-800/20 rounded-lg border border-indigo-500/30">
-<div class="text-indigo-300 font-bold text-lg">{CALL_OUT_3}</div>
+<div class="p-3 bg-gradient-to-br from-[#B870FF]/10 to-[#232925] rounded-lg border border-[#B870FF]/35">
+<div class="text-[#B870FF] font-bold text-lg">{CALL_OUT_3}</div>
 <div class="text-gray-300 mt-2 text-xs">{DETAIL_3}</div>
 </div>
 </div>
 <div class="mt-6 text-sm opacity-60 relative z-10">{DISCUSSION_PROMPT}</div>
-<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full relative z-10"></div>
+<div class="mt-4 w-32 h-1 bg-gradient-to-r from-transparent via-[#8534F3] to-transparent rounded-full relative z-10"></div>
 </div>
 ```
 

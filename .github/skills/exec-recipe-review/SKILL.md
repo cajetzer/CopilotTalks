@@ -16,7 +16,7 @@ Read the exec-talk README, analyze its structure with an Agent Council, and writ
 **Key Constraints:**
 - **Max 4 sections** — Council should consolidate, not expand. Exec talks are tighter than tech talks. Each section earns ~8–12 slides in a 30–45 min briefing.
 - **Executive audience is the filter** — Every section must be evaluated through the lens of a CXO, VP, or transformation lead. If a section teaches implementation, it needs to be reframed as business implications or cut.
-- **Slide generator ensures consistency** — Once you commit a recipe, the [Slide Generator agent](../../agents/slide-generator.agent.md) generates all slides using the cockpit HTML template system with uniform structure. Focus the council on *decision clarity and business credibility*, not slide-level details.
+- **Slide generator ensures consistency** — Once you commit a recipe, the [Slide Generator agent](../../agents/slide-generator.agent.md) generates all slides using the Primer-style HTML template system with uniform structure. Focus the council on *decision clarity and business credibility*, not slide-level details.
 - **Recipe schema** — Read `.github/skills/exec-recipe-review/EXEC-RECIPE-TEMPLATE.yml` to understand all valid fields before writing the output file.
 
 ---
@@ -72,7 +72,7 @@ CANDIDATE SECTIONS (from README ## headings):
 CONSTRAINTS:
 - Max 4 sections (no exceptions — consolidate, don't expand)
 - Audience is executives: every section must land as business implication, not implementation detail
-- Slide generator will apply cockpit HTML templates for structural consistency
+- Slide generator will apply Primer-style HTML templates for structural consistency
 
 USER CONCERN: [Exact concern — what's taking too much space / what's missing / what's not landing]
 
@@ -177,7 +177,7 @@ Use `EXEC-RECIPE-TEMPLATE.yml` (read during pre-flight) as the schema for field 
 **Post-Recipe Workflow:**
 1. Commit updated `exec.recipe.yml`
 2. Invoke [Slide Generator agent](../../agents/slide-generator.agent.md) with the exec-talk path
-3. Slide Generator uses the cockpit HTML template system to create consistent slides for all sections
+3. Slide Generator uses the Primer-style HTML template system to create consistent slides for all sections
 4. No manual slide editing needed — the template ensures title slides, overview, section openers, closers, and references are auto-generated
 
 ---
@@ -192,7 +192,7 @@ Use `EXEC-RECIPE-TEMPLATE.yml` (read during pre-flight) as the schema for field 
 - [ ] The open decision is documented in the file — don't silently absorb it
 - [ ] `highlightMoments` list is 3-5 items with quantified metrics where possible
 - [ ] No `highlightMoments` entry describes a tool command, code pattern, or implementation step
-- [ ] **After approval**: Slide Generator agent will regenerate all slides using the cockpit HTML system — you don't need to update individual slides
+- [ ] **After approval**: Slide Generator agent will regenerate all slides using the Primer-style HTML system — you don't need to update individual slides
 - [ ] `deck.preamble` is `[{ src: "./exec-spine.md" }]` — never `[]` for exec talks
 
 ---
