@@ -1,25 +1,25 @@
-# Workshop Profile
+# Exec-Talk Profile
 
-Use this profile when generating `slides/workshop/*.md` from content under `workshop/`.
+Use this profile when generating `slides/exec-talks/*.md` from content under `exec-talks/`.
 
 ## Purpose
 
-Workshop decks are hands-on instructional assets. They should move participants through setup, framing, exercise execution, validation, and recap.
+Exec-talk decks are strategic narratives for decision-makers. They should frame business outcomes, operating implications, and action clarity.
 
-- Audience: practitioners in training sessions
-- Tone: clear, practical, guided
-- Goal: support delivery of a live learning module with concrete exercises and checkpoints
+- Audience: C-level leaders, VPs, and business/technology decision-makers
+- Tone: concise, credible, strategic
+- Goal: support informed executive decisions with practical next actions
 
 ## Visual System
 
 - Base canvas: `bg-[#101411]` with neutral surfaces (`#232925`, gray scale)
-- Primary accent: Copilot Purple (`#8534F3`, `#B870FF`)
-- Secondary accent: GitHub Green (`#0FBF3E`, `#238636`)
-- Progression: purple emphasis → green emphasis → neutral close
+- Primary accent: Copilot Purple (`#8534F3`, `#B870FF`) for strategic emphasis
+- Secondary accent: GitHub Green (`#0FBF3E`, `#238636`) for outcomes and confidence
+- Progression: neutral framing → purple strategic emphasis → green execution emphasis
 
 ## Title Slide
 
-Use a raw HTML title slide with the Primer color system.
+Use a raw HTML title slide with restrained Primer accents.
 
 ```html
 <!-- SLIDE: Title -->
@@ -45,32 +45,30 @@ Use a raw HTML title slide with the Primer color system.
 Default sequence:
 
 1. Title
-2. Objectives or module framing
-3. Agenda / flow / exercise map
+2. Strategic context / why now
+3. Decision framework or agenda
 
 ## Preferred Slide Archetypes
 
-Use these heavily for workshop decks:
+Use these heavily for exec-talk decks:
 
-- Objectives and outcomes
-- Demo setup / environment expectations
-- Exercise framing
-- Task instructions at slide level
-- Validation checkpoints
-- Common failure modes
-- Debrief and recap
-- Next module / next exercise
+- Strategic context and market timing
+- Value model and measurable outcomes
+- Risk, governance, and control model
+- Operating model changes and accountability
+- Recommended decisions and sequencing
+- What leaders can do this quarter
 
 ## Avoid
 
-- Executive strategy framing as the main narrative
-- Long market overviews
-- Pure capability theater without learner action
+- Low-level implementation details as primary narrative
+- Overly technical command-by-command walkthroughs
+- Busy color treatment that obscures decision clarity
 
 ## Closing Pattern
 
 Default close sequence:
 
-1. Key Takeaways
-2. What to Practice Next
-3. Next Module / Wrap-up
+1. Decision Summary
+2. What Leaders Can Do Next
+3. References and Thank You

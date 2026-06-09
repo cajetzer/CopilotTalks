@@ -12,10 +12,10 @@ Tech talks are practitioner-facing. They should feel concrete, current, and capa
 
 ## Visual System
 
-- Primary gradient: `from-cyan-400 via-blue-400 to-indigo-400`
-- Background gradient: `from-cyan-900/20 via-blue-900/10 to-indigo-900/20`
-- Pill/accent gradient: `from-cyan-600/80 to-blue-600/80`
-- Close progression: cyan → blue → indigo → purple → pink
+- Base canvas: `bg-[#101411]` with neutral surfaces (`#232925`, gray scale)
+- Primary accent: Copilot Purple (`#8534F3`, `#B870FF`)
+- Secondary accent: GitHub Green (`#0FBF3E`, `#238636`)
+- Accent rhythm: purple emphasis → green emphasis → purple emphasis → neutral close
 
 ---
 

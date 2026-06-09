@@ -26,7 +26,7 @@ For tech talks, use the **Tech Talk Slide Generator** instead:
 
 **What it does:**
 - ✅ Extracts content from the module README
-- ✅ Generates beautiful, branded slides
+- ✅ Generates Primer-aligned, branded slides (neutral-first with restrained accents)
 - ✅ Updates the slides index
 - ✅ Reports completion with slide count and path
 

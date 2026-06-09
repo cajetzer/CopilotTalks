@@ -16,15 +16,15 @@ Every deck follows this 5-section skeleton. Total slide budget: **under 25 slide
 
 | Section | Slides | Color | Purpose |
 |---------|--------|-------|---------|
-| **Opener** | Title + TOC | deck category colors | Hook and navigation |
-| **Part 1** | 1 opener + 2–5 content | `cyan → blue` | First topic |
-| **Part 2** | 1 opener + 2–5 content | `blue → indigo` | Second topic |
-| **Part 3** | 1 opener + 2–5 content | `indigo → purple` | Third topic |
-| **Close** | What You Can Do Today + References + Thank You | `purple → pink` | Action and wrap-up |
+| **Opener** | Title + TOC | Primer neutrals + accent | Hook and navigation |
+| **Part 1** | 1 opener + 2–5 content | neutral + purple accent | First topic |
+| **Part 2** | 1 opener + 2–5 content | neutral + green accent | Second topic |
+| **Part 3** | 1 opener + 2–5 content | neutral + purple accent | Third topic |
+| **Close** | What You Can Do Today + References + Thank You | neutral + mixed accent | Action and wrap-up |
 
 **Rules:**
 - Each topic section = 1 Section Opener + 2–5 content slides (progress dots required on all)
-- Add a Part 4 (`purple → pink`) only when content genuinely warrants it; shift Close to `pink → rose`
+- Add a Part 4 (neutral + accent) only when content genuinely warrants it
 - Close is always exactly 3 slides: What You Can Do Today → References → Thank You
 - TOC must link to each Part opener by slide number using `@click="$nav.go(N)"`
 - Target total: **under 25 slides**. Each part earns more slides based on topic depth — don't pad, don't cram.
@@ -41,20 +41,30 @@ Use category profiles for colors, title-slide style, and category-specific arche
 | **Tech-talks** | `slides/tech-talks/template.md` | Practitioner decks with capability-led narrative and `TitleSlide` |
 | **Exec-talks** | `slides/exec-talks/template.md` | Strategic decks with value, risk, and operating-model framing |
 
-### Color Progression Within a Deck
+### Primer Visual Contract (Default For New Decks)
+
+Use the Copilot brand model from `slides/copilot-brand.md` as the default for newly generated slides:
+
+- 80% black/white and neutral surfaces
+- 10% gray borders, dividers, and secondary text
+- 5% Copilot purple accents (`#8534F3`, `#B870FF`)
+- 5% GitHub green accents (`#0FBF3E`)
+
+Accent usage should be sparse and intentional. Do not build rainbow section gradients by default.
+
+### Accent Rhythm Within a Deck
 
 | Progression | Colors | Use For |
 |---|---|---|
-| Cool→Warm | cyan → blue → indigo → purple → pink | Common multi-part progression for technical deep dives |
-| Warm→Cool | orange → red → purple → blue | Common workshop pacing pattern |
-| Professional | blue → cyan → green | Common exec-talk progression |
+| Primer Rhythm A | purple accent → green accent → purple accent | Balanced technical and workshop pacing |
+| Primer Rhythm B | purple accent → neutral emphasis → green accent | Executive narratives and strategic flows |
+| Primer Rhythm C | green accent → purple accent → neutral close | Outcome-first narratives |
 
-**Section color pairings (in order):**
-- Section 1: `from-cyan-400 to-blue-400`
-- Section 2: `from-blue-400 to-indigo-400`
-- Section 3: `from-indigo-400 to-purple-400`
-- Section 4: `from-purple-400 to-pink-400`
-- Section 5: `from-pink-400 to-rose-400`
+**Default accent mapping (suggested):**
+- Section 1: purple accent (`#8534F3`)
+- Section 2: green accent (`#0FBF3E`)
+- Section 3: purple accent (`#B870FF`)
+- Section 4+: neutral surfaces with one accent tone per slide
 
 ---
 
@@ -62,24 +72,24 @@ Use category profiles for colors, title-slide style, and category-specific arche
 
 | Element | Pattern |
 |---|---|
-| Gradient text | `bg-gradient-to-r from-X-400 to-Y-400 bg-clip-text text-transparent` |
-| Cards | `bg-gradient-to-br from-X-900/30 to-Y-900/30 rounded-xl border border-X-500/30` |
-| Hover zoom | `hover:scale-105 transition-all duration-300` |
-| Glow shadow | `shadow-lg shadow-X-500/10` |
-| Flow arrows | `<div class="text-2xl text-gray-500">→</div>` |
-| Glowing orb | `bg-gradient-to-r ... rounded-full blur-3xl` |
-| Impact callout | `bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border` |
+| Hero text | `bg-gradient-to-r from-[#8534F3] to-[#B870FF] bg-clip-text text-transparent` |
+| Neutral card | `bg-[#232925]/50 rounded-xl border border-gray-700` |
+| Success callout | `bg-[#238636]/10 rounded-xl border border-[#238636]/30` |
+| Accent callout | `bg-[#8534F3]/10 rounded-xl border border-[#8534F3]/30` |
+| Subtle divider | `h-px bg-gradient-to-r from-gray-500/40 to-transparent` |
+| Ambient orb | `bg-gradient-to-r from-[#8534F3]/15 to-[#0FBF3E]/10 rounded-full blur-3xl` |
+| Muted body text | `text-gray-300` |
 
 ### Color Coding Conventions
 
 | Purpose | Background | Border/Accent | Text |
 |---|---|---|---|
-| Human authority | `bg-blue-900/60` | `border-blue-400` | `text-blue-300` |
-| AI/Automation | `bg-green-900/60` | `border-green-400` | `text-green-300` |
-| Warning/Danger | `bg-red-900/40` | `border-red-500` | `text-red-400` |
-| Caution | `bg-yellow-900/40` | `border-yellow-500` | `text-yellow-400` |
-| Neutral/Info | `bg-gray-800` | `border-gray-600` | `text-gray-300` |
-| Success/Highlight | `bg-gradient-to-r from-blue-600 to-blue-800` | — | `text-white` |
+| Primary neutral | `bg-[#101411]` | `border-gray-700` | `text-white` |
+| Secondary neutral | `bg-[#232925]/50` | `border-gray-700` | `text-gray-300` |
+| Primary highlight | `bg-[#8534F3]/10` | `border-[#8534F3]/30` | `text-[#B870FF]` |
+| Positive outcome | `bg-[#238636]/10` | `border-[#238636]/30` | `text-[#0FBF3E]` |
+| Warning | `bg-amber-900/20` | `border-amber-600/40` | `text-amber-300` |
+| Error | `bg-red-900/30` | `border-red-500/40` | `text-red-300` |
 
 ---
 
@@ -165,18 +175,18 @@ Use this generic shape only as a shared reference for the required content field
 
 ## Standard Content Slide (REQUIRED for ALL content slides)
 
-This is the **cockpit template** — use it for every non-title, non-section-opener slide. It provides consistent depth (layered gradients + breadcrumb) that matches the visual style of `agentic-sdlc.md`. **Never use a plain centered `h1` without this wrapper.**
+This is the shared **Primer-first wrapper** — use it for every non-title, non-section-opener slide. It keeps a neutral base with restrained accent usage. **Never use a plain centered `h1` without this wrapper.**
 
-Replace `{SECTION_COLOR}`, `{NEXT_COLOR}` with the section's color pair (e.g., `cyan`/`blue` for section 1, `blue`/`indigo` for section 2). Replace `{SECTION_EMOJI} {Section Name}` with the section's icon and name.
+Replace `{ACCENT}` with either `#8534F3` or `#0FBF3E` depending on section emphasis. Replace `{SECTION_EMOJI} {Section Name}` with the section's icon and name.
 
 ```html
 <!-- SLIDE: Slide Name -->
 <div class="h-full flex flex-col justify-start relative overflow-hidden px-14">
-<div class="absolute inset-0 bg-gradient-to-br from-{SECTION_COLOR}-900/20 via-{NEXT_COLOR}-900/10 to-transparent"></div>
-<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-{SECTION_COLOR}-500/10 to-transparent rounded-full blur-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-[#101411] via-[#101411] to-[#101411]"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[{ACCENT}]/15 to-transparent rounded-full blur-3xl"></div>
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-{SECTION_COLOR}-600/80 to-{NEXT_COLOR}-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">{SECTION_EMOJI} {Section Name}</span>
-<div class="flex-1 h-px bg-gradient-to-r from-{SECTION_COLOR}-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-[{ACCENT}]/20 border border-[{ACCENT}]/40 rounded-full text-white text-xs font-semibold tracking-wide">{SECTION_EMOJI} {Section Name}</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-500/40 to-transparent"></div>
 </div>
 <div class="relative z-10 mb-3">
 <div class="text-lg font-bold text-white mb-1">{Slide Headline}</div>
@@ -190,14 +200,14 @@ Replace `{SECTION_COLOR}`, `{NEXT_COLOR}` with the section's color pair (e.g., `
 
 ### Progress Dots (for multi-slide sections)
 
-Progress dots are **required on all topic section content slides**. Active dot: `bg-{SECTION_COLOR}-400 shadow-lg shadow-{SECTION_COLOR}-500/50`. Inactive: `bg-white/20`.
+Progress dots are **required on all topic section content slides**. Active dot should use the section accent (`bg-[#8534F3]` or `bg-[#0FBF3E]`). Inactive: `bg-white/20`.
 
 ```html
 <div class="relative z-10 flex items-center gap-3 mb-4">
-<span class="px-4 py-1 bg-gradient-to-r from-cyan-600/80 to-blue-600/80 rounded-full text-white text-xs font-semibold tracking-wide shadow-lg">📐 Section Name</span>
-<div class="flex-1 h-px bg-gradient-to-r from-cyan-400/60 to-transparent"></div>
+<span class="px-4 py-1 bg-[#8534F3]/20 border border-[#8534F3]/40 rounded-full text-white text-xs font-semibold tracking-wide">📐 Section Name</span>
+<div class="flex-1 h-px bg-gradient-to-r from-gray-500/40 to-transparent"></div>
 <div class="flex items-center gap-1.5">
-<div class="w-2 h-2 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-[#8534F3] shadow-lg shadow-purple-500/50"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 <div class="w-2 h-2 rounded-full bg-white/20"></div>
 </div>
@@ -258,6 +268,8 @@ Use this **rich section opener** (no `layout:` frontmatter — CSS only). The la
 ---
 
 ## TOC Slide with Gradient Cards (REQUIRED)
+
+Legacy snippets in this section may still show historical cyan/orange examples. For all new deck generation, keep the same structure but remap those colors to the Primer contract above (neutral surfaces with restrained purple/green accents).
 
 Use `@click="$nav.go(N)"` where N = slide number of the target section divider. Never use `<a href="#anchor">`. **Do not use `layout:` frontmatter** — wrap everything in a full-height div instead.
 
@@ -414,7 +426,7 @@ Use `@click="$nav.go(N)"` where N = slide number of the target section divider. 
 
 ## The Opportunity Slide
 
-**Never use "The Problem" — use "The Opportunity" instead.** Wrap in the Standard Content Slide cockpit template.
+**Never use "The Problem" — use "The Opportunity" instead.** Wrap in the Standard Content Slide shared Primer wrapper.
 
 ```html
 <!-- SLIDE: The Opportunity -->
@@ -461,7 +473,7 @@ Use `@click="$nav.go(N)"` where N = slide number of the target section divider. 
 
 ## Key Takeaways Slide
 
-Wrap in the Standard Content Slide cockpit template.
+Wrap in the Standard Content Slide shared Primer wrapper.
 
 ```html
 <!-- SLIDE: Key Takeaways -->

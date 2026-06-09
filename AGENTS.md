@@ -58,7 +58,7 @@ Two agents — pick by category:
 | Category | Agent |
 |---|---|
 | `tech-talks/` | **Tech Talk Slide Generator** — Vue components, no raw HTML |
-| `workshop/` or `exec-talks/` | **Slide Generator** — cockpit HTML templates |
+| `workshop/` or `exec-talks/` | **Slide Generator** — Primer-style HTML templates |
 
 Key invariants (all categories):
 

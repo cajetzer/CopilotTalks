@@ -10,7 +10,7 @@ argument-hint: Provide the tech-talk path (e.g., tech-talks/copilot-cli, tech-ta
 
 Generates `slides/tech-talks/{slug}.md` from `tech-talks/{topic}/README.md` and `deck.recipe.yml`.
 
-Every slide uses a Vue component — no raw HTML. The component library handles all styling, color progression, dark/light theming, and cockpit chrome. Your job is editorial: choose the right component for each idea, fill props with curated content, and enforce the structural contract below.
+Every slide uses a Vue component — no raw HTML. The component library handles all styling, Primer accent rhythm, dark/light theming, and chrome. Your job is editorial: choose the right component for each idea, fill props with curated content, and enforce the structural contract below.
 
 ---
 
@@ -122,13 +122,13 @@ Identify the single "I didn't know it could do that" moment → make it the cent
 Slide 1   — TitleSlide
 Slide 2   — CoreQuestionSlide  (exactly 6 cards)
 Slide 3   — TocSlide           (4 sections, slide numbers filled in at end)
-Part 1    — SectionOpenerSlide (partNumber=1, cyan)
+Part 1    — SectionOpenerSlide (partNumber=1, purple-emphasis)
 ...body slides per sectionModes emphasis budget...
-Part 2    — SectionOpenerSlide (partNumber=2, blue)
+Part 2    — SectionOpenerSlide (partNumber=2, green-emphasis)
 ...
-Part 3    — SectionOpenerSlide (partNumber=3, indigo)
+Part 3    — SectionOpenerSlide (partNumber=3, purple-emphasis)
 ...
-Part 4    — SectionOpenerSlide (partNumber=4, purple)
+Part 4    — SectionOpenerSlide (partNumber=4, neutral-plus-accent)
 ...
 N-3       — BeforeAfterSlide
 N-2       — WhatYouCanDoTodaySlide
@@ -184,7 +184,7 @@ One `<script setup>` block at the top, immediately after frontmatter. Import onl
 
 ### Component selection
 
-Every body slide **must** use one of the 13 Tier-1 components. No inline HTML for body slides. The components handle cockpit wrapper, section chrome, color progression, and theming.
+Every body slide **must** use one of the 13 Tier-1 components. No inline HTML for body slides. The components handle shared wrapper, section chrome, Primer accents, and theming.
 
 | Situation                              | Component                     |
 | -------------------------------------- | ----------------------------- |
@@ -208,18 +208,18 @@ If content does not fit any component, **adapt or split** — there is no inline
 
 Every Tier-1 body component requires:
 
-- `partNumber` (1–4) — drives all colors
+- `partNumber` (1–4) — drives accent rhythm
 - `pillIcon` + `pillLabel` — breadcrumb
 - `title` — slide headline (≤ 80 chars)
 - `progressDots: { current, total, activeColor }` — required on every body slide, even single-slide sections
 
-`activeColor` by part:
+`activeColor` by part (Primer default):
 | Part | activeColor |
 |---|---|
-| 1 | `"bg-cyan-400 shadow-lg shadow-cyan-500/50"` |
-| 2 | `"bg-blue-400 shadow-lg shadow-blue-500/50"` |
-| 3 | `"bg-indigo-400 shadow-lg shadow-indigo-500/50"` |
-| 4 | `"bg-purple-400 shadow-lg shadow-purple-500/50"` |
+| 1 | `"bg-purple-400 shadow-lg shadow-purple-500/50"` |
+| 2 | `"bg-green-400 shadow-lg shadow-green-500/50"` |
+| 3 | `"bg-purple-400 shadow-lg shadow-purple-500/50"` |
+| 4 | `"bg-green-400 shadow-lg shadow-green-500/50"` |
 
 Section openers do **not** get progress dots.
 

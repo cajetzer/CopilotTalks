@@ -115,7 +115,7 @@ references:  # optional but recommended
 - **Max under 25 slides** — Force focused, essential content
 - **Layout:** NO per-slide frontmatter (`layout:`, `class:`, `transition:`)
   - Use CSS Grid/divs instead: `<div class="grid grid-cols-2">`
-- **Visual style:** Dark cockpit with Tailwind CSS
+- **Visual style:** Primer-first (neutral-dominant, restrained purple/green accents) with Tailwind CSS
 - **HTML balance:** All `<div>` tags must close before `---` separator
 - **Diagrams:** HTML only, no Mermaid
 - **Ending:** Polish references slide + designed thank-you slide
