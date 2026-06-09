@@ -96,7 +96,7 @@ build_slide() {
         echo "   🔨 ${CATEGORY}/${BASENAME}..."
         cd "${SLIDES_DIR}"
         npx @slidev/cli build "${CATEGORY}/${BASENAME}.md" \
-            --base "/CopilotTraining/${CATEGORY}/${BASENAME}/" \
+            --base "/CopilotTalks/${CATEGORY}/${BASENAME}/" \
             --out "${OUTPUT_DIR}/${CATEGORY}/${BASENAME}" 2>&1 | sed 's/^/      /'
         local SLIDE_END=$(date +%s)
         local ELAPSED=$((SLIDE_END - SLIDE_START))
@@ -105,7 +105,7 @@ build_slide() {
         printf "   🔨 %s/%s... " "${CATEGORY}" "${BASENAME}"
         cd "${SLIDES_DIR}"
         if npx @slidev/cli build "${CATEGORY}/${BASENAME}.md" \
-            --base "/CopilotTraining/${CATEGORY}/${BASENAME}/" \
+            --base "/CopilotTalks/${CATEGORY}/${BASENAME}/" \
             --out "${OUTPUT_DIR}/${CATEGORY}/${BASENAME}" > /dev/null 2>&1; then
             local SLIDE_END=$(date +%s)
             local ELAPSED=$((SLIDE_END - SLIDE_START))

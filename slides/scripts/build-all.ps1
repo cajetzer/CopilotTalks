@@ -286,7 +286,7 @@ $jobs = $AllDecks | ForEach-Object {
         Push-Location $SlidesDir
         try {
             $output = npx @slidev/cli build "$category/$baseName.md" `
-                --base "/CopilotTraining/$category/$baseName/" `
+                --base "/CopilotTalks/$category/$baseName/" `
                 --out "$OutputDir/$category/$baseName" 2>&1
             $exitCode = $LASTEXITCODE
         } finally {

@@ -27,60 +27,60 @@ if (!scriptMatch) {
 const testCases = [
   {
     name: "Slide route with single digit",
-    input: "/CopilotTraining/tech-talks/subagents/1",
+    input: "/CopilotTalks/tech-talks/subagents/1",
     expectedAction: "redirect",
-    expectedTo: "/CopilotTraining/tech-talks/subagents/?slide=1",
+    expectedTo: "/CopilotTalks/tech-talks/subagents/?slide=1",
     expectedLoopPrevention: true,
   },
   {
     name: "Slide route with double digit",
-    input: "/CopilotTraining/tech-talks/subagents/15",
+    input: "/CopilotTalks/tech-talks/subagents/15",
     expectedAction: "redirect",
-    expectedTo: "/CopilotTraining/tech-talks/subagents/?slide=15",
+    expectedTo: "/CopilotTalks/tech-talks/subagents/?slide=15",
     expectedLoopPrevention: true,
   },
   {
     name: "Presentation base without trailing slash",
-    input: "/CopilotTraining/tech-talks/subagents",
+    input: "/CopilotTalks/tech-talks/subagents",
     expectedAction: "redirect",
-    expectedTo: "/CopilotTraining/tech-talks/subagents/",
+    expectedTo: "/CopilotTalks/tech-talks/subagents/",
     expectedLoopPrevention: false,
   },
   {
     name: "Workshop slide route",
-    input: "/CopilotTraining/workshop/01-instructions/3",
+    input: "/CopilotTalks/workshop/01-instructions/3",
     expectedAction: "redirect",
-    expectedTo: "/CopilotTraining/workshop/01-instructions/?slide=3",
+    expectedTo: "/CopilotTalks/workshop/01-instructions/?slide=3",
     expectedLoopPrevention: true,
   },
   {
     name: "Duplicated workshop base route",
     input:
-      "/CopilotTraining/workshop/00-orientation/CopilotTraining/workshop/00-orientation/2",
+      "/CopilotTalks/workshop/00-orientation/CopilotTalks/workshop/00-orientation/2",
     expectedAction: "redirect",
     expectedTo:
-      "/CopilotTraining/workshop/00-orientation/?slide=CopilotTraining%2Fworkshop%2F00-orientation%2F2",
+      "/CopilotTalks/workshop/00-orientation/?slide=CopilotTalks%2Fworkshop%2F00-orientation%2F2",
     expectedLoopPrevention: true,
   },
   {
     name: "Root path",
-    input: "/CopilotTraining/",
+    input: "/CopilotTalks/",
     expectedAction: "redirect",
-    expectedTo: "/CopilotTraining/",
+    expectedTo: "/CopilotTalks/",
     expectedLoopPrevention: false,
   },
   {
     name: "Single segment (category only)",
-    input: "/CopilotTraining/tech-talks",
+    input: "/CopilotTalks/tech-talks",
     expectedAction: "redirect",
-    expectedTo: "/CopilotTraining/",
+    expectedTo: "/CopilotTalks/",
     expectedLoopPrevention: false,
   },
   {
     name: "Deep slide route (testing URL encoding)",
-    input: "/CopilotTraining/tech-talks/subagents/1/2/3",
+    input: "/CopilotTalks/tech-talks/subagents/1/2/3",
     expectedAction: "redirect",
-    expectedTo: "/CopilotTraining/tech-talks/subagents/?slide=1%2F2%2F3",
+    expectedTo: "/CopilotTalks/tech-talks/subagents/?slide=1%2F2%2F3",
     expectedLoopPrevention: true,
     // Note: This tests URL encoding behavior. Slidev doesn't typically use nested paths,
     // but if someone manually creates such a URL, we handle it gracefully by encoding it.
@@ -89,7 +89,7 @@ const testCases = [
 
 // Simulate the 404 redirect logic
 function simulate404Redirect(testPath, isSecondAttempt = false) {
-  const repo = "/CopilotTraining";
+  const repo = "/CopilotTalks";
   const storage = {};
   const redirectKey = "slidev-404-redirect-attempted";
 
@@ -178,7 +178,7 @@ testCases.forEach((test, index) => {
 console.log("🔄 Testing Loop Detection\n");
 const loopTest = {
   name: "Infinite loop prevention",
-  input: "/CopilotTraining/tech-talks/subagents/1",
+  input: "/CopilotTalks/tech-talks/subagents/1",
 };
 
 const firstAttempt = simulate404Redirect(loopTest.input, false);

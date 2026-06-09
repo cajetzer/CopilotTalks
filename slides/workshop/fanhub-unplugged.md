@@ -746,7 +746,7 @@ Both surfaces: same model, same tools, same interaction model. Pick what feels n
 <div>
 <div class="text-sm font-bold text-amber-300 mb-1">You did this with minimal Copilot configuration.</div>
 <div class="text-xs text-gray-300">/init gave the agent basic orientation — no custom instructions, no skills, no architecture files. <span class="text-amber-200 font-semibold">Imagine what a properly configured workspace looks like.</span></div>
-<div class="text-xs text-blue-400/80 mt-2">→ <a href="https://msbart2.github.io/CopilotTraining/tech-talks/copilot-primitives/1" target="_blank" class="underline underline-offset-2 hover:text-blue-300">Copilot Primitives</a> — what configuration actually unlocks</div>
+<div class="text-xs text-blue-400/80 mt-2">→ <a href="https://cajetzer.github.io/CopilotTalks/tech-talks/copilot-primitives/1" target="_blank" class="underline underline-offset-2 hover:text-blue-300">Copilot Primitives</a> — what configuration actually unlocks</div>
 </div>
 </div>
 </div>

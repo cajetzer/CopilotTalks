@@ -108,7 +108,7 @@ Required on all topic section content slides. Active dot should use section acce
 - Read `slides/SECTIONS.md` for the correct section container and icon.
 - Add a card to `slides/index-custom.html` in the correct sub-group.
 - Workshop: maintain module number order. Exec-talk: alphabetical.
-- Card template: `<a href="/CopilotTraining/{category}/{slug}/" class="card"><h2>{Title}</h2><p>{Description}</p></a>`
+- Card template: `<a href="/CopilotTalks/{category}/{slug}/" class="card"><h2>{Title}</h2><p>{Description}</p></a>`
 
 ---
 

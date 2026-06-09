@@ -248,7 +248,7 @@ After the deck builds cleanly:
 
 - Add a card to `slides/index-custom.html` in the correct sub-group (use the section container from SECTIONS.md, already read in Phase B).
 - Maintain alphabetical order within the sub-group.
-- Card template: `<a href="/CopilotTraining/tech-talks/{slug}/" class="card"><h2>{Title}</h2><p>{One-sentence description}</p></a>`
+- Card template: `<a href="/CopilotTalks/tech-talks/{slug}/" class="card"><h2>{Title}</h2><p>{One-sentence description}</p></a>`
 
 ---
 

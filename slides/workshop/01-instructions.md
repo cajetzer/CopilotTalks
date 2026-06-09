@@ -303,7 +303,7 @@ When Copilot evaluates your code, it loads all four sources in parallel, applies
 <div class="text-gray-300 text-sm leading-snug mb-2">
 We'll walk through the complete orchestration flow showing how all context sources are queried, merged, and prioritized. See the full diagram in the module documentation:
 </div>
-<a href="https://github.com/MSBart2/CopilotTraining/blob/main/workshop/01-instructions/README.md#how-custom-agents-orchestrate-these-layers" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm underline">View the orchestration sequence diagram →</a>
+<a href="https://github.com/cajetzer/CopilotTalks/blob/main/workshop/01-instructions/README.md#how-custom-agents-orchestrate-these-layers" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm underline">View the orchestration sequence diagram →</a>
 </div>
 
 <div class="grid grid-cols-2 gap-3 text-left text-xs">
