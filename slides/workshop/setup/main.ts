@@ -14,12 +14,18 @@ function hideGotoDialog() {
 function normalizeRouterBase(router: any) {
   const base: string = router?.options?.history?.base ?? ''
   const routerBase = base.endsWith('/') ? base.slice(0, -1) : base
+  const routerBaseRelative = routerBase.replace(/^\//, '')
 
   if (!routerBase)
     return
 
-  const stripBase = (path: string): string =>
-    path.startsWith(routerBase) ? path.slice(routerBase.length) || '/' : path
+  const stripBase = (path: string): string => {
+    if (path.startsWith(routerBase))
+      return path.slice(routerBase.length) || '/'
+    if (routerBaseRelative && path.startsWith(routerBaseRelative))
+      return path.slice(routerBaseRelative.length) || '/'
+    return path
+  }
 
   const originalPush = router.push.bind(router)
   const originalReplace = router.replace.bind(router)
@@ -48,7 +54,7 @@ export default defineAppSetup(({ router }) => {
 
     router.isReady().then(() => {
       const targetSlide = new URLSearchParams(window.location.search).get('slide')
-      const slideNumber = Number.parseInt(targetSlide ?? '', 10)
+      const slideNumber = Number.parseInt(targetSlide?.match(/\d+$/)?.[0] ?? '', 10)
       if (Number.isInteger(slideNumber) && slideNumber > 0) {
         router.replace(`/${slideNumber}`).then(() => {
           const cleanUrl = window.location.pathname + window.location.hash

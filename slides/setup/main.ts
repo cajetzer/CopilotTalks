@@ -11,10 +11,16 @@ export default defineAppSetup(({ app, router }) => {
     if (router) {
       const base: string = (router as any).options?.history?.base ?? ''
       const routerBase = base.endsWith('/') ? base.slice(0, -1) : base
+      const routerBaseRelative = routerBase.replace(/^\//, '')
 
       if (routerBase) {
-        const stripBase = (path: string): string =>
-          path.startsWith(routerBase) ? path.slice(routerBase.length) || '/' : path
+        const stripBase = (path: string): string => {
+          if (path.startsWith(routerBase))
+            return path.slice(routerBase.length) || '/'
+          if (routerBaseRelative && path.startsWith(routerBaseRelative))
+            return path.slice(routerBaseRelative.length) || '/'
+          return path
+        }
 
         const origPush = router.push.bind(router)
         const origReplace = router.replace.bind(router)
@@ -38,8 +44,8 @@ export default defineAppSetup(({ app, router }) => {
 
     if (targetSlide && router) {
       router.isReady().then(() => {
-        const slideNumber = parseInt(targetSlide, 10)
-        if (!isNaN(slideNumber) && slideNumber > 0) {
+        const slideNumber = Number.parseInt(targetSlide.match(/\d+$/)?.[0] ?? '', 10)
+        if (Number.isInteger(slideNumber) && slideNumber > 0) {
           router.replace(`/${slideNumber}`).then(() => {
             const cleanUrl = window.location.pathname + window.location.hash
             window.history.replaceState({}, '', cleanUrl)

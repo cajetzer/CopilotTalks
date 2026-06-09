@@ -54,6 +54,13 @@ const testCases = [
     expectedLoopPrevention: true
   },
   {
+    name: 'Duplicated workshop base route',
+    input: '/CopilotTraining/workshop/00-orientation/CopilotTraining/workshop/00-orientation/2',
+    expectedAction: 'redirect',
+    expectedTo: '/CopilotTraining/workshop/00-orientation/?slide=CopilotTraining%2Fworkshop%2F00-orientation%2F2',
+    expectedLoopPrevention: true
+  },
+  {
     name: 'Root path',
     input: '/CopilotTraining/',
     expectedAction: 'redirect',
