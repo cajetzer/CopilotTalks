@@ -29,7 +29,7 @@ https://<username>.github.io/<repository-name>/
 
 For this repository:
 ```
-https://MSBart2.github.io/CopilotTraining/
+https://cajetzer.github.io/CopilotTalks/
 ```
 
 ---

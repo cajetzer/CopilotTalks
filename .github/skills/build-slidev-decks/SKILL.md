@@ -25,12 +25,12 @@ Load this skill when you need to:
 
 **Windows PowerShell:**
 ```powershell
-cd C:\Users\hobob\source\CopilotTraining\slides
+cd C:\Users\hobob\source\CopilotTalks\slides
 ```
 
 **Linux/macOS Bash:**
 ```bash
-cd /path/to/CopilotTraining/slides
+cd /path/to/CopilotTalks/slides
 chmod +x build.sh scripts/build-all.sh  # First time only
 ```
 

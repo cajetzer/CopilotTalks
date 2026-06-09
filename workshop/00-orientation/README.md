@@ -335,8 +335,8 @@ Do you want this applied AUTOMATICALLY?
 
 ```bash
 # Clone the training repo if you haven't already
-git clone https://github.com/YOUR_USERNAME/CopilotTraining.git
-cd CopilotTraining
+git clone https://github.com/YOUR_USERNAME/CopilotTalks.git
+cd CopilotTalks
 
 # Navigate to the FanHub starter
 cd fanhub

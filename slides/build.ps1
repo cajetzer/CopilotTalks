@@ -18,8 +18,8 @@
 #     .\build.ps1 -Deck copilot-cli -Verbose   # build single deck with verbose output
 #
 #   From any directory:
-#     C:\...\CopilotTraining\slides\build.ps1
-#     & "C:\...\CopilotTraining\slides\build.ps1" -Folder Tech-talks
+#     C:\...\CopilotTalks\slides\build.ps1
+#     & "C:\...\CopilotTalks\slides\build.ps1" -Folder Tech-talks
 #
 # PARAMETERS:
 #   -Folder:  Category to build (workshop, tech-talks, exec-talks). Omit to build all.

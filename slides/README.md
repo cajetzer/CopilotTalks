@@ -2,7 +2,7 @@
 
 Beautiful presentation slides for workshop modules, tech talks, and executive briefings.
 
-> **🌐 View Online**: [https://msbart2.github.io/CopilotTraining/](https://msbart2.github.io/CopilotTraining/)
+> **🌐 View Online**: [https://cajetzer.github.io/CopilotTalks/](https://cajetzer.github.io/CopilotTalks/)
 >
 > All slides are automatically built and deployed via GitHub Actions on every commit.
 

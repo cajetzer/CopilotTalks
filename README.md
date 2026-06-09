@@ -6,7 +6,7 @@
 
 The easiest way to use this repository is the live site:
 
-- [Browse CopilotTraining on GitHub Pages](https://msbart2.github.io/CopilotTraining/)
+- [Browse CopilotTraining on GitHub Pages](https://cajetzer.github.io/CopilotTalks/)
 
 That is the fastest way to find the right workshop module, tech talk, or executive talk without learning the repository structure first.
 
@@ -17,7 +17,7 @@ That is the fastest way to find the right workshop module, tech talk, or executi
 | Build hands-on skill with Copilot customizations and agent workflows | [Workshop](workshop/) | Best for structured learning, team training, and experiential practice |
 | Understand a specific capability or technical pattern | [Tech Talks](tech-talks/) | Best for engineers, architects, and technical champions who need depth |
 | Explain the organizational or economic implications to leadership | [Executive Talks](exec-talks/) | Best for leaders making adoption, investment, and operating-model decisions |
-| Just browse the material quickly | [Live Site](https://msbart2.github.io/CopilotTraining/) | Best for first-time visitors who want the easiest navigation |
+| Just browse the material quickly | [Live Site](https://cajetzer.github.io/CopilotTalks/) | Best for first-time visitors who want the easiest navigation |
 
 If you want the simplest recommendation: start on the live site, then choose a workshop, tech talk, or executive talk based on your audience.
 
@@ -29,7 +29,7 @@ Copilot becomes much more valuable when people move beyond one-off prompting and
 
 ## Live Site vs. Repository
 
-Use the [live site](https://msbart2.github.io/CopilotTraining/) for the easiest browsing experience. Use the repository directly to read source Markdown, adapt material for your team, or contribute new content.
+Use the [live site](https://cajetzer.github.io/CopilotTalks/) for the easiest browsing experience. Use the repository directly to read source Markdown, adapt material for your team, or contribute new content.
 
 ## Repository Layout
 
