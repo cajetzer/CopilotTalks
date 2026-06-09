@@ -52,6 +52,8 @@ Use the Copilot brand model from `slides/copilot-brand.md` as the default for ne
 
 Accent usage should be sparse and intentional. Do not build rainbow section gradients by default.
 
+Any historical cyan/orange snippet that appears later in this file should be treated as structural reference only. For new deck generation, always remap examples to the Primer visual contract in this section.
+
 ### Accent Rhythm Within a Deck
 
 | Progression | Colors | Use For |

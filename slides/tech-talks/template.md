@@ -243,7 +243,7 @@ Every Part N slide uses `SectionOpenerSlide`. The component handles the full cen
 
 ## Tier-1 Body-Content Components (REQUIRED — no inline HTML)
 
-All 13 body-slide archetypes. **Every body content slide must use one of these components** — do not write inline HTML for body content. Components handle the cockpit wrapper, section chrome (ambient bg, orb, pill, divider), color progression, and dark/light theming. Do NOT pass color/style/class props; all colors derive from `partNumber` (1–4) via `useSectionTheme.ts`.
+All 13 body-slide archetypes. **Every body content slide must use one of these components** — do not write inline HTML for body content. Components handle the shared wrapper, section chrome (ambient bg, orb, pill, divider), Primer accent rhythm, and dark/light theming. Do NOT pass color/style/class props; all colors derive from `partNumber` (1–4) via `useSectionTheme.ts`.
 
 See `slides/COMPONENT-ARCHETYPES.md` for the full selection matrix, overflow thresholds, and usage examples. If content does not fit a single component, adapt or split the slide — there is no inline HTML fallback.
 
@@ -528,7 +528,7 @@ Two-column numbered step comparison — the "before" path (red/problem) vs the "
 
 ### `MaturityJourneyRoadmapSlide`
 
-Horizontal stage progression with chevron separators. One stage can be marked `isTarget: true` to receive a "TARGET" badge. Supports 2–5 stages; the internal color palette (slate → blue → indigo → cyan → emerald) is distributed automatically.
+Horizontal stage progression with chevron separators. One stage can be marked `isTarget: true` to receive a "TARGET" badge. Supports 2–5 stages; colors follow the shared neutral + accent system and adapt with theme mode.
 
 ```html
 <MaturityJourneyRoadmapSlide
