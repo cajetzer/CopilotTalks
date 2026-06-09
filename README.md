@@ -6,7 +6,7 @@
 
 The easiest way to use this repository is the live site:
 
-- [Browse CopilotTraining on GitHub Pages](https://cajetzer.github.io/CopilotTalks/)
+- [Browse CopilotTalks on GitHub Pages](https://cajetzer.github.io/CopilotTalks/)
 
 That is the fastest way to find the right workshop module, tech talk, or executive talk without learning the repository structure first.
 
