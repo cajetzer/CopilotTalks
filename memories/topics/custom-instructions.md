@@ -14,6 +14,7 @@ Custom instructions let developers and teams steer Copilot's behavior without mo
 
 | Artifact | Depth | Notes |
 |---|---|---|
+| `tech-talks/whats-new-important` | Secondary | Hackathon primer: instructions template as the highest-ROI setup artifact; explains repo-level + agent-guidance sections in the hackathon context |
 | `slides/tech-talks/copilot-primitives.md` | Primary | Instructions as a primitive — all three mechanisms, composition model |
 | `slides/tech-talks/copilot-hooks.md` | Major section | Hooks fire before/after instruction processing; used to validate and augment instructions |
 | `slides/tech-talks/copilot-chat-internals.md` | Secondary | Context window breakdown shows where instructions land; diagnostics for troubleshooting |

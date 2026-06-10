@@ -4,6 +4,20 @@ Confirmed facts about Copilot Tools tech-talk decks — framing, structure, and 
 
 ---
 
+## whats-new-important: Two non-obvious structural decisions (2026-06-10)
+
+`schema_version: 1` | `date: 2026-06-10`
+
+Two framing decisions for `tech-talks/whats-new-important` that an agent reading only the README would miss:
+
+1. **Instructions template is the peak engagement moment** — The `.github/copilot-instructions.md` hackathon starter is not one of four equal artifacts. It is the explicit centerpiece of Section 2 (Agent Mode), positioned as the "copy this into your repo right now" deliverable. The deck recipe enforces this by giving Section 2 the highest emphasis and directing the generator to dedicate a full slide to the copyable template. If regenerating or updating: do not dilute this moment by treating the instructions file as a utility step.
+
+2. **Section 3 (Practical Stack) must stay combined** — MCP + Skills + CLI + Code Review + Spark are bundled into one medium-emphasis section by deliberate 30-minute budget decision. A natural instinct when updating this talk is to split them into 2 sections. Do not do this — it would expand the talk to 5 sections and break the 30-minute format. If the audience needs more depth on any of these, point them to the dedicated talks (copilot-cli, copilot-code-review, mcp-apps) rather than expanding this primer.
+
+**Source:** `tech-talks/whats-new-important/deck.recipe.yml` (sectionModes notes + arcNarrative)
+
+---
+
 ## copilot-cli.md: Deck structure and section mapping (2026-04-22)
 
 `schema_version: 1` | `date: 2026-04-22`

@@ -14,6 +14,7 @@ Agent Mode is GitHub Copilot's capability to autonomously plan and execute multi
 
 | Artifact | Depth | Notes |
 |---|---|---|
+| `tech-talks/whats-new-important` | Secondary | Hackathon primer: Agent Mode as the mode-shift centerpiece; `copilot-instructions.md` template as peak engagement moment; background agents for parallel work |
 | `slides/tech-talks/agentic-workflows.md` | Primary | Core agentic patterns — plan/act/verify loop, tool use, iteration |
 | `slides/tech-talks/agentic-journey.md` | Primary | The maturity arc from autocomplete → inline → chat → agent mode |
 | `slides/tech-talks/agentic-sdlc.md` | Primary | Agent mode integrated across the full SDLC: intake, implementation, review, release |

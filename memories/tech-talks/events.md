@@ -4,6 +4,27 @@ Milestones for individual tech-talk content: creation, rewrites, conformance, an
 
 ---
 
+## whats-new-important tech-talk created: hackathon primer format (2026-06-10)
+
+`schema_version: 1` | `date: 2026-06-10`
+
+New tech-talk added: **GitHub Copilot Refresher: What's New and Important** — a 30-minute hackathon primer for developers.
+
+**Files created:**
+- `tech-talks/whats-new-important/README.md`
+- `tech-talks/whats-new-important/deck.recipe.yml`
+
+**Section placement:** Developers
+
+**Arc:** Landscape (medium-low) → Agent Mode (high) → Practical Stack (medium) → Hackathon Playbook (high)
+
+**Key structural decisions:**
+- 4 sections with deliberately asymmetric emphasis — Landscape compressed to give Agent Mode and Hackathon Playbook maximum runway in 30 minutes
+- `.github/copilot-instructions.md` template is the PEAK ENGAGEMENT MOMENT of the talk, not one of four equal artifacts — anchors Section 2 as the "copy this into your repo right now" deliverable
+- Section 3 (Practical Stack) bundles MCP + Skills + CLI + Code Review + Spark by explicit 30-minute budget decision — do NOT split if updating this talk
+
+---
+
 ## copilot-cli: full deck regeneration with dual-arc narrative (2026-06-04)
 
 `schema_version: 1` | `date: 2026-06-04`
