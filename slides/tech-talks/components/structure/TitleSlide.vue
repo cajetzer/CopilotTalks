@@ -47,15 +47,8 @@
     <!-- Animated blur orb -->
     <div class="sv-title-orb bg-gradient-to-r" :class="t.orb"></div>
 
-    <!-- Logo section with glow effect -->
-    <div class="sv-title-logo">
-      <!-- Logo glow (blurred copy behind) -->
-      <div class="sv-title-logo-glow">
-        <img src="../../sdp-logo.png" class="w-64" alt="" />
-      </div>
-      <!-- Main logo (sharp, on top) -->
-      <img src="../../sdp-logo.png" class="w-64 relative" alt="SDP Logo" />
-    </div>
+    <!-- Primer-style opener: neutral canvas + restrained accent -->
+    <div class="sv-title-kicker text-xs uppercase tracking-[0.35em] opacity-80">GitHub Copilot · Tech Talk</div>
 
     <!-- Main title with gradient text effect -->
     <h1 class="sv-title-heading !text-5xl !font-bold !mt-8 bg-gradient-to-r bg-clip-text text-transparent" :class="t.heading">
@@ -121,18 +114,18 @@ if (props.tagline?.length > TAGLINE_MAX)
   console.warn(`[TitleSlide] tagline is ${props.tagline.length} chars (max ${TAGLINE_MAX})`)
 
 const DARK_THEME = {
-  bg:      'from-cyan-900/20 via-blue-900/10 to-indigo-900/20',
-  orb:     'from-cyan-500/20 via-blue-500/20 to-indigo-500/20',
-  heading: 'from-cyan-400 via-blue-400 to-indigo-400',
-  pill:    'from-cyan-600/80 to-blue-600/80 shadow-cyan-500/25',
-  divider: 'via-cyan-400',
+  bg:      'from-gray-950/95 via-gray-900/95 to-black',
+  orb:     'from-purple-500/10 via-emerald-500/10 to-transparent',
+  heading: 'from-purple-300 via-emerald-300 to-green-300',
+  pill:    'from-purple-700/60 to-emerald-700/60 shadow-purple-500/15',
+  divider: 'via-purple-400/60',
 }
 const LIGHT_THEME = {
-  bg:      'from-cyan-100/30 via-blue-50/20 to-indigo-50/10',
-  orb:     'from-cyan-300/20 via-blue-200/20 to-indigo-200/10',
-  heading: 'from-cyan-600 via-blue-600 to-indigo-600',
-  pill:    'from-cyan-500 to-blue-500 shadow-cyan-300/50',
-  divider: 'via-cyan-500',
+  bg:      'from-white via-gray-100 to-gray-50',
+  orb:     'from-purple-200/25 via-emerald-200/20 to-transparent',
+  heading: 'from-purple-700 via-emerald-700 to-green-700',
+  pill:    'from-purple-500 to-emerald-500 shadow-purple-200/50',
+  divider: 'via-purple-400/60',
 }
 
 const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME);

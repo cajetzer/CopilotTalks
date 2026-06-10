@@ -77,42 +77,42 @@ props.cards?.forEach((c, i) => {
 })
 
 const DARK_CARD_STYLES = [
-  { bg: 'from-cyan-900/30 to-blue-900/30',     border: 'border-cyan-500/30',   title: 'text-cyan-300',   desc: 'text-cyan-200/70'   },
-  { bg: 'from-blue-900/30 to-indigo-900/30',   border: 'border-blue-500/30',   title: 'text-blue-300',   desc: 'text-blue-200/70'   },
-  { bg: 'from-indigo-900/30 to-purple-900/30', border: 'border-indigo-500/30', title: 'text-indigo-300', desc: 'text-indigo-200/70' },
-  { bg: 'from-cyan-900/20 to-teal-900/20',     border: 'border-teal-500/20',   title: 'text-teal-400',   desc: 'text-teal-200/60'   },
-  { bg: 'from-blue-900/20 to-cyan-900/20',     border: 'border-blue-500/20',   title: 'text-blue-400',   desc: 'text-blue-200/60'   },
-  { bg: 'from-purple-900/20 to-indigo-900/20', border: 'border-purple-500/20', title: 'text-purple-400', desc: 'text-purple-200/60' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-purple-500/30', title: 'text-purple-300', desc: 'text-gray-300' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-emerald-500/30', title: 'text-emerald-300', desc: 'text-gray-300' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-violet-500/30', title: 'text-violet-300', desc: 'text-gray-300' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-green-500/30', title: 'text-green-300', desc: 'text-gray-300' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-purple-500/20', title: 'text-purple-200', desc: 'text-gray-300' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-emerald-500/20', title: 'text-emerald-200', desc: 'text-gray-300' },
 ]
 const LIGHT_CARD_STYLES = [
-  { bg: 'from-cyan-100 to-blue-200',     border: 'border-cyan-400',   title: 'text-cyan-800',   desc: 'text-cyan-900'   },
-  { bg: 'from-blue-100 to-indigo-200',   border: 'border-blue-400',   title: 'text-blue-800',   desc: 'text-blue-900'   },
-  { bg: 'from-indigo-100 to-purple-200', border: 'border-indigo-400', title: 'text-indigo-800', desc: 'text-indigo-900' },
-  { bg: 'from-teal-100 to-cyan-200',     border: 'border-teal-400',   title: 'text-teal-800',   desc: 'text-teal-900'   },
-  { bg: 'from-blue-100 to-cyan-200',     border: 'border-blue-400',   title: 'text-blue-800',   desc: 'text-blue-900'   },
-  { bg: 'from-purple-100 to-indigo-200', border: 'border-purple-400', title: 'text-purple-800', desc: 'text-purple-900' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-purple-200', title: 'text-purple-700', desc: 'text-gray-700' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-emerald-200', title: 'text-emerald-700', desc: 'text-gray-700' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-violet-200', title: 'text-violet-700', desc: 'text-gray-700' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-green-200', title: 'text-green-700', desc: 'text-gray-700' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-purple-100', title: 'text-purple-600', desc: 'text-gray-700' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-emerald-100', title: 'text-emerald-600', desc: 'text-gray-700' },
 ]
 
 // Structural/ambient theme classes
 const DARK_THEME = {
-  ambientBg:    'from-cyan-900/20 via-blue-900/10 to-transparent',
-  orb:          'from-cyan-500/10 to-transparent',
-  pill:         'from-cyan-600/80 to-blue-600/80',
-  divider:      'from-cyan-400/60 to-transparent',
-  questionCard: 'from-cyan-900/30 to-blue-900/30 border-cyan-500/30',
-  questionText: 'text-cyan-200',
-  subtext:      'text-white/80',
-  highlight:    'text-cyan-300',
+  ambientBg:    'from-gray-950/95 via-gray-900/95 to-black',
+  orb:          'from-purple-500/10 via-emerald-500/10 to-transparent',
+  pill:         'from-purple-700/60 to-emerald-700/60',
+  divider:      'from-purple-400/60 to-transparent',
+  questionCard: 'from-gray-900/70 to-gray-800/60 border-purple-500/30',
+  questionText: 'text-white',
+  subtext:      'text-gray-300',
+  highlight:    'text-emerald-300',
 }
 const LIGHT_THEME = {
-  ambientBg:    'from-cyan-100/40 via-blue-50/20 to-transparent',
-  orb:          'from-cyan-200/30 to-transparent',
-  pill:         'from-cyan-500 to-blue-500',
-  divider:      'from-cyan-300/60 to-transparent',
-  questionCard: 'from-cyan-100 to-blue-200 border-cyan-400',
-  questionText: 'text-cyan-900',
+  ambientBg:    'from-white via-gray-100 to-gray-50',
+  orb:          'from-purple-200/25 via-emerald-200/20 to-transparent',
+  pill:         'from-purple-500 to-emerald-500',
+  divider:      'from-purple-300/60 to-transparent',
+  questionCard: 'from-white/90 to-gray-100/80 border-purple-200',
+  questionText: 'text-gray-900',
   subtext:      'text-gray-700',
-  highlight:    'text-blue-700',
+  highlight:    'text-emerald-700',
 }
 
 const cardStyles = computed(() => isDark.value ? DARK_CARD_STYLES : LIGHT_CARD_STYLES)
