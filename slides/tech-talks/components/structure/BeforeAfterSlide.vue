@@ -62,9 +62,9 @@ if (props.rightItems && props.rightItems.length > ITEMS_MAX)
   console.warn(`[BeforeAfterSlide] rightItems has ${props.rightItems.length} items (max ${ITEMS_MAX})`)
 
 const DARK_THEME = {
-  ambientBg: 'from-blue-900/20 via-indigo-900/10 to-transparent',
-  orb: 'from-blue-500/10 to-transparent',
-  pill: 'from-blue-600/80 to-indigo-600/80',
+  ambientBg: 'from-gray-950/95 via-gray-900/95 to-black',
+  orb: 'from-purple-500/10 via-emerald-500/10 to-transparent',
+  pill: 'from-purple-700/60 to-emerald-700/60',
   header: 'text-white',
   leftBg: 'bg-gradient-to-br from-red-900/30 to-red-800/20',
   leftBorder: 'border-red-500/30',
@@ -75,18 +75,18 @@ const DARK_THEME = {
   rightLabel: 'text-emerald-300',
   rightItem: 'bg-emerald-900/20',
   metricContainers: [
-    { bg: 'bg-gradient-to-br from-cyan-900/30 to-cyan-800/20', border: 'border-cyan-500/30', value: 'text-cyan-400' },
-    { bg: 'bg-gradient-to-br from-blue-900/30 to-blue-800/20', border: 'border-blue-500/30', value: 'text-blue-400' },
-    { bg: 'bg-gradient-to-br from-indigo-900/30 to-indigo-800/20', border: 'border-indigo-500/30', value: 'text-indigo-400' },
+    { bg: 'bg-gradient-to-br from-gray-900/70 to-gray-800/60', border: 'border-purple-500/30', value: 'text-purple-300' },
+    { bg: 'bg-gradient-to-br from-gray-900/70 to-gray-800/60', border: 'border-emerald-500/30', value: 'text-emerald-300' },
+    { bg: 'bg-gradient-to-br from-gray-900/70 to-gray-800/60', border: 'border-violet-500/30', value: 'text-violet-300' },
   ],
   metricDetail: 'text-white/50',
   itemText: 'text-gray-300',
 }
 
 const LIGHT_THEME = {
-  ambientBg: 'from-blue-100/30 via-indigo-100/20 to-transparent',
-  orb: 'from-blue-200/20 to-transparent',
-  pill: 'from-blue-400/80 to-indigo-400/80',
+  ambientBg: 'from-white via-gray-100 to-gray-50',
+  orb: 'from-purple-200/25 via-emerald-200/20 to-transparent',
+  pill: 'from-purple-500 to-emerald-500',
   header: 'text-gray-900',
   leftBg: 'bg-gradient-to-br from-red-50 to-orange-50',
   leftBorder: 'border-red-200',
@@ -97,9 +97,9 @@ const LIGHT_THEME = {
   rightLabel: 'text-emerald-700',
   rightItem: 'bg-emerald-100',
   metricContainers: [
-    { bg: 'bg-cyan-100', border: 'border-cyan-300', value: 'text-cyan-700' },
-    { bg: 'bg-blue-100', border: 'border-blue-300', value: 'text-blue-700' },
-    { bg: 'bg-indigo-100', border: 'border-indigo-300', value: 'text-indigo-700' },
+    { bg: 'bg-white/80', border: 'border-purple-200', value: 'text-purple-700' },
+    { bg: 'bg-white/80', border: 'border-emerald-200', value: 'text-emerald-700' },
+    { bg: 'bg-white/80', border: 'border-violet-200', value: 'text-violet-700' },
   ],
   metricDetail: 'text-gray-600',
   itemText: 'text-gray-700',

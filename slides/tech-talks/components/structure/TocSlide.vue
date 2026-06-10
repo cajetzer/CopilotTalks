@@ -69,33 +69,33 @@ props.sections?.forEach((s, i) => {
     console.warn(`[TocSlide] sections[${i}].blurb too long (${s.blurb.length} chars, max ${CARD_BLURB_MAX}): "${s.blurb.slice(0, 50)}…"`)
 })
 
-// Card styles: cyan → blue → indigo → purple
+// Card styles: neutral Primer-aligned palette
 const DARK_CARD_STYLES = [
-  { bg: 'from-cyan-900/40 to-blue-900/40',     border: 'border-cyan-500/50',   hover: 'hover:border-cyan-400',   titleGrad: 'from-cyan-300 to-blue-300',     shadow: 'shadow-lg shadow-cyan-500/10',   blurb: 'text-cyan-400/70',   partNum: 'text-cyan-500/60'   },
-  { bg: 'from-blue-900/40 to-indigo-900/40',   border: 'border-blue-500/50',   hover: 'hover:border-blue-400',   titleGrad: 'from-blue-300 to-indigo-300',   shadow: 'shadow-lg shadow-blue-500/10',   blurb: 'text-blue-400/70',   partNum: 'text-blue-500/60'   },
-  { bg: 'from-indigo-900/40 to-purple-900/40', border: 'border-indigo-500/50', hover: 'hover:border-indigo-400', titleGrad: 'from-indigo-300 to-purple-300', shadow: 'shadow-lg shadow-indigo-500/10', blurb: 'text-indigo-400/70', partNum: 'text-indigo-500/60' },
-  { bg: 'from-purple-900/40 to-pink-900/40',   border: 'border-purple-500/50', hover: 'hover:border-purple-400', titleGrad: 'from-purple-300 to-pink-300',   shadow: 'shadow-lg shadow-purple-500/10', blurb: 'text-purple-400/70', partNum: 'text-purple-500/60' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-purple-500/40', hover: 'hover:border-purple-400', titleGrad: 'from-purple-300 to-emerald-300', shadow: 'shadow-lg shadow-purple-500/10', blurb: 'text-gray-300', partNum: 'text-purple-300/80' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-emerald-500/40', hover: 'hover:border-emerald-400', titleGrad: 'from-emerald-300 to-green-300', shadow: 'shadow-lg shadow-emerald-500/10', blurb: 'text-gray-300', partNum: 'text-emerald-300/80' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-violet-500/40', hover: 'hover:border-violet-400', titleGrad: 'from-violet-300 to-purple-300', shadow: 'shadow-lg shadow-violet-500/10', blurb: 'text-gray-300', partNum: 'text-violet-300/80' },
+  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-green-500/40', hover: 'hover:border-green-400', titleGrad: 'from-green-300 to-emerald-300', shadow: 'shadow-lg shadow-green-500/10', blurb: 'text-gray-300', partNum: 'text-green-300/80' },
 ]
 const LIGHT_CARD_STYLES = [
-  { bg: 'from-cyan-200 to-blue-300',     border: 'border-cyan-400',   hover: 'hover:border-cyan-600',   titleGrad: 'from-cyan-800 to-blue-800',     shadow: 'shadow-lg shadow-cyan-300/50',   blurb: 'text-cyan-900',   partNum: 'text-cyan-700/70'   },
-  { bg: 'from-blue-200 to-indigo-300',   border: 'border-blue-400',   hover: 'hover:border-blue-600',   titleGrad: 'from-blue-800 to-indigo-800',   shadow: 'shadow-lg shadow-blue-300/50',   blurb: 'text-blue-900',   partNum: 'text-blue-700/70'   },
-  { bg: 'from-indigo-100 to-purple-200', border: 'border-indigo-400', hover: 'hover:border-indigo-600', titleGrad: 'from-indigo-700 to-purple-700', shadow: 'shadow-lg shadow-indigo-300/50', blurb: 'text-indigo-800', partNum: 'text-indigo-600/70' },
-  { bg: 'from-purple-100 to-pink-200',   border: 'border-purple-400', hover: 'hover:border-purple-600', titleGrad: 'from-purple-700 to-pink-700',   shadow: 'shadow-lg shadow-purple-300/50', blurb: 'text-purple-800', partNum: 'text-purple-600/70' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-purple-200', hover: 'hover:border-purple-300', titleGrad: 'from-purple-700 to-emerald-700', shadow: 'shadow-lg shadow-purple-100/70', blurb: 'text-gray-700', partNum: 'text-purple-700/80' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-emerald-200', hover: 'hover:border-emerald-300', titleGrad: 'from-emerald-700 to-green-700', shadow: 'shadow-lg shadow-emerald-100/70', blurb: 'text-gray-700', partNum: 'text-emerald-700/80' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-violet-200', hover: 'hover:border-violet-300', titleGrad: 'from-violet-700 to-purple-700', shadow: 'shadow-lg shadow-violet-100/70', blurb: 'text-gray-700', partNum: 'text-violet-700/80' },
+  { bg: 'from-white/90 to-gray-100/80', border: 'border-green-200', hover: 'hover:border-green-300', titleGrad: 'from-green-700 to-emerald-700', shadow: 'shadow-lg shadow-green-100/70', blurb: 'text-gray-700', partNum: 'text-green-700/80' },
 ]
 
 // Structural/ambient theme classes
 const DARK_THEME = {
-  ambientBg:    'from-blue-900/20 via-indigo-900/10 to-transparent',
-  orb:          'from-blue-500/10 to-transparent',
-  pill:         'from-blue-600/80 to-indigo-600/80',
-  divider:      'from-blue-400/60 to-transparent',
+  ambientBg:    'from-gray-950/95 via-gray-900/95 to-black',
+  orb:          'from-purple-500/10 via-emerald-500/10 to-transparent',
+  pill:         'from-purple-700/60 to-emerald-700/60',
+  divider:      'from-purple-400/60 to-transparent',
   subtitleText: 'text-gray-300',
 }
 const LIGHT_THEME = {
-  ambientBg:    'from-blue-100/40 via-indigo-50/20 to-transparent',
-  orb:          'from-blue-200/30 to-transparent',
-  pill:         'from-blue-500 to-indigo-500',
-  divider:      'from-blue-300/60 to-transparent',
+  ambientBg:    'from-white via-gray-100 to-gray-50',
+  orb:          'from-purple-200/25 via-emerald-200/20 to-transparent',
+  pill:         'from-purple-500 to-emerald-500',
+  divider:      'from-purple-300/60 to-transparent',
   subtitleText: 'text-gray-600',
 }
 

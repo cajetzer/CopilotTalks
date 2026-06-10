@@ -81,19 +81,19 @@ const LIGHT_COLORS = {
 }
 
 const DARK_THEME = {
-  ambientBg:    'from-blue-900/20 via-indigo-900/10 to-transparent',
-  orb:          'from-blue-500/10 to-transparent',
-  pill:         'from-blue-600/80 to-indigo-600/80',
-  divider:      'from-blue-400/60 to-transparent',
+  ambientBg:    'from-gray-950/95 via-gray-900/95 to-black',
+  orb:          'from-purple-500/10 via-emerald-500/10 to-transparent',
+  pill:         'from-purple-700/60 to-emerald-700/60',
+  divider:      'from-purple-400/60 to-transparent',
   itemBg:       'bg-gray-900/50 border-gray-700/50',
   itemBgStyle:  {},
   itemDesc:     'text-gray-400',
 }
 const LIGHT_THEME = {
-  ambientBg:    'from-blue-100/40 via-indigo-50/20 to-transparent',
-  orb:          'from-blue-200/30 to-transparent',
-  pill:         'from-blue-500 to-indigo-500',
-  divider:      'from-blue-300/60 to-transparent',
+  ambientBg:    'from-white via-gray-100 to-gray-50',
+  orb:          'from-purple-200/25 via-emerald-200/20 to-transparent',
+  pill:         'from-purple-500 to-emerald-500',
+  divider:      'from-purple-300/60 to-transparent',
   itemBg:       'border-gray-200',
   itemBgStyle:  { background: 'rgb(243,244,246)' },
   itemDesc:     'text-gray-600',

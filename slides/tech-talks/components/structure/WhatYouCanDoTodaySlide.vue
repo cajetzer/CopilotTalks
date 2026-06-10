@@ -90,21 +90,21 @@ const LIGHT_COL_STYLES = [
 
 // Structural/ambient theme classes (pink/rose — canonical WYCDT accent color, enforced)
 const DARK_THEME = {
-  ambientBg:   'from-pink-900/20 via-rose-900/10 to-transparent',
-  orb:         'from-pink-500/10 to-transparent',
-  pill:        'from-pink-600/80 to-rose-600/80',
-  divider:     'from-pink-400/60 to-transparent',
-  footerCard:  'from-cyan-900/30 to-blue-900/30 border-cyan-500/30',
-  footerTitle: 'text-cyan-300',
-  footerText:  'text-white/90',
+  ambientBg:   'from-gray-950/95 via-gray-900/95 to-black',
+  orb:         'from-purple-500/10 via-emerald-500/10 to-transparent',
+  pill:        'from-purple-700/60 to-emerald-700/60',
+  divider:     'from-purple-400/60 to-transparent',
+  footerCard:  'from-gray-900/70 to-gray-800/60 border-purple-500/30',
+  footerTitle: 'text-purple-300',
+  footerText:  'text-gray-300',
 }
 const LIGHT_THEME = {
-  ambientBg:   'from-pink-100/40 via-rose-50/20 to-transparent',
-  orb:         'from-pink-200/30 to-transparent',
-  pill:        'from-pink-500 to-rose-500',
-  divider:     'from-pink-300/60 to-transparent',
-  footerCard:  'from-cyan-50/80 to-blue-50/80 border-cyan-300',
-  footerTitle: 'text-cyan-600',
+  ambientBg:   'from-white via-gray-100 to-gray-50',
+  orb:         'from-purple-200/25 via-emerald-200/20 to-transparent',
+  pill:        'from-purple-500 to-emerald-500',
+  divider:     'from-purple-300/60 to-transparent',
+  footerCard:  'from-white/90 to-gray-100/80 border-purple-200',
+  footerTitle: 'text-purple-700',
   footerText:  'text-gray-700',
 }
 
