@@ -1,5 +1,6 @@
 ---
 theme: default
+colorSchema: dark
 class: text-center
 highlighter: shiki
 lineNumbers: false

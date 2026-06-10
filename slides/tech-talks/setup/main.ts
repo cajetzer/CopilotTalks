@@ -1,4 +1,3 @@
-import { defineAppSetup } from '@slidev/types'
 import ThankYouSlide from '../components/structure/ThankYouSlide.vue'
 import TitleSlide from '../components/structure/TitleSlide.vue'
 
@@ -38,7 +37,7 @@ function normalizeRouterBase(router: any) {
   }
 }
 
-export default defineAppSetup(({ app, router }) => {
+export default ({ app, router }: any) => {
   app.component('ThankYouSlide', ThankYouSlide)
   app.component('TitleSlide', TitleSlide)
 
@@ -56,4 +55,4 @@ export default defineAppSetup(({ app, router }) => {
       }
     })
   }
-})
+}

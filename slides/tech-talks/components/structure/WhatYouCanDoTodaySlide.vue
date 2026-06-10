@@ -74,13 +74,13 @@ if (props.footer?.length > FOOTER_MAX)
 const itemSets = computed(() => [props.today, props.thisWeek, props.thisMonth])
 
 // Fixed 3-column color scheme (enforced — not configurable per deck)
-// Col 0: green/emerald  — Immediate
-// Col 1: blue/indigo    — Short-Term
-// Col 2: purple/pink    — Advanced
+// Col 0: GitHub Green  — Immediate
+// Col 1: blue/indigo   — Short-Term
+// Col 2: Copilot Purple — Advanced
 const DARK_COL_STYLES = [
-  { bg: 'from-green-900/30 to-emerald-900/30',  border: 'border-green-500/30',  heading: 'text-green-300',  bullet: 'text-green-400'  },
+  { bg: 'from-[#238636]/20 to-[#0FBF3E]/10',   border: 'border-[#238636]/30',  heading: 'text-[#0FBF3E]',  bullet: 'text-[#0FBF3E]'  },
   { bg: 'from-blue-900/30 to-indigo-900/30',    border: 'border-blue-500/30',   heading: 'text-blue-300',   bullet: 'text-blue-400'   },
-  { bg: 'from-purple-900/30 to-pink-900/30',    border: 'border-purple-500/30', heading: 'text-purple-300', bullet: 'text-purple-400' },
+  { bg: 'from-[#43179E]/20 to-[#8534F3]/10',    border: 'border-[#8534F3]/30',  heading: 'text-[#B870FF]',  bullet: 'text-[#B870FF]'  },
 ]
 const LIGHT_COL_STYLES = [
   { bg: 'from-green-100/80 to-emerald-100/80',  border: 'border-green-300',  heading: 'text-green-700',  bullet: 'text-green-600'  },
@@ -88,15 +88,15 @@ const LIGHT_COL_STYLES = [
   { bg: 'from-purple-100/80 to-pink-100/80',    border: 'border-purple-300', heading: 'text-purple-700', bullet: 'text-purple-600' },
 ]
 
-// Structural/ambient theme classes (pink/rose — canonical WYCDT accent color, enforced)
+// Structural/ambient theme classes (canonical WYCDT accent color, enforced)
 const DARK_THEME = {
-  ambientBg:   'from-gray-950/95 via-gray-900/95 to-black',
-  orb:         'from-purple-500/10 via-emerald-500/10 to-transparent',
-  pill:        'from-purple-700/60 to-emerald-700/60',
-  divider:     'from-purple-400/60 to-transparent',
-  footerCard:  'from-gray-900/70 to-gray-800/60 border-purple-500/30',
-  footerTitle: 'text-purple-300',
-  footerText:  'text-gray-300',
+  ambientBg:   'from-[#101411] via-[#101411] to-black',
+  orb:         'from-[#43179E]/15 via-[#238636]/8 to-transparent',
+  pill:        'from-[#43179E]/80 to-[#238636]/80',
+  divider:     'from-[#8534F3]/60 to-transparent',
+  footerCard:  'from-[#232925]/70 to-[#232925]/50 border-[#8534F3]/30',
+  footerTitle: 'text-[#B870FF]',
+  footerText:  'text-[#c9d1d9]',
 }
 const LIGHT_THEME = {
   ambientBg:   'from-white via-gray-100 to-gray-50',

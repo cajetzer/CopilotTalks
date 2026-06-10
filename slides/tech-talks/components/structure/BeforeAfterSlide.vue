@@ -62,25 +62,25 @@ if (props.rightItems && props.rightItems.length > ITEMS_MAX)
   console.warn(`[BeforeAfterSlide] rightItems has ${props.rightItems.length} items (max ${ITEMS_MAX})`)
 
 const DARK_THEME = {
-  ambientBg: 'from-gray-950/95 via-gray-900/95 to-black',
-  orb: 'from-purple-500/10 via-emerald-500/10 to-transparent',
-  pill: 'from-purple-700/60 to-emerald-700/60',
+  ambientBg: 'from-[#101411] via-[#101411] to-black',
+  orb: 'from-[#43179E]/15 via-[#238636]/8 to-transparent',
+  pill: 'from-[#43179E]/80 to-[#238636]/80',
   header: 'text-white',
   leftBg: 'bg-gradient-to-br from-red-900/30 to-red-800/20',
   leftBorder: 'border-red-500/30',
   leftLabel: 'text-red-300',
   leftItem: 'bg-red-900/20',
-  rightBg: 'bg-gradient-to-br from-emerald-900/30 to-emerald-800/20',
-  rightBorder: 'border-emerald-500/30',
-  rightLabel: 'text-emerald-300',
-  rightItem: 'bg-emerald-900/20',
+  rightBg: 'bg-gradient-to-br from-[#238636]/20 to-[#0FBF3E]/10',
+  rightBorder: 'border-[#238636]/30',
+  rightLabel: 'text-[#0FBF3E]',
+  rightItem: 'bg-[#238636]/10',
   metricContainers: [
-    { bg: 'bg-gradient-to-br from-gray-900/70 to-gray-800/60', border: 'border-purple-500/30', value: 'text-purple-300' },
-    { bg: 'bg-gradient-to-br from-gray-900/70 to-gray-800/60', border: 'border-emerald-500/30', value: 'text-emerald-300' },
-    { bg: 'bg-gradient-to-br from-gray-900/70 to-gray-800/60', border: 'border-violet-500/30', value: 'text-violet-300' },
+    { bg: 'bg-gradient-to-br from-[#232925]/70 to-[#232925]/50', border: 'border-[#8534F3]/30', value: 'text-[#B870FF]' },
+    { bg: 'bg-gradient-to-br from-[#232925]/70 to-[#232925]/50', border: 'border-[#238636]/30', value: 'text-[#0FBF3E]' },
+    { bg: 'bg-gradient-to-br from-[#232925]/70 to-[#232925]/50', border: 'border-[#B870FF]/30', value: 'text-[#B870FF]' },
   ],
   metricDetail: 'text-white/50',
-  itemText: 'text-gray-300',
+  itemText: 'text-[#c9d1d9]',
 }
 
 const LIGHT_THEME = {

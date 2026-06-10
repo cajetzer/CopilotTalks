@@ -69,12 +69,12 @@ props.sections?.forEach((s, i) => {
     console.warn(`[TocSlide] sections[${i}].blurb too long (${s.blurb.length} chars, max ${CARD_BLURB_MAX}): "${s.blurb.slice(0, 50)}…"`)
 })
 
-// Card styles: neutral Primer-aligned palette
+// Card styles: Primer brand palette
 const DARK_CARD_STYLES = [
-  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-purple-500/40', hover: 'hover:border-purple-400', titleGrad: 'from-purple-300 to-emerald-300', shadow: 'shadow-lg shadow-purple-500/10', blurb: 'text-gray-300', partNum: 'text-purple-300/80' },
-  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-emerald-500/40', hover: 'hover:border-emerald-400', titleGrad: 'from-emerald-300 to-green-300', shadow: 'shadow-lg shadow-emerald-500/10', blurb: 'text-gray-300', partNum: 'text-emerald-300/80' },
-  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-violet-500/40', hover: 'hover:border-violet-400', titleGrad: 'from-violet-300 to-purple-300', shadow: 'shadow-lg shadow-violet-500/10', blurb: 'text-gray-300', partNum: 'text-violet-300/80' },
-  { bg: 'from-gray-900/70 to-gray-800/60', border: 'border-green-500/40', hover: 'hover:border-green-400', titleGrad: 'from-green-300 to-emerald-300', shadow: 'shadow-lg shadow-green-500/10', blurb: 'text-gray-300', partNum: 'text-green-300/80' },
+  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#8534F3]/40', hover: 'hover:border-[#B870FF]', titleGrad: 'from-[#8534F3] to-[#B870FF]', shadow: 'shadow-lg shadow-[#8534F3]/10', blurb: 'text-[#c9d1d9]', partNum: 'text-[#B870FF]/80' },
+  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#238636]/40', hover: 'hover:border-[#0FBF3E]', titleGrad: 'from-[#238636] to-[#0FBF3E]', shadow: 'shadow-lg shadow-[#238636]/10', blurb: 'text-[#c9d1d9]', partNum: 'text-[#0FBF3E]/80' },
+  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#B870FF]/40', hover: 'hover:border-[#8534F3]', titleGrad: 'from-[#B870FF] to-[#8534F3]', shadow: 'shadow-lg shadow-[#B870FF]/10', blurb: 'text-[#c9d1d9]', partNum: 'text-[#B870FF]/80' },
+  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#0FBF3E]/40', hover: 'hover:border-[#238636]', titleGrad: 'from-[#0FBF3E] to-[#238636]', shadow: 'shadow-lg shadow-[#0FBF3E]/10', blurb: 'text-[#c9d1d9]', partNum: 'text-[#0FBF3E]/80' },
 ]
 const LIGHT_CARD_STYLES = [
   { bg: 'from-white/90 to-gray-100/80', border: 'border-purple-200', hover: 'hover:border-purple-300', titleGrad: 'from-purple-700 to-emerald-700', shadow: 'shadow-lg shadow-purple-100/70', blurb: 'text-gray-700', partNum: 'text-purple-700/80' },
@@ -85,11 +85,11 @@ const LIGHT_CARD_STYLES = [
 
 // Structural/ambient theme classes
 const DARK_THEME = {
-  ambientBg:    'from-gray-950/95 via-gray-900/95 to-black',
-  orb:          'from-purple-500/10 via-emerald-500/10 to-transparent',
-  pill:         'from-purple-700/60 to-emerald-700/60',
-  divider:      'from-purple-400/60 to-transparent',
-  subtitleText: 'text-gray-300',
+  ambientBg:    'from-[#101411] via-[#101411] to-black',
+  orb:          'from-[#43179E]/15 via-[#238636]/8 to-transparent',
+  pill:         'from-[#43179E]/80 to-[#238636]/80',
+  divider:      'from-[#8534F3]/60 to-transparent',
+  subtitleText: 'text-[#c9d1d9]',
 }
 const LIGHT_THEME = {
   ambientBg:    'from-white via-gray-100 to-gray-50',
