@@ -77,12 +77,12 @@ props.cards?.forEach((c, i) => {
 })
 
 const DARK_CARD_STYLES = [
-  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#8534F3]/30', title: 'text-[#B870FF]', desc: 'text-[#c9d1d9]' },
-  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#238636]/30', title: 'text-[#0FBF3E]', desc: 'text-[#c9d1d9]' },
-  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#B870FF]/30', title: 'text-[#B870FF]', desc: 'text-[#c9d1d9]' },
-  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#0FBF3E]/30', title: 'text-[#0FBF3E]', desc: 'text-[#c9d1d9]' },
-  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#8534F3]/20', title: 'text-[#B870FF]', desc: 'text-[#c9d1d9]' },
-  { bg: 'from-[#232925]/70 to-[#232925]/50', border: 'border-[#238636]/20', title: 'text-[#0FBF3E]', desc: 'text-[#c9d1d9]' },
+  { bg: 'from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', title: 'text-[#58a6ff]', desc: 'text-[#8b949e]' },
+  { bg: 'from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', title: 'text-[#3fb950]', desc: 'text-[#8b949e]' },
+  { bg: 'from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', title: 'text-[#58a6ff]', desc: 'text-[#8b949e]' },
+  { bg: 'from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', title: 'text-[#3fb950]', desc: 'text-[#8b949e]' },
+  { bg: 'from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', title: 'text-[#58a6ff]', desc: 'text-[#8b949e]' },
+  { bg: 'from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', title: 'text-[#3fb950]', desc: 'text-[#8b949e]' },
 ]
 const LIGHT_CARD_STYLES = [
   { bg: 'from-white/90 to-gray-100/80', border: 'border-purple-200', title: 'text-purple-700', desc: 'text-gray-700' },
@@ -95,14 +95,14 @@ const LIGHT_CARD_STYLES = [
 
 // Structural/ambient theme classes
 const DARK_THEME = {
-  ambientBg:    'from-[#101411] via-[#101411] to-black',
-  orb:          'from-[#43179E]/15 via-[#238636]/8 to-transparent',
-  pill:         'from-[#43179E]/80 to-[#238636]/80',
-  divider:      'from-[#8534F3]/60 to-transparent',
-  questionCard: 'from-[#232925]/70 to-[#232925]/50 border-[#8534F3]/30',
+  ambientBg:    'from-[#0d1117] to-[#0d1117]',
+  orb:          'from-transparent to-transparent',
+  pill:         'from-[#238636] to-[#238636]',
+  divider:      'from-[#30363d] to-transparent',
+  questionCard: 'from-[#161b22] to-[#161b22] border-[#30363d]',
   questionText: 'text-white',
-  subtext:      'text-[#c9d1d9]',
-  highlight:    'text-[#0FBF3E]',
+  subtext:      'text-[#8b949e]',
+  highlight:    'text-[#3fb950]',
 }
 const LIGHT_THEME = {
   ambientBg:    'from-white via-gray-100 to-gray-50',

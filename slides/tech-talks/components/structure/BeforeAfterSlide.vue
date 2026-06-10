@@ -62,25 +62,25 @@ if (props.rightItems && props.rightItems.length > ITEMS_MAX)
   console.warn(`[BeforeAfterSlide] rightItems has ${props.rightItems.length} items (max ${ITEMS_MAX})`)
 
 const DARK_THEME = {
-  ambientBg: 'from-[#101411] via-[#101411] to-black',
-  orb: 'from-[#43179E]/15 via-[#238636]/8 to-transparent',
-  pill: 'from-[#43179E]/80 to-[#238636]/80',
+  ambientBg: 'from-[#0d1117] to-[#0d1117]',
+  orb: 'from-transparent to-transparent',
+  pill: 'from-[#238636] to-[#238636]',
   header: 'text-white',
   leftBg: 'bg-gradient-to-br from-red-900/30 to-red-800/20',
   leftBorder: 'border-red-500/30',
-  leftLabel: 'text-red-300',
+  leftLabel: 'text-red-400',
   leftItem: 'bg-red-900/20',
-  rightBg: 'bg-gradient-to-br from-[#238636]/20 to-[#0FBF3E]/10',
+  rightBg: 'bg-gradient-to-br from-[#238636]/20 to-[#3fb950]/10',
   rightBorder: 'border-[#238636]/30',
-  rightLabel: 'text-[#0FBF3E]',
+  rightLabel: 'text-[#3fb950]',
   rightItem: 'bg-[#238636]/10',
   metricContainers: [
-    { bg: 'bg-gradient-to-br from-[#232925]/70 to-[#232925]/50', border: 'border-[#8534F3]/30', value: 'text-[#B870FF]' },
-    { bg: 'bg-gradient-to-br from-[#232925]/70 to-[#232925]/50', border: 'border-[#238636]/30', value: 'text-[#0FBF3E]' },
-    { bg: 'bg-gradient-to-br from-[#232925]/70 to-[#232925]/50', border: 'border-[#B870FF]/30', value: 'text-[#B870FF]' },
+    { bg: 'bg-gradient-to-br from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', value: 'text-[#58a6ff]' },
+    { bg: 'bg-gradient-to-br from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', value: 'text-[#3fb950]' },
+    { bg: 'bg-gradient-to-br from-[#161b22] to-[#161b22]', border: 'border-[#30363d]', value: 'text-[#58a6ff]' },
   ],
   metricDetail: 'text-white/50',
-  itemText: 'text-[#c9d1d9]',
+  itemText: 'text-[#e6edf3]',
 }
 
 const LIGHT_THEME = {
