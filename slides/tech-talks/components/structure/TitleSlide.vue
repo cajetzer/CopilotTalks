@@ -114,11 +114,11 @@ if (props.tagline?.length > TAGLINE_MAX)
   console.warn(`[TitleSlide] tagline is ${props.tagline.length} chars (max ${TAGLINE_MAX})`)
 
 const DARK_THEME = {
-  bg:      'from-gray-950/95 via-gray-900/95 to-black',
-  orb:     'from-purple-500/10 via-emerald-500/10 to-transparent',
-  heading: 'from-purple-300 via-emerald-300 to-green-300',
-  pill:    'from-purple-700/60 to-emerald-700/60 shadow-purple-500/15',
-  divider: 'via-purple-400/60',
+  bg:      'from-[#101411] via-[#101411] to-black',
+  orb:     'from-[#43179E]/15 via-[#238636]/8 to-transparent',
+  heading: 'from-[#8534F3] via-[#B870FF] to-[#0FBF3E]',
+  pill:    'from-[#43179E]/80 to-[#238636]/80 shadow-[#8534F3]/20',
+  divider: 'via-[#8534F3]/60',
 }
 const LIGHT_THEME = {
   bg:      'from-white via-gray-100 to-gray-50',

@@ -3,6 +3,21 @@ applyTo: "slides/**/*.md"
 description: "Use when editing Slidev deck markdown files, section opener slides, or raw HTML in slides. Covers balanced HTML, wrapper structure, and required deck build validation."
 ---
 
+## Required Frontmatter — `colorSchema: dark`
+
+**Every tech-talk deck frontmatter must include `colorSchema: dark`.**
+
+```yaml
+theme: default
+colorSchema: dark        # ← REQUIRED — never omit
+```
+
+Without `colorSchema: dark`, all Vue components (TitleSlide, TocSlide, etc.) fall back to their
+light theme (white/gray backgrounds). The dark Primer brand only activates when this field is present.
+
+When creating or editing a tech-talk slide file, verify `colorSchema: dark` is in the frontmatter.
+If it is missing from an existing file, add it immediately after `theme: default`.
+
 ## Slidev Runs on Vite + Vue 3
 
 Slide content is compiled as a **Vue SFC (Single File Component) template** — not plain HTML. This explains every class of authoring error you'll encounter:

@@ -10,6 +10,35 @@ Tech talks are practitioner-facing. They should feel concrete, current, and capa
 - Tone: technical, direct, outcome-based
 - Goal: show what changed, why it matters now, and how it fits into real workflows
 
+## Required Frontmatter
+
+Every tech-talk deck **must** include this frontmatter block at the top of the file (UTF-8, no BOM):
+
+```yaml
+---
+theme: default
+colorSchema: dark
+class: text-center
+highlighter: shiki
+lineNumbers: false
+info: |
+  ## {DECK_TITLE}
+  CopilotTraining Tech Talk
+drawings:
+  persist: false
+transition: slide-left
+title: {DECK_TITLE}
+module: tech-talks/{slug}
+mdc: true
+section: {SECTION}
+status: active
+updated: {YYYY-MM-DD}
+---
+```
+
+- `colorSchema: dark` is **required** — without it, all Vue components render the light fallback theme.
+- `section` must be a valid value from `slides/SECTIONS.md`.
+
 ## Visual System
 
 - Base canvas: `bg-[#101411]` with neutral surfaces (`#232925`, gray scale)

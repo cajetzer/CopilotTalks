@@ -68,10 +68,10 @@ const gridColsClass = computed(() => {
 });
 
 const DARK_CARD_STYLES = [
-  { card: "bg-gray-900/60 border-gray-700/60", value: "text-purple-300", subdetail: "text-gray-300" },
-  { card: "bg-gray-900/60 border-gray-700/60", value: "text-emerald-300", subdetail: "text-gray-300" },
-  { card: "bg-gray-900/60 border-gray-700/60", value: "text-violet-300", subdetail: "text-gray-300" },
-  { card: "bg-gray-900/60 border-gray-700/60", value: "text-green-300", subdetail: "text-gray-300" },
+  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#B870FF]", subdetail: "text-[#c9d1d9]" },
+  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#0FBF3E]", subdetail: "text-[#c9d1d9]" },
+  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#B870FF]", subdetail: "text-[#c9d1d9]" },
+  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#0FBF3E]", subdetail: "text-[#c9d1d9]" },
 ]
 const LIGHT_CARD_STYLES = [
   { card: "bg-white/80 border-gray-200", value: "text-purple-700", subdetail: "text-gray-700" },
@@ -81,11 +81,11 @@ const LIGHT_CARD_STYLES = [
 ]
 
 const DARK_THEME = {
-  ambientBg: 'from-gray-950/95 via-gray-900/95 to-black',
-  orb:       'from-purple-500/10 via-emerald-500/10 to-transparent',
-  heading:   'from-purple-300 via-emerald-300 to-green-300',
-  pill:      'from-purple-700/60 to-emerald-700/60 shadow-purple-500/15',
-  divider:   'via-purple-400/60',
+  ambientBg: 'from-[#101411] via-[#101411] to-black',
+  orb:       'from-[#43179E]/15 via-[#238636]/8 to-transparent',
+  heading:   'from-[#8534F3] via-[#B870FF] to-[#0FBF3E]',
+  pill:      'from-[#43179E]/80 to-[#238636]/80 shadow-[#8534F3]/20',
+  divider:   'via-[#8534F3]/60',
 }
 const LIGHT_THEME = {
   ambientBg: 'from-white via-gray-100 to-gray-50',

@@ -81,13 +81,13 @@ const LIGHT_COLORS = {
 }
 
 const DARK_THEME = {
-  ambientBg:    'from-gray-950/95 via-gray-900/95 to-black',
-  orb:          'from-purple-500/10 via-emerald-500/10 to-transparent',
-  pill:         'from-purple-700/60 to-emerald-700/60',
-  divider:      'from-purple-400/60 to-transparent',
-  itemBg:       'bg-gray-900/50 border-gray-700/50',
+  ambientBg:    'from-[#101411] via-[#101411] to-black',
+  orb:          'from-[#43179E]/15 via-[#238636]/8 to-transparent',
+  pill:         'from-[#43179E]/80 to-[#238636]/80',
+  divider:      'from-[#8534F3]/60 to-transparent',
+  itemBg:       'bg-[#232925]/50 border-[#30363d]/50',
   itemBgStyle:  {},
-  itemDesc:     'text-gray-400',
+  itemDesc:     'text-[#8b949e]',
 }
 const LIGHT_THEME = {
   ambientBg:    'from-white via-gray-100 to-gray-50',
