@@ -14,7 +14,7 @@ title: "GitHub Copilot CLI: AI at the Point of Work"
 mdc: true
 section: Developers
 status: active
-updated: 2026-06-04
+updated: 2026-06-10
 ---
 
 <script setup>

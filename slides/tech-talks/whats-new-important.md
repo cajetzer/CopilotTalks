@@ -14,7 +14,7 @@ title: GitHub Copilot Refresher
 mdc: true
 section: Developers
 status: active
-updated: 2026-06-09
+updated: 2026-06-10
 ---
 
 <script setup>
