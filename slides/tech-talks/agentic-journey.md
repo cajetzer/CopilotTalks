@@ -14,7 +14,7 @@ title: The Agentic Journey
 mdc: true
 section: Agentic Engineering
 status: active
-updated: 2026-04-22
+updated: 2026-06-10
 ---
 
 <script setup>

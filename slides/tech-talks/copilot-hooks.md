@@ -14,7 +14,7 @@ title: GitHub Copilot Hooks
 mdc: true
 section: Customization & Context
 status: active
-updated: 2026-04-22
+updated: 2026-06-10
 ---
 
 <script setup>

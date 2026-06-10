@@ -15,7 +15,7 @@ title: No Instruments, No Delivery
 mdc: true
 section: Executive Talks
 status: active
-updated: 2026-04-24
+updated: 2026-06-10
 ---
 
 <script setup>

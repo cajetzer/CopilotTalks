@@ -14,7 +14,7 @@ title: GitHub Agentic Workflows
 mdc: true
 section: Agentic Systems
 status: active
-updated: 2026-05-05
+updated: 2026-06-10
 ---
 
 <script setup>

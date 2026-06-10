@@ -14,7 +14,7 @@ title: GitHub Copilot + Azure Skills Plugin
 mdc: true
 section: Agentic Systems
 status: active
-updated: 2026-04-27
+updated: 2026-06-10
 ---
 
 <script setup>

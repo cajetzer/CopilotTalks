@@ -14,7 +14,7 @@ title: From Issue to Pull Request
 mdc: true
 section: Copilot Tools
 status: active
-updated: 2026-04-22
+updated: 2026-06-10
 ---
 
 <script setup>
