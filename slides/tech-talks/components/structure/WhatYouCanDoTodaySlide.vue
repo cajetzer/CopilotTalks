@@ -78,9 +78,9 @@ const itemSets = computed(() => [props.today, props.thisWeek, props.thisMonth])
 // Col 1: blue/indigo   — Short-Term
 // Col 2: Copilot Purple — Advanced
 const DARK_COL_STYLES = [
-  { bg: 'from-[#238636]/20 to-[#0FBF3E]/10',   border: 'border-[#238636]/30',  heading: 'text-[#0FBF3E]',  bullet: 'text-[#0FBF3E]'  },
-  { bg: 'from-blue-900/30 to-indigo-900/30',    border: 'border-blue-500/30',   heading: 'text-blue-300',   bullet: 'text-blue-400'   },
-  { bg: 'from-[#43179E]/20 to-[#8534F3]/10',    border: 'border-[#8534F3]/30',  heading: 'text-[#B870FF]',  bullet: 'text-[#B870FF]'  },
+  { bg: 'from-[#238636]/20 to-[#3fb950]/10',   border: 'border-[#238636]/30',  heading: 'text-[#3fb950]',  bullet: 'text-[#3fb950]'  },
+  { bg: 'from-blue-900/30 to-indigo-900/30',    border: 'border-blue-500/30',   heading: 'text-[#58a6ff]',  bullet: 'text-[#58a6ff]'  },
+  { bg: 'from-[#8957e5]/20 to-[#8957e5]/10',    border: 'border-[#8957e5]/30',  heading: 'text-[#d2a8ff]',  bullet: 'text-[#d2a8ff]'  },
 ]
 const LIGHT_COL_STYLES = [
   { bg: 'from-green-100/80 to-emerald-100/80',  border: 'border-green-300',  heading: 'text-green-700',  bullet: 'text-green-600'  },
@@ -90,13 +90,13 @@ const LIGHT_COL_STYLES = [
 
 // Structural/ambient theme classes (canonical WYCDT accent color, enforced)
 const DARK_THEME = {
-  ambientBg:   'from-[#101411] via-[#101411] to-black',
-  orb:         'from-[#43179E]/15 via-[#238636]/8 to-transparent',
-  pill:        'from-[#43179E]/80 to-[#238636]/80',
-  divider:     'from-[#8534F3]/60 to-transparent',
-  footerCard:  'from-[#232925]/70 to-[#232925]/50 border-[#8534F3]/30',
-  footerTitle: 'text-[#B870FF]',
-  footerText:  'text-[#c9d1d9]',
+  ambientBg:   'from-[#0d1117] to-[#0d1117]',
+  orb:         'from-transparent to-transparent',
+  pill:        'from-[#238636] to-[#238636]',
+  divider:     'from-[#30363d] to-transparent',
+  footerCard:  'from-[#161b22] to-[#161b22] border-[#30363d]',
+  footerTitle: 'text-[#58a6ff]',
+  footerText:  'text-[#8b949e]',
 }
 const LIGHT_THEME = {
   ambientBg:   'from-white via-gray-100 to-gray-50',

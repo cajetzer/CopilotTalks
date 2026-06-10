@@ -81,11 +81,11 @@ const LIGHT_COLORS = {
 }
 
 const DARK_THEME = {
-  ambientBg:    'from-[#101411] via-[#101411] to-black',
-  orb:          'from-[#43179E]/15 via-[#238636]/8 to-transparent',
-  pill:         'from-[#43179E]/80 to-[#238636]/80',
-  divider:      'from-[#8534F3]/60 to-transparent',
-  itemBg:       'bg-[#232925]/50 border-[#30363d]/50',
+  ambientBg:    'from-[#0d1117] to-[#0d1117]',
+  orb:          'from-transparent to-transparent',
+  pill:         'from-[#238636] to-[#238636]',
+  divider:      'from-[#30363d] to-transparent',
+  itemBg:       'bg-[#161b22] border-[#30363d]',
   itemBgStyle:  {},
   itemDesc:     'text-[#8b949e]',
 }

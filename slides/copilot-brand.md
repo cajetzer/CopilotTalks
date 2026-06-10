@@ -2,6 +2,12 @@
 
 > Based on [brand.github.com](https://brand.github.com) and [primer.style](https://primer.style)
 
+> **Slide context note:** Structure Vue components (`TitleSlide`, `SectionOpenerSlide`, etc.)
+> use the **GitHub dark palette** (`#0d1117` bg, `#161b22` cards, `#e6edf3` text) rather than
+> the vibrant Primer brand gradient palette. This ensures readability and professional polish
+> in a presentation context. The colors below are the design token reference — for components,
+> see `DARK_THEME` objects in `slides/tech-talks/components/structure/`.
+
 ## Copilot Theme Formula: 80/10/5/5
 
 | Percentage | Category | Usage |

@@ -68,10 +68,10 @@ const gridColsClass = computed(() => {
 });
 
 const DARK_CARD_STYLES = [
-  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#B870FF]", subdetail: "text-[#c9d1d9]" },
-  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#0FBF3E]", subdetail: "text-[#c9d1d9]" },
-  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#B870FF]", subdetail: "text-[#c9d1d9]" },
-  { card: "bg-[#232925]/60 border-[#30363d]/60", value: "text-[#0FBF3E]", subdetail: "text-[#c9d1d9]" },
+  { card: "bg-[#161b22] border-[#30363d]", value: "text-[#58a6ff]", subdetail: "text-[#8b949e]" },
+  { card: "bg-[#161b22] border-[#30363d]", value: "text-[#3fb950]", subdetail: "text-[#8b949e]" },
+  { card: "bg-[#161b22] border-[#30363d]", value: "text-[#58a6ff]", subdetail: "text-[#8b949e]" },
+  { card: "bg-[#161b22] border-[#30363d]", value: "text-[#3fb950]", subdetail: "text-[#8b949e]" },
 ]
 const LIGHT_CARD_STYLES = [
   { card: "bg-white/80 border-gray-200", value: "text-purple-700", subdetail: "text-gray-700" },
@@ -81,11 +81,11 @@ const LIGHT_CARD_STYLES = [
 ]
 
 const DARK_THEME = {
-  ambientBg: 'from-[#101411] via-[#101411] to-black',
-  orb:       'from-[#43179E]/15 via-[#238636]/8 to-transparent',
-  heading:   'from-[#8534F3] via-[#B870FF] to-[#0FBF3E]',
-  pill:      'from-[#43179E]/80 to-[#238636]/80 shadow-[#8534F3]/20',
-  divider:   'via-[#8534F3]/60',
+  ambientBg: 'from-[#0d1117] to-[#0d1117]',
+  orb:       'from-transparent to-transparent',
+  heading:   'from-[#e6edf3] to-[#e6edf3]',
+  pill:      'from-[#238636] to-[#238636] shadow-none',
+  divider:   'via-[#30363d]',
 }
 const LIGHT_THEME = {
   ambientBg: 'from-white via-gray-100 to-gray-50',
