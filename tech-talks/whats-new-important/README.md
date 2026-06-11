@@ -92,7 +92,7 @@ Every surface shares the same **context sources**: `copilot-instructions.md`, MC
 
 **Practical pattern**: Feature A (backend) in one session, Feature B (frontend) in another, then integrate and review diffs in a single review pass.
 
-Reference: [Copilot app technical preview expansion](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/) and [Copilot CLI concepts](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+Reference: [Running tasks in parallel with /fleet](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet) and [Parallel task execution in Copilot CLI](https://docs.github.com/en/copilot/cli/parallel-task-execution)
 
 ### 2. Subagent Composition and Delegation
 
@@ -103,7 +103,7 @@ Agents can now spawn **subagents** to delegate bounded tasks:
 
 Example: Refactoring task → Main agent reads architecture, identifies three modules → Spawns three subagents (one per module) → Collects and merges results. Context per subagent stays tightly scoped to a single module.
 
-Reference: [Subagents and skills in the Copilot app](https://github.blog/changelog/2026-05-14-subagents-and-skills-in-github-copilot-app/)
+Reference: [VS Code subagents documentation](https://code.visualstudio.com/docs/agents/subagents)
 
 ### 3. Rubber Duck Pattern
 
