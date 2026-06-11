@@ -137,10 +137,11 @@ The VS Code agents experience matured from isolated chat sessions to cross-sessi
 - **Agents window in Stable preview** for multi-project, agent-first workflows
 - **Remote agents** that continue running even when the client disconnects
 - **Session sync** and `/chronicle` support for searchable cross-machine session history
+- **Session forking** to branch from existing session context and explore alternate implementation paths without restarting context
 
 This improves continuity for longer-running work and makes parallel agent operations easier to supervise.
 
-Reference: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/), [About /chronicle](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle), and [Chronicle changelog](https://github.blog/changelog/2026-06-02-gain-insights-across-your-agent-sessions-with-chronicle/)
+Reference: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/), [About /chronicle](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle), [Chronicle changelog](https://github.blog/changelog/2026-06-02-gain-insights-across-your-agent-sessions-with-chronicle/), and [Fork a chat session](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_fork-a-chat-session)
 
 ### 6. Terminal Safety and Context-Efficiency Controls
 
