@@ -18,8 +18,11 @@ references:
   - url: https://github.com/features/copilot
     label: "GitHub Copilot in GitHub.com"
     verified: 2026-06-10
-  - url: https://github.com/github-copilot/chat
-    label: "GitHub Copilot Chat (desktop app)"
+  - url: https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app
+    label: "Customizing the GitHub Copilot app"
+    verified: 2026-06-10
+  - url: https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/
+    label: "GitHub Copilot app expanded technical preview"
     verified: 2026-06-10
   - url: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli
     label: "About GitHub Copilot CLI"
@@ -61,7 +64,7 @@ GitHub Copilot reaches developers through six distinct surfaces. Each surface sh
 | **VS Code Chat** | Interactive, conversational | Single-file edits, inline suggestions | Quick questions, exploration, `#codebase` search |
 | **VS Code Agent Mode** | Goal-oriented, autonomous | Multi-file, terminal, iteration loops | Feature development, refactoring, scaffold generation |
 | **Background Agents** | Fire-and-forget, parallel | Isolated Git worktree per agent | Parallel independent tasks, long-running ops |
-| **GitHub Copilot App** | Browser-native chat | No terminal or local file access | Remote work, cross-device, issue-first workflows |
+| **GitHub Copilot App** | Desktop, agent-native | Integrated terminal/browser, worktree sessions, MCP + skills | End-to-end agent sessions, review loops, reusable workflows |
 | **GitHub.com Copilot** | Browser review interface | PR diff context only | Code review, issue triage, async delegation |
 | **Copilot CLI** | Terminal, streaming | Full system access, file I/O | DevOps, scripting, infrastructure, Plan Mode |
 
@@ -124,7 +127,7 @@ All surfaces now support **progressive disclosure** patterns:
 
 Instead of always loading the entire codebase context, agents now load incrementally. This reduces unnecessary context loading on small-to-medium scopes.
 
-**GitHub Copilot App** exclusively uses Layer 1–2; it has no Layer 3 (terminal, no MCP).
+**GitHub Copilot App** supports all three layers when tools are configured in session (for example terminal validation and MCP-backed context).
 
 ---
 
@@ -218,19 +221,19 @@ Classify tasks by expected scope and expected duration:
 
 ---
 
-## New Surface: GitHub Copilot App
+## GitHub Copilot App (Technical Preview)
 
-**GitHub Copilot Chat** (desktop app, stable 2026-Q2) is now a first-class surface:
+**GitHub Copilot App** (desktop, technical preview) is now a first-class surface:
 
 | Aspect | Capability |
 |--------|-----------|
 | **Chat** | Multi-turn conversation, streaming responses |
-| **Context** | Instructions + active file + `#codebase` search |
-| **Tools** | None (no terminal, no file system, no MCP) |
+| **Context** | Instructions, repository context, session history |
+| **Tools** | Integrated terminal and browser, MCP servers, skills, canvases |
 | **Cross-device** | Yes — cloud sync, session history |
-| **Best for** | Remote work, design discussions, issue-first workflows, rubber ducking |
+| **Best for** | Agent session orchestration, diff-first review, issue/PR workflows, rubber ducking |
 
-The GitHub Copilot App does **not** have agent mode or terminal access. It's purely a chat surface optimized for low-bandwidth, cross-device work. Use it alongside VS Code for remote pairing or async design reviews.
+The GitHub Copilot App is an **agent-native desktop surface**: start from issues/PRs/prompts, run parallel isolated sessions, validate in integrated terminal/browser, and connect external tools via MCP servers.
 
 ---
 
@@ -264,12 +267,12 @@ The GitHub Copilot App does **not** have agent mode or terminal access. It's pur
 
 | You want to... | Use this surface | Why |
 |----------------|------------------|-----|
-| Ask a quick question | GitHub Copilot App Chat | Lowest latency, cross-device sync |
+| Ask a quick question | GitHub Copilot App | Fast context carryover from active sessions and prior work |
 | Implement a feature | VS Code Agent Mode + skills | File system access, validation feedback |
 | Run two features in parallel | Background agents | Isolated worktrees, non-blocking |
 | Fix infrastructure / DevOps | Copilot CLI (Plan Mode) | Terminal access, dry-run inspection |
 | Review code async | GitHub.com Copilot | No local setup needed, PR context rich |
-| Rubber duck / design review | GitHub Copilot App | No file changes, pure ideation |
+| Rubber duck / design review | GitHub Copilot App | Built-in skill with direct path into executable sessions |
 | Quick shell command | `gh copilot suggest` | Terminal integrated, no UI context switch |
 
 ---
@@ -313,5 +316,7 @@ For deeper context on specific capabilities:
 ## References
 
 - **[GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview)** — Official documentation
+- **[Customizing the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app)** — App setup, skills, and MCP integration
+- **[GitHub Copilot app technical preview](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/)** — Preview scope and app capabilities
 - **[About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli)** — CLI reference
 - **[VS Code v1.120 Release Notes](https://code.visualstudio.com/updates/v1_120)** — Latest features and UI updates

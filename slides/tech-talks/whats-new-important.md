@@ -47,7 +47,7 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   subtext="The practical answer is"
   highlight="surface-aware execution with tight context management."
   :cards='[
-    { icon: "🗺️", title: "Surface map", description: "Use the right surface for each task class, including the GitHub Copilot App" },
+    { icon: "🗺️", title: "Surface map", description: "Use the right surface for each task class, including the Copilot App preview" },
     { icon: "🧠", title: "Recent capabilities", description: "Fleet patterns, subagent delegation, rubber duck workflows, and skills" },
     { icon: "🧰", title: "Context discipline", description: "Progressive disclosure and scoped tools reduce context noise" },
     { title: "Technical focus", description: "Show functionality, constraints, and usage patterns instead of generic setup guidance" },
@@ -78,7 +78,7 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   :cards='[
     { icon: "💬", title: "VS Code chat", blurb: "Interactive coding and quick exploration" },
     { icon: "🖥️", title: "CLI + GitHub.com", blurb: "Terminal-native automation plus async review and triage" },
-    { icon: "📱", title: "GitHub Copilot App", blurb: "Cross-device chat and rubber duck workflows" }
+    { icon: "📱", title: "GitHub Copilot App", blurb: "Agent-native desktop: terminal, browser, MCP, skills, and canvases" }
   ]'
   :terminal='{ context: "Surface-task alignment is now mandatory", detail: "Different surfaces expose different tool and execution models" }'
 />
@@ -174,7 +174,7 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   title="Multi-Surface Patterns"
   subtitle="Orchestrate app, IDE, CLI, and GitHub.com in one workflow."
   :cards='[
-    { icon: "📱", title: "Plan in app", blurb: "Use Copilot App for design and assumption checks" },
+    { icon: "📱", title: "Plan and steer in app", blurb: "Use Copilot App sessions, terminal/browser validation, and canvases" },
     { icon: "💻", title: "Implement in IDE/CLI", blurb: "Use Agent Mode and CLI for execution by task type" },
     { icon: "🔍", title: "Review on GitHub.com", blurb: "Validate output in diff-first workflows before merge" }
   ]'
@@ -211,11 +211,11 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 <ReferencesSlide
   :groups='[
     { title: "📖 Official Documentation", color: "cyan", items: [
-      { href: "https://docs.github.com/en/copilot", label: "GitHub Copilot documentation", description: "Core concepts, setup, and how-to guides" },
-      { href: "https://github.com/features/copilot/whats-new", label: "What’s new with GitHub Copilot", description: "Latest product updates and previews" }
+      { href: "https://docs.github.com/en/copilot/how-tos/github-copilot-app/getting-started", label: "Getting started with the GitHub Copilot app", description: "Session model, quick chats, and project setup" },
+      { href: "https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app", label: "Customizing the GitHub Copilot app", description: "Global instructions, skills, and MCP server configuration" }
     ] },
     { title: "📰 Related Reading", color: "purple", items: [
-      { href: "https://github.blog/ai-and-ml/github-copilot/", label: "GitHub Copilot blog and announcements", description: "Feature deep dives and release notes" }
+      { href: "https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/", label: "Copilot app technical preview expansion", description: "Integrated terminal/browser, parallel sessions, canvases, and MCP-backed workflows" }
     ] }
   ]'
 />

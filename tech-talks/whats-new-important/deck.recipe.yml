@@ -53,8 +53,9 @@ deck:
         GitHub Copilot App, GitHub.com, CLI) with columns for access mode, execution, and
         best fit. The "whoa" moment is "there are now SIX distinct surfaces and they all share
         the same instructions and MCP config." Slide 2 (optional): the GitHub Copilot App as a
-        new surface — browser-native, cross-device, no terminal/MCP access, designed for remote
-        work and rubber duck sessions. If tight on time, fold this into Slide 1 as a callout.
+        technical-preview desktop surface — integrated terminal/browser, parallel isolated
+        sessions, MCP + skills support, and canvases in the right panel. If tight on time, fold
+        this into Slide 1 as a callout.
 
     "Recent Capabilities":
       emphasis: high
@@ -82,7 +83,7 @@ deck:
       emphasis: high
       note: >
         3–4 slides. Slide 1: Worked example — feature with API, migration, frontend (intro).
-        Slides 2–3: four-phase execution (Plan on GitHub Copilot App, Implement API via
+        Slides 2–3: four-phase execution (Plan and steer in GitHub Copilot App, Implement API via
         Background Agent, Implement migration + frontend via CLI with /fleet, Code review on
         GitHub.com) with execution intent per phase. Final slide: outcome summary comparing
         sequential single-surface work vs. orchestrated multi-surface work. Tie back to the
@@ -101,4 +102,4 @@ deck:
     - "Fleet mode enables parallel independent tasks. Subagents keep context scoped. Progressive disclosure avoids loading broad context before it's needed."
     - "Skills gate expensive operations. Query filtering in MCP prevents accidental context loading. Local validation gates keep agents in-loop without pre-reading entire codebase."
     - "Scope budgeting by task class: bounded fixes, module refactors, and multi-module features should each have explicit boundaries. Split work when scope drifts."
-    - "GitHub Copilot App brings rubber duck pattern to first-class surface: design review, assumption checking, cross-device work — all without making code changes or needing terminal access."
+    - "GitHub Copilot App is an agent-native desktop surface in technical preview: integrated terminal/browser, parallel worktree sessions, MCP + skills support, and built-in rubber duck and canvases workflows."
