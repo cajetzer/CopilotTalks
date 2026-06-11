@@ -140,7 +140,7 @@ The VS Code agents experience matured from isolated chat sessions to cross-sessi
 
 This improves continuity for longer-running work and makes parallel agent operations easier to supervise.
 
-Reference: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/)
+Reference: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/), [About /chronicle](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle), and [Chronicle changelog](https://github.blog/changelog/2026-06-02-gain-insights-across-your-agent-sessions-with-chronicle/)
 
 ### 6. Terminal Safety and Context-Efficiency Controls
 
