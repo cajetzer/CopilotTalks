@@ -5,12 +5,12 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## GitHub Copilot Refresher
+  ## GitHub Copilot: Latest Capabilities and Effective Patterns
   CopilotTraining Tech Talk
 drawings:
   persist: false
 transition: slide-left
-title: GitHub Copilot Refresher
+title: "GitHub Copilot: Latest Capabilities and Effective Patterns"
 mdc: true
 section: Developers
 status: active
@@ -33,9 +33,9 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 <!-- SLIDE: Title -->
 <TitleSlide
-  title="GitHub Copilot Refresher"
-  subtitle="What’s New and Important for Hackathon Builders"
-  tagline="Pick the right surface, delegate the right work, and start building faster"
+  title="GitHub Copilot: Latest Capabilities and Effective Patterns"
+  subtitle="Surface map, recent capabilities, and context optimization patterns"
+  tagline="Surfaces. Features. Context."
   meta="GitHub Copilot · Developers · 30 minutes"
 />
 
@@ -43,16 +43,16 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 <!-- SLIDE: Core Question -->
 <CoreQuestionSlide
-  question="What should developers try first to get the biggest Copilot payoff during a hackathon?"
-  subtext="The answer is not more prompts — it is"
-  highlight="the right surface, the right setup, and the right delegation pattern."
+  question="What changed recently, and which patterns improve outcomes across Copilot surfaces?"
+  subtext="The practical answer is"
+  highlight="surface-aware execution with tight context management."
   :cards='[
-    { icon: "⚡", title: "Agent Mode", description: "Use bounded implementation work to let Copilot iterate instead of just suggest" },
-    { icon: "🧭", title: "Surface Fit", description: "Chat for quick questions, CLI for systems work, and GitHub.com for review and triage" },
-    { icon: "🧰", title: "Setup Stack", description: "Instructions, skills, and MCP turn one session into a reusable workflow" },
-    { title: "30 minutes", description: "Enough time to set up the highest-leverage Copilot defaults before coding starts" },
-    { title: "Fastest path", description: "A small setup investment compounds across every hackathon session" },
-    { title: "Review-ready", description: "Agent output becomes easier to trust when the workflow is bounded and explicit" }
+    { icon: "🗺️", title: "Surface map", description: "Use the right surface for each task class, including the GitHub Copilot App" },
+    { icon: "🧠", title: "Recent capabilities", description: "Fleet patterns, subagent delegation, rubber duck workflows, and skills" },
+    { icon: "🧰", title: "Context discipline", description: "Progressive disclosure and scoped tools reduce context noise" },
+    { title: "Technical focus", description: "Show functionality, constraints, and usage patterns instead of generic setup guidance" },
+    { title: "Practical outcomes", description: "Faster delivery from cleaner execution and clearer handoffs" },
+    { title: "Non-sales framing", description: "Technical, direct, and review-oriented" }
   ]'
 />
 
@@ -61,26 +61,26 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "🗺️", title: "Landscape", subtitle: "Which surface for which task", blurb: "Map the main Copilot surfaces and what each is best for", slide: 4 },
-    { icon: "🤖", title: "Agent Mode", subtitle: "Delegate bounded work", blurb: "Show why outcome-based delegation changes the hackathon workflow", slide: 6 },
-    { icon: "🧰", title: "Customization", subtitle: "Instructions, skills, MCP", blurb: "Make one setup stack pay off across every session", slide: 8 },
-    { icon: "🎯", title: "Playbook", subtitle: "A 30-minute kickoff plan", blurb: "Give the audience a concrete checklist they can use immediately", slide: 10 }
+    { icon: "🗺️", title: "Surface Map", subtitle: "Six surfaces, one foundation", blurb: "Where each surface fits and how they differ operationally", slide: 4 },
+    { icon: "🆕", title: "Recent Capabilities", subtitle: "What matured in the last 4 months", blurb: "Fleet execution, subagents, rubber duck pattern, and skills", slide: 6 },
+    { icon: "🧰", title: "Context Optimization", subtitle: "Progressive disclosure and scope control", blurb: "Execution patterns that improve consistency and reduce context noise", slide: 8 },
+    { icon: "🎯", title: "Multi-Surface Patterns", subtitle: "How to orchestrate real work", blurb: "A practical flow across app, IDE, CLI, and GitHub.com", slide: 10 }
   ]'
 />
 
 ---
 
-<!-- SLIDE: Part 1 — The Copilot Landscape -->
+<!-- SLIDE: Part 1 — Surface Map -->
 <SectionOpenerSlide
   :partNumber="1"
-  title="The Copilot Landscape"
-  subtitle="Pick the right surface for the job instead of trying every surface at once."
+  title="Surface Map"
+  subtitle="Six surfaces, one shared foundation."
   :cards='[
-    { icon: "💬", title: "VS Code chat", blurb: "Fast answers, narrow code questions, quick iteration" },
-    { icon: "🤖", title: "Agent Mode", blurb: "Delegation for multi-step implementation and review" },
-    { icon: "🧪", title: "CLI + GitHub.com", blurb: "Systems work, remote debugging, and review workflows" }
+    { icon: "💬", title: "VS Code chat", blurb: "Interactive coding and quick exploration" },
+    { icon: "🖥️", title: "CLI + GitHub.com", blurb: "Terminal-native automation plus async review and triage" },
+    { icon: "📱", title: "GitHub Copilot App", blurb: "Cross-device chat and rubber duck workflows" }
   ]'
-  :terminal='{ context: "Best surface = best task fit", detail: "Chat for ideas · Agent for implementation · CLI for systems · GitHub.com for review" }'
+  :terminal='{ context: "Surface-task alignment is now mandatory", detail: "Different surfaces expose different tool and execution models" }'
 />
 
 ---
@@ -101,17 +101,17 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 ---
 
-<!-- SLIDE: Part 2 — Agent Mode -->
+<!-- SLIDE: Part 2 — Recent Capabilities -->
 <SectionOpenerSlide
   :partNumber="2"
-  title="Agent Mode"
-  subtitle="The biggest mindset shift is from prompting to delegation."
+  title="Recent Capabilities"
+  subtitle="What changed recently and why it matters in practice."
   :cards='[
-    { icon: "🎯", title: "Bounded tasks", blurb: "Use it when scope, constraints, and acceptance criteria are clear" },
-    { icon: "📝", title: "Outcome-led", blurb: "Describe the result; let the agent choose the path" },
-    { icon: "✅", title: "Review-first", blurb: "Check the draft, refine it, and approve what is ready" }
+    { icon: "🧭", title: "Fleet patterns", blurb: "Parallel execution across independent tasks" },
+    { icon: "🪜", title: "Subagent delegation", blurb: "Split work into bounded sub-problems" },
+    { icon: "🦆", title: "Rubber duck + skills", blurb: "Reason first, then execute with scoped workflows" }
   ]'
-  :terminal='{ context: "Describe the goal → review the result", detail: "Best fit for issue-driven work and small refactors" }'
+  :terminal='{ context: "Feature maturity is operational", detail: "Focus on where and how to apply each capability" }'
 />
 
 ---
@@ -119,33 +119,33 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 <!-- SLIDE: Why Agent Mode Wins -->
 <HeroStatSlide
   :partNumber="2"
-  pillIcon="🤖"
-  pillLabel="Agent Mode: Why It Matters"
-  title="Use It for Multi-Step Work That Benefits from Iteration"
-  subtitle="This is the most useful Copilot shift for a hackathon because the task is reviewable, bounded, and fast to verify."
-  :hero='{ value: "1 task", label: "Describe the outcome, let Copilot iterate through the implementation path", source: "Best for refactors, tests, issue-to-PR workflows, and small features" }'
+  pillIcon="🆕"
+  pillLabel="Recent Capability Maturity"
+  title="Apply Capabilities by Task Shape, Not by Preference"
+  subtitle="Fleet, subagents, and skills are most effective when scope and boundaries are explicit."
+  :hero='{ value: "Capability fit", label: "Choose execution model first, then choose surface and workflow", source: "Parallel work, delegated subtasks, and scoped validation loops" }'
   :supporting='[
-    { icon: "🧩", title: "Clear boundaries", description: "Acceptance criteria make the agent’s actions easier to trust" },
-    { icon: "🔁", title: "Iterative output", description: "The agent can revise and re-run until the result is good enough" },
-    { icon: "🧠", title: "Human review", description: "You stay in control by reviewing the draft instead of typing every line" }
+    { icon: "🧩", title: "Explicit boundaries", description: "Subtasks stay reviewable when scope is small and concrete" },
+    { icon: "🔁", title: "Parallel execution", description: "Independent workstreams can progress without serial blocking" },
+    { icon: "🧠", title: "Review-centric loop", description: "Human effort shifts from typing to validation and steering" }
   ]'
-  :insight='{ icon: "💡", text: "In a hackathon, the right question is not \"Can Copilot write this?\" — it is \"Can I safely delegate this bounded task to Copilot?\"" }'
+  :insight='{ icon: "💡", text: "The core question is not \"Which feature is coolest?\" It is \"Which capability matches this task shape with the least context overhead?\"" }'
   :progressDots='{ current: 1, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 3 — Customization Stack -->
+<!-- SLIDE: Part 3 — Context Optimization -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="The Setup Stack That Multiplies Results"
-  subtitle="One instruction file, one skill, one MCP connection can improve every session that follows."
+  title="Context Optimization"
+  subtitle="Progressive disclosure and scope control for better outcomes."
   :cards='[
-    { icon: "📄", title: "Instructions", blurb: "Teach Copilot your repo conventions and build/test preferences" },
-    { icon: "🧩", title: "Skills & agents", blurb: "Reuse repeatable workflows instead of rewriting the same prompts" },
-    { icon: "🔌", title: "MCP", blurb: "Connect the external tools your app already depends on" }
+    { icon: "🪜", title: "Progressive disclosure", blurb: "Load only the context needed for the current step" },
+    { icon: "🧩", title: "Scope via skills", blurb: "Use predefined workflows to avoid repeated discovery" },
+    { icon: "🔌", title: "Scoped MCP access", blurb: "Limit tool context to the relevant subsystem first" }
   ]'
-  :terminal='{ context: "Setup once → better results everywhere", detail: "This is the highest-ROI investment in the first 30 minutes" }'
+  :terminal='{ context: "Tighter context, cleaner output", detail: "Reduce noise before asking the model to reason" }'
 />
 
 ---
@@ -154,44 +154,44 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 <FourCardGridSlide
   :partNumber="3"
   pillIcon="🧰"
-  pillLabel="Customization Stack"
-  title="The Multipliers You Should Try First"
+  pillLabel="Context Patterns"
+  title="Patterns That Improve Execution Quality"
   :cards='[
-    { icon: "📄", title: "Repo instructions", description: "A shared .github/copilot-instructions.md sets language, testing, and style defaults" },
-    { icon: "🧩", title: "One reusable skill", description: "Create a small workflow for bug triage, release notes, or test generation" },
-    { icon: "🔌", title: "One MCP server", description: "Connect a database, API, or tooling surface that your app depends on" },
-    { icon: "⚙️", title: "Fast feedback loop", description: "These settings reduce re-explanation and improve every subsequent prompt" }
+    { icon: "🪜", title: "Progressive disclosure", description: "Start with minimal context and expand only when the task requires it" },
+    { icon: "🧩", title: "Scoped skills", description: "Constrain recurring workflows to known inputs, checks, and outputs" },
+    { icon: "🔌", title: "Scoped MCP", description: "Expose only relevant folders, endpoints, or entities for the task" },
+    { icon: "⚙️", title: "Validation loops", description: "Run lint/test/build checks in-loop to keep edits review-ready" }
   ]'
-  :insight='{ icon: "🚀", text: "The goal is not to build a huge custom setup. The goal is to remove friction from the first 10 minutes of every session." }'
+  :insight='{ icon: "🚀", text: "Context quality beats context quantity. Scope and sequencing determine output quality more than prompt length." }'
   :progressDots='{ current: 1, total: 2, activeColor: "bg-green-400 shadow-lg shadow-green-500/50" }'
 />
 
 ---
 
-<!-- SLIDE: Part 4 — 30-Minute Hackathon Playbook -->
+<!-- SLIDE: Part 4 — Multi-Surface Patterns -->
 <SectionOpenerSlide
   :partNumber="4"
-  title="30-Minute Hackathon Playbook"
-  subtitle="Use this checklist before the first line of production code is written."
+  title="Multi-Surface Patterns"
+  subtitle="Orchestrate app, IDE, CLI, and GitHub.com in one workflow."
   :cards='[
-    { icon: "🧭", title: "Pick the surface", blurb: "Chat, Agent Mode, CLI, or GitHub.com based on the task" },
-    { icon: "🛠️", title: "Set the defaults", blurb: "Instructions, one skill, and one MCP connection if needed" },
-    { icon: "⚡", title: "Delegate one bounded task", blurb: "Review the result and use that to guide the rest of the session" }
+    { icon: "📱", title: "Plan in app", blurb: "Use Copilot App for design and assumption checks" },
+    { icon: "💻", title: "Implement in IDE/CLI", blurb: "Use Agent Mode and CLI for execution by task type" },
+    { icon: "🔍", title: "Review on GitHub.com", blurb: "Validate output in diff-first workflows before merge" }
   ]'
-  :terminal='{ context: "30-minute kickoff plan", detail: "Try one bounded task with real output before the hackathon gets busy" }'
+  :terminal='{ context: "Plan → Execute → Review across surfaces", detail: "Treat surfaces as a coordinated system, not isolated tools" }'
 />
 
 ---
 
 <!-- SLIDE: Before/After -->
 <BeforeAfterSlide
-  header="From Prompting Everything to Delegating the Right Work"
-  :leftItems='["Open Copilot and start over-explaining the repo", "Type every step manually", "Re-learn the same conventions each session", "Use the same surface for every task"]'
-  :rightItems='["Set one instruction file and one reusable skill", "Delegate bounded work to Agent Mode", "Match the surface to the task at hand", "Use small setup investments that compound all day"]'
+  header="From Single-Surface Habits to Multi-Surface Execution"
+  :leftItems='["Route every task through one chat surface", "Overload prompts with broad context", "Run work serially even when tasks are independent", "Validate late at the end of implementation"]'
+  :rightItems='["Choose surface by task shape and tool requirements", "Expand context in layers as needed", "Run independent workstreams in parallel", "Validate in-loop with scoped checks and review"]'
   :metrics='[
-    { value: "30 min", detail: "Enough time to set up the highest-leverage defaults" },
-    { value: "1 setup stack", detail: "Instructions + skills + MCP = reusable acceleration" },
-    { value: "Faster iteration", detail: "Less re-explanation and more real implementation" }
+    { value: "Scope first", detail: "Set boundaries before delegation" },
+    { value: "Surface fit", detail: "Execution model should match task shape" },
+    { value: "Review-ready", detail: "Use iterative validation and diff-based review" }
   ]'
 />
 
@@ -199,10 +199,10 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 <!-- SLIDE: What You Can Do Today -->
 <WhatYouCanDoTodaySlide
-  :today='["Create a repo-level Copilot instructions file", "Try Agent Mode on one bounded feature task", "Use CLI for one systems or debugging problem"]'
-  :thisWeek='["Add one reusable skill for a team workflow", "Connect one MCP server for a real dependency", "Review an AI-generated draft PR before approving"]'
-  :thisMonth='["Standardize a hackathon starter pack for your team", "Measure which surface saves the most time", "Document the best prompts and settings for your stack"]'
-  footer="The best Copilot setup is the one that makes the next task visibly faster to start."
+  :today='["Map one current task to the best Copilot surface", "Use rubber duck workflow to de-risk one design decision", "Run one bounded implementation task with explicit acceptance criteria"]'
+  :thisWeek='["Add one scoped skill for a recurring workflow", "Limit one MCP integration to the minimal required scope", "Adopt plan-execute-review flow across app, IDE, CLI, and GitHub.com"]'
+  :thisMonth='["Document surface-selection rules for your team", "Standardize context management patterns for common task classes", "Treat review quality as a first-class output metric"]'
+  footer="Better outcomes come from better scope and surface decisions, not longer prompts."
 />
 
 ---
@@ -224,12 +224,12 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 <!-- SLIDE: Thank You -->
 <ThankYouSlide
-  title="GitHub Copilot Refresher"
-  subtitle="What’s New and Important for Hackathon Builders"
+  title="GitHub Copilot: Latest Capabilities and Effective Patterns"
+  subtitle="Technical usage patterns for surface selection and context optimization"
   :cards='[
-    { value: "Choose", detail: "the right surface for the task" },
-    { value: "Delegate", detail: "bounded work with Agent Mode" },
-    { value: "Set up once", detail: "and let the setup compound across the event" }
+    { value: "Map", detail: "task shape to the right Copilot surface" },
+    { value: "Scope", detail: "context and delegation boundaries explicitly" },
+    { value: "Review", detail: "in-loop and in-diff for consistent outcomes" }
   ]'
-  prompt="Which Copilot capability will you try first during the hackathon?"
+  prompt="Which context optimization pattern will you adopt first?"
 />
