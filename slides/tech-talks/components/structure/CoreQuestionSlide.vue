@@ -55,7 +55,7 @@ const props = defineProps({
   cards: {
     type: Array,
     required: true,
-    validator: (val) => val.length === 6,
+    validator: (val) => val.length === 3 || val.length === 6,
   },
 })
 
@@ -64,8 +64,8 @@ const CARD_TITLE_MAX = 40
 const DESC_MAX       = 90
 
 const validationError = computed(() => {
-  if (!props.cards || props.cards.length !== 6)
-    return `[CoreQuestionSlide] ❌ cards must contain exactly 6 items (got ${props.cards?.length ?? 'none'})`
+  if (!props.cards || (props.cards.length !== 3 && props.cards.length !== 6))
+    return `[CoreQuestionSlide] ❌ cards must contain 3 or 6 items (got ${props.cards?.length ?? 'none'})`
   return null
 })
 
@@ -157,7 +157,7 @@ const t = computed(() => isDark.value ? DARK_THEME : LIGHT_THEME)
       </div>
     </div>
 
-    <!-- Six supporting context cards (3x2 grid) -->
+    <!-- Supporting context cards (3 or 6 items) -->
     <div class="relative z-10 grid grid-cols-3 gap-4 text-sm">
       <div
         v-for="(card, i) in cards"

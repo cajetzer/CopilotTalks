@@ -18,7 +18,7 @@ const props = defineProps({
   pillIcon:   { type: String, required: true },
   pillLabel:  { type: String, required: true },
   title:      { type: String, required: true },
-  columns:      { type: Array,  required: true }, // exactly 3: { icon?, title, description?, items? (string[] or { title, detail }[]) }
+  columns:      { type: Array,  required: true }, // 2-3: { icon?, title, description?, items? (string[] or { title, detail }[]) }
   insight:      { type: Object, required: false, default: null },
   progressDots: { type: Object, required: true }, // { current: N, total: M, activeColor: 'bg-...' }
 })
@@ -26,8 +26,8 @@ const props = defineProps({
 const validationError = computed(() => {
   if (!props.partNumber || props.partNumber < 1 || props.partNumber > 4)
     return `[ThreeColumnCardSlide] ❌ partNumber must be 1–4 (got ${props.partNumber})`
-  if (!props.columns || props.columns.length !== 3)
-    return `[ThreeColumnCardSlide] ❌ columns must contain exactly 3 items (got ${props.columns?.length ?? 'none'})`
+  if (!props.columns || props.columns.length < 2 || props.columns.length > 3)
+    return `[ThreeColumnCardSlide] ❌ columns must contain 2–3 items (got ${props.columns?.length ?? 'none'})`
   return null
 })
 
@@ -39,6 +39,11 @@ const TITLE_MAX = 80
 const CARD_TITLE_MAX = 40
 const DESC_MAX = 100
 const ITEMS_MAX = 5
+const GRID_COLS = {
+  2: 'grid-cols-2',
+  3: 'grid-cols-3',
+}
+const columnsGrid = computed(() => GRID_COLS[props.columns.length] || 'grid-cols-3')
 props.columns?.forEach((col, i) => {
   if (col.title?.length > CARD_TITLE_MAX)
     console.warn(`[ThreeColumnCardSlide] columns[${i}].title is ${col.title.length} chars (max ${CARD_TITLE_MAX}): "${col.title}"`)
@@ -99,7 +104,7 @@ const itemDetail = (it) => typeof it === 'string' ? null : it.detail
     </div>
 
     <div class="relative z-10 flex-1 min-h-0 flex flex-col gap-3">
-      <div class="grid grid-cols-3 gap-4 flex-1 min-h-0">
+      <div class="grid gap-4 flex-1 min-h-0" :class="columnsGrid">
         <div v-for="(col, i) in columns" :key="'c-' + i" class="p-4 rounded-xl border overflow-hidden" :class="[cards[i].bg, cards[i].border]">
           <div class="text-3xl mb-2" v-if="col.icon">{{ col.icon }}</div>
           <div class="font-bold text-base mb-2" :class="cards[i].title">{{ col.title }}</div>
