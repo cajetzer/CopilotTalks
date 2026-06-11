@@ -107,7 +107,7 @@ Reference: [VS Code subagents documentation](https://code.visualstudio.com/docs/
 
 ### 3. Rubber Duck Pattern
 
-**New in GitHub Copilot App** and **VS Code Chat**: Copilot can now act as a sounding board without changing code:
+In **GitHub Copilot CLI** (rubber duck agent) and discussion-first chat workflows, Copilot can act as a sounding board without changing code:
 
 - Describe a design decision, ask Copilot to reflect back potential issues
 - Explain error output and ask for interpretation before fixing
@@ -115,7 +115,7 @@ Reference: [VS Code subagents documentation](https://code.visualstudio.com/docs/
 
 **Outcome**: Rubber duck sessions surface assumptions early and reduce avoidable rework before implementation.
 
-Reference: [Copilot app technical preview expansion](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/)
+Reference: [About the rubber duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) and [Copilot CLI combines model families for a second opinion](https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-combines-model-families-for-a-second-opinion/)
 
 ### 4. Skills-Based Context Gating
 

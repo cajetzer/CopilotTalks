@@ -158,7 +158,7 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 - Fleet mode and parallel execution: [Running tasks in parallel with /fleet](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet) and [Parallel task execution in Copilot CLI](https://docs.github.com/en/copilot/cli/parallel-task-execution)
 - Subagent composition and delegation: [VS Code subagents documentation](https://code.visualstudio.com/docs/agents/subagents)
-- Rubber duck and skills workflows: [Subagents and skills in the Copilot app](https://github.blog/changelog/2026-05-14-subagents-and-skills-in-github-copilot-app/)
+- Rubber duck workflows: [About the rubber duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) and [Copilot CLI combines model families for a second opinion](https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-combines-model-families-for-a-second-opinion/)
 - VS Code agents window, remote sessions, and terminal controls: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/)
 - Cloud agent plan-first workflows: [Cloud agent: research, plan, and code](https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/)
 - Visual Studio plan agent and context controls: [Visual Studio Copilot May update](https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update/)
