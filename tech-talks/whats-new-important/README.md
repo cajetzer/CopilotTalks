@@ -1,6 +1,6 @@
 ---
 status: active
-updated: 2026-06-10
+updated: 2026-06-11
 section: "Developers"
 references:
   - url: https://code.visualstudio.com/docs/copilot/overview
@@ -294,26 +294,43 @@ For deeper context on specific capabilities:
 
 ---
 
-## Actionable Next Steps
+## Try it Now Cheat Sheets
 
-### 15 Minutes
+### GitHub Copilot App (Preview): install + first run
 
-- [ ] Try rubber duck: Open GitHub Copilot App and describe a design decision without making changes
-- [ ] Switch VS Code Agent to Plan Mode for one task: `copilot -p "task" --plan` to inspect intended actions before execution
-- [ ] Check if your project already has `.github/copilot-instructions.md` — if so, read it; if not, start one
+1. Install/open the app via the official getting-started flow.
+2. Sign in with your GitHub account and connect a repository.
+3. Start a session from an issue or PR, then open terminal/browser in-panel for validation.
+4. Run a second session in parallel to test independent workstream steering.
 
-### 1 Hour
+Reference: [Getting started with the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/getting-started) and [Copilot app technical preview expansion](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/)
 
-- [ ] Add a `.github/skills/` directory and define a skill for a recurring task (e.g., "Run and interpret test failures")
-- [ ] Launch a background agent: describe one task, click **Continue in Background**, review the diff without blocking your workspace
-- [ ] Scope an MCP server: instead of exposing the entire workspace, configure `filesystem` to expose only `src/`
+### VS Code Agents and sessions: fork + background + sync
 
-### 2–4 Hours
+1. Open the **Agents** window (preview) in VS Code and start a new task session.
+2. Use **Continue in Background** on one task while you keep coding in the main editor.
+3. Use **/fork** to branch from current session context and explore an alternate approach.
+4. Use **/chronicle** to query previous sessions and generate a quick summary.
 
-- [ ] Context audit: Pick three recent tasks and note where context could have been narrowed or split into smaller scopes
-- [ ] Parallel execution: Run two independent tasks with `/fleet` or background agents; measure time saved vs. sequential approach
-- [ ] Integrate GitHub.com Copilot into code review: request review on an open PR and record feedback time vs. human review
-- [ ] Test local validation gates: add a skill that runs tests after every change, signaling completion only when tests pass
+Reference: [Use the Agents window (Preview)](https://code.visualstudio.com/docs/copilot/agents-app), [Fork a chat session](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_fork-a-chat-session), and [About /chronicle](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle)
+
+### Copilot CLI: parallel + review-first workflow
+
+1. Start in plan/reasoning mode for a bounded task before making edits.
+2. Run parallel independent tasks with `/fleet`.
+3. Invoke `/rubber-duck` for a second-opinion critique before finalizing.
+4. Use `/chronicle` for session recall and standup-ready summaries.
+
+Reference: [Running tasks in parallel with /fleet](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/fleet), [Parallel task execution in Copilot CLI](https://docs.github.com/en/copilot/cli/parallel-task-execution), [About the rubber duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck), and [Using GitHub Copilot CLI session data](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle)
+
+### Skills + MCP scoping: context discipline checklist
+
+1. Add one task-specific skill in `.github/skills/` (example: targeted test + failure triage).
+2. Restrict MCP scope to only the folder/tool endpoints required for the task.
+3. Add a validation gate (lint/test/build) before task completion.
+4. Compare outputs from broad context vs scoped context on the same task.
+
+Reference: [Customizing the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app) and [MCP Servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
 
 ---
 
