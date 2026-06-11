@@ -61,9 +61,9 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 <!-- SLIDE: Table of Contents -->
 <TocSlide
   :sections='[
-    { icon: "🗺️", title: "Surface Map", subtitle: "Six surfaces, one foundation", blurb: "Where each surface fits and how they differ operationally", slide: 4 },
+    { icon: "🗺️", title: "Surface Map", subtitle: "Seven surfaces, one foundation", blurb: "Where each surface fits and how they differ operationally", slide: 4 },
     { icon: "🆕", title: "Recent Capabilities", subtitle: "What matured in the last 4 months", blurb: "Fleet execution, subagents, rubber duck pattern, and skills", slide: 6 },
-    { icon: "🧰", title: "Context Optimization", subtitle: "Progressive disclosure and scope control", blurb: "Execution patterns that improve consistency and reduce context noise", slide: 8 },
+    { icon: "🧰", title: "Context Engineering", subtitle: "Progressive disclosure and intentional context design", blurb: "Execution patterns that improve consistency and reduce context noise", slide: 8 },
     { icon: "🎯", title: "Multi-Surface Patterns", subtitle: "How to orchestrate real work", blurb: "A practical flow across app, IDE, CLI, and GitHub.com", slide: 10 }
   ]'
 />
@@ -74,10 +74,10 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 <SectionOpenerSlide
   :partNumber="1"
   title="Surface Map"
-  subtitle="Six surfaces, one shared foundation."
+  subtitle="Seven surfaces, one shared foundation."
   :cards='[
     { icon: "💬", title: "VS Code chat", blurb: "Interactive coding and quick exploration" },
-    { icon: "🖥️", title: "CLI + GitHub.com", blurb: "Terminal-native automation plus async review and triage" },
+    { icon: "🧭", title: "Agents app + Copilot App", blurb: "Session orchestration, steering, and parallel workstream visibility" },
     { icon: "📱", title: "GitHub Copilot App", blurb: "Agent-native desktop: terminal, browser, MCP, skills, and canvases" }
   ]'
   :terminal='{ context: "Surface-task alignment is now mandatory", detail: "Different surfaces expose different tool and execution models" }'
@@ -135,11 +135,11 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 ---
 
-<!-- SLIDE: Part 3 — Context Optimization -->
+<!-- SLIDE: Part 3 — Context Engineering -->
 <SectionOpenerSlide
   :partNumber="3"
-  title="Context Optimization"
-  subtitle="Progressive disclosure and scope control for better outcomes."
+  title="Context Engineering"
+  subtitle="Progressive disclosure and intentional context design for better outcomes."
   :cards='[
     { icon: "🪜", title: "Progressive disclosure", blurb: "Load only the context needed for the current step" },
     { icon: "🧩", title: "Scope via skills", blurb: "Use predefined workflows to avoid repeated discovery" },
@@ -215,7 +215,8 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
       { href: "https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app", label: "Customizing the GitHub Copilot app", description: "Global instructions, skills, and MCP server configuration" }
     ] },
     { title: "📰 Related Reading", color: "purple", items: [
-      { href: "https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/", label: "Copilot app technical preview expansion", description: "Integrated terminal/browser, parallel sessions, canvases, and MCP-backed workflows" }
+      { href: "https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/", label: "Copilot app technical preview expansion", description: "Integrated terminal/browser, parallel sessions, canvases, and MCP-backed workflows" },
+      { href: "https://github.com/danielmeppiel/awesome-ai-native", label: "awesome-ai-native", description: "Context engineering and AI-native workflow references" }
     ] }
   ]'
 />

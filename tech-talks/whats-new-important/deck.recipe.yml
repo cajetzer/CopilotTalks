@@ -9,22 +9,22 @@ version: 1
 
 deck:
   title: "GitHub Copilot: Latest Capabilities and Effective Patterns"
-  subtitle: "Fleet mode, subagents, context optimization, and the GitHub Copilot App"
+  subtitle: "Fleet mode, subagents, context engineering, and the GitHub Copilot App"
   tagline: "Surfaces. Features. Tokens."
 
   # arcToc: short → chain displayed as the TocSlide subtitle. One line, ≤ 80 chars.
-  arcToc: "Surface Map → Recent Capabilities → Context Optimization → Multi-Surface Patterns"
+  arcToc: "Surface Map → Recent Capabilities → Context Engineering → Multi-Surface Patterns"
 
   # arcNarrative: prose rationale explaining WHY the sections are ordered this way —
   # what each section establishes, structural decisions, and where peak engagement lands.
   # Used by the generator as authoring guidance; never displayed on a slide.
   arcNarrative: >
     The talk opens with the Copilot Surface Map (Section 1) to ground developers in what's
-    now available — six distinct surfaces, each with different tool access and execution models.
+    now available — seven distinct surfaces, each with different tool access and execution models.
     Section 1 peaks with the GitHub Copilot App, a new first-class surface. Section 2 (Recent
     Capabilities) dives into the last 4 months of maturation: fleet mode parallelism, subagent
     composition, rubber duck pattern, and skill-based context gating. This is the "what changed"
-    moment. Section 3 (Context Optimization) shifts the narrative from "what features exist"
+    moment. Section 3 (Context Engineering) shifts the narrative from "what features exist"
     to "how do outcomes improve with better context management" — progressive disclosure, scope
     reduction via skills, query filtering, local validation gates, and scope budgeting. Peak
     engagement is Section 3 because it answers the unspoken question: "how do we get better
@@ -39,7 +39,7 @@ deck:
   sectionOrder:
     - "Surface Map"
     - "Recent Capabilities"
-    - "Context Optimization"
+    - "Context Engineering"
     - "Multi-Surface Patterns"
 
   # Per-section editorial guidance for the slide generator.
@@ -49,9 +49,9 @@ deck:
       emphasis: medium
       # note: authoring priority — what must land, what to cut, what the "whoa" moment is.
       note: >
-        2–3 slides. Slide 1: the 6-surface table (VS Code Chat, Agent Mode, Background Agents,
-        GitHub Copilot App, GitHub.com, CLI) with columns for access mode, execution, and
-        best fit. The "whoa" moment is "there are now SIX distinct surfaces and they all share
+        2–3 slides. Slide 1: the 7-surface table (VS Code Chat, Agent Mode, Background Agents,
+        VS Code Agents app, GitHub Copilot App, GitHub.com, CLI) with columns for access mode,
+        execution, and best fit. The "whoa" moment is "there are now SEVEN distinct surfaces and they all share
         the same instructions and MCP config." Slide 2 (optional): the GitHub Copilot App as a
         technical-preview desktop surface — integrated terminal/browser, parallel isolated
         sessions, MCP + skills support, and canvases in the right panel. If tight on time, fold
@@ -69,16 +69,16 @@ deck:
         implications. The audience should understand "why now" — what made these
         features matter in the last 4 months.
 
-    "Context Optimization":
+    "Context Engineering":
       emphasis: high
       note: >
-        3–4 slides on context efficiency patterns. Slide 1: Progressive disclosure (Layer 1→2→3
+        3–4 slides on context engineering patterns. Slide 1: Progressive disclosure (Layer 1→2→3
         loading to avoid broad context up front). Slide 2: Scope reduction via skills
         (example: refactoring with real-time type checking vs. pre-reading entire codebase).
         Slide 3: Query filtering in MCP (scoped filesystem, explicit requests, vs. full
         exposure). Optional Slide 4: Scope budgeting by task class (bounded fix, module refactor,
-        multi-module feature). The narrative here is observable: "these are the patterns that
-        reduce context noise without reducing output quality."
+        multi-module feature). Anchor this section in intentional context design and progressive
+        disclosure principles (see awesome-ai-native context engineering patterns).
 
     "Multi-Surface Patterns":
       emphasis: high
@@ -100,7 +100,7 @@ deck:
   # 3–5 high-signal moments the generator must surface in the deck.
   # Used for: BeforeAfterSlide items, ThankYouSlide cards, WhatYouCanDoTodaySlide actions.
   highlightMoments:
-    - "Six Copilot surfaces now exist. Same instructions, MCP config, and tools across all of them. Route each task type to the right surface for cleaner execution and fewer context resets."
+    - "Seven Copilot surfaces now exist. Same instructions, MCP config, and tools across all of them. Route each task type to the right surface for cleaner execution and fewer context resets."
     - "Fleet mode enables parallel independent tasks. Subagents keep context scoped. Progressive disclosure avoids loading broad context before it's needed."
     - "Skills gate expensive operations. Query filtering in MCP prevents accidental context loading. Local validation gates keep agents in-loop without pre-reading entire codebase."
     - "Scope budgeting by task class: bounded fixes, module refactors, and multi-module features should each have explicit boundaries. Split work when scope drifts."

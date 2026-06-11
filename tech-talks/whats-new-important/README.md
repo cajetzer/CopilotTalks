@@ -21,6 +21,9 @@ references:
   - url: https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app
     label: "Customizing the GitHub Copilot app"
     verified: 2026-06-10
+  - url: https://docs.github.com/en/copilot/how-tos/github-copilot-app/getting-started
+    label: "Getting started with the GitHub Copilot app"
+    verified: 2026-06-10
   - url: https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/
     label: "GitHub Copilot app expanded technical preview"
     verified: 2026-06-10
@@ -45,7 +48,7 @@ references:
 
 | Criterion | Assessment | Notes |
 |-----------|-----------|-------|
-| **Relevant** | 🟢 High | Six distinct Copilot surfaces now exist (including GitHub Copilot App). Recent features: fleet mode parallelism, subagent composition, rubber-duck pattern, skill-based delegation. Context optimization is where token efficiency gains matter most. |
+| **Relevant** | 🟢 High | Seven distinct Copilot surfaces now exist (including the GitHub Copilot App and the VS Code Agents app). Recent features: fleet mode parallelism, subagent composition, rubber-duck pattern, skill-based delegation, and app-centric orchestration. |
 | **Compelling** | 🟢 High | Technical deep dive on how progressive disclosure and context management improve consistency and reduce unnecessary context loading in real workflows. |
 | **Actionable** | 🟢 High | Specific context management techniques: scope reduction via skills, query filtering in MCP servers, and local validation gates. |
 
@@ -55,15 +58,16 @@ references:
 
 ## The Copilot Surface Map
 
-### Six Surfaces, One Configuration
+### Seven Surfaces, One Configuration
 
-GitHub Copilot reaches developers through six distinct surfaces. Each surface shares the same underlying instruction files and MCP server configuration, but applies different tool access and interaction models:
+GitHub Copilot reaches developers through seven distinct surfaces. Each surface shares the same underlying instruction files and MCP server configuration, but applies different tool access and interaction models:
 
 | Surface | Access Mode | Execution | Best Fit |
 |---------|-------------|-----------|----------|
 | **VS Code Chat** | Interactive, conversational | Single-file edits, inline suggestions | Quick questions, exploration, `#codebase` search |
 | **VS Code Agent Mode** | Goal-oriented, autonomous | Multi-file, terminal, iteration loops | Feature development, refactoring, scaffold generation |
 | **Background Agents** | Fire-and-forget, parallel | Isolated Git worktree per agent | Parallel independent tasks, long-running ops |
+| **VS Code Agents app (formerly Sessions)** | Companion app for session management | Parallel session control, steering, and diff review | Coordinating multiple running agent workstreams |
 | **GitHub Copilot App** | Desktop, agent-native | Integrated terminal/browser, worktree sessions, MCP + skills | End-to-end agent sessions, review loops, reusable workflows |
 | **GitHub.com Copilot** | Browser review interface | PR diff context only | Code review, issue triage, async delegation |
 | **Copilot CLI** | Terminal, streaming | Full system access, file I/O | DevOps, scripting, infrastructure, Plan Mode |
@@ -118,107 +122,36 @@ Example: Refactoring task → Main agent reads architecture, identifies three mo
 
 **Context implication**: A skill-based approach reduces repeated discovery work because the workflow is pre-loaded and scoped.
 
-### 5. Context Optimization: Progressive Disclosure
+### 5. Context Engineering: Progressive Disclosure by Design
 
-All surfaces now support **progressive disclosure** patterns:
+This talk treats progressive disclosure as a **context engineering discipline**, not a product checkbox.  
+The objective is intentional context design: disclose only the context required for the current decision.
 
-- **Layer 1** (base): Instructions + active file context only
-- **Layer 2** (on demand): `#codebase` search for specific patterns (agent asks "where are auth routes?")
-- **Layer 3** (if needed): Full directory tree, test output, or API documentation via MCP
+> Working reference: **awesome-ai-native** context-engineering patterns  
+> https://github.com/danielmeppiel/awesome-ai-native
 
-Instead of always loading the entire codebase context, agents now load incrementally. This reduces unnecessary context loading on small-to-medium scopes.
+Use this flow across Copilot surfaces:
 
-**GitHub Copilot App** supports all three layers when tools are configured in session (for example terminal validation and MCP-backed context).
+1. **Intent layer (minimum viable context)**  
+   Start with task objective, constraints, and acceptance criteria only.
 
----
+2. **Structure layer (targeted repository context)**  
+   Add only the files/modules needed for the current step (`#codebase`/targeted file reads).
 
-## Context Management and Token Optimization
+3. **Runtime layer (tool-backed evidence)**  
+   Add terminal output, test failures, logs, and MCP-backed data only when the task requires execution evidence.
 
-The efficiency gain from the last four months of features is **not** about cheaper models; it's about asking fewer questions per task. Here's how:
+4. **Validation layer (review-grade output)**  
+   Gate completion through scoped checks (lint/test/build or equivalent) and produce diff-ready artifacts.
 
-### Pattern 1: Scope Reduction via Skills
+Patterns that enable this:
 
-Instead of:
-```
-Agent Mode prompt: "Refactor UserService to use dependency injection.
- Read all files in src/services/, src/models/, and src/types/ to understand
- existing patterns. Update all call sites. Ensure no imports break."
-```
+- **Scope reduction via skills**: encode recurring workflows so agents do less discovery and more execution.
+- **MCP query filtering**: expose narrow tool scope first (folder/toolset/endpoint) and expand only when blocked.
+- **Local validation gates**: keep implementation and verification in-loop.
+- **Scope budgeting**: define boundaries up front; split tasks when dependency edges appear.
 
-Use a skill:
-```
-Skill 'type-check-on-refactor':
-- Runs TypeScript compiler after edits
-- Reports breaking imports with exact locations
-- Surfaces only failures, not the full codebase
-
-Agent Mode prompt: "Refactor UserService to dependency injection.
- Use the type-check-on-refactor skill to validate changes as you go."
-```
-
-**Result**: Agent doesn't need to pre-read broad portions of the tree. It reads what is needed and gets real-time validation feedback.
-
-### Pattern 2: Query Filtering in MCP Servers
-
-Instead of:
-```json
-{
-  "filesystem": {
-    "command": "npx @modelcontextprotocol/server-filesystem ${workspaceFolder}"
-  }
-}
-```
-(which exposes the entire workspace)
-
-Use scoped access:
-```json
-{
-  "filesystem": {
-    "command": "npx @modelcontextprotocol/server-filesystem ${workspaceFolder}/src"
-  }
-}
-```
-
-**Result**: When agent asks `#filesystem`, it gets only `/src` file tree. If it needs something outside, it asks explicitly. This forces intentionality and reduces accidental context loading.
-
-**Impact**: Lower context noise and fewer irrelevant file reads, especially in large workspaces.
-
-### Pattern 3: Local Validation Gates
-
-Before agents send results, add a local validation skill:
-
-```yaml
-# .github/skills/validate-before-commit/SKILL.md
-name: Validate Before Commit
----
-1. Run `npm run lint` and report failures
-2. Run `npm test` in affected modules only
-3. Run `npm run build` and report errors
-4. If all pass, signal "ready to commit"
-5. If failures, return structured list (not raw output)
-```
-
-Agent can now:
-1. Implement feature
-2. Run validation skill (gets structured feedback)
-3. Fix issues
-4. Repeat
-
-**Result**: No manual "check the tests" step needed. Validation happens in-loop. Agent stops iterating when validation passes.
-
-### Pattern 4: Scope Budgeting by Task Class
-
-Classify tasks by expected scope and expected duration:
-
-| Task Class | Scope Guidance | Surface | Typical Duration |
-|-----------|----------------|---------|------------------|
-| **Bounded fix** | Single file or small file cluster | Agent Mode | Short |
-| **Single-module refactor** | One module plus direct call sites | Agent Mode | Medium |
-| **Multi-module feature** | Multiple modules with integration points | Background Agent | Longer |
-| **Infrastructure task** | Scripts, workflow files, deployment config | CLI | Medium |
-| **Code review** | PR diff plus immediate context | GitHub.com | Short |
-
-**Using budgets**: When starting a task, define the scope ceiling first. If scope expands, split work into a follow-up task instead of continuing unbounded.
+What changed with the latest surfaces is not that context engineering became possible - it is that app sessions, integrated terminal/browser, MCP support, and parallel session orchestration now make this pattern practical end to end in one workflow.
 
 ---
 
@@ -240,7 +173,7 @@ The GitHub Copilot App is an **agent-native desktop surface**: start from issues
 
 ## Execution Topologies (Replace One-Tool Habits)
 
-Instead of a single decision tree, use one of these execution topologies based on where your task state lives.
+Use one of these execution topologies based on where your task state lives.
 
 ### Topology A: App-Centric Orchestration
 
@@ -329,6 +262,8 @@ For deeper context on specific capabilities:
 
 - **[GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview)** — Official documentation
 - **[Customizing the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app)** — App setup, skills, and MCP integration
+- **[Getting started with the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/getting-started)** — Session model, quick chats, and workflow entry points
 - **[GitHub Copilot app technical preview](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/)** — Preview scope and app capabilities
 - **[About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli)** — CLI reference
 - **[VS Code v1.120 Release Notes](https://code.visualstudio.com/updates/v1_120)** — Latest features and UI updates
+- **[awesome-ai-native](https://github.com/danielmeppiel/awesome-ai-native)** — External context-engineering pattern library
