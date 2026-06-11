@@ -60,8 +60,9 @@ deck:
     "Recent Capabilities":
       emphasis: high
       note: >
-        3–4 slides covering four matured features. Slide 1: Fleet mode + background agents
-        (parallelization efficiency gain). Slide 2: Subagent composition + delegation pattern
+        3–4 slides covering four matured features. Slide 1: Fleet mode + Copilot App parallel
+        sessions + background agents (parallelization execution model). Slide 2: Subagent
+        composition + delegation pattern
         (scope reduction efficiency gain). Slide 3: Rubber duck pattern as a surface in GitHub
         Copilot App (new interaction model). Slide 4 (if room): Skills-based context gating
         (preventing scope creep, forcing intentionality). Lead each with concrete implementation
@@ -82,12 +83,13 @@ deck:
     "Multi-Surface Patterns":
       emphasis: high
       note: >
-        3–4 slides. Slide 1: Worked example — feature with API, migration, frontend (intro).
-        Slides 2–3: four-phase execution (Plan and steer in GitHub Copilot App, Implement API via
-        Background Agent, Implement migration + frontend via CLI with /fleet, Code review on
-        GitHub.com) with execution intent per phase. Final slide: outcome summary comparing
-        sequential single-surface work vs. orchestrated multi-surface work. Tie back to the
-        core question: "which surfaces improve delivery quality and speed?"
+        3–4 slides. Replace task-by-task decision trees with execution topologies. Slide 1:
+        Topology A (app-centric orchestration). Slide 2: Topology B (IDE-centric implementation
+        with app oversight). Slide 3: Topology C (CLI-centric runtime work). Final slide:
+        surface-selection rules (start where authoritative state lives, split by dependency graph,
+        keep orchestration and execution distinct, move to review surfaces early, escalate context
+        only when blocked). Tie back to the core question: "which surfaces improve delivery
+        quality and speed?"
 
   # Optional: slide files to import immediately after the TitleSlide.
   preamble: []

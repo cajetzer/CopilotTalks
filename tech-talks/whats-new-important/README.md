@@ -78,14 +78,15 @@ Every surface shares the same **context sources**: `copilot-instructions.md`, MC
 
 ### 1. Fleet Mode and Parallel Execution
 
-**VS Code Agent Mode** and **Copilot CLI** now support spawning multiple agents in parallel on independent tasks:
+**GitHub Copilot App**, **VS Code Agent Mode**, and **Copilot CLI** support parallel execution patterns for independent tasks:
 
-- **Background agents in VS Code**: Launch a task and click **Continue in Background**. The agent runs in an isolated Git worktree. Main editor remains available for other work.
-- **`/fleet` in CLI**: Run 3+ independent terminal tasks with automatic parallelization: `copilot -p "Task A" && copilot -p "Task B" && copilot -p "Task C" /fleet`
+- **Parallel sessions in Copilot App**: Run multiple isolated sessions (worktree + branch per session), steer each session, and validate in integrated terminal/browser.
+- **Background agents in VS Code**: Launch a task and click **Continue in Background**. The agent runs in an isolated Git worktree while main editor work continues.
+- **`/fleet` in CLI**: Fan out independent tasks from the terminal when batch execution is the primary workflow.
 
 **Context implication**: Parallel tasking reduces context reset overhead and keeps independent workstreams isolated, which improves consistency during implementation and review.
 
-**Practical pattern**: Feature A (backend) in one background agent, Feature B (frontend) in another, main editor for integration work. Review diffs incrementally.
+**Practical pattern**: Feature A (backend) in one session, Feature B (frontend) in another, then integrate and review diffs in a single review pass.
 
 ### 2. Subagent Composition and Delegation
 
@@ -237,43 +238,54 @@ The GitHub Copilot App is an **agent-native desktop surface**: start from issues
 
 ---
 
-## Practical Patterns
+## Execution Topologies (Replace One-Tool Habits)
 
-### Pattern: Efficient Multi-Surface Workflow
+Instead of a single decision tree, use one of these execution topologies based on where your task state lives.
 
-**Scenario**: Implementing a feature with multiple independent components (API, database migration, frontend).
+### Topology A: App-Centric Orchestration
 
-1. **Plan (GitHub Copilot App)**: "Outline the API contract, schema migration, and frontend state management. Use rubber duck to surface assumptions."
-   - Focus: clarify assumptions and interface boundaries
-   - Output: Structured plan, shared in async review
+Use when the workflow starts from issues/PRs and needs parallel session management.
 
-2. **Implement API (Background Agent)**: "Build the endpoint using the plan above. Run validation skill after each step."
-   - Focus: implementation with in-loop validation
-   - Output: Diff, reviewable in Agents Window
+1. Plan in a Copilot App session (or quick chat), then split into bounded workstreams.
+2. Run parallel app sessions for independent subtasks.
+3. Validate behavior in integrated terminal/browser and MCP-connected tools.
+4. Review and finalize from **My work** and/or GitHub.com.
 
-3. **Implement migration + frontend (CLI task)**: "Generate the migration and update the frontend schema hook."
-   - Focus: parallel execution of independent changes
-   - Output: Two diffs, apply independently
+Best fit: issue-driven feature work, review-heavy flows, multi-repo coordination.
 
-4. **Code review (GitHub.com)**: Request Copilot review on all three PRs.
-   - Focus: fast issue detection on review surface
-   - Output: Inline comments
+### Topology B: IDE-Centric Implementation with App Oversight
 
-**Outcome**: Faster end-to-end delivery and cleaner handoffs than doing all work sequentially in one surface.
+Use when the implementation center is VS Code but orchestration and review span surfaces.
+
+1. Implement in VS Code Agent Mode for deep local edits.
+2. Offload independent work to background/app sessions when scope splits cleanly.
+3. Use Copilot App for session visibility, steering, and cross-task continuity.
+4. Finalize in GitHub.com or app review surfaces.
+
+Best fit: refactors, module-level implementation, test-and-fix loops.
+
+### Topology C: CLI-Centric Runtime Work
+
+Use when runtime state is primary (containers, logs, CI, remote shells, scripts).
+
+1. Run tasks in Copilot CLI or app terminal.
+2. Use `/fleet` or parallel sessions for independent runtime operations.
+3. Feed outputs back into app/IDE sessions for code-level follow-up.
+4. Gate with review surfaces before merge.
+
+Best fit: infra, release engineering, CI triage, operational debugging.
 
 ---
 
-## What to Use When: Quick Decision Map
+## Surface Selection Rules
 
-| You want to... | Use this surface | Why |
-|----------------|------------------|-----|
-| Ask a quick question | GitHub Copilot App | Fast context carryover from active sessions and prior work |
-| Implement a feature | VS Code Agent Mode + skills | File system access, validation feedback |
-| Run two features in parallel | Background agents | Isolated worktrees, non-blocking |
-| Fix infrastructure / DevOps | Copilot CLI (Plan Mode) | Terminal access, dry-run inspection |
-| Review code async | GitHub.com Copilot | No local setup needed, PR context rich |
-| Rubber duck / design review | GitHub Copilot App | Built-in skill with direct path into executable sessions |
-| Quick shell command | `gh copilot suggest` | Terminal integrated, no UI context switch |
+Use these rules instead of per-task one-off choices:
+
+1. **Start where authoritative state lives.** If state is in issues/PRs, start in app/GitHub.com. If state is in code structure, start in IDE. If state is in runtime, start in terminal.
+2. **Split by dependency graph, not by preference.** Parallelize only truly independent workstreams; keep dependent changes in one session chain.
+3. **Keep orchestration and execution distinct.** App sessions are strong for orchestration and continuity; IDE/CLI often own deep execution details.
+4. **Move to review surfaces early.** Treat diff review as part of implementation, not a final step.
+5. **Prefer scope escalation over context dumping.** Start narrow, expand context only when a concrete blocker appears.
 
 ---
 
