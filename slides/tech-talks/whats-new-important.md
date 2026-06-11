@@ -110,6 +110,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
   pillLabel="Surface Map"
   title="Choose Surface by Task Shape"
   description="Use these routing rules instead of one-tool-for-everything habits"
+  codePosition="top"
   :code='`
 | Task Type | Best Surface | Why |
 |-----------|--------------|-----|
@@ -353,6 +354,7 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
   pillLabel="Patterns"
   title="Topology B: IDE-Centric Implementation"
   description="Deep code work in VS Code with app oversight for orchestration"
+  codePosition="top"
   :code='`
 1. IDE: Agent Mode for bounded multi-file edits
 2. IDE: Click "Continue in Background" for parallel task
@@ -502,4 +504,3 @@ import CodeWithFeaturesSlide from './components/CodeWithFeaturesSlide.vue'
   ]'
   prompt="Which topology fits your team workflow best? How does surface routing change your planning?"
 />
-
