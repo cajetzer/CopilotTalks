@@ -8,86 +8,92 @@
 version: 1
 
 deck:
-  title: "GitHub Copilot Refresher: What's New and Important"
-  subtitle: "Which capabilities to invest in — and how to get set up in 30 minutes"
-  tagline: "Orient. Delegate. Build. Ship."
+  title: "GitHub Copilot: Latest Capabilities and Effective Patterns"
+  subtitle: "Fleet mode, subagents, context engineering, and the GitHub Copilot App"
+  tagline: "Surfaces. Features. Tokens."
 
   # arcToc: short → chain displayed as the TocSlide subtitle. One line, ≤ 80 chars.
-  arcToc: "Landscape → Agent Mode → Practical Stack → Hackathon Playbook"
+  arcToc: "Surface Map → Recent Capabilities → Context Engineering → Multi-Surface Patterns"
 
   # arcNarrative: prose rationale explaining WHY the sections are ordered this way —
   # what each section establishes, structural decisions, and where peak engagement lands.
   # Used by the generator as authoring guidance; never displayed on a slide.
   arcNarrative: >
-    The talk opens with the Landscape section (Section 1) to give developers a mental map
-    before any task begins — the surface cheatsheet answers "which tool for which job" and
-    prevents the most common hackathon mistake: routing everything through one surface.
-    Section 2 (Agent Mode) lands the mode-shift insight and the instructions template
-    artifact — this is the talk's peak engagement moment, the "copy this into your repo right
-    now" deliverable that makes every subsequent Copilot interaction project-aware. Section 3
-    (Practical Stack) builds the power tools layer on top of the instructions foundation:
-    the MCP config, CLI patterns, and code review are each shown as concrete artifacts
-    rather than feature descriptions. Section 4 (Hackathon Playbook) closes by pulling
-    everything into an executable 30-minute setup checklist and task menu — the audience
-    leaves with a committed action plan, not just inspiration. Peak engagement is Section 2;
-    Section 4 sustains that momentum by converting it into specific next steps. The arc
-    rejects a "chronological what's new" ordering because hackathon developers need decisions
-    (which surface? what to set up first?) more than a feature changelog.
+    The talk opens with the Copilot Surface Map (Section 1) to ground developers in what's
+    now available — seven distinct surfaces, each with different tool access and execution models.
+    Section 1 peaks with the GitHub Copilot App, a new first-class surface. Section 2 (Recent
+    Capabilities) dives into the last 4 months of maturation: fleet mode parallelism, subagent
+    composition, rubber duck pattern, skill-based context gating, VS Code agents window +
+    remote sessions, terminal safety/efficiency controls, cloud agent plan-first flows, and
+    Visual Studio plan agent context controls. This is the "what changed" moment. Section 3
+    (Context Engineering) shifts the narrative from "what features exist"
+    to "how do outcomes improve with better context management" — progressive disclosure, scope
+    reduction via skills, query filtering, local validation gates, and scope budgeting. Peak
+    engagement is Section 3 because it answers the unspoken question: "how do we get better
+    results without adding complexity?"
+    Section 4 (Multi-Surface Patterns) closes with a worked example (feature with API, migration,
+    frontend components) showing how to orchestrate surfaces and patterns to deliver faster with
+    clearer handoffs. The arc deliberately avoids "tool features" framing — it's about observable
+    efficiency gains in real work.
 
-  # Ordered list of the 4 section names (must match sectionModes keys below).
+  # Ordered list of the section names (must match sectionModes keys below).
   # These become the TocSlide entries and SectionOpenerSlide titles.
   sectionOrder:
-    - "Landscape"
-    - "Agent Mode"
-    - "Practical Stack"
-    - "Hackathon Playbook"
+    - "Surface Map"
+    - "Recent Capabilities"
+    - "Context Engineering"
+    - "Multi-Surface Patterns"
 
   # Per-section editorial guidance for the slide generator.
   sectionModes:
-    "Landscape":
+    "Surface Map":
       # Slide budget hint: high = 4–5 slides, medium = 2–3, medium-low = 1–2
-      emphasis: medium-low
+      emphasis: medium
       # note: authoring priority — what must land, what to cut, what the "whoa" moment is.
       note: >
-        Compress to 2 slides maximum. Slide 1: the surface cheatsheet table (6-row reference
-        card — surface, where, how to start). Slide 2: Ask vs. Agent Mode distinction plus
-        one sentence on the Agents Window for parallel work. The "whoa" moment is
-        the table itself: most developers don't realize they have 6 distinct Copilot surfaces
-        available and are using 1 or 2.
+        2–3 slides. Slide 1: the 7-surface table (VS Code Chat, Agent Mode, Background Agents,
+        VS Code Agents app, GitHub Copilot App, GitHub.com, CLI) with columns for access mode,
+        execution, and best fit. The "whoa" moment is "there are now SEVEN distinct surfaces and they all share
+        the same instructions and MCP config." Slide 2 (optional): the GitHub Copilot App as a
+        technical-preview desktop surface — integrated terminal/browser, parallel isolated
+        sessions, MCP + skills support, and canvases in the right panel. If tight on time, fold
+        this into Slide 1 as a callout.
 
-    "Agent Mode":
+    "Recent Capabilities":
       emphasis: high
       note: >
-        This is the centerpiece section — 4–5 slides. Lead with the mode-shift framing:
-        from "suggest → accept" to "describe goal → review result." Show the effective vs.
-        less-effective prompt comparison as a split panel. Dedicate at least one full slide
-        to the hackathon instructions template (.github/copilot-instructions.md) shown as a
-        copyable code block — this is the "copy this into your repo right now" moment and
-        must land clearly. Close the section with background agents: one slide showing the
-        parallel pattern (agent in worktree, developer in editor simultaneously). The audience
-        should leave this section with the instructions file already open in their editor.
+        4–5 slides covering baseline and newly matured capabilities. Keep existing anchors:
+        Fleet mode + Copilot App parallel sessions + background agents, subagent composition,
+        rubber duck, and skills-based context gating. Add newly matured capabilities: VS Code
+        agents window with remote session continuity, terminal safety/efficiency controls,
+        cloud agent plan-first/deep-research workflows, and Visual Studio plan agent context
+        controls. Lead each with concrete implementation implications and review-loop impact.
+        Keep progressive disclosure out of this section; cover it in Context Engineering only.
+        Include an inline source-links slide in this section so each capability maps to a
+        verifiable reference.
 
-    "Practical Stack":
-      emphasis: medium
-      note: >
-        3–4 slides covering MCP + CLI + Code Review as a unified "add these to the
-        foundation" message. Lead with the mcp.json config as a copyable three-server starter
-        — this earns its own slide because it's the most concrete artifact after the
-        instructions file. Combine CLI + Code Review into one slide (CLI for terminal tasks,
-        code review for the submission gate — 3 patterns each, no deep dive). The
-        test-runner skill can appear as a callout, not a full slide. Cut the skill YAML
-        definition from slides; it's in the README for readers.
-
-    "Hackathon Playbook":
+    "Context Engineering":
       emphasis: high
       note: >
-        3–4 slides. This section should feel like a commitment device, not a recap. Slide 1:
-        the 30-minute setup timeline as a visual checklist (Minutes 0–5, 5–15, 15–25, 25–30)
-        — use a progress or timeline component. Slides 2–3: the task menu as a scannable
-        reference table (scenario, surface, starter prompt) — this is the artifact audiences
-        photograph during a live talk. Final slide: one "What You Get" frame — 30 min of
-        setup → project-aware context all day + parallel agents + clean pre-submit review.
-        Tie back to the core question from the opening.
+        3–4 slides on context engineering patterns. Slide 1: Progressive disclosure (Layer 1→2→3
+        loading to avoid broad context up front). Slide 2: Scope reduction via skills
+        (example: refactoring with real-time type checking vs. pre-reading entire codebase).
+        Slide 3: Query filtering in MCP (scoped filesystem, explicit requests, vs. full
+        exposure). Optional Slide 4: Scope budgeting by task class (bounded fix, module refactor,
+        multi-module feature). Anchor this section in intentional context design and progressive
+        disclosure principles (see awesome-ai-native context engineering patterns), and include
+        the reference link inline in this section.
+
+    "Multi-Surface Patterns":
+      emphasis: high
+      note: >
+        3–4 slides. Replace task-by-task decision trees with execution topologies. Slide 1:
+        Topology A (app-centric orchestration). Slide 2: Topology B (IDE-centric implementation
+        with app oversight). Slide 3: Topology C (CLI-centric runtime work). Final slide:
+        surface-selection rules (start where authoritative state lives, split by dependency graph,
+        keep orchestration and execution distinct, move to review surfaces early, escalate context
+        only when blocked). Tie back to the core question: "which surfaces improve delivery
+        quality and speed?"
 
   # Optional: slide files to import immediately after the TitleSlide.
   preamble: []
@@ -98,14 +104,8 @@ deck:
   # 3–5 high-signal moments the generator must surface in the deck.
   # Used for: BeforeAfterSlide items, ThankYouSlide cards, WhatYouCanDoTodaySlide actions.
   highlightMoments:
-    - "30 minutes of setup at hackathon start compounds across every agent task all day — the instructions template is the single highest-ROI investment"
-    - "Goal-oriented Agent Mode prompts (outcome + patterns + constraints) outperform step-by-step instructions: the agent self-corrects until the task is done"
-    - "Three MCP servers in a 15-line JSON file give Copilot live access to the project filesystem, GitHub APIs, and any URL — no plugin code"
-    - "Copilot code review catches the class of bugs that appear after 10 hours of focused coding — in under 2 minutes per PR before submission"
-    - "Two background agents in parallel Git worktrees: implement two independent features simultaneously, then review diffs rather than writing code in series"
-
-# OPEN DECISION: Slide budget for 30 minutes — Landscape=1 slide (single cheatsheet) or 2?
-# Path A: Landscape=1, Agent Mode=5, Practical Stack=4, Playbook=4 (~14 body slides, tight).
-# Path B: Landscape=2, Agent Mode=4, Practical Stack=3, Playbook=4 (~13 body slides, balanced).
-# Recommendation: Path B — the Ask vs. Agent Mode distinction earns its own slide and prevents
-# a key misconception from persisting through the rest of the talk.
+    - "Seven Copilot surfaces now exist. Same instructions, MCP config, and tools across all of them. Route each task type to the right surface for cleaner execution and fewer context resets."
+    - "Fleet mode enables parallel independent tasks. Subagents keep context scoped. Rubber duck and skill-gated workflows keep reasoning and execution deliberately separated."
+    - "New orchestration upgrades: VS Code agents window in stable preview, remote agent continuity, terminal risk/compression controls, cloud agent plan-first + deep research, and Visual Studio plan agent context controls."
+    - "Progressive disclosure is a separate operating discipline: stage context by intent, structure, runtime, and validation."
+    - "Scope budgeting by task class: bounded fixes, module refactors, and multi-module features should each have explicit boundaries. Split work when scope drifts."
