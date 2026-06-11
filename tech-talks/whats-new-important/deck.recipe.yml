@@ -25,12 +25,13 @@ deck:
     Capabilities) dives into the last 4 months of maturation: fleet mode parallelism, subagent
     composition, rubber duck pattern, and skill-based context gating. This is the "what changed"
     moment. Section 3 (Context Optimization) shifts the narrative from "what features exist"
-    to "how do token costs actually come down" — progressive disclosure, scope reduction via
-    skills, query filtering, local validation gates, and token budgeting. Peak engagement is
-    Section 3 because it answers the unspoken question: "is this more expensive or cheaper?"
+    to "how do outcomes improve with better context management" — progressive disclosure, scope
+    reduction via skills, query filtering, local validation gates, and scope budgeting. Peak
+    engagement is Section 3 because it answers the unspoken question: "how do we get better
+    results without adding complexity?"
     Section 4 (Multi-Surface Patterns) closes with a worked example (feature with API, migration,
     frontend components) showing how to orchestrate surfaces and patterns to deliver faster with
-    fewer tokens. The arc deliberately avoids "tool features" framing — it's about observable
+    clearer handoffs. The arc deliberately avoids "tool features" framing — it's about observable
     efficiency gains in real work.
 
   # Ordered list of the section names (must match sectionModes keys below).
@@ -62,20 +63,20 @@ deck:
         (parallelization efficiency gain). Slide 2: Subagent composition + delegation pattern
         (scope reduction efficiency gain). Slide 3: Rubber duck pattern as a surface in GitHub
         Copilot App (new interaction model). Slide 4 (if room): Skills-based context gating
-        (preventing scope creep, forcing intentionality). Lead each with a concrete token cost
-        reduction or time savings. The audience should understand "why now" — what made these
+        (preventing scope creep, forcing intentionality). Lead each with concrete implementation
+        implications. The audience should understand "why now" — what made these
         features matter in the last 4 months.
 
     "Context Optimization":
       emphasis: high
       note: >
-        3–4 slides on token efficiency patterns. Slide 1: Progressive disclosure (Layer 1→2→3
-        loading reduces baseline context by 40–60%). Slide 2: Scope reduction via skills
+        3–4 slides on context efficiency patterns. Slide 1: Progressive disclosure (Layer 1→2→3
+        loading to avoid broad context up front). Slide 2: Scope reduction via skills
         (example: refactoring with real-time type checking vs. pre-reading entire codebase).
         Slide 3: Query filtering in MCP (scoped filesystem, explicit requests, vs. full
-        exposure). Optional Slide 4: Token budgeting by task class (bounded fix=1–3K,
-        single-module=5–10K, multi-module=15–30K). The narrative here is observable:
-        "these are the patterns that lower token spend without reducing output quality."
+        exposure). Optional Slide 4: Scope budgeting by task class (bounded fix, module refactor,
+        multi-module feature). The narrative here is observable: "these are the patterns that
+        reduce context noise without reducing output quality."
 
     "Multi-Surface Patterns":
       emphasis: high
@@ -83,9 +84,9 @@ deck:
         3–4 slides. Slide 1: Worked example — feature with API, migration, frontend (intro).
         Slides 2–3: four-phase execution (Plan on GitHub Copilot App, Implement API via
         Background Agent, Implement migration + frontend via CLI with /fleet, Code review on
-        GitHub.com) with token cost and time per phase. Final slide: cost/benefit summary:
-        ~26K tokens in 45 min vs. ~35K tokens in 90 min sequential. Tie back to the core
-        question: "which surfaces reduce cost and improve outcomes?"
+        GitHub.com) with execution intent per phase. Final slide: outcome summary comparing
+        sequential single-surface work vs. orchestrated multi-surface work. Tie back to the
+        core question: "which surfaces improve delivery quality and speed?"
 
   # Optional: slide files to import immediately after the TitleSlide.
   preamble: []
@@ -96,8 +97,8 @@ deck:
   # 3–5 high-signal moments the generator must surface in the deck.
   # Used for: BeforeAfterSlide items, ThankYouSlide cards, WhatYouCanDoTodaySlide actions.
   highlightMoments:
-    - "Six Copilot surfaces now exist. Same instructions, MCP config, and tools across all of them. Route each task type to the right surface: ~50% time savings vs. single-surface use."
-    - "Fleet mode: run 3 independent tasks with ~1.5x token cost instead of 3x. Subagents cut context per task by ~40%. Progressive disclosure reduces baseline load by 40–60%."
+    - "Six Copilot surfaces now exist. Same instructions, MCP config, and tools across all of them. Route each task type to the right surface for cleaner execution and fewer context resets."
+    - "Fleet mode enables parallel independent tasks. Subagents keep context scoped. Progressive disclosure avoids loading broad context before it's needed."
     - "Skills gate expensive operations. Query filtering in MCP prevents accidental context loading. Local validation gates keep agents in-loop without pre-reading entire codebase."
-    - "Token budgeting by task class: bounded fixes ~1–3K, single-module refactors ~5–10K, multi-module features ~15–30K. Agents signal when trending over budget instead of consuming unlimited context."
+    - "Scope budgeting by task class: bounded fixes, module refactors, and multi-module features should each have explicit boundaries. Split work when scope drifts."
     - "GitHub Copilot App brings rubber duck pattern to first-class surface: design review, assumption checking, cross-device work — all without making code changes or needing terminal access."

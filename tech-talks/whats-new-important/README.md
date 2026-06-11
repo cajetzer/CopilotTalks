@@ -43,8 +43,8 @@ references:
 | Criterion | Assessment | Notes |
 |-----------|-----------|-------|
 | **Relevant** | 🟢 High | Six distinct Copilot surfaces now exist (including GitHub Copilot App). Recent features: fleet mode parallelism, subagent composition, rubber-duck pattern, skill-based delegation. Context optimization is where token efficiency gains matter most. |
-| **Compelling** | 🟢 High | Technical deep dive on how progressive disclosure and context management reduce token waste per task by 30–50% in real deployments. Backed by observed patterns, not marketing claims. |
-| **Actionable** | 🟢 High | Specific context management techniques: scope reduction via skills, query filtering in MCP servers, local validation gates, token budgeting per task class. |
+| **Compelling** | 🟢 High | Technical deep dive on how progressive disclosure and context management improve consistency and reduce unnecessary context loading in real workflows. |
+| **Actionable** | 🟢 High | Specific context management techniques: scope reduction via skills, query filtering in MCP servers, and local validation gates. |
 
 **Overall Status:** 🟢 Ready to use
 
@@ -54,7 +54,7 @@ references:
 
 ### Six Surfaces, One Configuration
 
-GitHub Copilot reaches developers through six distinct surfaces. Each surface shares the same underlying instruction files and MCP server configuration, but applies different tool access, token budgets, and interaction models:
+GitHub Copilot reaches developers through six distinct surfaces. Each surface shares the same underlying instruction files and MCP server configuration, but applies different tool access and interaction models:
 
 | Surface | Access Mode | Execution | Best Fit |
 |---------|-------------|-----------|----------|
@@ -80,18 +80,18 @@ Every surface shares the same **context sources**: `copilot-instructions.md`, MC
 - **Background agents in VS Code**: Launch a task and click **Continue in Background**. The agent runs in an isolated Git worktree. Main editor remains available for other work.
 - **`/fleet` in CLI**: Run 3+ independent terminal tasks with automatic parallelization: `copilot -p "Task A" && copilot -p "Task B" && copilot -p "Task C" /fleet`
 
-**Token implication**: Instead of sequential 3×N tokens (three tasks each costing N tokens), you spend roughly 1.5×N tokens total due to shared context loading and reduced context resets between tasks.
+**Context implication**: Parallel tasking reduces context reset overhead and keeps independent workstreams isolated, which improves consistency during implementation and review.
 
-**Practical pattern**: Feature A (backend) in one background agent, Feature B (frontend) in another, main editor for integration work. Review diffs incrementally. Typical setup: 2–3 parallel agents max.
+**Practical pattern**: Feature A (backend) in one background agent, Feature B (frontend) in another, main editor for integration work. Review diffs incrementally.
 
 ### 2. Subagent Composition and Delegation
 
 Agents can now spawn **subagents** to delegate bounded tasks:
 
 - **Agent → Subagent pattern**: Main agent defines a subtask scope ("write the authentication module tests"), spawns a subagent with narrowed instructions, collects results, and continues.
-- **Token efficiency**: Subagents receive only the subset of instructions relevant to their scope, reducing noise and improving focus.
+- **Context efficiency**: Subagents receive only the subset of instructions relevant to their scope, reducing noise and improving focus.
 
-Example: Refactoring task → Main agent reads architecture, identifies three modules → Spawns three subagents (one per module) → Collects and merges results. Context per subagent: ~40% smaller than if main agent tackled all three sequentially.
+Example: Refactoring task → Main agent reads architecture, identifies three modules → Spawns three subagents (one per module) → Collects and merges results. Context per subagent stays tightly scoped to a single module.
 
 ### 3. Rubber Duck Pattern
 
@@ -101,7 +101,7 @@ Example: Refactoring task → Main agent reads architecture, identifies three mo
 - Explain error output and ask for interpretation before fixing
 - Review architecture aloud with Copilot and catch misunderstandings
 
-**Token cost**: Typically <1000 tokens for a 5–10 minute rubber duck session. Saves 30+ minutes of debugging time by surfacing assumptions early.
+**Outcome**: Rubber duck sessions surface assumptions early and reduce avoidable rework before implementation.
 
 ### 4. Skills-Based Context Gating
 
@@ -112,7 +112,7 @@ Example: Refactoring task → Main agent reads architecture, identifies three mo
 - Skill receives narrowed scope (e.g., "run tests in `src/auth/` only")
 - Returns structured results without full codebase context
 
-**Token implication**: A skill-based approach uses ~30% fewer tokens per task because the agent doesn't need to search for "where are the test commands" — the skill is pre-loaded and scoped.
+**Context implication**: A skill-based approach reduces repeated discovery work because the workflow is pre-loaded and scoped.
 
 ### 5. Context Optimization: Progressive Disclosure
 
@@ -122,7 +122,7 @@ All surfaces now support **progressive disclosure** patterns:
 - **Layer 2** (on demand): `#codebase` search for specific patterns (agent asks "where are auth routes?")
 - **Layer 3** (if needed): Full directory tree, test output, or API documentation via MCP
 
-Instead of always loading the entire codebase context, agents now load incrementally. This reduces token spend per task by 40–60% on small-to-medium scopes.
+Instead of always loading the entire codebase context, agents now load incrementally. This reduces unnecessary context loading on small-to-medium scopes.
 
 **GitHub Copilot App** exclusively uses Layer 1–2; it has no Layer 3 (terminal, no MCP).
 
@@ -152,7 +152,7 @@ Agent Mode prompt: "Refactor UserService to dependency injection.
  Use the type-check-on-refactor skill to validate changes as you go."
 ```
 
-**Result**: Agent doesn't need to pre-read 50 files. It reads one at a time and gets real-time validation feedback. Token savings: ~35%.
+**Result**: Agent doesn't need to pre-read broad portions of the tree. It reads what is needed and gets real-time validation feedback.
 
 ### Pattern 2: Query Filtering in MCP Servers
 
@@ -177,7 +177,7 @@ Use scoped access:
 
 **Result**: When agent asks `#filesystem`, it gets only `/src` file tree. If it needs something outside, it asks explicitly. This forces intentionality and reduces accidental context loading.
 
-**Token savings**: ~20–40% depending on workspace size.
+**Impact**: Lower context noise and fewer irrelevant file reads, especially in large workspaces.
 
 ### Pattern 3: Local Validation Gates
 
@@ -202,19 +202,19 @@ Agent can now:
 
 **Result**: No manual "check the tests" step needed. Validation happens in-loop. Agent stops iterating when validation passes.
 
-### Pattern 4: Token Budgeting by Task Class
+### Pattern 4: Scope Budgeting by Task Class
 
-Classify tasks by expected scope:
+Classify tasks by expected scope and expected duration:
 
-| Task Class | Context Budget | Surface | Duration |
-|-----------|-----------------|---------|----------|
-| **Bounded fix** | 1K–3K tokens | Agent Mode | <5 min |
-| **Single-module refactor** | 5K–10K tokens | Agent Mode | 5–15 min |
-| **Multi-module feature** | 15K–30K tokens | Background Agent | 15–30 min |
-| **Infrastructure task** | 10K–20K tokens | CLI | 5–15 min |
-| **Code review** | 5K–15K tokens | GitHub.com | 2–5 min |
+| Task Class | Scope Guidance | Surface | Typical Duration |
+|-----------|----------------|---------|------------------|
+| **Bounded fix** | Single file or small file cluster | Agent Mode | Short |
+| **Single-module refactor** | One module plus direct call sites | Agent Mode | Medium |
+| **Multi-module feature** | Multiple modules with integration points | Background Agent | Longer |
+| **Infrastructure task** | Scripts, workflow files, deployment config | CLI | Medium |
+| **Code review** | PR diff plus immediate context | GitHub.com | Short |
 
-**Using budgets**: When starting a task, the agent (or human) knows the context ceiling. If the agent is trending over budget, it signals for human guidance instead of consuming unlimited context.
+**Using budgets**: When starting a task, define the scope ceiling first. If scope expands, split work into a follow-up task instead of continuing unbounded.
 
 ---
 
@@ -241,22 +241,22 @@ The GitHub Copilot App does **not** have agent mode or terminal access. It's pur
 **Scenario**: Implementing a feature with multiple independent components (API, database migration, frontend).
 
 1. **Plan (GitHub Copilot App)**: "Outline the API contract, schema migration, and frontend state management. Use rubber duck to surface assumptions."
-   - Cost: ~800 tokens
+   - Focus: clarify assumptions and interface boundaries
    - Output: Structured plan, shared in async review
 
 2. **Implement API (Background Agent)**: "Build the endpoint using the plan above. Run validation skill after each step."
-   - Cost: ~12K tokens (skill gates keep it focused)
+   - Focus: implementation with in-loop validation
    - Output: Diff, reviewable in Agents Window
 
 3. **Implement migration + frontend (CLI task)**: "Generate the migration and update the frontend schema hook."
-   - Cost: ~8K tokens (parallel execution with /fleet)
+   - Focus: parallel execution of independent changes
    - Output: Two diffs, apply independently
 
 4. **Code review (GitHub.com)**: Request Copilot review on all three PRs.
-   - Cost: ~6K tokens (three PRs × ~2K each)
+   - Focus: fast issue detection on review surface
    - Output: Inline comments
 
-**Total cost**: ~26K tokens | **Time**: ~45 min | **Sequential equivalent**: ~35K tokens, 90 min
+**Outcome**: Faster end-to-end delivery and cleaner handoffs than doing all work sequentially in one surface.
 
 ---
 
@@ -303,7 +303,7 @@ For deeper context on specific capabilities:
 
 ### 2–4 Hours
 
-- [ ] Token audit: Pick three recent tasks and note the token cost vs. task duration; identify where context could have been narrowed
+- [ ] Context audit: Pick three recent tasks and note where context could have been narrowed or split into smaller scopes
 - [ ] Parallel execution: Run two independent tasks with `/fleet` or background agents; measure time saved vs. sequential approach
 - [ ] Integrate GitHub.com Copilot into code review: request review on an open PR and record feedback time vs. human review
 - [ ] Test local validation gates: add a skill that runs tests after every change, signaling completion only when tests pass
