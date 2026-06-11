@@ -153,6 +153,46 @@ Patterns that enable this:
 
 What changed with the latest surfaces is not that context engineering became possible - it is that app sessions, integrated terminal/browser, MCP support, and parallel session orchestration now make this pattern practical end to end in one workflow.
 
+### 6. VS Code Agents Window, Remote Agents, and Session Sync
+
+The VS Code agents experience matured from isolated chat sessions to cross-session orchestration:
+
+- **Agents window in Stable preview** for multi-project, agent-first workflows
+- **Remote agents** that continue running even when the client disconnects
+- **Session sync** and `/chronicle` support for searchable cross-machine session history
+
+This improves continuity for longer-running work and makes parallel agent operations easier to supervise.
+
+### 7. Terminal Safety and Context-Efficiency Controls
+
+Recent terminal updates added execution and context controls that directly support context engineering:
+
+- **Command risk assessment** for agent-initiated terminal actions
+- **Expanded terminal output compression** before model ingestion
+- **Sensitive prompt handling** that keeps secrets/codes in terminal input flows
+
+These features reduce noisy context, improve operational safety, and keep terminal-native workflows reviewable.
+
+### 8. Cloud Agent: Branch-First and Plan-First Workflows
+
+Cloud agent capabilities now support more flexible execution paths:
+
+- Work on a **branch without automatically opening a PR**
+- Run **plan-before-code** workflows and approve the approach before edits begin
+- Launch **deep research** sessions for broad repository questions
+
+This makes staged delegation (research -> plan -> implement -> review) a first-class workflow.
+
+### 9. Visual Studio Plan Agent and Context Window Management
+
+Visual Studio Copilot updates added stronger pre-implementation and context controls:
+
+- **Plan agent** for read-only investigation and explicit implementation plans
+- **Context window usage indicators** and summarize-to-compact controls
+- **Multi-file summary diff** workflows for high-signal review after agent edits
+
+These features align with intentional context disclosure and reduce ambiguity before code generation.
+
 ---
 
 ## GitHub Copilot App (Technical Preview)
@@ -264,6 +304,9 @@ For deeper context on specific capabilities:
 - **[Customizing the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app)** — App setup, skills, and MCP integration
 - **[Getting started with the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/getting-started)** — Session model, quick chats, and workflow entry points
 - **[GitHub Copilot app technical preview](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/)** — Preview scope and app capabilities
+- **[VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/)** — Agents window, remote sessions, terminal safety/efficiency updates
+- **[Cloud agent: research, plan, and code](https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/)** — Branch-first, plan-first, and deep research workflows
+- **[Visual Studio Copilot May update](https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update/)** — Plan agent and context window management capabilities
 - **[About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli)** — CLI reference
 - **[VS Code v1.120 Release Notes](https://code.visualstudio.com/updates/v1_120)** — Latest features and UI updates
 - **[awesome-ai-native](https://github.com/danielmeppiel/awesome-ai-native)** — External context-engineering pattern library

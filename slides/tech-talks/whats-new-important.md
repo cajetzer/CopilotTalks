@@ -48,7 +48,7 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   highlight="surface-aware execution with tight context management."
   :cards='[
     { icon: "🗺️", title: "Surface map", description: "Use the right surface for each task class, including the Copilot App preview" },
-    { icon: "🧠", title: "Recent capabilities", description: "Fleet patterns, subagent delegation, rubber duck workflows, and skills" },
+    { icon: "🧠", title: "Recent capabilities", description: "Keep fleet/subagents/rubber duck/skills and add new orchestration controls" },
     { icon: "🧰", title: "Context discipline", description: "Progressive disclosure and scoped tools reduce context noise" },
     { title: "Technical focus", description: "Show functionality, constraints, and usage patterns instead of generic setup guidance" },
     { title: "Practical outcomes", description: "Faster delivery from cleaner execution and clearer handoffs" },
@@ -62,9 +62,9 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 <TocSlide
   :sections='[
     { icon: "🗺️", title: "Surface Map", subtitle: "Seven surfaces, one foundation", blurb: "Where each surface fits and how they differ operationally", slide: 4 },
-    { icon: "🆕", title: "Recent Capabilities", subtitle: "What matured in the last 4 months", blurb: "Fleet execution, subagents, rubber duck pattern, and skills", slide: 6 },
-    { icon: "🧰", title: "Context Engineering", subtitle: "Progressive disclosure and intentional context design", blurb: "Execution patterns that improve consistency and reduce context noise", slide: 8 },
-    { icon: "🎯", title: "Multi-Surface Patterns", subtitle: "How to orchestrate real work", blurb: "A practical flow across app, IDE, CLI, and GitHub.com", slide: 10 }
+    { icon: "🆕", title: "Recent Capabilities", subtitle: "What matured in the last 4 months", blurb: "Fleet/subagents/rubber duck/skills plus agents-window, cloud, and plan-agent upgrades", slide: 6 },
+    { icon: "🧰", title: "Context Engineering", subtitle: "Progressive disclosure and intentional context design", blurb: "Execution patterns that improve consistency and reduce context noise", slide: 9 },
+    { icon: "🎯", title: "Multi-Surface Patterns", subtitle: "How to orchestrate real work", blurb: "A practical flow across app, IDE, CLI, and GitHub.com", slide: 11 }
   ]'
 />
 
@@ -107,9 +107,9 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   title="Recent Capabilities"
   subtitle="What changed recently and why it matters in practice."
   :cards='[
-    { icon: "🧭", title: "Fleet patterns", blurb: "Parallel execution across independent tasks" },
-    { icon: "🪜", title: "Subagent delegation", blurb: "Split work into bounded sub-problems" },
-    { icon: "🦆", title: "Rubber duck + skills", blurb: "Reason first, then execute with scoped workflows" }
+    { icon: "🧭", title: "Fleet + parallel sessions", blurb: "Independent workstreams with isolated context" },
+    { icon: "🪜", title: "Subagents + skills + rubber duck", blurb: "Scope reasoning and execution paths intentionally" },
+    { icon: "🛰️", title: "New orchestration controls", blurb: "Agents window, cloud planning, terminal safety, plan agents" }
   ]'
   :terminal='{ context: "Feature maturity is operational", detail: "Focus on where and how to apply each capability" }'
 />
@@ -122,7 +122,7 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   pillIcon="🆕"
   pillLabel="Recent Capability Maturity"
   title="Apply Capabilities by Task Shape, Not by Preference"
-  subtitle="Fleet, subagents, and skills are most effective when scope and boundaries are explicit."
+  subtitle="Fleet/subagents/skills remain core, with new orchestration controls for longer-running and higher-risk workflows."
   :hero='{ value: "Capability fit", label: "Choose execution model first, then choose surface and workflow", source: "Parallel work, delegated subtasks, and scoped validation loops" }'
   :supporting='[
     { icon: "🧩", title: "Explicit boundaries", description: "Subtasks stay reviewable when scope is small and concrete" },
@@ -130,7 +130,25 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
     { icon: "🧠", title: "Review-centric loop", description: "Human effort shifts from typing to validation and steering" }
   ]'
   :insight='{ icon: "💡", text: "The core question is not \"Which feature is coolest?\" It is \"Which capability matches this task shape with the least context overhead?\"" }'
-  :progressDots='{ current: 1, total: 2, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+  :progressDots='{ current: 1, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
+/>
+
+---
+
+<!-- SLIDE: Additional Recent Capability Additions -->
+<FourCardGridSlide
+  :partNumber="2"
+  pillIcon="🧪"
+  pillLabel="Additional Maturity in Last 4 Months"
+  title="Additive Upgrades to Existing Capability Patterns"
+  :cards='[
+    { icon: "🪟", title: "VS Code agents window + remote sessions", description: "Stable-preview agents window and remote continuity improve multi-session supervision" },
+    { icon: "🛡️", title: "Terminal safety + compression controls", description: "Risk assessment and output compression improve execution safety and context quality" },
+    { icon: "☁️", title: "Cloud agent plan-first workflows", description: "Branch-first, plan-before-code, and deep research support staged delegation" },
+    { icon: "🧭", title: "Visual Studio plan agent controls", description: "Plan-first investigation and context-window controls improve pre-implementation quality" }
+  ]'
+  :insight='{ icon: "🔬", text: "Treat these as additive controls layered on top of fleet/subagent/skills patterns - not replacements." }'
+  :progressDots='{ current: 2, total: 3, activeColor: "bg-purple-400 shadow-lg shadow-purple-500/50" }'
 />
 
 ---
@@ -216,6 +234,9 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
     ] },
     { title: "📰 Related Reading", color: "purple", items: [
       { href: "https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/", label: "Copilot app technical preview expansion", description: "Integrated terminal/browser, parallel sessions, canvases, and MCP-backed workflows" },
+      { href: "https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/", label: "VS Code Copilot May releases", description: "Agents window, remote session continuity, and terminal controls" },
+      { href: "https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/", label: "Cloud agent: research, plan, and code", description: "Branch-first and plan-before-code execution flow" },
+      { href: "https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update/", label: "Visual Studio Copilot May update", description: "Plan agent and context window management" },
       { href: "https://github.com/danielmeppiel/awesome-ai-native", label: "awesome-ai-native", description: "Context engineering and AI-native workflow references" }
     ] }
   ]'

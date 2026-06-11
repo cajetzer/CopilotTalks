@@ -23,8 +23,10 @@ deck:
     now available — seven distinct surfaces, each with different tool access and execution models.
     Section 1 peaks with the GitHub Copilot App, a new first-class surface. Section 2 (Recent
     Capabilities) dives into the last 4 months of maturation: fleet mode parallelism, subagent
-    composition, rubber duck pattern, and skill-based context gating. This is the "what changed"
-    moment. Section 3 (Context Engineering) shifts the narrative from "what features exist"
+    composition, rubber duck pattern, skill-based context gating, VS Code agents window +
+    remote sessions, terminal safety/efficiency controls, cloud agent plan-first flows, and
+    Visual Studio plan agent context controls. This is the "what changed" moment. Section 3
+    (Context Engineering) shifts the narrative from "what features exist"
     to "how do outcomes improve with better context management" — progressive disclosure, scope
     reduction via skills, query filtering, local validation gates, and scope budgeting. Peak
     engagement is Section 3 because it answers the unspoken question: "how do we get better
@@ -60,14 +62,14 @@ deck:
     "Recent Capabilities":
       emphasis: high
       note: >
-        3–4 slides covering four matured features. Slide 1: Fleet mode + Copilot App parallel
-        sessions + background agents (parallelization execution model). Slide 2: Subagent
-        composition + delegation pattern
-        (scope reduction efficiency gain). Slide 3: Rubber duck pattern as a surface in GitHub
-        Copilot App (new interaction model). Slide 4 (if room): Skills-based context gating
-        (preventing scope creep, forcing intentionality). Lead each with concrete implementation
-        implications. The audience should understand "why now" — what made these
-        features matter in the last 4 months.
+        4–5 slides covering baseline and newly matured capabilities. Keep existing anchors:
+        Fleet mode + Copilot App parallel sessions + background agents, subagent composition,
+        rubber duck, and skills-based context gating. Add newly matured capabilities: VS Code
+        agents window with remote session continuity, terminal safety/efficiency controls,
+        cloud agent plan-first/deep-research workflows, and Visual Studio plan agent context
+        controls. Lead each with concrete implementation implications and review-loop impact.
+        The audience should understand "why now" — what changed in execution reliability and
+        context quality in the last 4 months.
 
     "Context Engineering":
       emphasis: high
@@ -101,7 +103,8 @@ deck:
   # Used for: BeforeAfterSlide items, ThankYouSlide cards, WhatYouCanDoTodaySlide actions.
   highlightMoments:
     - "Seven Copilot surfaces now exist. Same instructions, MCP config, and tools across all of them. Route each task type to the right surface for cleaner execution and fewer context resets."
-    - "Fleet mode enables parallel independent tasks. Subagents keep context scoped. Progressive disclosure avoids loading broad context before it's needed."
+    - "Fleet mode enables parallel independent tasks. Subagents keep context scoped. Rubber duck and skill-gated workflows keep reasoning and execution deliberately separated."
+    - "New orchestration upgrades: VS Code agents window in stable preview, remote agent continuity, terminal risk/compression controls, cloud agent plan-first + deep research, and Visual Studio plan agent context controls."
     - "Skills gate expensive operations. Query filtering in MCP prevents accidental context loading. Local validation gates keep agents in-loop without pre-reading entire codebase."
     - "Scope budgeting by task class: bounded fixes, module refactors, and multi-module features should each have explicit boundaries. Split work when scope drifts."
     - "GitHub Copilot App is an agent-native desktop surface in technical preview: integrated terminal/browser, parallel worktree sessions, MCP + skills support, and built-in rubber duck and canvases workflows."
