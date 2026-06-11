@@ -68,8 +68,9 @@ deck:
         agents window with remote session continuity, terminal safety/efficiency controls,
         cloud agent plan-first/deep-research workflows, and Visual Studio plan agent context
         controls. Lead each with concrete implementation implications and review-loop impact.
-        The audience should understand "why now" — what changed in execution reliability and
-        context quality in the last 4 months.
+        Keep progressive disclosure out of this section; cover it in Context Engineering only.
+        Include an inline source-links slide in this section so each capability maps to a
+        verifiable reference.
 
     "Context Engineering":
       emphasis: high
@@ -80,7 +81,8 @@ deck:
         Slide 3: Query filtering in MCP (scoped filesystem, explicit requests, vs. full
         exposure). Optional Slide 4: Scope budgeting by task class (bounded fix, module refactor,
         multi-module feature). Anchor this section in intentional context design and progressive
-        disclosure principles (see awesome-ai-native context engineering patterns).
+        disclosure principles (see awesome-ai-native context engineering patterns), and include
+        the reference link inline in this section.
 
     "Multi-Surface Patterns":
       emphasis: high
@@ -105,6 +107,5 @@ deck:
     - "Seven Copilot surfaces now exist. Same instructions, MCP config, and tools across all of them. Route each task type to the right surface for cleaner execution and fewer context resets."
     - "Fleet mode enables parallel independent tasks. Subagents keep context scoped. Rubber duck and skill-gated workflows keep reasoning and execution deliberately separated."
     - "New orchestration upgrades: VS Code agents window in stable preview, remote agent continuity, terminal risk/compression controls, cloud agent plan-first + deep research, and Visual Studio plan agent context controls."
-    - "Skills gate expensive operations. Query filtering in MCP prevents accidental context loading. Local validation gates keep agents in-loop without pre-reading entire codebase."
+    - "Progressive disclosure is a separate operating discipline: stage context by intent, structure, runtime, and validation."
     - "Scope budgeting by task class: bounded fixes, module refactors, and multi-module features should each have explicit boundaries. Split work when scope drifts."
-    - "GitHub Copilot App is an agent-native desktop surface in technical preview: integrated terminal/browser, parallel worktree sessions, MCP + skills support, and built-in rubber duck and canvases workflows."

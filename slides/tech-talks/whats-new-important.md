@@ -63,8 +63,8 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   :sections='[
     { icon: "🗺️", title: "Surface Map", subtitle: "Seven surfaces, one foundation", blurb: "Where each surface fits and how they differ operationally", slide: 4 },
     { icon: "🆕", title: "Recent Capabilities", subtitle: "What matured in the last 4 months", blurb: "Fleet/subagents/rubber duck/skills plus agents-window, cloud, and plan-agent upgrades", slide: 6 },
-    { icon: "🧰", title: "Context Engineering", subtitle: "Progressive disclosure and intentional context design", blurb: "Execution patterns that improve consistency and reduce context noise", slide: 9 },
-    { icon: "🎯", title: "Multi-Surface Patterns", subtitle: "How to orchestrate real work", blurb: "A practical flow across app, IDE, CLI, and GitHub.com", slide: 11 }
+    { icon: "🧰", title: "Context Engineering", subtitle: "Progressive disclosure and intentional context design", blurb: "Execution patterns that improve consistency and reduce context noise", slide: 10 },
+    { icon: "🎯", title: "Multi-Surface Patterns", subtitle: "How to orchestrate real work", blurb: "A practical flow across app, IDE, CLI, and GitHub.com", slide: 12 }
   ]'
 />
 
@@ -153,6 +153,18 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
 
 ---
 
+<!-- SLIDE: Recent Capability Sources -->
+## Recent capability source links
+
+- Fleet mode and parallel execution: [Copilot app technical preview expansion](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/) and [Copilot CLI concepts](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+- Subagent composition and delegation: [Subagents and skills in the Copilot app](https://github.blog/changelog/2026-05-14-subagents-and-skills-in-github-copilot-app/)
+- Rubber duck and skills workflows: [Subagents and skills in the Copilot app](https://github.blog/changelog/2026-05-14-subagents-and-skills-in-github-copilot-app/)
+- VS Code agents window, remote sessions, and terminal controls: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/)
+- Cloud agent plan-first workflows: [Cloud agent: research, plan, and code](https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/)
+- Visual Studio plan agent and context controls: [Visual Studio Copilot May update](https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update/)
+
+---
+
 <!-- SLIDE: Part 3 — Context Engineering -->
 <SectionOpenerSlide
   :partNumber="3"
@@ -183,6 +195,13 @@ import HeroStatSlide from './components/HeroStatSlide.vue'
   :insight='{ icon: "🚀", text: "Context quality beats context quantity. Scope and sequencing determine output quality more than prompt length." }'
   :progressDots='{ current: 1, total: 2, activeColor: "bg-green-400 shadow-lg shadow-green-500/50" }'
 />
+
+---
+
+<!-- SLIDE: Context Engineering Source -->
+## Context engineering source link
+
+- Working reference: [awesome-ai-native context engineering patterns](https://github.com/danielmeppiel/awesome-ai-native)
 
 ---
 

@@ -92,6 +92,8 @@ Every surface shares the same **context sources**: `copilot-instructions.md`, MC
 
 **Practical pattern**: Feature A (backend) in one session, Feature B (frontend) in another, then integrate and review diffs in a single review pass.
 
+Reference: [Copilot app technical preview expansion](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/) and [Copilot CLI concepts](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+
 ### 2. Subagent Composition and Delegation
 
 Agents can now spawn **subagents** to delegate bounded tasks:
@@ -100,6 +102,8 @@ Agents can now spawn **subagents** to delegate bounded tasks:
 - **Context efficiency**: Subagents receive only the subset of instructions relevant to their scope, reducing noise and improving focus.
 
 Example: Refactoring task → Main agent reads architecture, identifies three modules → Spawns three subagents (one per module) → Collects and merges results. Context per subagent stays tightly scoped to a single module.
+
+Reference: [Subagents and skills in the Copilot app](https://github.blog/changelog/2026-05-14-subagents-and-skills-in-github-copilot-app/)
 
 ### 3. Rubber Duck Pattern
 
@@ -110,6 +114,8 @@ Example: Refactoring task → Main agent reads architecture, identifies three mo
 - Review architecture aloud with Copilot and catch misunderstandings
 
 **Outcome**: Rubber duck sessions surface assumptions early and reduce avoidable rework before implementation.
+
+Reference: [Copilot app technical preview expansion](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app/)
 
 ### 4. Skills-Based Context Gating
 
@@ -122,13 +128,62 @@ Example: Refactoring task → Main agent reads architecture, identifies three mo
 
 **Context implication**: A skill-based approach reduces repeated discovery work because the workflow is pre-loaded and scoped.
 
-### 5. Context Engineering: Progressive Disclosure by Design
+Reference: [Subagents and skills in the Copilot app](https://github.blog/changelog/2026-05-14-subagents-and-skills-in-github-copilot-app/) and [Customizing the Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app)
 
-This talk treats progressive disclosure as a **context engineering discipline**, not a product checkbox.  
+### 5. VS Code Agents Window, Remote Agents, and Session Sync
+
+The VS Code agents experience matured from isolated chat sessions to cross-session orchestration:
+
+- **Agents window in Stable preview** for multi-project, agent-first workflows
+- **Remote agents** that continue running even when the client disconnects
+- **Session sync** and `/chronicle` support for searchable cross-machine session history
+
+This improves continuity for longer-running work and makes parallel agent operations easier to supervise.
+
+Reference: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/)
+
+### 6. Terminal Safety and Context-Efficiency Controls
+
+Recent terminal updates added execution and context controls that directly support context engineering:
+
+- **Command risk assessment** for agent-initiated terminal actions
+- **Expanded terminal output compression** before model ingestion
+- **Sensitive prompt handling** that keeps secrets/codes in terminal input flows
+
+These features reduce noisy context, improve operational safety, and keep terminal-native workflows reviewable.
+
+Reference: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases/)
+
+### 7. Cloud Agent: Branch-First and Plan-First Workflows
+
+Cloud agent capabilities now support more flexible execution paths:
+
+- Work on a **branch without automatically opening a PR**
+- Run **plan-before-code** workflows and approve the approach before edits begin
+- Launch **deep research** sessions for broad repository questions
+
+This makes staged delegation (research -> plan -> implement -> review) a first-class workflow.
+
+Reference: [Cloud agent: research, plan, and code](https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/)
+
+### 8. Visual Studio Plan Agent and Context Window Management
+
+Visual Studio Copilot updates added stronger pre-implementation and context controls:
+
+- **Plan agent** for read-only investigation and explicit implementation plans
+- **Context window usage indicators** and summarize-to-compact controls
+- **Multi-file summary diff** workflows for high-signal review after agent edits
+
+These features align with intentional context disclosure and reduce ambiguity before code generation.
+
+Reference: [Visual Studio Copilot May update](https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update/)
+
+---
+
+## Context Engineering: Progressive Disclosure by Design
+
+This talk treats progressive disclosure as a **focused operating model**, not a product checkbox.  
 The objective is intentional context design: disclose only the context required for the current decision.
-
-> Working reference: **awesome-ai-native** context-engineering patterns  
-> https://github.com/danielmeppiel/awesome-ai-native
 
 Use this flow across Copilot surfaces:
 
@@ -153,45 +208,7 @@ Patterns that enable this:
 
 What changed with the latest surfaces is not that context engineering became possible - it is that app sessions, integrated terminal/browser, MCP support, and parallel session orchestration now make this pattern practical end to end in one workflow.
 
-### 6. VS Code Agents Window, Remote Agents, and Session Sync
-
-The VS Code agents experience matured from isolated chat sessions to cross-session orchestration:
-
-- **Agents window in Stable preview** for multi-project, agent-first workflows
-- **Remote agents** that continue running even when the client disconnects
-- **Session sync** and `/chronicle` support for searchable cross-machine session history
-
-This improves continuity for longer-running work and makes parallel agent operations easier to supervise.
-
-### 7. Terminal Safety and Context-Efficiency Controls
-
-Recent terminal updates added execution and context controls that directly support context engineering:
-
-- **Command risk assessment** for agent-initiated terminal actions
-- **Expanded terminal output compression** before model ingestion
-- **Sensitive prompt handling** that keeps secrets/codes in terminal input flows
-
-These features reduce noisy context, improve operational safety, and keep terminal-native workflows reviewable.
-
-### 8. Cloud Agent: Branch-First and Plan-First Workflows
-
-Cloud agent capabilities now support more flexible execution paths:
-
-- Work on a **branch without automatically opening a PR**
-- Run **plan-before-code** workflows and approve the approach before edits begin
-- Launch **deep research** sessions for broad repository questions
-
-This makes staged delegation (research -> plan -> implement -> review) a first-class workflow.
-
-### 9. Visual Studio Plan Agent and Context Window Management
-
-Visual Studio Copilot updates added stronger pre-implementation and context controls:
-
-- **Plan agent** for read-only investigation and explicit implementation plans
-- **Context window usage indicators** and summarize-to-compact controls
-- **Multi-file summary diff** workflows for high-signal review after agent edits
-
-These features align with intentional context disclosure and reduce ambiguity before code generation.
+Reference: [awesome-ai-native context engineering patterns](https://github.com/danielmeppiel/awesome-ai-native)
 
 ---
 
