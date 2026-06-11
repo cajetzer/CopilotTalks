@@ -148,6 +148,7 @@ Reference: [VS Code Copilot May releases](https://github.blog/changelog/2026-06-
 Recent terminal updates added execution and context controls that directly support context engineering:
 
 - **Command risk assessment** for agent-initiated terminal actions
+- **Approval-time command summaries** with short AI safety explanations before execution
 - **Expanded terminal output compression** before model ingestion
 - **Sensitive prompt handling** that keeps secrets/codes in terminal input flows
 
